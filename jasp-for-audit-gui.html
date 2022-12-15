@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Unstratified Evaluation | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Unstratified Evaluation | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Unstratified Evaluation | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ordering-or-randomizing-the-population.html"/>
-<link rel="next" href="classical-evaluation.html"/>
+<link rel="prev" href="CHAPTER-OTHER-SOFTWARE.html"/>
+<link rel="next" href="mus-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -247,19 +247,43 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="CHAPTER-UNSTRATIFIED-EVALUATION" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Unstratified Evaluation<a href="CHAPTER-UNSTRATIFIED-EVALUATION.html#CHAPTER-UNSTRATIFIED-EVALUATION" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In a non-stratified sampling procedure, the auditor does not take samples from
-different strata or subgroups in a population. An example of such a situation
-would be where the auditor is auditing the general ledger of a small business.</p>
+<div id="jasp-for-audit-gui" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> JASP for Audit (GUI)<a href="jasp-for-audit-gui.html#jasp-for-audit-gui" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>JASP for Audit <span class="citation">(<a href="#ref-derks2021_jasp" role="doc-biblioref">Derks et al. 2021</a>)</span> is an add-on module for
+<a href="http://jasp-stats.org/">JASP</a> <span class="citation">(<a href="#ref-JASP" role="doc-biblioref">JASP Team 2022</a>)</span>, based on the <strong>jfa</strong> package, that
+facilitates statistical audit sampling. Concretely, it contains graphical user
+interfaces (GUI’s) for calculating sample sizes, selecting items according to
+standard audit sampling techniques, and performing inference about the
+population misstatement on the basis of a data sample or summary statistics of a
+sample. The module also features Bayesian equivalents of these analyses that
+enable the user to easily incorporate prior information into the statistical
+procedure. In all analyses, the Audit module offers explanatory text that helps
+the auditor in interpreting, explaining, and reporting the analysis. Since JASP
+for Audit is an R-based GUI around <strong>jfa</strong>, its functionality can be mapped
+almost one-on-one to that of the package.</p>
+<center>
+<div class="figure">
+<img src="img/JASP.png" alt="" />
+<p class="caption">Figure 8.1: The JASP interface for planning a sample.</p>
+</div>
+</center>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-derks2021_jasp" class="csl-entry">
+Derks, Koen, Jacques de Swart, Eric–Jan Wagenmakers, Jan Wille, and Ruud Wetzels. 2021. <span>“<span>JASP</span> for <span>A</span>udit: <span>B</span>ayesian Tools for the Auditing Practice.”</span> <em>Journal of Open Source Software</em> 6 (68): 2733.
+</div>
+<div id="ref-JASP" class="csl-entry">
+JASP Team. 2022. <span>“<span class="nocase">JASP (Version 0.16.4)[Computer software]</span>.”</span> <a href="https://jasp-stats.org/">https://jasp-stats.org/</a>.
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ordering-or-randomizing-the-population.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="classical-evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-OTHER-SOFTWARE.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mus-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -290,7 +314,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch06.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch08.Rmd",
 "text": "Edit"
 },
 "history": {

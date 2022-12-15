@@ -42,4 +42,5 @@ evaluation-using-data-1
 classical-evaluation-2
 bayesian-evaluation-2
 CHAPTER-OTHER-SOFTWARE
-jasp-for-audit
+jasp-for-audit-gui
+mus-r
