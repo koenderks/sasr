@@ -2,18 +2,21 @@
 title: "Statistical Auditing with R, 1st Edition"
 author: "Koen Derks"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+output:
+  html_document:
+    df_print: paged
 documentclass: book
 biblio-style: apalike
 link-citations: yes
-description: > 
+description: |
   This book covers the basics of classical and Bayesian inference in auditing.
-
-url: 'https\://koenderks.github.io/stataudbook'
+url: https\://koenderks.github.io/stataudbook
 github-repo: koenderks/stataudbook
 twitter-handle: koenderks
 cover-image: cover.jpg
-#bookdown::pdf_book: default
+site: bookdown::bookdown_site
+bookdown::gitbook: default
+bookdown::pdf_book: default
 ---
 
 # Welcome {-}

@@ -53,57 +53,16 @@ If you have spent much time learning R, you may have heard of the *tidyverse*, w
 If you haven't used the tidyverse before, there is one recipe in particular that you should read that will help you understand a foreign-looking bit of syntax: `%>%`, also known as the pipe operator. This is Recipe \@ref(RECIPE-R-BASICS-PIPE) in this chapter.
 
 
+Upgrading a Package
+-------------------
 
-Loading a Package
------------------
-
-### Problem
-
-You want to load an installed package.
-
-### Solution
-
-Use `library()` and give it the name of the package you want to install. To load ggplot2, run:
+To update a package in your R library, call `update.packages()` and provide the
+name of the package you want to update. For example, you can update the `jfa`
+package with:
 
 ```{r, eval=FALSE}
-library(ggplot2)
+update.packages("jfa")
 ```
-
-The package must already be installed on the computer.
-
-### Discussion
-
-Most of the recipes in this book require loading a package before running the code, either for the graphing capabilities (as in the ggplot2 package) or for example data sets (as in the MASS and gcookbook packages).
-
-One of R's quirks is the package/library terminology. Although you use the `library()` function to load a package, a package is not a library, and some longtime R users will get irate if you call it that.
-
-A *library* is a directory that contains a set of packages. You might, for example, have a system-wide library as well as a library for each user.
-
-
-Upgrading Packages
-------------------
-
-### Problem
-
-You want to upgrade a package that is already installed.
-
-### Solution
-
-Run `update.packages()`:
-
-```{r, eval=FALSE}
-update.packages()
-```
-
-It will prompt you for each package that can be upgraded. If you want it to upgrade all packages without asking, use `ask = FALSE`:
-
-```{r, eval=FALSE}
-update.packages(ask = FALSE)
-```
-
-### Discussion
-
-Over time, package authors will release new versions of packages with bug fixes and new features, and it's usually a good idea to keep up-to-date. However, keep in mind that occasionally new versions of packages will introduce bugs or have slightly changed behavior.
 
 
 Loading a Delimited Text Data File
@@ -258,83 +217,3 @@ The foreign package does support some other formats, including:
 ### See Also
 
 Run `ls("package:foreign")` for a full list of functions in the foreign package.
-
-
-Chaining Functions Together With `%>%`, the Pipe Operator {#RECIPE-R-BASICS-PIPE}
----------------------------------------------------------
-
-### Problem
-
-You want to call one function, then pass the result to another function, and another, in a way that is easily readable.
-
-### Solution
-
-Use `%>%`, the pipe operator. For example:
-
-```{r}
-library(dplyr) # The pipe is provided by dplyr
-morley # Look at the morley data set
-morley %>%
-  filter(Expt == 1) %>%
-  summary()
-```
-
-This takes the `morley` data set, passes it to the `filter()` function from dplyr, keeping only the rows of the data where `Expt` is equal to 1. Then that result is passed to the `summary()` function, which calculates some summary statistics on the data.
-
-Without the pipe operator, the code above would be written like this:
-
-```{r results='hide'}
-summary(filter(morley, Expt == 1))
-```
-
-In this code, function calls are processed from the inside outward. From a mathematical viewpoint, this makes perfect sense, but from a readability viewpoint, this can be confusing and hard to read, especially when there are many nested function calls.
-
-
-### Discussion
-
-This pattern, with the `%>%` operator, is widely used with tidyverse packages, because they contain many functions that do relatively small things. The idea is that these functions are building blocks that allow user to compose the function calls together to produce the desired result.
-
-To illustrate what's going on, here's a simpler example of two equivalent pieces of code:
-
-```{r eval=FALSE}
-f(x)
-# Equivalent to:
-x %>% f()
-```
-
-The pipe operator in essence takes the thing that's on the left, and places it as the first argument of the function call that's on the right.
-
-It can be used for multiple function calls, in a *chain*:
-
-```{r eval=FALSE}
-h(g(f(x)))
-# Equivalent to:
-x %>%
-  f() %>%
-  g() %>%
-  h()
-```
-
-In a function chain, the lexical ordering of the function calls is the same as the order in which they're computed.
-
-If you want to store the final result, you can use the `<-` operator at the beginning. For example, this will replace the original `x` with the result of the function chain:
-
-```{r eval=FALSE}
-x <- x %>%
-  f() %>%
-  g() %>%
-  h()
-```
-
-If there are additional arguments for the function calls, they will be shifted to the right when the pipe operator is used. Going back to code from the first example, these two are equivalent:
-
-```{r eval=FALSE}
-filter(morley, Expt == 1)
-morley %>% filter(Expt == 1)
-````
-
-The pipe operator is actually from the magrittr package, but dplyr imports it and makes it available when you call `library(dplyr)`
-
-### See Also
-
-For many more examples of how to use `%>%` in data manipulation, see Chapter \@ref(CHAPTER-DATAPREP).
