@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Planning Audit Samples {#CHAPTER-PLANNING-AUDIT-SAMPLES}
+Planning Audit Samples {#CHAPTER-AS-PLANNING-AUDIT-SAMPLES}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.

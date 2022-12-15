@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Unstratified Evaluation of Audit Samples {#CHAPTER-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES}
+Unstratified Evaluation of Audit Samples {#CHAPTER-AS-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.

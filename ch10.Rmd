@@ -10,7 +10,9 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Other Software Implementations {#CHAPTER-AS-OTHER-SOFTWARE-IMPLEMENTATTIONS}
+# (PART) Data Auditing {-} 
+
+Basic Concepts {#CHAPTER-DA-BASIC-CONCEPTS}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.

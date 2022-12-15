@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-The Audit Sampling Workflow {#CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW}
+The Audit Sampling Workflow {#CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.
