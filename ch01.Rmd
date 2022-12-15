@@ -12,7 +12,8 @@ source("utils.R", local = TRUE)
 
 # R Basics {#CHAPTER-R-BASICS}
 
-This chapter covers the basics: installing and using packages and loading data.
+This chapter provides a basic introduction to the R programming language. It
+demonstrates how to work with packages and data sets.
 
 ## Installing a Package
 
