@@ -13,6 +13,7 @@ url: 'https\://koenderks.github.io/stataudbook'
 github-repo: koenderks/stataudbook
 twitter-handle: koenderks
 cover-image: cover.jpg
+#bookdown::pdf_book: default
 ---
 
 # Welcome {-}
