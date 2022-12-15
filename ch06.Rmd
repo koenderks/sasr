@@ -1,0 +1,16 @@
+---
+output:
+  bookdown::html_document2:
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo = FALSE, cache = FALSE}
+source("utils.R", local = TRUE)
+```
+
+Selecting Audit Samples {#CHAPTER-SELECTING-AUDIT-SAMPLES}
+========
+
+This chapter covers the basics: installing and using packages and loading data.
