@@ -14,3 +14,327 @@ R Basics {#CHAPTER-R-BASICS}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.
+
+
+Installing a Package
+--------------------
+
+This book illustrates its concepts and ideas using the `jfa` package, which can
+be downloaded from CRAN. You can install this package by running the command
+below in R:
+
+```{r, eval=FALSE}
+install.packages("jfa")
+```
+
+
+Loading a Package
+-----------------
+
+To load a package into your R session, call `library()` and provide the name of
+the package you want to load. Naturally, this requires that you already have the
+package installed on the computer. For example, before running the examples in
+this book, you can load the `jfa` package with:
+
+```{r, eval=FALSE}
+library(jfa)
+```
+
+> **Note**
+>
+> If you want a deeper understanding of how the `jfa` package works, or want to
+look at the source code of the package, see the
+[package website](https://koenderks.github.io/jfa/).
+
+Packages in R are collections of functions and/or data that are bundled up for easy distribution, and installing a package will extend the functionality of R on your computer. If an R user creates a package and thinks that it might be useful for others, that user can distribute it through a package repository. The primary repository for distributing R packages is called CRAN (the Comprehensive R Archive Network), but there are others, such as Bioconductor, which specializes in packages related to genomic data.
+
+If you have spent much time learning R, you may have heard of the *tidyverse*, which is a collection of R packages that share common ideas of how data should be structured and manipulated. This is in contrast to *base R*, which is the set of packages that are included when you just download and install R. The tidyverse is a set of add-ons for R, which make it easier to do many operations related to data manipulation and visualization. This book mostly uses the tidyverse, as I believe that it provides a quicker and simpler (but not less powerful!) way to work with data.
+
+If you haven't used the tidyverse before, there is one recipe in particular that you should read that will help you understand a foreign-looking bit of syntax: `%>%`, also known as the pipe operator. This is Recipe \@ref(RECIPE-R-BASICS-PIPE) in this chapter.
+
+
+
+Loading a Package
+-----------------
+
+### Problem
+
+You want to load an installed package.
+
+### Solution
+
+Use `library()` and give it the name of the package you want to install. To load ggplot2, run:
+
+```{r, eval=FALSE}
+library(ggplot2)
+```
+
+The package must already be installed on the computer.
+
+### Discussion
+
+Most of the recipes in this book require loading a package before running the code, either for the graphing capabilities (as in the ggplot2 package) or for example data sets (as in the MASS and gcookbook packages).
+
+One of R's quirks is the package/library terminology. Although you use the `library()` function to load a package, a package is not a library, and some longtime R users will get irate if you call it that.
+
+A *library* is a directory that contains a set of packages. You might, for example, have a system-wide library as well as a library for each user.
+
+
+Upgrading Packages
+------------------
+
+### Problem
+
+You want to upgrade a package that is already installed.
+
+### Solution
+
+Run `update.packages()`:
+
+```{r, eval=FALSE}
+update.packages()
+```
+
+It will prompt you for each package that can be upgraded. If you want it to upgrade all packages without asking, use `ask = FALSE`:
+
+```{r, eval=FALSE}
+update.packages(ask = FALSE)
+```
+
+### Discussion
+
+Over time, package authors will release new versions of packages with bug fixes and new features, and it's usually a good idea to keep up-to-date. However, keep in mind that occasionally new versions of packages will introduce bugs or have slightly changed behavior.
+
+
+Loading a Delimited Text Data File
+----------------------------------
+
+### Problem
+
+You want to load data from a delimited text file.
+
+### Solution
+
+The most common way to read in a file is to use comma-separated values (CSV) data:
+
+```{r, eval=FALSE}
+data <- read.csv("datafile.csv")
+```
+
+Alternatively, you can use the `read_csv()` function (note the underscore instead of period) from the readr package. This function is significantly faster than `read.csv()`, and
+
+### Discussion
+
+Since data files have many different formats, there are many options for loading them. For example, if the data file does *not* have headers in the first row:
+
+```{r, eval=FALSE}
+data <- read.csv("datafile.csv", header = FALSE)
+```
+
+The resulting data frame will have columns named `V1`, `V2`, and so on, and you will probably want to rename them manually:
+
+```{r, eval=FALSE}
+# Manually assign the header names
+names(data) <- c("Column1", "Column2", "Column3")
+```
+
+You can set the delimiter with sep. If it is space-delimited, use `sep = " "`. If it is tab-delimited, use `\t`, as in:
+
+```{r, eval=FALSE}
+data <- read.csv("datafile.csv", sep = "\t")
+```
+
+By default, strings in the data are treated as factors. Suppose this is your data file, and you read it in using `read.csv()`:
+
+```
+"First","Last","Sex","Number"
+"Currer","Bell","F",2
+"Dr.","Seuss","M",49
+"","Student",NA,21
+```
+
+The resulting data frame will store `First` and `Last` as *factors*, though it makes more sense in this case to treat them as strings (or *character vectors* in R terminology). To differentiate this, use `stringsAsFactors = FALSE`. If there are any columns that should be treated as factors, you can then convert them individually:
+
+```{r, eval=FALSE}
+data <- read.csv("datafile.csv", stringsAsFactors = FALSE)
+# Convert to factor
+data$Sex <- factor(data$Sex)
+str(data)
+#> 'data.frame': 3 obs. of 4 variables:
+#> $ First : chr "Currer" "Dr." ""
+#> $ Last : chr "Bell" "Seuss" "Student"
+#> $ Sex : Factor w/ 2 levels "F","M": 1 2 NA
+#> $ Number: int 2 49 21
+```
+
+Alternatively, you could load the file with strings as factors, and then convert individual columns from factors to characters.
+
+### See Also
+
+`read.csv()` is a convenience wrapper function around `read.table()`. If you need more control over the input, see `?read.table`.
+
+
+Loading Data from an Excel File
+-------------------------------
+
+### Problem
+
+You want to load data from an Excel file.
+
+### Solution
+
+The readxl package has the function `read_excel()` for reading .xls and .xlsx files from Excel. This will read the first sheet of an Excel spreadsheet:
+
+```{r, eval=FALSE}
+# Only need to install once
+install.packages("readxl")
+library(readxl)
+data <- read_excel("datafile.xlsx", 1)
+```
+
+### Discussion
+
+With `read_excel()`, you can load from other sheets by specifying a number for sheetIndex or a name for sheetName:
+
+```{r, eval=FALSE}
+data <- read_excel("datafile.xls", sheet = 2)
+data <- read_excel("datafile.xls", sheet = "Revenues")
+```
+
+`read_excel()` uses the first row of the spreadsheet for column names. If you don't want to use that row for column names, use `col_names = FALSE`. The columns will instead be named `X1`, `X2`, and so on.
+
+By default, `read_excel()` will infer the type of each column, but if you want to specify the type of each column, you can use the `col_types` argument. You can also drop columns if you specify the type as `"blank"`.
+
+```{r, eval=FALSE}
+# Drop the first column, and specify the types of the next three columns
+data <- read_excel("datafile.xls", col_types = c("blank", "text", "date", "numeric"))
+```
+
+
+### See Also
+
+See `?read_excel` for more options controlling the reading of these files.
+
+There are other packages for reading Excel files. The gdata package has a function `read.xls()` for reading in .xls files, and the xlsx package has a function `read.xlsx()` for reading in .xlsx files. They require external software to be installed on your computer: `read.xls()` requires Java, and `read.xlsx()` requires Perl.
+
+
+Loading Data from SPSS/SAS/Stata Files
+--------------------------------------
+
+### Problem
+
+You want to load data from a SPSS file, or from other programs like SAS or Stata.
+
+### Solution
+
+The haven package has the function `read_sav()` for reading SPSS files. To load data from an SPSS file:
+
+```{r, eval=FALSE}
+# Only need to install the first time
+install.packages("haven")
+library(haven)
+data <- read_sav("datafile.sav")
+```
+
+### Discussion
+
+
+The haven package also includes functions to read from other formats:
+
+* `read_sas()`: SAS
+* `read_dta()`: Stata
+
+
+An alternative to haven is the foreign package. It also supports SPSS and Stata files, but it is not as up-to-date as the functions from haven. For example, it only supports Stata files up to version 12, while haven supports up to version 14 (the current version as of this writing).
+
+The foreign package does support some other formats, including:
+
+* `read.octave()`: Octave and MATLAB
+* `read.systat()`:SYSTAT
+* `read.xport()`: SAS XPORT
+* `read.dta()`: Stata
+* `read.spss()`: SPSS
+
+### See Also
+
+Run `ls("package:foreign")` for a full list of functions in the foreign package.
+
+
+Chaining Functions Together With `%>%`, the Pipe Operator {#RECIPE-R-BASICS-PIPE}
+---------------------------------------------------------
+
+### Problem
+
+You want to call one function, then pass the result to another function, and another, in a way that is easily readable.
+
+### Solution
+
+Use `%>%`, the pipe operator. For example:
+
+```{r}
+library(dplyr) # The pipe is provided by dplyr
+morley # Look at the morley data set
+morley %>%
+  filter(Expt == 1) %>%
+  summary()
+```
+
+This takes the `morley` data set, passes it to the `filter()` function from dplyr, keeping only the rows of the data where `Expt` is equal to 1. Then that result is passed to the `summary()` function, which calculates some summary statistics on the data.
+
+Without the pipe operator, the code above would be written like this:
+
+```{r results='hide'}
+summary(filter(morley, Expt == 1))
+```
+
+In this code, function calls are processed from the inside outward. From a mathematical viewpoint, this makes perfect sense, but from a readability viewpoint, this can be confusing and hard to read, especially when there are many nested function calls.
+
+
+### Discussion
+
+This pattern, with the `%>%` operator, is widely used with tidyverse packages, because they contain many functions that do relatively small things. The idea is that these functions are building blocks that allow user to compose the function calls together to produce the desired result.
+
+To illustrate what's going on, here's a simpler example of two equivalent pieces of code:
+
+```{r eval=FALSE}
+f(x)
+# Equivalent to:
+x %>% f()
+```
+
+The pipe operator in essence takes the thing that's on the left, and places it as the first argument of the function call that's on the right.
+
+It can be used for multiple function calls, in a *chain*:
+
+```{r eval=FALSE}
+h(g(f(x)))
+# Equivalent to:
+x %>%
+  f() %>%
+  g() %>%
+  h()
+```
+
+In a function chain, the lexical ordering of the function calls is the same as the order in which they're computed.
+
+If you want to store the final result, you can use the `<-` operator at the beginning. For example, this will replace the original `x` with the result of the function chain:
+
+```{r eval=FALSE}
+x <- x %>%
+  f() %>%
+  g() %>%
+  h()
+```
+
+If there are additional arguments for the function calls, they will be shifted to the right when the pipe operator is used. Going back to code from the first example, these two are equivalent:
+
+```{r eval=FALSE}
+filter(morley, Expt == 1)
+morley %>% filter(Expt == 1)
+````
+
+The pipe operator is actually from the magrittr package, but dplyr imports it and makes it available when you call `library(dplyr)`
+
+### See Also
+
+For many more examples of how to use `%>%` in data manipulation, see Chapter \@ref(CHAPTER-DATAPREP).
