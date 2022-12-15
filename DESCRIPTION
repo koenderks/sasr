@@ -1,0 +1,12 @@
+Package: stataudbook
+Title: Statistical auditing with R
+Version: 0.0.1
+Authors@R: c(
+  person("Koen", "Derks", , "k.derks@nyenrode.nl", c("aut", "cre"))
+  )
+URL: https://github.com/koenderks/stataudbook
+Depends:
+    R (>= 3.5.0)
+Imports:
+    bookdown,
+    jfa

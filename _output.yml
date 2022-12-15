@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  split_by: section
+  config:
+    toc:
+      collapse: subsection
+      before: |
+        <li><strong><a href="./">Statistical Auditing with R</a></strong></li>
+    edit:
+      link: https://github.com/koenderks/stataudbook/edit/master/%s
+      text: "Edit"
+    sharing:
+      facebook: no
+      twitter: no
+      github: yes
+      all: []
+
+bookdown::pdf_book:
+  toc_depth: 2
