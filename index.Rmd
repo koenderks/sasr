@@ -10,7 +10,7 @@ bibliography: references.bib
 biblio-style: apalike
 link-citations: yes
 description: |
-  This book covers the basics of classical and Bayesian inference in auditing.
+  This book is an overview of basic and advanced statistical methodology for audit sampling.
 url: https\://koenderks.github.io/stataudbook
 github-repo: koenderks/stataudbook
 twitter-handle: koenderks
@@ -24,13 +24,14 @@ bookdown::pdf_book: default
 
 <img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
-Welcome to the book **Statistical Auditing with R**, a practical guide for
+Welcome to the book **Statistical Audit Sampling with R**, a practical guide for
 auditors that want to use state-of-the-art statistical methodology in the audit.
-This book focuses on two auditing procedures that are commonly performend in a
-statistical manner: audit sampling and data auditing. It explains the underlying
-statistical auditing theory from a classical and Bayesian point of view and
-demonstrates how to perform these procedures in a sound manner compliant with
-international auditing standards using the **jfa** [@jfa] R package.
+This book focuses on audit sampling but approaches it from two viewpoints: the
+classical (frequentist) approach and the Bayesian approch. Through these two
+lenses, it explains the statistical theory underlying commonly applied audit
+sampling procedures, and demonstrates how to perform these procedures in a
+statistically sound manner compliant with international auditing standards using
+the **jfa** [@jfa] R package.
 
 Please keep in mind that this is a preview release and a number of chapters are
 still missing. If you are missing some of the content today, then check back

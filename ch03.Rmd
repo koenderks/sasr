@@ -10,9 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# (PART) Audit Sampling {-} 
-
-Basic Concepts {#CHAPTER-AS-BASIC-CONCEPTS}
-==============
+The Audit Sampling Workflow {#CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW}
+========
 
 This chapter covers the basics: installing and using packages and loading data.

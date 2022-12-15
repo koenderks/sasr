@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Statistics in the Audit {#CHAPTER-STATISTICS-IN-THE-AUDIT}
-========
+Basic Concepts {#CHAPTER-BASIC-CONCEPTS}
+==============
 
 This chapter covers the basics: installing and using packages and loading data.

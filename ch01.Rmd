@@ -10,8 +10,6 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# (PART) Introduction {-}
-
 R Basics {#CHAPTER-R-BASICS}
 ========
 

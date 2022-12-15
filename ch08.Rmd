@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Stratified Evaluation of Audit Samples {#CHAPTER-AS-STRATIFIED-EVALUATION-OF-AUDIT-SAMPLES}
+Other Software Implementations {#CHAPTER-OTHER-SOFTWARE-IMPLEMENTATTIONS}
 ========
 
 This chapter covers the basics: installing and using packages and loading data.
