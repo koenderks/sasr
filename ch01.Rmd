@@ -42,8 +42,6 @@ this book, you can load the `jfa` package with:
 library(jfa)
 ```
 
-> **Note**
->
 > If you want a deeper understanding of how the `jfa` package works, or want to
 look at the source code of the package, see the
 [package website](https://koenderks.github.io/jfa/).

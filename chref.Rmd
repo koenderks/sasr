@@ -1,0 +1,12 @@
+---
+output:
+  bookdown::html_document2:
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+---
+
+References {-}
+==========
+
+<div id="refs"></div>

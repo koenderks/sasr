@@ -1,5 +1,7 @@
 options(width = 77)
 
+library(jfa)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#",
