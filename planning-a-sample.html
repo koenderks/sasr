@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition</title>
+  <title>4.2 Planning a sample | Statistical Auditing with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta property="og:title" content="4.2 Planning a sample | Statistical Auditing with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta name="twitter:title" content="4.2 Planning a sample | Statistical Auditing with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="loading-a-package.html"/>
-<link rel="next" href="loading-a-delimited-text-data-file.html"/>
+<link rel="prev" href="required-information.html"/>
+<link rel="next" href="CHAPTER-SELECTING-AUDIT-SAMPLES.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,20 +235,127 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="upgrading-a-package" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Upgrading a Package<a href="upgrading-a-package.html#upgrading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To update a package in your R library, call <code>update.packages()</code> and provide the
-name of the package you want to update. For example, you can update the <code>jfa</code>
-package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="upgrading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div id="planning-a-sample" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Planning a sample<a href="planning-a-sample.html#planning-a-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To illustrate how the <code>planning()</code> function can be used to calculate a
+minimum sample size for audit sampling, we will first demonstrate how to set up
+a sample with the purpose of hypothesis testing and subsequently show how to
+plan a sample with the purpose of estimation. In both cases, we will tolerate
+zero misstatements in the sample.</p>
+<div id="hypothesis-testing" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Hypothesis testing<a href="planning-a-sample.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s take a look at how you can use the <code>planning()</code> function to
+calculate the minimum sample size for testing the hypothesis that the
+misstatement in the population is lower than the performance materiality. In
+this example the performance materiality is set to 5% of the total population
+value, meaning that the population cannot contain more than 5% misstatement.</p>
+<p><strong>Sampling objective</strong>: Calculate a minimum sample size such that, when no
+misstatements are found in the sample, there is a 95% chance that the
+misstatement in the population is lower than 5% of the population value.</p>
+<p>A minimum sample size for this sampling objective can be calculated by
+specifying the <code>materiality</code> parameter in the <code>planning()</code> function, see the
+command below. Next, a summary of the statistical results can be obtained using
+the <code>summary()</code> function. The result shows that, given zero tolerable errors,
+the minimum sample size is 60 units.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="planning-a-sample.html#cb16-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb16-2"><a href="planning-a-sample.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb16-3"><a href="planning-a-sample.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-4"><a href="planning-a-sample.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
+<span id="cb16-5"><a href="planning-a-sample.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-6"><a href="planning-a-sample.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb16-7"><a href="planning-a-sample.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb16-8"><a href="planning-a-sample.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb16-9"><a href="planning-a-sample.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb16-10"><a href="planning-a-sample.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb16-11"><a href="planning-a-sample.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb16-12"><a href="planning-a-sample.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-13"><a href="planning-a-sample.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb16-14"><a href="planning-a-sample.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           60 </span></span>
+<span id="cb16-15"><a href="planning-a-sample.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb16-16"><a href="planning-a-sample.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb16-17"><a href="planning-a-sample.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
+<span id="cb16-18"><a href="planning-a-sample.html#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
+<span id="cb16-19"><a href="planning-a-sample.html#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.049787</span></span></code></pre></div>
 </div>
+<div id="estimation" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Estimation<a href="planning-a-sample.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, let’s take a look at how you can use the <code>planning()</code> function to
+calculate the minimum sample size for estimating the misstatement in the
+population with a minimum precision. The precision is defined as the difference
+between the most likely misstatement and the upper confidence bound on the
+misstatement. For this example, the minimum precision is set to 2% of the
+population value.</p>
+<p><strong>Sampling objective</strong>: Calculate a minimum sample size such that, when zero
+misstatements are found in the sample, there is a 95% chance that the
+misstatement in the population is at most 2% above the most likely misstatement.</p>
+<p>A minimum sample size for this sampling objective can be calculated by
+specifying the <code>min.precision</code> parameter in the <code>planning()</code> function, see the
+command below. The result shows that, given zero tolerable errors, the minimum
+sample size is 150 units.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="planning-a-sample.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">min.precision =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb17-2"><a href="planning-a-sample.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb17-3"><a href="planning-a-sample.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb17-4"><a href="planning-a-sample.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb17-5"><a href="planning-a-sample.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 150 </span></span>
+<span id="cb17-6"><a href="planning-a-sample.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 151 iterations via method &#39;poisson&#39;</span></span></code></pre></div>
+</div>
+<div id="bayesian-planning" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Bayesian planning<a href="planning-a-sample.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Performing Bayesian planning requires an input for the <code>prior</code> argument in the
+<code>planning()</code> function. Setting <code>prior = TRUE</code> performs Bayesian planning using a
+<a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
+conjugate to the specified <code>likelihood</code>. For example, the command below uses a
+default gamma(1, 1) prior distribution to plan the sample.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="planning-a-sample.html#cb18-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="planning-a-sample.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb18-3"><a href="planning-a-sample.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-4"><a href="planning-a-sample.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb18-5"><a href="planning-a-sample.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-6"><a href="planning-a-sample.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb18-7"><a href="planning-a-sample.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb18-8"><a href="planning-a-sample.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb18-9"><a href="planning-a-sample.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb18-10"><a href="planning-a-sample.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb18-11"><a href="planning-a-sample.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb18-12"><a href="planning-a-sample.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            gamma(α = 1, β = 1) </span></span>
+<span id="cb18-13"><a href="planning-a-sample.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-14"><a href="planning-a-sample.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb18-15"><a href="planning-a-sample.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           59 </span></span>
+<span id="cb18-16"><a href="planning-a-sample.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb18-17"><a href="planning-a-sample.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        gamma(α = 1, β = 60) </span></span>
+<span id="cb18-18"><a href="planning-a-sample.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb18-19"><a href="planning-a-sample.html#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
+<span id="cb18-20"><a href="planning-a-sample.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
+<span id="cb18-21"><a href="planning-a-sample.html#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 372.25</span></span></code></pre></div>
+<p>You can inspect how the prior distribution compares to the expected
+posterior distribution by using the <code>plot()</code> function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="planning-a-sample.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-23-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>The input for the <code>prior</code> argument can also be an object created by the
+<code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is a
+conjugate likelihood available, it will inherit the likelihood from the prior.
+For example, the command below uses a custom beta(1, 10) prior distribution to
+plan the sample using the binomial likelihood.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="planning-a-sample.html#cb20-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">beta =</span> <span class="dv">10</span>)</span>
+<span id="cb20-2"><a href="planning-a-sample.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb20-3"><a href="planning-a-sample.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-4"><a href="planning-a-sample.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning</span></span>
+<span id="cb20-5"><a href="planning-a-sample.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-6"><a href="planning-a-sample.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 49 </span></span>
+<span id="cb20-7"><a href="planning-a-sample.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 50 iterations via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="loading-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-a-delimited-text-data-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="required-information.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-SELECTING-AUDIT-SAMPLES.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -279,7 +386,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch04.Rmd",
 "text": "Edit"
 },
 "history": {

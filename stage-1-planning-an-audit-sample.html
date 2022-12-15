@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition</title>
+  <title>3.2 Stage 1: Planning an audit sample | Statistical Auditing with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta property="og:title" content="3.2 Stage 1: Planning an audit sample | Statistical Auditing with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta name="twitter:title" content="3.2 Stage 1: Planning an audit sample | Statistical Auditing with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="loading-a-package.html"/>
-<link rel="next" href="loading-a-delimited-text-data-file.html"/>
+<link rel="prev" href="setting-up-the-audit.html"/>
+<link rel="next" href="stage-2-selecting-a-sample.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,20 +235,54 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="upgrading-a-package" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Upgrading a Package<a href="upgrading-a-package.html#upgrading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To update a package in your R library, call <code>update.packages()</code> and provide the
-name of the package you want to update. For example, you can update the <code>jfa</code>
-package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="upgrading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div id="stage-1-planning-an-audit-sample" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Stage 1: Planning an audit sample<a href="stage-1-planning-an-audit-sample.html#stage-1-planning-an-audit-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p align="center">
+<img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/planning.png' alt='planning' width='100%'>
+</p>
+<p>The auditor can choose to either perform a frequentist analysis, where they use
+the increased detection risk as their level of uncertainty, or perform a
+Bayesian analysis, where they incorporate the information about the control risk
+into a prior distribution. For this example, we will show how to perform a
+Bayesian analysis. A frequentist analysis can easily be done through the
+following functions by setting <code>prior = FALSE</code>. In a frequentist analysis, the
+auditor immediately uses the adjusted confidence to calculate the sample size
+via the <code>planning()</code> function.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stage-1-planning-an-audit-sample.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the required confidence for a frequentist analysis.</span></span>
+<span id="cb7-2"><a href="stage-1-planning-an-audit-sample.html#cb7-2" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
+<span id="cb7-3"><a href="stage-1-planning-an-audit-sample.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Calculate the required sample size.</span></span>
+<span id="cb7-4"><a href="stage-1-planning-an-audit-sample.html#cb7-4" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected, <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
+<p>The auditor can then inspect the result from the planning procedure by using the
+<code>summary()</code> function. The result shows that the auditor needs to select a sample
+of 178 items so that, when at most 4.45 misstatements are found, they can
+conclude with 91.66% confidence that the misstatement in BuildIt’s population
+is lower than the performance materiality of 5%.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="stage-1-planning-an-audit-sample.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
+<span id="cb8-2"><a href="stage-1-planning-an-audit-sample.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb8-3"><a href="stage-1-planning-an-audit-sample.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
+<span id="cb8-4"><a href="stage-1-planning-an-audit-sample.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb8-5"><a href="stage-1-planning-an-audit-sample.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb8-6"><a href="stage-1-planning-an-audit-sample.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.91667 </span></span>
+<span id="cb8-7"><a href="stage-1-planning-an-audit-sample.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb8-8"><a href="stage-1-planning-an-audit-sample.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb8-9"><a href="stage-1-planning-an-audit-sample.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0.025 </span></span>
+<span id="cb8-10"><a href="stage-1-planning-an-audit-sample.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb8-11"><a href="stage-1-planning-an-audit-sample.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb8-12"><a href="stage-1-planning-an-audit-sample.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb8-13"><a href="stage-1-planning-an-audit-sample.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           178 </span></span>
+<span id="cb8-14"><a href="stage-1-planning-an-audit-sample.html#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              4.45 </span></span>
+<span id="cb8-15"><a href="stage-1-planning-an-audit-sample.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0.025 </span></span>
+<span id="cb8-16"><a href="stage-1-planning-an-audit-sample.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049986 </span></span>
+<span id="cb8-17"><a href="stage-1-planning-an-audit-sample.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.024986 </span></span>
+<span id="cb8-18"><a href="stage-1-planning-an-audit-sample.html#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.083211</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="loading-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-a-delimited-text-data-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="setting-up-the-audit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stage-2-selecting-a-sample.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -279,7 +313,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
 "text": "Edit"
 },
 "history": {

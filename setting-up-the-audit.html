@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition</title>
+  <title>3.1 Setting up the audit | Statistical Auditing with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta property="og:title" content="3.1 Setting up the audit | Statistical Auditing with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Upgrading a Package | Statistical Auditing with R, 1st Edition" />
+  <meta name="twitter:title" content="3.1 Setting up the audit | Statistical Auditing with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="loading-a-package.html"/>
-<link rel="next" href="loading-a-delimited-text-data-file.html"/>
+<link rel="prev" href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"/>
+<link rel="next" href="stage-1-planning-an-audit-sample.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,20 +235,54 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="upgrading-a-package" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Upgrading a Package<a href="upgrading-a-package.html#upgrading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To update a package in your R library, call <code>update.packages()</code> and provide the
-name of the package you want to update. For example, you can update the <code>jfa</code>
-package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="upgrading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div id="setting-up-the-audit" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Setting up the audit<a href="setting-up-the-audit.html#setting-up-the-audit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The auditor wants to make a statement that, with 95% confidence, the misstatement
+in the population is lower than the performance materiality of 5%. Based on last
+year’s audit at BuildIt, where the upper bound of the misstatement turned out to
+be 2.5%, they want to tolerate at most 2.5% errors in the intended sample. The
+auditor can therefore re-formulate their statistical statement as that they want
+to conclude that, when 2.5% errors are found in the sample, they can conclude
+with 95% confidence that the misstatement in the population is lower than the
+performance materiality of 5%.</p>
+<p>Below, the auditor defines the performance materiality, confidence level, and
+expected misstatements in the sample.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="setting-up-the-audit.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the confidence, materiality, and expected errors.</span></span>
+<span id="cb5-2"><a href="setting-up-the-audit.html#cb5-2" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
+<span id="cb5-3"><a href="setting-up-the-audit.html#cb5-3" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
+<span id="cb5-4"><a href="setting-up-the-audit.html#cb5-4" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
+<p>Many audits are performed according to the <em>audit risk model (ARM)</em>, which
+determines that the uncertainty about the auditor’s statement as a whole
+(1 - the confidence) is a factor of three terms: the inherent risk, the control
+risk, and the detection risk. Inherent risk is the risk posed by an error in
+BuildIt’s financial statement that could be material, before consideration of
+any related control systems (e.g., computer systems). Control risk is the risk
+that a material misstatement is not prevented or detected by BuildIt’s internal
+control systems. Detection risk is the risk that the auditor will fail to find
+material misstatements that exist in an BuildIt’s financial statements. The
+<em>ARM</em> is practically useful because for a given level of audit risk, the
+tolerable detection risk bears an inverse relation to the other two risks. The
+<em>ARM</em> is useful for the auditor because it enables them to incorporate existing
+information on BuildIt’s organization to increase the required risk that they
+will fail to find a material misstatement.</p>
+<p><span class="math display">\[ \text{Audit risk} = \text{Inherent risk} \,\times\, \text{Control risk} \,\times\, \text{Detection risk}\]</span></p>
+<p>Usually the auditor judges inherent risk and control risk on a three-point scale
+consisting of low, medium, and high. Different audit firms handle different
+standard percentages for these categories. The auditor’s firm defines the
+probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
+Because the auditor assessed BuildIt’s internal control systems, they assess the
+control risk as medium (60%).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="setting-up-the-audit.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the inherent risk (ir) and control risk (cr).</span></span>
+<span id="cb6-2"><a href="setting-up-the-audit.html#cb6-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
+<span id="cb6-3"><a href="setting-up-the-audit.html#cb6-3" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="loading-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-a-delimited-text-data-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stage-1-planning-an-audit-sample.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -279,7 +313,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
 "text": "Edit"
 },
 "history": {
