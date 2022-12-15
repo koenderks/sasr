@@ -10,7 +10,6 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Basic Concepts {#CHAPTER-BASIC-CONCEPTS}
-==============
+# Basic Concepts {#CHAPTER-BASIC-CONCEPTS}
 
 This chapter covers the basics: installing and using packages and loading data.

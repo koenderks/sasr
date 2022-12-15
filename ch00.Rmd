@@ -6,8 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Preface {-}
-========
+# Preface {-}
 
 This book is for auditors who want to employ statistical audit sampling in audit
 practice using the statistical programming language R. It thoroughly, but

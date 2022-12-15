@@ -10,14 +10,11 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-R Basics {#CHAPTER-R-BASICS}
-========
+# R Basics {#CHAPTER-R-BASICS}
 
 This chapter covers the basics: installing and using packages and loading data.
 
-
-Installing a Package
---------------------
+## Installing a Package
 
 This book illustrates its concepts and ideas using the `jfa` package, which can
 be downloaded from CRAN. You can install this package by running the command
@@ -28,8 +25,7 @@ install.packages("jfa")
 ```
 
 
-Loading a Package
------------------
+## Loading a Package
 
 To load a package into your R session, call `library()` and provide the name of
 the package you want to load. Naturally, this requires that you already have the
@@ -48,8 +44,7 @@ Packages in R are collections of functions and/or data that are bundled up for e
 
 If you have spent much time learning R, you may have heard of the *tidyverse*, which is a collection of R packages that share common ideas of how data should be structured and manipulated. This is in contrast to *base R*, which is the set of packages that are included when you just download and install R. The tidyverse is a set of add-ons for R, which make it easier to do many operations related to data manipulation and visualization. This book mostly uses the tidyverse, as I believe that it provides a quicker and simpler (but not less powerful!) way to work with data.
 
-Upgrading a Package
--------------------
+## Upgrading a Package
 
 To update a package in your R library, call `update.packages()` and provide the
 name of the package you want to update. For example, you can update the `jfa`
@@ -60,155 +55,7 @@ update.packages("jfa")
 ```
 
 
-Loading a Delimited Text Data File
-----------------------------------
-
-### Problem
-
-You want to load data from a delimited text file.
-
-### Solution
-
-The most common way to read in a file is to use comma-separated values (CSV) data:
-
-```{r, eval=FALSE}
-data <- read.csv("datafile.csv")
-```
-
-Alternatively, you can use the `read_csv()` function (note the underscore instead of period) from the readr package. This function is significantly faster than `read.csv()`, and
-
-### Discussion
-
-Since data files have many different formats, there are many options for loading them. For example, if the data file does *not* have headers in the first row:
-
-```{r, eval=FALSE}
-data <- read.csv("datafile.csv", header = FALSE)
-```
-
-The resulting data frame will have columns named `V1`, `V2`, and so on, and you will probably want to rename them manually:
-
-```{r, eval=FALSE}
-# Manually assign the header names
-names(data) <- c("Column1", "Column2", "Column3")
-```
-
-You can set the delimiter with sep. If it is space-delimited, use `sep = " "`. If it is tab-delimited, use `\t`, as in:
-
-```{r, eval=FALSE}
-data <- read.csv("datafile.csv", sep = "\t")
-```
-
-By default, strings in the data are treated as factors. Suppose this is your data file, and you read it in using `read.csv()`:
-
-```
-"First","Last","Sex","Number"
-"Currer","Bell","F",2
-"Dr.","Seuss","M",49
-"","Student",NA,21
-```
-
-The resulting data frame will store `First` and `Last` as *factors*, though it makes more sense in this case to treat them as strings (or *character vectors* in R terminology). To differentiate this, use `stringsAsFactors = FALSE`. If there are any columns that should be treated as factors, you can then convert them individually:
-
-```{r, eval=FALSE}
-data <- read.csv("datafile.csv", stringsAsFactors = FALSE)
-# Convert to factor
-data$Sex <- factor(data$Sex)
-str(data)
-#> 'data.frame': 3 obs. of 4 variables:
-#> $ First : chr "Currer" "Dr." ""
-#> $ Last : chr "Bell" "Seuss" "Student"
-#> $ Sex : Factor w/ 2 levels "F","M": 1 2 NA
-#> $ Number: int 2 49 21
-```
-
-Alternatively, you could load the file with strings as factors, and then convert individual columns from factors to characters.
-
-### See Also
-
-`read.csv()` is a convenience wrapper function around `read.table()`. If you need more control over the input, see `?read.table`.
+## Loading a Delimited Text Data File
 
 
-Loading Data from an Excel File
--------------------------------
-
-### Problem
-
-You want to load data from an Excel file.
-
-### Solution
-
-The readxl package has the function `read_excel()` for reading .xls and .xlsx files from Excel. This will read the first sheet of an Excel spreadsheet:
-
-```{r, eval=FALSE}
-# Only need to install once
-install.packages("readxl")
-library(readxl)
-data <- read_excel("datafile.xlsx", 1)
-```
-
-### Discussion
-
-With `read_excel()`, you can load from other sheets by specifying a number for sheetIndex or a name for sheetName:
-
-```{r, eval=FALSE}
-data <- read_excel("datafile.xls", sheet = 2)
-data <- read_excel("datafile.xls", sheet = "Revenues")
-```
-
-`read_excel()` uses the first row of the spreadsheet for column names. If you don't want to use that row for column names, use `col_names = FALSE`. The columns will instead be named `X1`, `X2`, and so on.
-
-By default, `read_excel()` will infer the type of each column, but if you want to specify the type of each column, you can use the `col_types` argument. You can also drop columns if you specify the type as `"blank"`.
-
-```{r, eval=FALSE}
-# Drop the first column, and specify the types of the next three columns
-data <- read_excel("datafile.xls", col_types = c("blank", "text", "date", "numeric"))
-```
-
-
-### See Also
-
-See `?read_excel` for more options controlling the reading of these files.
-
-There are other packages for reading Excel files. The gdata package has a function `read.xls()` for reading in .xls files, and the xlsx package has a function `read.xlsx()` for reading in .xlsx files. They require external software to be installed on your computer: `read.xls()` requires Java, and `read.xlsx()` requires Perl.
-
-
-Loading Data from SPSS/SAS/Stata Files
---------------------------------------
-
-### Problem
-
-You want to load data from a SPSS file, or from other programs like SAS or Stata.
-
-### Solution
-
-The haven package has the function `read_sav()` for reading SPSS files. To load data from an SPSS file:
-
-```{r, eval=FALSE}
-# Only need to install the first time
-install.packages("haven")
-library(haven)
-data <- read_sav("datafile.sav")
-```
-
-### Discussion
-
-
-The haven package also includes functions to read from other formats:
-
-* `read_sas()`: SAS
-* `read_dta()`: Stata
-
-
-An alternative to haven is the foreign package. It also supports SPSS and Stata files, but it is not as up-to-date as the functions from haven. For example, it only supports Stata files up to version 12, while haven supports up to version 14 (the current version as of this writing).
-
-The foreign package does support some other formats, including:
-
-* `read.octave()`: Octave and MATLAB
-* `read.systat()`:SYSTAT
-* `read.xport()`: SAS XPORT
-* `read.dta()`: Stata
-* `read.spss()`: SPSS
-
-### See Also
-
-Run `ls("package:foreign")` for a full list of functions in the foreign package.
+## Loading Data from an Excel File

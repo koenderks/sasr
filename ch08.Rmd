@@ -10,7 +10,24 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-Other Software Implementations {#CHAPTER-OTHER-SOFTWARE-IMPLEMENTATTIONS}
-========
+# Other Software Implementations {#CHAPTER-OTHER-SOFTWARE-IMPLEMENTATTIONS}
 
-This chapter covers the basics: installing and using packages and loading data.
+This chapter discusses other open-source (non-R) software implementing
+statistical techniques for audit sampling.
+
+
+## JASP for audit
+
+JASP for Audit is an add-on module for [JASP](http://jasp-stats.org/) that
+facilitates statistical audit sampling. Among other things, the module provides
+functionality for planning, performing, evaluating, and reporting a statistical
+audit sample. More concretely, it contains analyses for calculating sample sizes,
+selecting itms according to standard audit sampling techniques, and performing
+inference about the population misstatement on the basis of a data sample or
+summary statistics of a sample. The module also features Bayesian equivalents
+of these analyses that enable the user to easily incorporate prior information
+into the statistical procedure. In all analyses, the Audit module offers
+explanatory text that helps the auditor in interpreting, explaining, and
+reporting the analysis.
+
+
