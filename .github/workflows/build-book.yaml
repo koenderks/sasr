@@ -1,5 +1,3 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
     branches: [master]
@@ -11,6 +9,9 @@ on:
   workflow_dispatch:
 
 name: renderbook
+
+env:
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   bookdown:
@@ -47,7 +48,7 @@ jobs:
      - name: Deploy to GitHub Pages
        uses: Cecilapp/GitHub-Pages-deploy@master
        env:
-          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          BUILD_DIR: _book/                     # "_site/" by default
+          EMAIL: ${{ secrets.EMAIL }}
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          BUILD_DIR: _book/
 
