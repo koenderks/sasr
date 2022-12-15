@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>3.5 Evaluating the Sample | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="3.5 Evaluating the Sample | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="3.5 Evaluating the Sample | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-a-package.html"/>
-<link rel="next" href="upgrading-a-package.html"/>
+<link rel="prev" href="performing-the-audit.html"/>
+<link rel="next" href="making-a-decision.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,26 +246,49 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-package" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Loading a Package<a href="loading-a-package.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once you have installed a package, you must load it into every R session. To
-load a package into your R session, call <code>library()</code> and provide the name of the
-package (without quotes) that you want to load. For example, before running the
-examples in this book, you can load the <code>jfa</code> package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
-<blockquote>
-<p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
-look at the source code of the package, see the
-<a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</blockquote>
+<div id="evaluating-the-sample" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Evaluating the Sample<a href="evaluating-the-sample.html#evaluating-the-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p align="center">
+<img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/evaluation.png' alt='evaluation' width='100%'>
+</p>
+<p>Using the annotated sample, the auditor can perform inference about the
+misstatement in the population via the <code>evaluation()</code> function.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="evaluating-the-sample.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Evaluate the sample</span></span>
+<span id="cb15-2"><a href="evaluating-the-sample.html#cb15-2" aria-hidden="true" tabindex="-1"></a>stage4 <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb15-3"><a href="evaluating-the-sample.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> materiality, <span class="at">conf.level =</span> c.adj, <span class="at">data =</span> sample,</span>
+<span id="cb15-4"><a href="evaluating-the-sample.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span></span>
+<span id="cb15-5"><a href="evaluating-the-sample.html#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The auditor can inspect the outcomes of her inference by using the <code>summary()</code>
+function. The resulting 91.66% upper bound is 1.396%, which is lower than the
+performance materiality of 5%.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="evaluating-the-sample.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage4)</span>
+<span id="cb16-2"><a href="evaluating-the-sample.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-3"><a href="evaluating-the-sample.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb16-4"><a href="evaluating-the-sample.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-5"><a href="evaluating-the-sample.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb16-6"><a href="evaluating-the-sample.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.91667 </span></span>
+<span id="cb16-7"><a href="evaluating-the-sample.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
+<span id="cb16-8"><a href="evaluating-the-sample.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb16-9"><a href="evaluating-the-sample.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
+<span id="cb16-10"><a href="evaluating-the-sample.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-11"><a href="evaluating-the-sample.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb16-12"><a href="evaluating-the-sample.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    178 </span></span>
+<span id="cb16-13"><a href="evaluating-the-sample.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               0 </span></span>
+<span id="cb16-14"><a href="evaluating-the-sample.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  0 </span></span>
+<span id="cb16-15"><a href="evaluating-the-sample.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-16"><a href="evaluating-the-sample.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb16-17"><a href="evaluating-the-sample.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0 </span></span>
+<span id="cb16-18"><a href="evaluating-the-sample.html#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   91.66667 percent confidence interval: [0, 0.01396] </span></span>
+<span id="cb16-19"><a href="evaluating-the-sample.html#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.01396 </span></span>
+<span id="cb16-20"><a href="evaluating-the-sample.html#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        0.00013639</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="upgrading-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="performing-the-audit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="making-a-decision.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +319,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>6.2 Bayesian Evaluation | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="6.2 Bayesian Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="6.2 Bayesian Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-a-package.html"/>
-<link rel="next" href="upgrading-a-package.html"/>
+<link rel="prev" href="classical-evaluation.html"/>
+<link rel="next" href="evaluation-using-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,26 +246,84 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-package" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Loading a Package<a href="loading-a-package.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once you have installed a package, you must load it into every R session. To
-load a package into your R session, call <code>library()</code> and provide the name of the
-package (without quotes) that you want to load. For example, before running the
-examples in this book, you can load the <code>jfa</code> package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
-<blockquote>
-<p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
-look at the source code of the package, see the
-<a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</blockquote>
+<div id="bayesian-evaluation" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Bayesian Evaluation<a href="bayesian-evaluation.html#bayesian-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bayesian hypothesis testing uses the Bayes factor, <span class="math inline">\(BF_{10}\)</span> or <span class="math inline">\(BF_{01}\)</span>, to
+make a statement about the evidence provided by the sample in support for one of
+the two hypotheses <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_0\)</span>. As an example of how to interpret the Bayes
+factor, the value of <span class="math inline">\(BF_{10} = 10\)</span> (provided by the <code>evaluation()</code> function)
+can be interpreted as: <em>the data are 10 times more likely to have occurred underthe hypothesis <span class="math inline">\(H_1\)</span> than under the hypothesis <span class="math inline">\(H_0\)</span></em>.
+<span class="math inline">\(BF_{10} &gt; 1\)</span> indicates evidence in favor of <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span>, while
+<span class="math inline">\(BF_{10} &lt; 1\)</span> indicates evidence in favor of <span class="math inline">\(H_0\)</span> and against <span class="math inline">\(H_1\)</span>. The
+<code>evaluation()</code> function returns the value for <span class="math inline">\(BF_{10}\)</span>, but <span class="math inline">\(BF_{01}\)</span> can be
+computed as <span class="math inline">\(\frac{1}{BF_{10}}\)</span>.</p>
+<p>Consider the previous example of an auditor who wants to verify whether the
+population contains less than 5 percent misstatement, implying the hypotheses
+<span class="math inline">\(H_1:\theta&lt;0.05\)</span> and <span class="math inline">\(H_0:\theta\geq0.05\)</span>. They have taken a sample of 100
+items, of which 1 was found to contain a misstatement. The prior distribution is
+assumed to be a default <em>beta(1,1)</em> prior. The call below evaluates the sample
+using a Bayesian non-stratified evaluation procedure.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="bayesian-evaluation.html#cb34-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;default&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb34-2"><a href="bayesian-evaluation.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb34-3"><a href="bayesian-evaluation.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb34-4"><a href="bayesian-evaluation.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
+<span id="cb34-5"><a href="bayesian-evaluation.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb34-6"><a href="bayesian-evaluation.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb34-7"><a href="bayesian-evaluation.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span id="cb34-8"><a href="bayesian-evaluation.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 515.86</span></span>
+<span id="cb34-9"><a href="bayesian-evaluation.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb34-10"><a href="bayesian-evaluation.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
+<span id="cb34-11"><a href="bayesian-evaluation.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04610735</span></span>
+<span id="cb34-12"><a href="bayesian-evaluation.html#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb34-13"><a href="bayesian-evaluation.html#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb34-14"><a href="bayesian-evaluation.html#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<p>The output shows that the most likely error in the population is estimated to be
+1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to
+4.61%. The small difference between the classical and default Bayesian results
+is due to the prior distribution, which must be proper in order to calculate a
+Bayes factor (classical results can be emulated by constructing a prior with
+<code>method = "strict"</code> in the <code>auditPrior()</code> function). The Bayes factor in this
+case is shown to be <span class="math inline">\(BF_{10}=515\)</span>, meaning that the data from the sample are
+about 515 times more likely to occur under the hypothesis of tolerable
+misstatement than under the hypothesis of material misstatement.</p>
+<p>Note that this is a very high Bayes factor for the little data that is observed.
+That is because the Bayes factor is dependent on the prior distribution for
+<span class="math inline">\(\theta\)</span>. As a rule of thumb, when the prior distribution is highly conservative
+(as with <code>method = 'default'</code>) with respect to the hypothesis of tolerable
+misstatement, the Bayes factor tends to over quantify the evidence in favor of
+this hypothesis. You can mitigate this dependency by using a prior distribution
+that is impartial with respect to the hypotheses via <code>method = "impartial"</code> in
+the <code>auditPrior()</code> function (Derks et al., 2022).</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="bayesian-evaluation.html#cb35-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;impartial&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb35-2"><a href="bayesian-evaluation.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb35-3"><a href="bayesian-evaluation.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb35-4"><a href="bayesian-evaluation.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
+<span id="cb35-5"><a href="bayesian-evaluation.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb35-6"><a href="bayesian-evaluation.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb35-7"><a href="bayesian-evaluation.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span id="cb35-8"><a href="bayesian-evaluation.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 47.435</span></span>
+<span id="cb35-9"><a href="bayesian-evaluation.html#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb35-10"><a href="bayesian-evaluation.html#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
+<span id="cb35-11"><a href="bayesian-evaluation.html#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04110834</span></span>
+<span id="cb35-12"><a href="bayesian-evaluation.html#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb35-13"><a href="bayesian-evaluation.html#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.0088878 </span></span>
+<span id="cb35-14"><a href="bayesian-evaluation.html#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<p>The output shows that <span class="math inline">\(BF_{10}=47\)</span>, implying that under the assumption of
+impartiality there is strong evidence for <span class="math inline">\(H_1\)</span>, the hypothesis that the
+population contains misstatements lower than 5 percent of the population
+(tolerable misstatement). Since the two prior distributions both resulted in
+convincing Bayes factors, the results can be considered robust to the choice of
+prior distribution. Hence, the auditor is able to conclude that the sample
+provides convincing evidence to state that the population does not contain
+material misstatement.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="upgrading-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="classical-evaluation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="evaluation-using-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +354,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch06.Rmd",
 "text": "Edit"
 },
 "history": {

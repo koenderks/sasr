@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>Chapter 7 Stratified Evaluation | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="Chapter 7 Stratified Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="Chapter 7 Stratified Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-a-package.html"/>
-<link rel="next" href="upgrading-a-package.html"/>
+<link rel="prev" href="evaluation-using-data.html"/>
+<link rel="next" href="approach-1-no-pooling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,26 +246,177 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-package" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Loading a Package<a href="loading-a-package.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once you have installed a package, you must load it into every R session. To
-load a package into your R session, call <code>library()</code> and provide the name of the
-package (without quotes) that you want to load. For example, before running the
-examples in this book, you can load the <code>jfa</code> package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
-<blockquote>
-<p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
-look at the source code of the package, see the
-<a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</blockquote>
+<div id="CHAPTER-STRATIFIED-EVALUATION" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Stratified Evaluation<a href="CHAPTER-STRATIFIED-EVALUATION.html#CHAPTER-STRATIFIED-EVALUATION" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In a stratified sampling procedure, the auditor takes samples from different
+strata (or subgroups) in a population. An example of such a situation would be
+a group audit where the audited organization consists of different components or
+branches. Stratification is relevant for the group auditor if they must form an
+opinion on the group as a whole because they must aggregate the samples taken by
+the component auditors.</p>
+<p>As a data example, consider the <code>retailer</code> data set that comes with the package.
+The organization in question consists of 20 branches across the country. In each
+of the 20 strata, a component auditor has taken a statistical sample and
+reported the outcomes to the group auditor.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="CHAPTER-STRATIFIED-EVALUATION.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">stratum</th>
+<th align="right">items</th>
+<th align="right">samples</th>
+<th align="right">errors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5000</td>
+<td align="right">300</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">5000</td>
+<td align="right">300</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">5000</td>
+<td align="right">300</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">5000</td>
+<td align="right">300</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5000</td>
+<td align="right">300</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">5000</td>
+<td align="right">150</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">5000</td>
+<td align="right">150</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">5000</td>
+<td align="right">150</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">5000</td>
+<td align="right">150</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">5000</td>
+<td align="right">150</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">10000</td>
+<td align="right">50</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">10000</td>
+<td align="right">50</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">10000</td>
+<td align="right">50</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">10000</td>
+<td align="right">50</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">10000</td>
+<td align="right">50</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">10000</td>
+<td align="right">15</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">10000</td>
+<td align="right">15</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">10000</td>
+<td align="right">15</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">10000</td>
+<td align="right">15</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">4000</td>
+<td align="right">15</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<p>In general, there are three approaches to evaluating a stratified sample: no
+pooling, complete pooling, and partial pooling (see Derks et al., 2022). When
+using <code>evaluation()</code>, you must to indicate which type of pooling to use via the
+<code>pooling</code> argument. No pooling assumes no similarities between strata, which
+means that all strata are analyzed independently. Complete pooling assumes no
+difference between strata, which means that all data is aggregated and analyzed
+as a whole. Finally, partial pooling assumes differences and similarities
+between strata, which means that information can be shared between strata.
+Partial pooling (i.e., multilevel/hierarchical modeling) is a powerful
+technique that can result in more efficient population and stratum estimates but
+is currently only feasible when performing a Bayesian analysis. For this reason,
+this vignette only describes the Bayesian approach to stratified evaluation but
+going from this approach to a classical approach only requires setting
+<code>prior = FALSE</code>.</p>
+<p>The number of units per stratum in the population can be provided with <code>N.units</code>
+to weigh the stratum estimates to determine population estimate. This is called
+poststratification. If <code>N.units</code> is not specified, each stratum is assumed to be
+equally represented in the population.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="upgrading-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="evaluation-using-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="approach-1-no-pooling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +447,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch07.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>7.1 Approach 1: No pooling | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="7.1 Approach 1: No pooling | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="7.1 Approach 1: No pooling | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-a-package.html"/>
-<link rel="next" href="upgrading-a-package.html"/>
+<link rel="prev" href="CHAPTER-STRATIFIED-EVALUATION.html"/>
+<link rel="next" href="approach-2-complete-pooling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,26 +246,85 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-package" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Loading a Package<a href="loading-a-package.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once you have installed a package, you must load it into every R session. To
-load a package into your R session, call <code>library()</code> and provide the name of the
-package (without quotes) that you want to load. For example, before running the
-examples in this book, you can load the <code>jfa</code> package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
-<blockquote>
-<p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
-look at the source code of the package, see the
-<a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</blockquote>
+<div id="approach-1-no-pooling" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Approach 1: No pooling<a href="approach-1-no-pooling.html#approach-1-no-pooling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No pooling (<code>pooling = "none"</code>, default) assumes no similarities between strata.
+This means that the prior distribution specified through <code>prior</code> is applied
+independently for each stratum. This allows for independent estimates for the
+misstatement in each stratum but also results in a relatively high uncertainty
+in the population estimate. The call below evaluates the sample using a Bayesian
+stratified evaluation procedure, in which the stratum estimates are
+poststratified to arrive at the population estimate.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="approach-1-no-pooling.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
+<span id="cb40-2"><a href="approach-1-no-pooling.html#cb40-2" aria-hidden="true" tabindex="-1"></a>result_np <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb40-3"><a href="approach-1-no-pooling.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb40-4"><a href="approach-1-no-pooling.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items,</span>
+<span id="cb40-5"><a href="approach-1-no-pooling.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">pooling =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb40-6"><a href="approach-1-no-pooling.html#cb40-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-7"><a href="approach-1-no-pooling.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_np)</span>
+<span id="cb40-8"><a href="approach-1-no-pooling.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-9"><a href="approach-1-no-pooling.html#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation Summary</span></span>
+<span id="cb40-10"><a href="approach-1-no-pooling.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-11"><a href="approach-1-no-pooling.html#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb40-12"><a href="approach-1-no-pooling.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
+<span id="cb40-13"><a href="approach-1-no-pooling.html#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:                144000 </span></span>
+<span id="cb40-14"><a href="approach-1-no-pooling.html#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
+<span id="cb40-15"><a href="approach-1-no-pooling.html#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span id="cb40-16"><a href="approach-1-no-pooling.html#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         binomial </span></span>
+<span id="cb40-17"><a href="approach-1-no-pooling.html#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:             Determined via MCMC sampling </span></span>
+<span id="cb40-18"><a href="approach-1-no-pooling.html#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-19"><a href="approach-1-no-pooling.html#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb40-20"><a href="approach-1-no-pooling.html#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    2575 </span></span>
+<span id="cb40-21"><a href="approach-1-no-pooling.html#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               115 </span></span>
+<span id="cb40-22"><a href="approach-1-no-pooling.html#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  115 </span></span>
+<span id="cb40-23"><a href="approach-1-no-pooling.html#cb40-23" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-24"><a href="approach-1-no-pooling.html#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb40-25"><a href="approach-1-no-pooling.html#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:         Determined via MCMC sampling </span></span>
+<span id="cb40-26"><a href="approach-1-no-pooling.html#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.058487 </span></span>
+<span id="cb40-27"><a href="approach-1-no-pooling.html#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent credible interval:   [0.042763, 0.082201] </span></span>
+<span id="cb40-28"><a href="approach-1-no-pooling.html#cb40-28" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.023714 </span></span>
+<span id="cb40-29"><a href="approach-1-no-pooling.html#cb40-29" aria-hidden="true" tabindex="-1"></a><span class="co">#   BF₁₀:                             0 </span></span>
+<span id="cb40-30"><a href="approach-1-no-pooling.html#cb40-30" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-31"><a href="approach-1-no-pooling.html#cb40-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Strata (20):</span></span>
+<span id="cb40-32"><a href="approach-1-no-pooling.html#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="co">#        N   n  x  t     mle      lb      ub precision</span></span>
+<span id="cb40-33"><a href="approach-1-no-pooling.html#cb40-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   5000 300 21 21 0.07000 0.04637 0.10467   0.03467</span></span>
+<span id="cb40-34"><a href="approach-1-no-pooling.html#cb40-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 2   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
+<span id="cb40-35"><a href="approach-1-no-pooling.html#cb40-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 3   5000 300 15 15 0.05000 0.03069 0.08086   0.03086</span></span>
+<span id="cb40-36"><a href="approach-1-no-pooling.html#cb40-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   5000 300 14 14 0.04667 0.02816 0.07681   0.03014</span></span>
+<span id="cb40-37"><a href="approach-1-no-pooling.html#cb40-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 5   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
+<span id="cb40-38"><a href="approach-1-no-pooling.html#cb40-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
+<span id="cb40-39"><a href="approach-1-no-pooling.html#cb40-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 7   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
+<span id="cb40-40"><a href="approach-1-no-pooling.html#cb40-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 8   5000 150  3  3 0.02000 0.00726 0.05696   0.03696</span></span>
+<span id="cb40-41"><a href="approach-1-no-pooling.html#cb40-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
+<span id="cb40-42"><a href="approach-1-no-pooling.html#cb40-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
+<span id="cb40-43"><a href="approach-1-no-pooling.html#cb40-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
+<span id="cb40-44"><a href="approach-1-no-pooling.html#cb40-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 10000  50  3  3 0.06000 0.02178 0.16242   0.10242</span></span>
+<span id="cb40-45"><a href="approach-1-no-pooling.html#cb40-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 13 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
+<span id="cb40-46"><a href="approach-1-no-pooling.html#cb40-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 14 10000  50  1  1 0.02000 0.00478 0.10447   0.08447</span></span>
+<span id="cb40-47"><a href="approach-1-no-pooling.html#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 15 10000  50  0  0 0.00000 0.00050 0.06978   0.06978</span></span>
+<span id="cb40-48"><a href="approach-1-no-pooling.html#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span id="cb40-49"><a href="approach-1-no-pooling.html#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 17 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span id="cb40-50"><a href="approach-1-no-pooling.html#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 18 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span id="cb40-51"><a href="approach-1-no-pooling.html#cb40-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 19 10000  15  1  1 0.06667 0.01551 0.30232   0.23565</span></span>
+<span id="cb40-52"><a href="approach-1-no-pooling.html#cb40-52" aria-hidden="true" tabindex="-1"></a><span class="co"># 20  4000  15  3  3 0.20000 0.07266 0.45646   0.25646</span></span></code></pre></div>
+<p>In this case, the output of the <code>summary()</code> function shows that the estimate of
+the misstatement in the population is 5.85%, with the 95% credible interval
+ranging from 4.28% to 8.22%. The stratum estimates differ substantially from
+each other but are relatively uncertain.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="approach-1-no-pooling.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-49-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>The prior and posterior distribution for the population misstatement can be
+requested via the <code>plot()</code> function.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="approach-1-no-pooling.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-50-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="upgrading-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-STRATIFIED-EVALUATION.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="approach-2-complete-pooling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +355,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch07.Rmd",
 "text": "Edit"
 },
 "history": {

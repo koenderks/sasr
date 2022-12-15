@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>6.1 Classical Evaluation | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="6.1 Classical Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Loading a Package | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="6.1 Classical Evaluation | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-a-package.html"/>
-<link rel="next" href="upgrading-a-package.html"/>
+<link rel="prev" href="CHAPTER-UNSTRATIFIED-EVALUATION.html"/>
+<link rel="next" href="bayesian-evaluation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,26 +246,43 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-package" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Loading a Package<a href="loading-a-package.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once you have installed a package, you must load it into every R session. To
-load a package into your R session, call <code>library()</code> and provide the name of the
-package (without quotes) that you want to load. For example, before running the
-examples in this book, you can load the <code>jfa</code> package with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loading-a-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
-<blockquote>
-<p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
-look at the source code of the package, see the
-<a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</blockquote>
+<div id="classical-evaluation" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Classical Evaluation<a href="classical-evaluation.html#classical-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Classical hypothesis testing uses the <em>p</em>-value to make a decision about whether
+to reject the hypothesis <span class="math inline">\(H_0\)</span> or not. As an example, consider that an auditor
+wants to verify whether the population contains less than 5 percent misstatement,
+implying the hypotheses <span class="math inline">\(H_1:\theta&lt;0.05\)</span> and <span class="math inline">\(H_0:\theta\geq0.05\)</span>. They have
+taken a sample of 100 items, of which 1 contained an error. They set the
+significance level for the <em>p</em>-value to 0.05, implying that <span class="math inline">\(p &lt; 0.05\)</span> will be
+enough to reject the hypothesis <span class="math inline">\(H_0\)</span>. The call below evaluates the sample using
+a classical non-stratified evaluation procedure.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="classical-evaluation.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb33-2"><a href="classical-evaluation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-3"><a href="classical-evaluation.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
+<span id="cb33-4"><a href="classical-evaluation.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-5"><a href="classical-evaluation.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb33-6"><a href="classical-evaluation.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
+<span id="cb33-7"><a href="classical-evaluation.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
+<span id="cb33-8"><a href="classical-evaluation.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb33-9"><a href="classical-evaluation.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb33-10"><a href="classical-evaluation.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
+<span id="cb33-11"><a href="classical-evaluation.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb33-12"><a href="classical-evaluation.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb33-13"><a href="classical-evaluation.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
+<p>The output shows that the most likely error in the population is estimated to be
+1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
+4.74%. The output also shows that the <em>p</em>-value is lower than 0.05 implying that
+the hypothesis <span class="math inline">\(H_0\)</span> can be rejected. Hence, the auditor is able to conclude
+that the sample provides sufficient evidence to state with reasonable assurance
+that the population does not contain material misstatement.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="upgrading-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-UNSTRATIFIED-EVALUATION.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bayesian-evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +313,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch06.Rmd",
 "text": "Edit"
 },
 "history": {
