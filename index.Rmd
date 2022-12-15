@@ -23,7 +23,14 @@ bookdown::pdf_book: default
 
 <img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
-Welcome to the book **Statistical Auditing with R**, a practical guide that
-discusses statistical methods in auditing and how to perform them in R.
+Welcome to the book **Statistical Auditing with R**, a practical guide for
+auditors that want to use state-of-the-art statistical methodology in the audit.
+This book focuses on two auditing procedures that are commonly performend in a
+statistical manner: audit sampling and data auditing. It explains the underlying
+statistical auditing theory from a classical and Bayesian point of view and
+demonstrates how to perform these procedures in a sound manner compliant with
+international auditing standards using the **jfa** R package.
 
-Read online here for free, or buy a physical copy on [Amazon]().
+Please keep in mind that this is a preview release and a number of chapters are
+still missing. If you are missing some of the content today, then check back
+tomorrow: This book is actively being worked on.
