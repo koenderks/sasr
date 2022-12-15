@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Selecting Audit Samples {#CHAPTER-SELECTING-AUDIT-SAMPLES}
+# Selection {#CHAPTER-SELECTION}
 
 This chapter outlines the most commonly used sampling methodology for auditing
 and shows how to select a sample using these methods with the **jfa** package.
@@ -22,7 +22,7 @@ statement about a certain characteristic of the population. For this purpose,
 various selection methodologies are available that have become standard in an
 audit context.
 
-## Sampling units
+## Sampling Units
 
 Selecting a subset from the population requires knowledge of the sampling units;
 physical representations of the population that needs to be audited. Generally,
@@ -42,7 +42,7 @@ can be the date of payment of the receipt. When a sampling unit (e.g., date of
 payment) is selected by the sampling method, the population item that
 corresponds to the sampled unit is included in the sample.
 
-### Monetary units
+### Monetary Units
 
 A sampling unit for monetary unit sampling is different than a sampling unit for
 record sampling in that it is an individual monetary unit within an item or
@@ -51,7 +51,7 @@ be the 10$^{th}$ dollar from a specific receipt in the population. When a
 sampling unit (e.g., individual dollar) is selected by the sampling method, the
 population item that includes the sampling unit is included in the sample.
 
-## Sampling methods
+## Sampling Methods
 
 This section discusses the four sampling methods implemented in **jfa**. First,
 for notation, let the the population $N$ be defined as the total set of
@@ -73,7 +73,7 @@ illustrate the outcomes for different sampling methods, we will use the
 data(BuildIt)
 ```
 
-### Fixed interval sampling (Systematic sampling)
+### Fixed Interval Sampling
 
 Fixed interval sampling is a method designed for yielding representative samples
 from monetary populations. The algorithm determines a uniform interval on the
@@ -146,7 +146,7 @@ sample <- selection(data = BuildIt, size = 100, units = "values", method = "inte
 #head(sample$sample, n = 6)
 ```
 
-### Cell sampling
+### Cell Sampling
 
 The cell sampling method divides the (optionally ranked) population into a set
 of intervals $I$ that are computed through the previously given equations.
@@ -198,7 +198,7 @@ sample <- selection(data = BuildIt, size = 100, units = "values", method = "cell
 #head(sample$sample, n = 6)
 ```
 
-### Random sampling
+### Random Sampling
 
 Random sampling is the most simple and straight-forward selection method The
 random sampling method provides a method that allows every sampling unit in the
@@ -272,7 +272,7 @@ sample <- selection(data = BuildIt, size = 100, units = "values", method = "siev
 #head(sample$sample, n = 6)
 ```
 
-## Ordering or randomizing the population
+## Ordering or Randomizing the Population
 
 The `selection()` function has additional arguments (`order`, `decreasing`,
 and `randomize`) to preprocess your population before selection. The `order`
@@ -304,9 +304,3 @@ sample <- selection(
 )
 #head(sample$sample, n = 6)
 ```
-
-## References
-
-- Hoogduin, L. A., Hall, T. W., & Tsay, J. J. (2010). Modified sieve sampling: A method for single-and multi-stage probability-proportional-to-size sampling. *Auditing: A Journal of Practice & Theory*, 29(1), 125-148.
-- Leslie, D. A., Teitlebaum, A. D., & Anderson, R. J. (1979). *Dollar-unit Sampling: A Practical Guide for Auditors*. London: Pitman.
-

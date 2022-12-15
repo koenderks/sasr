@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Other Software Implementations {#CHAPTER-OTHER-SOFTWARE-IMPLEMENTATTIONS}
+# Other Software {#CHAPTER-OTHER-SOFTWARE}
 
 This chapter discusses other open-source (non-R) software implementing
 statistical techniques for audit sampling.

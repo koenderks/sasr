@@ -1,5 +1,5 @@
 ---
-title: "Statistical Auditing with R, 1st Edition"
+title: "Statistical Audit Sampling with R, 1st Edition"
 author: "Koen Derks"
 date: "`r Sys.Date()`"
 output:
@@ -25,14 +25,14 @@ bookdown::pdf_book: default
 <img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
 Welcome to the book **Statistical Audit Sampling with R**, a practical guide for
-auditors that want to use state-of-the-art statistical methodology in the audit.
-This book focuses on audit sampling but approaches it from two viewpoints: the
-classical (frequentist) approach and the Bayesian approch. Through these two
-lenses, it explains the statistical theory underlying commonly applied audit
-sampling procedures, and demonstrates how to perform these procedures in a
-statistically sound manner compliant with international auditing standards using
-the **jfa** [@jfa] R package.
+auditors that want to use state-of-the-art statistical methodology in their
+audit sampling activities. This book focuses on audit sampling but approaches it
+from two viewpoints: the classical (frequentist) approach and the Bayesian
+approach. Through these two lenses, it explains the statistical theory
+underlying commonly applied audit sampling procedures and demonstrates how to
+perform these procedures in a statistically sound manner compliant with
+international auditing standards using the **jfa** [@jfa] R package.
 
-Please keep in mind that this is a preview release and a number of chapters are
-still missing. If you are missing some of the content today, then check back
+Please keep in mind that this is a preview release and much content is still
+missing. If you are missing some of the content today, then check back
 tomorrow: This book is actively being worked on.

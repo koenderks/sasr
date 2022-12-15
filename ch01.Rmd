@@ -16,21 +16,31 @@ This chapter covers the basics: installing and using packages and loading data.
 
 ## Installing a Package
 
+A package is a small bundle of code that an R user wrote and uploaded to a
+central server for anybody to access, download and use. In many cases, you will
+download an R package from the [CRAN](http://cran.r-project.org/) server. This
+can be done via the `install.packages()` function by providing the package name
+in quotes. For example, an important package for data visualization is
+`ggplot2`. To install this package, you can simply run:
+
+```{r, eval=FALSE}
+install.packages("ggplot2")
+```
+
 This book illustrates its concepts and ideas using the `jfa` package, which can
-be downloaded from CRAN. You can install this package by running the command
-below in R:
+also be downloaded from CRAN. You can install this package by running the
+following command in R:
 
 ```{r, eval=FALSE}
 install.packages("jfa")
 ```
 
-
 ## Loading a Package
 
-To load a package into your R session, call `library()` and provide the name of
-the package you want to load. Naturally, this requires that you already have the
-package installed on the computer. For example, before running the examples in
-this book, you can load the `jfa` package with:
+Once you have installed a package, you must load it into every R session. To
+load a package into your R session, call `library()` and provide the name of the
+package (without quotes) that you want to load. For example, before running the
+examples in this book, you can load the `jfa` package with:
 
 ```{r, eval=FALSE}
 library(jfa)
@@ -40,22 +50,38 @@ library(jfa)
 look at the source code of the package, see the
 [package website](https://koenderks.github.io/jfa/).
 
-Packages in R are collections of functions and/or data that are bundled up for easy distribution, and installing a package will extend the functionality of R on your computer. If an R user creates a package and thinks that it might be useful for others, that user can distribute it through a package repository. The primary repository for distributing R packages is called CRAN (the Comprehensive R Archive Network), but there are others, such as Bioconductor, which specializes in packages related to genomic data.
-
-If you have spent much time learning R, you may have heard of the *tidyverse*, which is a collection of R packages that share common ideas of how data should be structured and manipulated. This is in contrast to *base R*, which is the set of packages that are included when you just download and install R. The tidyverse is a set of add-ons for R, which make it easier to do many operations related to data manipulation and visualization. This book mostly uses the tidyverse, as I believe that it provides a quicker and simpler (but not less powerful!) way to work with data.
-
 ## Upgrading a Package
 
-To update a package in your R library, call `update.packages()` and provide the
-name of the package you want to update. For example, you can update the `jfa`
-package with:
+R packages are updated regularly. To update a package in your R library you
+should call `update.packages()` and provide the name of the package that you
+want to update in quotes. For example, each time there is a new release of the
+`jfa` package, you can update it by running:
 
 ```{r, eval=FALSE}
 update.packages("jfa")
 ```
 
+## Loading Data from a CSV File
 
-## Loading a Delimited Text Data File
+A commonly used data type is a `.csv` file. You can load this type of files
+via the `read.csv()` function. For example, if the file `example.csv` is in
+the current working directory, you can load it by running:
 
+```{r, eval=FALSE}
+read.csv("example.csv")
+```
 
 ## Loading Data from an Excel File
+
+Another commonly used data type are Excel files. You can load this type of files
+via the `read_excel()` function from the `readxl` package. For this to work, you
+should first install this package using the `install.packages()` command and
+load it into the R session using a call to `library()`. For example, if the file
+`example.xlsx` is in the current working directory, and the data you want to
+load is on the first worksheet, you can load it by running:
+
+```{r, eval=FALSE}\
+install.packages("readxl")
+library(readxl)
+read_excel("example.csv", sheet = 1)
+```

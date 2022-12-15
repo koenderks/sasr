@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Stratified Evaluation of Audit Samples {#CHAPTER-STRATIFIED-EVALUATION-OF-AUDIT-SAMPLES}
+# Stratified Evaluation {#CHAPTER-STRATIFIED-EVALUATION}
 
 In a stratified sampling procedure, the auditor takes samples from different
 strata (or subgroups) in a population. An example of such a situation would be
@@ -26,8 +26,10 @@ reported the outcomes to the group auditor.
 
 ```{r}
 data(retailer)
-options(mc.chains = 1)
-#print(retailer)
+```
+
+```{r echo = FALSE}
+knitr::kable(retailer)
 ```
 
 In general, there are three approaches to evaluating a stratified sample: no
@@ -50,7 +52,7 @@ to weigh the stratum estimates to determine population estimate. This is called
 poststratification. If `N.units` is not specified, each stratum is assumed to be
 equally represented in the population.
 
-#### Approach 1: No pooling
+## Approach 1: No pooling
 
 No pooling (`pooling = "none"`, default) assumes no similarities between strata.
 This means that the prior distribution specified through `prior` is applied
@@ -86,7 +88,7 @@ requested via the `plot()` function.
 plot(result_np, type = "posterior")
 ```
 
-#### Approach 2: Complete pooling
+## Approach 2: Complete pooling
 
 Complete pooling (`pooling = "complete"`) assumes no differences between strata.
 This has the advantages that data from all strata can be aggregated, which
@@ -124,7 +126,7 @@ requested via the `plot()` function.
 plot(result_cp, type = "posterior")
 ```
 
-#### Approach 3: Partial pooling
+## Approach 3: Partial pooling
 
 Finally, partial pooling (`pooling = "partial"`) assumes differences and
 similarities between strata. This allows the auditor to differentiate between
@@ -175,47 +177,6 @@ data(allowances)
 #head(allowances)
 ```
 
-### Non-stratified samples
-
-Evaluating a non-stratified sample using data requires specification of the
-`data`, `values` and `values.audit` arguments. The input for these arguments is
-the name of the specific column in `data`.
-
-#### Classical evaluation
-
-The call below evaluates the `allowances` sample using a classical
-non-stratified evaluation procedure.
-
-```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances,
-  values = "bookValue", values.audit = "auditValue", times = "times"
-)
-summary(x)
-```
-
-In this case, the output shows that the estimate of the misstatement in the
-population is 15.77%, with the 95% (one-sided) confidence interval ranging from
-0% to 17.5%.
-
-#### Bayesian evaluation
-
-The call below evaluates the `allowances` sample using a Bayesian non-stratified
-evaluation procedure.
-
-```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances, prior = TRUE,
-  values = "bookValue", values.audit = "auditValue", times = "times"
-)
-summary(x)
-```
-
-The output shows that the estimate of the misstatement in the population is
-15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.
-
-### Stratified samples
-
 Evaluating a stratified sample using data requires specification of the `data`,
 `values`, `values.audit` and `strata` arguments in the `evaluation()` function.
 In this case, the units are monetary and calculated by aggregating the book
@@ -225,7 +186,7 @@ values of the items in each stratum.
 N.units <- aggregate(allowances$bookValue, list(allowances$branch), sum)$x
 ```
 
-#### Classical evaluation
+### Classical Evaluation
 
 The call below evaluates the `allowances` sample using a classical stratified
 evaluation procedure, in which the stratum estimates are poststratified to
@@ -249,7 +210,7 @@ can be seen in the output of the `summary()` function and are visualized below.
 plot(x, type = "estimates")
 ```
 
-#### Bayesian evaluation
+### Bayesian Evaluation
 
 Bayesian inference can improve upon the estimates of the classical approach by
 pooling information between strata where possible. The call below evaluates the

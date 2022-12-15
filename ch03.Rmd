@@ -55,7 +55,7 @@ the misstatement in the population.
 
 <p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/workflow.png' alt='workflow' width='100%'></p>
 
-## Setting up the audit
+## Setting Up the Audit
 
 The auditor wants to make a statement that, with 95% confidence, the misstatement
 in the population is lower than the performance materiality of 5%. Based on last
@@ -106,7 +106,7 @@ ir <- 1 # 100%
 cr <- 0.6 # 60%
 ```
 
-## Stage 1: Planning an audit sample
+## Planning an Audit Sample
 
 <p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/planning.png' alt='planning' width='100%'></p>
 
@@ -136,7 +136,7 @@ is lower than the performance materiality of 5%.
 summary(stage1)
 ```
 
-## Stage 2: Selecting a sample
+## Selecting a Sample
 
 <p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/selection.png' alt='selection' width='100%'></p>
 
@@ -170,7 +170,7 @@ by using the `summary()` function.
 summary(stage2)
 ```
 
-## Stage 3: Executing the audit
+## Performing the Audit
 
 The selected sample can be isolated by indexing the `sample` object from the
 sampling result.
@@ -194,7 +194,7 @@ write.csv(x = sample, file = "auditSample.csv", row.names = FALSE)
 sample <- read.csv(file = "auditSample.csv")
 ```
 
-## Stage 4: Evaluating the sample
+## Evaluating the Sample
 
 <p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/evaluation.png' alt='evaluation' width='100%'></p>
 
@@ -217,7 +217,7 @@ performance materiality of 5%.
 summary(stage4)
 ```
 
-## Conclusion
+## Making a Decision
 
 Since the 91.66% upper confidence bound on the misstatement in population is
 lower than the performance materiality, the auditor has obtained sufficient

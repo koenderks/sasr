@@ -10,13 +10,13 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Unstratified Evaluation of Audit Samples {#CHAPTER-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES}
+# Unstratified Evaluation {#CHAPTER-UNSTRATIFIED-EVALUATION}
 
 In a non-stratified sampling procedure, the auditor does not take samples from
 different strata or subgroups in a population. An example of such a situation
 would be where the auditor is auditing the general ledger of a small business.
 
-#### Classical evaluation
+## Classical Evaluation
 
 Classical hypothesis testing uses the *p*-value to make a decision about whether
 to reject the hypothesis $H_0$ or not. As an example, consider that an auditor
@@ -38,7 +38,7 @@ the hypothesis $H_0$ can be rejected. Hence, the auditor is able to conclude
 that the sample provides sufficient evidence to state with reasonable assurance
 that the population does not contain material misstatement.
 
-#### Bayesian evaluation
+## Bayesian Evaluation
 
 Bayesian hypothesis testing uses the Bayes factor, $BF_{10}$ or $BF_{01}$, to
 make a statement about the evidence provided by the sample in support for one of
@@ -94,3 +94,54 @@ convincing Bayes factors, the results can be considered robust to the choice of
 prior distribution. Hence, the auditor is able to conclude that the sample
 provides convincing evidence to state that the population does not contain
 material misstatement.
+
+## Evaluation using Data
+
+For this example, we take the `allowances` that set that comes with the package.
+This data set contains 3500 financial statement line items, each with a booked
+value `bookValue` and, for illustrative purposes, and audited (true) value
+`auditValue`. Since the focus of this vignette is the evaluation stage in the
+audit, the sample is already indicated in the data set. The performance
+materiality in this example is set to 5%.
+
+```{r}
+data(allowances)
+#head(allowances)
+```
+
+Evaluating a non-stratified sample using data requires specification of the
+`data`, `values` and `values.audit` arguments. The input for these arguments is
+the name of the specific column in `data`.
+
+### Classical Evaluation
+
+The call below evaluates the `allowances` sample using a classical
+non-stratified evaluation procedure.
+
+```{r}
+x <- evaluation(
+  materiality = 0.05, data = allowances,
+  values = "bookValue", values.audit = "auditValue", times = "times"
+)
+summary(x)
+```
+
+In this case, the output shows that the estimate of the misstatement in the
+population is 15.77%, with the 95% (one-sided) confidence interval ranging from
+0% to 17.5%.
+
+### Bayesian evaluation
+
+The call below evaluates the `allowances` sample using a Bayesian non-stratified
+evaluation procedure.
+
+```{r}
+x <- evaluation(
+  materiality = 0.05, data = allowances, prior = TRUE,
+  values = "bookValue", values.audit = "auditValue", times = "times"
+)
+summary(x)
+```
+
+The output shows that the estimate of the misstatement in the population is
+15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.
