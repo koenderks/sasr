@@ -9,20 +9,36 @@ editor_options:
 Preface {-}
 ========
 
-This book is for auditors who want to use statistical sampling. Even a scanning of it should convince many auditors that statistical sampling is as specialized an audit tool as the computer and also that it holds nearly as much promise for enhancing audit practice. Both statistical sampling and the computer require improved audit planning and a more thorough understanding of the objectives of audit tests. However, until now, there has not been an understandable and comprehensive explanation of statistical sampling in auditing comparable to material available on the computer.
+This book is for auditors who want to use statistical methodology in the audit
+using the statistical programming language R. It thoroughly, but understandably,
+covers an array of statistical techniques available to auditors, explaining what
+they are, the assumptions on which they are based, and when they should be used.
+Furthermore, it offers concrete suggestions for incorporating statistical
+methodology into audit practice and demonstrates its usefulness using practical
+case studies. Hopefully, this book can be a resource for the efficient and
+effective use of statistical methods in audit practice.
 
-The book covers the array of statistical techniques available to the auditor thoroughly, yet understandably, and explains what they are, the assumptions on which they are based, and in what circumstances they should be used. Some statistical techniques—such as dollar unit sampling, discovery sampling, or difference estima­ tion—have been touted as ideally suited to the needs of auditors. This book makes clear that no sampling plan is superior in every situation. More important, it explains the considerations that should determine the auditor’s choice of a particular sampling plan
+This book adresses the need for a transparent and clear description of the
+application of statistical methods in audit practice. I have found that most
+guidance about statistics in auditing and implementations of these methods
+are often untransparent and closed-source tools with insufficient detail to
+allow for transparent reproduction (e.g., closed Excel sheets) and understanding.
+As such, many questions about how results come to be are left unanswered. This
+book aims to provide full control to the auditor when it comes to explaining the
+statistical methodology used.
 
-The book provides practical ideas on incorporating statistical sampling into audit practice. Advice is given on establishing firm-wide policies, conducting training pro­ grams, and documenting and reviewing statistical applications. Often, valid applica­ tion of statistical sampling in auditing requires specialized knowledge that exceeds the practical knowledge and skills of a staff auditor; this book will increase recogni­ tion of that. However, it will also provide the basis for a CPA firm to develop and implement the specialization required for efficient and effective use of statistical sampling in its practice.
+This book focuses on two auditing procedures that are commonly performend in a
+statistical manner: audit sampling and data auditing. It explains the underlying
+statistical auditing theory from a classical and Bayesian point of view and
+demonstrates how to perform these procedures in a sound manner compliant with
+international auditing standards. Bayesian auditing procedures can have great
+benefits for auditors in practice and this book will elaborate on each of them.
 
-Manual application of statistical sampling is often expensive, tedious, and time­ consuming—disadvantages that usually offset the expected advantages of statistical sampling. This book not only recognizes the importance of the computer to effective and efficient application of statistical sampling, but supplies useful computer pro­ grams as well.
-
-Finally, although some progress has been made in relating statistical tests to audit judgments, this book is more comprehensive in this area. Statistical tests often provide only part of the audit evidence for a particular account or class of transactions and never provide more than a portion of the evidence supporting an opinion on financial statements. This book offers many suggestions for integrating statistical tests with other audit tests and relating statistical judgments to other audit judgments.
-
-Auditors have long needed a practical and knowledgeable explanation of statis­ tical applications in auditing. Most discussions about statistics in auditing are either simplified introductions without enough detail to permit direct application or esoteric dissertations filled with statistical jargon and complex formulas This book is neither simplistic nor esoteric; it provides a systematic approach to audit planning that includes statistics as an important tool.
-
-The purpose of this book is to help the auditor use statistical sampling in audit practice. Statistical techniques currently being used in practice are discussed together with some suggestions concerning how and when each may be imple­ mented The major topic addressed is the integration of statistical sampling into the auditing process
-Although a brief review is provided, the reader is expected to be familiar with the basic concepts of statistical sampling. The exposition is directed to auditors who already know something about commonly used statistical techniques and want to incorporate them into an audit practice.
-The necessary background in statistical concepts may have been acquired in a variety of ways the programmed instruction series published by the AICPA, college coursework, or programs available through organizations such as the Institute of Internal Auditors, the state societies of CPAs, or one of the CPA firms However, those persons whose backgrounds consist of self-instruction would benefit from discussion with others who have had some experience in using statistical techniques in auditing.
-The first chapter discusses the audit process from the point of view of the auditor who wishes to limit audit risk and, thus, demonstrates the role of statistical sampling Chapters 2 through 6 summarize the basic statistical concepts and techniques that are currently used in statistical auditing Chapter 7 suggests procedures that might be used in integrating these techniques into the auditing process in order to limit the risk caused by observing only a sample Chapter 8 illustrates those procedures by means of an extended case study, and chapter 9 describes the set of computer programs that assist the auditor in planning, selecting, and evaluating statistical samples. Finally, the problems of training and implementation are discussed in chapter 10
-
+In part 1, Chapter 1 provides an introduction to the R programming language.
+Chapter 2 gives a brief overview of how statistical methodology can be applied
+in the audit. In part 2, Chapter 3 discusses the basic statistical theory
+underlying audit sampling. Chapter 4 discusses the standard audit sampling
+workflow. Chapter 5, 6, 7, and 8 go into more detail about using statistial
+methods to plan, select and evaluate audit samples. Finally, Chapter 9 discusses
+other software implementations of audit sampling. In part 3, Chapter 10
+gives an overview of the basic statistical theory underlying data auditing.

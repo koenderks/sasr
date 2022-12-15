@@ -6,6 +6,7 @@ output:
   html_document:
     df_print: paged
 documentclass: book
+bibliography: references.bib 
 biblio-style: apalike
 link-citations: yes
 description: |
@@ -29,7 +30,7 @@ This book focuses on two auditing procedures that are commonly performend in a
 statistical manner: audit sampling and data auditing. It explains the underlying
 statistical auditing theory from a classical and Bayesian point of view and
 demonstrates how to perform these procedures in a sound manner compliant with
-international auditing standards using the **jfa** R package.
+international auditing standards using the **jfa** [@jfa] R package.
 
 Please keep in mind that this is a preview release and a number of chapters are
 still missing. If you are missing some of the content today, then check back

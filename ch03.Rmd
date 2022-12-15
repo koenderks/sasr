@@ -12,7 +12,7 @@ source("utils.R", local = TRUE)
 
 # (PART) Audit Sampling {-} 
 
-Basic Statistical Concepts {#CHAPTER-AS-BASIC-CONCEPTS}
-========
+Basic Concepts {#CHAPTER-AS-BASIC-CONCEPTS}
+==============
 
 This chapter covers the basics: installing and using packages and loading data.
