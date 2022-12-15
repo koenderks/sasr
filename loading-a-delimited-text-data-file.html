@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.5 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition</title>
+  <title>1.4 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition</title>
   <meta name="description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition" />
+  <meta property="og:title" content="1.4 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition" />
+  <meta name="twitter:title" content="1.4 Loading a Delimited Text Data File | Statistical Auditing with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="upgrading-packages.html"/>
+<link rel="prev" href="upgrading-a-package.html"/>
 <link rel="next" href="loading-data-from-an-excel-file.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -141,45 +141,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="installing-a-package.html"><a href="installing-a-package.html"><i class="fa fa-check"></i><b>1.1</b> Installing a Package</a></li>
 <li class="chapter" data-level="1.2" data-path="loading-a-package.html"><a href="loading-a-package.html"><i class="fa fa-check"></i><b>1.2</b> Loading a Package</a></li>
-<li class="chapter" data-level="1.3" data-path="loading-a-package-1.html"><a href="loading-a-package-1.html"><i class="fa fa-check"></i><b>1.3</b> Loading a Package</a>
+<li class="chapter" data-level="1.3" data-path="upgrading-a-package.html"><a href="upgrading-a-package.html"><i class="fa fa-check"></i><b>1.3</b> Upgrading a Package</a></li>
+<li class="chapter" data-level="1.4" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html"><i class="fa fa-check"></i><b>1.4</b> Loading a Delimited Text Data File</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="loading-a-package-1.html"><a href="loading-a-package-1.html#problem"><i class="fa fa-check"></i><b>1.3.1</b> Problem</a></li>
-<li class="chapter" data-level="1.3.2" data-path="loading-a-package-1.html"><a href="loading-a-package-1.html#solution"><i class="fa fa-check"></i><b>1.3.2</b> Solution</a></li>
-<li class="chapter" data-level="1.3.3" data-path="loading-a-package-1.html"><a href="loading-a-package-1.html#discussion"><i class="fa fa-check"></i><b>1.3.3</b> Discussion</a></li>
+<li class="chapter" data-level="1.4.1" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#problem"><i class="fa fa-check"></i><b>1.4.1</b> Problem</a></li>
+<li class="chapter" data-level="1.4.2" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#solution"><i class="fa fa-check"></i><b>1.4.2</b> Solution</a></li>
+<li class="chapter" data-level="1.4.3" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#discussion"><i class="fa fa-check"></i><b>1.4.3</b> Discussion</a></li>
+<li class="chapter" data-level="1.4.4" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#see-also"><i class="fa fa-check"></i><b>1.4.4</b> See Also</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="upgrading-packages.html"><a href="upgrading-packages.html"><i class="fa fa-check"></i><b>1.4</b> Upgrading Packages</a>
+<li class="chapter" data-level="1.5" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading Data from an Excel File</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="upgrading-packages.html"><a href="upgrading-packages.html#problem-1"><i class="fa fa-check"></i><b>1.4.1</b> Problem</a></li>
-<li class="chapter" data-level="1.4.2" data-path="upgrading-packages.html"><a href="upgrading-packages.html#solution-1"><i class="fa fa-check"></i><b>1.4.2</b> Solution</a></li>
-<li class="chapter" data-level="1.4.3" data-path="upgrading-packages.html"><a href="upgrading-packages.html#discussion-1"><i class="fa fa-check"></i><b>1.4.3</b> Discussion</a></li>
+<li class="chapter" data-level="1.5.1" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#problem-1"><i class="fa fa-check"></i><b>1.5.1</b> Problem</a></li>
+<li class="chapter" data-level="1.5.2" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#solution-1"><i class="fa fa-check"></i><b>1.5.2</b> Solution</a></li>
+<li class="chapter" data-level="1.5.3" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#discussion-1"><i class="fa fa-check"></i><b>1.5.3</b> Discussion</a></li>
+<li class="chapter" data-level="1.5.4" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#see-also-1"><i class="fa fa-check"></i><b>1.5.4</b> See Also</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading a Delimited Text Data File</a>
+<li class="chapter" data-level="1.6" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html"><i class="fa fa-check"></i><b>1.6</b> Loading Data from SPSS/SAS/Stata Files</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#problem-2"><i class="fa fa-check"></i><b>1.5.1</b> Problem</a></li>
-<li class="chapter" data-level="1.5.2" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#solution-2"><i class="fa fa-check"></i><b>1.5.2</b> Solution</a></li>
-<li class="chapter" data-level="1.5.3" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#discussion-2"><i class="fa fa-check"></i><b>1.5.3</b> Discussion</a></li>
-<li class="chapter" data-level="1.5.4" data-path="loading-a-delimited-text-data-file.html"><a href="loading-a-delimited-text-data-file.html#see-also"><i class="fa fa-check"></i><b>1.5.4</b> See Also</a></li>
-</ul></li>
-<li class="chapter" data-level="1.6" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.6</b> Loading Data from an Excel File</a>
-<ul>
-<li class="chapter" data-level="1.6.1" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#problem-3"><i class="fa fa-check"></i><b>1.6.1</b> Problem</a></li>
-<li class="chapter" data-level="1.6.2" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#solution-3"><i class="fa fa-check"></i><b>1.6.2</b> Solution</a></li>
-<li class="chapter" data-level="1.6.3" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#discussion-3"><i class="fa fa-check"></i><b>1.6.3</b> Discussion</a></li>
-<li class="chapter" data-level="1.6.4" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html#see-also-1"><i class="fa fa-check"></i><b>1.6.4</b> See Also</a></li>
-</ul></li>
-<li class="chapter" data-level="1.7" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html"><i class="fa fa-check"></i><b>1.7</b> Loading Data from SPSS/SAS/Stata Files</a>
-<ul>
-<li class="chapter" data-level="1.7.1" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#problem-4"><i class="fa fa-check"></i><b>1.7.1</b> Problem</a></li>
-<li class="chapter" data-level="1.7.2" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#solution-4"><i class="fa fa-check"></i><b>1.7.2</b> Solution</a></li>
-<li class="chapter" data-level="1.7.3" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#discussion-4"><i class="fa fa-check"></i><b>1.7.3</b> Discussion</a></li>
-<li class="chapter" data-level="1.7.4" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#see-also-2"><i class="fa fa-check"></i><b>1.7.4</b> See Also</a></li>
-</ul></li>
-<li class="chapter" data-level="1.8" data-path="RECIPE-R-BASICS-PIPE.html"><a href="RECIPE-R-BASICS-PIPE.html"><i class="fa fa-check"></i><b>1.8</b> Chaining Functions Together With <code>%&gt;%</code>, the Pipe Operator</a>
-<ul>
-<li class="chapter" data-level="1.8.1" data-path="RECIPE-R-BASICS-PIPE.html"><a href="RECIPE-R-BASICS-PIPE.html#problem-5"><i class="fa fa-check"></i><b>1.8.1</b> Problem</a></li>
-<li class="chapter" data-level="1.8.2" data-path="RECIPE-R-BASICS-PIPE.html"><a href="RECIPE-R-BASICS-PIPE.html#solution-5"><i class="fa fa-check"></i><b>1.8.2</b> Solution</a></li>
-<li class="chapter" data-level="1.8.3" data-path="RECIPE-R-BASICS-PIPE.html"><a href="RECIPE-R-BASICS-PIPE.html#discussion-5"><i class="fa fa-check"></i><b>1.8.3</b> Discussion</a></li>
-<li class="chapter" data-level="1.8.4" data-path="RECIPE-R-BASICS-PIPE.html"><a href="RECIPE-R-BASICS-PIPE.html#see-also-3"><i class="fa fa-check"></i><b>1.8.4</b> See Also</a></li>
+<li class="chapter" data-level="1.6.1" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#problem-2"><i class="fa fa-check"></i><b>1.6.1</b> Problem</a></li>
+<li class="chapter" data-level="1.6.2" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#solution-2"><i class="fa fa-check"></i><b>1.6.2</b> Solution</a></li>
+<li class="chapter" data-level="1.6.3" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#discussion-2"><i class="fa fa-check"></i><b>1.6.3</b> Discussion</a></li>
+<li class="chapter" data-level="1.6.4" data-path="loading-data-from-spsssasstata-files.html"><a href="loading-data-from-spsssasstata-files.html#see-also-2"><i class="fa fa-check"></i><b>1.6.4</b> See Also</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="CHAPTER-STATISTICS-IN-THE-AUDIT.html"><a href="CHAPTER-STATISTICS-IN-THE-AUDIT.html"><i class="fa fa-check"></i><b>2</b> Statistics in the Audit</a></li>
@@ -207,46 +189,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loading-a-delimited-text-data-file" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Loading a Delimited Text Data File<a href="loading-a-delimited-text-data-file.html#loading-a-delimited-text-data-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="problem-2" class="section level3 hasAnchor" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Problem<a href="loading-a-delimited-text-data-file.html#problem-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loading-a-delimited-text-data-file" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Loading a Delimited Text Data File<a href="loading-a-delimited-text-data-file.html#loading-a-delimited-text-data-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Problem<a href="loading-a-delimited-text-data-file.html#problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You want to load data from a delimited text file.</p>
 </div>
-<div id="solution-2" class="section level3 hasAnchor" number="1.5.2">
-<h3><span class="header-section-number">1.5.2</span> Solution<a href="loading-a-delimited-text-data-file.html#solution-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Solution<a href="loading-a-delimited-text-data-file.html#solution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The most common way to read in a file is to use comma-separated values (CSV) data:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="loading-a-delimited-text-data-file.html#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="loading-a-delimited-text-data-file.html#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>)</span></code></pre></div>
 <p>Alternatively, you can use the <code>read_csv()</code> function (note the underscore instead of period) from the readr package. This function is significantly faster than <code>read.csv()</code>, and</p>
 </div>
-<div id="discussion-2" class="section level3 hasAnchor" number="1.5.3">
-<h3><span class="header-section-number">1.5.3</span> Discussion<a href="loading-a-delimited-text-data-file.html#discussion-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="discussion" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Discussion<a href="loading-a-delimited-text-data-file.html#discussion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Since data files have many different formats, there are many options for loading them. For example, if the data file does <em>not</em> have headers in the first row:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="loading-a-delimited-text-data-file.html#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="loading-a-delimited-text-data-file.html#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>The resulting data frame will have columns named <code>V1</code>, <code>V2</code>, and so on, and you will probably want to rename them manually:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="loading-a-delimited-text-data-file.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually assign the header names</span></span>
-<span id="cb8-2"><a href="loading-a-delimited-text-data-file.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Column1&quot;</span>, <span class="st">&quot;Column2&quot;</span>, <span class="st">&quot;Column3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="loading-a-delimited-text-data-file.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually assign the header names</span></span>
+<span id="cb6-2"><a href="loading-a-delimited-text-data-file.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Column1&quot;</span>, <span class="st">&quot;Column2&quot;</span>, <span class="st">&quot;Column3&quot;</span>)</span></code></pre></div>
 <p>You can set the delimiter with sep. If it is space-delimited, use <code>sep = " "</code>. If it is tab-delimited, use <code>\t</code>, as in:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="loading-a-delimited-text-data-file.html#cb9-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="loading-a-delimited-text-data-file.html#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p>By default, strings in the data are treated as factors. Suppose this is your data file, and you read it in using <code>read.csv()</code>:</p>
 <pre><code>&quot;First&quot;,&quot;Last&quot;,&quot;Sex&quot;,&quot;Number&quot;
 &quot;Currer&quot;,&quot;Bell&quot;,&quot;F&quot;,2
 &quot;Dr.&quot;,&quot;Seuss&quot;,&quot;M&quot;,49
 &quot;&quot;,&quot;Student&quot;,NA,21</code></pre>
 <p>The resulting data frame will store <code>First</code> and <code>Last</code> as <em>factors</em>, though it makes more sense in this case to treat them as strings (or <em>character vectors</em> in R terminology). To differentiate this, use <code>stringsAsFactors = FALSE</code>. If there are any columns that should be treated as factors, you can then convert them individually:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="loading-a-delimited-text-data-file.html#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb11-2"><a href="loading-a-delimited-text-data-file.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to factor</span></span>
-<span id="cb11-3"><a href="loading-a-delimited-text-data-file.html#cb11-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Sex)</span>
-<span id="cb11-4"><a href="loading-a-delimited-text-data-file.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span>
-<span id="cb11-5"><a href="loading-a-delimited-text-data-file.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;: 3 obs. of 4 variables:</span></span>
-<span id="cb11-6"><a href="loading-a-delimited-text-data-file.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ First : chr &quot;Currer&quot; &quot;Dr.&quot; &quot;&quot;</span></span>
-<span id="cb11-7"><a href="loading-a-delimited-text-data-file.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Last : chr &quot;Bell&quot; &quot;Seuss&quot; &quot;Student&quot;</span></span>
-<span id="cb11-8"><a href="loading-a-delimited-text-data-file.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Sex : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 NA</span></span>
-<span id="cb11-9"><a href="loading-a-delimited-text-data-file.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Number: int 2 49 21</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="loading-a-delimited-text-data-file.html#cb9-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datafile.csv&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-2"><a href="loading-a-delimited-text-data-file.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to factor</span></span>
+<span id="cb9-3"><a href="loading-a-delimited-text-data-file.html#cb9-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Sex)</span>
+<span id="cb9-4"><a href="loading-a-delimited-text-data-file.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span>
+<span id="cb9-5"><a href="loading-a-delimited-text-data-file.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;: 3 obs. of 4 variables:</span></span>
+<span id="cb9-6"><a href="loading-a-delimited-text-data-file.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ First : chr &quot;Currer&quot; &quot;Dr.&quot; &quot;&quot;</span></span>
+<span id="cb9-7"><a href="loading-a-delimited-text-data-file.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Last : chr &quot;Bell&quot; &quot;Seuss&quot; &quot;Student&quot;</span></span>
+<span id="cb9-8"><a href="loading-a-delimited-text-data-file.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Sex : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 NA</span></span>
+<span id="cb9-9"><a href="loading-a-delimited-text-data-file.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ Number: int 2 49 21</span></span></code></pre></div>
 <p>Alternatively, you could load the file with strings as factors, and then convert individual columns from factors to characters.</p>
 </div>
-<div id="see-also" class="section level3 hasAnchor" number="1.5.4">
-<h3><span class="header-section-number">1.5.4</span> See Also<a href="loading-a-delimited-text-data-file.html#see-also" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="see-also" class="section level3 hasAnchor" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> See Also<a href="loading-a-delimited-text-data-file.html#see-also" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>read.csv()</code> is a convenience wrapper function around <code>read.table()</code>. If you need more control over the input, see <code>?read.table</code>.</p>
 </div>
 </div>
@@ -255,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="upgrading-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="upgrading-a-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="loading-data-from-an-excel-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
