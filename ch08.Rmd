@@ -15,7 +15,6 @@ source("utils.R", local = TRUE)
 This chapter discusses other open-source (non-R) software implementing
 statistical techniques for audit sampling.
 
-
 ## JASP for audit
 
 JASP for Audit is an add-on module for [JASP](http://jasp-stats.org/) that
@@ -29,5 +28,3 @@ of these analyses that enable the user to easily incorporate prior information
 into the statistical procedure. In all analyses, the Audit module offers
 explanatory text that helps the auditor in interpreting, explaining, and
 reporting the analysis.
-
-
