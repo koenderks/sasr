@@ -192,12 +192,29 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="CHAPTER-AS-BASIC-CONCEPTS.html"><a href="CHAPTER-AS-BASIC-CONCEPTS.html"><i class="fa fa-check"></i><b>3</b> Basic Concepts</a></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW.html"><a href="CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW.html"><i class="fa fa-check"></i><b>4</b> The Audit Sampling Workflow</a></li>
 <li class="chapter" data-level="5" data-path="CHAPTER-AS-PLANNING-AUDIT-SAMPLES.html"><a href="CHAPTER-AS-PLANNING-AUDIT-SAMPLES.html"><i class="fa fa-check"></i><b>5</b> Planning Audit Samples</a></li>
-<li class="chapter" data-level="6" data-path="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"><a href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"><i class="fa fa-check"></i><b>6</b> Selecting Audit Samples</a></li>
+<li class="chapter" data-level="6" data-path="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"><a href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"><i class="fa fa-check"></i><b>6</b> Selecting Audit Samples</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sampling-units.html"><a href="sampling-units.html"><i class="fa fa-check"></i><b>6.1</b> Sampling units</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="sampling-units.html"><a href="sampling-units.html#items"><i class="fa fa-check"></i><b>6.1.1</b> Items</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sampling-units.html"><a href="sampling-units.html#monetary-units"><i class="fa fa-check"></i><b>6.1.2</b> Monetary units</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sampling-methods.html"><a href="sampling-methods.html"><i class="fa fa-check"></i><b>6.2</b> Sampling methods</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sampling-methods.html"><a href="sampling-methods.html#fixed-interval-sampling-systematic-sampling"><i class="fa fa-check"></i><b>6.2.1</b> Fixed interval sampling (Systematic sampling)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sampling-methods.html"><a href="sampling-methods.html#cell-sampling"><i class="fa fa-check"></i><b>6.2.2</b> Cell sampling</a></li>
+<li class="chapter" data-level="6.2.3" data-path="sampling-methods.html"><a href="sampling-methods.html#random-sampling"><i class="fa fa-check"></i><b>6.2.3</b> Random sampling</a></li>
+<li class="chapter" data-level="6.2.4" data-path="sampling-methods.html"><a href="sampling-methods.html#modified-sieve-sampling"><i class="fa fa-check"></i><b>6.2.4</b> Modified Sieve Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ordering-or-randomizing-the-population.html"><a href="ordering-or-randomizing-the-population.html"><i class="fa fa-check"></i><b>6.3</b> Ordering or randomizing the population</a></li>
+<li class="chapter" data-level="6.4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6.4</b> References</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="CHAPTER-AS-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES.html"><a href="CHAPTER-AS-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES.html"><i class="fa fa-check"></i><b>7</b> Unstratified Evaluation of Audit Samples</a></li>
 <li class="chapter" data-level="8" data-path="CHAPTER-AS-STRATIFIED-EVALUATION-OF-AUDIT-SAMPLES.html"><a href="CHAPTER-AS-STRATIFIED-EVALUATION-OF-AUDIT-SAMPLES.html"><i class="fa fa-check"></i><b>8</b> Stratified Evaluation of Audit Samples</a></li>
 <li class="chapter" data-level="9" data-path="CHAPTER-AS-OTHER-SOFTWARE-IMPLEMENTATTIONS.html"><a href="CHAPTER-AS-OTHER-SOFTWARE-IMPLEMENTATTIONS.html"><i class="fa fa-check"></i><b>9</b> Other Software Implementations</a></li>
 <li class="part"><span><b>III Data Auditing</b></span></li>
 <li class="chapter" data-level="10" data-path="CHAPTER-DA-BASIC-CONCEPTS.html"><a href="CHAPTER-DA-BASIC-CONCEPTS.html"><i class="fa fa-check"></i><b>10</b> Basic Concepts</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -223,7 +240,6 @@ package installed on the computer. For example, before running the examples in
 this book, you can load the <code>jfa</code> package with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="loading-a-package.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
 <blockquote>
-<p><strong>Note</strong></p>
 <p>If you want a deeper understanding of how the <code>jfa</code> package works, or want to
 look at the source code of the package, see the
 <a href="https://koenderks.github.io/jfa/">package website</a>.</p>
@@ -291,6 +307,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -22,6 +22,16 @@ CHAPTER-AS-BASIC-CONCEPTS
 CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW
 CHAPTER-AS-PLANNING-AUDIT-SAMPLES
 CHAPTER-AS-SELECTING-AUDIT-SAMPLES
+sampling-units
+items
+monetary-units
+sampling-methods
+fixed-interval-sampling-systematic-sampling
+cell-sampling
+random-sampling
+modified-sieve-sampling
+ordering-or-randomizing-the-population
+references
 CHAPTER-AS-UNSTRATIFIED-EVALUATION-OF-AUDIT-SAMPLES
 CHAPTER-AS-STRATIFIED-EVALUATION-OF-AUDIT-SAMPLES
 CHAPTER-AS-OTHER-SOFTWARE-IMPLEMENTATTIONS

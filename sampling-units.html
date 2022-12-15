@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Planning Audit Samples | Statistical Auditing with R, 1st Edition</title>
+  <title>6.1 Sampling units | Statistical Auditing with R, 1st Edition</title>
   <meta name="description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Planning Audit Samples | Statistical Auditing with R, 1st Edition" />
+  <meta property="og:title" content="6.1 Sampling units | Statistical Auditing with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Planning Audit Samples | Statistical Auditing with R, 1st Edition" />
+  <meta name="twitter:title" content="6.1 Sampling units | Statistical Auditing with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book covers the basics of classical and Bayesian inference in auditing." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW.html"/>
-<link rel="next" href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"/>
+<link rel="prev" href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html"/>
+<link rel="next" href="sampling-methods.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -232,18 +232,42 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="CHAPTER-AS-PLANNING-AUDIT-SAMPLES" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Planning Audit Samples<a href="CHAPTER-AS-PLANNING-AUDIT-SAMPLES.html#CHAPTER-AS-PLANNING-AUDIT-SAMPLES" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter covers the basics: installing and using packages and loading data.</p>
-
+<div id="sampling-units" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Sampling units<a href="sampling-units.html#sampling-units" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Selecting a subset from the population requires knowledge of the sampling units;
+physical representations of the population that needs to be audited. Generally,
+the auditor has to choose between two types of sampling units: individual items
+in the population or individual monetary units in the population. In order to
+perform statistical selection, the population must be divided into individual
+sampling units that can be assigned a probability to be included in the sample.
+The total collection of all sampling units which have been assigned a selection
+probability is called the sampling frame.</p>
+<div id="items" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Items<a href="sampling-units.html#items" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A sampling unit for record (i.e., attributes) sampling is generally a
+characteristic of an item in the population. For example, suppose that you
+inspect a population of receipts. A possible sampling unit for record sampling
+can be the date of payment of the receipt. When a sampling unit (e.g., date of
+payment) is selected by the sampling method, the population item that
+corresponds to the sampled unit is included in the sample.</p>
+</div>
+<div id="monetary-units" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Monetary units<a href="sampling-units.html#monetary-units" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A sampling unit for monetary unit sampling is different than a sampling unit for
+record sampling in that it is an individual monetary unit within an item or
+transaction, like an individual dollar. For example, a single sampling unit can
+be the 10<span class="math inline">\(^{th}\)</span> dollar from a specific receipt in the population. When a
+sampling unit (e.g., individual dollar) is selected by the sampling method, the
+population item that includes the sampling unit is included in the sample.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="CHAPTER-AS-THE-AUDIT-SAMPLING-WORKFLOW.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-AS-SELECTING-AUDIT-SAMPLES.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -274,7 +298,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch05.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch06.Rmd",
 "text": "Edit"
 },
 "history": {
