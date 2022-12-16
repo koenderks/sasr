@@ -328,6 +328,22 @@ while expecting zero misstatements in the sample.</p>
 </div>
 <div id="selection-1" class="section level3 hasAnchor" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Selection<a href="jasp-for-audit-gui.html#selection-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Selecting a sample in JASP for Audit works similar to how you would do it in
+<strong>jfa</strong>. For example, the screenshot below shows how to select a sample of 60
+monetary units from the <code>BuildIt</code> data set that is included in the package using
+a fixed interval sampling method with a starting point of 1.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="jasp-for-audit-gui.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb86-2"><a href="jasp-for-audit-gui.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
+<span id="cb86-3"><a href="jasp-for-audit-gui.html#cb86-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">60</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>,</span>
+<span id="cb86-4"><a href="jasp-for-audit-gui.html#cb86-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb86-5"><a href="jasp-for-audit-gui.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(result<span class="sc">$</span>sample)</span>
+<span id="cb86-6"><a href="jasp-for-audit-gui.html#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   row times    ID bookValue auditValue</span></span>
+<span id="cb86-7"><a href="jasp-for-audit-gui.html#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   1     1 82884    242.61     242.61</span></span>
+<span id="cb86-8"><a href="jasp-for-audit-gui.html#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  63     1 51272    248.40     248.40</span></span>
+<span id="cb86-9"><a href="jasp-for-audit-gui.html#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 123     1 37985    562.09     562.09</span></span>
+<span id="cb86-10"><a href="jasp-for-audit-gui.html#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 183     1 96080    449.07     449.07</span></span>
+<span id="cb86-11"><a href="jasp-for-audit-gui.html#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 240     1 92819    690.08     690.08</span></span>
+<span id="cb86-12"><a href="jasp-for-audit-gui.html#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 302     1 94296    198.59     198.59</span></span></code></pre></div>
 <center>
 <div class="figure">
 <img src="img/JASP_selection.png" alt="" />
@@ -348,19 +364,19 @@ while expecting zero misstatements in the sample.</p>
 </div>
 </center>
 <p>In <strong>jfa</strong>, these results can be reproduced via the following command:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="jasp-for-audit-gui.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">60</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb86-2"><a href="jasp-for-audit-gui.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb86-3"><a href="jasp-for-audit-gui.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
-<span id="cb86-4"><a href="jasp-for-audit-gui.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb86-5"><a href="jasp-for-audit-gui.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  0 and 60</span></span>
-<span id="cb86-6"><a href="jasp-for-audit-gui.html#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 0, number of samples = 60, taint = 0, BF₁₀ =</span></span>
-<span id="cb86-7"><a href="jasp-for-audit-gui.html#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 415.12</span></span>
-<span id="cb86-8"><a href="jasp-for-audit-gui.html#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb86-9"><a href="jasp-for-audit-gui.html#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
-<span id="cb86-10"><a href="jasp-for-audit-gui.html#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04792395</span></span>
-<span id="cb86-11"><a href="jasp-for-audit-gui.html#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb86-12"><a href="jasp-for-audit-gui.html#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0 </span></span>
-<span id="cb86-13"><a href="jasp-for-audit-gui.html#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="jasp-for-audit-gui.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">n =</span> <span class="dv">93</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb87-2"><a href="jasp-for-audit-gui.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb87-3"><a href="jasp-for-audit-gui.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
+<span id="cb87-4"><a href="jasp-for-audit-gui.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb87-5"><a href="jasp-for-audit-gui.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  2 and 93</span></span>
+<span id="cb87-6"><a href="jasp-for-audit-gui.html#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 2, number of samples = 93, taint = 2, BF₁₀ =</span></span>
+<span id="cb87-7"><a href="jasp-for-audit-gui.html#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 111.66</span></span>
+<span id="cb87-8"><a href="jasp-for-audit-gui.html#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb87-9"><a href="jasp-for-audit-gui.html#cb87-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
+<span id="cb87-10"><a href="jasp-for-audit-gui.html#cb87-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.0000000 0.0654624</span></span>
+<span id="cb87-11"><a href="jasp-for-audit-gui.html#cb87-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb87-12"><a href="jasp-for-audit-gui.html#cb87-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.021505 </span></span>
+<span id="cb87-13"><a href="jasp-for-audit-gui.html#cb87-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
 </div>
 </div>
 <h3>References</h3>
