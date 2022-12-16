@@ -300,7 +300,7 @@ size <span class="math inline">\(n\)</span> has been created.</p>
 <p>The next section discusses which sampling methods are available in <strong>jfa</strong>. To
 illustrate the outcomes for different sampling methods, we will use the
 <code>BuildIt</code> data set that can be loaded using the code below.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="sampling-methods.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sampling-methods.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span></code></pre></div>
 <div id="fixed-interval-sampling" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Fixed Interval Sampling<a href="sampling-methods.html#fixed-interval-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Fixed interval sampling is a method designed for yielding representative samples
@@ -351,12 +351,12 @@ population and redrawing the intervals this problem can be efficiently solved.</
 method in a record sampling and a monetary unit sampling setting. Note that, by
 default, the first sampling unit from each interval is selected. However, this
 can be changed by setting the argument <code>start = 1</code> to a different value.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sampling-methods.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
-<span id="cb53-2"><a href="sampling-methods.html#cb53-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
-<span id="cb53-3"><a href="sampling-methods.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sampling-methods.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
-<span id="cb54-2"><a href="sampling-methods.html#cb54-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sampling-methods.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
+<span id="cb54-2"><a href="sampling-methods.html#cb54-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
 <span id="cb54-3"><a href="sampling-methods.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sampling-methods.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<span id="cb55-2"><a href="sampling-methods.html#cb55-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
+<span id="cb55-3"><a href="sampling-methods.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 </div>
 <div id="cell-sampling" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Cell Sampling<a href="sampling-methods.html#cell-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -389,14 +389,14 @@ twice.</p>
 <p>As an example, the code below shows how to apply the cell sampling method in a
 record sampling and a monetary unit sampling setting. It is important to set a
 seed to make the results reproducible.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sampling-methods.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
-<span id="cb55-2"><a href="sampling-methods.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb55-3"><a href="sampling-methods.html#cb55-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>)</span>
-<span id="cb55-4"><a href="sampling-methods.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sampling-methods.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sampling-methods.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
 <span id="cb56-2"><a href="sampling-methods.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb56-3"><a href="sampling-methods.html#cb56-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb56-3"><a href="sampling-methods.html#cb56-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>)</span>
 <span id="cb56-4"><a href="sampling-methods.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sampling-methods.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<span id="cb57-2"><a href="sampling-methods.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb57-3"><a href="sampling-methods.html#cb57-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb57-4"><a href="sampling-methods.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 </div>
 <div id="random-sampling" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Random Sampling<a href="sampling-methods.html#random-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -426,14 +426,14 @@ the population will be included in the sample.</p>
 without replacement using <code>replace</code>) method in a record sampling and a monetary
 unit sampling setting. It is important to set a seed to make results
 reproducible.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sampling-methods.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
-<span id="cb57-2"><a href="sampling-methods.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb57-3"><a href="sampling-methods.html#cb57-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>)</span>
-<span id="cb57-4"><a href="sampling-methods.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sampling-methods.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sampling-methods.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
 <span id="cb58-2"><a href="sampling-methods.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb58-3"><a href="sampling-methods.html#cb58-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb58-3"><a href="sampling-methods.html#cb58-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>)</span>
 <span id="cb58-4"><a href="sampling-methods.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sampling-methods.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<span id="cb59-2"><a href="sampling-methods.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb59-3"><a href="sampling-methods.html#cb59-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb59-4"><a href="sampling-methods.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 </div>
 <div id="modified-sieve-sampling" class="section level3 hasAnchor" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Modified Sieve Sampling<a href="sampling-methods.html#modified-sieve-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -450,10 +450,10 @@ sieve sampling method provides precise control over sample sizes.</p>
 <p>As an example, the code below shows how to apply the modified sieve sampling
 method in a monetary unit sampling setting. It is important to set a seed to
 make results reproducible.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sampling-methods.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
-<span id="cb59-2"><a href="sampling-methods.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb59-3"><a href="sampling-methods.html#cb59-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;sieve&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
-<span id="cb59-4"><a href="sampling-methods.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sampling-methods.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
+<span id="cb60-2"><a href="sampling-methods.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb60-3"><a href="sampling-methods.html#cb60-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;sieve&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
+<span id="cb60-4"><a href="sampling-methods.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 </div>
 </div>
             </section>

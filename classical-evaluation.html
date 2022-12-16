@@ -296,19 +296,19 @@ taken a sample of 100 items, of which 1 contained an error. They set the
 significance level for the <em>p</em>-value to 0.05, implying that <span class="math inline">\(p &lt; 0.05\)</span> will be
 enough to reject the hypothesis <span class="math inline">\(H_0\)</span>. The call below evaluates the sample using
 a classical non-stratified evaluation procedure.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="classical-evaluation.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
-<span id="cb62-2"><a href="classical-evaluation.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-3"><a href="classical-evaluation.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
-<span id="cb62-4"><a href="classical-evaluation.html#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-5"><a href="classical-evaluation.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
-<span id="cb62-6"><a href="classical-evaluation.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
-<span id="cb62-7"><a href="classical-evaluation.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
-<span id="cb62-8"><a href="classical-evaluation.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb62-9"><a href="classical-evaluation.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb62-10"><a href="classical-evaluation.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
-<span id="cb62-11"><a href="classical-evaluation.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb62-12"><a href="classical-evaluation.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
-<span id="cb62-13"><a href="classical-evaluation.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="classical-evaluation.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb63-2"><a href="classical-evaluation.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb63-3"><a href="classical-evaluation.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
+<span id="cb63-4"><a href="classical-evaluation.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb63-5"><a href="classical-evaluation.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb63-6"><a href="classical-evaluation.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
+<span id="cb63-7"><a href="classical-evaluation.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
+<span id="cb63-8"><a href="classical-evaluation.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb63-9"><a href="classical-evaluation.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb63-10"><a href="classical-evaluation.html#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
+<span id="cb63-11"><a href="classical-evaluation.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb63-12"><a href="classical-evaluation.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb63-13"><a href="classical-evaluation.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
 <p>The output shows that the most likely error in the population is estimated to be
 1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
 4.74%. The output also shows that the <em>p</em>-value is lower than 0.05 implying that

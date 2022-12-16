@@ -303,7 +303,9 @@ should first install this package using the <code>install.packages()</code> comm
 load it into the R session using a call to <code>library()</code>. For example, if the file
 <code>example.xlsx</code> is in the current working directory, and the data you want to
 load is on the first worksheet, you can load it by running:</p>
-<p><code>{r, eval=FALSE}\ install.packages("readxl") library(readxl) read_excel("example.csv", sheet = 1)</code></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="loading-data.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb22-2"><a href="loading-data.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb22-3"><a href="loading-data.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;example.csv&quot;</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code></pre></div>
 
 </div>
 </div>
