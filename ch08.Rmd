@@ -93,7 +93,7 @@ $n = 60$ containing $x = 0$ misstatements against a performance materiality of
 In **jfa**, these results can be reproduced via the following command:
 
 ```{r}
-evaluation(materiality = 0.05, method = "binomial", x = 0, n = 60, prior = TRUE)
+evaluation(materiality = 0.05, method = "binomial", x = 2, n = 93, prior = TRUE)
 ```
 
 ## MUS (R)
