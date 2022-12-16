@@ -5,6 +5,7 @@ matrices
 data-frames
 packages
 installing-a-package
+loading-a-package
 updating-a-package
 loading-data
 loading-data-from-a-csv-file

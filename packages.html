@@ -170,7 +170,8 @@ div.csl-indent {
 <li class="chapter" data-level="1.2" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>1.2</b> Packages</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="packages.html"><a href="packages.html#installing-a-package"><i class="fa fa-check"></i><b>1.2.1</b> Installing a Package</a></li>
-<li class="chapter" data-level="1.2.2" data-path="packages.html"><a href="packages.html#updating-a-package"><i class="fa fa-check"></i><b>1.2.2</b> Updating a Package</a></li>
+<li class="chapter" data-level="1.2.2" data-path="packages.html"><a href="packages.html#loading-a-package"><i class="fa fa-check"></i><b>1.2.2</b> Loading a Package</a></li>
+<li class="chapter" data-level="1.2.3" data-path="packages.html"><a href="packages.html#updating-a-package"><i class="fa fa-check"></i><b>1.2.3</b> Updating a Package</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>1.3</b> Loading Data</a>
 <ul>
@@ -287,8 +288,14 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="packages" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Packages<a href="packages.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A package is a small bundle of code that an R user wrote and uploaded to a
-central server for anybody to access, download and use.</p>
+<p>In addition to these basic features, R has many packages and libraries that
+extend its capabilities and provide additional functions and tools for data
+analysis and visualization. A package is a small bundle of code that an R user
+(or group of users) wrote and uploaded to a central server for everybody to
+access, download and use. Some popular packages include <code>dplyr</code> for data
+manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine
+learning. With its versatility and robust community, R is a valuable tool for
+anyone working with data.</p>
 <div id="installing-a-package" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Installing a Package<a href="packages.html#installing-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In many cases, you will download an R package from the
@@ -296,31 +303,33 @@ central server for anybody to access, download and use.</p>
 <code>install.packages()</code> function by providing the package name in quotes. For
 example, an important package for data visualization is <code>ggplot2</code>. To install
 this package, you can simply run:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="packages.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
-<p>This book illustrates its concepts and ideas using the <strong>jfa</strong> package, an R
-package for statistical auditing, which can also be downloaded from CRAN. Before
-running the examples in this book, you should install this package by running
-the following command in R:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="packages.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
-<p>##$ Loading a Package</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="packages.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>To illustrate its concepts and ideas, this book heavily draws from the <strong>jfa</strong>
+package, an R package for statistical auditing, which can also be downloaded
+from CRAN. Before running the examples in this book, you should install this
+package by running the following command in R:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="packages.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+</div>
+<div id="loading-a-package" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Loading a Package<a href="packages.html#loading-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once you have installed a package, you must load it into every R session. To
 load a package into your R session, call <code>library()</code> and provide the name of the
 package (without quotes) that you want to load. For example, before running the
 examples in this book, you can load the <strong>jfa</strong> package with:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="packages.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="packages.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
 <blockquote>
 <p>If you want a deeper understanding of how the <strong>jfa</strong> package works, or want
 to look at the source code of the package, see the
 <a href="https://koenderks.github.io/jfa/">package website</a>.</p>
 </blockquote>
 </div>
-<div id="updating-a-package" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Updating a Package<a href="packages.html#updating-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="updating-a-package" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Updating a Package<a href="packages.html#updating-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R packages are updated regularly. To update a package in your R library you
 should call <code>update.packages()</code> and provide the name of the package that you
 want to update in quotes. For example, each time there is a new release of the
 **jfa* package, you can update it by running:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="packages.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="packages.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
 </div>
 </div>
             </section>
