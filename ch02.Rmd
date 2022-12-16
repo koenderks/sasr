@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Basic Concepts {#CHAPTER-2}
+# Important Concepts {#CHAPTER-2}
 
 Statistical audit sampling is a statistical method used by auditors to evaluate
 a sample of transactions or other items within a population in order to draw
@@ -75,26 +75,25 @@ uses statistical techniques to select a sample from the population and make
 inferences about the population based on the sample, while non-statistical
 sampling is based on the judgment of the auditor.
 
-## Frequentist versus Bayesian Inference
+## Classical versus Bayesian Inference
 
-The Frequentist and the Bayesian approach to statistical inference are two
-different ways to use data to perform inferences or draw conclusions about a
-population. Both paradigms have their own set of assumptions and approaches to
-statistical estimation and hypothesis testing.
+The classical (frequentist) and the Bayesian approach to statistical inference
+are two different ways to use data to perform inferences or draw conclusions
+about a population. Both paradigms have their own set of assumptions and
+approaches to statistical estimation and hypothesis testing.
 
-Frequentist (classical) statistics is based on the concept of probability as a
-frequency. It is the traditional approach to statistical analysis and relies on
-the idea that probability is the long-term frequency of an event occurring in a
-large number of trials. This approach is based on the law of large numbers,
-which states that as the number of trials increases, the frequency of an event
-will approach the true probability of the event occurring. In frequentist
-estimation, the parameter that needs to be estimated is considered to be fixed,
-but unknown. The goal of frequentist estimation is to use the sample data to
-find the value of the parameter that is most likely to be true. This is
-typically done using point estimates, which are single values that are thought
-to be the best estimate of the population parameter, and interval estimates,
-which provide a range of values that the population parameter is likely to fall
-within.
+Classical statistics is based on the concept of probability as a frequency. It
+is the traditional approach to statistical analysis and relies on the idea that
+probability is the long-term frequency of an event occurring in a large number
+of trials. This approach is based on the law of large numbers, which states that
+as the number of trials increases, the frequency of an event will approach the
+true probability of the event occurring. In frequentist estimation, the
+parameter that needs to be estimated is considered to be fixed, but unknown. The
+goal of frequentist estimation is to use the sample data to find the value of
+the parameter that is most likely to be true. This is typically done using point
+estimates, which are single values that are thought to be the best estimate of
+the population parameter, and interval estimates, which provide a range of
+values that the population parameter is likely to fall within.
 
 Bayesian estimation, on the other hand, is based on the idea that the parameter
 of interest is not fixed but uncertain. In this approach, the parameter is 
@@ -106,8 +105,8 @@ seeing the data) is equal to the prior probability (i.e., the belief about the
 parameter before seeing the data) times the likelihood (i.e., the probability of
 the data given the parameter).
 
-One major difference between frequentist and Bayesian statistics is the way
-they handle uncertainty. In frequentist statistics, uncertainty is represented
+One major difference between classical and Bayesian statistics is the way
+they handle uncertainty. In classical statistics, uncertainty is represented
 by the standard error of an estimate, which is a measure of the precision of an
 estimate. In Bayesian statistics, uncertainty is represented by the posterior
 distribution, which is a distribution of the possible values of the population
@@ -131,21 +130,62 @@ or, in words:
 
 $$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$
 
-There are several other differences between frequentist and Bayesian approaches.
-One major difference is that frequentist approaches focus on the long-run
+There are several other differences between classical and Bayesian approaches.
+One major difference is that classical approaches focus on the long-run
 behavior of an estimator, while Bayesian approaches focus on the probability of
 the estimator being correct given the data. Another difference is that
-frequentist approaches rely on asymptotic results (i.e., results that hold in
+classical approaches rely on asymptotic results (i.e., results that hold in
 the limit as the sample size goes to infinity), while Bayesian approaches can be
 applied with any sample size. Additionally, Bayesian approaches allow for the
-incorporation of prior knowledge about the parameter, while frequentist
+incorporation of prior knowledge about the parameter, while classical
 approaches do not.
 
-Overall, frequentist and Bayesian statistics are two different approaches to
+Overall, classical and Bayesian statistics are two different approaches to
 statistical analysis that have their own unique strengths and weaknesses.
-Frequentist statistics is a well-established approach that is widely used in
+Classical statistics is a well-established approach that is widely used in
 scientific research and audit practice, but it has some limitations, such as its
 reliance on assumptions and its inability to incorporate prior beliefs. Bayesian
 statistics is a newer approach that allows for more flexibility in statistical
 inferences, but it requires the specification of prior beliefs, which can be
 difficult to quantify.
+
+## The Bayes factor
+
+The Bayes factor is a measure used in Bayesian inference to compare the relative
+strength of evidence between two competing hypotheses. The Bayes factor is
+calculated by comparing the probability of the observed data given each of the
+two competing hypotheses. This probability is known as the likelihood of the
+data. The Bayes factor is then the ratio of the likelihood of the data under one
+hypothesis to the likelihood of the data under the other hypothesis. The Bayes
+factor can be used in the context of an audit, where the auditor is trying to
+determine the likelihood that a particular financial statement is represented
+fairly or not.
+
+For example, an auditor might be evaluating the fairness of a company's
+financial statements for the year. They have two hypotheses: the first is that
+the statements are accurate, and the second is that the statements are not
+accurate. The auditor gathers data from a statistical audit sample and uses this
+data to calculate the Bayes factor.
+
+The Bayes factor is calculated by taking the ratio of the probability of the
+first hypothesis (that the statements are accurate) given the observed data, to
+the probability of the second hypothesis (that the statements are not accurate)
+given the observed data. The higher the Bayes factor, the more likely it is that
+the first hypothesis is true.
+
+The Bayes factor can be used to assess the strength of evidence for one
+hypothesis over the other and to determine which hypothesis is more likely to
+be true given the observed data. It is often used in scientific research to help
+evaluate the validity of different hypotheses and to make informed decisions
+based on the available evidence. For auditors, the Bayes factor can be a useful
+tool to determine the likelihood of different hypotheses being true based on the
+data they have collected, and it can help them make informed decisions about the
+fairness of the financial statements.
+
+For example, if the Bayes factor is 5, this means that the probability of the
+statements being accurate given the observed data is 5 times higher than the
+probability of them being not accurate. In this case, the auditor would be more
+likely to conclude that the financial statements are accurate.
+
+The **jfa** package can help us to calculate Bayes factors for and against the
+hypothesis that the financial statements are represented fairly.

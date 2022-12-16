@@ -20,12 +20,35 @@ available for learning and using R.
 
 ## Basics
 
-One of the basic features of R is its ability to manipulate data. For example,
-to perform a simple calculation in R you can type:
+One of the basic features of R is its ability to manipulate data. In R, basic
+calculations work by using the standard arithmetic operators such as `+` for
+addition, `-` for subtraction, `*` for multiplication, and `/` for division.
+For example, if you want to calculate 2 + 3, you would type in `2 + 3` and R
+will return the result of 5.
 
 ```{r}
-1 + 1
+2 + 3
 ```
+
+R also allows for more advanced calculations such as exponentiation using the
+`^` operator, and square roots using the `sqrt()` function. For example, to
+calculate the square root of 9, you would type in `sqrt(9)` and R will return
+the result of 3.
+
+```{r}
+sqrt(9)
+```
+
+You can also use parentheses to specify the order of operations in your
+calculations. For example, if you want to calculate (2 + 3) * 4, you would type
+in `(2 + 3) * 4` to get the result of 20.
+
+```{r}
+(2 + 3) * 4
+```
+
+Overall, basic calculations in R are similar to those in other programming
+languages and follow the standard order of operations.
 
 ### Vectors
 

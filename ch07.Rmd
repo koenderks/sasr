@@ -57,7 +57,7 @@ to weigh the stratum estimates to determine population estimate. This is called
 poststratification. If `N.units` is not specified, each stratum is assumed to be
 equally represented in the population.
 
-## Approach 1: No pooling
+## No pooling
 
 No pooling (`pooling = "none"`, default) assumes no similarities between strata.
 This means that the prior distribution specified through `prior` is applied
@@ -93,7 +93,7 @@ requested via the `plot()` function.
 plot(result_np, type = "posterior")
 ```
 
-## Approach 2: Complete pooling
+## Complete pooling
 
 Complete pooling (`pooling = "complete"`) assumes no differences between strata.
 This has the advantages that data from all strata can be aggregated, which
@@ -131,7 +131,7 @@ requested via the `plot()` function.
 plot(result_cp, type = "posterior")
 ```
 
-## Approach 3: Partial pooling
+## Partial pooling
 
 Finally, partial pooling (`pooling = "partial"`) assumes differences and
 similarities between strata. This allows the auditor to differentiate between

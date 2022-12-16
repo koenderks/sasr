@@ -32,9 +32,56 @@ almost one-on-one to that of the package.
 
 <center>
 
-![Figure 8.1: The JASP interface for planning a sample.](img/JASP.png)
+![Figure 8.1: The JASP welcome screen.](img/JASP.png)
 
 </center>
+
+### Planning
+
+Planning a sample in JASP for Audit works similar to how you would do it in
+**jfa**. For example, the screenshot below shows how to plan a minimum sample
+size for a performance materiality of 5% using a beta(1, 1) prior distribution,
+while expecting zero misstatements in the sample.
+
+<center>
+
+![Figure 8.2: The JASP interface for planning a sample.](img/JASP_planning.png)
+
+</center>
+
+In **jfa**, these results can be reproduced via the following command:
+
+```{r}
+planning(materiality = 0.05, likelihood = "binomial", prior = TRUE)
+```
+
+
+### Selection
+
+<center>
+
+![Figure 8.3: The JASP interface for selecting a sample.](img/JASP_selection.png)
+
+</center>
+
+### Evaluation
+
+Evaluating a sample in JASP for Audit works similar to how you would do it in
+**jfa**. For example, the screenshot below shows how to evaluating a sample of
+$n = 60$ containing $x = 0$ misstatements against a performance materiality of
+5% using a beta(1, 1) prior distribution.
+
+<center>
+
+![Figure 8.4: The JASP interface for evaluating a sample.](img/JASP_evaluation.png)
+
+</center>
+
+In **jfa**, these results can be reproduced via the following command:
+
+```{r}
+evaluation(materiality = 0.05, method = "binomial", x = 0, n = 60, prior = TRUE)
+```
 
 ## MUS (R)
 
