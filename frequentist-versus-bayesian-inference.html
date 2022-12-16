@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Step 4: Evaluation | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>2.1 Frequentist versus Bayesian Inference | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Step 4: Evaluation | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="2.1 Frequentist versus Bayesian Inference | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Step 4: Evaluation | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="2.1 Frequentist versus Bayesian Inference | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="step-3-execution.html"/>
-<link rel="next" href="step-5-reporting.html"/>
+<link rel="prev" href="CHAPTER-BASIC-CONCEPTS.html"/>
+<link rel="next" href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,23 +265,80 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-4-evaluation" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Step 4: Evaluation<a href="step-4-evaluation.html#step-4-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once the sample has been tested, the next step is to analyze the results. This
-involves reviewing the results of the testing and determining if the sample is
-representative of the population as a whole. If the sample is representative,
-the auditor can draw conclusions about the population based on the results of
-the testing. If the sample is not representative, the auditor may need to select
-a new sample and test it in order to draw accurate conclusions about the
-population.</p>
+<div id="frequentist-versus-bayesian-inference" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Frequentist versus Bayesian Inference<a href="frequentist-versus-bayesian-inference.html#frequentist-versus-bayesian-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Frequentist and the Bayesian approach to statistical inference are two
+different ways to use data to perform inferences or draw conclusions about a
+population. Both paradigms have their own set of assumptions and approaches to
+statistical estimation and hypothesis testing.</p>
+<p>Frequentist (classical) statistics is based on the concept of probability as a
+frequency. It is the traditional approach to statistical analysis and relies on
+the idea that probability is the long-term frequency of an event occurring in a
+large number of trials. This approach is based on the law of large numbers,
+which states that as the number of trials increases, the frequency of an event
+will approach the true probability of the event occurring. In frequentist
+estimation, the parameter that needs to be estimated is considered to be fixed,
+but unknown. The goal of frequentist estimation is to use the sample data to
+find the value of the parameter that is most likely to be true. This is
+typically done using point estimates, which are single values that are thought
+to be the best estimate of the population parameter, and interval estimates,
+which provide a range of values that the population parameter is likely to fall
+within.</p>
+<p>Bayesian estimation, on the other hand, is based on the idea that the parameter
+of interest is not fixed but uncertain. In this approach, the parameter is
+onsidered to be a random variable with a certain distribution, and the goal is
+to use the data and prior knowledge about the parameter to update our belief
+about its value. This is typically done using Bayes’ theorem, which states that
+the posterior probability (i.e., the updated belief about the parameter after
+seeing the data) is equal to the prior probability (i.e., the belief about the
+parameter before seeing the data) times the likelihood (i.e., the probability of
+the data given the parameter).</p>
+<p>One major difference between frequentist and Bayesian statistics is the way
+they handle uncertainty. In frequentist statistics, uncertainty is represented
+by the standard error of an estimate, which is a measure of the precision of an
+estimate. In Bayesian statistics, uncertainty is represented by the posterior
+distribution, which is a distribution of the possible values of the population
+parameter given the sample data and our prior beliefs. Bayesian inferences
+uses uses Bayes’ theorem to update the prior beliefs about the population
+parameter with the new information from the sample data. Bayes’ theorem is given
+by the following formula:</p>
+<p><span class="math display">\[p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}\]</span>,</p>
+<p>where <span class="math inline">\(p(\theta \,|\, y)\)</span> is the posterior probability of the population
+parameter <span class="math inline">\(\theta\)</span> given the sample data <span class="math inline">\(y\)</span>, <span class="math inline">\(p(y \,|\, \theta)\)</span> is the
+likelihood of the sample data given <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p(\theta)\)</span> is the prior
+probability of <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(p(y)\)</span> is the total probability of the sample data
+occurring. Because with a fixed sample <span class="math inline">\(p(y)\)</span> is a constant, the Bayes’ theorem
+is often given as follows:</p>
+<p><span class="math display">\[p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)\]</span>,</p>
+<p>Or, in words:</p>
+<p><span class="math display">\[\text{Posterior} \propto \text{Likelihood} \times \text{Prior}\]</span>.</p>
+<p>There are several other differences between frequentist and Bayesian approaches.
+One major difference is that frequentist approaches focus on the long-run
+behavior of an estimator, while Bayesian approaches focus on the probability of
+the estimator being correct given the data. Another difference is that
+frequentist approaches rely on asymptotic results (i.e., results that hold in
+the limit as the sample size goes to infinity), while Bayesian approaches can be
+applied with any sample size. Additionally, Bayesian approaches allow for the
+incorporation of prior knowledge about the parameter, while frequentist
+approaches do not.</p>
+<p>Overall, frequentist and Bayesian statistics are two different approaches to
+statistical analysis that have their own unique strengths and weaknesses.
+Frequentist statistics is a well-established approach that is widely used in
+scientific research and audit practice, but it has some limitations, such as its
+reliance on assumptions and its inability to incorporate prior beliefs. Bayesian
+statistics is a newer approach that allows for more flexibility in statistical
+inferences, but it requires the specification of prior beliefs, which can be
+difficult to quantify.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="step-3-execution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="step-5-reporting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-BASIC-CONCEPTS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +369,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch02.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -9,6 +9,7 @@ upgrading-a-package
 loading-data-from-a-csv-file
 loading-data-from-an-excel-file
 CHAPTER-BASIC-CONCEPTS
+frequentist-versus-bayesian-inference
 CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW
 step-0-objectives-and-population
 step-1-planning
