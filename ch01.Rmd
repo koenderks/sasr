@@ -271,7 +271,7 @@ load it into the R session using a call to `library()`. For example, if the file
 `example.xlsx` is in the current working directory, and the data you want to
 load is on the first worksheet, you can load it by running:
 
-```{r, eval=FALSE}\
+```{r, eval=FALSE}
 install.packages("readxl")
 library(readxl)
 read_excel("example.csv", sheet = 1)
