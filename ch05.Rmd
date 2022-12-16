@@ -103,7 +103,7 @@ and completely depends on the chosen starting points (using `start`).
 
 <center>
 
-![Figure 1: Illustration of fixed interval sampling](img/fixedIntervalSampling.png)
+![Figure 5.1: Illustration of fixed interval sampling](img/fixedIntervalSampling.png)
 
 </center>
 
@@ -161,7 +161,7 @@ $$p(x) = \frac{1}{I}.$$
 
 <center>
 
-![Figure 2: Illustration of cell sampling](img/cellSampling.png)
+![Figure 5.2: Illustration of cell sampling](img/cellSampling.png)
 
 </center>
 
@@ -215,7 +215,7 @@ Figure 3 provides an illustration of the random sampling method.
 
 <center>
 
-![Figure 3: Illustration of random sampling](img/randomSampling.png)
+![Figure 5.3: Illustration of random sampling](img/randomSampling.png)
 
 </center>
 

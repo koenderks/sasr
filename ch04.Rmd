@@ -75,7 +75,7 @@ expected to be found in the sample.
 The probability mass function (PMF) of the hypergeometric distribution is given
 by:
 
-$$p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}$$,
+$$p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}$$
 
 where $x$ is the number of misstatements in the sample, $n$ is the sample size,
 $N$ is the population size and $K$ is the total number of misstatements assumed
@@ -120,7 +120,7 @@ distribution, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
-$$p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x}$$,
+$$p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x}$$
 
 where $x$ is the number of misstatements in the sample, $n$ is the sample size
 and $\theta$ is the misstatement rate expected in the sample.
@@ -173,7 +173,7 @@ distribution, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
-$$p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!}$$,
+$$p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!}$$
 
 where $x$ is the number of misstatements in the sample, and $\lambda$ is the
 average number of misstatements expected in the sample. The average number of

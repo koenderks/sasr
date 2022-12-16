@@ -116,20 +116,20 @@ uses uses Bayes' theorem to update the prior beliefs about the population
 parameter with the new information from the sample data. Bayes' theorem is given
 by the following formula:
 
-$$p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}$$,
+$$p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}$$
 
 where $p(\theta \,|\, y)$ is the posterior probability of the population
 parameter $\theta$ given the sample data $y$, $p(y \,|\, \theta)$ is the
 likelihood of the sample data given $\theta$, $p(\theta)$ is the prior
 probability of $\theta$, and $p(y)$ is the total probability of the sample data
-occurring. Because with a fixed sample $p(y)$ is a constant, the Bayes' theorem
-is often given as follows:
+occurring. Because with a fixed sample $p(y)$ is a constant, Bayes' theorem is
+often given as follows:
 
-$$p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)$$,
+$$p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)$$
 
-Or, in words:
+or, in words:
 
-$$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$.
+$$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$
 
 There are several other differences between frequentist and Bayesian approaches.
 One major difference is that frequentist approaches focus on the long-run
