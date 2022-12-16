@@ -300,16 +300,16 @@ parameter given the sample data and our prior beliefs. Bayesian inferences
 uses uses Bayes’ theorem to update the prior beliefs about the population
 parameter with the new information from the sample data. Bayes’ theorem is given
 by the following formula:</p>
-<p><span class="math display">\[p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}\]</span>,</p>
+<p><span class="math display">\[p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}\]</span></p>
 <p>where <span class="math inline">\(p(\theta \,|\, y)\)</span> is the posterior probability of the population
 parameter <span class="math inline">\(\theta\)</span> given the sample data <span class="math inline">\(y\)</span>, <span class="math inline">\(p(y \,|\, \theta)\)</span> is the
 likelihood of the sample data given <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p(\theta)\)</span> is the prior
 probability of <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(p(y)\)</span> is the total probability of the sample data
-occurring. Because with a fixed sample <span class="math inline">\(p(y)\)</span> is a constant, the Bayes’ theorem
-is often given as follows:</p>
-<p><span class="math display">\[p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)\]</span>,</p>
-<p>Or, in words:</p>
-<p><span class="math display">\[\text{Posterior} \propto \text{Likelihood} \times \text{Prior}\]</span>.</p>
+occurring. Because with a fixed sample <span class="math inline">\(p(y)\)</span> is a constant, Bayes’ theorem is
+often given as follows:</p>
+<p><span class="math display">\[p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)\]</span></p>
+<p>or, in words:</p>
+<p><span class="math display">\[\text{Posterior} \propto \text{Likelihood} \times \text{Prior}\]</span></p>
 <p>There are several other differences between frequentist and Bayesian approaches.
 One major difference is that frequentist approaches focus on the long-run
 behavior of an estimator, while Bayesian approaches focus on the probability of
