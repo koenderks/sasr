@@ -358,14 +358,14 @@ pooling information between strata where possible. The call below evaluates the
 <code>allowances</code> sample using a Bayesian multilevel stratified evaluation procedure,
 in which the stratum estimates are poststratified to arrive at the population
 estimate.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="evaluation-using-data-1.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x &lt;- evaluation(</span></span>
-<span id="cb72-2"><a href="evaluation-using-data-1.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   materiality = 0.05, data = allowances, prior = TRUE,</span></span>
-<span id="cb72-3"><a href="evaluation-using-data-1.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   values = &quot;bookValue&quot;, values.audit = &quot;auditValue&quot;, strata = &quot;branch&quot;, times = &quot;times&quot;,</span></span>
-<span id="cb72-4"><a href="evaluation-using-data-1.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   alternative = &quot;two.sided&quot;, N.units = N.units, pooling = &quot;partial&quot;</span></span>
-<span id="cb72-5"><a href="evaluation-using-data-1.html#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="evaluation-using-data-1.html#cb72-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb72-2"><a href="evaluation-using-data-1.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb72-3"><a href="evaluation-using-data-1.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span>, <span class="at">strata =</span> <span class="st">&quot;branch&quot;</span>, <span class="at">times =</span> <span class="st">&quot;times&quot;</span>,</span>
+<span id="cb72-4"><a href="evaluation-using-data-1.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">N.units =</span> N.units, <span class="at">pooling =</span> <span class="st">&quot;partial&quot;</span></span>
+<span id="cb72-5"><a href="evaluation-using-data-1.html#cb72-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb72-6"><a href="evaluation-using-data-1.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb72-7"><a href="evaluation-using-data-1.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb72-8"><a href="evaluation-using-data-1.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb72-8"><a href="evaluation-using-data-1.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation Summary</span></span>
 <span id="cb72-9"><a href="evaluation-using-data-1.html#cb72-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
 <span id="cb72-10"><a href="evaluation-using-data-1.html#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
 <span id="cb72-11"><a href="evaluation-using-data-1.html#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
@@ -373,45 +373,49 @@ estimate.</p>
 <span id="cb72-13"><a href="evaluation-using-data-1.html#cb72-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
 <span id="cb72-14"><a href="evaluation-using-data-1.html#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
 <span id="cb72-15"><a href="evaluation-using-data-1.html#cb72-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
-<span id="cb72-16"><a href="evaluation-using-data-1.html#cb72-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb72-17"><a href="evaluation-using-data-1.html#cb72-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb72-18"><a href="evaluation-using-data-1.html#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    1604 </span></span>
-<span id="cb72-19"><a href="evaluation-using-data-1.html#cb72-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               401 </span></span>
-<span id="cb72-20"><a href="evaluation-using-data-1.html#cb72-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  252.9281046 </span></span>
-<span id="cb72-21"><a href="evaluation-using-data-1.html#cb72-21" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb72-22"><a href="evaluation-using-data-1.html#cb72-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb72-23"><a href="evaluation-using-data-1.html#cb72-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.14723 </span></span>
-<span id="cb72-24"><a href="evaluation-using-data-1.html#cb72-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent confidence interval: [0.12549, 0.18239] </span></span>
-<span id="cb72-25"><a href="evaluation-using-data-1.html#cb72-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.03516 </span></span>
-<span id="cb72-26"><a href="evaluation-using-data-1.html#cb72-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        NA </span></span>
-<span id="cb72-27"><a href="evaluation-using-data-1.html#cb72-27" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb72-28"><a href="evaluation-using-data-1.html#cb72-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Strata (16):</span></span>
-<span id="cb72-29"><a href="evaluation-using-data-1.html#cb72-29" aria-hidden="true" tabindex="-1"></a><span class="co">#             N   n   x         t     mle      lb      ub precision p.value</span></span>
-<span id="cb72-30"><a href="evaluation-using-data-1.html#cb72-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   317200.09  87   6   1.27814 0.01469 0.00073 0.06950   0.05481 0.46285</span></span>
-<span id="cb72-31"><a href="evaluation-using-data-1.html#cb72-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2792814.33 305 233 193.23313 0.63355 0.54558 0.72945   0.09590 0.00000</span></span>
-<span id="cb72-32"><a href="evaluation-using-data-1.html#cb72-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  1144231.69  55   3   3.00000 0.05455 0.01105 0.15940   0.10486 0.75827</span></span>
-<span id="cb72-33"><a href="evaluation-using-data-1.html#cb72-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   414202.89  70  45  15.05094 0.21501 0.11878 0.35434   0.13933 0.00000</span></span>
-<span id="cb72-34"><a href="evaluation-using-data-1.html#cb72-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    96660.53  18   1   0.64537 0.03585 0.00015 0.27456   0.23871 0.59343</span></span>
-<span id="cb72-35"><a href="evaluation-using-data-1.html#cb72-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   348006.13  34   1   0.17866 0.00525 0.00000 0.11926   0.11401 1.00000</span></span>
-<span id="cb72-36"><a href="evaluation-using-data-1.html#cb72-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  2384079.33  55  14   9.44448 0.17172 0.07885 0.32122   0.14950 0.00058</span></span>
-<span id="cb72-37"><a href="evaluation-using-data-1.html#cb72-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  1840399.33  96   1   0.00813 0.00008 0.00000 0.03860   0.03852 0.10355</span></span>
-<span id="cb72-38"><a href="evaluation-using-data-1.html#cb72-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   563957.70  92   0   0.00000 0.00000 0.00000 0.04010   0.04010 0.01783</span></span>
-<span id="cb72-39"><a href="evaluation-using-data-1.html#cb72-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 3198877.73 201   7   0.92023 0.00458 0.00009 0.02703   0.02245 0.00122</span></span>
-<span id="cb72-40"><a href="evaluation-using-data-1.html#cb72-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 1983299.06 128   7   1.50034 0.01172 0.00084 0.05013   0.03841 0.10773</span></span>
-<span id="cb72-41"><a href="evaluation-using-data-1.html#cb72-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 12  319144.13  86   5   1.68141 0.01955 0.00174 0.07806   0.05851 0.46069</span></span>
-<span id="cb72-42"><a href="evaluation-using-data-1.html#cb72-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 13  148905.79  25   0   0.00000 0.00000 0.00000 0.14756   0.14756 0.64187</span></span>
-<span id="cb72-43"><a href="evaluation-using-data-1.html#cb72-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 14  513058.76 150   0   0.00000 0.00000 0.00000 0.02459   0.02459 0.00134</span></span>
-<span id="cb72-44"><a href="evaluation-using-data-1.html#cb72-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 15  432007.61 150  39  21.80000 0.14533 0.09026 0.22045   0.07511 0.00001</span></span>
-<span id="cb72-45"><a href="evaluation-using-data-1.html#cb72-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 16  275403.70  52  39   4.18726 0.08052 0.02237 0.20215   0.12163 0.12258</span></span></code></pre></div>
+<span id="cb72-16"><a href="evaluation-using-data-1.html#cb72-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:             Determined via MCMC sampling </span></span>
+<span id="cb72-17"><a href="evaluation-using-data-1.html#cb72-17" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb72-18"><a href="evaluation-using-data-1.html#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb72-19"><a href="evaluation-using-data-1.html#cb72-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    1350 </span></span>
+<span id="cb72-20"><a href="evaluation-using-data-1.html#cb72-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               401 </span></span>
+<span id="cb72-21"><a href="evaluation-using-data-1.html#cb72-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  224.657517 </span></span>
+<span id="cb72-22"><a href="evaluation-using-data-1.html#cb72-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb72-23"><a href="evaluation-using-data-1.html#cb72-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb72-24"><a href="evaluation-using-data-1.html#cb72-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:         Determined via MCMC sampling </span></span>
+<span id="cb72-25"><a href="evaluation-using-data-1.html#cb72-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.1555 </span></span>
+<span id="cb72-26"><a href="evaluation-using-data-1.html#cb72-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent credible interval:   [0.1458, 0.17009] </span></span>
+<span id="cb72-27"><a href="evaluation-using-data-1.html#cb72-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.014595 </span></span>
+<span id="cb72-28"><a href="evaluation-using-data-1.html#cb72-28" aria-hidden="true" tabindex="-1"></a><span class="co">#   BF₁₀:                             3.1386e+15 </span></span>
+<span id="cb72-29"><a href="evaluation-using-data-1.html#cb72-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb72-30"><a href="evaluation-using-data-1.html#cb72-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Strata (16):</span></span>
+<span id="cb72-31"><a href="evaluation-using-data-1.html#cb72-31" aria-hidden="true" tabindex="-1"></a><span class="co">#             N   n   x         t     mle      lb      ub precision</span></span>
+<span id="cb72-32"><a href="evaluation-using-data-1.html#cb72-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   317200.09  62   6   1.07814 0.02037 0.01356 0.03659   0.01622</span></span>
+<span id="cb72-33"><a href="evaluation-using-data-1.html#cb72-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2792814.33 283 233 176.87807 0.60930 0.57298 0.65128   0.04198</span></span>
+<span id="cb72-34"><a href="evaluation-using-data-1.html#cb72-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  1144231.69  55   3   3.00000 0.16735 0.11682 0.24582   0.07847</span></span>
+<span id="cb72-35"><a href="evaluation-using-data-1.html#cb72-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   414202.89  48  45  11.65094 0.27653 0.22254 0.34868   0.07214</span></span>
+<span id="cb72-36"><a href="evaluation-using-data-1.html#cb72-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    96660.53   9   1   0.21512 0.02207 0.01055 0.08932   0.06725</span></span>
+<span id="cb72-37"><a href="evaluation-using-data-1.html#cb72-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   348006.13  14   1   0.04467 0.01233 0.00723 0.04022   0.02790</span></span>
+<span id="cb72-38"><a href="evaluation-using-data-1.html#cb72-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  2384079.33  44  14   6.65401 0.13637 0.09156 0.21540   0.07903</span></span>
+<span id="cb72-39"><a href="evaluation-using-data-1.html#cb72-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  1840399.33  78   1   0.00813 0.00640 0.00458 0.00961   0.00320</span></span>
+<span id="cb72-40"><a href="evaluation-using-data-1.html#cb72-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   563957.70  74   0   0.00000 0.00608 0.00461 0.00957   0.00349</span></span>
+<span id="cb72-41"><a href="evaluation-using-data-1.html#cb72-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 3198877.73 184   7   0.89982 0.00804 0.00615 0.01074   0.00270</span></span>
+<span id="cb72-42"><a href="evaluation-using-data-1.html#cb72-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 1983299.06 111   7   1.35066 0.01525 0.01077 0.02243   0.00718</span></span>
+<span id="cb72-43"><a href="evaluation-using-data-1.html#cb72-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 12  319144.13  56   5   1.19069 0.08428 0.05625 0.14502   0.06074</span></span>
+<span id="cb72-44"><a href="evaluation-using-data-1.html#cb72-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 13  148905.79  10   0   0.00000 0.01216 0.00636 0.04545   0.03329</span></span>
+<span id="cb72-45"><a href="evaluation-using-data-1.html#cb72-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 14  513058.76 150   0   0.00000 0.00472 0.00377 0.00633   0.00161</span></span>
+<span id="cb72-46"><a href="evaluation-using-data-1.html#cb72-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 15  432007.61 128  39  18.30000 0.27398 0.23217 0.33730   0.06332</span></span>
+<span id="cb72-47"><a href="evaluation-using-data-1.html#cb72-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 16  275403.70  44  39   3.38726 0.07640 0.05784 0.10161   0.02521</span></span></code></pre></div>
 <p>The output shows that the estimate of the misstatement in the population is
 15.66%, with the 95% credible interval ranging from 14.59% to 17%. The precision
 of the population estimate is 1.34%, which is substantially lower than that of
 the classical approach. The stratum estimates can be seen in the output of the
 <code>summary()</code> function and are visualized below.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="evaluation-using-data-1.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(x, type = &quot;estimates&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="evaluation-using-data-1.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-81-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The prior and posterior distribution for the population misstatement can be
 requested via the <code>plot()</code> function.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="evaluation-using-data-1.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(x, type = &quot;posterior&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="evaluation-using-data-1.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-82-1.png" width="576" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
