@@ -178,9 +178,10 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="frequentist-versus-bayesian-inference.html"><a href="frequentist-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Frequentist versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.1" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Classical versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.2</b> The Bayes factor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
@@ -247,9 +248,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="CHAPTER-7.html"><a href="CHAPTER-7.html"><i class="fa fa-check"></i><b>7</b> Evaluating a Stratified Sample</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="approach-1-no-pooling.html"><a href="approach-1-no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> Approach 1: No pooling</a></li>
-<li class="chapter" data-level="7.2" data-path="approach-2-complete-pooling.html"><a href="approach-2-complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Approach 2: Complete pooling</a></li>
-<li class="chapter" data-level="7.3" data-path="approach-3-partial-pooling.html"><a href="approach-3-partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Approach 3: Partial pooling</a></li>
+<li class="chapter" data-level="7.1" data-path="no-pooling.html"><a href="no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> No pooling</a></li>
+<li class="chapter" data-level="7.2" data-path="complete-pooling.html"><a href="complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Complete pooling</a></li>
+<li class="chapter" data-level="7.3" data-path="partial-pooling.html"><a href="partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Partial pooling</a></li>
 <li class="chapter" data-level="7.4" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html"><i class="fa fa-check"></i><b>7.4</b> Evaluation using data</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#classical-evaluation-2"><i class="fa fa-check"></i><b>7.4.1</b> Classical Evaluation</a></li>
@@ -258,7 +259,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="CHAPTER-8.html"><a href="CHAPTER-8.html"><i class="fa fa-check"></i><b>8</b> Other Software</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a></li>
+<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#planning-1"><i class="fa fa-check"></i><b>8.1.1</b> Planning</a></li>
+<li class="chapter" data-level="8.1.2" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#selection-1"><i class="fa fa-check"></i><b>8.1.2</b> Selection</a></li>
+<li class="chapter" data-level="8.1.3" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#evaluation-1"><i class="fa fa-check"></i><b>8.1.3</b> Evaluation</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -289,19 +295,19 @@ taken a sample of 100 items, of which 1 contained an error. They set the
 significance level for the <em>p</em>-value to 0.05, implying that <span class="math inline">\(p &lt; 0.05\)</span> will be
 enough to reject the hypothesis <span class="math inline">\(H_0\)</span>. The call below evaluates the sample using
 a classical non-stratified evaluation procedure.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="classical-evaluation.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
-<span id="cb52-2"><a href="classical-evaluation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb52-3"><a href="classical-evaluation.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
-<span id="cb52-4"><a href="classical-evaluation.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb52-5"><a href="classical-evaluation.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
-<span id="cb52-6"><a href="classical-evaluation.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
-<span id="cb52-7"><a href="classical-evaluation.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
-<span id="cb52-8"><a href="classical-evaluation.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb52-9"><a href="classical-evaluation.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb52-10"><a href="classical-evaluation.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
-<span id="cb52-11"><a href="classical-evaluation.html#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb52-12"><a href="classical-evaluation.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
-<span id="cb52-13"><a href="classical-evaluation.html#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="classical-evaluation.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb54-2"><a href="classical-evaluation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb54-3"><a href="classical-evaluation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
+<span id="cb54-4"><a href="classical-evaluation.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb54-5"><a href="classical-evaluation.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb54-6"><a href="classical-evaluation.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
+<span id="cb54-7"><a href="classical-evaluation.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
+<span id="cb54-8"><a href="classical-evaluation.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb54-9"><a href="classical-evaluation.html#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb54-10"><a href="classical-evaluation.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
+<span id="cb54-11"><a href="classical-evaluation.html#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb54-12"><a href="classical-evaluation.html#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb54-13"><a href="classical-evaluation.html#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
 <p>The output shows that the most likely error in the population is estimated to be
 1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
 4.74%. The output also shows that the <em>p</em>-value is lower than 0.05 implying that

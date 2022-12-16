@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.2 Approach 2: Complete pooling | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>2.2 The Bayes factor | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.2 Approach 2: Complete pooling | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="2.2 The Bayes factor | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.2 Approach 2: Complete pooling | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="2.2 The Bayes factor | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="approach-1-no-pooling.html"/>
-<link rel="next" href="approach-3-partial-pooling.html"/>
+<link rel="prev" href="classical-versus-bayesian-inference.html"/>
+<link rel="next" href="CHAPTER-3.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -178,9 +178,10 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="frequentist-versus-bayesian-inference.html"><a href="frequentist-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Frequentist versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.1" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Classical versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.2</b> The Bayes factor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
@@ -247,9 +248,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="CHAPTER-7.html"><a href="CHAPTER-7.html"><i class="fa fa-check"></i><b>7</b> Evaluating a Stratified Sample</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="approach-1-no-pooling.html"><a href="approach-1-no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> Approach 1: No pooling</a></li>
-<li class="chapter" data-level="7.2" data-path="approach-2-complete-pooling.html"><a href="approach-2-complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Approach 2: Complete pooling</a></li>
-<li class="chapter" data-level="7.3" data-path="approach-3-partial-pooling.html"><a href="approach-3-partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Approach 3: Partial pooling</a></li>
+<li class="chapter" data-level="7.1" data-path="no-pooling.html"><a href="no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> No pooling</a></li>
+<li class="chapter" data-level="7.2" data-path="complete-pooling.html"><a href="complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Complete pooling</a></li>
+<li class="chapter" data-level="7.3" data-path="partial-pooling.html"><a href="partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Partial pooling</a></li>
 <li class="chapter" data-level="7.4" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html"><i class="fa fa-check"></i><b>7.4</b> Evaluation using data</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#classical-evaluation-2"><i class="fa fa-check"></i><b>7.4.1</b> Classical Evaluation</a></li>
@@ -258,7 +259,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="CHAPTER-8.html"><a href="CHAPTER-8.html"><i class="fa fa-check"></i><b>8</b> Other Software</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a></li>
+<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#planning-1"><i class="fa fa-check"></i><b>8.1.1</b> Planning</a></li>
+<li class="chapter" data-level="8.1.2" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#selection-1"><i class="fa fa-check"></i><b>8.1.2</b> Selection</a></li>
+<li class="chapter" data-level="8.1.3" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#evaluation-1"><i class="fa fa-check"></i><b>8.1.3</b> Evaluation</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -279,87 +285,51 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="approach-2-complete-pooling" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Approach 2: Complete pooling<a href="approach-2-complete-pooling.html#approach-2-complete-pooling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata.
-This has the advantages that data from all strata can be aggregated, which
-decreases the uncertainty in the population estimate compared to the no
-pooling approach. However, the disadvantage of this approach is that it does
-not facilitate the distinction between between strata, as every stratum
-receives the same estimate equal to that of the population. The call below
-evaluates the sample using a Bayesian stratified evaluation procedure, in
-which the strata are assumed to be the same.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="approach-2-complete-pooling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
-<span id="cb62-2"><a href="approach-2-complete-pooling.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb62-3"><a href="approach-2-complete-pooling.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items,</span>
-<span id="cb62-4"><a href="approach-2-complete-pooling.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">pooling =</span> <span class="st">&quot;complete&quot;</span></span>
-<span id="cb62-5"><a href="approach-2-complete-pooling.html#cb62-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb62-6"><a href="approach-2-complete-pooling.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_cp)</span>
-<span id="cb62-7"><a href="approach-2-complete-pooling.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-8"><a href="approach-2-complete-pooling.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb62-9"><a href="approach-2-complete-pooling.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-10"><a href="approach-2-complete-pooling.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb62-11"><a href="approach-2-complete-pooling.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
-<span id="cb62-12"><a href="approach-2-complete-pooling.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:                144000 </span></span>
-<span id="cb62-13"><a href="approach-2-complete-pooling.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb62-14"><a href="approach-2-complete-pooling.html#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb62-15"><a href="approach-2-complete-pooling.html#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         binomial </span></span>
-<span id="cb62-16"><a href="approach-2-complete-pooling.html#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:             beta(α = 1, β = 1) </span></span>
-<span id="cb62-17"><a href="approach-2-complete-pooling.html#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-18"><a href="approach-2-complete-pooling.html#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb62-19"><a href="approach-2-complete-pooling.html#cb62-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    2575 </span></span>
-<span id="cb62-20"><a href="approach-2-complete-pooling.html#cb62-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               115 </span></span>
-<span id="cb62-21"><a href="approach-2-complete-pooling.html#cb62-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  115 </span></span>
-<span id="cb62-22"><a href="approach-2-complete-pooling.html#cb62-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-23"><a href="approach-2-complete-pooling.html#cb62-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb62-24"><a href="approach-2-complete-pooling.html#cb62-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:         beta(α = 116, β = 2461) </span></span>
-<span id="cb62-25"><a href="approach-2-complete-pooling.html#cb62-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.04466 </span></span>
-<span id="cb62-26"><a href="approach-2-complete-pooling.html#cb62-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent credible interval:   [0.03735, 0.053345] </span></span>
-<span id="cb62-27"><a href="approach-2-complete-pooling.html#cb62-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.0086852 </span></span>
-<span id="cb62-28"><a href="approach-2-complete-pooling.html#cb62-28" aria-hidden="true" tabindex="-1"></a><span class="co">#   BF₁₀:                             0.022725 </span></span>
-<span id="cb62-29"><a href="approach-2-complete-pooling.html#cb62-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-30"><a href="approach-2-complete-pooling.html#cb62-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Strata (20):</span></span>
-<span id="cb62-31"><a href="approach-2-complete-pooling.html#cb62-31" aria-hidden="true" tabindex="-1"></a><span class="co">#        N   n  x  t     mle      lb      ub precision    bf10</span></span>
-<span id="cb62-32"><a href="approach-2-complete-pooling.html#cb62-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   5000 300 21 21 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-33"><a href="approach-2-complete-pooling.html#cb62-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 2   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-34"><a href="approach-2-complete-pooling.html#cb62-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 3   5000 300 15 15 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-35"><a href="approach-2-complete-pooling.html#cb62-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   5000 300 14 14 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-36"><a href="approach-2-complete-pooling.html#cb62-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 5   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-37"><a href="approach-2-complete-pooling.html#cb62-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-38"><a href="approach-2-complete-pooling.html#cb62-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 7   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-39"><a href="approach-2-complete-pooling.html#cb62-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 8   5000 150  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-40"><a href="approach-2-complete-pooling.html#cb62-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-41"><a href="approach-2-complete-pooling.html#cb62-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-42"><a href="approach-2-complete-pooling.html#cb62-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-43"><a href="approach-2-complete-pooling.html#cb62-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 10000  50  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-44"><a href="approach-2-complete-pooling.html#cb62-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 13 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-45"><a href="approach-2-complete-pooling.html#cb62-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 14 10000  50  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-46"><a href="approach-2-complete-pooling.html#cb62-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 15 10000  50  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-47"><a href="approach-2-complete-pooling.html#cb62-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-48"><a href="approach-2-complete-pooling.html#cb62-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 17 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-49"><a href="approach-2-complete-pooling.html#cb62-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 18 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-50"><a href="approach-2-complete-pooling.html#cb62-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 19 10000  15  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-51"><a href="approach-2-complete-pooling.html#cb62-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code></pre></div>
-<p>For example, the output of the <code>summary()</code> function shows that the estimate of
-the misstatement in the population is 4.47%, with the 95% credible interval
-ranging from 3.74% to 5.33%. Since the data is aggregated, the stratum estimates
-contain relatively little uncertainty. However, the probability of misstatement
-in stratum 20 (many misstatements) under this assumption is the same as that of
-stratum 15 (few misstatements).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="approach-2-complete-pooling.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-71-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>The prior and posterior distribution for the population misstatement can be
-requested via the <code>plot()</code> function.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="approach-2-complete-pooling.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-72-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div id="the-bayes-factor" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> The Bayes factor<a href="the-bayes-factor.html#the-bayes-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Bayes factor is a measure used in Bayesian inference to compare the relative
+strength of evidence between two competing hypotheses. The Bayes factor is
+calculated by comparing the probability of the observed data given each of the
+two competing hypotheses. This probability is known as the likelihood of the
+data. The Bayes factor is then the ratio of the likelihood of the data under one
+hypothesis to the likelihood of the data under the other hypothesis. The Bayes
+factor can be used in the context of an audit, where the auditor is trying to
+determine the likelihood that a particular financial statement is represented
+fairly or not.</p>
+<p>For example, an auditor might be evaluating the fairness of a company’s
+financial statements for the year. They have two hypotheses: the first is that
+the statements are accurate, and the second is that the statements are not
+accurate. The auditor gathers data from a statistical audit sample and uses this
+data to calculate the Bayes factor.</p>
+<p>The Bayes factor is calculated by taking the ratio of the probability of the
+first hypothesis (that the statements are accurate) given the observed data, to
+the probability of the second hypothesis (that the statements are not accurate)
+given the observed data. The higher the Bayes factor, the more likely it is that
+the first hypothesis is true.</p>
+<p>The Bayes factor can be used to assess the strength of evidence for one
+hypothesis over the other and to determine which hypothesis is more likely to
+be true given the observed data. It is often used in scientific research to help
+evaluate the validity of different hypotheses and to make informed decisions
+based on the available evidence. For auditors, the Bayes factor can be a useful
+tool to determine the likelihood of different hypotheses being true based on the
+data they have collected, and it can help them make informed decisions about the
+fairness of the financial statements.</p>
+<p>For example, if the Bayes factor is 5, this means that the probability of the
+statements being accurate given the observed data is 5 times higher than the
+probability of them being not accurate. In this case, the auditor would be more
+likely to conclude that the financial statements are accurate.</p>
+<p>The <strong>jfa</strong> package can help us to calculate Bayes factors for and against the
+hypothesis that the financial statements are represented fairly.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="approach-1-no-pooling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="approach-3-partial-pooling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="classical-versus-bayesian-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -390,7 +360,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch07.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch02.Rmd",
 "text": "Edit"
 },
 "history": {

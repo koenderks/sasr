@@ -178,9 +178,10 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="frequentist-versus-bayesian-inference.html"><a href="frequentist-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Frequentist versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.1" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Classical versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.2</b> The Bayes factor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
@@ -247,9 +248,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="CHAPTER-7.html"><a href="CHAPTER-7.html"><i class="fa fa-check"></i><b>7</b> Evaluating a Stratified Sample</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="approach-1-no-pooling.html"><a href="approach-1-no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> Approach 1: No pooling</a></li>
-<li class="chapter" data-level="7.2" data-path="approach-2-complete-pooling.html"><a href="approach-2-complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Approach 2: Complete pooling</a></li>
-<li class="chapter" data-level="7.3" data-path="approach-3-partial-pooling.html"><a href="approach-3-partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Approach 3: Partial pooling</a></li>
+<li class="chapter" data-level="7.1" data-path="no-pooling.html"><a href="no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> No pooling</a></li>
+<li class="chapter" data-level="7.2" data-path="complete-pooling.html"><a href="complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Complete pooling</a></li>
+<li class="chapter" data-level="7.3" data-path="partial-pooling.html"><a href="partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Partial pooling</a></li>
 <li class="chapter" data-level="7.4" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html"><i class="fa fa-check"></i><b>7.4</b> Evaluation using data</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#classical-evaluation-2"><i class="fa fa-check"></i><b>7.4.1</b> Classical Evaluation</a></li>
@@ -258,7 +259,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="CHAPTER-8.html"><a href="CHAPTER-8.html"><i class="fa fa-check"></i><b>8</b> Other Software</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a></li>
+<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#planning-1"><i class="fa fa-check"></i><b>8.1.1</b> Planning</a></li>
+<li class="chapter" data-level="8.1.2" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#selection-1"><i class="fa fa-check"></i><b>8.1.2</b> Selection</a></li>
+<li class="chapter" data-level="8.1.3" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#evaluation-1"><i class="fa fa-check"></i><b>8.1.3</b> Evaluation</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -290,18 +296,18 @@ central server for anybody to access, download and use.</p>
 <code>install.packages()</code> function by providing the package name in quotes. For
 example, an important package for data visualization is <code>ggplot2</code>. To install
 this package, you can simply run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="packages.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="packages.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>This book illustrates its concepts and ideas using the <strong>jfa</strong> package, an R
 package for statistical auditing, which can also be downloaded from CRAN. Before
 running the examples in this book, you should install this package by running
 the following command in R:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="packages.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="packages.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
 <p>##$ Loading a Package</p>
 <p>Once you have installed a package, you must load it into every R session. To
 load a package into your R session, call <code>library()</code> and provide the name of the
 package (without quotes) that you want to load. For example, before running the
 examples in this book, you can load the <strong>jfa</strong> package with:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="packages.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="packages.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code></pre></div>
 <blockquote>
 <p>If you want a deeper understanding of how the <strong>jfa</strong> package works, or want
 to look at the source code of the package, see the
@@ -314,7 +320,7 @@ to look at the source code of the package, see the
 should call <code>update.packages()</code> and provide the name of the package that you
 want to update in quotes. For example, each time there is a new release of the
 **jfa* package, you can update it by running:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="packages.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="packages.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;jfa&quot;</span>)</span></code></pre></div>
 </div>
 </div>
             </section>

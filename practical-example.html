@@ -178,9 +178,10 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="frequentist-versus-bayesian-inference.html"><a href="frequentist-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Frequentist versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.1" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Classical versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.2" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.2</b> The Bayes factor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
@@ -247,9 +248,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="CHAPTER-7.html"><a href="CHAPTER-7.html"><i class="fa fa-check"></i><b>7</b> Evaluating a Stratified Sample</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="approach-1-no-pooling.html"><a href="approach-1-no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> Approach 1: No pooling</a></li>
-<li class="chapter" data-level="7.2" data-path="approach-2-complete-pooling.html"><a href="approach-2-complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Approach 2: Complete pooling</a></li>
-<li class="chapter" data-level="7.3" data-path="approach-3-partial-pooling.html"><a href="approach-3-partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Approach 3: Partial pooling</a></li>
+<li class="chapter" data-level="7.1" data-path="no-pooling.html"><a href="no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> No pooling</a></li>
+<li class="chapter" data-level="7.2" data-path="complete-pooling.html"><a href="complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Complete pooling</a></li>
+<li class="chapter" data-level="7.3" data-path="partial-pooling.html"><a href="partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Partial pooling</a></li>
 <li class="chapter" data-level="7.4" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html"><i class="fa fa-check"></i><b>7.4</b> Evaluation using data</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#classical-evaluation-2"><i class="fa fa-check"></i><b>7.4.1</b> Classical Evaluation</a></li>
@@ -258,7 +259,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="CHAPTER-8.html"><a href="CHAPTER-8.html"><i class="fa fa-check"></i><b>8</b> Other Software</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a></li>
+<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#planning-1"><i class="fa fa-check"></i><b>8.1.1</b> Planning</a></li>
+<li class="chapter" data-level="8.1.2" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#selection-1"><i class="fa fa-check"></i><b>8.1.2</b> Selection</a></li>
+<li class="chapter" data-level="8.1.3" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html#evaluation-1"><i class="fa fa-check"></i><b>8.1.3</b> Evaluation</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -298,8 +304,8 @@ financial statements are based. For this example, the performance materiality is
 set at 5% of the total value of the population.</p>
 <p>In this example, we focus on the <code>BuildIt</code> data set that comes with the <strong>jfa</strong>
 package.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="practical-example.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
-<span id="cb12-2"><a href="practical-example.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(BuildIt)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="practical-example.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
+<span id="cb14-2"><a href="practical-example.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(BuildIt)</span></span></code></pre></div>
 <p>The population of interest consists of 3500 items, each with a booked value.
 Let’s assume that, before performing audit sampling, the auditor has assessed
 the quality of BuildIt’s internal control systems and found that they were
@@ -327,10 +333,10 @@ with 95% confidence that the misstatement in the population is lower than the
 performance materiality of 5%.</p>
 <p>Below, the auditor defines the performance materiality, confidence level, and
 expected misstatements in the sample.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="practical-example.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the confidence, materiality, and expected errors.</span></span>
-<span id="cb13-2"><a href="practical-example.html#cb13-2" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
-<span id="cb13-3"><a href="practical-example.html#cb13-3" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
-<span id="cb13-4"><a href="practical-example.html#cb13-4" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="practical-example.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the confidence, materiality, and expected errors.</span></span>
+<span id="cb15-2"><a href="practical-example.html#cb15-2" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
+<span id="cb15-3"><a href="practical-example.html#cb15-3" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
+<span id="cb15-4"><a href="practical-example.html#cb15-4" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
 <p>Many audits are performed according to the <em>audit risk model (ARM)</em>, which
 determines that the uncertainty about the auditor’s statement as a whole
 (1 - the confidence) is a factor of three terms: the inherent risk, the control
@@ -352,9 +358,9 @@ standard percentages for these categories. The auditor’s firm defines the
 probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
 Because the auditor assessed BuildIt’s internal control systems, they assess the
 control risk as medium (60%).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="practical-example.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the inherent risk (ir) and control risk (cr).</span></span>
-<span id="cb14-2"><a href="practical-example.html#cb14-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
-<span id="cb14-3"><a href="practical-example.html#cb14-3" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="practical-example.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the inherent risk (ir) and control risk (cr).</span></span>
+<span id="cb16-2"><a href="practical-example.html#cb16-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
+<span id="cb16-3"><a href="practical-example.html#cb16-3" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
 </div>
 <div id="planning-an-audit-sample" class="section level3 hasAnchor" number="3.7.2">
 <h3><span class="header-section-number">3.7.2</span> Planning an Audit Sample<a href="practical-example.html#planning-an-audit-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -369,33 +375,33 @@ Bayesian analysis. A frequentist analysis can easily be done through the
 following functions by setting <code>prior = FALSE</code>. In a frequentist analysis, the
 auditor immediately uses the adjusted confidence to calculate the sample size
 via the <code>planning()</code> function.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="practical-example.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the required confidence for a frequentist analysis.</span></span>
-<span id="cb15-2"><a href="practical-example.html#cb15-2" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
-<span id="cb15-3"><a href="practical-example.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Calculate the required sample size.</span></span>
-<span id="cb15-4"><a href="practical-example.html#cb15-4" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected, <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="practical-example.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the required confidence for a frequentist analysis.</span></span>
+<span id="cb17-2"><a href="practical-example.html#cb17-2" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
+<span id="cb17-3"><a href="practical-example.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Calculate the required sample size.</span></span>
+<span id="cb17-4"><a href="practical-example.html#cb17-4" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected, <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
 <p>The auditor can then inspect the result from the planning procedure by using the
 <code>summary()</code> function. The result shows that the auditor needs to select a sample
 of 178 items so that, when at most 4.45 misstatements are found, they can
 conclude with 91.66% confidence that the misstatement in BuildIt’s population
 is lower than the performance materiality of 5%.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="practical-example.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
-<span id="cb16-2"><a href="practical-example.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-3"><a href="practical-example.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
-<span id="cb16-4"><a href="practical-example.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-5"><a href="practical-example.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb16-6"><a href="practical-example.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.91667 </span></span>
-<span id="cb16-7"><a href="practical-example.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
-<span id="cb16-8"><a href="practical-example.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb16-9"><a href="practical-example.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0.025 </span></span>
-<span id="cb16-10"><a href="practical-example.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
-<span id="cb16-11"><a href="practical-example.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-12"><a href="practical-example.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb16-13"><a href="practical-example.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           178 </span></span>
-<span id="cb16-14"><a href="practical-example.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              4.45 </span></span>
-<span id="cb16-15"><a href="practical-example.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0.025 </span></span>
-<span id="cb16-16"><a href="practical-example.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049986 </span></span>
-<span id="cb16-17"><a href="practical-example.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.024986 </span></span>
-<span id="cb16-18"><a href="practical-example.html#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.083211</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="practical-example.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
+<span id="cb18-2"><a href="practical-example.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-3"><a href="practical-example.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
+<span id="cb18-4"><a href="practical-example.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-5"><a href="practical-example.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb18-6"><a href="practical-example.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.91667 </span></span>
+<span id="cb18-7"><a href="practical-example.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb18-8"><a href="practical-example.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb18-9"><a href="practical-example.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0.025 </span></span>
+<span id="cb18-10"><a href="practical-example.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb18-11"><a href="practical-example.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-12"><a href="practical-example.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb18-13"><a href="practical-example.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           178 </span></span>
+<span id="cb18-14"><a href="practical-example.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              4.45 </span></span>
+<span id="cb18-15"><a href="practical-example.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0.025 </span></span>
+<span id="cb18-16"><a href="practical-example.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049986 </span></span>
+<span id="cb18-17"><a href="practical-example.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.024986 </span></span>
+<span id="cb18-18"><a href="practical-example.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.083211</span></span></code></pre></div>
 </div>
 <div id="selecting-a-sample" class="section level3 hasAnchor" number="3.7.3">
 <h3><span class="header-section-number">3.7.3</span> Selecting a Sample<a href="practical-example.html#selecting-a-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -418,47 +424,47 @@ more high-valued items. The <code>selection()</code> function enables them to se
 sample from the population. She uses the <code>stage1</code> object as an input for the
 <code>selection()</code> function, since this passes the calculated sample size to the
 function.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="practical-example.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Draw a sample from the financial statements.</span></span>
-<span id="cb17-2"><a href="practical-example.html#cb17-2" aria-hidden="true" tabindex="-1"></a>stage2 <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> stage1, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="practical-example.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Draw a sample from the financial statements.</span></span>
+<span id="cb19-2"><a href="practical-example.html#cb19-2" aria-hidden="true" tabindex="-1"></a>stage2 <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> stage1, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>)</span></code></pre></div>
 <p>Like before, the auditor can inspect the outcomes of their sampling procedure<br />
 by using the <code>summary()</code> function.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="practical-example.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage2)</span>
-<span id="cb18-2"><a href="practical-example.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-3"><a href="practical-example.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Audit Sample Selection Summary</span></span>
-<span id="cb18-4"><a href="practical-example.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-5"><a href="practical-example.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb18-6"><a href="practical-example.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Requested sample size:         178 </span></span>
-<span id="cb18-7"><a href="practical-example.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sampling units:                monetary units </span></span>
-<span id="cb18-8"><a href="practical-example.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                        fixed interval sampling </span></span>
-<span id="cb18-9"><a href="practical-example.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Starting point:                1 </span></span>
-<span id="cb18-10"><a href="practical-example.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-11"><a href="practical-example.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb18-12"><a href="practical-example.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:               3500 </span></span>
-<span id="cb18-13"><a href="practical-example.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population value:              1403221 </span></span>
-<span id="cb18-14"><a href="practical-example.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selection interval:            7883.3 </span></span>
-<span id="cb18-15"><a href="practical-example.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-16"><a href="practical-example.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb18-17"><a href="practical-example.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected sampling units:       178 </span></span>
-<span id="cb18-18"><a href="practical-example.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of value:           0.062843 </span></span>
-<span id="cb18-19"><a href="practical-example.html#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected items:                178 </span></span>
-<span id="cb18-20"><a href="practical-example.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of size:            0.050857</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="practical-example.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage2)</span>
+<span id="cb20-2"><a href="practical-example.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-3"><a href="practical-example.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Audit Sample Selection Summary</span></span>
+<span id="cb20-4"><a href="practical-example.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-5"><a href="practical-example.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb20-6"><a href="practical-example.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Requested sample size:         178 </span></span>
+<span id="cb20-7"><a href="practical-example.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sampling units:                monetary units </span></span>
+<span id="cb20-8"><a href="practical-example.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                        fixed interval sampling </span></span>
+<span id="cb20-9"><a href="practical-example.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Starting point:                1 </span></span>
+<span id="cb20-10"><a href="practical-example.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-11"><a href="practical-example.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb20-12"><a href="practical-example.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:               3500 </span></span>
+<span id="cb20-13"><a href="practical-example.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population value:              1403221 </span></span>
+<span id="cb20-14"><a href="practical-example.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selection interval:            7883.3 </span></span>
+<span id="cb20-15"><a href="practical-example.html#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-16"><a href="practical-example.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb20-17"><a href="practical-example.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected sampling units:       178 </span></span>
+<span id="cb20-18"><a href="practical-example.html#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of value:           0.062843 </span></span>
+<span id="cb20-19"><a href="practical-example.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected items:                178 </span></span>
+<span id="cb20-20"><a href="practical-example.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of size:            0.050857</span></span></code></pre></div>
 </div>
 <div id="performing-the-audit" class="section level3 hasAnchor" number="3.7.4">
 <h3><span class="header-section-number">3.7.4</span> Performing the Audit<a href="practical-example.html#performing-the-audit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The selected sample can be isolated by indexing the <code>sample</code> object from the
 sampling result.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="practical-example.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Isolate the sample for execution of the audit.</span></span>
-<span id="cb19-2"><a href="practical-example.html#cb19-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> stage2<span class="sc">$</span>sample</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="practical-example.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Isolate the sample for execution of the audit.</span></span>
+<span id="cb21-2"><a href="practical-example.html#cb21-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> stage2<span class="sc">$</span>sample</span></code></pre></div>
 <p>Next, the auditor can execute the audit by annotating the items in the sample
 with their audit values (for exampling by writing the sample to a <em>.csv</em> file
 using <code>write.csv()</code>. They can then load the annotated sample back into the R
 session for further evaluation. For this example, the audit values of the sample
 items are already included in the <code>auditValue</code> column of the data set.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="practical-example.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write the sample to a .csv file:</span></span>
-<span id="cb20-2"><a href="practical-example.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> sample, <span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb20-3"><a href="practical-example.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="practical-example.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To load annotated sample back into R:</span></span>
-<span id="cb20-5"><a href="practical-example.html#cb20-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="practical-example.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write the sample to a .csv file:</span></span>
+<span id="cb22-2"><a href="practical-example.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> sample, <span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-3"><a href="practical-example.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="practical-example.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To load annotated sample back into R:</span></span>
+<span id="cb22-5"><a href="practical-example.html#cb22-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="evaluating-the-sample" class="section level3 hasAnchor" number="3.7.5">
 <h3><span class="header-section-number">3.7.5</span> Evaluating the Sample<a href="practical-example.html#evaluating-the-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -467,34 +473,34 @@ items are already included in the <code>auditValue</code> column of the data set
 </p>
 <p>Using the annotated sample, the auditor can perform inference about the
 misstatement in the population via the <code>evaluation()</code> function.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="practical-example.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Evaluate the sample</span></span>
-<span id="cb21-2"><a href="practical-example.html#cb21-2" aria-hidden="true" tabindex="-1"></a>stage4 <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
-<span id="cb21-3"><a href="practical-example.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> materiality, <span class="at">conf.level =</span> c.adj, <span class="at">data =</span> sample,</span>
-<span id="cb21-4"><a href="practical-example.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span></span>
-<span id="cb21-5"><a href="practical-example.html#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="practical-example.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Evaluate the sample</span></span>
+<span id="cb23-2"><a href="practical-example.html#cb23-2" aria-hidden="true" tabindex="-1"></a>stage4 <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb23-3"><a href="practical-example.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> materiality, <span class="at">conf.level =</span> c.adj, <span class="at">data =</span> sample,</span>
+<span id="cb23-4"><a href="practical-example.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span></span>
+<span id="cb23-5"><a href="practical-example.html#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>The auditor can inspect the outcomes of her inference by using the <code>summary()</code>
 function. The resulting 91.66% upper bound is 1.396%, which is lower than the
 performance materiality of 5%.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="practical-example.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage4)</span>
-<span id="cb22-2"><a href="practical-example.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-3"><a href="practical-example.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
-<span id="cb22-4"><a href="practical-example.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-5"><a href="practical-example.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb22-6"><a href="practical-example.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.91667 </span></span>
-<span id="cb22-7"><a href="practical-example.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb22-8"><a href="practical-example.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb22-9"><a href="practical-example.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
-<span id="cb22-10"><a href="practical-example.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-11"><a href="practical-example.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb22-12"><a href="practical-example.html#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    178 </span></span>
-<span id="cb22-13"><a href="practical-example.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               0 </span></span>
-<span id="cb22-14"><a href="practical-example.html#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  0 </span></span>
-<span id="cb22-15"><a href="practical-example.html#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-16"><a href="practical-example.html#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb22-17"><a href="practical-example.html#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0 </span></span>
-<span id="cb22-18"><a href="practical-example.html#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   91.66667 percent confidence interval: [0, 0.01396] </span></span>
-<span id="cb22-19"><a href="practical-example.html#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.01396 </span></span>
-<span id="cb22-20"><a href="practical-example.html#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        0.00013639</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="practical-example.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage4)</span>
+<span id="cb24-2"><a href="practical-example.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-3"><a href="practical-example.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb24-4"><a href="practical-example.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-5"><a href="practical-example.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb24-6"><a href="practical-example.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.91667 </span></span>
+<span id="cb24-7"><a href="practical-example.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
+<span id="cb24-8"><a href="practical-example.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb24-9"><a href="practical-example.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
+<span id="cb24-10"><a href="practical-example.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-11"><a href="practical-example.html#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb24-12"><a href="practical-example.html#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    178 </span></span>
+<span id="cb24-13"><a href="practical-example.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               0 </span></span>
+<span id="cb24-14"><a href="practical-example.html#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  0 </span></span>
+<span id="cb24-15"><a href="practical-example.html#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-16"><a href="practical-example.html#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb24-17"><a href="practical-example.html#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0 </span></span>
+<span id="cb24-18"><a href="practical-example.html#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   91.66667 percent confidence interval: [0, 0.01396] </span></span>
+<span id="cb24-19"><a href="practical-example.html#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.01396 </span></span>
+<span id="cb24-20"><a href="practical-example.html#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        0.00013639</span></span></code></pre></div>
 </div>
 <div id="making-a-decision" class="section level3 hasAnchor" number="3.7.6">
 <h3><span class="header-section-number">3.7.6</span> Making a Decision<a href="practical-example.html#making-a-decision" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -503,7 +509,7 @@ lower than the performance materiality, the auditor has obtained sufficient
 evidence to conclude that the population does not contain material
 misstatements. The auditor can create a <code>html</code> or <code>pdf</code> report of the statistical
 results using the <code>report()</code> function, as shown below.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="practical-example.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(stage4, <span class="at">file =</span> <span class="st">&quot;report.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="practical-example.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(stage4, <span class="at">file =</span> <span class="st">&quot;report.html&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
