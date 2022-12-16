@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Unstratified Evaluation {#CHAPTER-UNSTRATIFIED-EVALUATION}
+# Evaluating an Unstratified Sample {#CHAPTER-6}
 
 In a non-stratified sampling procedure, the auditor does not take samples from
 different strata or subgroups in a population. An example of such a situation

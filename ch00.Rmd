@@ -9,14 +9,14 @@ editor_options:
 # Preface {-}
 
 This book is for auditors who want to employ statistical audit sampling in audit
-practice using the statistical programming language R. It thoroughly, but
-understandably, covers an array of conventional and state-of-the-art statistical
-instruments available to auditors, explaining what they are, the assumptions on
-which they are based, and when they should be used. Furthermore, it offers
-concrete suggestions for incorporating advanced statistical methods into audit
-practice and demonstrates their usefulness using real-life case studies.
-Hopefully, this book can be a resource for the proper, efficient and effective
-use of statistical methods in audit practice.
+practice using the statistical programming language R. It covers an array of
+conventional and state-of-the-art statistical instruments available to auditors,
+explaining what they are, the assumptions on which they are based, and when they
+should ideally be used. Furthermore, it offers concrete suggestions for
+incorporating advanced statistical methodology into audit practice and
+demonstrates its usefulness using real-life case studies. Hopefully, this book
+can be a resource for the proper, efficient and effective use of statistical
+methods in audit practice.
 
 This book adresses the need for a transparent and clear description of the
 application of statistical sampling methodology in audit practice. I have found
@@ -39,9 +39,11 @@ It also makes the case for adopting Bayesian statistical methods in the audit
 practice and demonstrates why these methods can bring many practical advantages
 for the auditor.
 
-This book is organized as follows. Chapter 1 provides a basic introduction to
-the R programming language. Chapter 2 discusses the basic statistical theory
-underlying audit sampling. Chapter 3 discusses the standard audit sampling
-workflow. Chapter 4, 5, 6, and 7 go into more detail about using statistial
-methods to plan, select and evaluate audit samples. Finally, Chapter 9 discusses
-other software implementations of audit sampling.
+This book is organized as follows. Chapter \@ref(CHAPTER-1) provides a
+basic introduction to the R programming language. Chapter \@ref(CHAPTER-2)
+discusses the basic statistical theory underlying audit sampling. Chapter
+\@ref(CHAPTER-3) discusses the standard audit sampling workflow. Chapter
+\@ref(CHAPTER-4), \@ref(CHAPTER-5), \@ref(CHAPTER-6), and \@ref(CHAPTER-7) go
+into more detail about using statistial methods to plan, select and evaluate
+audit samples. Finally, Chapter \@ref(CHAPTER-8) discusses other R-related
+software implementations of audit sampling.

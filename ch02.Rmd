@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Basic Concepts {#CHAPTER-BASIC-CONCEPTS}
+# Basic Concepts {#CHAPTER-2}
 
 Statistical audit sampling is a statistical method used by auditors to evaluate
 a sample of transactions or other items within a population in order to draw

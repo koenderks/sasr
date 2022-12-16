@@ -10,13 +10,13 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# The Audit Sampling Workflow {#CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW}
+# The Audit Sampling Workflow {#CHAPTER-3}
 
 This chapter discusses the standard audit sampling workflow. There are several
 steps involved in the audit sampling workflow, and these steps are outlined
 below.
 
-## Step 0: Objectives and Population
+## Goals
 
 The first step in the audit sampling workflow is to define the audit objective
 and population. The audit objective is the specific aspect of the population
@@ -26,7 +26,7 @@ records. The population is the group of transactions or records that the
 auditor wants to test. In this case, the population would be all of the sales
 transactions recorded in the accounting records.
 
-## Step 1: Planning
+## Planning
 
 The next step in the audit sampling workflow is to determine the minimum
 required sample size and sampling method. The sample size is the number of
@@ -35,7 +35,7 @@ is the method used to select the transactions or records that will be included
 in the sample. There are several different sampling methods that can be used,
 including random sampling, systematic sampling, and stratified sampling.
 
-## Step 2: Selection
+## Selection
 
 Once the sample size and sampling method have been determined, the next step is
 to select the sample. This involves using the sampling method to select the
@@ -44,7 +44,7 @@ random sampling method is used, a list of all of the transactions or records in
 the population will be created and a random number generator will be used to
 select the transactions or records that will be included in the sample.
 
-## Step 3: Execution
+## Execution
 
 The next step in the audit sampling workflow is to test the sample. This
 involves reviewing the transactions or records that were selected for the sample
@@ -52,7 +52,7 @@ and testing them to determine if they are accurate. This may involve reviewing
 documentation, such as invoices or receipts, to verify that the transactions or
 records are accurate.
 
-## Step 4: Evaluation
+## Evaluation
 
 Once the sample has been tested, the next step is to analyze the results. This
 involves reviewing the results of the testing and determining if the sample is
@@ -62,14 +62,14 @@ the testing. If the sample is not representative, the auditor may need to select
 a new sample and test it in order to draw accurate conclusions about the
 population.
 
-## Step 5: Reporting
+## Reporting
 
 The final step in the audit sampling workflow is to document the audit findings.
 This involves preparing a report that outlines the audit objective, population,
 sample size, sampling method, and results of the testing. The report should also
 include any recommendations for improvement based on the audit findings.
 
-## Example
+## Practical Example
 
 In this example of the audit workflow, we will consider the case of BuildIt.
 BuildIt is a fictional construction company in the United States that is being

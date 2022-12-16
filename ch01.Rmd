@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# R Basics {#CHAPTER-R-BASICS}
+# Introduction to R {#CHAPTER-1}
 
 R is a programming language and software environment for statistical computing
 and graphics. It is widely used among statisticians and data scientists for data
@@ -18,7 +18,7 @@ analysis and visualization. However, R can also be used in an auditing context.
 R has a large and active community of users, and there are many resources
 available for learning and using R.
 
-## Basic Operations
+## Basics
 
 One of the basic features of R is its ability to manipulate data. For example,
 to perform a simple calculation in R you can type:
@@ -81,28 +81,33 @@ manipulation, `ggplot2` for data visualization, and `caret` for machine
 learning. With its versatility and robust community, R is a valuable tool for
 anyone working with data.
 
-## Installing a Package
+## Packages
 
 A package is a small bundle of code that an R user wrote and uploaded to a
-central server for anybody to access, download and use. In many cases, you will
-download an R package from the [CRAN](http://cran.r-project.org/) server. This
-can be done via the `install.packages()` function by providing the package name
-in quotes. For example, an important package for data visualization is
-`ggplot2`. To install this package, you can simply run:
+central server for anybody to access, download and use.
+
+### Installing a Package
+
+In many cases, you will download an R package from the
+[CRAN](http://cran.r-project.org/) server. This can be done via the
+`install.packages()` function by providing the package name in quotes. For
+example, an important package for data visualization is `ggplot2`. To install
+this package, you can simply run:
 
 ```{r, eval=FALSE}
 install.packages("ggplot2")
 ```
 
-This book illustrates its concepts and ideas using the **jfa** package, which
-can also be downloaded from CRAN. You can install this package by running the
-following command in R:
+This book illustrates its concepts and ideas using the **jfa** package, an R
+package for statistical auditing, which can also be downloaded from CRAN. Before
+running the examples in this book, you should install this package by running
+the following command in R:
 
 ```{r, eval=FALSE}
 install.packages("jfa")
 ```
 
-## Loading a Package
+##$ Loading a Package
 
 Once you have installed a package, you must load it into every R session. To
 load a package into your R session, call `library()` and provide the name of the
@@ -117,7 +122,7 @@ library(jfa)
 to look at the source code of the package, see the
 [package website](https://koenderks.github.io/jfa/).
 
-## Upgrading a Package
+### Updating a Package
 
 R packages are updated regularly. To update a package in your R library you
 should call `update.packages()` and provide the name of the package that you
@@ -128,7 +133,9 @@ want to update in quotes. For example, each time there is a new release of the
 update.packages("jfa")
 ```
 
-## Loading Data from a CSV File
+## Loading Data
+
+### Loading Data from a CSV File
 
 A commonly used data type is a `.csv` file. You can load this type of files
 via the `read.csv()` function. For example, if the file `example.csv` is in
@@ -138,7 +145,7 @@ the current working directory, you can load it by running:
 read.csv("example.csv")
 ```
 
-## Loading Data from an Excel File
+### Loading Data from an Excel File
 
 Another commonly used data type are Excel files. You can load this type of files
 via the `read_excel()` function from the `readxl` package. For this to work, you

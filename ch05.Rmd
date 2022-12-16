@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Selection {#CHAPTER-SELECTION}
+# Selecting a Sample {#CHAPTER-5}
 
 This chapter outlines the most commonly used sampling methodology for auditing
 and shows how to select a sample using these methods with the **jfa** package.

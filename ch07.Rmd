@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Stratified Evaluation {#CHAPTER-STRATIFIED-EVALUATION}
+# Evaluating a Stratified Sample {#CHAPTER-7}
 
 In a stratified sampling procedure, the auditor takes samples from different
 strata (or subgroups) in a population. An example of such a situation would be
@@ -77,14 +77,14 @@ the misstatement in the population is 5.85%, with the 95% credible interval
 ranging from 4.28% to 8.22%. The stratum estimates differ substantially from
 each other but are relatively uncertain.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_np, type = "estimates")
 ```
 
 The prior and posterior distribution for the population misstatement can be
 requested via the `plot()` function.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_np, type = "posterior")
 ```
 
@@ -115,14 +115,14 @@ contain relatively little uncertainty. However, the probability of misstatement
 in stratum 20 (many misstatements) under this assumption is the same as that of
 stratum 15 (few misstatements).
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_cp, type = "estimates")
 ```
 
 The prior and posterior distribution for the population misstatement can be
 requested via the `plot()` function.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_cp, type = "posterior")
 ```
 
@@ -152,14 +152,14 @@ the no pooling approach. Note that, like in the no pooling approach, the stratum
 estimates are different from each other but lie closer together and are less
 uncertain.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_pp, type = "estimates")
 ```
 
 The prior and posterior distribution for the population misstatement can be
 requested via the `plot()` function.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(result_pp, type = "posterior")
 ```
 
@@ -206,7 +206,7 @@ population is 14.72%, with the 95% confidence interval ranging from 12.55% to
 18.26%. The precision of the population estimate is 3.54%. The stratum estimates
 can be seen in the output of the `summary()` function and are visualized below.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
+```{r}
 plot(x, type = "estimates")
 ```
 
@@ -219,11 +219,11 @@ in which the stratum estimates are poststratified to arrive at the population
 estimate.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances, prior = TRUE,
-  values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
-  alternative = "two.sided", N.units = N.units, pooling = "partial"
-)
+# x <- evaluation(
+#   materiality = 0.05, data = allowances, prior = TRUE,
+#   values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
+#   alternative = "two.sided", N.units = N.units, pooling = "partial"
+# )
 summary(x)
 ```
 
@@ -233,13 +233,13 @@ of the population estimate is 1.34%, which is substantially lower than that of
 the classical approach. The stratum estimates can be seen in the output of the
 `summary()` function and are visualized below.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
-plot(x, type = "estimates")
+```{r}
+#plot(x, type = "estimates")
 ```
 
 The prior and posterior distribution for the population misstatement can be
 requested via the `plot()` function.
 
-```{r fig.align="center", fig.height=4, fig.width=6}
-plot(x, type = "posterior")
+```{r}
+#plot(x, type = "posterior")
 ```
