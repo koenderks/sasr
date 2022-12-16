@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.4 The Poisson Likelihood | Statistical Audit Sampling with R, 1st Edition</title>
+  <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.4 The Poisson Likelihood | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+  <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <meta name="github-repo" content="koenderks/stataudbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.4 The Poisson Likelihood | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:site" content="@koenderks" />
+  <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+
+<meta name="author" content="Koen Derks" />
+
+
+<meta name="date" content="2022-12-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-binomial-likelihood.html"/>
+<link rel="next" href="CHAPTER-5.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Statistical Auditing with R</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="CHAPTER-1.html"><a href="CHAPTER-1.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>1.1</b> Basics</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>1.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="1.1.2" data-path="basics.html"><a href="basics.html#matrices"><i class="fa fa-check"></i><b>1.1.2</b> Matrices</a></li>
+<li class="chapter" data-level="1.1.3" data-path="basics.html"><a href="basics.html#data-frames"><i class="fa fa-check"></i><b>1.1.3</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>1.2</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="packages.html"><a href="packages.html#installing-a-package"><i class="fa fa-check"></i><b>1.2.1</b> Installing a Package</a></li>
+<li class="chapter" data-level="1.2.2" data-path="packages.html"><a href="packages.html#updating-a-package"><i class="fa fa-check"></i><b>1.2.2</b> Updating a Package</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>1.3</b> Loading Data</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-a-csv-file"><i class="fa fa-check"></i><b>1.3.1</b> Loading Data from a CSV File</a></li>
+<li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="frequentist-versus-bayesian-inference.html"><a href="frequentist-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Frequentist versus Bayesian Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="goals.html"><a href="goals.html"><i class="fa fa-check"></i><b>3.1</b> Goals</a></li>
+<li class="chapter" data-level="3.2" data-path="planning.html"><a href="planning.html"><i class="fa fa-check"></i><b>3.2</b> Planning</a></li>
+<li class="chapter" data-level="3.3" data-path="selection.html"><a href="selection.html"><i class="fa fa-check"></i><b>3.3</b> Selection</a></li>
+<li class="chapter" data-level="3.4" data-path="execution.html"><a href="execution.html"><i class="fa fa-check"></i><b>3.4</b> Execution</a></li>
+<li class="chapter" data-level="3.5" data-path="evaluation.html"><a href="evaluation.html"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
+<li class="chapter" data-level="3.6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>3.6</b> Reporting</a></li>
+<li class="chapter" data-level="3.7" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>3.7</b> Practical Example</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="practical-example.html"><a href="practical-example.html#setting-up-the-audit"><i class="fa fa-check"></i><b>3.7.1</b> Setting Up the Audit</a></li>
+<li class="chapter" data-level="3.7.2" data-path="practical-example.html"><a href="practical-example.html#planning-an-audit-sample"><i class="fa fa-check"></i><b>3.7.2</b> Planning an Audit Sample</a></li>
+<li class="chapter" data-level="3.7.3" data-path="practical-example.html"><a href="practical-example.html#selecting-a-sample"><i class="fa fa-check"></i><b>3.7.3</b> Selecting a Sample</a></li>
+<li class="chapter" data-level="3.7.4" data-path="practical-example.html"><a href="practical-example.html#performing-the-audit"><i class="fa fa-check"></i><b>3.7.4</b> Performing the Audit</a></li>
+<li class="chapter" data-level="3.7.5" data-path="practical-example.html"><a href="practical-example.html#evaluating-the-sample"><i class="fa fa-check"></i><b>3.7.5</b> Evaluating the Sample</a></li>
+<li class="chapter" data-level="3.7.6" data-path="practical-example.html"><a href="practical-example.html#making-a-decision"><i class="fa fa-check"></i><b>3.7.6</b> Making a Decision</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Planning a Sample</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="required-information.html"><a href="required-information.html"><i class="fa fa-check"></i><b>4.1</b> Required Information</a></li>
+<li class="chapter" data-level="4.2" data-path="the-hypergeometric-likelihood.html"><a href="the-hypergeometric-likelihood.html"><i class="fa fa-check"></i><b>4.2</b> The Hypergeometric Likelihood</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="the-hypergeometric-likelihood.html"><a href="the-hypergeometric-likelihood.html#classical-planning"><i class="fa fa-check"></i><b>4.2.1</b> Classical planning</a></li>
+<li class="chapter" data-level="4.2.2" data-path="the-hypergeometric-likelihood.html"><a href="the-hypergeometric-likelihood.html#bayesian-planning"><i class="fa fa-check"></i><b>4.2.2</b> Bayesian Planning</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-binomial-likelihood.html"><a href="the-binomial-likelihood.html"><i class="fa fa-check"></i><b>4.3</b> The Binomial Likelihood</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="the-binomial-likelihood.html"><a href="the-binomial-likelihood.html#classical-planning-1"><i class="fa fa-check"></i><b>4.3.1</b> Classical Planning</a></li>
+<li class="chapter" data-level="4.3.2" data-path="the-binomial-likelihood.html"><a href="the-binomial-likelihood.html#bayesian-planning-1"><i class="fa fa-check"></i><b>4.3.2</b> Bayesian Planning</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html"><i class="fa fa-check"></i><b>4.4</b> The Poisson Likelihood</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#classical-planning-2"><i class="fa fa-check"></i><b>4.4.1</b> Classical planning</a></li>
+<li class="chapter" data-level="4.4.2" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#bayesian-planning-2"><i class="fa fa-check"></i><b>4.4.2</b> Bayesian Planning</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="CHAPTER-5.html"><a href="CHAPTER-5.html"><i class="fa fa-check"></i><b>5</b> Selecting a Sample</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="sampling-units.html"><a href="sampling-units.html"><i class="fa fa-check"></i><b>5.1</b> Sampling Units</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="sampling-units.html"><a href="sampling-units.html#items"><i class="fa fa-check"></i><b>5.1.1</b> Items</a></li>
+<li class="chapter" data-level="5.1.2" data-path="sampling-units.html"><a href="sampling-units.html#monetary-units"><i class="fa fa-check"></i><b>5.1.2</b> Monetary Units</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="sampling-methods.html"><a href="sampling-methods.html"><i class="fa fa-check"></i><b>5.2</b> Sampling Methods</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="sampling-methods.html"><a href="sampling-methods.html#fixed-interval-sampling"><i class="fa fa-check"></i><b>5.2.1</b> Fixed Interval Sampling</a></li>
+<li class="chapter" data-level="5.2.2" data-path="sampling-methods.html"><a href="sampling-methods.html#cell-sampling"><i class="fa fa-check"></i><b>5.2.2</b> Cell Sampling</a></li>
+<li class="chapter" data-level="5.2.3" data-path="sampling-methods.html"><a href="sampling-methods.html#random-sampling"><i class="fa fa-check"></i><b>5.2.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="5.2.4" data-path="sampling-methods.html"><a href="sampling-methods.html#modified-sieve-sampling"><i class="fa fa-check"></i><b>5.2.4</b> Modified Sieve Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ordering-or-randomizing-the-population.html"><a href="ordering-or-randomizing-the-population.html"><i class="fa fa-check"></i><b>5.3</b> Ordering or Randomizing the Population</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="CHAPTER-6.html"><a href="CHAPTER-6.html"><i class="fa fa-check"></i><b>6</b> Evaluating an Unstratified Sample</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classical-evaluation.html"><a href="classical-evaluation.html"><i class="fa fa-check"></i><b>6.1</b> Classical Evaluation</a></li>
+<li class="chapter" data-level="6.2" data-path="bayesian-evaluation.html"><a href="bayesian-evaluation.html"><i class="fa fa-check"></i><b>6.2</b> Bayesian Evaluation</a></li>
+<li class="chapter" data-level="6.3" data-path="evaluation-using-data.html"><a href="evaluation-using-data.html"><i class="fa fa-check"></i><b>6.3</b> Evaluation using Data</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="evaluation-using-data.html"><a href="evaluation-using-data.html#classical-evaluation-1"><i class="fa fa-check"></i><b>6.3.1</b> Classical Evaluation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="evaluation-using-data.html"><a href="evaluation-using-data.html#bayesian-evaluation-1"><i class="fa fa-check"></i><b>6.3.2</b> Bayesian evaluation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="CHAPTER-7.html"><a href="CHAPTER-7.html"><i class="fa fa-check"></i><b>7</b> Evaluating a Stratified Sample</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="approach-1-no-pooling.html"><a href="approach-1-no-pooling.html"><i class="fa fa-check"></i><b>7.1</b> Approach 1: No pooling</a></li>
+<li class="chapter" data-level="7.2" data-path="approach-2-complete-pooling.html"><a href="approach-2-complete-pooling.html"><i class="fa fa-check"></i><b>7.2</b> Approach 2: Complete pooling</a></li>
+<li class="chapter" data-level="7.3" data-path="approach-3-partial-pooling.html"><a href="approach-3-partial-pooling.html"><i class="fa fa-check"></i><b>7.3</b> Approach 3: Partial pooling</a></li>
+<li class="chapter" data-level="7.4" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html"><i class="fa fa-check"></i><b>7.4</b> Evaluation using data</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#classical-evaluation-2"><i class="fa fa-check"></i><b>7.4.1</b> Classical Evaluation</a></li>
+<li class="chapter" data-level="7.4.2" data-path="evaluation-using-data-1.html"><a href="evaluation-using-data-1.html#bayesian-evaluation-2"><i class="fa fa-check"></i><b>7.4.2</b> Bayesian Evaluation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="CHAPTER-8.html"><a href="CHAPTER-8.html"><i class="fa fa-check"></i><b>8</b> Other Software</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="jasp-for-audit-gui.html"><a href="jasp-for-audit-gui.html"><i class="fa fa-check"></i><b>8.1</b> JASP for Audit (GUI)</a></li>
+<li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st Edition</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-poisson-likelihood" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> The Poisson Likelihood<a href="the-poisson-likelihood.html#the-poisson-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s consider how to use the Poisson likelihood to calculate the minimum
+sample size needed to achieve a desired level of assurance. The Poisson
+distribution is a discrete probability distribution that is commonly used to
+model the number of events occurring in a fixed time or space. We can use the
+Poisson distribution as a likelihood to model the number of misstatements that
+are expected to be found in the sample.</p>
+<blockquote>
+<p>In audit sampling, the Poisson likelihood is often used to approximate the
+binomial likelihood since it is easier to work with (i.e., it only has one
+parameter: <span class="math inline">\(\lambda\)</span>, while the binomial has two parameters: <span class="math inline">\(\theta\)</span> and <span class="math inline">\(n\)</span>).
+However, the Poisson likelihood is more conservative than the binomial
+likeliood, meaning that resulting sample sizes will be higher.</p>
+</blockquote>
+<p>The probability mass function (PMF) of the Poisson distribution is given by:</p>
+<p><span class="math display">\[p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},\]</span></p>
+<p>where <span class="math inline">\(x\)</span> is the number of misstatements in the sample, and <span class="math inline">\(\lambda\)</span> is the
+average number of misstatements expected in the sample. The average number of
+misstatements is related to the misstatement rate in the population, denoted by
+<span class="math inline">\(\theta\)</span>, and the sample size, <span class="math inline">\(n\)</span>, by the following equation:</p>
+<p><span class="math display">\[\lambda=n\theta.\]</span></p>
+<div id="classical-planning-2" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Classical planning<a href="the-poisson-likelihood.html#classical-planning-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Concretely, the following statistical model is assumed:</p>
+<p><span class="math display">\[x \sim \text{Poisson}(n\theta_{max})\]</span></p>
+<p>Given a desired misstatement tolerance <span class="math inline">\(\theta_{max}\)</span> and the Poisson
+likelihood, we can solve for the minimum sample size <span class="math inline">\(n\)</span> needed to achieve a
+assurance level. A useful trick to utilize is that, if we do not expect any
+misstatements in the sample, the formula for the required sample size reduces to:</p>
+<p><span class="math display">\[n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.\]</span></p>
+<blockquote>
+<p><span class="math inline">\(\lceil...\rceil\)</span> is the ceiling function. Hence, <span class="math inline">\(\lceil1.2\rceil = 2\)</span>.</p>
+</blockquote>
+<p>For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 100\)</span>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="the-poisson-likelihood.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fl">0.03</span>)</span>
+<span id="cb35-2"><a href="the-poisson-likelihood.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 100</span></span></code></pre></div>
+<p>In <strong>jfa</strong>, this sample size can be replicated using the <code>planning()</code> function.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="the-poisson-likelihood.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb36-2"><a href="the-poisson-likelihood.html#cb36-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb36-3"><a href="the-poisson-likelihood.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb36-4"><a href="the-poisson-likelihood.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb36-5"><a href="the-poisson-likelihood.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb36-6"><a href="the-poisson-likelihood.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 100 </span></span>
+<span id="cb36-7"><a href="the-poisson-likelihood.html#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 101 iterations via method &#39;poisson&#39;</span></span></code></pre></div>
+<p>However, if the number of expected misstatements in the sample is non-zero,
+it becomes more difficult to solve the formula for <span class="math inline">\(n\)</span>. Hence, we can
+iteratively try every value of <span class="math inline">\(n\)</span> and return the smallest integer that
+satisfies the sampling objectives. In <strong>jfa</strong>, this can be done by adjusting the
+<code>expected</code> argument in the <code>planning()</code> function. For example, if we want to
+achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable
+misstatement rate of 3%, then the required sample size under the assumption of
+one expected misstatement in the sample is <span class="math inline">\(n = 159\)</span>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="the-poisson-likelihood.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb37-2"><a href="the-poisson-likelihood.html#cb37-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb37-3"><a href="the-poisson-likelihood.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb37-4"><a href="the-poisson-likelihood.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb37-5"><a href="the-poisson-likelihood.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb37-6"><a href="the-poisson-likelihood.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 159 </span></span>
+<span id="cb37-7"><a href="the-poisson-likelihood.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 158 iterations via method &#39;poisson&#39;</span></span></code></pre></div>
+</div>
+<div id="bayesian-planning-2" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Bayesian Planning<a href="the-poisson-likelihood.html#bayesian-planning-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Performing Bayesian planning with the Poisson likelihood requires that you
+specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>. Practically, this means
+that you should provide an input for the <code>prior</code> argument in the <code>planning()</code>
+function.</p>
+<p>Setting <code>prior = TRUE</code> performs Bayesian planning using a <a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
+conjugate to the specified <code>likelihood</code> (i.e., a gamma prior). Concretely, this
+means that the following statistical model is assumed:</p>
+<p><span class="math display">\[x \sim \text{Poisson}(n\theta)\]</span>
+<span class="math display">\[\theta \sim \text{Gamma}(\alpha, \beta)\]</span></p>
+<p>For example, the command below uses a default gamma(<span class="math inline">\(\alpha=1\)</span>, <span class="math inline">\(\beta=1\)</span>) prior
+distribution to plan the sample, since <code>planning()</code> is given the Poisson
+likelihood. If we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 99\)</span>.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="the-poisson-likelihood.html#cb38-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb38-2"><a href="the-poisson-likelihood.html#cb38-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-3"><a href="the-poisson-likelihood.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb38-4"><a href="the-poisson-likelihood.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb38-5"><a href="the-poisson-likelihood.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb38-6"><a href="the-poisson-likelihood.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb38-7"><a href="the-poisson-likelihood.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb38-8"><a href="the-poisson-likelihood.html#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb38-9"><a href="the-poisson-likelihood.html#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.03 </span></span>
+<span id="cb38-10"><a href="the-poisson-likelihood.html#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb38-11"><a href="the-poisson-likelihood.html#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb38-12"><a href="the-poisson-likelihood.html#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb38-13"><a href="the-poisson-likelihood.html#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            gamma(α = 1, β = 1) </span></span>
+<span id="cb38-14"><a href="the-poisson-likelihood.html#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb38-15"><a href="the-poisson-likelihood.html#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb38-16"><a href="the-poisson-likelihood.html#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           99 </span></span>
+<span id="cb38-17"><a href="the-poisson-likelihood.html#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb38-18"><a href="the-poisson-likelihood.html#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        gamma(α = 1, β = 100) </span></span>
+<span id="cb38-19"><a href="the-poisson-likelihood.html#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb38-20"><a href="the-poisson-likelihood.html#cb38-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.029957 </span></span>
+<span id="cb38-21"><a href="the-poisson-likelihood.html#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.029957 </span></span>
+<span id="cb38-22"><a href="the-poisson-likelihood.html#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 626.69</span></span></code></pre></div>
+<p>You can inspect how the prior distribution compares to the expected
+posterior distribution by using the <code>plot()</code> function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="the-poisson-likelihood.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-43-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>The input for the <code>prior</code> argument can also be an object created by the
+<code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is no
+conjugate likelihood available, it will numerically derive the posterior
+distribution. For example, the command below uses a Normal(0, 0.05) prior
+distribution to plan the sample using the Poisson likelihood. Concretely, this
+means that the following statistical model is assumed:</p>
+<p><span class="math display">\[x \sim \text{Poisson}(n\theta)\]</span>
+<span class="math display">\[\theta \sim \text{Normal}(\mu = 0, \sigma = 0.05)\]</span></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="the-poisson-likelihood.html#cb40-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>,</span>
+<span id="cb40-2"><a href="the-poisson-likelihood.html#cb40-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">beta =</span> <span class="fl">0.05</span>)</span>
+<span id="cb40-3"><a href="the-poisson-likelihood.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="the-poisson-likelihood.html#cb40-4" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb40-5"><a href="the-poisson-likelihood.html#cb40-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb40-6"><a href="the-poisson-likelihood.html#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="the-poisson-likelihood.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb40-8"><a href="the-poisson-likelihood.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-9"><a href="the-poisson-likelihood.html#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb40-10"><a href="the-poisson-likelihood.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-11"><a href="the-poisson-likelihood.html#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb40-12"><a href="the-poisson-likelihood.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb40-13"><a href="the-poisson-likelihood.html#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.03 </span></span>
+<span id="cb40-14"><a href="the-poisson-likelihood.html#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb40-15"><a href="the-poisson-likelihood.html#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb40-16"><a href="the-poisson-likelihood.html#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb40-17"><a href="the-poisson-likelihood.html#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            normal(μ = 0, σ = 0.05)T[0,1] </span></span>
+<span id="cb40-18"><a href="the-poisson-likelihood.html#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-19"><a href="the-poisson-likelihood.html#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb40-20"><a href="the-poisson-likelihood.html#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           91 </span></span>
+<span id="cb40-21"><a href="the-poisson-likelihood.html#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb40-22"><a href="the-poisson-likelihood.html#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        Determined via MCMC sampling </span></span>
+<span id="cb40-23"><a href="the-poisson-likelihood.html#cb40-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0.0010232 </span></span>
+<span id="cb40-24"><a href="the-poisson-likelihood.html#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.029029 </span></span>
+<span id="cb40-25"><a href="the-poisson-likelihood.html#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.028006 </span></span>
+<span id="cb40-26"><a href="the-poisson-likelihood.html#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 19.296</span></span></code></pre></div>
+<p>The resulting sample size under this prior is <span class="math inline">\(n = 91\)</span>, a reduction of 8 samples
+when compared to the default gamma(1, 1) prior.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="the-poisson-likelihood.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-45-1.png" width="576" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-binomial-likelihood.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch04.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>4.2 The Hypergeometric Likelihood | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="4.2 The Hypergeometric Likelihood | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.1 JASP for Audit (GUI) | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="4.2 The Hypergeometric Likelihood | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="CHAPTER-8.html"/>
-<link rel="next" href="mus-r.html"/>
+<link rel="prev" href="required-information.html"/>
+<link rel="next" href="the-binomial-likelihood.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -279,34 +279,94 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="jasp-for-audit-gui" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> JASP for Audit (GUI)<a href="jasp-for-audit-gui.html#jasp-for-audit-gui" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>JASP for Audit <span class="citation">(<a href="#ref-derks2021_jasp" role="doc-biblioref">Derks et al. 2021</a>)</span> is an add-on module for
-<a href="http://jasp-stats.org/">JASP</a> <span class="citation">(<a href="#ref-JASP" role="doc-biblioref">JASP Team 2022</a>)</span>, based on the <strong>jfa</strong> package, that
-facilitates statistical audit sampling. Concretely, it contains graphical user
-interfaces (GUI’s) for calculating sample sizes, selecting items according to
-standard audit sampling techniques, and performing inference about the
-population misstatement on the basis of a data sample or summary statistics of a
-sample. The module also features Bayesian equivalents of these analyses that
-enable the user to easily incorporate prior information into the statistical
-procedure. In all analyses, the Audit module offers explanatory text that helps
-the auditor in interpreting, explaining, and reporting the analysis. Since JASP
-for Audit is an R-based GUI around <strong>jfa</strong>, its functionality can be mapped
-almost one-on-one to that of the package.</p>
-<center>
-<div class="figure">
-<img src="img/JASP.png" alt="" />
-<p class="caption">Figure 8.1: The JASP interface for planning a sample.</p>
+<div id="the-hypergeometric-likelihood" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> The Hypergeometric Likelihood<a href="the-hypergeometric-likelihood.html#the-hypergeometric-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s consider how to use the hypergeometric likelihood to calculate the
+minimum sample size needed to achieve a desired level of assurance. The
+hypergeometric distribution is a discrete probability distribution that is
+commonly used to model the number of events occurring in a fixed number of
+trials when the population size is known. For our purpose, we can use the
+hypergeometric distribution as a likelihood to model the number of misstatements
+that are expected to be found in the sample.</p>
+<p>The probability mass function (PMF) of the hypergeometric distribution is given
+by:</p>
+<p><span class="math display">\[p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},\]</span></p>
+<p>where <span class="math inline">\(x\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size,
+<span class="math inline">\(N\)</span> is the population size and <span class="math inline">\(K\)</span> is the total number of misstatements assumed
+in the population. The assumed misstatements <span class="math inline">\(K\)</span> is a linear extrapolation of
+the assumed misstatement rate in the population <span class="math inline">\(\theta_{max}\)</span> to the total
+population:</p>
+<p><span class="math display">\[K = \theta_{max} N.\]</span></p>
+<div id="classical-planning" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Classical planning<a href="the-hypergeometric-likelihood.html#classical-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given a desired misstatement tolerance <span class="math inline">\(\theta_{max}\)</span>, we can solve for the
+minimum sample size <span class="math inline">\(n\)</span> needed to achieve this assurance level. In <strong>jfa</strong>,
+this sample size can be calculated using the <code>planning()</code> function. For example,
+if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a
+maximum tolerable misstatement rate of 3% in a population of <span class="math inline">\(N=1000\)</span>, then the
+required sample size under the assumption of zero expected misstatements in the
+sample is <span class="math inline">\(n = 94\)</span>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="the-hypergeometric-likelihood.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb24-2"><a href="the-hypergeometric-likelihood.html#cb24-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
+<span id="cb24-3"><a href="the-hypergeometric-likelihood.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-4"><a href="the-hypergeometric-likelihood.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb24-5"><a href="the-hypergeometric-likelihood.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-6"><a href="the-hypergeometric-likelihood.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 94 </span></span>
+<span id="cb24-7"><a href="the-hypergeometric-likelihood.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 95 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
+<p>As another example, if we want to achieve an assurance level of 95%
+(<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable misstatement rate of 3% in a population
+of <span class="math inline">\(N=1000\)</span>, then the required sample size under the assumption of one expected
+misstatement in the sample is <span class="math inline">\(n = 147\)</span>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-hypergeometric-likelihood.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb25-2"><a href="the-hypergeometric-likelihood.html#cb25-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
+<span id="cb25-3"><a href="the-hypergeometric-likelihood.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-4"><a href="the-hypergeometric-likelihood.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb25-5"><a href="the-hypergeometric-likelihood.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-6"><a href="the-hypergeometric-likelihood.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 147 </span></span>
+<span id="cb25-7"><a href="the-hypergeometric-likelihood.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 146 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
 </div>
-</center>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-derks2021_jasp" class="csl-entry">
-Derks, Koen, Jacques de Swart, Eric–Jan Wagenmakers, Jan Wille, and Ruud Wetzels. 2021. <span>“<span>JASP</span> for <span>A</span>udit: <span>B</span>ayesian Tools for the Auditing Practice.”</span> <em>Journal of Open Source Software</em> 6 (68): 2733.
-</div>
-<div id="ref-JASP" class="csl-entry">
-JASP Team. 2022. <span>“<span class="nocase">JASP (Version 0.16.4)[Computer software]</span>.”</span> <a href="https://jasp-stats.org/">https://jasp-stats.org/</a>.
+<div id="bayesian-planning" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Bayesian Planning<a href="the-hypergeometric-likelihood.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Performing Bayesian planning with the hypergeometric likelihood requires that
+you specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>. Practically, this
+means that you should provide an input for the <code>prior</code> argument in the
+<code>planning()</code> function.</p>
+<p>Setting <code>prior = TRUE</code> performs Bayesian planning using a <a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
+conjugate to the specified <code>likelihood</code> (i.e., a beta prior). For example, the
+command below uses a default beta(1, 1) prior distribution to plan the sample,
+since <code>planning()</code> is given the binomial likelihood. If we want to achieve an
+assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable misstatement
+rate of 3% in a population of <span class="math inline">\(N=1000\)</span>, then the required sample size under the
+assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 93\)</span>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-hypergeometric-likelihood.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb26-2"><a href="the-hypergeometric-likelihood.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-3"><a href="the-hypergeometric-likelihood.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb26-4"><a href="the-hypergeometric-likelihood.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-5"><a href="the-hypergeometric-likelihood.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb26-6"><a href="the-hypergeometric-likelihood.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-7"><a href="the-hypergeometric-likelihood.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb26-8"><a href="the-hypergeometric-likelihood.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb26-9"><a href="the-hypergeometric-likelihood.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:               1000 </span></span>
+<span id="cb26-10"><a href="the-hypergeometric-likelihood.html#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.03 </span></span>
+<span id="cb26-11"><a href="the-hypergeometric-likelihood.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb26-12"><a href="the-hypergeometric-likelihood.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb26-13"><a href="the-hypergeometric-likelihood.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    hypergeometric </span></span>
+<span id="cb26-14"><a href="the-hypergeometric-likelihood.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            beta-binomial(N = 1000, α = 1, β = 1) </span></span>
+<span id="cb26-15"><a href="the-hypergeometric-likelihood.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-16"><a href="the-hypergeometric-likelihood.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb26-17"><a href="the-hypergeometric-likelihood.html#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           93 </span></span>
+<span id="cb26-18"><a href="the-hypergeometric-likelihood.html#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb26-19"><a href="the-hypergeometric-likelihood.html#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        beta-binomial(N = 907, α = 1, β = 94) </span></span>
+<span id="cb26-20"><a href="the-hypergeometric-likelihood.html#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb26-21"><a href="the-hypergeometric-likelihood.html#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.029 </span></span>
+<span id="cb26-22"><a href="the-hypergeometric-likelihood.html#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.029 </span></span>
+<span id="cb26-23"><a href="the-hypergeometric-likelihood.html#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 620.58</span></span></code></pre></div>
+<p>You can inspect how the prior distribution compares to the expected
+posterior distribution by using the <code>plot()</code> function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="the-hypergeometric-likelihood.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-31-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
             </section>
@@ -314,8 +374,8 @@ JASP Team. 2022. <span>“<span class="nocase">JASP (Version 0.16.4)[Computer so
           </div>
         </div>
       </div>
-<a href="CHAPTER-8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="mus-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="required-information.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-binomial-likelihood.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -346,7 +406,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch08.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch04.Rmd",
 "text": "Edit"
 },
 "history": {
