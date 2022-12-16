@@ -198,12 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="CHAPTER-PLANNING.html"><a href="CHAPTER-PLANNING.html"><i class="fa fa-check"></i><b>4</b> Planning</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="required-information.html"><a href="required-information.html"><i class="fa fa-check"></i><b>4.1</b> Required Information</a></li>
-<li class="chapter" data-level="4.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html"><i class="fa fa-check"></i><b>4.2</b> Planning a Sample</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="planning-a-sample.html"><a href="planning-a-sample.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.2.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="4.2.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html#estimation"><i class="fa fa-check"></i><b>4.2.2</b> Estimation</a></li>
-<li class="chapter" data-level="4.2.3" data-path="planning-a-sample.html"><a href="planning-a-sample.html#bayesian-planning"><i class="fa fa-check"></i><b>4.2.3</b> Bayesian Planning</a></li>
-</ul></li>
+<li class="chapter" data-level="4.2" data-path="hypergeometric-distribution.html"><a href="hypergeometric-distribution.html"><i class="fa fa-check"></i><b>4.2</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="binomial-distribution.html"><a href="binomial-distribution.html"><i class="fa fa-check"></i><b>4.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="poisson-distribution.html"><a href="poisson-distribution.html"><i class="fa fa-check"></i><b>4.4</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="bayesian-planning.html"><a href="bayesian-planning.html"><i class="fa fa-check"></i><b>4.5</b> Bayesian Planning</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="CHAPTER-SELECTION.html"><a href="CHAPTER-SELECTION.html"><i class="fa fa-check"></i><b>5</b> Selection</a>
 <ul>
@@ -275,19 +273,19 @@ taken a sample of 100 items, of which 1 contained an error. They set the
 significance level for the <em>p</em>-value to 0.05, implying that <span class="math inline">\(p &lt; 0.05\)</span> will be
 enough to reject the hypothesis <span class="math inline">\(H_0\)</span>. The call below evaluates the sample using
 a classical non-stratified evaluation procedure.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="classical-evaluation.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
-<span id="cb39-2"><a href="classical-evaluation.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb39-3"><a href="classical-evaluation.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
-<span id="cb39-4"><a href="classical-evaluation.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb39-5"><a href="classical-evaluation.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
-<span id="cb39-6"><a href="classical-evaluation.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
-<span id="cb39-7"><a href="classical-evaluation.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
-<span id="cb39-8"><a href="classical-evaluation.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb39-9"><a href="classical-evaluation.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb39-10"><a href="classical-evaluation.html#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
-<span id="cb39-11"><a href="classical-evaluation.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb39-12"><a href="classical-evaluation.html#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
-<span id="cb39-13"><a href="classical-evaluation.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="classical-evaluation.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb45-2"><a href="classical-evaluation.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb45-3"><a href="classical-evaluation.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation</span></span>
+<span id="cb45-4"><a href="classical-evaluation.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb45-5"><a href="classical-evaluation.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb45-6"><a href="classical-evaluation.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
+<span id="cb45-7"><a href="classical-evaluation.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.040428</span></span>
+<span id="cb45-8"><a href="classical-evaluation.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb45-9"><a href="classical-evaluation.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb45-10"><a href="classical-evaluation.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04743865</span></span>
+<span id="cb45-11"><a href="classical-evaluation.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb45-12"><a href="classical-evaluation.html#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb45-13"><a href="classical-evaluation.html#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;poisson&#39;</span></span></code></pre></div>
 <p>The output shows that the most likely error in the population is estimated to be
 1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
 4.74%. The output also shows that the <em>p</em>-value is lower than 0.05 implying that

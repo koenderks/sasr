@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>4.5 Bayesian Planning | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="4.5 Bayesian Planning | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="4.5 Bayesian Planning | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="poisson-distribution.html"/>
+<link rel="next" href="CHAPTER-SELECTION.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -263,19 +263,63 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="bayesian-planning" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Bayesian Planning<a href="bayesian-planning.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Performing Bayesian planning requires an input for the <code>prior</code> argument in the
+<code>planning()</code> function. Setting <code>prior = TRUE</code> performs Bayesian planning using a
+<a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
+conjugate to the specified <code>likelihood</code>. For example, the command below uses a
+default gamma(1, 1) prior distribution to plan the sample, since <code>planning()</code>
+defaults to the Poisson likelihood.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="bayesian-planning.html#cb32-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-2"><a href="bayesian-planning.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb32-3"><a href="bayesian-planning.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb32-4"><a href="bayesian-planning.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb32-5"><a href="bayesian-planning.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb32-6"><a href="bayesian-planning.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb32-7"><a href="bayesian-planning.html#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb32-8"><a href="bayesian-planning.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb32-9"><a href="bayesian-planning.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb32-10"><a href="bayesian-planning.html#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb32-11"><a href="bayesian-planning.html#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb32-12"><a href="bayesian-planning.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            gamma(α = 1, β = 1) </span></span>
+<span id="cb32-13"><a href="bayesian-planning.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb32-14"><a href="bayesian-planning.html#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb32-15"><a href="bayesian-planning.html#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           59 </span></span>
+<span id="cb32-16"><a href="bayesian-planning.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb32-17"><a href="bayesian-planning.html#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        gamma(α = 1, β = 60) </span></span>
+<span id="cb32-18"><a href="bayesian-planning.html#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb32-19"><a href="bayesian-planning.html#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
+<span id="cb32-20"><a href="bayesian-planning.html#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
+<span id="cb32-21"><a href="bayesian-planning.html#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 372.25</span></span></code></pre></div>
+<p>You can inspect how the prior distribution compares to the expected
+posterior distribution by using the <code>plot()</code> function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="bayesian-planning.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>The input for the <code>prior</code> argument can also be an object created by the
+<code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is a
+conjugate likelihood available, it will inherit the likelihood from the prior.
+For example, the command below uses a custom normal(0, 0.1) prior distribution to
+plan the sample using the binomial likelihood.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="bayesian-planning.html#cb34-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>, <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">beta =</span> <span class="fl">0.1</span>)</span>
+<span id="cb34-2"><a href="bayesian-planning.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb34-3"><a href="bayesian-planning.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb34-4"><a href="bayesian-planning.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning</span></span>
+<span id="cb34-5"><a href="bayesian-planning.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb34-6"><a href="bayesian-planning.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 56 </span></span>
+<span id="cb34-7"><a href="bayesian-planning.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 57 iterations via method &#39;poisson&#39; + &#39;prior&#39;</span></span></code></pre></div>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="poisson-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-SELECTION.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -306,7 +350,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/%s",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch04.Rmd",
 "text": "Edit"
 },
 "history": {

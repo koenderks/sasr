@@ -198,12 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="CHAPTER-PLANNING.html"><a href="CHAPTER-PLANNING.html"><i class="fa fa-check"></i><b>4</b> Planning</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="required-information.html"><a href="required-information.html"><i class="fa fa-check"></i><b>4.1</b> Required Information</a></li>
-<li class="chapter" data-level="4.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html"><i class="fa fa-check"></i><b>4.2</b> Planning a Sample</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="planning-a-sample.html"><a href="planning-a-sample.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.2.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="4.2.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html#estimation"><i class="fa fa-check"></i><b>4.2.2</b> Estimation</a></li>
-<li class="chapter" data-level="4.2.3" data-path="planning-a-sample.html"><a href="planning-a-sample.html#bayesian-planning"><i class="fa fa-check"></i><b>4.2.3</b> Bayesian Planning</a></li>
-</ul></li>
+<li class="chapter" data-level="4.2" data-path="hypergeometric-distribution.html"><a href="hypergeometric-distribution.html"><i class="fa fa-check"></i><b>4.2</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="binomial-distribution.html"><a href="binomial-distribution.html"><i class="fa fa-check"></i><b>4.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="poisson-distribution.html"><a href="poisson-distribution.html"><i class="fa fa-check"></i><b>4.4</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="bayesian-planning.html"><a href="bayesian-planning.html"><i class="fa fa-check"></i><b>4.5</b> Bayesian Planning</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="CHAPTER-SELECTION.html"><a href="CHAPTER-SELECTION.html"><i class="fa fa-check"></i><b>5</b> Selection</a>
 <ul>
@@ -294,8 +292,11 @@ meets the criteria.</p>
 confidence level is the probability that the sample estimate falls within a
 certain range of the true population value. For example, if the confidence level
 is 95%, there is a 95% probability that the sample estimate is within the
-specified range of the true population value. The desired confidence level is
-known to the auditor before they performs audit sampling.</p>
+specified range of the true population value. The confidence level is inversely
+related to the audit risk <span class="math inline">\(\alpha\)</span>, as follows:</p>
+<p><span class="math display">\[\text{Confidence} = 1 - \text{Audit risk}(\alpha)\]</span></p>
+<p>Hence, the desired confidence level is known to the auditor before they start
+with their audit sampling activities.</p>
 <p>Another important concept in statistical audit sampling is precision. Precision
 refers to the degree to which the auditors’ inferences are reliable. An estimate
 with high precision is more likely to provide accurate conclusions about the

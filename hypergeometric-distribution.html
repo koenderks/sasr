@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>4.2 Hypergeometric Distribution | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="4.2 Hypergeometric Distribution | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="4.2 Hypergeometric Distribution | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="required-information.html"/>
+<link rel="next" href="binomial-distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -263,19 +263,54 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="hypergeometric-distribution" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Hypergeometric Distribution<a href="hypergeometric-distribution.html#hypergeometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s consider how to use the hypergeometric distribution to calculate the
+minimum sample size needed to achieve a desired level of assurance. The
+hypergeometric distribution is a discrete probability distribution that is
+commonly used to model the number of events occurring in a fixed number of
+trials when the population size is known. For our purpose, we can use the
+hypergeometric distribution to model the number of misstatements that are
+expected to be found in the sample.</p>
+<p>The probability mass function (PMF) of the hypergeometric distribution is given
+by:</p>
+<p><span class="math display">\[p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}\]</span>,</p>
+<p>where <span class="math inline">\(x\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size,
+<span class="math inline">\(N\)</span> is the population size and <span class="math inline">\(K\)</span> is the total number of misstatements assumed
+in the population. The value of <span class="math inline">\(K\)</span> is a function of the specified
+<span class="math inline">\(\theta_{max}\)</span>:</p>
+<p>$<span class="math inline">\(K = \theta_{max} N\)</span></p>
+<p>Hence, given a desired misstatement tolerance <span class="math inline">\(\theta_{max}\)</span>, we can solve for
+the minimum sample size <span class="math inline">\(n\)</span> needed to achieve this assurance level. In <strong>jfa</strong>,
+this sample size can be calculated using the <code>planning()</code> function. For example,
+if we want to achieve an assurance level of <span class="math inline">\(\alpha=0.05\)</span> for a
+maximum tolerable misstatement rate of 3% in a population of <span class="math inline">\(N=1000\)</span>, then the
+required sample size under the assumption of zero expected misstatements in the
+sample is <span class="math inline">\(n = 94\)</span>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="hypergeometric-distribution.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">min.precision =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
+<span id="cb24-2"><a href="hypergeometric-distribution.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-3"><a href="hypergeometric-distribution.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb24-4"><a href="hypergeometric-distribution.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-5"><a href="hypergeometric-distribution.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 94 </span></span>
+<span id="cb24-6"><a href="hypergeometric-distribution.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 95 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
+<p>As another example, if we want to achieve an assurance level of <span class="math inline">\(\alpha=0.05\)</span>
+for a maximum tolerable misstatement rate of 3% in a population of <span class="math inline">\(N=1000\)</span>,
+then the required sample size under the assumption of one expected misstatement
+in the sample is <span class="math inline">\(n = 115\)</span>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="hypergeometric-distribution.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">min.precision =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
+<span id="cb25-2"><a href="hypergeometric-distribution.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-3"><a href="hypergeometric-distribution.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb25-4"><a href="hypergeometric-distribution.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-5"><a href="hypergeometric-distribution.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 115 </span></span>
+<span id="cb25-6"><a href="hypergeometric-distribution.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 114 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="required-information.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="binomial-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -306,7 +341,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/%s",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch04.Rmd",
 "text": "Edit"
 },
 "history": {

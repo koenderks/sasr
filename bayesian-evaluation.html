@@ -198,12 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="CHAPTER-PLANNING.html"><a href="CHAPTER-PLANNING.html"><i class="fa fa-check"></i><b>4</b> Planning</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="required-information.html"><a href="required-information.html"><i class="fa fa-check"></i><b>4.1</b> Required Information</a></li>
-<li class="chapter" data-level="4.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html"><i class="fa fa-check"></i><b>4.2</b> Planning a Sample</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="planning-a-sample.html"><a href="planning-a-sample.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.2.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="4.2.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html#estimation"><i class="fa fa-check"></i><b>4.2.2</b> Estimation</a></li>
-<li class="chapter" data-level="4.2.3" data-path="planning-a-sample.html"><a href="planning-a-sample.html#bayesian-planning"><i class="fa fa-check"></i><b>4.2.3</b> Bayesian Planning</a></li>
-</ul></li>
+<li class="chapter" data-level="4.2" data-path="hypergeometric-distribution.html"><a href="hypergeometric-distribution.html"><i class="fa fa-check"></i><b>4.2</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="binomial-distribution.html"><a href="binomial-distribution.html"><i class="fa fa-check"></i><b>4.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="poisson-distribution.html"><a href="poisson-distribution.html"><i class="fa fa-check"></i><b>4.4</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="bayesian-planning.html"><a href="bayesian-planning.html"><i class="fa fa-check"></i><b>4.5</b> Bayesian Planning</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="CHAPTER-SELECTION.html"><a href="CHAPTER-SELECTION.html"><i class="fa fa-check"></i><b>5</b> Selection</a>
 <ul>
@@ -282,20 +280,20 @@ population contains less than 5 percent misstatement, implying the hypotheses
 items, of which 1 was found to contain a misstatement. The prior distribution is
 assumed to be a default <em>beta(1,1)</em> prior. The call below evaluates the sample
 using a Bayesian non-stratified evaluation procedure.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="bayesian-evaluation.html#cb40-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;default&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb40-2"><a href="bayesian-evaluation.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb40-3"><a href="bayesian-evaluation.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb40-4"><a href="bayesian-evaluation.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
-<span id="cb40-5"><a href="bayesian-evaluation.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb40-6"><a href="bayesian-evaluation.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
-<span id="cb40-7"><a href="bayesian-evaluation.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
-<span id="cb40-8"><a href="bayesian-evaluation.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 515.86</span></span>
-<span id="cb40-9"><a href="bayesian-evaluation.html#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb40-10"><a href="bayesian-evaluation.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
-<span id="cb40-11"><a href="bayesian-evaluation.html#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04610735</span></span>
-<span id="cb40-12"><a href="bayesian-evaluation.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb40-13"><a href="bayesian-evaluation.html#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
-<span id="cb40-14"><a href="bayesian-evaluation.html#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="bayesian-evaluation.html#cb46-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;default&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb46-2"><a href="bayesian-evaluation.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb46-3"><a href="bayesian-evaluation.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb46-4"><a href="bayesian-evaluation.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
+<span id="cb46-5"><a href="bayesian-evaluation.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb46-6"><a href="bayesian-evaluation.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb46-7"><a href="bayesian-evaluation.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span id="cb46-8"><a href="bayesian-evaluation.html#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 515.86</span></span>
+<span id="cb46-9"><a href="bayesian-evaluation.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb46-10"><a href="bayesian-evaluation.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
+<span id="cb46-11"><a href="bayesian-evaluation.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04610735</span></span>
+<span id="cb46-12"><a href="bayesian-evaluation.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb46-13"><a href="bayesian-evaluation.html#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.01 </span></span>
+<span id="cb46-14"><a href="bayesian-evaluation.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
 <p>The output shows that the most likely error in the population is estimated to be
 1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to
 4.61%. The small difference between the classical and default Bayesian results
@@ -313,20 +311,20 @@ misstatement, the Bayes factor tends to over quantify the evidence in favor of
 this hypothesis. You can mitigate this dependency by using a prior distribution
 that is impartial with respect to the hypotheses via <code>method = "impartial"</code> in
 the <code>auditPrior()</code> function (Derks et al., 2022).</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="bayesian-evaluation.html#cb41-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;impartial&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb41-2"><a href="bayesian-evaluation.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb41-3"><a href="bayesian-evaluation.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb41-4"><a href="bayesian-evaluation.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
-<span id="cb41-5"><a href="bayesian-evaluation.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb41-6"><a href="bayesian-evaluation.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
-<span id="cb41-7"><a href="bayesian-evaluation.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
-<span id="cb41-8"><a href="bayesian-evaluation.html#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 47.435</span></span>
-<span id="cb41-9"><a href="bayesian-evaluation.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
-<span id="cb41-10"><a href="bayesian-evaluation.html#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
-<span id="cb41-11"><a href="bayesian-evaluation.html#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04110834</span></span>
-<span id="cb41-12"><a href="bayesian-evaluation.html#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
-<span id="cb41-13"><a href="bayesian-evaluation.html#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.0088878 </span></span>
-<span id="cb41-14"><a href="bayesian-evaluation.html#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="bayesian-evaluation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;impartial&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb47-2"><a href="bayesian-evaluation.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb47-3"><a href="bayesian-evaluation.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb47-4"><a href="bayesian-evaluation.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation</span></span>
+<span id="cb47-5"><a href="bayesian-evaluation.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb47-6"><a href="bayesian-evaluation.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  1 and 100</span></span>
+<span id="cb47-7"><a href="bayesian-evaluation.html#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co"># number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span id="cb47-8"><a href="bayesian-evaluation.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 47.435</span></span>
+<span id="cb47-9"><a href="bayesian-evaluation.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true misstatement rate is less than 0.05</span></span>
+<span id="cb47-10"><a href="bayesian-evaluation.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent credible interval:</span></span>
+<span id="cb47-11"><a href="bayesian-evaluation.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.00000000 0.04110834</span></span>
+<span id="cb47-12"><a href="bayesian-evaluation.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co"># most likely estimate:</span></span>
+<span id="cb47-13"><a href="bayesian-evaluation.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.0088878 </span></span>
+<span id="cb47-14"><a href="bayesian-evaluation.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co"># results obtained via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
 <p>The output shows that <span class="math inline">\(BF_{10}=47\)</span>, implying that under the assumption of
 impartiality there is strong evidence for <span class="math inline">\(H_1\)</span>, the hypothesis that the
 population contains misstatements lower than 5 percent of the population

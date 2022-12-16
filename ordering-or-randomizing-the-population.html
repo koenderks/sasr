@@ -198,12 +198,10 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="CHAPTER-PLANNING.html"><a href="CHAPTER-PLANNING.html"><i class="fa fa-check"></i><b>4</b> Planning</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="required-information.html"><a href="required-information.html"><i class="fa fa-check"></i><b>4.1</b> Required Information</a></li>
-<li class="chapter" data-level="4.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html"><i class="fa fa-check"></i><b>4.2</b> Planning a Sample</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="planning-a-sample.html"><a href="planning-a-sample.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.2.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="4.2.2" data-path="planning-a-sample.html"><a href="planning-a-sample.html#estimation"><i class="fa fa-check"></i><b>4.2.2</b> Estimation</a></li>
-<li class="chapter" data-level="4.2.3" data-path="planning-a-sample.html"><a href="planning-a-sample.html#bayesian-planning"><i class="fa fa-check"></i><b>4.2.3</b> Bayesian Planning</a></li>
-</ul></li>
+<li class="chapter" data-level="4.2" data-path="hypergeometric-distribution.html"><a href="hypergeometric-distribution.html"><i class="fa fa-check"></i><b>4.2</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="binomial-distribution.html"><a href="binomial-distribution.html"><i class="fa fa-check"></i><b>4.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="poisson-distribution.html"><a href="poisson-distribution.html"><i class="fa fa-check"></i><b>4.4</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="bayesian-planning.html"><a href="bayesian-planning.html"><i class="fa fa-check"></i><b>4.5</b> Bayesian Planning</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="CHAPTER-SELECTION.html"><a href="CHAPTER-SELECTION.html"><i class="fa fa-check"></i><b>5</b> Selection</a>
 <ul>
@@ -273,23 +271,23 @@ argument takes as input a column name in <code>data</code> which determines the 
 the population. For example, you can order the population from lowest book value
 to highest book value before engaging in selection. In this case, you should use
 the <code>decreasing = FALSE</code> argument.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="ordering-or-randomizing-the-population.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering population from lowest &#39;bookValue&#39; to highest &#39;bookValue&#39; before MUS</span></span>
-<span id="cb37-2"><a href="ordering-or-randomizing-the-population.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb37-3"><a href="ordering-or-randomizing-the-population.html#cb37-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb37-4"><a href="ordering-or-randomizing-the-population.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb37-5"><a href="ordering-or-randomizing-the-population.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>,</span>
-<span id="cb37-6"><a href="ordering-or-randomizing-the-population.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">decreasing =</span> <span class="cn">FALSE</span></span>
-<span id="cb37-7"><a href="ordering-or-randomizing-the-population.html#cb37-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-8"><a href="ordering-or-randomizing-the-population.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="ordering-or-randomizing-the-population.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering population from lowest &#39;bookValue&#39; to highest &#39;bookValue&#39; before MUS</span></span>
+<span id="cb43-2"><a href="ordering-or-randomizing-the-population.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb43-3"><a href="ordering-or-randomizing-the-population.html#cb43-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
+<span id="cb43-4"><a href="ordering-or-randomizing-the-population.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb43-5"><a href="ordering-or-randomizing-the-population.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>,</span>
+<span id="cb43-6"><a href="ordering-or-randomizing-the-population.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">decreasing =</span> <span class="cn">FALSE</span></span>
+<span id="cb43-7"><a href="ordering-or-randomizing-the-population.html#cb43-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-8"><a href="ordering-or-randomizing-the-population.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 <p>The <code>randomize</code> argument can be used to randomly shuffle the items in the
 population before selection.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="ordering-or-randomizing-the-population.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly shuffle population items before MUS</span></span>
-<span id="cb38-2"><a href="ordering-or-randomizing-the-population.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb38-3"><a href="ordering-or-randomizing-the-population.html#cb38-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb38-4"><a href="ordering-or-randomizing-the-population.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb38-5"><a href="ordering-or-randomizing-the-population.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span></span>
-<span id="cb38-6"><a href="ordering-or-randomizing-the-population.html#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-7"><a href="ordering-or-randomizing-the-population.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="ordering-or-randomizing-the-population.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly shuffle population items before MUS</span></span>
+<span id="cb44-2"><a href="ordering-or-randomizing-the-population.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb44-3"><a href="ordering-or-randomizing-the-population.html#cb44-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
+<span id="cb44-4"><a href="ordering-or-randomizing-the-population.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb44-5"><a href="ordering-or-randomizing-the-population.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span></span>
+<span id="cb44-6"><a href="ordering-or-randomizing-the-population.html#cb44-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-7"><a href="ordering-or-randomizing-the-population.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co">#head(sample$sample, n = 6)</span></span></code></pre></div>
 
 </div>
 <!-- </div> -->

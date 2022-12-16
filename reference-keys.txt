@@ -26,9 +26,9 @@ evaluating-the-sample
 making-a-decision
 CHAPTER-PLANNING
 required-information
-planning-a-sample
-hypothesis-testing
-estimation
+hypergeometric-distribution
+binomial-distribution
+poisson-distribution
 bayesian-planning
 CHAPTER-SELECTION
 sampling-units
