@@ -10,6 +10,13 @@ loading-data-from-a-csv-file
 loading-data-from-an-excel-file
 CHAPTER-BASIC-CONCEPTS
 CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW
+step-0-objectives-and-population
+step-1-planning
+step-2-selection
+step-3-execution
+step-4-evaluation
+step-5-reporting
+example
 setting-up-the-audit
 planning-an-audit-sample
 selecting-a-sample

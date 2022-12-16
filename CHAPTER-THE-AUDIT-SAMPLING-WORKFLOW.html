@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="CHAPTER-BASIC-CONCEPTS.html"/>
-<link rel="next" href="setting-up-the-audit.html"/>
+<link rel="next" href="step-0-objectives-and-population.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -176,12 +176,21 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="CHAPTER-BASIC-CONCEPTS.html"><a href="CHAPTER-BASIC-CONCEPTS.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="setting-up-the-audit.html"><a href="setting-up-the-audit.html"><i class="fa fa-check"></i><b>3.1</b> Setting Up the Audit</a></li>
-<li class="chapter" data-level="3.2" data-path="planning-an-audit-sample.html"><a href="planning-an-audit-sample.html"><i class="fa fa-check"></i><b>3.2</b> Planning an Audit Sample</a></li>
-<li class="chapter" data-level="3.3" data-path="selecting-a-sample.html"><a href="selecting-a-sample.html"><i class="fa fa-check"></i><b>3.3</b> Selecting a Sample</a></li>
-<li class="chapter" data-level="3.4" data-path="performing-the-audit.html"><a href="performing-the-audit.html"><i class="fa fa-check"></i><b>3.4</b> Performing the Audit</a></li>
-<li class="chapter" data-level="3.5" data-path="evaluating-the-sample.html"><a href="evaluating-the-sample.html"><i class="fa fa-check"></i><b>3.5</b> Evaluating the Sample</a></li>
-<li class="chapter" data-level="3.6" data-path="making-a-decision.html"><a href="making-a-decision.html"><i class="fa fa-check"></i><b>3.6</b> Making a Decision</a></li>
+<li class="chapter" data-level="3.1" data-path="step-0-objectives-and-population.html"><a href="step-0-objectives-and-population.html"><i class="fa fa-check"></i><b>3.1</b> Step 0: Objectives and Population</a></li>
+<li class="chapter" data-level="3.2" data-path="step-1-planning.html"><a href="step-1-planning.html"><i class="fa fa-check"></i><b>3.2</b> Step 1: Planning</a></li>
+<li class="chapter" data-level="3.3" data-path="step-2-selection.html"><a href="step-2-selection.html"><i class="fa fa-check"></i><b>3.3</b> Step 2: Selection</a></li>
+<li class="chapter" data-level="3.4" data-path="step-3-execution.html"><a href="step-3-execution.html"><i class="fa fa-check"></i><b>3.4</b> Step 3: Execution</a></li>
+<li class="chapter" data-level="3.5" data-path="step-4-evaluation.html"><a href="step-4-evaluation.html"><i class="fa fa-check"></i><b>3.5</b> Step 4: Evaluation</a></li>
+<li class="chapter" data-level="3.6" data-path="step-5-reporting.html"><a href="step-5-reporting.html"><i class="fa fa-check"></i><b>3.6</b> Step 5: Reporting</a></li>
+<li class="chapter" data-level="3.7" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>3.7</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="example.html"><a href="example.html#setting-up-the-audit"><i class="fa fa-check"></i><b>3.7.1</b> Setting Up the Audit</a></li>
+<li class="chapter" data-level="3.7.2" data-path="example.html"><a href="example.html#planning-an-audit-sample"><i class="fa fa-check"></i><b>3.7.2</b> Planning an Audit Sample</a></li>
+<li class="chapter" data-level="3.7.3" data-path="example.html"><a href="example.html#selecting-a-sample"><i class="fa fa-check"></i><b>3.7.3</b> Selecting a Sample</a></li>
+<li class="chapter" data-level="3.7.4" data-path="example.html"><a href="example.html#performing-the-audit"><i class="fa fa-check"></i><b>3.7.4</b> Performing the Audit</a></li>
+<li class="chapter" data-level="3.7.5" data-path="example.html"><a href="example.html#evaluating-the-sample"><i class="fa fa-check"></i><b>3.7.5</b> Evaluating the Sample</a></li>
+<li class="chapter" data-level="3.7.6" data-path="example.html"><a href="example.html#making-a-decision"><i class="fa fa-check"></i><b>3.7.6</b> Making a Decision</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-PLANNING.html"><a href="CHAPTER-PLANNING.html"><i class="fa fa-check"></i><b>4</b> Planning</a>
 <ul>
@@ -255,42 +264,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> The Audit Sampling Workflow<a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html#CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter aims to show how the <strong>jfa</strong> package facilitates auditors in the
-standard audit sampling workflow (hereafter “audit workflow”). In this example
-of the audit workflow, we will consider the case of BuildIt. BuildIt is a
-fictional construction company in the United States that is being audited by
-an external auditor for a fictional audit firm. At the end of the year, BuildIt
-has provided a summary of its financial situation in the financial
-statements. The objective of the auditor is to formulate an opinion about the
-fairness BuildIt’s financial statements.</p>
-<p>The auditor needs to obtain sufficient and appropriate evidence for the
-hypothesis that the misstatement in the financial statements is lower than a
-certain amount: the materiality. If the financial statements contain
-misstatements that are considered material, this means that the errors in the
-financial statements are large enough that they might influence the decision of
-stakeholders relying on these financial statements. The performance materiality
-is the materiality that applies to each of the populations on which the
-financial statements are based. For this example, the performance materiality is
-set at 5% of the total value of the population.</p>
-<p>In this example, we focus on the <code>BuildIt</code> data set that comes with the <strong>jfa</strong>
-package.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
-<span id="cb12-2"><a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(BuildIt)</span></span></code></pre></div>
-<p>The population of interest consists of 3500 items, each with a booked value.
-Let’s assume that, before performing audit sampling, the auditor has assessed
-the quality of BuildIt’s internal control systems and found that they were
-working properly.</p>
-<p>In order to formulate an opinion about the misstatement in the population, the
-auditor separates their audit workflow into four stages. First, they will need
-to plan the minimum size of a sample they need to inspect to perform inference
-about the population. Second, they will need to select the required sample from
-the population. Third, they will need to inspect the selected sample and
-determine the audit (true) value of the items it contains. Fourth, they will
-need to use the information from the inspected sample to perform inference about
-the misstatement in the population.</p>
-<p align="center">
-<img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/workflow.png' alt='workflow' width='100%'>
-</p>
+<p>This chapter discusses the standard audit sampling workflow. There are several
+steps involved in the audit sampling workflow, and these steps are outlined
+below.</p>
 </div>
             </section>
 
@@ -298,7 +274,7 @@ the misstatement in the population.</p>
         </div>
       </div>
 <a href="CHAPTER-BASIC-CONCEPTS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="setting-up-the-audit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="step-0-objectives-and-population.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
