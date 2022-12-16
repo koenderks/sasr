@@ -20,13 +20,6 @@ selection
 execution
 evaluation
 reporting
-practical-example
-setting-up-the-audit
-planning-an-audit-sample
-selecting-a-sample
-performing-the-audit
-evaluating-the-sample
-making-a-decision
 CHAPTER-4
 required-information
 the-hypergeometric-likelihood

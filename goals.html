@@ -192,15 +192,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="execution.html"><a href="execution.html"><i class="fa fa-check"></i><b>3.4</b> Execution</a></li>
 <li class="chapter" data-level="3.5" data-path="evaluation.html"><a href="evaluation.html"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
 <li class="chapter" data-level="3.6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>3.6</b> Reporting</a></li>
-<li class="chapter" data-level="3.7" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>3.7</b> Practical Example</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="practical-example.html"><a href="practical-example.html#setting-up-the-audit"><i class="fa fa-check"></i><b>3.7.1</b> Setting Up the Audit</a></li>
-<li class="chapter" data-level="3.7.2" data-path="practical-example.html"><a href="practical-example.html#planning-an-audit-sample"><i class="fa fa-check"></i><b>3.7.2</b> Planning an Audit Sample</a></li>
-<li class="chapter" data-level="3.7.3" data-path="practical-example.html"><a href="practical-example.html#selecting-a-sample"><i class="fa fa-check"></i><b>3.7.3</b> Selecting a Sample</a></li>
-<li class="chapter" data-level="3.7.4" data-path="practical-example.html"><a href="practical-example.html#performing-the-audit"><i class="fa fa-check"></i><b>3.7.4</b> Performing the Audit</a></li>
-<li class="chapter" data-level="3.7.5" data-path="practical-example.html"><a href="practical-example.html#evaluating-the-sample"><i class="fa fa-check"></i><b>3.7.5</b> Evaluating the Sample</a></li>
-<li class="chapter" data-level="3.7.6" data-path="practical-example.html"><a href="practical-example.html#making-a-decision"><i class="fa fa-check"></i><b>3.7.6</b> Making a Decision</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Planning a Sample</a>
 <ul>
@@ -295,6 +286,78 @@ the accuracy of the sales transactions recorded in a company’s accounting
 records. The population is the group of transactions or records that the
 auditor wants to test. In this case, the population would be all of the sales
 transactions recorded in the accounting records.</p>
+<p>In our example of the audit workflow, we will consider the case of BuildIt.
+BuildIt is a fictional construction company in the United States that is being
+audited by an external auditor for a fictional audit firm. At the end of the
+year, BuildIt has provided a summary of its financial situation in the financial
+statements. The objective of the auditor is to formulate an opinion about the
+fairness BuildIt’s financial statements.</p>
+<p>The auditor needs to obtain sufficient and appropriate evidence for the
+hypothesis that the misstatement in the financial statements is lower than a
+certain amount: the materiality. If the financial statements contain
+misstatements that are considered material, this means that the errors in the
+financial statements are large enough that they might influence the decision of
+stakeholders relying on these financial statements. The performance materiality
+is the materiality that applies to each of the populations on which the
+financial statements are based. For this example, the performance materiality is
+set at 5% of the total value of the population.</p>
+<p>In this example, we focus on the <code>BuildIt</code> data set that comes with the <strong>jfa</strong>
+package.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="goals.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
+<span id="cb23-2"><a href="goals.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(BuildIt)</span></span></code></pre></div>
+<p>The population of interest consists of 3500 items, each with a booked value.
+Let’s assume that, before performing audit sampling, the auditor has assessed
+the quality of BuildIt’s internal control systems and found that they were
+working properly.</p>
+<p>In order to formulate an opinion about the misstatement in the population, the
+auditor separates their audit workflow into four stages. First, they will need
+to plan the minimum size of a sample they need to inspect to perform inference
+about the population. Second, they will need to select the required sample from
+the population. Third, they will need to inspect the selected sample and
+determine the audit (true) value of the items it contains. Fourth, they will
+need to use the information from the inspected sample to perform inference about
+the misstatement in the population.</p>
+<p align="center">
+<img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/workflow.png' alt='workflow' width='100%'>
+</p>
+<p>The auditor wants to make a statement that, with 95% confidence, the misstatement
+in the population is lower than the performance materiality of 5%. Based on last
+year’s audit at BuildIt, where the upper bound of the misstatement turned out to
+be 2.5%, they want to tolerate at most 2.5% errors in the intended sample. The
+auditor can therefore re-formulate their statistical statement as that they want
+to conclude that, when 2.5% errors are found in the sample, they can conclude
+with 95% confidence that the misstatement in the population is lower than the
+performance materiality of 5%.</p>
+<p>Below, the auditor defines the performance materiality, confidence level, and
+expected misstatements in the sample.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="goals.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the confidence, materiality, and expected errors.</span></span>
+<span id="cb24-2"><a href="goals.html#cb24-2" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
+<span id="cb24-3"><a href="goals.html#cb24-3" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
+<span id="cb24-4"><a href="goals.html#cb24-4" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
+<p>Many audits are performed according to the <em>audit risk model (ARM)</em>, which
+determines that the uncertainty about the auditor’s statement as a whole
+(1 - the confidence) is a factor of three terms: the inherent risk, the control
+risk, and the detection risk. Inherent risk is the risk posed by an error in
+BuildIt’s financial statement that could be material, before consideration of
+any related control systems (e.g., computer systems). Control risk is the risk
+that a material misstatement is not prevented or detected by BuildIt’s internal
+control systems. Detection risk is the risk that the auditor will fail to find
+material misstatements that exist in an BuildIt’s financial statements. The
+<em>ARM</em> is practically useful because for a given level of audit risk, the
+tolerable detection risk bears an inverse relation to the other two risks. The
+<em>ARM</em> is useful for the auditor because it enables them to incorporate existing
+information on BuildIt’s organization to increase the required risk that they
+will fail to find a material misstatement.</p>
+<p><span class="math display">\[ \text{Audit risk} = \text{Inherent risk} \,\times\, \text{Control risk} \,\times\, \text{Detection risk}\]</span></p>
+<p>Usually the auditor judges inherent risk and control risk on a three-point scale
+consisting of low, medium, and high. Different audit firms handle different
+standard percentages for these categories. The auditor’s firm defines the
+probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
+Because the auditor assessed BuildIt’s internal control systems, they assess the
+control risk as medium (60%).</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goals.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the inherent risk (ir) and control risk (cr).</span></span>
+<span id="cb25-2"><a href="goals.html#cb25-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
+<span id="cb25-3"><a href="goals.html#cb25-3" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
 </div>
             </section>
 

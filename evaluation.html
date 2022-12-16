@@ -192,15 +192,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="execution.html"><a href="execution.html"><i class="fa fa-check"></i><b>3.4</b> Execution</a></li>
 <li class="chapter" data-level="3.5" data-path="evaluation.html"><a href="evaluation.html"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
 <li class="chapter" data-level="3.6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>3.6</b> Reporting</a></li>
-<li class="chapter" data-level="3.7" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>3.7</b> Practical Example</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="practical-example.html"><a href="practical-example.html#setting-up-the-audit"><i class="fa fa-check"></i><b>3.7.1</b> Setting Up the Audit</a></li>
-<li class="chapter" data-level="3.7.2" data-path="practical-example.html"><a href="practical-example.html#planning-an-audit-sample"><i class="fa fa-check"></i><b>3.7.2</b> Planning an Audit Sample</a></li>
-<li class="chapter" data-level="3.7.3" data-path="practical-example.html"><a href="practical-example.html#selecting-a-sample"><i class="fa fa-check"></i><b>3.7.3</b> Selecting a Sample</a></li>
-<li class="chapter" data-level="3.7.4" data-path="practical-example.html"><a href="practical-example.html#performing-the-audit"><i class="fa fa-check"></i><b>3.7.4</b> Performing the Audit</a></li>
-<li class="chapter" data-level="3.7.5" data-path="practical-example.html"><a href="practical-example.html#evaluating-the-sample"><i class="fa fa-check"></i><b>3.7.5</b> Evaluating the Sample</a></li>
-<li class="chapter" data-level="3.7.6" data-path="practical-example.html"><a href="practical-example.html#making-a-decision"><i class="fa fa-check"></i><b>3.7.6</b> Making a Decision</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Planning a Sample</a>
 <ul>
@@ -288,6 +279,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="evaluation" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Evaluation<a href="evaluation.html#evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p align="center">
+<img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/evaluation.png' alt='evaluation' width='100%'>
+</p>
 <p>Once the sample has been tested, the next step is to analyze the results. This
 involves reviewing the results of the testing and determining if the sample is
 representative of the population as a whole. If the sample is representative,
@@ -295,6 +289,35 @@ the auditor can draw conclusions about the population based on the results of
 the testing. If the sample is not representative, the auditor may need to select
 a new sample and test it in order to draw accurate conclusions about the
 population.</p>
+<p>Using the annotated sample, the auditor can perform inference about the
+misstatement in the population via the <code>evaluation()</code> function.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="evaluation.html#cb32-1" aria-hidden="true" tabindex="-1"></a>stage4 <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb32-2"><a href="evaluation.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> materiality, <span class="at">conf.level =</span> c.adj, <span class="at">data =</span> sample,</span>
+<span id="cb32-3"><a href="evaluation.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span></span>
+<span id="cb32-4"><a href="evaluation.html#cb32-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The auditor can inspect the outcomes of her inference by using the <code>summary()</code>
+function. The resulting 91.66% upper bound is 1.396%, which is lower than the
+performance materiality of 5%.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="evaluation.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage4)</span>
+<span id="cb33-2"><a href="evaluation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-3"><a href="evaluation.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb33-4"><a href="evaluation.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-5"><a href="evaluation.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb33-6"><a href="evaluation.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.91667 </span></span>
+<span id="cb33-7"><a href="evaluation.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
+<span id="cb33-8"><a href="evaluation.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb33-9"><a href="evaluation.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
+<span id="cb33-10"><a href="evaluation.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-11"><a href="evaluation.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb33-12"><a href="evaluation.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    178 </span></span>
+<span id="cb33-13"><a href="evaluation.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               0 </span></span>
+<span id="cb33-14"><a href="evaluation.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  0 </span></span>
+<span id="cb33-15"><a href="evaluation.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-16"><a href="evaluation.html#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb33-17"><a href="evaluation.html#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0 </span></span>
+<span id="cb33-18"><a href="evaluation.html#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   91.66667 percent confidence interval: [0, 0.01396] </span></span>
+<span id="cb33-19"><a href="evaluation.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.01396 </span></span>
+<span id="cb33-20"><a href="evaluation.html#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        0.00013639</span></span></code></pre></div>
 </div>
             </section>
 

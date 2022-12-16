@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="evaluation.html"/>
-<link rel="next" href="practical-example.html"/>
+<link rel="next" href="CHAPTER-4.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -192,15 +192,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="execution.html"><a href="execution.html"><i class="fa fa-check"></i><b>3.4</b> Execution</a></li>
 <li class="chapter" data-level="3.5" data-path="evaluation.html"><a href="evaluation.html"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
 <li class="chapter" data-level="3.6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>3.6</b> Reporting</a></li>
-<li class="chapter" data-level="3.7" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>3.7</b> Practical Example</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="practical-example.html"><a href="practical-example.html#setting-up-the-audit"><i class="fa fa-check"></i><b>3.7.1</b> Setting Up the Audit</a></li>
-<li class="chapter" data-level="3.7.2" data-path="practical-example.html"><a href="practical-example.html#planning-an-audit-sample"><i class="fa fa-check"></i><b>3.7.2</b> Planning an Audit Sample</a></li>
-<li class="chapter" data-level="3.7.3" data-path="practical-example.html"><a href="practical-example.html#selecting-a-sample"><i class="fa fa-check"></i><b>3.7.3</b> Selecting a Sample</a></li>
-<li class="chapter" data-level="3.7.4" data-path="practical-example.html"><a href="practical-example.html#performing-the-audit"><i class="fa fa-check"></i><b>3.7.4</b> Performing the Audit</a></li>
-<li class="chapter" data-level="3.7.5" data-path="practical-example.html"><a href="practical-example.html#evaluating-the-sample"><i class="fa fa-check"></i><b>3.7.5</b> Evaluating the Sample</a></li>
-<li class="chapter" data-level="3.7.6" data-path="practical-example.html"><a href="practical-example.html#making-a-decision"><i class="fa fa-check"></i><b>3.7.6</b> Making a Decision</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Planning a Sample</a>
 <ul>
@@ -292,14 +283,22 @@ div.csl-indent {
 This involves preparing a report that outlines the audit objective, population,
 sample size, sampling method, and results of the testing. The report should also
 include any recommendations for improvement based on the audit findings.</p>
+<p>Since the 91.66% upper confidence bound on the misstatement in population is
+lower than the performance materiality, the auditor has obtained sufficient
+evidence to conclude that the population does not contain material
+misstatements. The auditor can create a <code>html</code> or <code>pdf</code> report of the statistical
+results using the <code>report()</code> function, as shown below.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="reporting.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(stage4, <span class="at">file =</span> <span class="st">&quot;report.html&quot;</span>)</span></code></pre></div>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="evaluation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-example.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
