@@ -43,8 +43,13 @@ One important concept in statistical audit sampling is the confidence level. The
 confidence level is the probability that the sample estimate falls within a
 certain range of the true population value. For example, if the confidence level
 is 95%, there is a 95% probability that the sample estimate is within the
-specified range of the true population value. The desired confidence level is
-known to the auditor before they performs audit sampling.
+specified range of the true population value. The confidence level is inversely
+related to the audit risk $\alpha$, as follows:
+
+$$\text{Confidence} = 1 - \text{Audit risk}(\alpha)$$
+
+Hence, the desired confidence level is known to the auditor before they start
+with their audit sampling activities.
 
 Another important concept in statistical audit sampling is precision. Precision
 refers to the degree to which the auditors' inferences are reliable. An estimate
