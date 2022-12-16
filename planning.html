@@ -154,7 +154,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><strong><a href="./">Statistical Auditing with R</a></strong></li>
+<li><strong><a href="./">Statistical Audit Sampling with R</a></strong></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
@@ -296,11 +296,9 @@ Bayesian analysis. A frequentist analysis can easily be done through the
 following functions by setting <code>prior = FALSE</code>. In a frequentist analysis, the
 auditor immediately uses the adjusted confidence to calculate the sample size
 via the <code>planning()</code> function.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="planning.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the required confidence for a frequentist analysis.</span></span>
-<span id="cb26-2"><a href="planning.html#cb26-2" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
-<span id="cb26-3"><a href="planning.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Calculate the required sample size.</span></span>
-<span id="cb26-4"><a href="planning.html#cb26-4" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected,</span>
-<span id="cb26-5"><a href="planning.html#cb26-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="planning.html#cb26-1" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
+<span id="cb26-2"><a href="planning.html#cb26-2" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected,</span>
+<span id="cb26-3"><a href="planning.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
 <p>The auditor can then inspect the result from the planning procedure by using the
 <code>summary()</code> function. The result shows that the auditor needs to select a sample
 of 178 items so that, when at most 4.45 misstatements are found, they can

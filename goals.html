@@ -154,7 +154,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><strong><a href="./">Statistical Auditing with R</a></strong></li>
+<li><strong><a href="./">Statistical Audit Sampling with R</a></strong></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
@@ -330,10 +330,9 @@ with 95% confidence that the misstatement in the population is lower than the
 performance materiality of 5%.</p>
 <p>Below, the auditor defines the performance materiality, confidence level, and
 expected misstatements in the sample.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="goals.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the confidence, materiality, and expected errors.</span></span>
-<span id="cb24-2"><a href="goals.html#cb24-2" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
-<span id="cb24-3"><a href="goals.html#cb24-3" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
-<span id="cb24-4"><a href="goals.html#cb24-4" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="goals.html#cb24-1" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
+<span id="cb24-2"><a href="goals.html#cb24-2" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
+<span id="cb24-3"><a href="goals.html#cb24-3" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
 <p>Many audits are performed according to the <em>audit risk model (ARM)</em>, which
 determines that the uncertainty about the auditor’s statement as a whole
 (1 - the confidence) is a factor of three terms: the inherent risk, the control
@@ -355,9 +354,8 @@ standard percentages for these categories. The auditor’s firm defines the
 probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
 Because the auditor assessed BuildIt’s internal control systems, they assess the
 control risk as medium (60%).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goals.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the inherent risk (ir) and control risk (cr).</span></span>
-<span id="cb25-2"><a href="goals.html#cb25-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
-<span id="cb25-3"><a href="goals.html#cb25-3" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goals.html#cb25-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
+<span id="cb25-2"><a href="goals.html#cb25-2" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
 </div>
             </section>
 
