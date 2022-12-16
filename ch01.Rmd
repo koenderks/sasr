@@ -14,8 +14,9 @@ source("utils.R", local = TRUE)
 
 R is a programming language and software environment for statistical computing
 and graphics. It is widely used among statisticians and data scientists for data
-analysis and visualization. R has a large and active community of users, and
-there are many resources available for learning and using R.
+analysis and visualization. However, R can also be used in an auditing context.
+R has a large and active community of users, and there are many resources
+available for learning and using R.
 
 ## Basic Operations
 

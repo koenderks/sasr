@@ -69,3 +69,78 @@ draw conclusions about the population as a whole. Statistical audit sampling
 uses statistical techniques to select a sample from the population and make
 inferences about the population based on the sample, while non-statistical
 sampling is based on the judgment of the auditor.
+
+## Frequentist versus Bayesian Inference
+
+The Frequentist and the Bayesian approach to statistical inference are two
+different ways to use data to perform inferences or draw conclusions about a
+population. Both paradigms have their own set of assumptions and approaches to
+statistical estimation and hypothesis testing.
+
+Frequentist (classical) statistics is based on the concept of probability as a
+frequency. It is the traditional approach to statistical analysis and relies on
+the idea that probability is the long-term frequency of an event occurring in a
+large number of trials. This approach is based on the law of large numbers,
+which states that as the number of trials increases, the frequency of an event
+will approach the true probability of the event occurring. In frequentist
+estimation, the parameter that needs to be estimated is considered to be fixed,
+but unknown. The goal of frequentist estimation is to use the sample data to
+find the value of the parameter that is most likely to be true. This is
+typically done using point estimates, which are single values that are thought
+to be the best estimate of the population parameter, and interval estimates,
+which provide a range of values that the population parameter is likely to fall
+within.
+
+Bayesian estimation, on the other hand, is based on the idea that the parameter
+of interest is not fixed but uncertain. In this approach, the parameter is 
+onsidered to be a random variable with a certain distribution, and the goal is
+to use the data and prior knowledge about the parameter to update our belief
+about its value. This is typically done using Bayes' theorem, which states that
+the posterior probability (i.e., the updated belief about the parameter after
+seeing the data) is equal to the prior probability (i.e., the belief about the
+parameter before seeing the data) times the likelihood (i.e., the probability of
+the data given the parameter).
+
+One major difference between frequentist and Bayesian statistics is the way
+they handle uncertainty. In frequentist statistics, uncertainty is represented
+by the standard error of an estimate, which is a measure of the precision of an
+estimate. In Bayesian statistics, uncertainty is represented by the posterior
+distribution, which is a distribution of the possible values of the population
+parameter given the sample data and our prior beliefs. Bayesian inferences
+uses uses Bayes' theorem to update the prior beliefs about the population
+parameter with the new information from the sample data. Bayes' theorem is given
+by the following formula:
+
+$$p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}$$,
+
+where $p(\theta \,|\, y)$ is the posterior probability of the population
+parameter $\theta$ given the sample data $y$, $p(y \,|\, \theta)$ is the
+likelihood of the sample data given $\theta$, $p(\theta)$ is the prior
+probability of $\theta$, and $p(y)$ is the total probability of the sample data
+occurring. Because with a fixed sample $p(y)$ is a constant, the Bayes' theorem
+is often given as follows:
+
+$$p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)$$,
+
+Or, in words:
+
+$$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$.
+
+There are several other differences between frequentist and Bayesian approaches.
+One major difference is that frequentist approaches focus on the long-run
+behavior of an estimator, while Bayesian approaches focus on the probability of
+the estimator being correct given the data. Another difference is that
+frequentist approaches rely on asymptotic results (i.e., results that hold in
+the limit as the sample size goes to infinity), while Bayesian approaches can be
+applied with any sample size. Additionally, Bayesian approaches allow for the
+incorporation of prior knowledge about the parameter, while frequentist
+approaches do not.
+
+Overall, frequentist and Bayesian statistics are two different approaches to
+statistical analysis that have their own unique strengths and weaknesses.
+Frequentist statistics is a well-established approach that is widely used in
+scientific research and audit practice, but it has some limitations, such as its
+reliance on assumptions and its inability to incorporate prior beliefs. Bayesian
+statistics is a newer approach that allows for more flexibility in statistical
+inferences, but it requires the specification of prior beliefs, which can be
+difficult to quantify.
