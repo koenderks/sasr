@@ -1,5 +1,5 @@
 Package: stataudbook
-Title: Statistical auditing with R
+Title: Statistical Audit Sampling with R
 Version: 0.0.1
 Authors@R:
     person(given = "Koen",

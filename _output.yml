@@ -4,7 +4,7 @@ bookdown::gitbook:
     toc:
       collapse: subsection
       before: |
-        <li><strong><a href="./">Statistical Auditing with R</a></strong></li>
+        <li><strong><a href="./">Statistical Audit Sampling with R</a></strong></li>
     edit:
       link: https://github.com/koenderks/stataudbook/edit/master/%s
       text: "Edit"

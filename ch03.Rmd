@@ -80,7 +80,6 @@ Below, the auditor defines the performance materiality, confidence level, and
 expected misstatements in the sample.
 
 ```{r}
-# Specify the confidence, materiality, and expected errors.
 confidence <- 0.95 # 95%
 materiality <- 0.05 # 5%
 expected <- 0.025 # 2.5%
@@ -111,7 +110,6 @@ Because the auditor assessed BuildIt's internal control systems, they assess the
 control risk as medium (60%).
 
 ```{r}
-# Specify the inherent risk (ir) and control risk (cr).
 ir <- 1 # 100%
 cr <- 0.6 # 60%
 ```
@@ -137,9 +135,7 @@ auditor immediately uses the adjusted confidence to calculate the sample size
 via the `planning()` function.
 
 ```{r}
-# Adjust the required confidence for a frequentist analysis.
 c.adj <- 1 - ((1 - confidence) / (ir * cr))
-# Step 1: Calculate the required sample size.
 stage1 <- planning(materiality = materiality, expected = expected,
                    conf.level = c.adj)
 ```
