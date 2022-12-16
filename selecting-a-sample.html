@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-15" />
+<meta name="date" content="2022-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -161,11 +161,17 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="CHAPTER-R-BASICS.html"><a href="CHAPTER-R-BASICS.html"><i class="fa fa-check"></i><b>1</b> R Basics</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-a-package.html"><a href="installing-a-package.html"><i class="fa fa-check"></i><b>1.1</b> Installing a Package</a></li>
-<li class="chapter" data-level="1.2" data-path="loading-a-package.html"><a href="loading-a-package.html"><i class="fa fa-check"></i><b>1.2</b> Loading a Package</a></li>
-<li class="chapter" data-level="1.3" data-path="upgrading-a-package.html"><a href="upgrading-a-package.html"><i class="fa fa-check"></i><b>1.3</b> Upgrading a Package</a></li>
-<li class="chapter" data-level="1.4" data-path="loading-data-from-a-csv-file.html"><a href="loading-data-from-a-csv-file.html"><i class="fa fa-check"></i><b>1.4</b> Loading Data from a CSV File</a></li>
-<li class="chapter" data-level="1.5" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading Data from an Excel File</a></li>
+<li class="chapter" data-level="1.1" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>1.1</b> Basic Operations</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="basic-operations.html"><a href="basic-operations.html#vectors"><i class="fa fa-check"></i><b>1.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="1.1.2" data-path="basic-operations.html"><a href="basic-operations.html#matrices"><i class="fa fa-check"></i><b>1.1.2</b> Matrices</a></li>
+<li class="chapter" data-level="1.1.3" data-path="basic-operations.html"><a href="basic-operations.html#data-frames"><i class="fa fa-check"></i><b>1.1.3</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="installing-a-package.html"><a href="installing-a-package.html"><i class="fa fa-check"></i><b>1.2</b> Installing a Package</a></li>
+<li class="chapter" data-level="1.3" data-path="loading-a-package.html"><a href="loading-a-package.html"><i class="fa fa-check"></i><b>1.3</b> Loading a Package</a></li>
+<li class="chapter" data-level="1.4" data-path="upgrading-a-package.html"><a href="upgrading-a-package.html"><i class="fa fa-check"></i><b>1.4</b> Upgrading a Package</a></li>
+<li class="chapter" data-level="1.5" data-path="loading-data-from-a-csv-file.html"><a href="loading-data-from-a-csv-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading Data from a CSV File</a></li>
+<li class="chapter" data-level="1.6" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.6</b> Loading Data from an Excel File</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="CHAPTER-BASIC-CONCEPTS.html"><a href="CHAPTER-BASIC-CONCEPTS.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -268,30 +274,30 @@ more high-valued items. The <code>selection()</code> function enables them to se
 sample from the population. She uses the <code>stage1</code> object as an input for the
 <code>selection()</code> function, since this passes the calculated sample size to the
 function.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="selecting-a-sample.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Draw a sample from the financial statements.</span></span>
-<span id="cb11-2"><a href="selecting-a-sample.html#cb11-2" aria-hidden="true" tabindex="-1"></a>stage2 <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> stage1, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="selecting-a-sample.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Draw a sample from the financial statements.</span></span>
+<span id="cb17-2"><a href="selecting-a-sample.html#cb17-2" aria-hidden="true" tabindex="-1"></a>stage2 <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> stage1, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>)</span></code></pre></div>
 <p>Like before, the auditor can inspect the outcomes of their sampling procedure<br />
 by using the <code>summary()</code> function.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="selecting-a-sample.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage2)</span>
-<span id="cb12-2"><a href="selecting-a-sample.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb12-3"><a href="selecting-a-sample.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Audit Sample Selection Summary</span></span>
-<span id="cb12-4"><a href="selecting-a-sample.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb12-5"><a href="selecting-a-sample.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb12-6"><a href="selecting-a-sample.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Requested sample size:         178 </span></span>
-<span id="cb12-7"><a href="selecting-a-sample.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sampling units:                monetary units </span></span>
-<span id="cb12-8"><a href="selecting-a-sample.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                        fixed interval sampling </span></span>
-<span id="cb12-9"><a href="selecting-a-sample.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Starting point:                1 </span></span>
-<span id="cb12-10"><a href="selecting-a-sample.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb12-11"><a href="selecting-a-sample.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb12-12"><a href="selecting-a-sample.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:               3500 </span></span>
-<span id="cb12-13"><a href="selecting-a-sample.html#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population value:              1403221 </span></span>
-<span id="cb12-14"><a href="selecting-a-sample.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selection interval:            7883.3 </span></span>
-<span id="cb12-15"><a href="selecting-a-sample.html#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb12-16"><a href="selecting-a-sample.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb12-17"><a href="selecting-a-sample.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected sampling units:       178 </span></span>
-<span id="cb12-18"><a href="selecting-a-sample.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of value:           0.062843 </span></span>
-<span id="cb12-19"><a href="selecting-a-sample.html#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected items:                178 </span></span>
-<span id="cb12-20"><a href="selecting-a-sample.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of size:            0.050857</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="selecting-a-sample.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage2)</span>
+<span id="cb18-2"><a href="selecting-a-sample.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-3"><a href="selecting-a-sample.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Audit Sample Selection Summary</span></span>
+<span id="cb18-4"><a href="selecting-a-sample.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-5"><a href="selecting-a-sample.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb18-6"><a href="selecting-a-sample.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Requested sample size:         178 </span></span>
+<span id="cb18-7"><a href="selecting-a-sample.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sampling units:                monetary units </span></span>
+<span id="cb18-8"><a href="selecting-a-sample.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                        fixed interval sampling </span></span>
+<span id="cb18-9"><a href="selecting-a-sample.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Starting point:                1 </span></span>
+<span id="cb18-10"><a href="selecting-a-sample.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-11"><a href="selecting-a-sample.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
+<span id="cb18-12"><a href="selecting-a-sample.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:               3500 </span></span>
+<span id="cb18-13"><a href="selecting-a-sample.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population value:              1403221 </span></span>
+<span id="cb18-14"><a href="selecting-a-sample.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selection interval:            7883.3 </span></span>
+<span id="cb18-15"><a href="selecting-a-sample.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb18-16"><a href="selecting-a-sample.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb18-17"><a href="selecting-a-sample.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected sampling units:       178 </span></span>
+<span id="cb18-18"><a href="selecting-a-sample.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of value:           0.062843 </span></span>
+<span id="cb18-19"><a href="selecting-a-sample.html#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Selected items:                178 </span></span>
+<span id="cb18-20"><a href="selecting-a-sample.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Proportion of size:            0.050857</span></span></code></pre></div>
 </div>
             </section>
 

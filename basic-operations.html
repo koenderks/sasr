@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Selection | Statistical Audit Sampling with R, 1st Edition</title>
+  <title>1.1 Basic Operations | Statistical Audit Sampling with R, 1st Edition</title>
   <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Selection | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="1.1 Basic Operations | Statistical Audit Sampling with R, 1st Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
   <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/stataudbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Selection | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="1.1 Basic Operations | Statistical Audit Sampling with R, 1st Edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="planning-a-sample.html"/>
-<link rel="next" href="sampling-units.html"/>
+<link rel="prev" href="CHAPTER-R-BASICS.html"/>
+<link rel="next" href="installing-a-package.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -253,24 +253,58 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="CHAPTER-SELECTION" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Selection<a href="CHAPTER-SELECTION.html#CHAPTER-SELECTION" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter outlines the most commonly used sampling methodology for auditing
-and shows how to select a sample using these methods with the <strong>jfa</strong> package.</p>
-<p>Auditors are often required to assess balances or processes that involve a large
-number of items. Since they cannot inspect all of these items individually, they
-need to select a subset (i.e., a sample) from the total population to make a
-statement about a certain characteristic of the population. For this purpose,
-various selection methodologies are available that have become standard in an
-audit context.</p>
+<div id="basic-operations" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Basic Operations<a href="basic-operations.html#basic-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the basic features of R is its ability to manipulate data. For example,
+to perform a simple calculation in R you can type:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basic-operations.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="basic-operations.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2</span></span></code></pre></div>
+<div id="vectors" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Vectors<a href="basic-operations.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R has a variety of data types, including numbers, characters, and logical values
+(<code>TRUE</code> or <code>FALSE</code>). For example, we can create a vector of numbers using the
+<code>c()</code> function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-operations.html#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
+<p>We can also create a vector of characters using the same function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic-operations.html#cb3-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)</span></code></pre></div>
+<p>R also has functions for performing mathematical operations on data. For
+example, we can use the <code>mean()</code> function to calculate the average of a vector
+of numbers, or we can use the <code>length()</code> function to calculate the number of
+elements in a vector:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basic-operations.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb4-2"><a href="basic-operations.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3</span></span>
+<span id="cb4-3"><a href="basic-operations.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
+<span id="cb4-4"><a href="basic-operations.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3</span></span></code></pre></div>
+</div>
+<div id="matrices" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Matrices<a href="basic-operations.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Matrices are two-dimensional arrays of data, and can be created using the
+<code>matrix()</code> function. For example, the following code creates a <code>3x3</code> matrix of
+random numbers:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basic-operations.html#cb5-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">9</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
+</div>
+<div id="data-frames" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Data Frames<a href="basic-operations.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data frames are similar to matrices, but can contain different types of data in
+each column. Data frames can be created using the <code>data.frame()</code> function. For
+example, the following code creates a data frame containing three types of
+data:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basic-operations.html#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">z =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span></code></pre></div>
+<p>In addition to these basic features, R has many packages and libraries that
+extend its capabilities and provide additional functions and tools for data
+analysis and visualization. Some popular packages include <code>dplyr</code> for data
+manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine
+learning. With its versatility and robust community, R is a valuable tool for
+anyone working with data.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="planning-a-sample.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sampling-units.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-R-BASICS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="installing-a-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -301,7 +335,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch05.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch01.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-15" />
+<meta name="date" content="2022-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -161,11 +161,17 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="CHAPTER-R-BASICS.html"><a href="CHAPTER-R-BASICS.html"><i class="fa fa-check"></i><b>1</b> R Basics</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-a-package.html"><a href="installing-a-package.html"><i class="fa fa-check"></i><b>1.1</b> Installing a Package</a></li>
-<li class="chapter" data-level="1.2" data-path="loading-a-package.html"><a href="loading-a-package.html"><i class="fa fa-check"></i><b>1.2</b> Loading a Package</a></li>
-<li class="chapter" data-level="1.3" data-path="upgrading-a-package.html"><a href="upgrading-a-package.html"><i class="fa fa-check"></i><b>1.3</b> Upgrading a Package</a></li>
-<li class="chapter" data-level="1.4" data-path="loading-data-from-a-csv-file.html"><a href="loading-data-from-a-csv-file.html"><i class="fa fa-check"></i><b>1.4</b> Loading Data from a CSV File</a></li>
-<li class="chapter" data-level="1.5" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading Data from an Excel File</a></li>
+<li class="chapter" data-level="1.1" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>1.1</b> Basic Operations</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="basic-operations.html"><a href="basic-operations.html#vectors"><i class="fa fa-check"></i><b>1.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="1.1.2" data-path="basic-operations.html"><a href="basic-operations.html#matrices"><i class="fa fa-check"></i><b>1.1.2</b> Matrices</a></li>
+<li class="chapter" data-level="1.1.3" data-path="basic-operations.html"><a href="basic-operations.html#data-frames"><i class="fa fa-check"></i><b>1.1.3</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="installing-a-package.html"><a href="installing-a-package.html"><i class="fa fa-check"></i><b>1.2</b> Installing a Package</a></li>
+<li class="chapter" data-level="1.3" data-path="loading-a-package.html"><a href="loading-a-package.html"><i class="fa fa-check"></i><b>1.3</b> Loading a Package</a></li>
+<li class="chapter" data-level="1.4" data-path="upgrading-a-package.html"><a href="upgrading-a-package.html"><i class="fa fa-check"></i><b>1.4</b> Upgrading a Package</a></li>
+<li class="chapter" data-level="1.5" data-path="loading-data-from-a-csv-file.html"><a href="loading-data-from-a-csv-file.html"><i class="fa fa-check"></i><b>1.5</b> Loading Data from a CSV File</a></li>
+<li class="chapter" data-level="1.6" data-path="loading-data-from-an-excel-file.html"><a href="loading-data-from-an-excel-file.html"><i class="fa fa-check"></i><b>1.6</b> Loading Data from an Excel File</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="CHAPTER-BASIC-CONCEPTS.html"><a href="CHAPTER-BASIC-CONCEPTS.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><a href="CHAPTER-THE-AUDIT-SAMPLING-WORKFLOW.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -269,25 +275,25 @@ specifying the <code>materiality</code> parameter in the <code>planning()</code>
 command below. Next, a summary of the statistical results can be obtained using
 the <code>summary()</code> function. The result shows that, given zero tolerable errors,
 the minimum sample size is 60 units.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="planning-a-sample.html#cb18-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb18-2"><a href="planning-a-sample.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb18-3"><a href="planning-a-sample.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-4"><a href="planning-a-sample.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
-<span id="cb18-5"><a href="planning-a-sample.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-6"><a href="planning-a-sample.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb18-7"><a href="planning-a-sample.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
-<span id="cb18-8"><a href="planning-a-sample.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
-<span id="cb18-9"><a href="planning-a-sample.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb18-10"><a href="planning-a-sample.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
-<span id="cb18-11"><a href="planning-a-sample.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
-<span id="cb18-12"><a href="planning-a-sample.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-13"><a href="planning-a-sample.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb18-14"><a href="planning-a-sample.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           60 </span></span>
-<span id="cb18-15"><a href="planning-a-sample.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
-<span id="cb18-16"><a href="planning-a-sample.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
-<span id="cb18-17"><a href="planning-a-sample.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
-<span id="cb18-18"><a href="planning-a-sample.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
-<span id="cb18-19"><a href="planning-a-sample.html#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.049787</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="planning-a-sample.html#cb24-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb24-2"><a href="planning-a-sample.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb24-3"><a href="planning-a-sample.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-4"><a href="planning-a-sample.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
+<span id="cb24-5"><a href="planning-a-sample.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-6"><a href="planning-a-sample.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb24-7"><a href="planning-a-sample.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb24-8"><a href="planning-a-sample.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb24-9"><a href="planning-a-sample.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb24-10"><a href="planning-a-sample.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb24-11"><a href="planning-a-sample.html#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb24-12"><a href="planning-a-sample.html#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb24-13"><a href="planning-a-sample.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb24-14"><a href="planning-a-sample.html#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           60 </span></span>
+<span id="cb24-15"><a href="planning-a-sample.html#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb24-16"><a href="planning-a-sample.html#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb24-17"><a href="planning-a-sample.html#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
+<span id="cb24-18"><a href="planning-a-sample.html#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
+<span id="cb24-19"><a href="planning-a-sample.html#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.049787</span></span></code></pre></div>
 </div>
 <div id="estimation" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Estimation<a href="planning-a-sample.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -304,12 +310,12 @@ misstatement in the population is at most 2% above the most likely misstatement.
 specifying the <code>min.precision</code> parameter in the <code>planning()</code> function, see the
 command below. The result shows that, given zero tolerable errors, the minimum
 sample size is 150 units.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="planning-a-sample.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">min.precision =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb19-2"><a href="planning-a-sample.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb19-3"><a href="planning-a-sample.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
-<span id="cb19-4"><a href="planning-a-sample.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb19-5"><a href="planning-a-sample.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 150 </span></span>
-<span id="cb19-6"><a href="planning-a-sample.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 151 iterations via method &#39;poisson&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="planning-a-sample.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">min.precision =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb25-2"><a href="planning-a-sample.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-3"><a href="planning-a-sample.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning</span></span>
+<span id="cb25-4"><a href="planning-a-sample.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb25-5"><a href="planning-a-sample.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 150 </span></span>
+<span id="cb25-6"><a href="planning-a-sample.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 151 iterations via method &#39;poisson&#39;</span></span></code></pre></div>
 </div>
 <div id="bayesian-planning" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Bayesian Planning<a href="planning-a-sample.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -318,45 +324,45 @@ sample size is 150 units.</p>
 <a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
 conjugate to the specified <code>likelihood</code>. For example, the command below uses a
 default gamma(1, 1) prior distribution to plan the sample.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="planning-a-sample.html#cb20-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-2"><a href="planning-a-sample.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb20-3"><a href="planning-a-sample.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb20-4"><a href="planning-a-sample.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
-<span id="cb20-5"><a href="planning-a-sample.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb20-6"><a href="planning-a-sample.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb20-7"><a href="planning-a-sample.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
-<span id="cb20-8"><a href="planning-a-sample.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
-<span id="cb20-9"><a href="planning-a-sample.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb20-10"><a href="planning-a-sample.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
-<span id="cb20-11"><a href="planning-a-sample.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
-<span id="cb20-12"><a href="planning-a-sample.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            gamma(α = 1, β = 1) </span></span>
-<span id="cb20-13"><a href="planning-a-sample.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb20-14"><a href="planning-a-sample.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb20-15"><a href="planning-a-sample.html#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           59 </span></span>
-<span id="cb20-16"><a href="planning-a-sample.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
-<span id="cb20-17"><a href="planning-a-sample.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        gamma(α = 1, β = 60) </span></span>
-<span id="cb20-18"><a href="planning-a-sample.html#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
-<span id="cb20-19"><a href="planning-a-sample.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
-<span id="cb20-20"><a href="planning-a-sample.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
-<span id="cb20-21"><a href="planning-a-sample.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 372.25</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="planning-a-sample.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-2"><a href="planning-a-sample.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb26-3"><a href="planning-a-sample.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-4"><a href="planning-a-sample.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb26-5"><a href="planning-a-sample.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-6"><a href="planning-a-sample.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
+<span id="cb26-7"><a href="planning-a-sample.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.95 </span></span>
+<span id="cb26-8"><a href="planning-a-sample.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
+<span id="cb26-9"><a href="planning-a-sample.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb26-10"><a href="planning-a-sample.html#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0 </span></span>
+<span id="cb26-11"><a href="planning-a-sample.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
+<span id="cb26-12"><a href="planning-a-sample.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:            gamma(α = 1, β = 1) </span></span>
+<span id="cb26-13"><a href="planning-a-sample.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb26-14"><a href="planning-a-sample.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
+<span id="cb26-15"><a href="planning-a-sample.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           59 </span></span>
+<span id="cb26-16"><a href="planning-a-sample.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              0 </span></span>
+<span id="cb26-17"><a href="planning-a-sample.html#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:        gamma(α = 1, β = 60) </span></span>
+<span id="cb26-18"><a href="planning-a-sample.html#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0 </span></span>
+<span id="cb26-19"><a href="planning-a-sample.html#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049929 </span></span>
+<span id="cb26-20"><a href="planning-a-sample.html#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.049929 </span></span>
+<span id="cb26-21"><a href="planning-a-sample.html#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected BF₁₀:                 372.25</span></span></code></pre></div>
 <p>You can inspect how the prior distribution compares to the expected
 posterior distribution by using the <code>plot()</code> function. The expected posterior
 distribution is the posterior distribution that would occur if you actually
 observed the planned sample containing the expected misstatements.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="planning-a-sample.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-25-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="planning-a-sample.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-31-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The input for the <code>prior</code> argument can also be an object created by the
 <code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is a
 conjugate likelihood available, it will inherit the likelihood from the prior.
 For example, the command below uses a custom beta(1, 10) prior distribution to
 plan the sample using the binomial likelihood.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="planning-a-sample.html#cb22-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">beta =</span> <span class="dv">10</span>)</span>
-<span id="cb22-2"><a href="planning-a-sample.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb22-3"><a href="planning-a-sample.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-4"><a href="planning-a-sample.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning</span></span>
-<span id="cb22-5"><a href="planning-a-sample.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb22-6"><a href="planning-a-sample.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 49 </span></span>
-<span id="cb22-7"><a href="planning-a-sample.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 50 iterations via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="planning-a-sample.html#cb28-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">beta =</span> <span class="dv">10</span>)</span>
+<span id="cb28-2"><a href="planning-a-sample.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb28-3"><a href="planning-a-sample.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb28-4"><a href="planning-a-sample.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Planning</span></span>
+<span id="cb28-5"><a href="planning-a-sample.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb28-6"><a href="planning-a-sample.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum sample size = 49 </span></span>
+<span id="cb28-7"><a href="planning-a-sample.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size obtained in 50 iterations via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
 
 </div>
 </div>

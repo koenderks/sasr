@@ -1,4 +1,8 @@
 CHAPTER-R-BASICS
+basic-operations
+vectors
+matrices
+data-frames
 installing-a-package
 loading-a-package
 upgrading-a-package
