@@ -12,9 +12,19 @@ source("utils.R", local = TRUE)
 
 # Evaluating an Unstratified Sample {#CHAPTER-6}
 
-In a non-stratified sampling procedure, the auditor does not take samples from
-different strata or subgroups in a population. An example of such a situation
-would be where the auditor is auditing the general ledger of a small business.
+A non-stratified audit sample does not involve dividing the population into
+subgroups. Here, the auditor selects a random sample from the entire population
+without considering any specific characteristics of the population. 
+
+For example, in an audit of a company's inventory, the auditor may simply select
+a random sample of items from the entire inventory without dividing it into
+subgroups based on characteristics such as location or type of item. Another
+example of such a situation would be where the auditor is auditing the general
+ledger of a small business.
+
+Naturally, non-stratified sampling is simpler than stratified sampling and can
+be used when the population is considered homogenous or the auditor does not
+need to consider differences between subgroups (e.g., strata).
 
 ## Classical Evaluation
 
