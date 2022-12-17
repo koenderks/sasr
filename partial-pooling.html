@@ -291,51 +291,51 @@ poststratified to arrive at the population estimate.</p>
 <span id="cb76-5"><a href="partial-pooling.html#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">pooling =</span> <span class="st">&quot;partial&quot;</span></span>
 <span id="cb76-6"><a href="partial-pooling.html#cb76-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb76-7"><a href="partial-pooling.html#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_pp)</span>
-<span id="cb76-8"><a href="partial-pooling.html#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb76-9"><a href="partial-pooling.html#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb76-10"><a href="partial-pooling.html#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb76-11"><a href="partial-pooling.html#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb76-12"><a href="partial-pooling.html#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
-<span id="cb76-13"><a href="partial-pooling.html#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Population size:                144000 </span></span>
-<span id="cb76-14"><a href="partial-pooling.html#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb76-15"><a href="partial-pooling.html#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb76-16"><a href="partial-pooling.html#cb76-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         binomial </span></span>
-<span id="cb76-17"><a href="partial-pooling.html#cb76-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:             Determined via MCMC sampling </span></span>
-<span id="cb76-18"><a href="partial-pooling.html#cb76-18" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb76-19"><a href="partial-pooling.html#cb76-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb76-20"><a href="partial-pooling.html#cb76-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    2575 </span></span>
-<span id="cb76-21"><a href="partial-pooling.html#cb76-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               115 </span></span>
-<span id="cb76-22"><a href="partial-pooling.html#cb76-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  115 </span></span>
-<span id="cb76-23"><a href="partial-pooling.html#cb76-23" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb76-24"><a href="partial-pooling.html#cb76-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb76-25"><a href="partial-pooling.html#cb76-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:         Determined via MCMC sampling </span></span>
-<span id="cb76-26"><a href="partial-pooling.html#cb76-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.043714 </span></span>
-<span id="cb76-27"><a href="partial-pooling.html#cb76-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent credible interval:   [0.034206, 0.053522] </span></span>
-<span id="cb76-28"><a href="partial-pooling.html#cb76-28" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.0098086 </span></span>
-<span id="cb76-29"><a href="partial-pooling.html#cb76-29" aria-hidden="true" tabindex="-1"></a><span class="co">#   BF₁₀:                             0.019031 </span></span>
-<span id="cb76-30"><a href="partial-pooling.html#cb76-30" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb76-31"><a href="partial-pooling.html#cb76-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Strata (20):</span></span>
-<span id="cb76-32"><a href="partial-pooling.html#cb76-32" aria-hidden="true" tabindex="-1"></a><span class="co">#        N   n  x  t     mle      lb      ub precision</span></span>
-<span id="cb76-33"><a href="partial-pooling.html#cb76-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   5000 300 21 21 0.04809 0.03814 0.08017   0.03207</span></span>
-<span id="cb76-34"><a href="partial-pooling.html#cb76-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 2   5000 300 16 16 0.04569 0.03328 0.06816   0.02247</span></span>
-<span id="cb76-35"><a href="partial-pooling.html#cb76-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 3   5000 300 15 15 0.04497 0.03207 0.06407   0.01909</span></span>
-<span id="cb76-36"><a href="partial-pooling.html#cb76-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   5000 300 14 14 0.04433 0.03043 0.06220   0.01787</span></span>
-<span id="cb76-37"><a href="partial-pooling.html#cb76-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 5   5000 300 16 16 0.04620 0.03281 0.06708   0.02088</span></span>
-<span id="cb76-38"><a href="partial-pooling.html#cb76-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   5000 150  5  5 0.04348 0.02367 0.05968   0.01620</span></span>
-<span id="cb76-39"><a href="partial-pooling.html#cb76-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 7   5000 150  4  4 0.04126 0.02088 0.05677   0.01551</span></span>
-<span id="cb76-40"><a href="partial-pooling.html#cb76-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 8   5000 150  3  3 0.04164 0.01846 0.05501   0.01337</span></span>
-<span id="cb76-41"><a href="partial-pooling.html#cb76-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   5000 150  4  4 0.04229 0.02137 0.05677   0.01448</span></span>
-<span id="cb76-42"><a href="partial-pooling.html#cb76-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  5000 150  5  5 0.04181 0.02328 0.05844   0.01663</span></span>
-<span id="cb76-43"><a href="partial-pooling.html#cb76-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 10000  50  2  2 0.04410 0.02417 0.06688   0.02278</span></span>
-<span id="cb76-44"><a href="partial-pooling.html#cb76-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 10000  50  3  3 0.04418 0.02616 0.07366   0.02948</span></span>
-<span id="cb76-45"><a href="partial-pooling.html#cb76-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 13 10000  50  2  2 0.04318 0.02261 0.06669   0.02351</span></span>
-<span id="cb76-46"><a href="partial-pooling.html#cb76-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 14 10000  50  1  1 0.04280 0.01993 0.06367   0.02087</span></span>
-<span id="cb76-47"><a href="partial-pooling.html#cb76-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 15 10000  50  0  0 0.04234 0.01641 0.05928   0.01694</span></span>
-<span id="cb76-48"><a href="partial-pooling.html#cb76-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 10000  15  0  0 0.04331 0.02039 0.06699   0.02369</span></span>
-<span id="cb76-49"><a href="partial-pooling.html#cb76-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 17 10000  15  0  0 0.04424 0.02027 0.06700   0.02276</span></span>
-<span id="cb76-50"><a href="partial-pooling.html#cb76-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 18 10000  15  0  0 0.04330 0.01984 0.06587   0.02257</span></span>
-<span id="cb76-51"><a href="partial-pooling.html#cb76-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 19 10000  15  1  1 0.04293 0.02313 0.07342   0.03049</span></span>
-<span id="cb76-52"><a href="partial-pooling.html#cb76-52" aria-hidden="true" tabindex="-1"></a><span class="co"># 20  4000  15  3  3 0.04527 0.03047 0.10417   0.05889</span></span></code></pre></div>
+<span id="cb76-8"><a href="partial-pooling.html#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb76-9"><a href="partial-pooling.html#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span id="cb76-10"><a href="partial-pooling.html#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb76-11"><a href="partial-pooling.html#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb76-12"><a href="partial-pooling.html#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span id="cb76-13"><a href="partial-pooling.html#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
+<span id="cb76-14"><a href="partial-pooling.html#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span id="cb76-15"><a href="partial-pooling.html#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span id="cb76-16"><a href="partial-pooling.html#cb76-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
+<span id="cb76-17"><a href="partial-pooling.html#cb76-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             Determined via MCMC sampling </span></span>
+<span id="cb76-18"><a href="partial-pooling.html#cb76-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb76-19"><a href="partial-pooling.html#cb76-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
+<span id="cb76-20"><a href="partial-pooling.html#cb76-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
+<span id="cb76-21"><a href="partial-pooling.html#cb76-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
+<span id="cb76-22"><a href="partial-pooling.html#cb76-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
+<span id="cb76-23"><a href="partial-pooling.html#cb76-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb76-24"><a href="partial-pooling.html#cb76-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb76-25"><a href="partial-pooling.html#cb76-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         Determined via MCMC sampling </span></span>
+<span id="cb76-26"><a href="partial-pooling.html#cb76-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.043714 </span></span>
+<span id="cb76-27"><a href="partial-pooling.html#cb76-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.034206, 0.053522] </span></span>
+<span id="cb76-28"><a href="partial-pooling.html#cb76-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0098086 </span></span>
+<span id="cb76-29"><a href="partial-pooling.html#cb76-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0.019031 </span></span>
+<span id="cb76-30"><a href="partial-pooling.html#cb76-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb76-31"><a href="partial-pooling.html#cb76-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
+<span id="cb76-32"><a href="partial-pooling.html#cb76-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision</span></span>
+<span id="cb76-33"><a href="partial-pooling.html#cb76-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.04809 0.03814 0.08017   0.03207</span></span>
+<span id="cb76-34"><a href="partial-pooling.html#cb76-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.04569 0.03328 0.06816   0.02247</span></span>
+<span id="cb76-35"><a href="partial-pooling.html#cb76-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.04497 0.03207 0.06407   0.01909</span></span>
+<span id="cb76-36"><a href="partial-pooling.html#cb76-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.04433 0.03043 0.06220   0.01787</span></span>
+<span id="cb76-37"><a href="partial-pooling.html#cb76-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.04620 0.03281 0.06708   0.02088</span></span>
+<span id="cb76-38"><a href="partial-pooling.html#cb76-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.04348 0.02367 0.05968   0.01620</span></span>
+<span id="cb76-39"><a href="partial-pooling.html#cb76-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.04126 0.02088 0.05677   0.01551</span></span>
+<span id="cb76-40"><a href="partial-pooling.html#cb76-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.04164 0.01846 0.05501   0.01337</span></span>
+<span id="cb76-41"><a href="partial-pooling.html#cb76-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.04229 0.02137 0.05677   0.01448</span></span>
+<span id="cb76-42"><a href="partial-pooling.html#cb76-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.04181 0.02328 0.05844   0.01663</span></span>
+<span id="cb76-43"><a href="partial-pooling.html#cb76-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.04410 0.02417 0.06688   0.02278</span></span>
+<span id="cb76-44"><a href="partial-pooling.html#cb76-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.04418 0.02616 0.07366   0.02948</span></span>
+<span id="cb76-45"><a href="partial-pooling.html#cb76-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.04318 0.02261 0.06669   0.02351</span></span>
+<span id="cb76-46"><a href="partial-pooling.html#cb76-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.04280 0.01993 0.06367   0.02087</span></span>
+<span id="cb76-47"><a href="partial-pooling.html#cb76-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.04234 0.01641 0.05928   0.01694</span></span>
+<span id="cb76-48"><a href="partial-pooling.html#cb76-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.04331 0.02039 0.06699   0.02369</span></span>
+<span id="cb76-49"><a href="partial-pooling.html#cb76-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.04424 0.02027 0.06700   0.02276</span></span>
+<span id="cb76-50"><a href="partial-pooling.html#cb76-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.04330 0.01984 0.06587   0.02257</span></span>
+<span id="cb76-51"><a href="partial-pooling.html#cb76-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.04293 0.02313 0.07342   0.03049</span></span>
+<span id="cb76-52"><a href="partial-pooling.html#cb76-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.04527 0.03047 0.10417   0.05889</span></span></code></pre></div>
 <p>In this case, the output shows that the estimate of the misstatement in the
 population is 4.34%, with the 95% credible interval ranging from 3.45% to 5.33%.
 Note that this population estimate is substantially less uncertain than that of

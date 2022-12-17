@@ -286,13 +286,13 @@ audit, the sample is already indicated in the data set. The performance
 materiality in this example is set to 5%.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="evaluation-using-data.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
 <span id="cb66-2"><a href="evaluation-using-data.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
-<span id="cb66-3"><a href="evaluation-using-data.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   item branch bookValue auditValue times</span></span>
-<span id="cb66-4"><a href="evaluation-using-data.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1     12      1600       1600     1</span></span>
-<span id="cb66-5"><a href="evaluation-using-data.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2     12      1625         NA     0</span></span>
-<span id="cb66-6"><a href="evaluation-using-data.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3     12      1775         NA     0</span></span>
-<span id="cb66-7"><a href="evaluation-using-data.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4     12      1250       1250     1</span></span>
-<span id="cb66-8"><a href="evaluation-using-data.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5     12      1400         NA     0</span></span>
-<span id="cb66-9"><a href="evaluation-using-data.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    6     12      1190         NA     0</span></span></code></pre></div>
+<span id="cb66-3"><a href="evaluation-using-data.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
+<span id="cb66-4"><a href="evaluation-using-data.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    1     12      1600       1600     1</span></span>
+<span id="cb66-5"><a href="evaluation-using-data.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    2     12      1625         NA     0</span></span>
+<span id="cb66-6"><a href="evaluation-using-data.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    3     12      1775         NA     0</span></span>
+<span id="cb66-7"><a href="evaluation-using-data.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4     12      1250       1250     1</span></span>
+<span id="cb66-8"><a href="evaluation-using-data.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    5     12      1400         NA     0</span></span>
+<span id="cb66-9"><a href="evaluation-using-data.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code></pre></div>
 <p>Evaluating a non-stratified sample using data requires specification of the
 <code>data</code>, <code>values</code> and <code>values.audit</code> arguments. The input for these arguments is
 the name of the specific column in <code>data</code>.</p>
@@ -305,25 +305,25 @@ non-stratified evaluation procedure.</p>
 <span id="cb67-3"><a href="evaluation-using-data.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span>, <span class="at">times =</span> <span class="st">&quot;times&quot;</span></span>
 <span id="cb67-4"><a href="evaluation-using-data.html#cb67-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb67-5"><a href="evaluation-using-data.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb67-6"><a href="evaluation-using-data.html#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-7"><a href="evaluation-using-data.html#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
-<span id="cb67-8"><a href="evaluation-using-data.html#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-9"><a href="evaluation-using-data.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb67-10"><a href="evaluation-using-data.html#cb67-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
-<span id="cb67-11"><a href="evaluation-using-data.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb67-12"><a href="evaluation-using-data.html#cb67-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb67-13"><a href="evaluation-using-data.html#cb67-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
-<span id="cb67-14"><a href="evaluation-using-data.html#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-15"><a href="evaluation-using-data.html#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb67-16"><a href="evaluation-using-data.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    1604 </span></span>
-<span id="cb67-17"><a href="evaluation-using-data.html#cb67-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               401 </span></span>
-<span id="cb67-18"><a href="evaluation-using-data.html#cb67-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  252.9281046 </span></span>
-<span id="cb67-19"><a href="evaluation-using-data.html#cb67-19" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-20"><a href="evaluation-using-data.html#cb67-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb67-21"><a href="evaluation-using-data.html#cb67-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.15769 </span></span>
-<span id="cb67-22"><a href="evaluation-using-data.html#cb67-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent confidence interval: [0, 0.175] </span></span>
-<span id="cb67-23"><a href="evaluation-using-data.html#cb67-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.017311 </span></span>
-<span id="cb67-24"><a href="evaluation-using-data.html#cb67-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        1</span></span></code></pre></div>
+<span id="cb67-6"><a href="evaluation-using-data.html#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb67-7"><a href="evaluation-using-data.html#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb67-8"><a href="evaluation-using-data.html#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb67-9"><a href="evaluation-using-data.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb67-10"><a href="evaluation-using-data.html#cb67-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span id="cb67-11"><a href="evaluation-using-data.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span id="cb67-12"><a href="evaluation-using-data.html#cb67-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb67-13"><a href="evaluation-using-data.html#cb67-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
+<span id="cb67-14"><a href="evaluation-using-data.html#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb67-15"><a href="evaluation-using-data.html#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
+<span id="cb67-16"><a href="evaluation-using-data.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    1604 </span></span>
+<span id="cb67-17"><a href="evaluation-using-data.html#cb67-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               401 </span></span>
+<span id="cb67-18"><a href="evaluation-using-data.html#cb67-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
+<span id="cb67-19"><a href="evaluation-using-data.html#cb67-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb67-20"><a href="evaluation-using-data.html#cb67-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb67-21"><a href="evaluation-using-data.html#cb67-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.15769 </span></span>
+<span id="cb67-22"><a href="evaluation-using-data.html#cb67-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent confidence interval: [0, 0.175] </span></span>
+<span id="cb67-23"><a href="evaluation-using-data.html#cb67-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.017311 </span></span>
+<span id="cb67-24"><a href="evaluation-using-data.html#cb67-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p-value:                        1</span></span></code></pre></div>
 <p>In this case, the output shows that the estimate of the misstatement in the
 population is 15.77%, with the 95% (one-sided) confidence interval ranging from
 0% to 17.5%.</p>
@@ -337,27 +337,27 @@ evaluation procedure.</p>
 <span id="cb68-3"><a href="evaluation-using-data.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">values.audit =</span> <span class="st">&quot;auditValue&quot;</span>, <span class="at">times =</span> <span class="st">&quot;times&quot;</span></span>
 <span id="cb68-4"><a href="evaluation-using-data.html#cb68-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb68-5"><a href="evaluation-using-data.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb68-6"><a href="evaluation-using-data.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb68-7"><a href="evaluation-using-data.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb68-8"><a href="evaluation-using-data.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb68-9"><a href="evaluation-using-data.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb68-10"><a href="evaluation-using-data.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.95 </span></span>
-<span id="cb68-11"><a href="evaluation-using-data.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb68-12"><a href="evaluation-using-data.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb68-13"><a href="evaluation-using-data.html#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
-<span id="cb68-14"><a href="evaluation-using-data.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Prior distribution:             gamma(α = 1, β = 1) </span></span>
-<span id="cb68-15"><a href="evaluation-using-data.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb68-16"><a href="evaluation-using-data.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb68-17"><a href="evaluation-using-data.html#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    1604 </span></span>
-<span id="cb68-18"><a href="evaluation-using-data.html#cb68-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               401 </span></span>
-<span id="cb68-19"><a href="evaluation-using-data.html#cb68-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  252.9281046 </span></span>
-<span id="cb68-20"><a href="evaluation-using-data.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb68-21"><a href="evaluation-using-data.html#cb68-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb68-22"><a href="evaluation-using-data.html#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Posterior distribution:         gamma(α = 253.928, β = 1605) </span></span>
-<span id="cb68-23"><a href="evaluation-using-data.html#cb68-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0.15759 </span></span>
-<span id="cb68-24"><a href="evaluation-using-data.html#cb68-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   95 percent credible interval:   [0, 0.17489] </span></span>
-<span id="cb68-25"><a href="evaluation-using-data.html#cb68-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.0173 </span></span>
-<span id="cb68-26"><a href="evaluation-using-data.html#cb68-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   BF₁₀:                             0</span></span></code></pre></div>
+<span id="cb68-6"><a href="evaluation-using-data.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-7"><a href="evaluation-using-data.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span id="cb68-8"><a href="evaluation-using-data.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-9"><a href="evaluation-using-data.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb68-10"><a href="evaluation-using-data.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span id="cb68-11"><a href="evaluation-using-data.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span id="cb68-12"><a href="evaluation-using-data.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb68-13"><a href="evaluation-using-data.html#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
+<span id="cb68-14"><a href="evaluation-using-data.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             gamma(α = 1, β = 1) </span></span>
+<span id="cb68-15"><a href="evaluation-using-data.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-16"><a href="evaluation-using-data.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
+<span id="cb68-17"><a href="evaluation-using-data.html#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    1604 </span></span>
+<span id="cb68-18"><a href="evaluation-using-data.html#cb68-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               401 </span></span>
+<span id="cb68-19"><a href="evaluation-using-data.html#cb68-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
+<span id="cb68-20"><a href="evaluation-using-data.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-21"><a href="evaluation-using-data.html#cb68-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb68-22"><a href="evaluation-using-data.html#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         gamma(α = 253.928, β = 1605) </span></span>
+<span id="cb68-23"><a href="evaluation-using-data.html#cb68-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.15759 </span></span>
+<span id="cb68-24"><a href="evaluation-using-data.html#cb68-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0, 0.17489] </span></span>
+<span id="cb68-25"><a href="evaluation-using-data.html#cb68-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0173 </span></span>
+<span id="cb68-26"><a href="evaluation-using-data.html#cb68-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0</span></span></code></pre></div>
 <p>The output shows that the estimate of the misstatement in the population is
 15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.</p>
 

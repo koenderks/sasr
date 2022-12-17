@@ -298,25 +298,25 @@ misstatement in the population via the <code>evaluation()</code> function.</p>
 function. The resulting 91.66% upper bound is 1.396%, which is lower than the
 performance materiality of 5%.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="evaluation.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage4)</span>
-<span id="cb33-2"><a href="evaluation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb33-3"><a href="evaluation.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Evaluation Summary</span></span>
-<span id="cb33-4"><a href="evaluation.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb33-5"><a href="evaluation.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb33-6"><a href="evaluation.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:               0.91667 </span></span>
-<span id="cb33-7"><a href="evaluation.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                    0.05 </span></span>
-<span id="cb33-8"><a href="evaluation.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb33-9"><a href="evaluation.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Method:                         poisson </span></span>
-<span id="cb33-10"><a href="evaluation.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb33-11"><a href="evaluation.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data:</span></span>
-<span id="cb33-12"><a href="evaluation.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sample size:                    178 </span></span>
-<span id="cb33-13"><a href="evaluation.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Number of errors:               0 </span></span>
-<span id="cb33-14"><a href="evaluation.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sum of taints:                  0 </span></span>
-<span id="cb33-15"><a href="evaluation.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb33-16"><a href="evaluation.html#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb33-17"><a href="evaluation.html#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Most likely error:              0 </span></span>
-<span id="cb33-18"><a href="evaluation.html#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   91.66667 percent confidence interval: [0, 0.01396] </span></span>
-<span id="cb33-19"><a href="evaluation.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   Precision:                      0.01396 </span></span>
-<span id="cb33-20"><a href="evaluation.html#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   p-value:                        0.00013639</span></span></code></pre></div>
+<span id="cb33-2"><a href="evaluation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-3"><a href="evaluation.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
+<span id="cb33-4"><a href="evaluation.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-5"><a href="evaluation.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb33-6"><a href="evaluation.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.91667 </span></span>
+<span id="cb33-7"><a href="evaluation.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span id="cb33-8"><a href="evaluation.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb33-9"><a href="evaluation.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
+<span id="cb33-10"><a href="evaluation.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-11"><a href="evaluation.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
+<span id="cb33-12"><a href="evaluation.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    178 </span></span>
+<span id="cb33-13"><a href="evaluation.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               0 </span></span>
+<span id="cb33-14"><a href="evaluation.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  0 </span></span>
+<span id="cb33-15"><a href="evaluation.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-16"><a href="evaluation.html#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb33-17"><a href="evaluation.html#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0 </span></span>
+<span id="cb33-18"><a href="evaluation.html#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   91.66667 percent confidence interval: [0, 0.01396] </span></span>
+<span id="cb33-19"><a href="evaluation.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.01396 </span></span>
+<span id="cb33-20"><a href="evaluation.html#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p-value:                        0.00013639</span></span></code></pre></div>
 </div>
             </section>
 

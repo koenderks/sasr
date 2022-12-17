@@ -304,23 +304,23 @@ of 178 items so that, when at most 4.45 misstatements are found, they can
 conclude with 91.66% confidence that the misstatement in BuildIt’s population
 is lower than the performance materiality of 5%.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="planning.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
-<span id="cb27-2"><a href="planning.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb27-3"><a href="planning.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Classical Audit Sample Planning Summary</span></span>
-<span id="cb27-4"><a href="planning.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb27-5"><a href="planning.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Options:</span></span>
-<span id="cb27-6"><a href="planning.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Confidence level:              0.91667 </span></span>
-<span id="cb27-7"><a href="planning.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Materiality:                   0.05 </span></span>
-<span id="cb27-8"><a href="planning.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb27-9"><a href="planning.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected:                      0.025 </span></span>
-<span id="cb27-10"><a href="planning.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Likelihood:                    poisson </span></span>
-<span id="cb27-11"><a href="planning.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb27-12"><a href="planning.html#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Results:</span></span>
-<span id="cb27-13"><a href="planning.html#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Minimum sample size:           178 </span></span>
-<span id="cb27-14"><a href="planning.html#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Tolerable errors:              4.45 </span></span>
-<span id="cb27-15"><a href="planning.html#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected most likely error:    0.025 </span></span>
-<span id="cb27-16"><a href="planning.html#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected upper bound:          0.049986 </span></span>
-<span id="cb27-17"><a href="planning.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected precision:            0.024986 </span></span>
-<span id="cb27-18"><a href="planning.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   Expected p-value:              0.083211</span></span></code></pre></div>
+<span id="cb27-2"><a href="planning.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-3"><a href="planning.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning Summary</span></span>
+<span id="cb27-4"><a href="planning.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-5"><a href="planning.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb27-6"><a href="planning.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.91667 </span></span>
+<span id="cb27-7"><a href="planning.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.05 </span></span>
+<span id="cb27-8"><a href="planning.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb27-9"><a href="planning.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0.025 </span></span>
+<span id="cb27-10"><a href="planning.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    poisson </span></span>
+<span id="cb27-11"><a href="planning.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-12"><a href="planning.html#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb27-13"><a href="planning.html#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           178 </span></span>
+<span id="cb27-14"><a href="planning.html#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              4.45 </span></span>
+<span id="cb27-15"><a href="planning.html#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.025 </span></span>
+<span id="cb27-16"><a href="planning.html#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.049986 </span></span>
+<span id="cb27-17"><a href="planning.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.024986 </span></span>
+<span id="cb27-18"><a href="planning.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected p-value:              0.083211</span></span></code></pre></div>
 </div>
             </section>
 

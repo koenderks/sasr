@@ -284,18 +284,18 @@ addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and
 For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R
 will return the result of 5.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
-<span id="cb1-2"><a href="basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 5</span></span></code></pre></div>
+<span id="cb1-2"><a href="basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p>R also allows for more advanced calculations such as exponentiation using the
 <code>^</code> operator, and square roots using the <code>sqrt()</code> function. For example, to
 calculate the square root of 9, you would type in <code>sqrt(9)</code> and R will return
 the result of 3.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span>
-<span id="cb2-2"><a href="basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3</span></span></code></pre></div>
+<span id="cb2-2"><a href="basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 <p>You can also use parentheses to specify the order of operations in your
 calculations. For example, if you want to calculate (2 + 3) * 4, you would type
 in <code>(2 + 3) * 4</code> to get the result of 20.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb3-2"><a href="basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 20</span></span></code></pre></div>
+<span id="cb3-2"><a href="basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code></pre></div>
 <p>Overall, basic calculations in R are similar to those in other programming
 languages and follow the standard order of operations.</p>
 <div id="vectors" class="section level3 hasAnchor" number="1.1.1">
@@ -312,27 +312,27 @@ use the following code:</p>
 <p>Vectors can be indexed using square brackets and a numeric value. For example,
 to access the second element of the vector <code>x</code>, you can use the following code:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>]</span>
-<span id="cb7-2"><a href="basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2</span></span></code></pre></div>
+<span id="cb7-2"><a href="basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
 <p>Vectors can also be subsetted using a logical vector. For example, to get all
 elements of the vector <code>x</code> that are greater than 3, you can use the following
 code:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">3</span>]</span>
-<span id="cb8-2"><a href="basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 4 5</span></span></code></pre></div>
+<span id="cb8-2"><a href="basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4 5</span></span></code></pre></div>
 <p>Vectors can also be modified using indexing and assignment. For example, to
 change the third element of the vector <code>x</code> to 6, you can use the following code:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>]</span>
-<span id="cb9-2"><a href="basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3</span></span>
+<span id="cb9-2"><a href="basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
 <span id="cb9-3"><a href="basics.html#cb9-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">6</span></span>
 <span id="cb9-4"><a href="basics.html#cb9-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>]</span>
-<span id="cb9-5"><a href="basics.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 6</span></span></code></pre></div>
+<span id="cb9-5"><a href="basics.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6</span></span></code></pre></div>
 <p>R also has functions for performing mathematical operations on data. For
 example, we can use the <code>mean()</code> function to calculate the average of a vector
 of numbers, or we can use the <code>length()</code> function to calculate the number of
 elements in a vector:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
-<span id="cb10-2"><a href="basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3.6</span></span>
+<span id="cb10-2"><a href="basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3.6</span></span>
 <span id="cb10-3"><a href="basics.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
-<span id="cb10-4"><a href="basics.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3</span></span></code></pre></div>
+<span id="cb10-4"><a href="basics.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 <p>Overall, vectors are a useful data structure in R for storing and manipulating data.</p>
 </div>
 <div id="matrices" class="section level3 hasAnchor" number="1.1.2">
@@ -342,10 +342,10 @@ rows and columns. You can create a matrix using the <code>matrix()</code> functi
 example:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
 <span id="cb11-2"><a href="basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>m</span>
-<span id="cb11-3"><a href="basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      [,1] [,2] [,3]</span></span>
-<span id="cb11-4"><a href="basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1,]    1    4    7</span></span>
-<span id="cb11-5"><a href="basics.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [2,]    2    5    8</span></span>
-<span id="cb11-6"><a href="basics.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [3,]    3    6    9</span></span></code></pre></div>
+<span id="cb11-3"><a href="basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb11-4"><a href="basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    4    7</span></span>
+<span id="cb11-5"><a href="basics.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    5    8</span></span>
+<span id="cb11-6"><a href="basics.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    6    9</span></span></code></pre></div>
 <p>This creates a 3x3 matrix with the values 1, 2, 3 in the first column, 4, 5, 6
 in the second column, and 7, 8, 9 in the third column.</p>
 <p>You can also create a matrix by combining several vectors using the <code>cbind()</code> or
@@ -355,18 +355,18 @@ in the second column, and 7, 8, 9 in the third column.</p>
 <span id="cb12-3"><a href="basics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
 <span id="cb12-4"><a href="basics.html#cb12-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
 <span id="cb12-5"><a href="basics.html#cb12-5" aria-hidden="true" tabindex="-1"></a>m</span>
-<span id="cb12-6"><a href="basics.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#      v1 v2 v3</span></span>
-<span id="cb12-7"><a href="basics.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1,]  1  4  7</span></span>
-<span id="cb12-8"><a href="basics.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [2,]  2  5  8</span></span>
-<span id="cb12-9"><a href="basics.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [3,]  3  6  9</span></span></code></pre></div>
+<span id="cb12-6"><a href="basics.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      v1 v2 v3</span></span>
+<span id="cb12-7"><a href="basics.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  1  4  7</span></span>
+<span id="cb12-8"><a href="basics.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]  2  5  8</span></span>
+<span id="cb12-9"><a href="basics.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]  3  6  9</span></span></code></pre></div>
 <p>This creates a matrix with the same values as before, but the columns are
 created by binding the vectors together.</p>
 <p>You can access the elements of a matrix using the square bracket notation. For
 example, to access the element in the second row and third column of <code>m</code>, you
 would use the following code:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb13-2"><a href="basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># v3 </span></span>
-<span id="cb13-3"><a href="basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  8</span></span></code></pre></div>
+<span id="cb13-2"><a href="basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v3 </span></span>
+<span id="cb13-3"><a href="basics.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8</span></span></code></pre></div>
 <p>You can also use the <code>dim()</code> function to get the dimensions of a matrix, and the
 <code>colnames()</code> and <code>rownames()</code> functions to get the names of the columns and
 rows, respectively.</p>
@@ -390,13 +390,13 @@ data. You can access the data in a data frame using indexing and subsetting. For
 example, to access the first row of the data frame, you can use the following
 command:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, ]</span>
-<span id="cb15-2"><a href="basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   x y</span></span>
-<span id="cb15-3"><a href="basics.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 1 4</span></span></code></pre></div>
+<span id="cb15-2"><a href="basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   x y</span></span>
+<span id="cb15-3"><a href="basics.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1 4</span></span></code></pre></div>
 <p>To access a specific column, you can use the <code>$</code> operator (or the index):</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>x</span>
-<span id="cb16-2"><a href="basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1 2 3</span></span>
+<span id="cb16-2"><a href="basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
 <span id="cb16-3"><a href="basics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]</span>
-<span id="cb16-4"><a href="basics.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1 2 3</span></span></code></pre></div>
+<span id="cb16-4"><a href="basics.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span></code></pre></div>
 <p>You can also use functions like <code>head()</code> and <code>tail()</code> to view the first or last
 few rows of a data frame. Data frames also have several built-in functions that
 allow you to manipulate and analyze the data. For example, you can use the

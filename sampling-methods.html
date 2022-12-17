@@ -344,23 +344,23 @@ can be changed by setting the argument <code>start = 1</code> to a different val
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sampling-methods.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record sampling</span></span>
 <span id="cb54-2"><a href="sampling-methods.html#cb54-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
 <span id="cb54-3"><a href="sampling-methods.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb54-4"><a href="sampling-methods.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   row times    ID bookValue auditValue</span></span>
-<span id="cb54-5"><a href="sampling-methods.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   1     1 82884    242.61     242.61</span></span>
-<span id="cb54-6"><a href="sampling-methods.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  36     1 80125    118.58     118.58</span></span>
-<span id="cb54-7"><a href="sampling-methods.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  71     1 27566    481.44     481.44</span></span>
-<span id="cb54-8"><a href="sampling-methods.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 106     1 88261    266.66     266.66</span></span>
-<span id="cb54-9"><a href="sampling-methods.html#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 141     1 58999    568.60     568.60</span></span>
-<span id="cb54-10"><a href="sampling-methods.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 176     1 27801    314.65     314.65</span></span></code></pre></div>
+<span id="cb54-4"><a href="sampling-methods.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
+<span id="cb54-5"><a href="sampling-methods.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1     1 82884    242.61     242.61</span></span>
+<span id="cb54-6"><a href="sampling-methods.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  36     1 80125    118.58     118.58</span></span>
+<span id="cb54-7"><a href="sampling-methods.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  71     1 27566    481.44     481.44</span></span>
+<span id="cb54-8"><a href="sampling-methods.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 106     1 88261    266.66     266.66</span></span>
+<span id="cb54-9"><a href="sampling-methods.html#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 141     1 58999    568.60     568.60</span></span>
+<span id="cb54-10"><a href="sampling-methods.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 176     1 27801    314.65     314.65</span></span></code></pre></div>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sampling-methods.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
 <span id="cb55-2"><a href="sampling-methods.html#cb55-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;interval&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">start =</span> <span class="dv">1</span>)</span>
 <span id="cb55-3"><a href="sampling-methods.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb55-4"><a href="sampling-methods.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   row times    ID bookValue auditValue</span></span>
-<span id="cb55-5"><a href="sampling-methods.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   1     1 82884    242.61     242.61</span></span>
-<span id="cb55-6"><a href="sampling-methods.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  38     1 57172    329.30     329.30</span></span>
-<span id="cb55-7"><a href="sampling-methods.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  73     1 90160    205.69     205.69</span></span>
-<span id="cb55-8"><a href="sampling-methods.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 110     1  4756    295.96     295.96</span></span>
-<span id="cb55-9"><a href="sampling-methods.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 146     1 90183    333.28     333.28</span></span>
-<span id="cb55-10"><a href="sampling-methods.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 183     1 96080    449.07     449.07</span></span></code></pre></div>
+<span id="cb55-4"><a href="sampling-methods.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
+<span id="cb55-5"><a href="sampling-methods.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1     1 82884    242.61     242.61</span></span>
+<span id="cb55-6"><a href="sampling-methods.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  38     1 57172    329.30     329.30</span></span>
+<span id="cb55-7"><a href="sampling-methods.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  73     1 90160    205.69     205.69</span></span>
+<span id="cb55-8"><a href="sampling-methods.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 110     1  4756    295.96     295.96</span></span>
+<span id="cb55-9"><a href="sampling-methods.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 146     1 90183    333.28     333.28</span></span>
+<span id="cb55-10"><a href="sampling-methods.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 183     1 96080    449.07     449.07</span></span></code></pre></div>
 </div>
 <div id="cell-sampling" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Cell Sampling<a href="sampling-methods.html#cell-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -397,24 +397,24 @@ seed to make the results reproducible.</p>
 <span id="cb56-2"><a href="sampling-methods.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb56-3"><a href="sampling-methods.html#cb56-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>)</span>
 <span id="cb56-4"><a href="sampling-methods.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb56-5"><a href="sampling-methods.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   row times    ID bookValue auditValue</span></span>
-<span id="cb56-6"><a href="sampling-methods.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   9     1 14608    216.48     216.48</span></span>
-<span id="cb56-7"><a href="sampling-methods.html#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  48     1 45437    347.94     139.18</span></span>
-<span id="cb56-8"><a href="sampling-methods.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  90     1 90333    241.17     241.17</span></span>
-<span id="cb56-9"><a href="sampling-methods.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 136     1 45746    440.72     440.72</span></span>
-<span id="cb56-10"><a href="sampling-methods.html#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 147     1 72906    677.62     677.62</span></span>
-<span id="cb56-11"><a href="sampling-methods.html#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 206     1 93529    528.79     528.79</span></span></code></pre></div>
+<span id="cb56-5"><a href="sampling-methods.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
+<span id="cb56-6"><a href="sampling-methods.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   9     1 14608    216.48     216.48</span></span>
+<span id="cb56-7"><a href="sampling-methods.html#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  48     1 45437    347.94     139.18</span></span>
+<span id="cb56-8"><a href="sampling-methods.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  90     1 90333    241.17     241.17</span></span>
+<span id="cb56-9"><a href="sampling-methods.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 136     1 45746    440.72     440.72</span></span>
+<span id="cb56-10"><a href="sampling-methods.html#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 147     1 72906    677.62     677.62</span></span>
+<span id="cb56-11"><a href="sampling-methods.html#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 206     1 93529    528.79     528.79</span></span></code></pre></div>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sampling-methods.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
 <span id="cb57-2"><a href="sampling-methods.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb57-3"><a href="sampling-methods.html#cb57-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;cell&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
 <span id="cb57-4"><a href="sampling-methods.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb57-5"><a href="sampling-methods.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   row times    ID bookValue auditValue</span></span>
-<span id="cb57-6"><a href="sampling-methods.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   8     1 81460    295.20     295.20</span></span>
-<span id="cb57-7"><a href="sampling-methods.html#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  53     1 80645    677.88     677.88</span></span>
-<span id="cb57-8"><a href="sampling-methods.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  92     1 75133    355.16     355.16</span></span>
-<span id="cb57-9"><a href="sampling-methods.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 142     1 68676    612.46     612.46</span></span>
-<span id="cb57-10"><a href="sampling-methods.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 153     1 63777    552.83     552.83</span></span>
-<span id="cb57-11"><a href="sampling-methods.html#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 214     1 25379   1021.07    1021.07</span></span></code></pre></div>
+<span id="cb57-5"><a href="sampling-methods.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
+<span id="cb57-6"><a href="sampling-methods.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   8     1 81460    295.20     295.20</span></span>
+<span id="cb57-7"><a href="sampling-methods.html#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  53     1 80645    677.88     677.88</span></span>
+<span id="cb57-8"><a href="sampling-methods.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  92     1 75133    355.16     355.16</span></span>
+<span id="cb57-9"><a href="sampling-methods.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 142     1 68676    612.46     612.46</span></span>
+<span id="cb57-10"><a href="sampling-methods.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 153     1 63777    552.83     552.83</span></span>
+<span id="cb57-11"><a href="sampling-methods.html#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 214     1 25379   1021.07    1021.07</span></span></code></pre></div>
 </div>
 <div id="random-sampling" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Random Sampling<a href="sampling-methods.html#random-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -448,24 +448,24 @@ reproducible.</p>
 <span id="cb58-2"><a href="sampling-methods.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb58-3"><a href="sampling-methods.html#cb58-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;items&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>)</span>
 <span id="cb58-4"><a href="sampling-methods.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb58-5"><a href="sampling-methods.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    row times    ID bookValue auditValue</span></span>
-<span id="cb58-6"><a href="sampling-methods.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 1017     1 50755    618.24     618.24</span></span>
-<span id="cb58-7"><a href="sampling-methods.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  679     1 20237    669.75     669.75</span></span>
-<span id="cb58-8"><a href="sampling-methods.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 2177     1  9517    454.02     454.02</span></span>
-<span id="cb58-9"><a href="sampling-methods.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  930     1 85674    257.82     257.82</span></span>
-<span id="cb58-10"><a href="sampling-methods.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 1533     1 31051    308.53     308.53</span></span>
-<span id="cb58-11"><a href="sampling-methods.html#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  471     1 84375    824.66     824.66</span></span></code></pre></div>
+<span id="cb58-5"><a href="sampling-methods.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
+<span id="cb58-6"><a href="sampling-methods.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1017     1 50755    618.24     618.24</span></span>
+<span id="cb58-7"><a href="sampling-methods.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  679     1 20237    669.75     669.75</span></span>
+<span id="cb58-8"><a href="sampling-methods.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2177     1  9517    454.02     454.02</span></span>
+<span id="cb58-9"><a href="sampling-methods.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  930     1 85674    257.82     257.82</span></span>
+<span id="cb58-10"><a href="sampling-methods.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1533     1 31051    308.53     308.53</span></span>
+<span id="cb58-11"><a href="sampling-methods.html#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  471     1 84375    824.66     824.66</span></span></code></pre></div>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sampling-methods.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monetary unit sampling</span></span>
 <span id="cb59-2"><a href="sampling-methods.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb59-3"><a href="sampling-methods.html#cb59-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;random&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
 <span id="cb59-4"><a href="sampling-methods.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb59-5"><a href="sampling-methods.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    row times    ID bookValue auditValue</span></span>
-<span id="cb59-6"><a href="sampling-methods.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 2174     1 90260    625.98     625.98</span></span>
-<span id="cb59-7"><a href="sampling-methods.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 2928     1 68595    548.21     548.21</span></span>
-<span id="cb59-8"><a href="sampling-methods.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 1627     1 98301    429.07     429.07</span></span>
-<span id="cb59-9"><a href="sampling-methods.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  700     1 29683    239.26     239.26</span></span>
-<span id="cb59-10"><a href="sampling-methods.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  147     1 72906    677.62     677.62</span></span>
-<span id="cb59-11"><a href="sampling-methods.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 3056     1 86317    246.22     246.22</span></span></code></pre></div>
+<span id="cb59-5"><a href="sampling-methods.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
+<span id="cb59-6"><a href="sampling-methods.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2174     1 90260    625.98     625.98</span></span>
+<span id="cb59-7"><a href="sampling-methods.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2928     1 68595    548.21     548.21</span></span>
+<span id="cb59-8"><a href="sampling-methods.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1627     1 98301    429.07     429.07</span></span>
+<span id="cb59-9"><a href="sampling-methods.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  700     1 29683    239.26     239.26</span></span>
+<span id="cb59-10"><a href="sampling-methods.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  147     1 72906    677.62     677.62</span></span>
+<span id="cb59-11"><a href="sampling-methods.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 3056     1 86317    246.22     246.22</span></span></code></pre></div>
 </div>
 <div id="modified-sieve-sampling" class="section level3 hasAnchor" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Modified Sieve Sampling<a href="sampling-methods.html#modified-sieve-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -486,13 +486,13 @@ make results reproducible.</p>
 <span id="cb60-2"><a href="sampling-methods.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb60-3"><a href="sampling-methods.html#cb60-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">method =</span> <span class="st">&quot;sieve&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>)</span>
 <span id="cb60-4"><a href="sampling-methods.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb60-5"><a href="sampling-methods.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    row times    ID bookValue auditValue</span></span>
-<span id="cb60-6"><a href="sampling-methods.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 2329     1 29919    681.10     681.10</span></span>
-<span id="cb60-7"><a href="sampling-methods.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 2883     1 59402    279.29     279.29</span></span>
-<span id="cb60-8"><a href="sampling-methods.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 1949     1 56012    581.22     581.22</span></span>
-<span id="cb60-9"><a href="sampling-methods.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 3065     1 47482    621.73     621.73</span></span>
-<span id="cb60-10"><a href="sampling-methods.html#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 1072     1 79901    789.97     789.97</span></span>
-<span id="cb60-11"><a href="sampling-methods.html#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  488     1 50811    651.35     651.35</span></span></code></pre></div>
+<span id="cb60-5"><a href="sampling-methods.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
+<span id="cb60-6"><a href="sampling-methods.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2329     1 29919    681.10     681.10</span></span>
+<span id="cb60-7"><a href="sampling-methods.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2883     1 59402    279.29     279.29</span></span>
+<span id="cb60-8"><a href="sampling-methods.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1949     1 56012    581.22     581.22</span></span>
+<span id="cb60-9"><a href="sampling-methods.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 3065     1 47482    621.73     621.73</span></span>
+<span id="cb60-10"><a href="sampling-methods.html#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1072     1 79901    789.97     789.97</span></span>
+<span id="cb60-11"><a href="sampling-methods.html#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  488     1 50811    651.35     651.35</span></span></code></pre></div>
 </div>
 </div>
             </section>
