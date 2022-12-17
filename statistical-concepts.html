@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Execution | Statistical Audit Sampling with R, 1st edition</title>
+  <title>2.2 Statistical Concepts | Statistical Audit Sampling with R, 1st edition</title>
   <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Execution | Statistical Audit Sampling with R, 1st edition" />
+  <meta property="og:title" content="2.2 Statistical Concepts | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
   <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Execution | Statistical Audit Sampling with R, 1st edition" />
+  <meta name="twitter:title" content="2.2 Statistical Concepts | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="selection.html"/>
-<link rel="next" href="evaluation.html"/>
+<link rel="prev" href="auditing-standards.html"/>
+<link rel="next" href="classical-versus-bayesian-inference.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -285,34 +285,71 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="execution" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Execution<a href="execution.html#execution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The next step in the audit sampling workflow is to test the sample. This
-involves reviewing the transactions or records that were selected for the sample
-and testing them to determine if they are accurate. This may involve reviewing
-documentation, such as invoices or receipts, to verify that the transactions or
-records are accurate.</p>
-<p>The selected sample can be isolated by indexing the <code>sample</code> object from the
-sampling result.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="execution.html#cb30-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> stage2<span class="sc">$</span>sample</span></code></pre></div>
-<p>Next, the auditor can execute the audit by annotating the items in the sample
-with their audit values (for exampling by writing the sample to a <em>.csv</em> file
-using <code>write.csv()</code>. They can then load the annotated sample back into the R
-session for further evaluation. For this example, the audit values of the sample
-items are already included in the <code>auditValue</code> column of the data set.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="execution.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write the sample to a .csv file:</span></span>
-<span id="cb31-2"><a href="execution.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> sample, <span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-3"><a href="execution.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="execution.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To load annotated sample back into R:</span></span>
-<span id="cb31-5"><a href="execution.html#cb31-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>)</span></code></pre></div>
+<div id="statistical-concepts" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Statistical Concepts<a href="statistical-concepts.html#statistical-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="population" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Population<a href="statistical-concepts.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In statistical audit sampling, the auditor first defines the population and the
+sampling units, which is the unit of measurement for the population
+(e.g., transactions, invoices, etc.). The auditor then selects a sample from the
+population using a specified sampling method, such as random sampling or
+stratified sampling.</p>
+</div>
+<div id="tolerable-misstatement" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Tolerable misstatement<a href="statistical-concepts.html#tolerable-misstatement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="sampling-risk" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Sampling risk<a href="statistical-concepts.html#sampling-risk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One important concept in statistical audit sampling is the sampling risk. The
+confidence level is the probability that the sample estimate falls within a
+certain range of the true population value. For example, if the confidence level
+is 95%, there is a 95% probability that the sample estimate is within the
+specified range of the true population value. The confidence level is inversely
+related to the audit risk <span class="math inline">\(\alpha\)</span>, as follows:</p>
+<p><span class="math display">\[\text{Confidence} = 1 - \text{Audit risk}(\alpha)\]</span></p>
+<p>Hence, the desired confidence level is known to the auditor before they start
+with their audit sampling activities.</p>
+<p>Another important concept in statistical audit sampling is precision. Precision
+refers to the degree to which the auditors’ inferences are reliable. An estimate
+with high precision is more likely to provide accurate conclusions about the
+population. The precision of an estimate can be improved by increasing the
+sample size.</p>
+</div>
+<div id="sample-size" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Sample Size<a href="statistical-concepts.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="recap" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Recap<a href="statistical-concepts.html#recap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To recap, the basic statistical concepts behind statistical audit sampling
+introduced in this chapter are:</p>
+<ul>
+<li><strong>Population</strong>: The entire set of data from which a sample is selected and
+about which the auditor wishes to draw conclusions.</li>
+<li><strong>Tolerable misstatement</strong>: This is the maximum amount of misstatement that
+the auditor is willing to accept in the population. A larger tolerable
+misstatement may require a larger sample size to achieve a desired level of
+assurance.</li>
+<li><strong>Tolerable deviation rate</strong>: A rate of deviation set by the auditor in
+respect of which the auditor seeks to obtain an appropriate level of assurance
+that the rate of deviation set by the auditor is not exceeded by the actual
+rate of deviation in the population.</li>
+<li><strong>Sampling risk</strong>: The risk that the auditor’s conclusion based on a sample
+may be different from the conclusion if the entire popula- tion were subjected
+to the same audit procedure. Sampling risk can lead to two types of erroneous
+conclusions: a Type-I error or a Type-II error.</li>
+<li><strong>Sample size</strong>: The sample size should be large enough to provide a reliable
+estimate of the population characteristics, but not so large that it is
+impractical to review.</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="selection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="auditing-standards.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classical-versus-bayesian-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -343,7 +380,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch02.Rmd",
 "text": "Edit"
 },
 "history": {

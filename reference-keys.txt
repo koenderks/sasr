@@ -11,6 +11,13 @@ loading-data
 loading-data-from-a-csv-file
 loading-data-from-an-excel-file
 CHAPTER-2
+auditing-standards
+statistical-concepts
+population
+tolerable-misstatement
+sampling-risk
+sample-size
+recap
 classical-versus-bayesian-inference
 the-bayes-factor
 CHAPTER-3

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Important Concepts | Statistical Audit Sampling with R, 1st edition</title>
+  <title>Chapter 2 Audit Sampling | Statistical Audit Sampling with R, 1st edition</title>
   <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Important Concepts | Statistical Audit Sampling with R, 1st edition" />
+  <meta property="og:title" content="Chapter 2 Audit Sampling | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
   <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Important Concepts | Statistical Audit Sampling with R, 1st edition" />
+  <meta name="twitter:title" content="Chapter 2 Audit Sampling | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="loading-data.html"/>
-<link rel="next" href="classical-versus-bayesian-inference.html"/>
+<link rel="next" href="auditing-standards.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -179,10 +179,19 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="loading-data.html"><a href="loading-data.html#loading-data-from-an-excel-file"><i class="fa fa-check"></i><b>1.3.2</b> Loading Data from an Excel File</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Important Concepts</a>
+<li class="chapter" data-level="2" data-path="CHAPTER-2.html"><a href="CHAPTER-2.html"><i class="fa fa-check"></i><b>2</b> Audit Sampling</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.1</b> Classical versus Bayesian Inference</a></li>
-<li class="chapter" data-level="2.2" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.2</b> The Bayes factor</a></li>
+<li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-concepts.html"><a href="statistical-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Statistical Concepts</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-concepts.html"><a href="statistical-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-concepts.html"><a href="statistical-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable misstatement</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-concepts.html"><a href="statistical-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.3</b> Sampling risk</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-concepts.html"><a href="statistical-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.4</b> Sample Size</a></li>
+<li class="chapter" data-level="2.2.5" data-path="statistical-concepts.html"><a href="statistical-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.5</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="classical-versus-bayesian-inference.html"><a href="classical-versus-bayesian-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical versus Bayesian Inference</a></li>
+<li class="chapter" data-level="2.4" data-path="the-bayes-factor.html"><a href="the-bayes-factor.html"><i class="fa fa-check"></i><b>2.4</b> The Bayes factor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
 <ul>
@@ -277,61 +286,27 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="CHAPTER-2" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Important Concepts<a href="CHAPTER-2.html#CHAPTER-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Statistical audit sampling is a statistical method used by auditors to evaluate
-a sample of transactions or other items within a population in order to draw
-conclusions about the population as a whole. It is a cost-effective way to test
-the accuracy and reliability of financial information, as it allows auditors to
-test a representative sample of the population rather than the entire population.</p>
-<p>There are two main types of audit sampling: statistical sampling and
-non-statistical sampling. Statistical sampling uses probability theory to
-select a sample from the population and perform inferences about the population
+<h1><span class="header-section-number">Chapter 2</span> Audit Sampling<a href="CHAPTER-2.html#CHAPTER-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Auditors use audit sampling as a way to evaluate a portion of transactions or
+items within a population in order to make conclusions about the population as a
+whole. It is a cost-effective method for testing the accuracy and reliability of
+financial information because it allows auditors to test a representative sample
+of the population instead of the entire population.</p>
+<p>In the realm of auditing, sampling becomes necessary when the truth about a
+population is not readily accessible or discernible through other means. With
+the advent of modern technology, auditors often have access to an abundance of
+information about a population, which sometimes enables them to perform integral
+testing. Nonetheless, there are situations where a sample is still necessary due
+to the unavailability of complete data. For instance, an auditor may utilize
+analytical procedures to verify the consistency of payments with payment orders,
+but then must subsequently confirm the validity of these orders through detailed
+testing.</p>
+<p>In auditing, there are two primary methods of sampling: statistical and
+non-statistical. Statistical sampling involves using probability theory to
+select a sample from the population and draw conclusions about the population
 based on the sample. Non-statistical sampling, on the other hand, is based on
-the judgment of the auditor and does not involve statistical techniques. This
-book does not concern itself with non-statistical sampling.</p>
-<p>In statistical audit sampling, the auditor first defines the population and the
-sampling units, which is the unit of measurement for the population
-(e.g., transactions, invoices, etc.). The auditor then selects a sample from the
-population using a specified sampling method, such as random sampling or
-stratified sampling.</p>
-<p>After the sample has been selected, the auditor performs audit procedures on the
-sample and records the results. The auditor then uses statistical techniques to
-calculate estimates of population characteristics, such as the mean or the
-proportion of items with a certain characteristic (e.g., the proportion of
-items that are misstated). The auditor compares these estimates to predetermined
-acceptance criteria to determine (i.e., the materiality) whether the population
-meets the criteria.</p>
-<p>One important concept in statistical audit sampling is the confidence level. The
-confidence level is the probability that the sample estimate falls within a
-certain range of the true population value. For example, if the confidence level
-is 95%, there is a 95% probability that the sample estimate is within the
-specified range of the true population value. The confidence level is inversely
-related to the audit risk <span class="math inline">\(\alpha\)</span>, as follows:</p>
-<p><span class="math display">\[\text{Confidence} = 1 - \text{Audit risk}(\alpha)\]</span></p>
-<p>Hence, the desired confidence level is known to the auditor before they start
-with their audit sampling activities.</p>
-<p>Another important concept in statistical audit sampling is precision. Precision
-refers to the degree to which the auditors’ inferences are reliable. An estimate
-with high precision is more likely to provide accurate conclusions about the
-population. The precision of an estimate can be improved by increasing the
-sample size.</p>
-<p>To recap, the basic statistical concepts behind statistical audit sampling
-include:</p>
-<ul>
-<li><strong>Population</strong>: The entire group of items that the auditor is interested in
-studying. For example, the population may be all of the transactions in a
-company’s accounts receivable.</li>
-<li><strong>Sampling unit</strong>: A physical representation of the population to be audited.</li>
-<li><strong>Sample</strong>: A subset of the population that is selected for testing. The
-sample should be representative of the population in order to accurately
-reflect the characteristics of the population.</li>
-</ul>
-<p>In conclusion, audit sampling is a statistical method used by auditors to
-evaluate a sample of transactions or other items within a population in order to
-draw conclusions about the population as a whole. Statistical audit sampling
-uses statistical techniques to select a sample from the population and make
-inferences about the population based on the sample, while non-statistical
-sampling is based on the judgment of the auditor.</p>
+the auditor’s professional judgment and does not use statistical inference to
+come to a conclusion. This book does not cover non-statistical sampling.</p>
 </div>
             </section>
 
@@ -339,7 +314,7 @@ sampling is based on the judgment of the auditor.</p>
         </div>
       </div>
 <a href="loading-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="classical-versus-bayesian-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="auditing-standards.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

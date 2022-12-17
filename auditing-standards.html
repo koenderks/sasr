@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Execution | Statistical Audit Sampling with R, 1st edition</title>
+  <title>2.1 Auditing Standards | Statistical Audit Sampling with R, 1st edition</title>
   <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Execution | Statistical Audit Sampling with R, 1st edition" />
+  <meta property="og:title" content="2.1 Auditing Standards | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
   <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Execution | Statistical Audit Sampling with R, 1st edition" />
+  <meta name="twitter:title" content="2.1 Auditing Standards | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="selection.html"/>
-<link rel="next" href="evaluation.html"/>
+<link rel="prev" href="CHAPTER-2.html"/>
+<link rel="next" href="statistical-concepts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -285,34 +285,44 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="execution" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Execution<a href="execution.html#execution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The next step in the audit sampling workflow is to test the sample. This
-involves reviewing the transactions or records that were selected for the sample
-and testing them to determine if they are accurate. This may involve reviewing
-documentation, such as invoices or receipts, to verify that the transactions or
-records are accurate.</p>
-<p>The selected sample can be isolated by indexing the <code>sample</code> object from the
-sampling result.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="execution.html#cb30-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> stage2<span class="sc">$</span>sample</span></code></pre></div>
-<p>Next, the auditor can execute the audit by annotating the items in the sample
-with their audit values (for exampling by writing the sample to a <em>.csv</em> file
-using <code>write.csv()</code>. They can then load the annotated sample back into the R
-session for further evaluation. For this example, the audit values of the sample
-items are already included in the <code>auditValue</code> column of the data set.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="execution.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write the sample to a .csv file:</span></span>
-<span id="cb31-2"><a href="execution.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> sample, <span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-3"><a href="execution.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="execution.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To load annotated sample back into R:</span></span>
-<span id="cb31-5"><a href="execution.html#cb31-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;auditSample.csv&quot;</span>)</span></code></pre></div>
+<div id="auditing-standards" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Auditing Standards<a href="auditing-standards.html#auditing-standards" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are three auditing standards related to staistical audit sampling:</p>
+<ul>
+<li><a href="https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf">ISA 530</a>:
+Auditing standard for international firms published by the International Audit
+and Assurance Board (IAASB).</li>
+<li><a href="https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf">AU-C 530</a>:
+Auditing standard for private firms published by the American Institute of
+Certified Public Accountants (AICPA).</li>
+<li><a href="https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315">AS 2315</a>:
+Auditing standard for public firms published by the Public Company
+Accounting Oversign Board (PCAOB).</li>
+</ul>
+<p>All three standards describe statistical sampling in a similar manner. For
+example, ISA 530 describes statistical audit sampling as an approach that has
+at least the following two characteristics:</p>
+<ul>
+<li>Random selection of sample items</li>
+<li>The use of an appropriate statistical technique to evaluate sample results,
+including measurement of sampling risk</li>
+</ul>
+<p>Any sampling approach that does not have these characteristics is considered
+nonstatistical sampling by the auditing standards.</p>
+<p>In practice, statistical sampling should be used in a way that is tailored to
+the specific circumstances of the audit. This may include considering factors
+such as the size and complexity of the population, the materiality of the items
+being tested, and the degree of inherent risk in the audit area. The auditor
+should also document the sampling process in order to demonstrate that it was
+conducted compliant with auditing standards.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="selection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="CHAPTER-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-concepts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -343,7 +353,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch03.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch02.Rmd",
 "text": "Edit"
 },
 "history": {
