@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Preface | Statistical Audit Sampling with R, 1st edition</title>
+  <title>2.4 Bayesian Inference | Statistical Audit Sampling with R, 1st edition</title>
   <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Preface | Statistical Audit Sampling with R, 1st edition" />
+  <meta property="og:title" content="2.4 Bayesian Inference | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
   <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Preface | Statistical Audit Sampling with R, 1st edition" />
+  <meta name="twitter:title" content="2.4 Bayesian Inference | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
   <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="CHAPTER-1.html"/>
+<link rel="prev" href="classical-inference.html"/>
+<link rel="next" href="CHAPTER-3.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -295,65 +295,102 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="preface.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is intended for auditors who wish to use statistical audit sampling in
-their audit practice using the R programming language. It covers an array of
-traditional and cutting-edge statistical tools available to auditors, explaining
-their function, the underlying assumptions, and when they should be ideally
-utilized. Additionally, it provides practical suggestions for integrating
-advanced statistical sampling methodology into audit practice and illustrates
-its value through real-life case studies. We hope that this book will serve as a
-useful resource for auditors to properly, efficiently, and effectively utilize
-statistical methods in practice.</p>
-<p>The purpose of this book is to address the need for a clear and transparent
-description of the application of statistical sampling methodology in audit
-practice. In my opinion, most guidance (one notable exception is <span class="citation">Stewart (<a href="#ref-Stewart2012" role="doc-biblioref">2012</a>)</span>)
-about audit sampling (e.g., <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-A" role="doc-biblioref">2016a</a>)</span>; <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-C" role="doc-biblioref">2016b</a>)</span>) lacks sufficient detail to allow
-for full transparency or a deep understanding. Additionally, the implementation
-of these methods in practice is often even less transparent, as theory and
-calculations are hidden from the user in commercial closed-source tools or audit
-guides in the form of Excel sheets used internally by audit firms. Therefore,
-many auditors may try to understand the theory involved in statistical audit
-ampling, but they often end up with more questions than they began with. This
-book aims to empower the auditor by providing a comprehensive explanation of the
-statistical methodology used in practice.</p>
-<p>This book examines audit sampling from both a classical frequentist perspective
-and a Bayesian perspective. Through these two lenses, it explains the statistical
-theory underlying commonly applied audit sampling procedures and demonstrates
-how to apply these procedures in a statistically sound manner compliant with
-international auditing standards. It also demonstrates the use of Bayesian
-statistical methods in auditing practice, highlighting the practical benefits
-these methods can bring for auditors.</p>
-<p>This book is organized as follows. Chapter <a href="CHAPTER-1.html#CHAPTER-1">1</a> provides a
-basic introduction to the R programming language. Chapter <a href="CHAPTER-2.html#CHAPTER-2">2</a>
-discusses the basic statistical theory underlying audit sampling. Chapter
-<a href="CHAPTER-3.html#CHAPTER-3">3</a> discusses the standard audit sampling workflow. Chapter
-<a href="CHAPTER-4.html#CHAPTER-4">4</a>, <a href="CHAPTER-5.html#CHAPTER-5">5</a>, <a href="CHAPTER-6.html#CHAPTER-6">6</a>, and <a href="CHAPTER-7.html#CHAPTER-7">7</a> go
-into more detail about using statistial methods to plan, select and evaluate
-audit samples. Finally, Chapter <a href="CHAPTER-8.html#CHAPTER-8">8</a> discusses other R-related
-software implementations of audit sampling.</p>
+<div id="bayesian-inference" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Bayesian Inference<a href="bayesian-inference.html#bayesian-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bayesian estimation, on the other hand, is based on the idea that the parameter
+of interest is not fixed but uncertain. In this approach, the parameter is
+onsidered to be a random variable with a certain distribution, and the goal is
+to use the data and prior knowledge about the parameter to update our belief
+about its value. This is typically done using Bayes’ theorem, which states that
+the posterior probability (i.e., the updated belief about the parameter after
+seeing the data) is equal to the prior probability (i.e., the belief about the
+parameter before seeing the data) times the likelihood (i.e., the probability of
+the data given the parameter).</p>
+<div id="estimation-1" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Estimation<a href="bayesian-inference.html#estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One major difference between classical and Bayesian statistics is the way
+they handle uncertainty. In classical statistics, uncertainty is represented
+by the standard error of an estimate, which is a measure of the precision of an
+estimate. In Bayesian statistics, uncertainty is represented by the posterior
+distribution, which is a distribution of the possible values of the population
+parameter given the sample data and our prior beliefs. Bayesian inferences
+uses uses Bayes’ theorem to update the prior beliefs about the population
+parameter with the new information from the sample data. Bayes’ theorem is given
+by the following formula:</p>
+<p><span class="math display">\[p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}\]</span></p>
+<p>where <span class="math inline">\(p(\theta \,|\, y)\)</span> is the posterior probability of the population
+parameter <span class="math inline">\(\theta\)</span> given the sample data <span class="math inline">\(y\)</span>, <span class="math inline">\(p(y \,|\, \theta)\)</span> is the
+likelihood of the sample data given <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p(\theta)\)</span> is the prior
+probability of <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(p(y)\)</span> is the total probability of the sample data
+occurring. Because with a fixed sample <span class="math inline">\(p(y)\)</span> is a constant, Bayes’ theorem is
+often given as follows:</p>
+<p><span class="math display">\[p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)\]</span></p>
+<p>or, in words:</p>
+<p><span class="math display">\[\text{Posterior} \propto \text{Likelihood} \times \text{Prior}\]</span></p>
+<p>There are several other differences between classical and Bayesian approaches.
+One major difference is that classical approaches focus on the long-run
+behavior of an estimator, while Bayesian approaches focus on the probability of
+the estimator being correct given the data. Another difference is that
+classical approaches rely on asymptotic results (i.e., results that hold in
+the limit as the sample size goes to infinity), while Bayesian approaches can be
+applied with any sample size. Additionally, Bayesian approaches allow for the
+incorporation of prior knowledge about the parameter, while classical
+approaches do not.</p>
+<p>Overall, classical and Bayesian statistics are two different approaches to
+statistical analysis that have their own unique strengths and weaknesses.
+Classical statistics is a well-established approach that is widely used in
+scientific research and audit practice, but it has some limitations, such as its
+reliance on assumptions and its inability to incorporate prior beliefs. Bayesian
+statistics is a newer approach that allows for more flexibility in statistical
+inferences, but it requires the specification of prior beliefs, which can be
+difficult to quantify.</p>
+</div>
+<div id="hypothesis-testing-1" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Hypothesis Testing<a href="bayesian-inference.html#hypothesis-testing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Bayes factor is a measure used in Bayesian inference to compare the relative
+strength of evidence between two competing hypotheses. The Bayes factor is
+calculated by comparing the probability of the observed data given each of the
+two competing hypotheses. This probability is known as the likelihood of the
+data. The Bayes factor is then the ratio of the likelihood of the data under one
+hypothesis to the likelihood of the data under the other hypothesis. The Bayes
+factor can be used in the context of an audit, where the auditor is trying to
+determine the likelihood that a particular financial statement is represented
+fairly or not.</p>
+<p>For example, an auditor might be evaluating the fairness of a company’s
+financial statements for the year. They have two hypotheses: the first is that
+the statements are accurate, and the second is that the statements are not
+accurate. The auditor gathers data from a statistical audit sample and uses this
+data to calculate the Bayes factor.</p>
+<p>The Bayes factor is calculated by taking the ratio of the probability of the
+first hypothesis (that the statements are accurate) given the observed data, to
+the probability of the second hypothesis (that the statements are not accurate)
+given the observed data. The higher the Bayes factor, the more likely it is that
+the first hypothesis is true.</p>
+<p>The Bayes factor can be used to assess the strength of evidence for one
+hypothesis over the other and to determine which hypothesis is more likely to
+be true given the observed data. It is often used in scientific research to help
+evaluate the validity of different hypotheses and to make informed decisions
+based on the available evidence. For auditors, the Bayes factor can be a useful
+tool to determine the likelihood of different hypotheses being true based on the
+data they have collected, and it can help them make informed decisions about the
+fairness of the financial statements.</p>
+<p>For example, if the Bayes factor is 5, this means that the probability of the
+statements being accurate given the observed data is 5 times higher than the
+probability of them being not accurate. In this case, the auditor would be more
+likely to conclude that the financial statements are accurate.</p>
+<p>The <strong>jfa</strong> package can help us to calculate Bayes factors for and against the
+hypothesis that the financial statements are represented fairly.</p>
 
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-AICPA-A" class="csl-entry">
-American Institute of Certified Public Accountants (AICPA). 2016a. <span>“Appendix <span>A</span>: Attributes Statistical Sampling Tables.”</span> In <em>Audit Guide: Audit Sampling</em>. https://doi.org/<a href="https://doi.org/10.1002/9781119448617.app1">https://doi.org/10.1002/9781119448617.app1</a>.
 </div>
-<div id="ref-AICPA-C" class="csl-entry">
-———. 2016b. <span>“Appendix <span>C</span>: Monetary Unit Sampling Tables.”</span> In <em>Audit Guide: Audit Sampling</em>. https://doi.org/<a href="https://doi.org/10.1002/9781119448617.app3">https://doi.org/10.1002/9781119448617.app3</a>.
-</div>
-<div id="ref-Stewart2012" class="csl-entry">
-Stewart, Trevor. 2012. <span>“Technical Notes on the <span>AICPA</span> Audit Guide Audit Sampling,”</span> 5–8.
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="CHAPTER-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="classical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CHAPTER-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -384,7 +421,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/koenderks/stataudbook/edit/master/ch00.Rmd",
+"link": "https://github.com/koenderks/stataudbook/edit/master/ch02.Rmd",
 "text": "Edit"
 },
 "history": {
