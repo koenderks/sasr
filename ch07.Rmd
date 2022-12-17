@@ -32,7 +32,7 @@ almost one-on-one to that of the package.
 
 <center>
 
-![Figure 8.1: The JASP welcome screen.](img/JASP.png)
+![Figure 7.1: The JASP welcome screen.](img/JASP.png)
 
 </center>
 
@@ -45,7 +45,7 @@ while expecting zero misstatements in the sample.
 
 <center>
 
-![Figure 8.2: The JASP interface for planning a sample.](img/JASP_planning.png)
+![Figure 7.2: The JASP interface for planning a sample.](img/JASP_planning.png)
 
 </center>
 
@@ -73,7 +73,7 @@ head(result$sample)
 
 <center>
 
-![Figure 8.3: The JASP interface for selecting a sample.](img/JASP_selection.png)
+![Figure 7.3: The JASP interface for selecting a sample.](img/JASP_selection.png)
 
 </center>
 
@@ -86,7 +86,7 @@ $n = 60$ containing $x = 0$ misstatements against a performance materiality of
 
 <center>
 
-![Figure 8.4: The JASP interface for evaluating a sample.](img/JASP_evaluation.png)
+![Figure 7.4: The JASP interface for evaluating a sample.](img/JASP_evaluation.png)
 
 </center>
 
