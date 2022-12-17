@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -335,16 +335,16 @@ sample, the formula for the minimum required sample size reduces to:</p>
 <p>For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
 a maximum tolerable misstatement rate of 3%, then the required sample size under
 the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 99\)</span>.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="the-binomial-likelihood.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.03</span>))</span>
-<span id="cb39-2"><a href="the-binomial-likelihood.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 99</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="the-binomial-likelihood.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.03</span>))</span>
+<span id="cb40-2"><a href="the-binomial-likelihood.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 99</span></span></code></pre></div>
 <p>In <strong>jfa</strong>, this sample size can be replicated using the <code>planning()</code> function.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="the-binomial-likelihood.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb40-2"><a href="the-binomial-likelihood.html#cb40-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb40-3"><a href="the-binomial-likelihood.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb40-4"><a href="the-binomial-likelihood.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
-<span id="cb40-5"><a href="the-binomial-likelihood.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb40-6"><a href="the-binomial-likelihood.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 99 </span></span>
-<span id="cb40-7"><a href="the-binomial-likelihood.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 100 iterations via method &#39;binomial&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="the-binomial-likelihood.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb41-2"><a href="the-binomial-likelihood.html#cb41-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb41-3"><a href="the-binomial-likelihood.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb41-4"><a href="the-binomial-likelihood.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb41-5"><a href="the-binomial-likelihood.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb41-6"><a href="the-binomial-likelihood.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 99 </span></span>
+<span id="cb41-7"><a href="the-binomial-likelihood.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 100 iterations via method &#39;binomial&#39;</span></span></code></pre></div>
 <p>However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for <span class="math inline">\(n\)</span>. Hence, we can
 iteratively try every value of <span class="math inline">\(n\)</span> and return the smallest integer that
@@ -353,13 +353,13 @@ satisfies the sampling objectives. In <strong>jfa</strong>, this can be done by 
 achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable
 misstatement rate of 3%, then the required sample size under the assumption of
 one expected misstatement in the sample is <span class="math inline">\(n = 157\)</span>.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="the-binomial-likelihood.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb41-2"><a href="the-binomial-likelihood.html#cb41-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb41-3"><a href="the-binomial-likelihood.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb41-4"><a href="the-binomial-likelihood.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
-<span id="cb41-5"><a href="the-binomial-likelihood.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb41-6"><a href="the-binomial-likelihood.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 157 </span></span>
-<span id="cb41-7"><a href="the-binomial-likelihood.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 156 iterations via method &#39;binomial&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="the-binomial-likelihood.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb42-2"><a href="the-binomial-likelihood.html#cb42-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb42-3"><a href="the-binomial-likelihood.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb42-4"><a href="the-binomial-likelihood.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb42-5"><a href="the-binomial-likelihood.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb42-6"><a href="the-binomial-likelihood.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 157 </span></span>
+<span id="cb42-7"><a href="the-binomial-likelihood.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 156 iterations via method &#39;binomial&#39;</span></span></code></pre></div>
 </div>
 <div id="bayesian-planning-1" class="section level3 hasAnchor" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Bayesian Planning<a href="the-binomial-likelihood.html#bayesian-planning-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -383,34 +383,34 @@ distribution to plan the sample, since <code>planning()</code> is given the bino
 likelihood. If we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
 a maximum tolerable misstatement rate of 3%, then the required sample size under
 the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 98\)</span>.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="the-binomial-likelihood.html#cb42-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb42-2"><a href="the-binomial-likelihood.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb42-3"><a href="the-binomial-likelihood.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb42-4"><a href="the-binomial-likelihood.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb42-5"><a href="the-binomial-likelihood.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
-<span id="cb42-6"><a href="the-binomial-likelihood.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb42-7"><a href="the-binomial-likelihood.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb42-8"><a href="the-binomial-likelihood.html#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
-<span id="cb42-9"><a href="the-binomial-likelihood.html#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
-<span id="cb42-10"><a href="the-binomial-likelihood.html#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
-<span id="cb42-11"><a href="the-binomial-likelihood.html#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
-<span id="cb42-12"><a href="the-binomial-likelihood.html#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    binomial </span></span>
-<span id="cb42-13"><a href="the-binomial-likelihood.html#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            beta(α = 1, β = 1) </span></span>
-<span id="cb42-14"><a href="the-binomial-likelihood.html#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb42-15"><a href="the-binomial-likelihood.html#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb42-16"><a href="the-binomial-likelihood.html#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           98 </span></span>
-<span id="cb42-17"><a href="the-binomial-likelihood.html#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
-<span id="cb42-18"><a href="the-binomial-likelihood.html#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        beta(α = 1, β = 99) </span></span>
-<span id="cb42-19"><a href="the-binomial-likelihood.html#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
-<span id="cb42-20"><a href="the-binomial-likelihood.html#cb42-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029807 </span></span>
-<span id="cb42-21"><a href="the-binomial-likelihood.html#cb42-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029807 </span></span>
-<span id="cb42-22"><a href="the-binomial-likelihood.html#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 627.22</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="the-binomial-likelihood.html#cb43-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb43-2"><a href="the-binomial-likelihood.html#cb43-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb43-3"><a href="the-binomial-likelihood.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb43-4"><a href="the-binomial-likelihood.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb43-5"><a href="the-binomial-likelihood.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb43-6"><a href="the-binomial-likelihood.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb43-7"><a href="the-binomial-likelihood.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb43-8"><a href="the-binomial-likelihood.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
+<span id="cb43-9"><a href="the-binomial-likelihood.html#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
+<span id="cb43-10"><a href="the-binomial-likelihood.html#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb43-11"><a href="the-binomial-likelihood.html#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
+<span id="cb43-12"><a href="the-binomial-likelihood.html#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    binomial </span></span>
+<span id="cb43-13"><a href="the-binomial-likelihood.html#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            beta(α = 1, β = 1) </span></span>
+<span id="cb43-14"><a href="the-binomial-likelihood.html#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb43-15"><a href="the-binomial-likelihood.html#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb43-16"><a href="the-binomial-likelihood.html#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           98 </span></span>
+<span id="cb43-17"><a href="the-binomial-likelihood.html#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
+<span id="cb43-18"><a href="the-binomial-likelihood.html#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        beta(α = 1, β = 99) </span></span>
+<span id="cb43-19"><a href="the-binomial-likelihood.html#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
+<span id="cb43-20"><a href="the-binomial-likelihood.html#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029807 </span></span>
+<span id="cb43-21"><a href="the-binomial-likelihood.html#cb43-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029807 </span></span>
+<span id="cb43-22"><a href="the-binomial-likelihood.html#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 627.22</span></span></code></pre></div>
 <p>You can inspect how the prior distribution compares to the expected
 posterior distribution by using the <code>plot()</code> function. The expected posterior
 distribution is the posterior distribution that would occur if you actually
 observed the planned sample containing the expected misstatements.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="the-binomial-likelihood.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-47-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="the-binomial-likelihood.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-48-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The input for the <code>prior</code> argument can also be an object created by the
 <code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is no
 conjugate likelihood available, it will numerically derive the posterior
@@ -421,36 +421,36 @@ means that the following statistical model is assumed:</p>
   x &amp;\sim \text{Binomial}(n, \theta) \\
   \theta &amp;\sim \text{Normal}(\mu = 0, \sigma = 0.05)
 \end{align}\]</span></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="the-binomial-likelihood.html#cb44-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>,</span>
-<span id="cb44-2"><a href="the-binomial-likelihood.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">beta =</span> <span class="fl">0.05</span>)</span>
-<span id="cb44-3"><a href="the-binomial-likelihood.html#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="the-binomial-likelihood.html#cb44-4" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb44-5"><a href="the-binomial-likelihood.html#cb44-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb44-6"><a href="the-binomial-likelihood.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="the-binomial-likelihood.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb44-8"><a href="the-binomial-likelihood.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb44-9"><a href="the-binomial-likelihood.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
-<span id="cb44-10"><a href="the-binomial-likelihood.html#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb44-11"><a href="the-binomial-likelihood.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb44-12"><a href="the-binomial-likelihood.html#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
-<span id="cb44-13"><a href="the-binomial-likelihood.html#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
-<span id="cb44-14"><a href="the-binomial-likelihood.html#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
-<span id="cb44-15"><a href="the-binomial-likelihood.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
-<span id="cb44-16"><a href="the-binomial-likelihood.html#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    poisson </span></span>
-<span id="cb44-17"><a href="the-binomial-likelihood.html#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            normal(μ = 0, σ = 0.05)T[0,1] </span></span>
-<span id="cb44-18"><a href="the-binomial-likelihood.html#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb44-19"><a href="the-binomial-likelihood.html#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb44-20"><a href="the-binomial-likelihood.html#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           90 </span></span>
-<span id="cb44-21"><a href="the-binomial-likelihood.html#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
-<span id="cb44-22"><a href="the-binomial-likelihood.html#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Determined via MCMC sampling </span></span>
-<span id="cb44-23"><a href="the-binomial-likelihood.html#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.0008648 </span></span>
-<span id="cb44-24"><a href="the-binomial-likelihood.html#cb44-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029029 </span></span>
-<span id="cb44-25"><a href="the-binomial-likelihood.html#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.028164 </span></span>
-<span id="cb44-26"><a href="the-binomial-likelihood.html#cb44-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 19.08</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="the-binomial-likelihood.html#cb45-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>,</span>
+<span id="cb45-2"><a href="the-binomial-likelihood.html#cb45-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">beta =</span> <span class="fl">0.05</span>)</span>
+<span id="cb45-3"><a href="the-binomial-likelihood.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="the-binomial-likelihood.html#cb45-4" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb45-5"><a href="the-binomial-likelihood.html#cb45-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb45-6"><a href="the-binomial-likelihood.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="the-binomial-likelihood.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb45-8"><a href="the-binomial-likelihood.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb45-9"><a href="the-binomial-likelihood.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb45-10"><a href="the-binomial-likelihood.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb45-11"><a href="the-binomial-likelihood.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb45-12"><a href="the-binomial-likelihood.html#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
+<span id="cb45-13"><a href="the-binomial-likelihood.html#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
+<span id="cb45-14"><a href="the-binomial-likelihood.html#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb45-15"><a href="the-binomial-likelihood.html#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
+<span id="cb45-16"><a href="the-binomial-likelihood.html#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    poisson </span></span>
+<span id="cb45-17"><a href="the-binomial-likelihood.html#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            normal(μ = 0, σ = 0.05)T[0,1] </span></span>
+<span id="cb45-18"><a href="the-binomial-likelihood.html#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb45-19"><a href="the-binomial-likelihood.html#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb45-20"><a href="the-binomial-likelihood.html#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           90 </span></span>
+<span id="cb45-21"><a href="the-binomial-likelihood.html#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
+<span id="cb45-22"><a href="the-binomial-likelihood.html#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Determined via MCMC sampling </span></span>
+<span id="cb45-23"><a href="the-binomial-likelihood.html#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.0008648 </span></span>
+<span id="cb45-24"><a href="the-binomial-likelihood.html#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029029 </span></span>
+<span id="cb45-25"><a href="the-binomial-likelihood.html#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.028164 </span></span>
+<span id="cb45-26"><a href="the-binomial-likelihood.html#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 19.08</span></span></code></pre></div>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 90\)</span>, a reduction of 8 samples
 when compared to the default beta(1, 1) prior distribution.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="the-binomial-likelihood.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-49-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="the-binomial-likelihood.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-50-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
             </section>

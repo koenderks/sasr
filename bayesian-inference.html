@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -297,56 +297,51 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="bayesian-inference" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Bayesian Inference<a href="bayesian-inference.html#bayesian-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Bayesian estimation, on the other hand, is based on the idea that the parameter
-of interest is not fixed but uncertain. In this approach, the parameter is
+<p>Bayesian inference is based on the idea that the parameters in a statistical
+model are not fixed but uncertain. In this approach, the parameter is
 onsidered to be a random variable with a certain distribution, and the goal is
-to use the data and prior knowledge about the parameter to update our belief
+to use the data and any prior knowledge about the parameter to update our belief
 about its value. This is typically done using Bayes’ theorem, which states that
 the posterior probability (i.e., the updated belief about the parameter after
 seeing the data) is equal to the prior probability (i.e., the belief about the
 parameter before seeing the data) times the likelihood (i.e., the probability of
 the data given the parameter).</p>
-<div id="estimation-1" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Estimation<a href="bayesian-inference.html#estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>One major difference between classical and Bayesian statistics is the way
+<p><span class="math display">\[\begin{equation}
+  \text{Posterior} \propto \text{Likelihood} \times \text{Prior}
+\end{equaiton}
+
+Bayesian statistics is a more nuanced approach that allows for more efficiency
+in statistical audit sampling, but it requires the specification of prior
+distributions that can be difficult to quantify. That is because, especially in
+an audit, all information that is incorporated into the statistical analysis
+should be based on audit evidence and should be properly justified.
+
+### Parameter Estimation
+
+One major difference between classical and Bayesian statistics is the way
 they handle uncertainty. In classical statistics, uncertainty is represented
 by the standard error of an estimate, which is a measure of the precision of an
 estimate. In Bayesian statistics, uncertainty is represented by the posterior
 distribution, which is a distribution of the possible values of the population
 parameter given the sample data and our prior beliefs. Bayesian inferences
-uses uses Bayes’ theorem to update the prior beliefs about the population
-parameter with the new information from the sample data. Bayes’ theorem is given
-by the following formula:</p>
-<p><span class="math display">\[p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}\]</span></p>
+uses uses Bayes&#39; theorem to update the prior beliefs about the population
+parameter with the new information from the sample data. Bayes&#39; theorem is given
+by the following formula:
+
+\begin{equation}
+  p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(p(\theta \,|\, y)\)</span> is the posterior probability of the population
 parameter <span class="math inline">\(\theta\)</span> given the sample data <span class="math inline">\(y\)</span>, <span class="math inline">\(p(y \,|\, \theta)\)</span> is the
 likelihood of the sample data given <span class="math inline">\(\theta\)</span>, <span class="math inline">\(p(\theta)\)</span> is the prior
 probability of <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(p(y)\)</span> is the total probability of the sample data
 occurring. Because with a fixed sample <span class="math inline">\(p(y)\)</span> is a constant, Bayes’ theorem is
 often given as follows:</p>
-<p><span class="math display">\[p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)\]</span></p>
-<p>or, in words:</p>
-<p><span class="math display">\[\text{Posterior} \propto \text{Likelihood} \times \text{Prior}\]</span></p>
-<p>There are several other differences between classical and Bayesian approaches.
-One major difference is that classical approaches focus on the long-run
-behavior of an estimator, while Bayesian approaches focus on the probability of
-the estimator being correct given the data. Another difference is that
-classical approaches rely on asymptotic results (i.e., results that hold in
-the limit as the sample size goes to infinity), while Bayesian approaches can be
-applied with any sample size. Additionally, Bayesian approaches allow for the
-incorporation of prior knowledge about the parameter, while classical
-approaches do not.</p>
-<p>Overall, classical and Bayesian statistics are two different approaches to
-statistical analysis that have their own unique strengths and weaknesses.
-Classical statistics is a well-established approach that is widely used in
-scientific research and audit practice, but it has some limitations, such as its
-reliance on assumptions and its inability to incorporate prior beliefs. Bayesian
-statistics is a newer approach that allows for more flexibility in statistical
-inferences, but it requires the specification of prior beliefs, which can be
-difficult to quantify.</p>
-</div>
-<div id="hypothesis-testing-1" class="section level3 hasAnchor" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Hypothesis Testing<a href="bayesian-inference.html#hypothesis-testing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[\begin{equation}
+  p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)
+\end{equation}\]</span></p>
+<div id="hypothesis-testing-1" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Hypothesis Testing<a href="bayesian-inference.html#hypothesis-testing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Bayes factor is a measure used in Bayesian inference to compare the relative
 strength of evidence between two competing hypotheses. The Bayes factor is
 calculated by comparing the probability of the observed data given each of the

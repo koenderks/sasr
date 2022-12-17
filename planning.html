@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -314,32 +314,32 @@ Bayesian analysis. A frequentist analysis can easily be done through the
 following functions by setting <code>prior = FALSE</code>. In a frequentist analysis, the
 auditor immediately uses the adjusted confidence to calculate the sample size
 via the <code>planning()</code> function.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="planning.html#cb26-1" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
-<span id="cb26-2"><a href="planning.html#cb26-2" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected,</span>
-<span id="cb26-3"><a href="planning.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="planning.html#cb27-1" aria-hidden="true" tabindex="-1"></a>c.adj <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((<span class="dv">1</span> <span class="sc">-</span> confidence) <span class="sc">/</span> (ir <span class="sc">*</span> cr))</span>
+<span id="cb27-2"><a href="planning.html#cb27-2" aria-hidden="true" tabindex="-1"></a>stage1 <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> materiality, <span class="at">expected =</span> expected,</span>
+<span id="cb27-3"><a href="planning.html#cb27-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> c.adj)</span></code></pre></div>
 <p>The auditor can then inspect the result from the planning procedure by using the
 <code>summary()</code> function. The result shows that the auditor needs to select a sample
 of 178 items so that, when at most 4.45 misstatements are found, they can
 conclude with 91.66% confidence that the misstatement in BuildIt’s population
 is lower than the performance materiality of 5%.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="planning.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
-<span id="cb27-2"><a href="planning.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb27-3"><a href="planning.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning Summary</span></span>
-<span id="cb27-4"><a href="planning.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb27-5"><a href="planning.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb27-6"><a href="planning.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.91667 </span></span>
-<span id="cb27-7"><a href="planning.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.05 </span></span>
-<span id="cb27-8"><a href="planning.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb27-9"><a href="planning.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0.025 </span></span>
-<span id="cb27-10"><a href="planning.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    poisson </span></span>
-<span id="cb27-11"><a href="planning.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb27-12"><a href="planning.html#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb27-13"><a href="planning.html#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           178 </span></span>
-<span id="cb27-14"><a href="planning.html#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              4.45 </span></span>
-<span id="cb27-15"><a href="planning.html#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.025 </span></span>
-<span id="cb27-16"><a href="planning.html#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.049986 </span></span>
-<span id="cb27-17"><a href="planning.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.024986 </span></span>
-<span id="cb27-18"><a href="planning.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected p-value:              0.083211</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="planning.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stage1)</span>
+<span id="cb28-2"><a href="planning.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-3"><a href="planning.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning Summary</span></span>
+<span id="cb28-4"><a href="planning.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-5"><a href="planning.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb28-6"><a href="planning.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.91667 </span></span>
+<span id="cb28-7"><a href="planning.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.05 </span></span>
+<span id="cb28-8"><a href="planning.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span id="cb28-9"><a href="planning.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0.025 </span></span>
+<span id="cb28-10"><a href="planning.html#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    poisson </span></span>
+<span id="cb28-11"><a href="planning.html#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-12"><a href="planning.html#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb28-13"><a href="planning.html#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           178 </span></span>
+<span id="cb28-14"><a href="planning.html#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              4.45 </span></span>
+<span id="cb28-15"><a href="planning.html#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.025 </span></span>
+<span id="cb28-16"><a href="planning.html#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.049986 </span></span>
+<span id="cb28-17"><a href="planning.html#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.024986 </span></span>
+<span id="cb28-18"><a href="planning.html#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected p-value:              0.083211</span></span></code></pre></div>
 </div>
             </section>
 

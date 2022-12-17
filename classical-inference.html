@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -297,27 +297,77 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="classical-inference" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Classical Inference<a href="classical-inference.html#classical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The classical (frequentist) and the Bayesian approach to statistical inference
-are two different ways to use data to perform inferences or draw conclusions
-about a population. Both paradigms have their own set of assumptions and
-approaches to statistical estimation and hypothesis testing.</p>
-<div id="estimation" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Estimation<a href="classical-inference.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Classical statistics is based on the concept of probability as a frequency. It
-is the traditional approach to statistical analysis and relies on the idea that
-probability is the long-term frequency of an event occurring in a large number
-of trials. This approach is based on the law of large numbers, which states that
-as the number of trials increases, the frequency of an event will approach the
-true probability of the event occurring. In frequentist estimation, the
-parameter that needs to be estimated is considered to be fixed, but unknown. The
-goal of frequentist estimation is to use the sample data to find the value of
-the parameter that is most likely to be true. This is typically done using point
-estimates, which are single values that are thought to be the best estimate of
-the population parameter, and interval estimates, which provide a range of
-values that the population parameter is likely to fall within.</p>
+<p>Frequentist statistics, also known as classical statistics, is a statistical
+framework that is based on the concept of probability as a long-term frequency
+of events. This approach assumes that statistical models are purely objective
+and that data is generated by a well-defined process, which can be described by
+a set of probabilistic assumptions. The philosophy behind frequentist statistics
+is that statistical estimates should be based on the frequency of events in a
+population, rather than on subjective or personal beliefs. This approach is
+particularly useful for making predictions or making decisions based on data,
+as it allows for the calculation of confidence intervals and statistical tests,
+which provide a measure of the reliability of the estimates. Overall,
+frequentist statistics is a rigorous and reliable approach that is widely used
+in the scientific community for making informed decisions based on data.</p>
+<div id="parameter-estimation" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Parameter Estimation<a href="classical-inference.html#parameter-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The philosophy behind frequentist parameter estimation is based on the idea that
+statistical parameters are fixed, but unknown, quantities that can be estimated
+through the process of repeated sampling. This approach assumes that the sample
+data represent a random sample from a larger population, and that the sample
+statistics (i.e., the sample proportion of misstatements) can be used to
+estimate the corresponding population parameters (i.e., the population
+misstatement). The key principle of frequentist estimation is that the estimated
+parameter values should be unbiased and have a certain level of precision, which
+can be quantified through statistical measures such as confidence bounds or
+intervals.</p>
 </div>
 <div id="hypothesis-testing" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Hypothesis Testing<a href="classical-inference.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Frequentist hypothesis testing is a statistical method that involves evaluating
+the probability of obtaining a certain sample outcome or more extreme, given a
+certain assumption or hypothesis. This probability, known as the <em>p</em> value, is
+used to determine the likelihood of the hypothesis being true.</p>
+<p>For example, in a typical audit sampling hypothesis test using the binomial
+distribution, we may be interested in testing the hypothesis that the
+misstatement is higher or lower than the performance materiality. We would
+inspect a sample and calculate the <em>p</em> value based on the observed frequency of
+misstatements versus the expected frequency under the assumption of material
+misstatement. If the <em>p</em> value is below the sampling risk <span class="math inline">\(\alpha\)</span>, we reject
+the hypothesis that the population is materially misstated and conclude that it
+is not materially misstated.</p>
+</div>
+<div id="example" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Example<a href="classical-inference.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As an example, the <code>binom.test()</code> function in R can be used to test if a
+population contains less than 3 percent misstatements. Suppose an auditor
+obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use
+the <code>binom.test()</code> function, the auditor must input the number of items in the
+sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 1</code>, and the
+hypothesized proportion of misstatement in the population (i.e., the performance
+materiality) <code>p = 0.03</code>. The sampling risk is set to 5%, which the auditor can
+provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can
+specify the alternative hypothesis as <code>alternative = "less"</code> to test if the
+proportion of misstatements in the sample is less than the hypothesized
+proportion.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="classical-inference.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb23-2"><a href="classical-inference.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-3"><a href="classical-inference.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
+<span id="cb23-4"><a href="classical-inference.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-5"><a href="classical-inference.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
+<span id="cb23-6"><a href="classical-inference.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 1, number of trials = 100, p-value = 0.1946</span></span>
+<span id="cb23-7"><a href="classical-inference.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
+<span id="cb23-8"><a href="classical-inference.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb23-9"><a href="classical-inference.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04655981</span></span>
+<span id="cb23-10"><a href="classical-inference.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb23-11"><a href="classical-inference.html#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
+<span id="cb23-12"><a href="classical-inference.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   0.01</span></span></code></pre></div>
+<p>The most likely misstatement in the population is displayed under
+<code>sample estimates</code> and is 0%. The 95% upper confidence bound for the estimate of
+the population misstatement is displayed under <code>95 percent confidence interval</code>
+and is 2.95%. The <em>p</em> value is shown to be 0.04755. Since the <em>p</em> value is lower
+than the specified sampling risk <span class="math inline">\(\alpha\)</span>, the auditor can reject the hypothesis
+of material misstatement.</p>
 </div>
 </div>
             </section>

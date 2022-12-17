@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -311,15 +311,15 @@ whole because they must aggregate the samples taken by the component auditors.</
 The organization in question consists of 20 branches across the country. In each
 of the 20 strata, a component auditor has taken a statistical sample and
 reported the outcomes to the group auditor.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="CHAPTER-7.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
-<span id="cb69-2"><a href="CHAPTER-7.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
-<span id="cb69-3"><a href="CHAPTER-7.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stratum items samples errors</span></span>
-<span id="cb69-4"><a href="CHAPTER-7.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       1  5000     300     21</span></span>
-<span id="cb69-5"><a href="CHAPTER-7.html#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       2  5000     300     16</span></span>
-<span id="cb69-6"><a href="CHAPTER-7.html#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       3  5000     300     15</span></span>
-<span id="cb69-7"><a href="CHAPTER-7.html#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       4  5000     300     14</span></span>
-<span id="cb69-8"><a href="CHAPTER-7.html#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       5  5000     300     16</span></span>
-<span id="cb69-9"><a href="CHAPTER-7.html#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="CHAPTER-7.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
+<span id="cb70-2"><a href="CHAPTER-7.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
+<span id="cb70-3"><a href="CHAPTER-7.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stratum items samples errors</span></span>
+<span id="cb70-4"><a href="CHAPTER-7.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       1  5000     300     21</span></span>
+<span id="cb70-5"><a href="CHAPTER-7.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       2  5000     300     16</span></span>
+<span id="cb70-6"><a href="CHAPTER-7.html#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       3  5000     300     15</span></span>
+<span id="cb70-7"><a href="CHAPTER-7.html#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       4  5000     300     14</span></span>
+<span id="cb70-8"><a href="CHAPTER-7.html#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       5  5000     300     16</span></span>
+<span id="cb70-9"><a href="CHAPTER-7.html#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code></pre></div>
 <p>In general, there are three approaches to evaluating a stratified sample: no
 pooling, complete pooling, and partial pooling (see Derks et al., 2022). When
 using <code>evaluation()</code>, you must to indicate which type of pooling to use via the

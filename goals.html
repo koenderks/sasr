@@ -184,22 +184,22 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.1</b> Population</a></li>
-<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-misstatement"><i class="fa fa-check"></i><b>2.2.2</b> Tolerable Misstatement</a></li>
-<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#tolerable-deviation-rate"><i class="fa fa-check"></i><b>2.2.3</b> Tolerable Deviation Rate</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
+<li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#recap"><i class="fa fa-check"></i><b>2.2.6</b> Recap</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#estimation"><i class="fa fa-check"></i><b>2.3.1</b> Estimation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="classical-inference.html"><a href="classical-inference.html#parameter-estimation"><i class="fa fa-check"></i><b>2.3.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="classical-inference.html"><a href="classical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.3.3" data-path="classical-inference.html"><a href="classical-inference.html#example"><i class="fa fa-check"></i><b>2.3.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Estimation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> The Audit Sampling Workflow</a>
@@ -321,15 +321,15 @@ financial statements are based. For this example, the performance materiality is
 set at 5% of the total value of the population.</p>
 <p>In this example, we focus on the <code>BuildIt</code> data set that comes with the <strong>jfa</strong>
 package.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="goals.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
-<span id="cb23-2"><a href="goals.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BuildIt)</span>
-<span id="cb23-3"><a href="goals.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      ID bookValue auditValue</span></span>
-<span id="cb23-4"><a href="goals.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 82884    242.61     242.61</span></span>
-<span id="cb23-5"><a href="goals.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 25064    642.99     642.99</span></span>
-<span id="cb23-6"><a href="goals.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 81235    628.53     628.53</span></span>
-<span id="cb23-7"><a href="goals.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 71769    431.87     431.87</span></span>
-<span id="cb23-8"><a href="goals.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 55080    620.88     620.88</span></span>
-<span id="cb23-9"><a href="goals.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 93224    501.76     501.76</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="goals.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
+<span id="cb24-2"><a href="goals.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BuildIt)</span>
+<span id="cb24-3"><a href="goals.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      ID bookValue auditValue</span></span>
+<span id="cb24-4"><a href="goals.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 82884    242.61     242.61</span></span>
+<span id="cb24-5"><a href="goals.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 25064    642.99     642.99</span></span>
+<span id="cb24-6"><a href="goals.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 81235    628.53     628.53</span></span>
+<span id="cb24-7"><a href="goals.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 71769    431.87     431.87</span></span>
+<span id="cb24-8"><a href="goals.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 55080    620.88     620.88</span></span>
+<span id="cb24-9"><a href="goals.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 93224    501.76     501.76</span></span></code></pre></div>
 <p>The population of interest consists of 3500 items, each with a booked value.
 Let’s assume that, before performing audit sampling, the auditor has assessed
 the quality of BuildIt’s internal control systems and found that they were
@@ -355,9 +355,9 @@ with 95% confidence that the misstatement in the population is lower than the
 performance materiality of 5%.</p>
 <p>Below, the auditor defines the performance materiality, confidence level, and
 expected misstatements in the sample.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="goals.html#cb24-1" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
-<span id="cb24-2"><a href="goals.html#cb24-2" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
-<span id="cb24-3"><a href="goals.html#cb24-3" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goals.html#cb25-1" aria-hidden="true" tabindex="-1"></a>confidence <span class="ot">&lt;-</span> <span class="fl">0.95</span> <span class="co"># 95%</span></span>
+<span id="cb25-2"><a href="goals.html#cb25-2" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># 5%</span></span>
+<span id="cb25-3"><a href="goals.html#cb25-3" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.025</span> <span class="co"># 2.5%</span></span></code></pre></div>
 <p>Many audits are performed according to the <em>audit risk model (ARM)</em>, which
 determines that the uncertainty about the auditor’s statement as a whole
 (1 - the confidence) is a factor of three terms: the inherent risk, the control
@@ -379,8 +379,8 @@ standard percentages for these categories. The auditor’s firm defines the
 probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
 Because the auditor assessed BuildIt’s internal control systems, they assess the
 control risk as medium (60%).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goals.html#cb25-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
-<span id="cb25-2"><a href="goals.html#cb25-2" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="goals.html#cb26-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># 100%</span></span>
+<span id="cb26-2"><a href="goals.html#cb26-2" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># 60%</span></span></code></pre></div>
 </div>
             </section>
 
