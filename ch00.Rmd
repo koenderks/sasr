@@ -8,36 +8,36 @@ editor_options:
 
 # Preface {-}
 
-This book is for auditors who want to employ statistical audit sampling in audit
-practice using the statistical programming language R. It covers an array of
-conventional and state-of-the-art statistical instruments available to auditors,
-explaining what they are, the assumptions on which they are based, and when they
-should ideally be used. Furthermore, it offers concrete suggestions for
-incorporating advanced statistical methodology into audit practice and
-demonstrates its usefulness using real-life case studies. Hopefully, this book
-can be a resource for the proper, efficient and effective use of statistical
-methods in audit practice.
+This book is intended for auditors who wish to use statistical audit sampling in
+their audit practice using the R programming language. It covers an array of
+traditional and cutting-edge statistical tools available to auditors, explaining
+their function, the underlying assumptions, and when they should be ideally
+utilized. Additionally, it provides practical suggestions for integrating
+advanced statistical sampling methodology into audit practice and illustrates
+its value through real-life case studies. We hope that this book will serve as a
+useful resource for auditors to properly, efficiently, and effectively utilize
+statistical methods in practice.
 
-This book adresses the need for a transparent and clear description of the
-application of statistical sampling methodology in audit practice. I have found
-that most guidance about audit sampling contains insufficient detail to allow
-for full transparentcy or a deep understanding. Furthermore, the implementation
+The purpose of this book is to address the need for a clear and transparent
+description of the application of statistical sampling methodology in audit
+practice. In my opinion, most guidance (one notable exception is @Stewart2012)
+about audit sampling (e.g., @AICPA-A; @AICPA-C) lacks sufficient detail to allow
+for full transparency or a deep understanding. Additionally, the implementation
 of these methods in practice is often even less transparent, as theory and
-calculations are hidden from the user in commercial closed-source tools or excel
-sheets internally used by audit firms. As such, many auditors may attempt to
-understand the mechanisms at play when engaging in statistical audit sampling
-but are often left with more questions than at the start. This book aims to give
-full control to the auditor when it comes to explaining the statistical
-methodology used in practice.
+calculations are hidden from the user in commercial closed-source tools or audit
+guides in the form of Excel sheets used internally by audit firms. Therefore,
+many auditors may try to understand the theory involved in statistical audit 
+ampling, but they often end up with more questions than they began with. This
+book aims to empower the auditor by providing a comprehensive explanation of the
+statistical methodology used in practice.
 
-This book focuses on audit sampling but approaches it from two viewpoints: a
-classical (frequentist) approach and a Bayesian approch. Through these two
-lenses, it explains the statistical theory underlying commonly applied audit
-sampling procedures and demonstrates how to perform these procedures in a
-statistically sound manner compliant with international auditing standards.
-It also makes the case for adopting Bayesian statistical methods in the audit
-practice and demonstrates why these methods can bring many practical advantages
-for the auditor.
+This book examines audit sampling from both a classical frequentist perspective
+and a Bayesian perspective. Through these two lenses, it explains the statistical
+theory underlying commonly applied audit sampling procedures and demonstrates
+how to apply these procedures in a statistically sound manner compliant with
+international auditing standards. It also demonstrates the use of Bayesian
+statistical methods in auditing practice, highlighting the practical benefits
+these methods can bring for auditors.
 
 This book is organized as follows. Chapter \@ref(CHAPTER-1) provides a
 basic introduction to the R programming language. Chapter \@ref(CHAPTER-2)
