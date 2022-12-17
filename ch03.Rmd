@@ -48,7 +48,7 @@ package.
 
 ```{r}
 data("BuildIt")
-#head(BuildIt)
+head(BuildIt)
 ```
 
 The population of interest consists of 3500 items, each with a booked value.

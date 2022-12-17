@@ -31,10 +31,7 @@ reported the outcomes to the group auditor.
 
 ```{r}
 data(retailer)
-```
-
-```{r echo = FALSE}
-knitr::kable(retailer)
+head(retailer)
 ```
 
 In general, there are three approaches to evaluating a stratified sample: no
@@ -179,7 +176,7 @@ materiality in this example is set to 5%.
 
 ```{r}
 data(allowances)
-#head(allowances)
+head(allowances)
 ```
 
 Evaluating a stratified sample using data requires specification of the `data`,

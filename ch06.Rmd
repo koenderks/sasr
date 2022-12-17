@@ -116,7 +116,7 @@ materiality in this example is set to 5%.
 
 ```{r}
 data(allowances)
-#head(allowances)
+head(allowances)
 ```
 
 Evaluating a non-stratified sample using data requires specification of the

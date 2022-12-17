@@ -14,9 +14,25 @@ source("utils.R", local = TRUE)
 
 R is a programming language and software environment for statistical computing
 and graphics. It is widely used among statisticians and data scientists for data
-analysis and visualization. However, R can also be used in an auditing context.
-R has a large and active community of users, and there are many resources
-available for learning and using R.
+analysis and data visualization and has a large and active community of users.
+As a result, there are many community resources available for learning and using
+R. This book will provide a short introduction to R but does not offer a full
+course on it. If you want to dive deeper into R, I recommend reading @Chang2022,
+@Wickam2017, @Grolemund2014 and @Wilke2022.
+
+In an audit context, R can be used to analyze and visualize large datasets,
+allowing auditors to identify trends and anomalies in the data. R is
+particularly useful for performing statistical analysis and testing hypotheses,
+which can be employed in verifying the accuracy and reliability of financial
+statements. R can also be used to automate certain audit procedures, reducing
+the time and effort required to manually review and analyze large amounts of
+data. Additionally, R allows auditors to easily share their work with others
+through the use of code and reproducible reports, enabling more efficient and
+collaborative audit processes. A resource that discusses these applications of R
+in the audit can be found in @Lin2022.
+
+We will first provide a basic introduction to R and the functionality that is
+required for reproducing the audit sampling examples in this book.
 
 ## Basics
 
@@ -202,6 +218,8 @@ access, download and use. Some popular packages include `dplyr` for data
 manipulation, `ggplot2` for data visualization, and `caret` for machine
 learning. With its versatility and robust community, R is a valuable tool for
 anyone working with data.
+
+> If you want to know more about making your own package, read @Wickam2022.
 
 ### Installing a Package
 
