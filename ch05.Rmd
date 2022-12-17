@@ -10,297 +10,148 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Selecting a Sample {#CHAPTER-5}
+# Evaluating a Sample {#CHAPTER-5}
 
-This chapter outlines the most commonly used sampling methodology for auditing
-and shows how to select a sample using these methods with the **jfa** package.
+A non-stratified audit sample does not involve dividing the population into
+subgroups. Here, the auditor selects a random sample from the entire population
+without considering any specific characteristics of the population. 
 
-Auditors are often required to assess balances or processes that involve a large
-number of items. Since they cannot inspect all of these items individually, they
-need to select a subset (i.e., a sample) from the total population to make a
-statement about a certain characteristic of the population. For this purpose,
-various selection methodologies are available that have become standard in an
-audit context.
+For example, in an audit of a company's inventory, the auditor may simply select
+a random sample of items from the entire inventory without dividing it into
+subgroups based on characteristics such as location or type of item. Another
+example of such a situation would be where the auditor is auditing the general
+ledger of a small business.
 
-## Sampling Units
+Naturally, non-stratified sampling is simpler than stratified sampling and can
+be used when the population is considered homogenous or the auditor does not
+need to consider differences between subgroups (e.g., strata).
 
-Selecting a subset from the population requires knowledge of the sampling units;
-physical representations of the population that needs to be audited. Generally,
-the auditor has to choose between two types of sampling units: individual items
-in the population or individual monetary units in the population. In order to
-perform statistical selection, the population must be divided into individual
-sampling units that can be assigned a probability to be included in the sample.
-The total collection of all sampling units which have been assigned a selection
-probability is called the sampling frame.
+## Classical Evaluation
 
-### Items
-
-A sampling unit for record (i.e., attributes) sampling is generally a
-characteristic of an item in the population. For example, suppose that you
-inspect a population of receipts. A possible sampling unit for record sampling
-can be the date of payment of the receipt. When a sampling unit (e.g., date of
-payment) is selected by the sampling method, the population item that
-corresponds to the sampled unit is included in the sample.
-
-### Monetary Units
-
-A sampling unit for monetary unit sampling is different than a sampling unit for
-record sampling in that it is an individual monetary unit within an item or
-transaction, like an individual dollar. For example, a single sampling unit can
-be the 10$^{th}$ dollar from a specific receipt in the population. When a
-sampling unit (e.g., individual dollar) is selected by the sampling method, the
-population item that includes the sampling unit is included in the sample.
-
-## Sampling Methods
-
-This section discusses the four sampling methods implemented in **jfa**. First,
-for notation, let the the population $N$ be defined as the total set of
-individual sampling units $x_i$.
-
-$$N = \{x_1, x_2, \dots, x_N\}.$$
-
-In statistical sampling, every sampling unit $x_i$ in the population must
-receive a selection probability $p(x_i)$. The purpose of the sampling method is
-to provide a framework to assign selection probabilities to each of the sampling
-units, and subsequently draw sampling units from the population until a set of
-size $n$ has been created.
-
-The next section discusses which sampling methods are available in **jfa**. To
-illustrate the outcomes for different sampling methods, we will use the
-`BuildIt` data set that can be loaded using the code below.
+Classical hypothesis testing uses the *p*-value to make a decision about whether
+to reject the hypothesis $H_0$ or not. As an example, consider that an auditor
+wants to verify whether the population contains less than 5 percent misstatement,
+implying the hypotheses $H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have
+taken a sample of 100 items, of which 1 contained an error. They set the
+significance level for the *p*-value to 0.05, implying that $p < 0.05$ will be
+enough to reject the hypothesis $H_0$. The call below evaluates the sample using
+a classical non-stratified evaluation procedure.
 
 ```{r}
-data(BuildIt)
+evaluation(materiality = 0.05, x = 1, n = 100)
 ```
 
-### Fixed Interval Sampling
+The output shows that the most likely error in the population is estimated to be
+1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
+4.74%. The output also shows that the *p*-value is lower than 0.05 implying that
+the hypothesis $H_0$ can be rejected. Hence, the auditor is able to conclude
+that the sample provides sufficient evidence to state with reasonable assurance
+that the population does not contain material misstatement.
 
-Fixed interval sampling is a method designed for yielding representative samples
-from monetary populations. The algorithm determines a uniform interval on the
-(optionally ranked) sampling units. Next, a starting point is handpicked or
-randomly selected in the first interval and a sampling unit is selected
-throughout the population at each of the uniform intervals from the starting
-point. For example, if the interval has a width of 10 sampling units and
-sampling unit number 5 is chosen as the starting point, the sampling units 5,
-15, 25, etc. are selected to be included in the sample.
+## Bayesian Evaluation
 
-The number of required intervals $I$ can be determined by dividing the number of
-sampling units in the population by the required sample size:
+Bayesian hypothesis testing uses the Bayes factor, $BF_{10}$ or $BF_{01}$, to
+make a statement about the evidence provided by the sample in support for one of
+the two hypotheses $H_1$ or $H_0$. As an example of how to interpret the Bayes
+factor, the value of $BF_{10} = 10$ (provided by the `evaluation()` function)
+can be interpreted as: *the data are 10 times more likely to have occurred underthe hypothesis $H_1$ than under the hypothesis $H_0$*.
+$BF_{10} > 1$ indicates evidence in favor of $H_1$ and against $H_0$, while
+$BF_{10} < 1$ indicates evidence in favor of $H_0$ and against $H_1$. The
+`evaluation()` function returns the value for $BF_{10}$, but $BF_{01}$ can be
+computed as $\frac{1}{BF_{10}}$.
 
-$$I = \frac{N}{n},$$
-
-in which $n$ is the required sample size and $N$ is the total number of sampling
-units in the population.
-
-If the space between the selected sampling units is equal, the selection
-probability for each sampling unit is theoretically defined as:
-
-$$p(x) = \frac{1}{I},$$
-
-with the property that the space between selected units $i$ is the same as the
-interval $I$, see Figure 1. However, in practice the selection is deterministic
-and completely depends on the chosen starting points (using `start`).
-
-<center>
-
-![Figure 5.1: Illustration of fixed interval sampling](img/fixedIntervalSampling.png)
-
-</center>
-
-The fixed interval method yields a sample that allows every sampling unit in the
-population an equal chance of being selected. However, the fixed interval method
-has the property that all items in the population with a monetary value larger
-than the interval $I$ have an selection probability of one because one of these
-items' sampling units are always selected from the interval. Note that, if the
-population is arranged randomly with respect to its deviation pattern, fixed
-interval sampling is equivalent to random selection.
-
-**Advantage(s):** The advantage of the fixed interval sampling method is that it
-is often simple to understand and fast to perform. Another advantage is that, in
-monetary unit sampling, all items that are greater than the calculated interval
-will be included in the sample. In record sampling, since units can be ranked on
-the basis of value, there is also a guarantee that some large items will be in
-the sample.
-
-**Disadvantage(s):** A pattern in the population can coincide with the selected
-interval, rendering the sample less representative. What is sometimes seen as an
-added complication for this method is that the sample is hard to extend after
-drawing the initial sample. This is due to the chance of selecting the same
-sampling unit. However, by removing the already selected sampling units from the
-population and redrawing the intervals this problem can be efficiently solved.
-
-As an example, the code below shows how to apply the fixed interval sampling
-method in a record sampling and a monetary unit sampling setting. Note that, by
-default, the first sampling unit from each interval is selected. However, this
-can be changed by setting the argument `start = 1` to a different value.
+Consider the previous example of an auditor who wants to verify whether the
+population contains less than 5 percent misstatement, implying the hypotheses
+$H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have taken a sample of 100
+items, of which 1 was found to contain a misstatement. The prior distribution is
+assumed to be a default *beta(1,1)* prior. The call below evaluates the sample
+using a Bayesian non-stratified evaluation procedure.
 
 ```{r}
-# Record sampling
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "interval", start = 1)
-head(sample$sample, n = 6)
+prior <- auditPrior(materiality = 0.05, method = "default", likelihood = "binomial")
+evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
 ```
 
+The output shows that the most likely error in the population is estimated to be
+1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to
+4.61%. The small difference between the classical and default Bayesian results
+is due to the prior distribution, which must be proper in order to calculate a
+Bayes factor (classical results can be emulated by constructing a prior with
+`method = "strict"` in the `auditPrior()` function). The Bayes factor in this
+case is shown to be $BF_{10}=515$, meaning that the data from the sample are
+about 515 times more likely to occur under the hypothesis of tolerable
+misstatement than under the hypothesis of material misstatement.
+
+Note that this is a very high Bayes factor for the little data that is observed.
+That is because the Bayes factor is dependent on the prior distribution for
+$\theta$. As a rule of thumb, when the prior distribution is highly conservative
+(as with `method = 'default'`) with respect to the hypothesis of tolerable
+misstatement, the Bayes factor tends to over quantify the evidence in favor of
+this hypothesis. You can mitigate this dependency by using a prior distribution
+that is impartial with respect to the hypotheses via `method = "impartial"` in
+the `auditPrior()` function (Derks et al., 2022).
+
 ```{r}
-# Monetary unit sampling
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "interval", values = "bookValue", start = 1)
-head(sample$sample, n = 6)
+prior <- auditPrior(materiality = 0.05, method = "impartial", likelihood = "binomial")
+evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
 ```
 
-### Cell Sampling
+The output shows that $BF_{10}=47$, implying that under the assumption of
+impartiality there is strong evidence for $H_1$, the hypothesis that the
+population contains misstatements lower than 5 percent of the population
+(tolerable misstatement). Since the two prior distributions both resulted in
+convincing Bayes factors, the results can be considered robust to the choice of
+prior distribution. Hence, the auditor is able to conclude that the sample
+provides convincing evidence to state that the population does not contain
+material misstatement.
 
-The cell sampling method divides the (optionally ranked) population into a set
-of intervals $I$ that are computed through the previously given equations.
-Within each interval, a sampling unit is selected by randomly drawing a number
-between 1 and the interval range $I$. This causes the space $i$ between the
-sampling units to vary.
+## Evaluation using Data
 
-Like in the fixed interval sampling method, the selection probability for each
-sampling unit is defined as:
-
-$$p(x) = \frac{1}{I}.$$
-
-<center>
-
-![Figure 5.2: Illustration of cell sampling](img/cellSampling.png)
-
-</center>
-
-The cell sampling method has the property that all items in the population with
-a monetary value larger than twice the interval $I$ have a selection probability
-of one.
-
-**Advantage(s):** More sets of samples are possible than in fixed interval
-sampling, as there is no systematic interval $i$ to determine the selections. It
-is argued that the cell sampling algorithm offers a solution to the pattern
-problem in fixed interval sampling.
-
-**Disadvantage(s):** A disadvantage of this sampling method is that not all
-items in the population with a monetary value larger than the interval have a
-selection probability of one. Besides, population items can be in two adjacent
-cells, thereby creating the possibility that an items is included in the sample
-twice.
-
-As an example, the code below shows how to apply the cell sampling method in a
-record sampling and a monetary unit sampling setting. It is important to set a
-seed to make the results reproducible.
+For this example, we take the `allowances` that set that comes with the package.
+This data set contains 3500 financial statement line items, each with a booked
+value `bookValue` and, for illustrative purposes, and audited (true) value
+`auditValue`. Since the focus of this vignette is the evaluation stage in the
+audit, the sample is already indicated in the data set. The performance
+materiality in this example is set to 5%.
 
 ```{r}
-# Record sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "cell")
-head(sample$sample, n = 6)
+data(allowances)
+head(allowances)
 ```
 
-```{r}
-# Monetary unit sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "cell", values = "bookValue")
-head(sample$sample, n = 6)
-```
+Evaluating a non-stratified sample using data requires specification of the
+`data`, `values` and `values.audit` arguments. The input for these arguments is
+the name of the specific column in `data`.
 
-### Random Sampling
+### Classical Evaluation
 
-Random sampling is the most simple and straight-forward selection method The
-random sampling method provides a method that allows every sampling unit in the
-population an equal chance of being selected, meaning that every combination of
-sampling units has the same probability of being selected as every other
-combination of the same number of sampling units. Simply put, the algorithm
-draws a random selection of size $n$ of the sampling units. Therefore, the
-selection probability for each sampling unit is defined as:
-
-$$p(x) = \frac{1}{N},$$
-
-where $N$ is the number of units in the population. To clarify this procedure,
-Figure 3 provides an illustration of the random sampling method.
-
-<center>
-
-![Figure 5.3: Illustration of random sampling](img/randomSampling.png)
-
-</center>
-
-**Advantage(s):** The random sampling method yields an optimal random selection,
-with the additional advantage that the sample can be easily extended by applying
-the same method again.
-
-**Disadvantages:** Because the selection probabilities are equal for all
-sampling units there is no guarantee that items with a large monetary value in
-the population will be included in the sample.
-
-As an example, the code below shows how to apply the random sampling (with our
-without replacement using `replace`) method in a record sampling and a monetary
-unit sampling setting. It is important to set a seed to make results
-reproducible.
+The call below evaluates the `allowances` sample using a classical
+non-stratified evaluation procedure.
 
 ```{r}
-# Record sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "random")
-head(sample$sample, n = 6)
-```
-
-```{r}
-# Monetary unit sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "random", values = "bookValue")
-head(sample$sample, n = 6)
-```
-
-### Modified Sieve Sampling
-
-The fourth option for the sampling method is modified sieve sampling (Hoogduin,
-Hall, & Tsay, 2010). The algorithm starts by selecting a standard uniform random
-number $R_i$ between 0 and 1 for each item in the population. Next, the sieve
-ratio:
-
-$$S_i = \frac{Y_i}{R_i}$$
-
-is computed for each item by dividing the book value of that item by the random
-number. Lastly, the items in the population are sorted by their sieve ratio $S$
-(in decreasing order) and the top $n$ items are selected for inspection. In
-contrast to the classical sieve sampling method (Rietveld, 1978), the modified
-sieve sampling method provides precise control over sample sizes.
-
-As an example, the code below shows how to apply the modified sieve sampling
-method in a monetary unit sampling setting. It is important to set a seed to
-make results reproducible.
-
-```{r}
-# Monetary unit sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "sieve", values = "bookValue")
-head(sample$sample, n = 6)
-```
-
-## Ordering or Randomizing the Population
-
-The `selection()` function has additional arguments (`order`, `decreasing`,
-and `randomize`) to preprocess your population before selection. The `order`
-argument takes as input a column name in `data` which determines the order of
-the population. For example, you can order the population from lowest book value
-to highest book value before engaging in selection. In this case, you should use
-the `decreasing = FALSE` argument.
-
-```{r}
-# Ordering population from lowest 'bookValue' to highest 'bookValue' before MUS
-set.seed(1)
-sample <- selection(
-  data = BuildIt, size = 100,
-  units = "values", values = "bookValue",
-  order = "bookValue", decreasing = FALSE
+x <- evaluation(
+  materiality = 0.05, data = allowances,
+  values = "bookValue", values.audit = "auditValue", times = "times"
 )
-head(sample$sample, n = 6)
+summary(x)
 ```
 
-The `randomize` argument can be used to randomly shuffle the items in the
-population before selection.
+In this case, the output shows that the estimate of the misstatement in the
+population is 15.77%, with the 95% (one-sided) confidence interval ranging from
+0% to 17.5%.
+
+### Bayesian evaluation
+
+The call below evaluates the `allowances` sample using a Bayesian non-stratified
+evaluation procedure.
 
 ```{r}
-# Randomly shuffle population items before MUS
-set.seed(1)
-sample <- selection(
-  data = BuildIt, size = 100,
-  units = "values", values = "bookValue", randomize = TRUE
+x <- evaluation(
+  materiality = 0.05, data = allowances, prior = TRUE,
+  values = "bookValue", values.audit = "auditValue", times = "times"
 )
-head(sample$sample, n = 6)
+summary(x)
 ```
+
+The output shows that the estimate of the misstatement in the population is
+15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.

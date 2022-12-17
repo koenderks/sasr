@@ -10,259 +10,444 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# The Audit Sampling Workflow {#CHAPTER-3}
-
-This chapter discusses the standard audit sampling workflow. There are several
-steps involved in the audit sampling workflow, and these steps are outlined
-below.
-
-## Goals
-
-The first step in the audit sampling workflow is to define the audit objective
-and population. The audit objective is the specific aspect of the population
-that the auditor wants to test. For example, the audit objective may be to test
-the accuracy of the sales transactions recorded in a company's accounting
-records. The population is the group of transactions or records that the
-auditor wants to test. In this case, the population would be all of the sales
-transactions recorded in the accounting records.
-
-In our example of the audit workflow, we will consider the case of BuildIt.
-BuildIt is a fictional construction company in the United States that is being
-audited by an external auditor for a fictional audit firm. At the end of the
-year, BuildIt has provided a summary of its financial situation in the financial
-statements. The objective of the auditor is to formulate an opinion about the
-fairness BuildIt's financial statements.
-
-The auditor needs to obtain sufficient and appropriate evidence for the
-hypothesis that the misstatement in the financial statements is lower than a
-certain amount: the materiality. If the financial statements contain
-misstatements that are considered material, this means that the errors in the
-financial statements are large enough that they might influence the decision of
-stakeholders relying on these financial statements. The performance materiality
-is the materiality that applies to each of the populations on which the
-financial statements are based. For this example, the performance materiality is
-set at 5% of the total value of the population.
-
-In this example, we focus on the `BuildIt` data set that comes with the **jfa**
-package.
-
-```{r}
-data("BuildIt")
-head(BuildIt)
-```
-
-The population of interest consists of 3500 items, each with a booked value.
-Let's assume that, before performing audit sampling, the auditor has assessed
-the quality of BuildIt's internal control systems and found that they were
-working properly.
-
-In order to formulate an opinion about the misstatement in the population, the
-auditor separates their audit workflow into four stages. First, they will need
-to plan the minimum size of a sample they need to inspect to perform inference
-about the population. Second, they will need to select the required sample from
-the population. Third, they will need to inspect the selected sample and
-determine the audit (true) value of the items it contains. Fourth, they will
-need to use the information from the inspected sample to perform inference about
-the misstatement in the population.
-
-<p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/workflow.png' alt='workflow' width='100%'></p>
-
-The auditor wants to make a statement that, with 95% confidence, the misstatement
-in the population is lower than the performance materiality of 5%. Based on last
-year's audit at BuildIt, where the upper bound of the misstatement turned out to
-be 2.5%, they want to tolerate at most 2.5% errors in the intended sample. The
-auditor can therefore re-formulate their statistical statement as that they want
-to conclude that, when 2.5% errors are found in the sample, they can conclude
-with 95% confidence that the misstatement in the population is lower than the
-performance materiality of 5%.
-
-Below, the auditor defines the performance materiality, confidence level, and
-expected misstatements in the sample.
-
-```{r}
-confidence <- 0.95 # 95%
-materiality <- 0.05 # 5%
-expected <- 0.025 # 2.5%
-```
-
-Many audits are performed according to the *audit risk model (ARM)*, which
-determines that the uncertainty about the auditor's statement as a whole
-(1 - the confidence) is a factor of three terms: the inherent risk, the control
-risk, and the detection risk. Inherent risk is the risk posed by an error in
-BuildIt's financial statement that could be material, before consideration of
-any related control systems (e.g., computer systems). Control risk is the risk
-that a material misstatement is not prevented or detected by BuildIt's internal
-control systems. Detection risk is the risk that the auditor will fail to find
-material misstatements that exist in an BuildIt's financial statements. The
-*ARM* is practically useful because for a given level of audit risk, the
-tolerable detection risk bears an inverse relation to the other two risks. The
-*ARM* is useful for the auditor because it enables them to incorporate existing
-information on BuildIt's organization to increase the required risk that they
-will fail to find a material misstatement.
-
-$$ \text{Audit risk} = \text{Inherent risk} \,\times\, \text{Control risk} \,\times\, \text{Detection risk}$$
-
-Usually the auditor judges inherent risk and control risk on a three-point scale
-consisting of low, medium, and high. Different audit firms handle different
-standard percentages for these categories. The auditor's firm defines the
-probabilities of low, medium, and high respectively as 50%, 60%, and 100%.
-Because the auditor assessed BuildIt's internal control systems, they assess the
-control risk as medium (60%).
-
-```{r}
-ir <- 1 # 100%
-cr <- 0.6 # 60%
-```
-
-## Planning
+# Planning a Sample {#CHAPTER-3}
 
 <p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/planning.png' alt='planning' width='100%'></p>
 
-The next step in the audit sampling workflow is to determine the minimum
-required sample size and sampling method. The sample size is the number of
-monetary units or records that will be selected for testing. The sampling method
-is the method used to select the transactions or records that will be included
-in the sample. There are several different sampling methods that can be used,
-including random sampling, systematic sampling, and stratified sampling.
+One of the key considerations in audit sampling is determining the minimum
+sample size required to achieve a desired level of assurance or precision. In
+this chapter, we will discuss how to use three standard likelihoods to plan a
+minimum sample size for audit sampling: the hypergeometric likelihood, the
+binomial likelihood and the Poisson likelihood.
 
-The auditor can choose to either perform a frequentist analysis, where they use
-the increased detection risk as their level of uncertainty, or perform a
-Bayesian analysis, where they incorporate the information about the control risk
-into a prior distribution. For this example, we will show how to perform a
-Bayesian analysis. A frequentist analysis can easily be done through the
-following functions by setting `prior = FALSE`. In a frequentist analysis, the
-auditor immediately uses the adjusted confidence to calculate the sample size
-via the `planning()` function.
+Before we dive into the details of computing a minimum sample size for audit
+sampling using any of the three likelihoods, it is important to review some key
+concepts and notation. Let's start by defining the population and the sample.
+The population is the group of items or transactions being audited, and the
+sample is the subset of the population that is selected for testing. The
+population size is denoted by $N$, and the sample size is denoted by $n$.
+
+Next, we need to define the maximum tolerable error or precision level that we
+want to achieve in our audit. This is typically expressed as a maximum allowable
+misstatement rate, denoted by $\theta_{max}$. For example, if we set
+$\theta_{max}$ to 0.05, it means that we want to ensure that the misstatement
+rate in the population does not exceed 5%.
+
+## Required Information
+
+First, planning a minimum sample requires knowledge of the conditions that lead 
+to acceptance or rejection of the population (i.e., the sampling objectives).
+Typically, sampling objectives can be classified into one or both of the
+following:
+
+- **Hypothesis testing**: The goal of the sample is to obtain evidence for or
+  against the claim that the misstatement in the population is lower than a
+  given value (i.e., the performance materiality).
+- **Estimation**: The goal of the sample is to obtain an accurate estimate of
+  the misstatement in the population (with a minimum precision).
+
+Second, it is advised to specify the expected (or tolerable) misstatements in
+the sample. The expected misstatements are the misstatements that you allow in
+the sample, while still retaining the desired amount of assurance about the 
+population. It is strongly recommended to set the value for the expected
+misstatements in the sample conservatively to minimize the chance of the
+observed misstatements in the sample exceeding the expected misstatements, which
+would imply that insufficient work has been done in the end.
+
+Finally, next to determining the sampling objective(s) and the expected
+misstatements, it is important to determine the statistical distribution linking
+the sample outcomes to the population misstatement. This distribution is called
+the likelihood (i.e., `poisson`, `binomial`, or`hypergeometric`). All three
+aforementioned likelihoods are commonly used in an audit sampling context,
+however, `poisson` is the default likelihood in **jfa** because it is the most
+conservative of the three. In the subsections below, we elaborate on the three
+standard likelihoods for audit sampling and demonstrate how they can be used
+to obtain a minimum sample size.
+
+## The Hypergeometric Likelihood
+
+Let's consider how to use the hypergeometric likelihood to calculate the
+minimum sample size needed to achieve a desired level of assurance. The
+hypergeometric distribution is a discrete probability distribution that is
+commonly used to model the number of events occurring in a fixed number of
+trials when the population size is known. For our purpose, we can use the
+hypergeometric distribution as a likelihood to model the number of misstatements
+that are expected to be found in the sample.
+
+The probability mass function (PMF) of the hypergeometric distribution is given
+by:
+
+\begin{equation}
+  p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},
+\end{equation}
+
+where $x$ is the number of misstatements in the sample, $n$ is the sample size,
+$N$ is the population size and $K$ is the total number of misstatements assumed
+in the population. The assumed misstatements $K$ is a linear extrapolation of
+the assumed misstatement rate in the population $\theta_{max}$ to the total
+population:
+
+\begin{equation}
+  K = \theta_{max} N.
+\end{equation}
+
+### Classical planning
+
+Concretely, the following statistical model is assumed:
+
+\begin{equation}
+  x \sim \text{Hypergeometric}(n, N, K)
+\end{equation}
+
+Given a desired misstatement tolerance $\theta_{max}$, we can solve for the
+minimum sample size $n$ needed to achieve this assurance level. In **jfa**,
+this sample size can be calculated using the `planning()` function. For example,
+if we want to achieve an assurance level of 95% ($\alpha=0.05$) for a
+maximum tolerable misstatement rate of 3% in a population of $N=1000$, then the
+required sample size under the assumption of zero expected misstatements in the
+sample is $n = 94$.
 
 ```{r}
-c.adj <- 1 - ((1 - confidence) / (ir * cr))
-stage1 <- planning(materiality = materiality, expected = expected,
-                   conf.level = c.adj)
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000)
 ```
 
-The auditor can then inspect the result from the planning procedure by using the
-`summary()` function. The result shows that the auditor needs to select a sample
-of 178 items so that, when at most 4.45 misstatements are found, they can
-conclude with 91.66% confidence that the misstatement in BuildIt's population
-is lower than the performance materiality of 5%. 
+As another example, if we want to achieve an assurance level of 95%
+($\alpha=0.05$) for a maximum tolerable misstatement rate of 3% in a population
+of $N=1000$, then the required sample size under the assumption of one expected
+misstatement in the sample is $n = 147$.
 
 ```{r}
-summary(stage1)
+planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000)
 ```
 
-## Selection
+### Bayesian Planning
 
-<p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/selection.png' alt='selection' width='100%'></p>
+Performing Bayesian planning with the hypergeometric likelihood requires that
+you specify a prior distribution for the parameter $\theta$. Practically, this
+means that you should provide an input for the `prior` argument in the
+`planning()` function.
 
-Once the sample size and sampling method have been determined, the next step is
-to select the sample. This involves using the sampling method to select the
-transactions or records that will be included in the sample. For example, if a
-random sampling method is used, a list of all of the transactions or records in
-the population will be created and a random number generator will be used to
-select the transactions or records that will be included in the sample.
+Setting `prior = TRUE` performs Bayesian planning using a [default prior](https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default)
+conjugate to the specified `likelihood` (i.e., a beta-binomial prior).
+Concretely, this means that the following statistical model is assumed:
 
-The auditor is now ready to select the required 178 items from the population.
-They can choose to do this according to one of two statistical methods. In
-*record sampling* (`units = "items"`), inclusion probabilities are assigned on
-the item level, treating item with a high value and a low value the same, an 
-item of $5,000 is equally likely to be selected as an item of $1,000. In 
-*monetary unit sampling* (`units = "values"`), inclusion probabilities are
-assigned on the level of individual monetary units (e.g., a dollar). When a
-dollar is selected to be in the sample, the item that includes that dollar is
-selected. This favors items with a higher value, as an item with a value of 
-\$5,000 is now five times more likely to be selected than an item with a value
-of \$1,000.
+\begin{align}
+  x \sim& \text{Hypergeometric}(n, N, K) \\
+  \theta &\sim \text{Beta-binomial)(\alpha, \beta)
+\end{align}
 
-The auditor chooses to use *monetary unit sampling*, as they wants to include
-more high-valued items. The `selection()` function enables them to select the
-sample from the population. She uses the `stage1` object as an input for the
-`selection()` function, since this passes the calculated sample size to the
+> The beta-binomial prior is conjugate to the hypergeometric likelihood, which
+means that the posterior distribution of $\theta$ can be determined
+analytically.
+
+For example, the command below uses a default beta-binomial(N, 1, 1) prior
+distribution to plan the sample, since `planning()` is given the hypergeometric
+likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3% in a population of $N=1000$, then
+the required sample size under the assumption of zero expected misstatements in
+the sample is $n = 93$.
+
+```{r}
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "hypergeometric", N.units = 1000, prior = TRUE)
+summary(plan)
+```
+
+You can inspect how the prior distribution compares to the expected
+posterior distribution by using the `plot()` function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.
+
+```{r}
+plot(plan)
+```
+
+The hypergeometric likelihood does not allow for non-conjugate prior
+distributions to be used as a prior.
+
+## The Binomial Likelihood
+
+Let's consider how to use the binomial likelihood to calculate the minimum
+sample size needed to achieve a desired level of assurance. The binomial
+distribution is a discrete probability distribution that is commonly used to
+model the number of events occurring in a fixed number of trials. For our
+purpose, we can use the binomial distribution as a likelihood to model the
+number of misstatements that are expected to be found in the sample. 
+
+> In audit sampling, the binomial likelihood is often used to approximate the
+hypergeometric likelihood since it is easier to work with (i.e., it only has two
+parameters: $\theta$ and $n$, while the hypergeometric has three: $n$, $N$, and
+$K$). However, the binomial likelihood is more conservative than the
+hypergeometric likelihood, meaning that resulting sample sizes will be higher.
+
+The probability mass function (PMF) of the binomial distribution is given by:
+
+\begin{equation}
+  p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x},
+\end{equation}
+
+where $x$ is the number of misstatements in the sample, $n$ is the sample size
+and $\theta$ is the misstatement rate expected in the sample.
+
+### Classical Planning
+
+Concretely, the following statistical model is assumed:
+
+\begin{equation}
+  x \sim \text{Binomial}(n, \theta_{max})
+\end{equation}
+
+Given a desired misstatement tolerance $\theta_{max}$, we can solve for
+the minimum sample size $n$ needed to achieve the desired assurance level. A
+useful trick to utilize is that, if we do not expect any misstatements in the
+sample, the formula for the minimum required sample size reduces to:
+
+\begin{equation}
+  n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
+\end{equation}
+
+> $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
+
+For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is $n = 99$.
+
+```{r}
+ceiling(log(1 - 0.95) / log(1 - 0.03))
+```
+
+In **jfa**, this sample size can be replicated using the `planning()` function.
+
+```{r}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "binomial")
+```
+
+However, if the number of expected misstatements in the sample is non-zero,
+it becomes more difficult to solve the formula for $n$. Hence, we can
+iteratively try every value of $n$ and return the smallest integer that
+satisfies the sampling objectives. In **jfa**, this can be done by adjusting the
+`expected` argument in the `planning()` function. For example, if we want to
+achieve an assurance level of 95% ($\alpha=0.05$) for a maximum tolerable
+misstatement rate of 3%, then the required sample size under the assumption of
+one expected misstatement in the sample is $n = 157$.
+
+```{r}
+planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+         likelihood = "binomial")
+```
+
+### Bayesian Planning
+
+Performing Bayesian planning with the binomial likelihood requires that you
+specify a prior distribution for the parameter $\theta$. Practically, this means
+that you should provide an input for the `prior` argument in the `planning()`
 function.
 
-```{r}
-stage2 <- selection(data = BuildIt, size = stage1, method = "interval",
-                    units = "values", values = "bookValue")
-```
+Setting `prior = TRUE` performs Bayesian planning using a [default prior](https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default)
+conjugate to the specified `likelihood` (i.e., a beta prior). Concretely, this
+means that the following statistical model is assumed:
 
-Like before, the auditor can inspect the outcomes of their sampling procedure\
-by using the `summary()` function.
+\begin{align}
+  x \sim& \text{Binomial}(n, \theta) \\
+  \theta &\sim \text{Beta}(\alpha, \beta)
+\end{align}
 
-```{r}
-summary(stage2)
-```
+> The beta prior is conjugate to the binomial likelihood, which means that the
+posterior distribution of $\theta$ can be determined analytically.
 
-## Execution
-
-The next step in the audit sampling workflow is to test the sample. This
-involves reviewing the transactions or records that were selected for the sample
-and testing them to determine if they are accurate. This may involve reviewing
-documentation, such as invoices or receipts, to verify that the transactions or
-records are accurate.
-
-The selected sample can be isolated by indexing the `sample` object from the
-sampling result.
+For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior
+distribution to plan the sample, since `planning()` is given the binomial
+likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is $n = 98$.
 
 ```{r}
-sample <- stage2$sample
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "binomial", prior = TRUE)
+summary(plan)
 ```
 
-Next, the auditor can execute the audit by annotating the items in the sample
-with their audit values (for exampling by writing the sample to a *.csv* file
-using `write.csv()`. They can then load the annotated sample back into the R
-session for further evaluation. For this example, the audit values of the sample
-items are already included in the `auditValue` column of the data set.
-
-```{r, eval = FALSE}
-# To write the sample to a .csv file:
-write.csv(x = sample, file = "auditSample.csv", row.names = FALSE)
-
-# To load annotated sample back into R:
-sample <- read.csv(file = "auditSample.csv")
-```
-
-## Evaluation
-
-<p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/evaluation.png' alt='evaluation' width='100%'></p>
-
-Once the sample has been tested, the next step is to analyze the results. This
-involves reviewing the results of the testing and determining if the sample is
-representative of the population as a whole. If the sample is representative,
-the auditor can draw conclusions about the population based on the results of
-the testing. If the sample is not representative, the auditor may need to select
-a new sample and test it in order to draw accurate conclusions about the
-population.
-
-Using the annotated sample, the auditor can perform inference about the
-misstatement in the population via the `evaluation()` function.
+You can inspect how the prior distribution compares to the expected
+posterior distribution by using the `plot()` function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.
 
 ```{r}
-stage4 <- evaluation(
-  materiality = materiality, conf.level = c.adj, data = sample,
-  values = "bookValue", values.audit = "auditValue"
-)
+plot(plan)
 ```
 
-The auditor can inspect the outcomes of her inference by using the `summary()`
-function. The resulting 91.66% upper bound is 1.396%, which is lower than the
-performance materiality of 5%.
+The input for the `prior` argument can also be an object created by the
+`auditPrior` function. If `planning()` receives a prior for which there is no
+conjugate likelihood available, it will numerically derive the posterior
+distribution. For example, the command below uses a Normal(0, 0.05) prior
+distribution to plan the sample using the binomial likelihood. Concretely, this
+means that the following statistical model is assumed:
+
+\begin{align}
+  x &\sim \text{Binomial}(n, \theta) \\
+  \theta &\sim \text{Normal}(\mu = 0, \sigma = 0.05)
+\end{align}
 
 ```{r}
-summary(stage4)
+prior <- auditPrior(method = "param", likelihood = "normal",
+                    alpha = 0, beta = 0.05)
+
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "poisson", prior = prior)
+
+summary(plan)
 ```
 
-## Reporting
+The resulting sample size under this prior is $n = 90$, a reduction of 8 samples
+when compared to the default beta(1, 1) prior distribution.
 
-The final step in the audit sampling workflow is to document the audit findings.
-This involves preparing a report that outlines the audit objective, population,
-sample size, sampling method, and results of the testing. The report should also
-include any recommendations for improvement based on the audit findings.
+```{r}
+plot(plan)
+```
 
-Since the 91.66% upper confidence bound on the misstatement in population is
-lower than the performance materiality, the auditor has obtained sufficient
-evidence to conclude that the population does not contain material
-misstatements. The auditor can create a `html` or `pdf` report of the statistical
-results using the `report()` function, as shown below.
+## The Poisson Likelihood
 
-```{r, eval = FALSE}
-report(stage4, file = "report.html")
+Let's consider how to use the Poisson likelihood to calculate the minimum
+sample size needed to achieve a desired level of assurance. The Poisson
+distribution is a discrete probability distribution that is commonly used to
+model the number of events occurring in a fixed time or space. We can use the
+Poisson distribution as a likelihood to model the number of misstatements that
+are expected to be found in the sample.
+
+> In audit sampling, the Poisson likelihood is often used to approximate the
+binomial likelihood since it is easier to work with (i.e., it only has one
+parameter: $\lambda$, while the binomial has two parameters: $\theta$ and $n$).
+However, the Poisson likelihood is more conservative than the binomial
+likeliood, meaning that resulting sample sizes will be higher.
+
+The probability mass function (PMF) of the Poisson distribution is given by:
+
+\begin{equation}
+  p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},
+\end{equation}
+
+where $x$ is the number of misstatements in the sample, and $\lambda$ is the
+average number of misstatements expected in the sample. The average number of
+misstatements is related to the misstatement rate in the population, denoted by
+$\theta$, and the sample size, $n$, by the following equation:
+
+\begin{equation}
+  \lambda=n\theta.
+\end{equation}
+
+### Classical planning
+
+Concretely, the following statistical model is assumed:
+
+\begin{equation}
+  x \sim \text{Poisson}(n\theta_{max})
+\end{equation}
+
+Given a desired misstatement tolerance $\theta_{max}$ and the Poisson
+likelihood, we can solve for the minimum sample size $n$ needed to achieve a
+assurance level. A useful trick to utilize is that, if we do not expect any
+misstatements in the sample, the formula for the required sample size reduces
+to:
+
+\begin{equation}
+  n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
+\end{equation}
+
+> $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
+
+For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is $n = 100$.
+
+```{r}
+ceiling(-log(1 - 0.95) / 0.03)
+```
+
+In **jfa**, this sample size can be replicated using the `planning()` function.
+
+```{r}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "poisson")
+```
+
+However, if the number of expected misstatements in the sample is non-zero,
+it becomes more difficult to solve the formula for $n$. Hence, we can
+iteratively try every value of $n$ and return the smallest integer that
+satisfies the sampling objectives. In **jfa**, this can be done by adjusting the
+`expected` argument in the `planning()` function. For example, if we want to
+achieve an assurance level of 95% ($\alpha=0.05$) for a maximum tolerable
+misstatement rate of 3%, then the required sample size under the assumption of
+one expected misstatement in the sample is $n = 159$.
+
+```{r}
+planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+         likelihood = "poisson")
+```
+
+### Bayesian Planning
+
+Performing Bayesian planning with the Poisson likelihood requires that you
+specify a prior distribution for the parameter $\theta$. Practically, this means
+that you should provide an input for the `prior` argument in the `planning()`
+function.
+
+Setting `prior = TRUE` performs Bayesian planning using a [default prior](https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default)
+conjugate to the specified `likelihood` (i.e., a gamma prior). Concretely, this
+means that the following statistical model is assumed:
+
+$$x \sim \text{Poisson}(n\theta)$$
+$$\theta \sim \text{Gamma}(\alpha, \beta)$$
+
+> The gamma prior is conjugate to the Poisson likelihood, which means that the
+posterior distribution of $\theta$ can be determined analytically.
+
+For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior
+distribution to plan the sample, since `planning()` is given the Poisson
+likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3%, then the required sample size under
+the assumption of zero expected misstatements in the sample is $n = 99$.
+
+```{r}
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "poisson", prior = TRUE)
+summary(plan)
+```
+
+You can inspect how the prior distribution compares to the expected
+posterior distribution by using the `plot()` function. The expected posterior
+distribution is the posterior distribution that would occur if you actually
+observed the planned sample containing the expected misstatements.
+
+```{r}
+plot(plan)
+```
+
+The input for the `prior` argument can also be an object created by the
+`auditPrior` function. If `planning()` receives a prior for which there is no
+conjugate likelihood available, it will numerically derive the posterior
+distribution. For example, the command below uses a Normal(0, 0.05) prior
+distribution to plan the sample using the Poisson likelihood. Concretely, this
+means that the following statistical model is assumed:
+
+$$x \sim \text{Poisson}(n\theta)$$
+$$\theta \sim \text{Normal}(\mu = 0, \sigma = 0.05)$$
+
+```{r}
+prior <- auditPrior(method = "param", likelihood = "normal",
+                    alpha = 0, beta = 0.05)
+
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "poisson", prior = prior)
+
+summary(plan)
+```
+
+The resulting sample size under this prior is $n = 91$, a reduction of 8 samples
+when compared to the default gamma(1, 1) prior.
+
+```{r}
+plot(plan)
 ```

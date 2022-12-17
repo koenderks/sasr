@@ -42,8 +42,7 @@ these methods can bring for auditors.
 This book is organized as follows. Chapter \@ref(CHAPTER-1) provides a
 basic introduction to the R programming language. Chapter \@ref(CHAPTER-2)
 discusses the basic statistical theory underlying audit sampling. Chapter
-\@ref(CHAPTER-3) discusses the standard audit sampling workflow. Chapter
-\@ref(CHAPTER-4), \@ref(CHAPTER-5), \@ref(CHAPTER-6), and \@ref(CHAPTER-7) go
+\@ref(CHAPTER-2), \@ref(CHAPTER-4), \@ref(CHAPTER-5), and \@ref(CHAPTER-6) go
 into more detail about using statistial methods to plan, select and evaluate
-audit samples. Finally, Chapter \@ref(CHAPTER-8) discusses other R-related
+audit samples. Finally, Chapter \@ref(CHAPTER-7) discusses other R-related
 software implementations of audit sampling.
