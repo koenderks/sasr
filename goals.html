@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Goals | Statistical Audit Sampling with R, 1st Edition</title>
-  <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <title>3.1 Goals | Statistical Audit Sampling with R, 1st edition</title>
+  <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Goals | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="3.1 Goals | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
-  <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="github-repo" content="koenderks/stataudbook" />
+  <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
+  <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Goals | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="3.1 Goals | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
-  <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+  <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
 
 <meta name="author" content="Koen Derks" />
 
@@ -259,7 +259,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -269,7 +268,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st Edition</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st edition</a>
           </h1>
         </div>
 
@@ -304,7 +303,14 @@ set at 5% of the total value of the population.</p>
 <p>In this example, we focus on the <code>BuildIt</code> data set that comes with the <strong>jfa</strong>
 package.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="goals.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;BuildIt&quot;</span>)</span>
-<span id="cb23-2"><a href="goals.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(BuildIt)</span></span></code></pre></div>
+<span id="cb23-2"><a href="goals.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BuildIt)</span>
+<span id="cb23-3"><a href="goals.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#      ID bookValue auditValue</span></span>
+<span id="cb23-4"><a href="goals.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 82884    242.61     242.61</span></span>
+<span id="cb23-5"><a href="goals.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 25064    642.99     642.99</span></span>
+<span id="cb23-6"><a href="goals.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 81235    628.53     628.53</span></span>
+<span id="cb23-7"><a href="goals.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 71769    431.87     431.87</span></span>
+<span id="cb23-8"><a href="goals.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 55080    620.88     620.88</span></span>
+<span id="cb23-9"><a href="goals.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 93224    501.76     501.76</span></span></code></pre></div>
 <p>The population of interest consists of 3500 items, each with a booked value.
 Let’s assume that, before performing audit sampling, the auditor has assessed
 the quality of BuildIt’s internal control systems and found that they were

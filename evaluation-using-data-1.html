@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.4 Evaluation using data | Statistical Audit Sampling with R, 1st Edition</title>
-  <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <title>7.4 Evaluation using data | Statistical Audit Sampling with R, 1st edition</title>
+  <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.4 Evaluation using data | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="7.4 Evaluation using data | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
-  <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="github-repo" content="koenderks/stataudbook" />
+  <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
+  <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.4 Evaluation using data | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="7.4 Evaluation using data | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
-  <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+  <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
 
 <meta name="author" content="Koen Derks" />
 
@@ -259,7 +259,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -269,7 +268,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st Edition</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st edition</a>
           </h1>
         </div>
 
@@ -286,7 +285,14 @@ value <code>bookValue</code> and, for illustrative purposes, and audited (true) 
 audit, the sample is already indicated in the data set. The performance
 materiality in this example is set to 5%.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="evaluation-using-data-1.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
-<span id="cb79-2"><a href="evaluation-using-data-1.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(allowances)</span></span></code></pre></div>
+<span id="cb79-2"><a href="evaluation-using-data-1.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
+<span id="cb79-3"><a href="evaluation-using-data-1.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   item branch bookValue auditValue times</span></span>
+<span id="cb79-4"><a href="evaluation-using-data-1.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1     12      1600       1600     1</span></span>
+<span id="cb79-5"><a href="evaluation-using-data-1.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2     12      1625         NA     0</span></span>
+<span id="cb79-6"><a href="evaluation-using-data-1.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3     12      1775         NA     0</span></span>
+<span id="cb79-7"><a href="evaluation-using-data-1.html#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4     12      1250       1250     1</span></span>
+<span id="cb79-8"><a href="evaluation-using-data-1.html#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5     12      1400         NA     0</span></span>
+<span id="cb79-9"><a href="evaluation-using-data-1.html#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    6     12      1190         NA     0</span></span></code></pre></div>
 <p>Evaluating a stratified sample using data requires specification of the <code>data</code>,
 <code>values</code>, <code>values.audit</code> and <code>strata</code> arguments in the <code>evaluation()</code> function.
 In this case, the units are monetary and calculated by aggregating the book
@@ -347,7 +353,7 @@ population is 14.72%, with the 95% confidence interval ranging from 12.55% to
 18.26%. The precision of the population estimate is 3.54%. The stratum estimates
 can be seen in the output of the <code>summary()</code> function and are visualized below.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="evaluation-using-data-1.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-90-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-89-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bayesian-evaluation-2" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Bayesian Evaluation<a href="evaluation-using-data-1.html#bayesian-evaluation-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -409,11 +415,11 @@ of the population estimate is 1.34%, which is substantially lower than that of
 the classical approach. The stratum estimates can be seen in the output of the
 <code>summary()</code> function and are visualized below.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="evaluation-using-data-1.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-92-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-91-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The prior and posterior distribution for the population misstatement can be
 requested via the <code>plot()</code> function.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="evaluation-using-data-1.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-93-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-92-1.png" width="576" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st Edition</title>
-  <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <title>6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st edition</title>
+  <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
-  <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="github-repo" content="koenderks/stataudbook" />
+  <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
+  <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="6.3 Evaluation using Data | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
-  <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+  <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
 
 <meta name="author" content="Koen Derks" />
 
@@ -259,7 +259,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -269,7 +268,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st Edition</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st edition</a>
           </h1>
         </div>
 
@@ -286,7 +285,14 @@ value <code>bookValue</code> and, for illustrative purposes, and audited (true) 
 audit, the sample is already indicated in the data set. The performance
 materiality in this example is set to 5%.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="evaluation-using-data.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
-<span id="cb66-2"><a href="evaluation-using-data.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(allowances)</span></span></code></pre></div>
+<span id="cb66-2"><a href="evaluation-using-data.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
+<span id="cb66-3"><a href="evaluation-using-data.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   item branch bookValue auditValue times</span></span>
+<span id="cb66-4"><a href="evaluation-using-data.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1     12      1600       1600     1</span></span>
+<span id="cb66-5"><a href="evaluation-using-data.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2     12      1625         NA     0</span></span>
+<span id="cb66-6"><a href="evaluation-using-data.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3     12      1775         NA     0</span></span>
+<span id="cb66-7"><a href="evaluation-using-data.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4     12      1250       1250     1</span></span>
+<span id="cb66-8"><a href="evaluation-using-data.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5     12      1400         NA     0</span></span>
+<span id="cb66-9"><a href="evaluation-using-data.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    6     12      1190         NA     0</span></span></code></pre></div>
 <p>Evaluating a non-stratified sample using data requires specification of the
 <code>data</code>, <code>values</code> and <code>values.audit</code> arguments. The input for these arguments is
 the name of the specific column in <code>data</code>.</p>

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st Edition</title>
-  <meta name="description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
+  <title>Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st edition</title>
+  <meta name="description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st Edition" />
+  <meta property="og:title" content="Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st edition" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
-  <meta property="og:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="github-repo" content="koenderks/stataudbook" />
+  <meta property="og:image" content="https://koenderks.github.io/sasr/cover.jpg" />
+  <meta property="og:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="github-repo" content="koenderks/sasr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st Edition" />
+  <meta name="twitter:title" content="Chapter 7 Evaluating a Stratified Sample | Statistical Audit Sampling with R, 1st edition" />
   <meta name="twitter:site" content="@koenderks" />
-  <meta name="twitter:description" content="This book is an overview of basic and advanced statistical methodology for audit sampling." />
-  <meta name="twitter:image" content="https://koenderks.github.io/stataudbook/cover.jpg" />
+  <meta name="twitter:description" content="This book is an overview of Bayesian and classical statistical methodology for audit sampling." />
+  <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.jpg" />
 
 <meta name="author" content="Koen Derks" />
 
@@ -259,7 +259,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="mus-r.html"><a href="mus-r.html"><i class="fa fa-check"></i><b>8.2</b> MUS (R)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -269,7 +268,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st Edition</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Audit Sampling with R, 1st edition</a>
           </h1>
         </div>
 
@@ -293,139 +292,15 @@ whole because they must aggregate the samples taken by the component auditors.</
 The organization in question consists of 20 branches across the country. In each
 of the 20 strata, a component auditor has taken a statistical sample and
 reported the outcomes to the group auditor.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="CHAPTER-7.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">stratum</th>
-<th align="right">items</th>
-<th align="right">samples</th>
-<th align="right">errors</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">5000</td>
-<td align="right">300</td>
-<td align="right">21</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">5000</td>
-<td align="right">300</td>
-<td align="right">16</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">5000</td>
-<td align="right">300</td>
-<td align="right">15</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">5000</td>
-<td align="right">300</td>
-<td align="right">14</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">5000</td>
-<td align="right">300</td>
-<td align="right">16</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">5000</td>
-<td align="right">150</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">5000</td>
-<td align="right">150</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">5000</td>
-<td align="right">150</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="right">5000</td>
-<td align="right">150</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">5000</td>
-<td align="right">150</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="right">10000</td>
-<td align="right">50</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="right">10000</td>
-<td align="right">50</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="right">10000</td>
-<td align="right">50</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="right">10000</td>
-<td align="right">50</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="right">10000</td>
-<td align="right">50</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="right">10000</td>
-<td align="right">15</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="right">10000</td>
-<td align="right">15</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="right">10000</td>
-<td align="right">15</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="right">10000</td>
-<td align="right">15</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="right">4000</td>
-<td align="right">15</td>
-<td align="right">3</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="CHAPTER-7.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
+<span id="cb69-2"><a href="CHAPTER-7.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
+<span id="cb69-3"><a href="CHAPTER-7.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   stratum items samples errors</span></span>
+<span id="cb69-4"><a href="CHAPTER-7.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1       1  5000     300     21</span></span>
+<span id="cb69-5"><a href="CHAPTER-7.html#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2       2  5000     300     16</span></span>
+<span id="cb69-6"><a href="CHAPTER-7.html#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3       3  5000     300     15</span></span>
+<span id="cb69-7"><a href="CHAPTER-7.html#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4       4  5000     300     14</span></span>
+<span id="cb69-8"><a href="CHAPTER-7.html#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 5       5  5000     300     16</span></span>
+<span id="cb69-9"><a href="CHAPTER-7.html#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6       6  5000     150      5</span></span></code></pre></div>
 <p>In general, there are three approaches to evaluating a stratified sample: no
 pooling, complete pooling, and partial pooling (see Derks et al., 2022). When
 using <code>evaluation()</code>, you must to indicate which type of pooling to use via the
