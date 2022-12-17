@@ -135,7 +135,7 @@ Concretely, this means that the following statistical model is assumed:
 
 \begin{align}
   x \sim& \text{Hypergeometric}(n, N, K) \\
-  \theta &\sim \text{Beta-binomial)(\alpha, \beta)
+  \theta &\sim \text{Beta-binomial}(\alpha, \beta)
 \end{align}
 
 > The beta-binomial prior is conjugate to the hypergeometric likelihood, which
