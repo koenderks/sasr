@@ -10,20 +10,66 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Important Concepts {#CHAPTER-2}
+# Audit Sampling {#CHAPTER-2}
 
-Statistical audit sampling is a statistical method used by auditors to evaluate
-a sample of transactions or other items within a population in order to draw
-conclusions about the population as a whole. It is a cost-effective way to test
-the accuracy and reliability of financial information, as it allows auditors to
-test a representative sample of the population rather than the entire population.
+Auditors use audit sampling as a way to evaluate a portion of transactions or
+items within a population in order to make conclusions about the population as a
+whole. It is a cost-effective method for testing the accuracy and reliability of
+financial information because it allows auditors to test a representative sample
+of the population instead of the entire population.
 
-There are two main types of audit sampling: statistical sampling and
-non-statistical sampling. Statistical sampling uses probability theory to
-select a sample from the population and perform inferences about the population
+In the realm of auditing, sampling becomes necessary when the truth about a
+population is not readily accessible or discernible through other means. With
+the advent of modern technology, auditors often have access to an abundance of
+information about a population, which sometimes enables them to perform integral
+testing. Nonetheless, there are situations where a sample is still necessary due
+to the unavailability of complete data. For instance, an auditor may utilize
+analytical procedures to verify the consistency of payments with payment orders,
+but then must subsequently confirm the validity of these orders through detailed
+testing.
+
+In auditing, there are two primary methods of sampling: statistical and
+non-statistical. Statistical sampling involves using probability theory to
+select a sample from the population and draw conclusions about the population
 based on the sample. Non-statistical sampling, on the other hand, is based on
-the judgment of the auditor and does not involve statistical techniques. This
-book does not concern itself with non-statistical sampling.
+the auditor's professional judgment and does not use statistical inference to
+come to a conclusion. This book does not cover non-statistical sampling.
+
+## Auditing Standards
+
+There are three auditing standards related to staistical audit sampling:
+
+- [ISA 530](https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf): 
+  Auditing standard for international firms published by the International Audit
+  and Assurance Board (IAASB).
+- [AU-C 530](https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf): 
+  Auditing standard for private firms published by the American Institute of
+  Certified Public Accountants (AICPA).
+- [AS 2315](https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315): 
+  Auditing standard for public firms published by the Public Company
+  Accounting Oversign Board (PCAOB).
+
+All three standards describe statistical sampling in a similar manner. For
+example, ISA 530 describes statistical audit sampling as an approach that has
+at least the following two characteristics:
+
+- Random selection of sample items
+- The use of an appropriate statistical technique to evaluate sample results,
+  including measurement of sampling risk
+
+Any sampling approach that does not have these characteristics is considered
+nonstatistical sampling by the auditing standards.
+
+In practice, statistical sampling should be used in a way that is tailored to
+the specific circumstances of the audit. This may include considering factors
+such as the size and complexity of the population, the materiality of the items
+being tested, and the degree of inherent risk in the audit area. The auditor
+should also document the sampling process in order to demonstrate that it was
+conducted compliant with auditing standards.
+
+## Statistical Concepts
+
+### Population
 
 In statistical audit sampling, the auditor first defines the population and the
 sampling units, which is the unit of measurement for the population
@@ -31,15 +77,11 @@ sampling units, which is the unit of measurement for the population
 population using a specified sampling method, such as random sampling or
 stratified sampling.
 
-After the sample has been selected, the auditor performs audit procedures on the
-sample and records the results. The auditor then uses statistical techniques to
-calculate estimates of population characteristics, such as the mean or the
-proportion of items with a certain characteristic (e.g., the proportion of
-items that are misstated). The auditor compares these estimates to predetermined
-acceptance criteria to determine (i.e., the materiality) whether the population
-meets the criteria.
+### Tolerable misstatement
 
-One important concept in statistical audit sampling is the confidence level. The
+### Sampling risk
+
+One important concept in statistical audit sampling is the sampling risk. The
 confidence level is the probability that the sample estimate falls within a
 certain range of the true population value. For example, if the confidence level
 is 95%, there is a 95% probability that the sample estimate is within the
@@ -57,23 +99,30 @@ with high precision is more likely to provide accurate conclusions about the
 population. The precision of an estimate can be improved by increasing the
 sample size.
 
+### Sample Size
+
+### Recap
+
 To recap, the basic statistical concepts behind statistical audit sampling
-include:
+introduced in this chapter are:
 
-- **Population**: The entire group of items that the auditor is interested in
-  studying. For example, the population may be all of the transactions in a
-  company's accounts receivable.
-- **Sampling unit**: A physical representation of the population to be audited.
-- **Sample**: A subset of the population that is selected for testing. The
-  sample should be representative of the population in order to accurately
-  reflect the characteristics of the population.
-
-In conclusion, audit sampling is a statistical method used by auditors to
-evaluate a sample of transactions or other items within a population in order to
-draw conclusions about the population as a whole. Statistical audit sampling
-uses statistical techniques to select a sample from the population and make
-inferences about the population based on the sample, while non-statistical
-sampling is based on the judgment of the auditor.
+- **Population**: The entire set of data from which a sample is selected and
+  about which the auditor wishes to draw conclusions.
+- **Tolerable misstatement**: This is the maximum amount of misstatement that
+  the auditor is willing to accept in the population. A larger tolerable
+  misstatement may require a larger sample size to achieve a desired level of
+  assurance.
+- **Tolerable deviation rate**: A rate of deviation set by the auditor in
+  respect of which the auditor seeks to obtain an appropriate level of assurance
+  that the rate of deviation set by the auditor is not exceeded by the actual
+  rate of deviation in the population.
+- **Sampling risk**: The risk that the auditor's conclusion based on a sample
+  may be different from the conclusion if the entire popula- tion were subjected
+  to the same audit procedure. Sampling risk can lead to two types of erroneous
+  conclusions: a Type-I error or a Type-II error.
+- **Sample size**: The sample size should be large enough to provide a reliable
+  estimate of the population characteristics, but not so large that it is
+  impractical to review.
 
 ## Classical versus Bayesian Inference
 
