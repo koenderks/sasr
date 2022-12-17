@@ -10,7 +10,7 @@ editor_options:
 source("utils.R", local = TRUE)
 ```
 
-# Audit Sampling {#CHAPTER-2}
+# Background Information {#CHAPTER-2}
 
 Auditors use audit sampling as a way to evaluate a portion of transactions or
 items within a population in order to make conclusions about the population as a
@@ -35,13 +35,17 @@ based on the sample. Non-statistical sampling, on the other hand, is based on
 the auditor's professional judgment and does not use statistical inference to
 come to a conclusion. This book does not cover non-statistical sampling.
 
+The way that statistical sampling should be performed is prescribed by 
+international auditing standards. The next section discusses what these
+standards say about statistical sampling..
+
 ## Auditing Standards
 
 There are three auditing standards related to staistical audit sampling:
 
 - [ISA 530](https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf): 
-  Auditing standard for international firms published by the International Audit
-  and Assurance Board (IAASB).
+  Auditing standard for international firms published by the International
+  Auditing and Assurance Standards Board (IAASB).
 - [AU-C 530](https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf): 
   Auditing standard for private firms published by the American Institute of
   Certified Public Accountants (AICPA).
@@ -50,10 +54,10 @@ There are three auditing standards related to staistical audit sampling:
   Accounting Oversign Board (PCAOB).
 
 All three standards describe statistical sampling in a similar manner. For
-example, ISA 530 describes statistical audit sampling as an approach that has
-at least the following two characteristics:
+example, ISA 530 [@ISA530] describes statistical audit sampling as an approach
+that, at least, has the following two characteristics:
 
-- Random selection of sample items
+- Random selection of sample items,
 - The use of an appropriate statistical technique to evaluate sample results,
   including measurement of sampling risk
 
@@ -65,9 +69,10 @@ the specific circumstances of the audit. This may include considering factors
 such as the size and complexity of the population, the materiality of the items
 being tested, and the degree of inherent risk in the audit area. The auditor
 should also document the sampling process in order to demonstrate that it was
-conducted compliant with auditing standards.
+conducted compliant with auditing standards. The next section discusses these
+important concepts in statistical audit sampling.
 
-## Statistical Concepts
+## Important Concepts
 
 ### Population
 
@@ -77,7 +82,9 @@ sampling units, which is the unit of measurement for the population
 population using a specified sampling method, such as random sampling or
 stratified sampling.
 
-### Tolerable misstatement
+### Tolerable Misstatement
+
+### Tolerable Deviation Rate
 
 ### Sampling risk
 
@@ -124,12 +131,14 @@ introduced in this chapter are:
   estimate of the population characteristics, but not so large that it is
   impractical to review.
 
-## Classical versus Bayesian Inference
+## Classical Inference
 
 The classical (frequentist) and the Bayesian approach to statistical inference
 are two different ways to use data to perform inferences or draw conclusions
 about a population. Both paradigms have their own set of assumptions and
 approaches to statistical estimation and hypothesis testing.
+
+### Estimation
 
 Classical statistics is based on the concept of probability as a frequency. It
 is the traditional approach to statistical analysis and relies on the idea that
@@ -144,6 +153,10 @@ estimates, which are single values that are thought to be the best estimate of
 the population parameter, and interval estimates, which provide a range of
 values that the population parameter is likely to fall within.
 
+### Hypothesis Testing
+
+## Bayesian Inference
+
 Bayesian estimation, on the other hand, is based on the idea that the parameter
 of interest is not fixed but uncertain. In this approach, the parameter is 
 onsidered to be a random variable with a certain distribution, and the goal is
@@ -153,6 +166,8 @@ the posterior probability (i.e., the updated belief about the parameter after
 seeing the data) is equal to the prior probability (i.e., the belief about the
 parameter before seeing the data) times the likelihood (i.e., the probability of
 the data given the parameter).
+
+### Estimation
 
 One major difference between classical and Bayesian statistics is the way
 they handle uncertainty. In classical statistics, uncertainty is represented
@@ -198,7 +213,7 @@ statistics is a newer approach that allows for more flexibility in statistical
 inferences, but it requires the specification of prior beliefs, which can be
 difficult to quantify.
 
-## The Bayes factor
+### Hypothesis Testing
 
 The Bayes factor is a measure used in Bayesian inference to compare the relative
 strength of evidence between two competing hypotheses. The Bayes factor is
