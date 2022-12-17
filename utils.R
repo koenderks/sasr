@@ -4,7 +4,7 @@ library(jfa)
 
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#",
+  comment = "#>",
   cache = TRUE,
   fig.show = "hold",
   fig.align = "center",

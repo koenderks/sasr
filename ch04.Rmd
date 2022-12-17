@@ -77,7 +77,9 @@ that are expected to be found in the sample.
 The probability mass function (PMF) of the hypergeometric distribution is given
 by:
 
-$$p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},$$
+\begin{equation}
+  p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},
+\end{equation}
 
 where $x$ is the number of misstatements in the sample, $n$ is the sample size,
 $N$ is the population size and $K$ is the total number of misstatements assumed
@@ -85,9 +87,17 @@ in the population. The assumed misstatements $K$ is a linear extrapolation of
 the assumed misstatement rate in the population $\theta_{max}$ to the total
 population:
 
-$$K = \theta_{max} N.$$
+\begin{equation}
+  K = \theta_{max} N.
+\end{equation}
 
 ### Classical planning
+
+Concretely, the following statistical model is assumed:
+
+\begin{equation}
+  x \sim \text{Hypergeometric}(n, N, K)
+\end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$, we can solve for the
 minimum sample size $n$ needed to achieve this assurance level. In **jfa**,
@@ -120,12 +130,24 @@ means that you should provide an input for the `prior` argument in the
 `planning()` function.
 
 Setting `prior = TRUE` performs Bayesian planning using a [default prior](https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default)
-conjugate to the specified `likelihood` (i.e., a beta prior). For example, the
-command below uses a default beta(1, 1) prior distribution to plan the sample,
-since `planning()` is given the binomial likelihood. If we want to achieve an
-assurance level of 95% ($\alpha=0.05$) for a maximum tolerable misstatement
-rate of 3% in a population of $N=1000$, then the required sample size under the
-assumption of zero expected misstatements in the sample is $n = 93$.
+conjugate to the specified `likelihood` (i.e., a beta-binomial prior).
+Concretely, this means that the following statistical model is assumed:
+
+\begin{align}
+  x \sim& \text{Hypergeometric}(n, N, K) \\
+  \theta &\sim \text{Beta-binomial)(\alpha, \beta)
+\end{align}
+
+> The beta-binomial prior is conjugate to the hypergeometric likelihood, which
+means that the posterior distribution of $\theta$ can be determined
+analytically.
+
+For example, the command below uses a default beta-binomial(N, 1, 1) prior
+distribution to plan the sample, since `planning()` is given the hypergeometric
+likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
+a maximum tolerable misstatement rate of 3% in a population of $N=1000$, then
+the required sample size under the assumption of zero expected misstatements in
+the sample is $n = 93$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
@@ -141,6 +163,9 @@ observed the planned sample containing the expected misstatements.
 ```{r}
 plot(plan)
 ```
+
+The hypergeometric likelihood does not allow for non-conjugate prior
+distributions to be used as a prior.
 
 ## The Binomial Likelihood
 
@@ -159,7 +184,9 @@ hypergeometric likelihood, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
-$$p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x},$$
+\begin{equation}
+  p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x},
+\end{equation}
 
 where $x$ is the number of misstatements in the sample, $n$ is the sample size
 and $\theta$ is the misstatement rate expected in the sample.
@@ -168,14 +195,18 @@ and $\theta$ is the misstatement rate expected in the sample.
 
 Concretely, the following statistical model is assumed:
 
-$$x \sim \text{Binomial}(n, \theta_{max})$$
+\begin{equation}
+  x \sim \text{Binomial}(n, \theta_{max})
+\end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$, we can solve for
 the minimum sample size $n$ needed to achieve the desired assurance level. A
 useful trick to utilize is that, if we do not expect any misstatements in the
 sample, the formula for the minimum required sample size reduces to:
 
-$$n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.$$
+\begin{equation}
+  n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
+\end{equation}
 
 > $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
 
@@ -219,8 +250,13 @@ Setting `prior = TRUE` performs Bayesian planning using a [default prior](https:
 conjugate to the specified `likelihood` (i.e., a beta prior). Concretely, this
 means that the following statistical model is assumed:
 
-$$x \sim \text{Binomial}(n, \theta)$$
-$$\theta \sim \text{Beta}(\alpha, \beta)$$
+\begin{align}
+  x \sim& \text{Binomial}(n, \theta) \\
+  \theta &\sim \text{Beta}(\alpha, \beta)
+\end{align}
+
+> The beta prior is conjugate to the binomial likelihood, which means that the
+posterior distribution of $\theta$ can be determined analytically.
 
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the binomial
@@ -250,8 +286,10 @@ distribution. For example, the command below uses a Normal(0, 0.05) prior
 distribution to plan the sample using the binomial likelihood. Concretely, this
 means that the following statistical model is assumed:
 
-$$x \sim \text{Binomial}(n, \theta)$$
-$$\theta \sim \text{Normal}(\mu = 0, \sigma = 0.05)$$
+\begin{align}
+  x &\sim \text{Binomial}(n, \theta) \\
+  \theta &\sim \text{Normal}(\mu = 0, \sigma = 0.05)
+\end{align}
 
 ```{r}
 prior <- auditPrior(method = "param", likelihood = "normal",
@@ -287,27 +325,36 @@ likeliood, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
-$$p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},$$
+\begin{equation}
+  p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},
+\end{equation}
 
 where $x$ is the number of misstatements in the sample, and $\lambda$ is the
 average number of misstatements expected in the sample. The average number of
 misstatements is related to the misstatement rate in the population, denoted by
 $\theta$, and the sample size, $n$, by the following equation:
 
-$$\lambda=n\theta.$$
+\begin{equation}
+  \lambda=n\theta.
+\end{equation}
 
 ### Classical planning
 
 Concretely, the following statistical model is assumed:
 
-$$x \sim \text{Poisson}(n\theta_{max})$$
+\begin{equation}
+  x \sim \text{Poisson}(n\theta_{max})
+\end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$ and the Poisson
 likelihood, we can solve for the minimum sample size $n$ needed to achieve a
 assurance level. A useful trick to utilize is that, if we do not expect any
-misstatements in the sample, the formula for the required sample size reduces to:
+misstatements in the sample, the formula for the required sample size reduces
+to:
 
-$$n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.$$
+\begin{equation}
+  n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
+\end{equation}
 
 > $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
 
@@ -353,6 +400,9 @@ means that the following statistical model is assumed:
 
 $$x \sim \text{Poisson}(n\theta)$$
 $$\theta \sim \text{Gamma}(\alpha, \beta)$$
+
+> The gamma prior is conjugate to the Poisson likelihood, which means that the
+posterior distribution of $\theta$ can be determined analytically.
 
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the Poisson
