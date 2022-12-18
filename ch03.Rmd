@@ -124,6 +124,24 @@ dhyper(x = 0, m = K, n = 1000 - K, k = 93) < 0.05 # 93: Not sufficient
 dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05 # 94: Sufficient
 ```
 
+We can make this visually intuitive by showing the hypergeometric($k$ | 94,
+1000, 30) distribution and highlighting the probability for $k = 0$. This
+probability should be lower than the required sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 94))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
+```
+
 As another example, if we want to achieve an assurance level of 95%
 ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$ in a
 population of $N=1000$ items, then the required sample size under the assumption
@@ -141,6 +159,25 @@ misstatements if the population misstatement is truly 3%.
 ```{r}
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05 # 146: Not sufficient
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05 # 147: Sufficient
+```
+
+Like before, we can make this visually intuitive by showing the
+hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the
+probabilities for $k = 0$ and $k = 1$. The sum of these probabilities should be
+lower than the required sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 147))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
 ```
 
 ### Bayesian Planning
@@ -262,6 +299,24 @@ dbinom(x = 0, size = 98, prob = 0.03) < 0.05 # 98: Not sufficient
 dbinom(x = 0, size = 99, prob = 0.03) < 0.05 # 99: Sufficient
 ```
 
+We can make this visually intuitive by showing the binomial($k$ | 99, 0.03)
+distribution and highlighting the probability for $k = 0$. This probability
+should be lower than the required sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 99, prob = 0.03))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
+```
+
 However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
@@ -283,6 +338,25 @@ misstatements if the population misstatement is truly 3%.
 ```{r}
 sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05 # 156: Not sufficient
 sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05 # 157: Sufficient
+```
+
+Like before, we can make this visually intuitive by showing the
+binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for
+$k = 0$ and $k = 1$. The sum of these probabilities should be lower than the
+required sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 157, prob = 0.03))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
 ```
 
 ### Bayesian Planning
@@ -437,6 +511,24 @@ dpois(x = 0, lambda = 99 * 0.03) < 0.05  # 99:  Not sufficient
 dpois(x = 0, lambda = 100 * 0.03) < 0.05 # 100: Sufficient
 ```
 
+We can make this visually intuitive by showing the Poisson($k$ | 100 * 0.03)
+distribution and highlighting the probability for $k = 0$. This probability
+should be lower than the required sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 100 * 0.03))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
+```
+
 However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
@@ -458,6 +550,25 @@ misstatements if the population misstatement is truly 3%.
 ```{r}
 sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05 # 158: Not sufficient
 sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05 # 159: Sufficient
+```
+
+Like before, we can make this visually intuitive by showing the Poisson($k$ |
+159 * 0.03) distribution and highlighting the probabilities for $k = 0$ and
+$k = 1$. The sum of these probabilities should be lower than the required
+sampling risk $\alpha = 0.05$.
+
+```{r echo = FALSE}
+df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 159 * 0.03))
+yBreaks <- pretty(df$y, min.n = 4)
+p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
+  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
+  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
 ```
 
 ### Bayesian Planning
