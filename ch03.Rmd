@@ -645,3 +645,80 @@ when compared to the default gamma(1, 1) prior.
 ```{r}
 plot(plan)
 ```
+
+## Practical Examples
+
+This section contains practical examples. 
+
+### Example 1: Risk of Material Misstatement
+
+In this example, an auditor is performing tests of details on a population of
+the auditee. For instance, let's say an auditor is performing an audit on a
+company's accounts payable transactions. The company has a total of $N$ = 1000
+accounts payable transactions for the year. Rather than testing all 1000
+transactions, the auditor can choose to test a sample of the transactions. The
+performance materiality for the payable transactions account is set to 3%. Based
+on the results of last years audit, where the estimate of the maximum
+misstatement was 1%, the auditor wants to tolerate 1% misstatements in the
+sample before giving an unqualified opinion on the population.
+
+```{r}
+ar          <- 0.05 # Audit risk
+materiality <- 0.03 # Performance materiality
+expected    <- 0.01 # Tolerable deviation rate
+```
+
+Before tests of details, the auditor has assessed risk of material
+misstatement via the audit risk model. In this example, the auditor has assessed
+the effectiveness of the company's internal controls, such as its segregation of
+duties and its risk management processes, and has determined that they are
+sufficient to prevent or detect material misstatements. Because the internal
+control systems were effective, the auditor assesses the control risk as medium.
+The auditor's firm defines the risk categories low, medium, and high
+respectively as 50%, 60%, and 100%.
+
+```{r}
+ir <- 1              # Inherent risk
+cr <- 0.6            # Control risk
+dr <- ar / (ir * cr) # Detection risk
+```
+
+By using the detection risk as the adjusted audit risk, the auditor can plan
+for a sample while taking into account the risk-reducing information from the
+assessments of inherent risk and control risk. The required minimum sample size
+is 174 in this case.
+
+```{r}
+planning(materiality = 0.03, expected = expected, conf.level = 1 - dr)
+```
+
+The auditor is free to apply a Bayesian philosophy in planning the sample. For
+example, the risk assessments from the ARM can be incorporated into a prior
+distribution. This can be done using `method = "arm"` in the `auditPrior()`
+function, which takes the values of the inherent risk probability `ir` and the
+control risk probability `cr`. Hence, the prior distribution in this example
+can be constructed using the following command:
+
+```{r}
+prior <- auditPrior(method = "arm", materiality = 0.03, expected = expected,
+                    ir = ir, cr = cr)
+summary(prior)
+```
+
+The prior distribution can be visualized using the `plot()` function.
+
+```{r}
+plot(prior)
+```
+
+By using the prior distribution to incorporate the assessments of the inherent
+risk and the control risk, the auditor can plan a sample while taking into
+account the risk-reducing information. The required minimum sample size
+is also 174 in this case.
+
+```{r}
+planning(materiality = 0.03, expected = expected, conf.level = 1 - ar,
+         prior = prior)
+```
+
+### Example 2: Benchmark Analysis
