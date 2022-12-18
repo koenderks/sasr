@@ -37,6 +37,9 @@ bayesian-planning-1
 the-poisson-likelihood
 classical-planning-2
 bayesian-planning-2
+practical-examples
+risk-of-material-misstatement
+benchmark-analysis
 CHAPTER-4
 sampling-units
 items

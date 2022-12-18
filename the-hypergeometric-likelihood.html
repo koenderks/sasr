@@ -221,6 +221,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.1" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#classical-planning-2"><i class="fa fa-check"></i><b>3.4.1</b> Classical planning</a></li>
 <li class="chapter" data-level="3.4.2" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#bayesian-planning-2"><i class="fa fa-check"></i><b>3.4.2</b> Bayesian Planning</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="practical-examples.html"><a href="practical-examples.html"><i class="fa fa-check"></i><b>3.5</b> Practical Examples</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#risk-of-material-misstatement"><i class="fa fa-check"></i><b>3.5.1</b> Risk of Material Misstatement</a></li>
+<li class="chapter" data-level="3.5.2" data-path="practical-examples.html"><a href="practical-examples.html#benchmark-analysis"><i class="fa fa-check"></i><b>3.5.2</b> Benchmark Analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Selecting a Sample</a>
 <ul>
@@ -299,9 +304,9 @@ that are expected to be found in the sample.</p>
 <p>The probability mass function (PMF) of the hypergeometric distribution is given
 by:</p>
 <p><span class="math display">\[\begin{equation}
-  p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},
+  p(X=k)=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(x\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size,
+<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size,
 <span class="math inline">\(N\)</span> is the population size and <span class="math inline">\(K\)</span> is the total number of misstatements assumed
 in the population. The assumed misstatements <span class="math inline">\(K\)</span> is a linear extrapolation of
 the assumed misstatement rate in the population <span class="math inline">\(\theta_{max}\)</span> to the total
@@ -313,7 +318,7 @@ population:</p>
 <h3><span class="header-section-number">3.2.1</span> Classical planning<a href="the-hypergeometric-likelihood.html#classical-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Concretely, the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{equation}
-  x \sim \text{Hypergeometric}(n, N, K)
+  k \sim \text{Hypergeometric}(n, N, K)
 \end{equation}\]</span></p>
 <p>Given a desired misstatement tolerance <span class="math inline">\(\theta_{max}\)</span>, we can solve for the
 minimum sample size <span class="math inline">\(n\)</span> needed to achieve this assurance level. In <strong>jfa</strong>,
@@ -339,6 +344,10 @@ misstatement is truly 3%.</p>
 <span id="cb25-3"><a href="the-hypergeometric-likelihood.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb25-4"><a href="the-hypergeometric-likelihood.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">94</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 94: Sufficient</span></span>
 <span id="cb25-5"><a href="the-hypergeometric-likelihood.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>We can make this visually intuitive by showing the hypergeometric(<span class="math inline">\(k\)</span> | 94,
+1000, 30) distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>. This
+probability should be lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-29-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>As another example, if we want to achieve an assurance level of 95%
 (<span class="math inline">\(\alpha=0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a
 population of <span class="math inline">\(N=1000\)</span> items, then the required sample size under the assumption
@@ -357,6 +366,11 @@ misstatements if the population misstatement is truly 3%.</p>
 <span id="cb27-2"><a href="the-hypergeometric-likelihood.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb27-3"><a href="the-hypergeometric-likelihood.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">147</span>)) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 147: Sufficient</span></span>
 <span id="cb27-4"><a href="the-hypergeometric-likelihood.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>Like before, we can make this visually intuitive by showing the
+hypergeometric(<span class="math inline">\(k\)</span> | 147, 1000, 30) distribution and highlighting the
+probabilities for <span class="math inline">\(k = 0\)</span> and <span class="math inline">\(k = 1\)</span>. The sum of these probabilities should be
+lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bayesian-planning" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Bayesian Planning<a href="the-hypergeometric-likelihood.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -368,7 +382,7 @@ argument in the <code>planning()</code> function.</p>
 conjugate to the specified <code>likelihood</code> (i.e., a beta-binomial prior).
 Concretely, this means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
-  x &amp;\sim \text{Hypergeometric}(n, N, K) \\
+  k &amp;\sim \text{Hypergeometric}(n, N, K) \\
   K &amp;\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}\]</span></p>
 <blockquote>
@@ -414,7 +428,7 @@ posterior distribution by using the <code>plot()</code> function. The expected p
 distribution is the posterior distribution that would occur if you actually
 observed the planned sample containing the expected misstatements.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="the-hypergeometric-likelihood.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The hypergeometric likelihood does not allow for non-conjugate prior
 distributions to be used as a prior.</p>
 </div>

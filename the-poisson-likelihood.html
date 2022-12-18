@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="the-binomial-likelihood.html"/>
-<link rel="next" href="CHAPTER-4.html"/>
+<link rel="next" href="practical-examples.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,6 +221,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.1" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#classical-planning-2"><i class="fa fa-check"></i><b>3.4.1</b> Classical planning</a></li>
 <li class="chapter" data-level="3.4.2" data-path="the-poisson-likelihood.html"><a href="the-poisson-likelihood.html#bayesian-planning-2"><i class="fa fa-check"></i><b>3.4.2</b> Bayesian Planning</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="practical-examples.html"><a href="practical-examples.html"><i class="fa fa-check"></i><b>3.5</b> Practical Examples</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#risk-of-material-misstatement"><i class="fa fa-check"></i><b>3.5.1</b> Risk of Material Misstatement</a></li>
+<li class="chapter" data-level="3.5.2" data-path="practical-examples.html"><a href="practical-examples.html#benchmark-analysis"><i class="fa fa-check"></i><b>3.5.2</b> Benchmark Analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="CHAPTER-4.html"><a href="CHAPTER-4.html"><i class="fa fa-check"></i><b>4</b> Selecting a Sample</a>
 <ul>
@@ -304,9 +309,9 @@ likeliood, meaning that resulting sample sizes will be higher.</p>
 </blockquote>
 <p>The probability mass function (PMF) of the Poisson distribution is given by:</p>
 <p><span class="math display">\[\begin{equation}
-  p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},
+  p(k; \lambda) = \frac{\lambda^k e^{-\lambda}}{k!},
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(x\)</span> is the number of misstatements in the sample, and <span class="math inline">\(\lambda\)</span> is the
+<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, and <span class="math inline">\(\lambda\)</span> is the
 average number of misstatements expected in the sample. The average number of
 misstatements is related to the misstatement rate in the population, denoted by
 <span class="math inline">\(\theta\)</span>, and the sample size, <span class="math inline">\(n\)</span>, by the following equation:</p>
@@ -317,7 +322,7 @@ misstatements is related to the misstatement rate in the population, denoted by
 <h3><span class="header-section-number">3.4.1</span> Classical planning<a href="the-poisson-likelihood.html#classical-planning-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Concretely, the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{equation}
-  x \sim \text{Poisson}(n\theta_{max})
+  k \sim \text{Poisson}(n\theta_{max})
 \end{equation}\]</span></p>
 <p>Given a desired misstatement tolerance <span class="math inline">\(\theta_{max}\)</span> and the Poisson
 likelihood, we can solve for the minimum sample size <span class="math inline">\(n\)</span> needed to achieve a
@@ -353,6 +358,10 @@ misstatement is truly 3%.</p>
 <span id="cb41-2"><a href="the-poisson-likelihood.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb41-3"><a href="the-poisson-likelihood.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">lambda =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fl">0.03</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 100: Sufficient</span></span>
 <span id="cb41-4"><a href="the-poisson-likelihood.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>We can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> | 100 * 0.03)
+distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>. This probability
+should be lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-49-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for <span class="math inline">\(n\)</span>. Hence, we can
 iteratively try every value of <span class="math inline">\(n\)</span> and return the smallest integer that
@@ -375,6 +384,11 @@ misstatements if the population misstatement is truly 3%.</p>
 <span id="cb43-2"><a href="the-poisson-likelihood.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb43-3"><a href="the-poisson-likelihood.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">lambda =</span> <span class="dv">159</span> <span class="sc">*</span> <span class="fl">0.03</span>)) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 159: Sufficient</span></span>
 <span id="cb43-4"><a href="the-poisson-likelihood.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>Like before, we can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> |
+159 * 0.03) distribution and highlighting the probabilities for <span class="math inline">\(k = 0\)</span> and
+<span class="math inline">\(k = 1\)</span>. The sum of these probabilities should be lower than the required
+sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-52-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bayesian-planning-2" class="section level3 hasAnchor" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> Bayesian Planning<a href="the-poisson-likelihood.html#bayesian-planning-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -386,7 +400,7 @@ function.</p>
 conjugate to the specified <code>likelihood</code> (i.e., a gamma prior). Concretely, this
 means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
-  x &amp;\sim \text{Poisson}(n\theta)
+  k &amp;\sim \text{Poisson}(n\theta) \\
   \theta &amp;\sim \text{Gamma}(\alpha, \beta)
 \end{align}\]</span></p>
 <blockquote>
@@ -431,7 +445,7 @@ posterior distribution by using the <code>plot()</code> function. The expected p
 distribution is the posterior distribution that would occur if you actually
 observed the planned sample containing the expected misstatements.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="the-poisson-likelihood.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-48-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-54-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The input for the <code>prior</code> argument can also be an object created by the
 <code>auditPrior</code> function. If <code>planning()</code> receives a prior for which there is no
 conjugate likelihood available, it will numerically derive the posterior
@@ -439,7 +453,7 @@ distribution. For example, the command below uses a Normal(0, 0.05) prior
 distribution to plan the sample using the Poisson likelihood. Concretely, this
 means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
-  x &amp;\sim \text{Poisson}(n\theta)
+  k &amp;\sim \text{Poisson}(n\theta) \\
   \theta &amp;\sim \text{Normal}(\mu = 0, \sigma = 0.05)
 \end{align}\]</span></p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="the-poisson-likelihood.html#cb46-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>,</span>
@@ -471,18 +485,16 @@ means that the following statistical model is assumed:</p>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 91\)</span>, a reduction of 8 samples
 when compared to the default gamma(1, 1) prior.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="the-poisson-likelihood.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-50-1.png" width="576" style="display: block; margin: auto;" /></p>
-
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-56-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="the-binomial-likelihood.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="CHAPTER-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="practical-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
