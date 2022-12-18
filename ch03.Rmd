@@ -78,10 +78,10 @@ The probability mass function (PMF) of the hypergeometric distribution is given
 by:
 
 \begin{equation}
-  p(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}},
+  p(X=k)=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}
 
-where $x$ is the number of misstatements in the sample, $n$ is the sample size,
+where $k$ is the number of misstatements in the sample, $n$ is the sample size,
 $N$ is the population size and $K$ is the total number of misstatements assumed
 in the population. The assumed misstatements $K$ is a linear extrapolation of
 the assumed misstatement rate in the population $\theta_{max}$ to the total
@@ -96,7 +96,7 @@ population:
 Concretely, the following statistical model is assumed:
 
 \begin{equation}
-  x \sim \text{Hypergeometric}(n, N, K)
+  k \sim \text{Hypergeometric}(n, N, K)
 \end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$, we can solve for the
@@ -192,7 +192,7 @@ conjugate to the specified `likelihood` (i.e., a beta-binomial prior).
 Concretely, this means that the following statistical model is assumed:
 
 \begin{align}
-  x &\sim \text{Hypergeometric}(n, N, K) \\
+  k &\sim \text{Hypergeometric}(n, N, K) \\
   K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
@@ -247,10 +247,10 @@ hypergeometric likelihood, meaning that resulting sample sizes will be higher.
 The probability mass function (PMF) of the binomial distribution is given by:
 
 \begin{equation}
-  p(x; n, \theta) = \binom{n, x} \theta^{x} (1-\theta)^{n - x},
+  p(k; n, \theta) = \binom{n}{k} \theta^{k} (1-\theta)^{n - k},
 \end{equation}
 
-where $x$ is the number of misstatements in the sample, $n$ is the sample size
+where $k$ is the number of misstatements in the sample, $n$ is the sample size
 and $\theta$ is the misstatement rate expected in the sample.
 
 ### Classical Planning
@@ -258,7 +258,7 @@ and $\theta$ is the misstatement rate expected in the sample.
 Concretely, the following statistical model is assumed:
 
 \begin{equation}
-  x \sim \text{Binomial}(n, \theta_{max})
+  k \sim \text{Binomial}(n, \theta_{max})
 \end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$, we can solve for
@@ -371,7 +371,7 @@ conjugate to the specified `likelihood` (i.e., a beta prior). Concretely, this
 means that the following statistical model is assumed:
 
 \begin{align}
-  x &\sim&\text{Binomial}(n, \theta) \\
+  k &\sim \text{Binomial}(n, \theta) \\
   \theta &\sim \text{Beta}(\alpha, \beta)
 \end{align}
 
@@ -413,7 +413,7 @@ distribution to plan the sample using the binomial likelihood. Concretely, this
 means that the following statistical model is assumed:
 
 \begin{align}
-  x &\sim \text{Binomial}(n, \theta) \\
+  k &\sim \text{Binomial}(n, \theta) \\
   \theta &\sim \text{Normal}(\mu = 0, \sigma = 0.05)
 \end{align}
 
@@ -452,10 +452,10 @@ likeliood, meaning that resulting sample sizes will be higher.
 The probability mass function (PMF) of the Poisson distribution is given by:
 
 \begin{equation}
-  p(x;\lambda) = \frac{\lambda^x e^{-\lambda}}{x!},
+  p(k; \lambda) = \frac{\lambda^k e^{-\lambda}}{k!},
 \end{equation}
 
-where $x$ is the number of misstatements in the sample, and $\lambda$ is the
+where $k$ is the number of misstatements in the sample, and $\lambda$ is the
 average number of misstatements expected in the sample. The average number of
 misstatements is related to the misstatement rate in the population, denoted by
 $\theta$, and the sample size, $n$, by the following equation:
@@ -469,7 +469,7 @@ $\theta$, and the sample size, $n$, by the following equation:
 Concretely, the following statistical model is assumed:
 
 \begin{equation}
-  x \sim \text{Poisson}(n\theta_{max})
+  k \sim \text{Poisson}(n\theta_{max})
 \end{equation}
 
 Given a desired misstatement tolerance $\theta_{max}$ and the Poisson
@@ -583,7 +583,7 @@ conjugate to the specified `likelihood` (i.e., a gamma prior). Concretely, this
 means that the following statistical model is assumed:
 
 \begin{align}
-  x &\sim \text{Poisson}(n\theta)
+  k &\sim \text{Poisson}(n\theta) \\
   \theta &\sim \text{Gamma}(\alpha, \beta)
 \end{align}
 
@@ -625,7 +625,7 @@ distribution to plan the sample using the Poisson likelihood. Concretely, this
 means that the following statistical model is assumed:
 
 \begin{align}
-  x &\sim \text{Poisson}(n\theta)
+  k &\sim \text{Poisson}(n\theta) \\
   \theta &\sim \text{Normal}(\mu = 0, \sigma = 0.05)
 \end{align}
 
@@ -648,9 +648,9 @@ plot(plan)
 
 ## Practical Examples
 
-This section contains practical examples. 
+This section contains practical examples.
 
-### Example 1: Risk of Material Misstatement
+### Risk of Material Misstatement
 
 In this example, an auditor is performing tests of details on a population of
 the auditee. For instance, let's say an auditor is performing an audit on a
@@ -721,4 +721,4 @@ planning(materiality = 0.03, expected = expected, conf.level = 1 - ar,
          prior = prior)
 ```
 
-### Example 2: Benchmark Analysis
+### Benchmark Analysis
