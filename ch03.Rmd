@@ -648,9 +648,10 @@ plot(plan)
 
 ## Practical Examples
 
-This section contains practical examples.
+This section contains practical examples of how to construct a prior
+distribution based on audit information.
 
-### Risk of Material Misstatement
+### Audit Risk Model
 
 In this example, an auditor is performing tests of details on a population of
 the auditee. For instance, let's say an auditor is performing an audit on a
@@ -722,3 +723,145 @@ planning(materiality = 0.03, expected = expected, conf.level = 1 - ar,
 ```
 
 ### Benchmark Analysis
+
+The auditor may incorporate information obtained through analytical procedures
+[@Derks2021], such as a benchmark analysis, into the prior distribution for
+$\theta$. While we have previously discussed methods for constructing a prior
+distribution based on existing knowledge, there is no set procedure for
+incorporating information obtained through analytical procedures, as these
+procedures can vary significantly depending on the type of information being
+incorporated into the prior distribution. Therefore, it is important to
+thoroughly substantiate the data and assumptions used in this approach and to
+carefully consider how these assumptions are incorporated into the prior
+distribution.
+
+One way to construct a prior distribution on the basis of data is through the
+use of regression models, such as benchmarking the relationship between sales
+and costs of sales within the auditee's specific industry sector. The **jfa**
+package includes a data set `benchmark` that can be used for this example.
+
+```{r}
+data(benchmark)
+head(benchmark)
+```
+
+The auditee's the sum of the sales is $298,112,312 and the sum of the booked
+costs of sales is $223,994,405, respectively. This is indicated by a blue dot in
+the figure below, which visualizes the industry sales versus the cost of sales.
+
+```{r echo = FALSE, fig.width = 7, fig.height = 6}
+breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
+p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
+  geom_point(shape = 21, fill = "darkgray") +
+  geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
+             mapping = aes(x = x, y = y), fill = "dodgerblue",
+             inherit.aes = FALSE, show.legend = FALSE) +
+  scale_x_continuous(name = "Sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  scale_y_continuous(name = "Cost of sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
+  geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
+```
+
+The relationship between the sales $S$ and the cost of sales $C$ can be modelled
+by a linear equation:
+
+\begin{equation}
+  C = \beta_0 + \beta_1 \cdot S + \epsilon
+\end{equation}
+
+In practice, this relationship is often more complex than is presented above,
+and the auditor must carefully construct and evaluate the applied regression
+model. However, for ease of understanding we will continue our example with this
+simplified model. The auditor can estimate the regression model using the
+following command:
+
+```{r}
+fit <- lm(costofsales ~ 1 + sales, data = benchmark)
+summary(fit)
+```
+
+The predicted cost of sales for the auditee, based on the industry benchmark,
+can be computed as follows:
+
+```{r}
+C_hat <- predict(fit, newdata = data.frame(sales = 298112312),
+                 interval = "prediction", level = 0.90)[1]
+C_hat
+```
+
+The fitted regression line and the predicted cost of sales (red dot) are
+visualized in the figure below:
+
+```{r echo = FALSE, fig.width = 7, fig.height = 6}
+breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
+p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
+  geom_smooth(stat = "smooth", formula = y ~ x, method = "lm", col = "black") +
+  geom_point(shape = 21, fill = "darkgray") +
+  geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
+             mapping = aes(x = x, y = y), fill = "dodgerblue",
+             inherit.aes = FALSE, show.legend = FALSE) +
+  geom_point(data = data.frame(x = 298112312, y = C_hat), shape = 21,
+             mapping = aes(x = x, y = y), fill = "firebrick",
+             inherit.aes = FALSE, show.legend = FALSE) +
+  scale_x_continuous(name = "Sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  scale_y_continuous(name = "Cost of sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
+  geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
+p <- jfa:::.theme_jfa(p)
+p
+```
+
+The prior distribution can be justified by the data and the auditee's numerical
+prediction of the cost of sales. In this analytical procedure, the prior
+distribution on $\theta$ can utilize the relative error distribution from the
+linear regression. This relative error distribution, which is a Normal($\mu$,
+$\sigma$) distribution, captures the uncertainty of the prediction of the cost
+of sales through the use of linear regression, scaled to be a percentage of the
+total cost of sales. The mean $\mu$ of the prior distribution is determined by
+the relative deviation of the auditee's booked cost of sales when compared to
+the predicted cost of sales according to the benchmark data
+$\frac{C - \hat{C}}{C}$.
+
+```{r}
+mu <- (223994405 - C_hat[1]) / 223994405
+mu
+```
+
+The standard deviation of the prior distribution is expressed through the
+standard deviation of the distribution of $\epsilon$.
+
+```{r}
+stdev <- sd(fit$residuals) / 223994405
+stdev
+```
+
+The prior distribution can be constructed through a call to `auditPrior()`:
+
+```{r}
+prior <- auditPrior(method = "param", likelihood = "normal",
+                    alpha = mu, beta = stdev)
+summary(prior)
+```
+
+The prior distribution can be visualized using the `plot()` function.
+
+```{r}
+plot(prior)
+```
+
+By using this prior distribution, the required minimum sample size is 50.
+
+```{r}
+plan <- planning(materiality = 0.05, conf.level = 0.95,
+                 likelihood = "binomial", prior = prior)
+plan
+```
+
+You can inspect how the prior distribution compares to the expected
+posterior distribution by using the `plot()` function.
+
+```{r}
+plot(plan)
+```
