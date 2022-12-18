@@ -20,19 +20,6 @@ this chapter, we will discuss how to use three standard likelihoods to plan a
 minimum sample size for audit sampling: the hypergeometric likelihood, the
 binomial likelihood and the Poisson likelihood.
 
-Before we dive into the details of computing a minimum sample size for audit
-sampling using any of the three likelihoods, it is important to review some key
-concepts and notation. Let's start by defining the population and the sample.
-The population is the group of items or transactions being audited, and the
-sample is the subset of the population that is selected for testing. The
-population size is denoted by $N$, and the sample size is denoted by $n$.
-
-Next, we need to define the maximum tolerable error or precision level that we
-want to achieve in our audit. This is typically expressed as a maximum allowable
-misstatement rate, denoted by $\theta_{max}$. For example, if we set
-$\theta_{max}$ to 0.05, it means that we want to ensure that the misstatement
-rate in the population does not exceed 5%.
-
 ## Required Information
 
 First, planning a minimum sample requires knowledge of the conditions that lead 
