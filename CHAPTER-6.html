@@ -223,7 +223,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="practical-examples.html"><a href="practical-examples.html"><i class="fa fa-check"></i><b>3.5</b> Practical Examples</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#risk-of-material-misstatement"><i class="fa fa-check"></i><b>3.5.1</b> Risk of Material Misstatement</a></li>
+<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#audit-risk-model"><i class="fa fa-check"></i><b>3.5.1</b> Audit Risk Model</a></li>
 <li class="chapter" data-level="3.5.2" data-path="practical-examples.html"><a href="practical-examples.html#benchmark-analysis"><i class="fa fa-check"></i><b>3.5.2</b> Benchmark Analysis</a></li>
 </ul></li>
 </ul></li>
@@ -308,15 +308,15 @@ whole because they must aggregate the samples taken by the component auditors.</
 The organization in question consists of 20 branches across the country. In each
 of the 20 strata, a component auditor has taken a statistical sample and
 reported the outcomes to the group auditor.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="CHAPTER-6.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
-<span id="cb70-2"><a href="CHAPTER-6.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
-<span id="cb70-3"><a href="CHAPTER-6.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stratum items samples errors</span></span>
-<span id="cb70-4"><a href="CHAPTER-6.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       1  5000     300     21</span></span>
-<span id="cb70-5"><a href="CHAPTER-6.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       2  5000     300     16</span></span>
-<span id="cb70-6"><a href="CHAPTER-6.html#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       3  5000     300     15</span></span>
-<span id="cb70-7"><a href="CHAPTER-6.html#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       4  5000     300     14</span></span>
-<span id="cb70-8"><a href="CHAPTER-6.html#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       5  5000     300     16</span></span>
-<span id="cb70-9"><a href="CHAPTER-6.html#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="CHAPTER-6.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
+<span id="cb79-2"><a href="CHAPTER-6.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
+<span id="cb79-3"><a href="CHAPTER-6.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stratum items samples errors</span></span>
+<span id="cb79-4"><a href="CHAPTER-6.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       1  5000     300     21</span></span>
+<span id="cb79-5"><a href="CHAPTER-6.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       2  5000     300     16</span></span>
+<span id="cb79-6"><a href="CHAPTER-6.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       3  5000     300     15</span></span>
+<span id="cb79-7"><a href="CHAPTER-6.html#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       4  5000     300     14</span></span>
+<span id="cb79-8"><a href="CHAPTER-6.html#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       5  5000     300     16</span></span>
+<span id="cb79-9"><a href="CHAPTER-6.html#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code></pre></div>
 <p>In general, there are three approaches to evaluating a stratified sample: no
 pooling, complete pooling, and partial pooling (see Derks et al., 2022). When
 using <code>evaluation()</code>, you must to indicate which type of pooling to use via the

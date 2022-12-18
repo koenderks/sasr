@@ -223,7 +223,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="practical-examples.html"><a href="practical-examples.html"><i class="fa fa-check"></i><b>3.5</b> Practical Examples</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#risk-of-material-misstatement"><i class="fa fa-check"></i><b>3.5.1</b> Risk of Material Misstatement</a></li>
+<li class="chapter" data-level="3.5.1" data-path="practical-examples.html"><a href="practical-examples.html#audit-risk-model"><i class="fa fa-check"></i><b>3.5.1</b> Audit Risk Model</a></li>
 <li class="chapter" data-level="3.5.2" data-path="practical-examples.html"><a href="practical-examples.html#benchmark-analysis"><i class="fa fa-check"></i><b>3.5.2</b> Benchmark Analysis</a></li>
 </ul></li>
 </ul></li>
@@ -300,37 +300,37 @@ argument takes as input a column name in <code>data</code> which determines the 
 the population. For example, you can order the population from lowest book value
 to highest book value before engaging in selection. In this case, you should use
 the <code>decreasing = FALSE</code> argument.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="ordering-or-randomizing-the-population.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering population from lowest &#39;bookValue&#39; to highest &#39;bookValue&#39; before MUS</span></span>
-<span id="cb62-2"><a href="ordering-or-randomizing-the-population.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb62-3"><a href="ordering-or-randomizing-the-population.html#cb62-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb62-4"><a href="ordering-or-randomizing-the-population.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb62-5"><a href="ordering-or-randomizing-the-population.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>,</span>
-<span id="cb62-6"><a href="ordering-or-randomizing-the-population.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">decreasing =</span> <span class="cn">FALSE</span></span>
-<span id="cb62-7"><a href="ordering-or-randomizing-the-population.html#cb62-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb62-8"><a href="ordering-or-randomizing-the-population.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb62-9"><a href="ordering-or-randomizing-the-population.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
-<span id="cb62-10"><a href="ordering-or-randomizing-the-population.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2662     1 30568     14.47      14.47</span></span>
-<span id="cb62-11"><a href="ordering-or-randomizing-the-population.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2923     1 63567    125.21     125.21</span></span>
-<span id="cb62-12"><a href="ordering-or-randomizing-the-population.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2542     1 95807    153.56     153.56</span></span>
-<span id="cb62-13"><a href="ordering-or-randomizing-the-population.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  101     1 64282    172.65     172.65</span></span>
-<span id="cb62-14"><a href="ordering-or-randomizing-the-population.html#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  838     1 43352    188.72     188.72</span></span>
-<span id="cb62-15"><a href="ordering-or-randomizing-the-population.html#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  302     1 94296    198.59     198.59</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="ordering-or-randomizing-the-population.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordering population from lowest &#39;bookValue&#39; to highest &#39;bookValue&#39; before MUS</span></span>
+<span id="cb71-2"><a href="ordering-or-randomizing-the-population.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb71-3"><a href="ordering-or-randomizing-the-population.html#cb71-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
+<span id="cb71-4"><a href="ordering-or-randomizing-the-population.html#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb71-5"><a href="ordering-or-randomizing-the-population.html#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>,</span>
+<span id="cb71-6"><a href="ordering-or-randomizing-the-population.html#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">decreasing =</span> <span class="cn">FALSE</span></span>
+<span id="cb71-7"><a href="ordering-or-randomizing-the-population.html#cb71-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb71-8"><a href="ordering-or-randomizing-the-population.html#cb71-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
+<span id="cb71-9"><a href="ordering-or-randomizing-the-population.html#cb71-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
+<span id="cb71-10"><a href="ordering-or-randomizing-the-population.html#cb71-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2662     1 30568     14.47      14.47</span></span>
+<span id="cb71-11"><a href="ordering-or-randomizing-the-population.html#cb71-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2923     1 63567    125.21     125.21</span></span>
+<span id="cb71-12"><a href="ordering-or-randomizing-the-population.html#cb71-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2542     1 95807    153.56     153.56</span></span>
+<span id="cb71-13"><a href="ordering-or-randomizing-the-population.html#cb71-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  101     1 64282    172.65     172.65</span></span>
+<span id="cb71-14"><a href="ordering-or-randomizing-the-population.html#cb71-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  838     1 43352    188.72     188.72</span></span>
+<span id="cb71-15"><a href="ordering-or-randomizing-the-population.html#cb71-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  302     1 94296    198.59     198.59</span></span></code></pre></div>
 <p>The <code>randomize</code> argument can be used to randomly shuffle the items in the
 population before selection.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="ordering-or-randomizing-the-population.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly shuffle population items before MUS</span></span>
-<span id="cb63-2"><a href="ordering-or-randomizing-the-population.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb63-3"><a href="ordering-or-randomizing-the-population.html#cb63-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb63-4"><a href="ordering-or-randomizing-the-population.html#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb63-5"><a href="ordering-or-randomizing-the-population.html#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span></span>
-<span id="cb63-6"><a href="ordering-or-randomizing-the-population.html#cb63-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb63-7"><a href="ordering-or-randomizing-the-population.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb63-8"><a href="ordering-or-randomizing-the-population.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
-<span id="cb63-9"><a href="ordering-or-randomizing-the-population.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1017     1 50755    618.24     618.24</span></span>
-<span id="cb63-10"><a href="ordering-or-randomizing-the-population.html#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2159     1  3653    492.39     492.39</span></span>
-<span id="cb63-11"><a href="ordering-or-randomizing-the-population.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1639     1 39570    307.54     307.54</span></span>
-<span id="cb63-12"><a href="ordering-or-randomizing-the-population.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2698     1   225    507.18     507.18</span></span>
-<span id="cb63-13"><a href="ordering-or-randomizing-the-population.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  355     1 27934    749.38     749.38</span></span>
-<span id="cb63-14"><a href="ordering-or-randomizing-the-population.html#cb63-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1242     1 64071    759.34     759.34</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="ordering-or-randomizing-the-population.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly shuffle population items before MUS</span></span>
+<span id="cb72-2"><a href="ordering-or-randomizing-the-population.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb72-3"><a href="ordering-or-randomizing-the-population.html#cb72-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
+<span id="cb72-4"><a href="ordering-or-randomizing-the-population.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb72-5"><a href="ordering-or-randomizing-the-population.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">&quot;values&quot;</span>, <span class="at">values =</span> <span class="st">&quot;bookValue&quot;</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span></span>
+<span id="cb72-6"><a href="ordering-or-randomizing-the-population.html#cb72-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb72-7"><a href="ordering-or-randomizing-the-population.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
+<span id="cb72-8"><a href="ordering-or-randomizing-the-population.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
+<span id="cb72-9"><a href="ordering-or-randomizing-the-population.html#cb72-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1017     1 50755    618.24     618.24</span></span>
+<span id="cb72-10"><a href="ordering-or-randomizing-the-population.html#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2159     1  3653    492.39     492.39</span></span>
+<span id="cb72-11"><a href="ordering-or-randomizing-the-population.html#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1639     1 39570    307.54     307.54</span></span>
+<span id="cb72-12"><a href="ordering-or-randomizing-the-population.html#cb72-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2698     1   225    507.18     507.18</span></span>
+<span id="cb72-13"><a href="ordering-or-randomizing-the-population.html#cb72-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  355     1 27934    749.38     749.38</span></span>
+<span id="cb72-14"><a href="ordering-or-randomizing-the-population.html#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1242     1 64071    759.34     759.34</span></span></code></pre></div>
 
 </div>
 <!-- </div> -->
