@@ -77,18 +77,19 @@ important concepts in statistical audit sampling.
 In this section, we discuss some important theoretical concepts that play a key
 role in statistical audit sampling.
 
-### (Performance) Materiality
+### Materiality
 
 In an audit, materiality is the maximum amount of misstatement that can be
 present in the financial statements of the auditee before the auditor concludes
 that the financical statements are materially misstated, meaning that they
 contains misstatements that would influence the decisions of stakeholders
-relying on those statements. The term performance materiality refers to the
-maximum amount of misstatement that can be present in a given population that is
-part of the financial statements before the auditor concludes that the
-population is materially misstated. The performance materiality is used by
-auditors to determine the appropriate level of testing to be performed on a
-population.
+relying on those statements.
+
+The term performance materiality refers to the maximum amount of misstatement
+that can be present in a given population that is part of the financial
+statements before the auditor concludes that the population is materially
+misstated. Performance materiality is used by auditors to determine the
+appropriate level of testing to be performed on a population.
 
 > The performance materiality is usually defined to be lower than the
 materiality because an individual population that is subject to audit sampling
@@ -170,7 +171,7 @@ of audit risk, the tolerable detection risk bears an inverse relation to the
 other two risks.
 
 \begin{equation}
-  \text{Audit risk} = \text{Inherent risk} \,\times\, \text{Control risk} \,\times\, \text{Detection risk}
+  \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}
 \end{equation}
 
 Usually the auditor judges inherent risk and control risk on a three-point scale
@@ -179,12 +180,12 @@ standard percentages for these categories. Given an assessment of the inherent
 risk and the control risk, the detection risk can be calculated as:
 
 \begin{equation}
-  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \,\times\, \text{Control risk}}
+  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}
 
 > The ARM is commonly used in practice, but is not a proper model of audit risk.
 For example, it is not possible to set one of the risks to 0, since that would
-result in an infinite detection risk ($\frac{0.05}{0 \,\times\, 1} = \infty$).
+result in an infinite detection risk ($\frac{0.05}{0 \times 1} = \infty$).
 
 Let's consider an example. Suppose that, in their audit guide, an audit firm
 associates the following percentages with the categories high, medium and low:
@@ -197,7 +198,7 @@ If an auditor is working with an audit risk of 5%, and judges inherent and
 control risk to both be medium, the sampling risk can be calculated as:
 
 \begin{equation}
-  \frac{0.05}{0.6 \,\times\, 0.6} = 0.139
+  \frac{0.05}{0.6 \times 0.6} = 0.139
 \end{equation}
 
 ### Sample Size
@@ -210,14 +211,21 @@ assurance, but it requires more audit effort to obtain and inspect. On the other
 hand, a smaller sample size offers a lower level of assurance, but it is less
 costly.
 
-### Notation
+### notation
 
-Below is a table of the notation used in this book.
+The table below summarizes the notation used in this book and in **jfa**.
 
-| Symbol   | Meaning       |
-|----------|---------------|
-| $\alpha$ | Sampling risk |
-| $n$      | Sample size   |
+| Meaning                     | Symbol         | **jfa**          |
+|-----------------------------|----------------|------------------|
+| Probability of misstatement | $\theta$       |                  |
+| Performance materiality     | $\theta_{max}$ | `materiality`    |
+| Expected deviation rate     | $\theta_{exp}$ | `expected`       |
+| Type-I error probability    | $\alpha$       | `1 - conf.level` |
+| Type-II error probability   | $\beta$        |                  |
+| Population size             | $N$            | `N.units`        |
+| Population misstatements    | $K$            |                  |
+| Sample size                 | $n$            | `n`              |
+| Observed misstatements      | $k$            | `x`              |
 
 ## Classical Inference
 
@@ -269,7 +277,7 @@ As an example, the `binom.test()` function in R can be used to test if a
 population contains less than 3 percent misstatements. Suppose an auditor
 obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use
 the `binom.test()` function, the auditor must input the number of items in the
-sample `n = 100`, the number of misstatements in the sample `x = 1`, and the
+sample `n = 100`, the number of misstatements in the sample `x = 0`, and the
 hypothesized proportion of misstatement in the population (i.e., the performance
 materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can
 provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can
@@ -278,7 +286,7 @@ proportion of misstatements in the sample is less than the hypothesized
 proportion.
 
 ```{r}
-binom.test(x = 1, n = 100, p = 0.03, alternative = "less", conf.level = 0.95)
+binom.test(x = 0, n = 100, p = 0.03, alternative = "less", conf.level = 0.95)
 ```
 
 The most likely misstatement in the population is displayed under
@@ -302,7 +310,7 @@ the data given the parameter).
 
 \begin{equation}
   \text{Posterior} \propto \text{Likelihood} \times \text{Prior}
-\end{equaiton}
+\end{equation}
 
 Bayesian statistics is a more nuanced approach that allows for more efficiency
 in statistical audit sampling, but it requires the specification of prior
@@ -323,18 +331,18 @@ parameter with the new information from the sample data. Bayes' theorem is given
 by the following formula:
 
 \begin{equation}
-  p(\theta \,|\, y) = \frac{p(y \,|\, \theta)p(\theta)}{p(y)}
+  p(\theta | y) = \frac{p(y | \theta)p(\theta)}{p(y)}
 \end{equation}
 
-where $p(\theta \,|\, y)$ is the posterior probability of the population
-parameter $\theta$ given the sample data $y$, $p(y \,|\, \theta)$ is the
+where $p(\theta | y)$ is the posterior probability of the population
+parameter $\theta$ given the sample data $y$, $p(y | \theta)$ is the
 likelihood of the sample data given $\theta$, $p(\theta)$ is the prior
 probability of $\theta$, and $p(y)$ is the total probability of the sample data
 occurring. Because with a fixed sample $p(y)$ is a constant, Bayes' theorem is
 often given as follows:
 
 \begin{equation}
-  p(\theta \,|\, y) \propto p(y \,|\, \theta) \times p(\theta)
+  p(\theta | y) \propto p(y | \theta) \times p(\theta)
 \end{equation}
 
 ### Hypothesis Testing

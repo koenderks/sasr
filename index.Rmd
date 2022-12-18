@@ -24,19 +24,19 @@ bookdown::pdf_book: default
 
 <img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
-Welcome to the book **Statistical Audit Sampling with R (SASR)**, a practical
-guide for auditors that want to use state-of-the-art statistical methodology in
-their audit sampling activities. While this book focuses completely on the
-subject of audit sampling, it aims to discusses it from two viewpoints: the
-classical (frequentist) approach and the Bayesian approach. Through these two
-lenses, it explains the statistical theory underlying commonly applied audit
-sampling procedures and demonstrates how to perform these procedures in a
-statistically sound manner compliant with international auditing standards using
-the **jfa** [@jfa] R package.
+Welcome to the book **Statistical Audit Sampling with R**, a practical guide for
+auditors that want to use state-of-the-art statistical methodology in their
+audit sampling activities. While this book focuses completely on the subject of
+audit sampling, it aims to discusses it from two viewpoints: the classical
+(frequentist) approach and the Bayesian approach. Through these two lenses, it
+explains the statistical theory underlying commonly applied audit sampling
+procedures and demonstrates how to perform these procedures in a statistically
+sound manner compliant with international auditing standards using the **jfa**
+[@jfa] R package.
 
 This website is and will always be free, licensed under the 
 [CC BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/us/) License.
 
 Please keep in mind that this is a preview release and much content is still
-missing. If you are missing some of the content today, then check back
-tomorrow: This book is actively being worked on.
+missing. If you are missing something today, then check back tomorrow: This
+book is actively being worked on.

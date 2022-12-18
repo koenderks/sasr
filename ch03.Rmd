@@ -103,9 +103,9 @@ Given a desired misstatement tolerance $\theta_{max}$, we can solve for the
 minimum sample size $n$ needed to achieve this assurance level. In **jfa**,
 this sample size can be calculated using the `planning()` function. For example,
 if we want to achieve an assurance level of 95% ($\alpha=0.05$) for a
-maximum tolerable misstatement rate of 3% in a population of $N=1000$, then the
-required sample size under the assumption of zero expected misstatements in the
-sample is $n = 94$.
+performance materiality of $\theta_{max} = 0.03$ in a population of $N=1000$
+items, then the required sample size under the assumption of zero expected
+misstatements in the sample is $n = 94$.
 
 ```{r}
 planning(materiality = 0.03, expected = 0, conf.level = 0.95,
@@ -113,9 +113,9 @@ planning(materiality = 0.03, expected = 0, conf.level = 0.95,
 ```
 
 As another example, if we want to achieve an assurance level of 95%
-($\alpha=0.05$) for a maximum tolerable misstatement rate of 3% in a population
-of $N=1000$, then the required sample size under the assumption of one expected
-misstatement in the sample is $n = 147$.
+($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$ in a
+population of $N=1000$ items, then the required sample size under the assumption
+of one expected misstatement in the sample is $n = 147$.
 
 ```{r}
 planning(materiality = 0.03, expected = 1, conf.level = 0.95,
@@ -124,30 +124,34 @@ planning(materiality = 0.03, expected = 1, conf.level = 0.95,
 
 ### Bayesian Planning
 
-Performing Bayesian planning with the hypergeometric likelihood requires that
-you specify a prior distribution for the parameter $\theta$. Practically, this
-means that you should provide an input for the `prior` argument in the
-`planning()` function.
+Performing Bayesian planning with the hypergeometric likelihood [@Dyer1993]
+requires that you specify a prior distribution for the parameter $\theta$.
+Practically, this means that you should provide an input for the `prior`
+argument in the `planning()` function.
 
 Setting `prior = TRUE` performs Bayesian planning using a [default prior](https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default)
 conjugate to the specified `likelihood` (i.e., a beta-binomial prior).
 Concretely, this means that the following statistical model is assumed:
 
 \begin{align}
-  x \sim& \text{Hypergeometric}(n, N, K) \\
-  \theta &\sim \text{Beta-binomial}(\alpha, \beta)
+  x &\sim \text{Hypergeometric}(n, N, K) \\
+  K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
-> The beta-binomial prior is conjugate to the hypergeometric likelihood, which
-means that the posterior distribution of $\theta$ can be determined
-analytically.
+> The beta-binomial prior distribution is conjugate to the hypergeometric
+likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+of conjugate priors), which means that the posterior distribution of $K$ can be
+determined analytically. For example, if the prior distribution for $K$ is
+beta-binomial($N$, $\alpha$, $\beta$) and the auditor has observed a sample of
+$n$ items containing $k$ misstatements, the posterior distribution for $K$ is
+beta-binomial($N - n$, $\alpha + k$, $\beta + n - k$).
 
-For example, the command below uses a default beta-binomial(N, 1, 1) prior
+For example, the command below uses a default beta-binomial($N$, 1, 1) prior
 distribution to plan the sample, since `planning()` is given the hypergeometric
 likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
-a maximum tolerable misstatement rate of 3% in a population of $N=1000$, then
-the required sample size under the assumption of zero expected misstatements in
-the sample is $n = 93$.
+a performance materiality of $\theta_{max} = 0.03$ in a population of $N=1000$
+items, then the required sample size under the assumption of zero expected
+misstatements in the sample is $n = 93$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
@@ -211,8 +215,9 @@ sample, the formula for the minimum required sample size reduces to:
 > $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is $n = 99$.
+a performance materiality of $\theta_{max} = 0.03$, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+$n = 99$.
 
 ```{r}
 ceiling(log(1 - 0.95) / log(1 - 0.03))
@@ -230,8 +235,8 @@ it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
 satisfies the sampling objectives. In **jfa**, this can be done by adjusting the
 `expected` argument in the `planning()` function. For example, if we want to
-achieve an assurance level of 95% ($\alpha=0.05$) for a maximum tolerable
-misstatement rate of 3%, then the required sample size under the assumption of
+achieve an assurance level of 95% ($\alpha=0.05$) for a performance materiality
+of $\theta_{max} = 0.03$, then the required sample size under the assumption of
 one expected misstatement in the sample is $n = 157$.
 
 ```{r}
@@ -251,18 +256,24 @@ conjugate to the specified `likelihood` (i.e., a beta prior). Concretely, this
 means that the following statistical model is assumed:
 
 \begin{align}
-  x \sim& \text{Binomial}(n, \theta) \\
+  x &\sim&\text{Binomial}(n, \theta) \\
   \theta &\sim \text{Beta}(\alpha, \beta)
 \end{align}
 
-> The beta prior is conjugate to the binomial likelihood, which means that the
-posterior distribution of $\theta$ can be determined analytically.
+> The beta prior distribution is conjugate to the binomial likelihood (see
+this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+of conjugate priors), which means that the posterior distribution of $\theta$
+can be determined analytically. For example, if the prior distribution is
+beta($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
+containing $k$ misstatements, the posterior distribution for $\theta$ is
+beta($\alpha + k$, $\beta + n - k$).
 
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the binomial
 likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is $n = 98$.
+a performance materiality of $\theta_{max} = 0.03$, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+$n = 98$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
@@ -359,8 +370,9 @@ to:
 > $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is $n = 100$.
+a performance materiality of $\theta_{max} = 0.03$, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+$n = 100$.
 
 ```{r}
 ceiling(-log(1 - 0.95) / 0.03)
@@ -378,8 +390,8 @@ it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
 satisfies the sampling objectives. In **jfa**, this can be done by adjusting the
 `expected` argument in the `planning()` function. For example, if we want to
-achieve an assurance level of 95% ($\alpha=0.05$) for a maximum tolerable
-misstatement rate of 3%, then the required sample size under the assumption of
+achieve an assurance level of 95% ($\alpha=0.05$) for a performance materiality
+of $\theta_{max} = 0.03$, then the required sample size under the assumption of
 one expected misstatement in the sample is $n = 159$.
 
 ```{r}
@@ -398,17 +410,25 @@ Setting `prior = TRUE` performs Bayesian planning using a [default prior](https:
 conjugate to the specified `likelihood` (i.e., a gamma prior). Concretely, this
 means that the following statistical model is assumed:
 
-$$x \sim \text{Poisson}(n\theta)$$
-$$\theta \sim \text{Gamma}(\alpha, \beta)$$
+\begin{align}
+  x &\sim \text{Poisson}(n\theta)
+  \theta &\sim \text{Gamma}(\alpha, \beta)
+\end{align}
 
-> The gamma prior is conjugate to the Poisson likelihood, which means that the
-posterior distribution of $\theta$ can be determined analytically.
+> The gamma prior distribution is conjugate to the Poisson likelihood (see
+this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+of conjugate priors), which means that the posterior distribution of $\theta$
+can be determined analytically. For example, if the prior distribution is
+gamma($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
+containing $k$ misstatements, the posterior distribution for $\theta$ is
+gamma($\alpha + k$, $\beta + n$).
 
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the Poisson
 likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is $n = 99$.
+a performance materiality of $\theta_{max} = 0.03$, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+$n = 99$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
@@ -432,8 +452,10 @@ distribution. For example, the command below uses a Normal(0, 0.05) prior
 distribution to plan the sample using the Poisson likelihood. Concretely, this
 means that the following statistical model is assumed:
 
-$$x \sim \text{Poisson}(n\theta)$$
-$$\theta \sim \text{Normal}(\mu = 0, \sigma = 0.05)$$
+\begin{align}
+  x &\sim \text{Poisson}(n\theta)
+  \theta &\sim \text{Normal}(\mu = 0, \sigma = 0.05)
+\end{align}
 
 ```{r}
 prior <- auditPrior(method = "param", likelihood = "normal",
