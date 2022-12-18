@@ -112,6 +112,18 @@ planning(materiality = 0.03, expected = 0, conf.level = 0.95,
          likelihood = "hypergeometric", N.units = 1000)
 ```
 
+The `dhyper()` function calculates the probability of observing $k$ missatements
+in a sample of $n$ items given an assumed misstatement probability. The sample
+size of 94 can be confirmed by checking that 94 is the minimum integer that
+results in less than 5% probability of finding 0 misstatements if the population
+misstatement is truly 3%.
+
+```{r}
+K <- ceiling(0.03 * 1000)
+dhyper(x = 0, m = K, n = 1000 - K, k = 93) < 0.05 # 93: Not sufficient
+dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05 # 94: Sufficient
+```
+
 As another example, if we want to achieve an assurance level of 95%
 ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$ in a
 population of $N=1000$ items, then the required sample size under the assumption
@@ -120,6 +132,15 @@ of one expected misstatement in the sample is $n = 147$.
 ```{r}
 planning(materiality = 0.03, expected = 1, conf.level = 0.95,
          likelihood = "hypergeometric", N.units = 1000)
+```
+
+Once again, the sample size of 147 can be confirmed by checking that 147 is the
+minimum integer that results in less than 5% probability of finding 0 or 1
+misstatements if the population misstatement is truly 3%.
+
+```{r}
+sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05 # 146: Not sufficient
+sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05 # 147: Sufficient
 ```
 
 ### Bayesian Planning
@@ -230,6 +251,17 @@ planning(materiality = 0.03, expected = 0, conf.level = 0.95,
          likelihood = "binomial")
 ```
 
+The `dbinom()` function calculates the probability of observing $k$ missatements
+in a sample of $n$ items given an assumed misstatement probability. The sample
+size of 99 can be confirmed by checking that 99 is the minimum integer that
+results in less than 5% probability of finding 0 misstatements if the population
+misstatement is truly 3%.
+
+```{r}
+dbinom(x = 0, size = 98, prob = 0.03) < 0.05 # 98: Not sufficient
+dbinom(x = 0, size = 99, prob = 0.03) < 0.05 # 99: Sufficient
+```
+
 However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
@@ -242,6 +274,15 @@ one expected misstatement in the sample is $n = 157$.
 ```{r}
 planning(materiality = 0.03, expected = 1, conf.level = 0.95,
          likelihood = "binomial")
+```
+
+Once again, the sample size of 157 can be confirmed by checking that 157 is the
+minimum integer that results in less than 5% probability of finding 0 or 1
+misstatements if the population misstatement is truly 3%.
+
+```{r}
+sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05 # 156: Not sufficient
+sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05 # 157: Sufficient
 ```
 
 ### Bayesian Planning
@@ -385,6 +426,17 @@ planning(materiality = 0.03, expected = 0, conf.level = 0.95,
          likelihood = "poisson")
 ```
 
+The `dpois()` function calculates the probability of observing $k$ missatements
+in a sample of $n$ items given an assumed misstatement probability. The sample
+size of 100 can be confirmed by checking that 100 is the minimum integer that
+results in less than 5% probability of finding 0 misstatements if the population
+misstatement is truly 3%.
+
+```{r}
+dpois(x = 0, lambda = 99 * 0.03) < 0.05  # 99:  Not sufficient
+dpois(x = 0, lambda = 100 * 0.03) < 0.05 # 100: Sufficient
+```
+
 However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for $n$. Hence, we can
 iteratively try every value of $n$ and return the smallest integer that
@@ -397,6 +449,15 @@ one expected misstatement in the sample is $n = 159$.
 ```{r}
 planning(materiality = 0.03, expected = 1, conf.level = 0.95,
          likelihood = "poisson")
+```
+
+Once again, the sample size of 159 can be confirmed by checking that 159 is the
+minimum integer that results in less than 5% probability of finding 0 or 1
+misstatements if the population misstatement is truly 3%.
+
+```{r}
+sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05 # 158: Not sufficient
+sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05 # 159: Sufficient
 ```
 
 ### Bayesian Planning
