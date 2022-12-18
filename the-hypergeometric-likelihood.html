@@ -329,17 +329,34 @@ misstatements in the sample is <span class="math inline">\(n = 94\)</span>.</p>
 <span id="cb24-5"><a href="the-hypergeometric-likelihood.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb24-6"><a href="the-hypergeometric-likelihood.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 94 </span></span>
 <span id="cb24-7"><a href="the-hypergeometric-likelihood.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 95 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
+<p>The <code>dhyper()</code> function calculates the probability of observing <span class="math inline">\(k\)</span> missatements
+in a sample of <span class="math inline">\(n\)</span> items given an assumed misstatement probability. The sample
+size of 94 can be confirmed by checking that 94 is the minimum integer that
+results in less than 5% probability of finding 0 misstatements if the population
+misstatement is truly 3%.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-hypergeometric-likelihood.html#cb25-1" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fl">0.03</span> <span class="sc">*</span> <span class="dv">1000</span>)</span>
+<span id="cb25-2"><a href="the-hypergeometric-likelihood.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">93</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 93: Not sufficient</span></span>
+<span id="cb25-3"><a href="the-hypergeometric-likelihood.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb25-4"><a href="the-hypergeometric-likelihood.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">94</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 94: Sufficient</span></span>
+<span id="cb25-5"><a href="the-hypergeometric-likelihood.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>As another example, if we want to achieve an assurance level of 95%
 (<span class="math inline">\(\alpha=0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a
 population of <span class="math inline">\(N=1000\)</span> items, then the required sample size under the assumption
 of one expected misstatement in the sample is <span class="math inline">\(n = 147\)</span>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-hypergeometric-likelihood.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb25-2"><a href="the-hypergeometric-likelihood.html#cb25-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
-<span id="cb25-3"><a href="the-hypergeometric-likelihood.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-4"><a href="the-hypergeometric-likelihood.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
-<span id="cb25-5"><a href="the-hypergeometric-likelihood.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb25-6"><a href="the-hypergeometric-likelihood.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 147 </span></span>
-<span id="cb25-7"><a href="the-hypergeometric-likelihood.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 146 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-hypergeometric-likelihood.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb26-2"><a href="the-hypergeometric-likelihood.html#cb26-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
+<span id="cb26-3"><a href="the-hypergeometric-likelihood.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb26-4"><a href="the-hypergeometric-likelihood.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb26-5"><a href="the-hypergeometric-likelihood.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb26-6"><a href="the-hypergeometric-likelihood.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 147 </span></span>
+<span id="cb26-7"><a href="the-hypergeometric-likelihood.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 146 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
+<p>Once again, the sample size of 147 can be confirmed by checking that 147 is the
+minimum integer that results in less than 5% probability of finding 0 or 1
+misstatements if the population misstatement is truly 3%.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="the-hypergeometric-likelihood.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">146</span>)) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 146: Not sufficient</span></span>
+<span id="cb27-2"><a href="the-hypergeometric-likelihood.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb27-3"><a href="the-hypergeometric-likelihood.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">147</span>)) <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="co"># 147: Sufficient</span></span>
+<span id="cb27-4"><a href="the-hypergeometric-likelihood.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div id="bayesian-planning" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Bayesian Planning<a href="the-hypergeometric-likelihood.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -369,35 +386,35 @@ likelihood. If we want to achieve an assurance level of 95% (<span class="math i
 a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a population of <span class="math inline">\(N=1000\)</span>
 items, then the required sample size under the assumption of zero expected
 misstatements in the sample is <span class="math inline">\(n = 93\)</span>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-hypergeometric-likelihood.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb26-2"><a href="the-hypergeometric-likelihood.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-3"><a href="the-hypergeometric-likelihood.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb26-4"><a href="the-hypergeometric-likelihood.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb26-5"><a href="the-hypergeometric-likelihood.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
-<span id="cb26-6"><a href="the-hypergeometric-likelihood.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb26-7"><a href="the-hypergeometric-likelihood.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb26-8"><a href="the-hypergeometric-likelihood.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
-<span id="cb26-9"><a href="the-hypergeometric-likelihood.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:               1000 </span></span>
-<span id="cb26-10"><a href="the-hypergeometric-likelihood.html#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
-<span id="cb26-11"><a href="the-hypergeometric-likelihood.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
-<span id="cb26-12"><a href="the-hypergeometric-likelihood.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
-<span id="cb26-13"><a href="the-hypergeometric-likelihood.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    hypergeometric </span></span>
-<span id="cb26-14"><a href="the-hypergeometric-likelihood.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            beta-binomial(N = 1000, α = 1, β = 1) </span></span>
-<span id="cb26-15"><a href="the-hypergeometric-likelihood.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb26-16"><a href="the-hypergeometric-likelihood.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb26-17"><a href="the-hypergeometric-likelihood.html#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           93 </span></span>
-<span id="cb26-18"><a href="the-hypergeometric-likelihood.html#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
-<span id="cb26-19"><a href="the-hypergeometric-likelihood.html#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        beta-binomial(N = 907, α = 1, β = 94) </span></span>
-<span id="cb26-20"><a href="the-hypergeometric-likelihood.html#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
-<span id="cb26-21"><a href="the-hypergeometric-likelihood.html#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029 </span></span>
-<span id="cb26-22"><a href="the-hypergeometric-likelihood.html#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029 </span></span>
-<span id="cb26-23"><a href="the-hypergeometric-likelihood.html#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 620.58</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="the-hypergeometric-likelihood.html#cb28-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb28-2"><a href="the-hypergeometric-likelihood.html#cb28-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-3"><a href="the-hypergeometric-likelihood.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb28-4"><a href="the-hypergeometric-likelihood.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-5"><a href="the-hypergeometric-likelihood.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb28-6"><a href="the-hypergeometric-likelihood.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-7"><a href="the-hypergeometric-likelihood.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb28-8"><a href="the-hypergeometric-likelihood.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
+<span id="cb28-9"><a href="the-hypergeometric-likelihood.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:               1000 </span></span>
+<span id="cb28-10"><a href="the-hypergeometric-likelihood.html#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.03 </span></span>
+<span id="cb28-11"><a href="the-hypergeometric-likelihood.html#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.03 vs. H₁: Θ &lt; 0.03 </span></span>
+<span id="cb28-12"><a href="the-hypergeometric-likelihood.html#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
+<span id="cb28-13"><a href="the-hypergeometric-likelihood.html#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    hypergeometric </span></span>
+<span id="cb28-14"><a href="the-hypergeometric-likelihood.html#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            beta-binomial(N = 1000, α = 1, β = 1) </span></span>
+<span id="cb28-15"><a href="the-hypergeometric-likelihood.html#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb28-16"><a href="the-hypergeometric-likelihood.html#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb28-17"><a href="the-hypergeometric-likelihood.html#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           93 </span></span>
+<span id="cb28-18"><a href="the-hypergeometric-likelihood.html#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
+<span id="cb28-19"><a href="the-hypergeometric-likelihood.html#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        beta-binomial(N = 907, α = 1, β = 94) </span></span>
+<span id="cb28-20"><a href="the-hypergeometric-likelihood.html#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
+<span id="cb28-21"><a href="the-hypergeometric-likelihood.html#cb28-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029 </span></span>
+<span id="cb28-22"><a href="the-hypergeometric-likelihood.html#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029 </span></span>
+<span id="cb28-23"><a href="the-hypergeometric-likelihood.html#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 620.58</span></span></code></pre></div>
 <p>You can inspect how the prior distribution compares to the expected
 posterior distribution by using the <code>plot()</code> function. The expected posterior
 distribution is the posterior distribution that would occur if you actually
 observed the planned sample containing the expected misstatements.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="the-hypergeometric-likelihood.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="the-hypergeometric-likelihood.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The hypergeometric likelihood does not allow for non-conjugate prior
 distributions to be used as a prior.</p>
 </div>

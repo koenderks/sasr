@@ -297,69 +297,69 @@ not facilitate the distinction between between strata, as every stratum
 receives the same estimate equal to that of the population. The call below
 evaluates the sample using a Bayesian stratified evaluation procedure, in
 which the strata are assumed to be the same.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="complete-pooling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
-<span id="cb62-2"><a href="complete-pooling.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb62-3"><a href="complete-pooling.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items,</span>
-<span id="cb62-4"><a href="complete-pooling.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">pooling =</span> <span class="st">&quot;complete&quot;</span></span>
-<span id="cb62-5"><a href="complete-pooling.html#cb62-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb62-6"><a href="complete-pooling.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_cp)</span>
-<span id="cb62-7"><a href="complete-pooling.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb62-8"><a href="complete-pooling.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb62-9"><a href="complete-pooling.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb62-10"><a href="complete-pooling.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb62-11"><a href="complete-pooling.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb62-12"><a href="complete-pooling.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
-<span id="cb62-13"><a href="complete-pooling.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb62-14"><a href="complete-pooling.html#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb62-15"><a href="complete-pooling.html#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
-<span id="cb62-16"><a href="complete-pooling.html#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             beta(α = 1, β = 1) </span></span>
-<span id="cb62-17"><a href="complete-pooling.html#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb62-18"><a href="complete-pooling.html#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb62-19"><a href="complete-pooling.html#cb62-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
-<span id="cb62-20"><a href="complete-pooling.html#cb62-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
-<span id="cb62-21"><a href="complete-pooling.html#cb62-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
-<span id="cb62-22"><a href="complete-pooling.html#cb62-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb62-23"><a href="complete-pooling.html#cb62-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb62-24"><a href="complete-pooling.html#cb62-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         beta(α = 116, β = 2461) </span></span>
-<span id="cb62-25"><a href="complete-pooling.html#cb62-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.04466 </span></span>
-<span id="cb62-26"><a href="complete-pooling.html#cb62-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.03735, 0.053345] </span></span>
-<span id="cb62-27"><a href="complete-pooling.html#cb62-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0086852 </span></span>
-<span id="cb62-28"><a href="complete-pooling.html#cb62-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0.022725 </span></span>
-<span id="cb62-29"><a href="complete-pooling.html#cb62-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb62-30"><a href="complete-pooling.html#cb62-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
-<span id="cb62-31"><a href="complete-pooling.html#cb62-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision    bf10</span></span>
-<span id="cb62-32"><a href="complete-pooling.html#cb62-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-33"><a href="complete-pooling.html#cb62-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-34"><a href="complete-pooling.html#cb62-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-35"><a href="complete-pooling.html#cb62-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-36"><a href="complete-pooling.html#cb62-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-37"><a href="complete-pooling.html#cb62-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-38"><a href="complete-pooling.html#cb62-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-39"><a href="complete-pooling.html#cb62-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-40"><a href="complete-pooling.html#cb62-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-41"><a href="complete-pooling.html#cb62-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-42"><a href="complete-pooling.html#cb62-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-43"><a href="complete-pooling.html#cb62-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-44"><a href="complete-pooling.html#cb62-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-45"><a href="complete-pooling.html#cb62-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-46"><a href="complete-pooling.html#cb62-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-47"><a href="complete-pooling.html#cb62-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-48"><a href="complete-pooling.html#cb62-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-49"><a href="complete-pooling.html#cb62-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-50"><a href="complete-pooling.html#cb62-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb62-51"><a href="complete-pooling.html#cb62-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="complete-pooling.html#cb68-1" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
+<span id="cb68-2"><a href="complete-pooling.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb68-3"><a href="complete-pooling.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items,</span>
+<span id="cb68-4"><a href="complete-pooling.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">pooling =</span> <span class="st">&quot;complete&quot;</span></span>
+<span id="cb68-5"><a href="complete-pooling.html#cb68-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb68-6"><a href="complete-pooling.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_cp)</span>
+<span id="cb68-7"><a href="complete-pooling.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-8"><a href="complete-pooling.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span id="cb68-9"><a href="complete-pooling.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-10"><a href="complete-pooling.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb68-11"><a href="complete-pooling.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span id="cb68-12"><a href="complete-pooling.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
+<span id="cb68-13"><a href="complete-pooling.html#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span id="cb68-14"><a href="complete-pooling.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span id="cb68-15"><a href="complete-pooling.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
+<span id="cb68-16"><a href="complete-pooling.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             beta(α = 1, β = 1) </span></span>
+<span id="cb68-17"><a href="complete-pooling.html#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-18"><a href="complete-pooling.html#cb68-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
+<span id="cb68-19"><a href="complete-pooling.html#cb68-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
+<span id="cb68-20"><a href="complete-pooling.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
+<span id="cb68-21"><a href="complete-pooling.html#cb68-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
+<span id="cb68-22"><a href="complete-pooling.html#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-23"><a href="complete-pooling.html#cb68-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb68-24"><a href="complete-pooling.html#cb68-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         beta(α = 116, β = 2461) </span></span>
+<span id="cb68-25"><a href="complete-pooling.html#cb68-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.04466 </span></span>
+<span id="cb68-26"><a href="complete-pooling.html#cb68-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.03735, 0.053345] </span></span>
+<span id="cb68-27"><a href="complete-pooling.html#cb68-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0086852 </span></span>
+<span id="cb68-28"><a href="complete-pooling.html#cb68-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0.022725 </span></span>
+<span id="cb68-29"><a href="complete-pooling.html#cb68-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb68-30"><a href="complete-pooling.html#cb68-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
+<span id="cb68-31"><a href="complete-pooling.html#cb68-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision    bf10</span></span>
+<span id="cb68-32"><a href="complete-pooling.html#cb68-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-33"><a href="complete-pooling.html#cb68-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-34"><a href="complete-pooling.html#cb68-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-35"><a href="complete-pooling.html#cb68-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-36"><a href="complete-pooling.html#cb68-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-37"><a href="complete-pooling.html#cb68-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-38"><a href="complete-pooling.html#cb68-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-39"><a href="complete-pooling.html#cb68-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-40"><a href="complete-pooling.html#cb68-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-41"><a href="complete-pooling.html#cb68-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-42"><a href="complete-pooling.html#cb68-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-43"><a href="complete-pooling.html#cb68-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-44"><a href="complete-pooling.html#cb68-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-45"><a href="complete-pooling.html#cb68-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-46"><a href="complete-pooling.html#cb68-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-47"><a href="complete-pooling.html#cb68-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-48"><a href="complete-pooling.html#cb68-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-49"><a href="complete-pooling.html#cb68-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-50"><a href="complete-pooling.html#cb68-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span id="cb68-51"><a href="complete-pooling.html#cb68-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code></pre></div>
 <p>For example, the output of the <code>summary()</code> function shows that the estimate of
 the misstatement in the population is 4.47%, with the 95% credible interval
 ranging from 3.74% to 5.33%. Since the data is aggregated, the stratum estimates
 contain relatively little uncertainty. However, the probability of misstatement
 in stratum 20 (many misstatements) under this assumption is the same as that of
 stratum 15 (few misstatements).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="complete-pooling.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-69-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="complete-pooling.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;estimates&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-75-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The prior and posterior distribution for the population misstatement can be
 requested via the <code>plot()</code> function.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="complete-pooling.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
-<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-70-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="complete-pooling.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">&quot;posterior&quot;</span>)</span></code></pre></div>
+<p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-76-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 
