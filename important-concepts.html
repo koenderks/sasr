@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-17" />
+<meta name="date" content="2022-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,12 +184,12 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#materiality"><i class="fa fa-check"></i><b>2.2.1</b> Materiality</a></li>
 <li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -199,7 +199,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#parameter-estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Parameter Estimation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> Planning a Sample</a>
@@ -290,18 +291,18 @@ div.csl-indent {
 <h2><span class="header-section-number">2.2</span> Important Concepts<a href="important-concepts.html#important-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section, we discuss some important theoretical concepts that play a key
 role in statistical audit sampling.</p>
-<div id="performance-materiality" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> (Performance) Materiality<a href="important-concepts.html#performance-materiality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="materiality" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Materiality<a href="important-concepts.html#materiality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In an audit, materiality is the maximum amount of misstatement that can be
 present in the financial statements of the auditee before the auditor concludes
 that the financical statements are materially misstated, meaning that they
 contains misstatements that would influence the decisions of stakeholders
-relying on those statements. The term performance materiality refers to the
-maximum amount of misstatement that can be present in a given population that is
-part of the financial statements before the auditor concludes that the
-population is materially misstated. The performance materiality is used by
-auditors to determine the appropriate level of testing to be performed on a
-population.</p>
+relying on those statements.</p>
+<p>The term performance materiality refers to the maximum amount of misstatement
+that can be present in a given population that is part of the financial
+statements before the auditor concludes that the population is materially
+misstated. Performance materiality is used by auditors to determine the
+appropriate level of testing to be performed on a population.</p>
 <blockquote>
 <p>The performance materiality is usually defined to be lower than the
 materiality because an individual population that is subject to audit sampling
@@ -380,19 +381,19 @@ financial statements. The <em>ARM</em> is practically useful because, for a give
 of audit risk, the tolerable detection risk bears an inverse relation to the
 other two risks.</p>
 <p><span class="math display">\[\begin{equation}
-  \text{Audit risk} = \text{Inherent risk} \,\times\, \text{Control risk} \,\times\, \text{Detection risk}
+  \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}
 \end{equation}\]</span></p>
 <p>Usually the auditor judges inherent risk and control risk on a three-point scale
 consisting of low, medium, and high. Different audit firms handle different
 standard percentages for these categories. Given an assessment of the inherent
 risk and the control risk, the detection risk can be calculated as:</p>
 <p><span class="math display">\[\begin{equation}
-  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \,\times\, \text{Control risk}}
+  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}\]</span></p>
 <blockquote>
 <p>The ARM is commonly used in practice, but is not a proper model of audit risk.
 For example, it is not possible to set one of the risks to 0, since that would
-result in an infinite detection risk (<span class="math inline">\(\frac{0.05}{0 \,\times\, 1} = \infty\)</span>).</p>
+result in an infinite detection risk (<span class="math inline">\(\frac{0.05}{0 \times 1} = \infty\)</span>).</p>
 </blockquote>
 <p>Let’s consider an example. Suppose that, in their audit guide, an audit firm
 associates the following percentages with the categories high, medium and low:</p>
@@ -404,7 +405,7 @@ associates the following percentages with the categories high, medium and low:</
 <p>If an auditor is working with an audit risk of 5%, and judges inherent and
 control risk to both be medium, the sampling risk can be calculated as:</p>
 <p><span class="math display">\[\begin{equation}
-  \frac{0.05}{0.6 \,\times\, 0.6} = 0.139
+  \frac{0.05}{0.6 \times 0.6} = 0.139
 \end{equation}\]</span></p>
 </div>
 <div id="sample-size" class="section level3 hasAnchor" number="2.2.5">
@@ -418,23 +419,61 @@ hand, a smaller sample size offers a lower level of assurance, but it is less
 costly.</p>
 </div>
 <div id="notation" class="section level3 hasAnchor" number="2.2.6">
-<h3><span class="header-section-number">2.2.6</span> Notation<a href="important-concepts.html#notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Below is a table of the notation used in this book.</p>
+<h3><span class="header-section-number">2.2.6</span> notation<a href="important-concepts.html#notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The table below summarizes the notation used in this book and in <strong>jfa</strong>.</p>
 <table>
 <thead>
 <tr class="header">
-<th>Symbol</th>
 <th>Meaning</th>
+<th>Symbol</th>
+<th><strong>jfa</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(\alpha\)</span></td>
-<td>Sampling risk</td>
+<td>Probability of misstatement</td>
+<td><span class="math inline">\(\theta\)</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(n\)</span></td>
+<td>Performance materiality</td>
+<td><span class="math inline">\(\theta_{max}\)</span></td>
+<td><code>materiality</code></td>
+</tr>
+<tr class="odd">
+<td>Expected deviation rate</td>
+<td><span class="math inline">\(\theta_{exp}\)</span></td>
+<td><code>expected</code></td>
+</tr>
+<tr class="even">
+<td>Type-I error probability</td>
+<td><span class="math inline">\(\alpha\)</span></td>
+<td><code>1 - conf.level</code></td>
+</tr>
+<tr class="odd">
+<td>Type-II error probability</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Population size</td>
+<td><span class="math inline">\(N\)</span></td>
+<td><code>N.units</code></td>
+</tr>
+<tr class="odd">
+<td>Population misstatements</td>
+<td><span class="math inline">\(K\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Sample size</td>
+<td><span class="math inline">\(n\)</span></td>
+<td><code>n</code></td>
+</tr>
+<tr class="odd">
+<td>Observed misstatements</td>
+<td><span class="math inline">\(k\)</span></td>
+<td><code>x</code></td>
 </tr>
 </tbody>
 </table>

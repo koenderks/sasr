@@ -13,7 +13,7 @@ loading-data-from-an-excel-file
 CHAPTER-2
 auditing-standards
 important-concepts
-performance-materiality
+materiality
 audit-risk
 population
 sampling-risk
@@ -24,6 +24,7 @@ parameter-estimation
 hypothesis-testing
 example
 bayesian-inference
+parameter-estimation-1
 hypothesis-testing-1
 CHAPTER-3
 required-information

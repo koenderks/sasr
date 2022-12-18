@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-17" />
+<meta name="date" content="2022-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,12 +184,12 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#materiality"><i class="fa fa-check"></i><b>2.2.1</b> Materiality</a></li>
 <li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -199,7 +199,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#parameter-estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Parameter Estimation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> Planning a Sample</a>
@@ -324,8 +325,9 @@ sample, the formula for the minimum required sample size reduces to:</p>
 <p><span class="math inline">\(\lceil...\rceil\)</span> is the ceiling function. Hence, <span class="math inline">\(\lceil1.2\rceil = 2\)</span>.</p>
 </blockquote>
 <p>For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 99\)</span>.</p>
+a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span>, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+<span class="math inline">\(n = 99\)</span>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="the-binomial-likelihood.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.03</span>))</span>
 <span id="cb28-2"><a href="the-binomial-likelihood.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 99</span></span></code></pre></div>
 <p>In <strong>jfa</strong>, this sample size can be replicated using the <code>planning()</code> function.</p>
@@ -341,8 +343,8 @@ it becomes more difficult to solve the formula for <span class="math inline">\(n
 iteratively try every value of <span class="math inline">\(n\)</span> and return the smallest integer that
 satisfies the sampling objectives. In <strong>jfa</strong>, this can be done by adjusting the
 <code>expected</code> argument in the <code>planning()</code> function. For example, if we want to
-achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable
-misstatement rate of 3%, then the required sample size under the assumption of
+achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a performance materiality
+of <span class="math inline">\(\theta_{max} = 0.03\)</span>, then the required sample size under the assumption of
 one expected misstatement in the sample is <span class="math inline">\(n = 157\)</span>.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="the-binomial-likelihood.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb30-2"><a href="the-binomial-likelihood.html#cb30-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>)</span>
@@ -362,18 +364,24 @@ function.</p>
 conjugate to the specified <code>likelihood</code> (i.e., a beta prior). Concretely, this
 means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
-  x \sim&amp; \text{Binomial}(n, \theta) \\
+  x &amp;\sim&amp;\text{Binomial}(n, \theta) \\
   \theta &amp;\sim \text{Beta}(\alpha, \beta)
 \end{align}\]</span></p>
 <blockquote>
-<p>The beta prior is conjugate to the binomial likelihood, which means that the
-posterior distribution of <span class="math inline">\(\theta\)</span> can be determined analytically.</p>
+<p>The beta prior distribution is conjugate to the binomial likelihood (see
+this <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">list</a>
+of conjugate priors), which means that the posterior distribution of <span class="math inline">\(\theta\)</span>
+can be determined analytically. For example, if the prior distribution is
+beta(<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) and the auditor has observed a sample of <span class="math inline">\(n\)</span> items
+containing <span class="math inline">\(k\)</span> misstatements, the posterior distribution for <span class="math inline">\(\theta\)</span> is
+beta(<span class="math inline">\(\alpha + k\)</span>, <span class="math inline">\(\beta + n - k\)</span>).</p>
 </blockquote>
 <p>For example, the command below uses a default beta(<span class="math inline">\(\alpha=1\)</span>, <span class="math inline">\(\beta=1\)</span>) prior
 distribution to plan the sample, since <code>planning()</code> is given the binomial
 likelihood. If we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
-a maximum tolerable misstatement rate of 3%, then the required sample size under
-the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 98\)</span>.</p>
+a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span>, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+<span class="math inline">\(n = 98\)</span>.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="the-binomial-likelihood.html#cb31-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb31-2"><a href="the-binomial-likelihood.html#cb31-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb31-3"><a href="the-binomial-likelihood.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>

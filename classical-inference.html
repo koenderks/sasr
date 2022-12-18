@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-17" />
+<meta name="date" content="2022-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,12 +184,12 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#materiality"><i class="fa fa-check"></i><b>2.2.1</b> Materiality</a></li>
 <li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -199,7 +199,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#parameter-estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Parameter Estimation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> Planning a Sample</a>
@@ -334,25 +335,25 @@ is not materially misstated.</p>
 population contains less than 3 percent misstatements. Suppose an auditor
 obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use
 the <code>binom.test()</code> function, the auditor must input the number of items in the
-sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 1</code>, and the
+sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the
 hypothesized proportion of misstatement in the population (i.e., the performance
 materiality) <code>p = 0.03</code>. The sampling risk is set to 5%, which the auditor can
 provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can
 specify the alternative hypothesis as <code>alternative = "less"</code> to test if the
 proportion of misstatements in the sample is less than the hypothesized
 proportion.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="classical-inference.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="classical-inference.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
 <span id="cb23-2"><a href="classical-inference.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb23-3"><a href="classical-inference.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
 <span id="cb23-4"><a href="classical-inference.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb23-5"><a href="classical-inference.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb23-6"><a href="classical-inference.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 1, number of trials = 100, p-value = 0.1946</span></span>
+<span id="cb23-5"><a href="classical-inference.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
+<span id="cb23-6"><a href="classical-inference.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 100, p-value = 0.04755</span></span>
 <span id="cb23-7"><a href="classical-inference.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
 <span id="cb23-8"><a href="classical-inference.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb23-9"><a href="classical-inference.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04655981</span></span>
+<span id="cb23-9"><a href="classical-inference.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02951305</span></span>
 <span id="cb23-10"><a href="classical-inference.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb23-11"><a href="classical-inference.html#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
-<span id="cb23-12"><a href="classical-inference.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   0.01</span></span></code></pre></div>
+<span id="cb23-12"><a href="classical-inference.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code></pre></div>
 <p>The most likely misstatement in the population is displayed under
 <code>sample estimates</code> and is 0%. The 95% upper confidence bound for the estimate of
 the population misstatement is displayed under <code>95 percent confidence interval</code>

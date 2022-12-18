@@ -23,7 +23,7 @@
 <meta name="author" content="Koen Derks" />
 
 
-<meta name="date" content="2022-12-17" />
+<meta name="date" content="2022-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,12 +184,12 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="auditing-standards.html"><a href="auditing-standards.html"><i class="fa fa-check"></i><b>2.1</b> Auditing Standards</a></li>
 <li class="chapter" data-level="2.2" data-path="important-concepts.html"><a href="important-concepts.html"><i class="fa fa-check"></i><b>2.2</b> Important Concepts</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#performance-materiality"><i class="fa fa-check"></i><b>2.2.1</b> (Performance) Materiality</a></li>
+<li class="chapter" data-level="2.2.1" data-path="important-concepts.html"><a href="important-concepts.html#materiality"><i class="fa fa-check"></i><b>2.2.1</b> Materiality</a></li>
 <li class="chapter" data-level="2.2.2" data-path="important-concepts.html"><a href="important-concepts.html#audit-risk"><i class="fa fa-check"></i><b>2.2.2</b> Audit risk</a></li>
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -199,7 +199,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>2.4</b> Bayesian Inference</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.1</b> Hypothesis Testing</a></li>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-inference.html"><a href="bayesian-inference.html#parameter-estimation-1"><i class="fa fa-check"></i><b>2.4.1</b> Parameter Estimation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>2.4.2</b> Hypothesis Testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="CHAPTER-3.html"><a href="CHAPTER-3.html"><i class="fa fa-check"></i><b>3</b> Planning a Sample</a>
@@ -318,9 +319,9 @@ population:</p>
 minimum sample size <span class="math inline">\(n\)</span> needed to achieve this assurance level. In <strong>jfa</strong>,
 this sample size can be calculated using the <code>planning()</code> function. For example,
 if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a
-maximum tolerable misstatement rate of 3% in a population of <span class="math inline">\(N=1000\)</span>, then the
-required sample size under the assumption of zero expected misstatements in the
-sample is <span class="math inline">\(n = 94\)</span>.</p>
+performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a population of <span class="math inline">\(N=1000\)</span>
+items, then the required sample size under the assumption of zero expected
+misstatements in the sample is <span class="math inline">\(n = 94\)</span>.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="the-hypergeometric-likelihood.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb24-2"><a href="the-hypergeometric-likelihood.html#cb24-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
 <span id="cb24-3"><a href="the-hypergeometric-likelihood.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -329,9 +330,9 @@ sample is <span class="math inline">\(n = 94\)</span>.</p>
 <span id="cb24-6"><a href="the-hypergeometric-likelihood.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 94 </span></span>
 <span id="cb24-7"><a href="the-hypergeometric-likelihood.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 95 iterations via method &#39;hypergeometric&#39;</span></span></code></pre></div>
 <p>As another example, if we want to achieve an assurance level of 95%
-(<span class="math inline">\(\alpha=0.05\)</span>) for a maximum tolerable misstatement rate of 3% in a population
-of <span class="math inline">\(N=1000\)</span>, then the required sample size under the assumption of one expected
-misstatement in the sample is <span class="math inline">\(n = 147\)</span>.</p>
+(<span class="math inline">\(\alpha=0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a
+population of <span class="math inline">\(N=1000\)</span> items, then the required sample size under the assumption
+of one expected misstatement in the sample is <span class="math inline">\(n = 147\)</span>.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-hypergeometric-likelihood.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb25-2"><a href="the-hypergeometric-likelihood.html#cb25-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
 <span id="cb25-3"><a href="the-hypergeometric-likelihood.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -342,28 +343,32 @@ misstatement in the sample is <span class="math inline">\(n = 147\)</span>.</p>
 </div>
 <div id="bayesian-planning" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Bayesian Planning<a href="the-hypergeometric-likelihood.html#bayesian-planning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Performing Bayesian planning with the hypergeometric likelihood requires that
-you specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>. Practically, this
-means that you should provide an input for the <code>prior</code> argument in the
-<code>planning()</code> function.</p>
+<p>Performing Bayesian planning with the hypergeometric likelihood <span class="citation">(<a href="#ref-Dyer1993" role="doc-biblioref">Dyer and Pierce 1993</a>)</span>
+requires that you specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>.
+Practically, this means that you should provide an input for the <code>prior</code>
+argument in the <code>planning()</code> function.</p>
 <p>Setting <code>prior = TRUE</code> performs Bayesian planning using a <a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a>
 conjugate to the specified <code>likelihood</code> (i.e., a beta-binomial prior).
 Concretely, this means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
-  x \sim&amp; \text{Hypergeometric}(n, N, K) \\
-  \theta &amp;\sim \text{Beta-binomial}(\alpha, \beta)
+  x &amp;\sim \text{Hypergeometric}(n, N, K) \\
+  K &amp;\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}\]</span></p>
 <blockquote>
-<p>The beta-binomial prior is conjugate to the hypergeometric likelihood, which
-means that the posterior distribution of <span class="math inline">\(\theta\)</span> can be determined
-analytically.</p>
+<p>The beta-binomial prior distribution is conjugate to the hypergeometric
+likelihood (see this <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">list</a>
+of conjugate priors), which means that the posterior distribution of <span class="math inline">\(K\)</span> can be
+determined analytically. For example, if the prior distribution for <span class="math inline">\(K\)</span> is
+beta-binomial(<span class="math inline">\(N\)</span>, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) and the auditor has observed a sample of
+<span class="math inline">\(n\)</span> items containing <span class="math inline">\(k\)</span> misstatements, the posterior distribution for <span class="math inline">\(K\)</span> is
+beta-binomial(<span class="math inline">\(N - n\)</span>, <span class="math inline">\(\alpha + k\)</span>, <span class="math inline">\(\beta + n - k\)</span>).</p>
 </blockquote>
-<p>For example, the command below uses a default beta-binomial(N, 1, 1) prior
+<p>For example, the command below uses a default beta-binomial(<span class="math inline">\(N\)</span>, 1, 1) prior
 distribution to plan the sample, since <code>planning()</code> is given the hypergeometric
 likelihood. If we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for
-a maximum tolerable misstatement rate of 3% in a population of <span class="math inline">\(N=1000\)</span>, then
-the required sample size under the assumption of zero expected misstatements in
-the sample is <span class="math inline">\(n = 93\)</span>.</p>
+a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a population of <span class="math inline">\(N=1000\)</span>
+items, then the required sample size under the assumption of zero expected
+misstatements in the sample is <span class="math inline">\(n = 93\)</span>.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-hypergeometric-likelihood.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb26-2"><a href="the-hypergeometric-likelihood.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">&quot;hypergeometric&quot;</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb26-3"><a href="the-hypergeometric-likelihood.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
@@ -395,6 +400,12 @@ observed the planned sample containing the expected misstatements.</p>
 <p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The hypergeometric likelihood does not allow for non-conjugate prior
 distributions to be used as a prior.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Dyer1993" class="csl-entry">
+Dyer, Danny, and Rebecca L Pierce. 1993. <span>“On the Choice of the Prior Distribution in Hypergeometric Sampling.”</span> <em>Communications in Statistics - Theory and Methods</em> 22 (8): 2125–46.
 </div>
 </div>
             </section>
