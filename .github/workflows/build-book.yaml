@@ -32,9 +32,10 @@ jobs:
         with:
           cache-version: 1
 
-      - name: Install jsonlite
+      - name: Install sasr package from github
         run: |
-          install.packages('rmarkdown', dependencies = TRUE)
+          install.packages('remotes')
+          remotes::install_github("koenderks/sasr", dependencies = TRUE)
         shell: Rscript {0}
 
       - name: Render and Publish
