@@ -836,7 +836,7 @@ the predicted cost of sales according to the benchmark data
 $\frac{C - \hat{C}}{C}$.
 
 ```{r}
-mu <- (223994405 - C_hat[1]) / 223994405
+mu <- (223994405 - C_hat) / 223994405
 mu
 ```
 

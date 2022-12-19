@@ -39,8 +39,6 @@ format:
       - cosmo
       - sasr.scss
     code-link: true
-  pdf:
-    documentclass: scrreport
   epub:
     cover-image: cover.png
 
