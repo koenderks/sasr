@@ -189,7 +189,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -294,41 +294,43 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="preface.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is intended for auditors who wish to use statistical audit sampling in
-their audit practice using the R programming language. It covers an array of
-traditional and cutting-edge statistical tools available to auditors, explaining
-their function, the underlying assumptions, and when they should be ideally
-utilized. Additionally, it provides practical suggestions for integrating
-advanced statistical sampling methodology into audit practice and illustrates
-its value through real-life case studies. We hope that this book will serve as a
-useful resource for auditors to properly, efficiently, and effectively utilize
-statistical methods in practice.</p>
-<p>The purpose of this book is to address the need for a clear and transparent
-description of the application of statistical sampling methodology in audit
-practice. In my opinion, most guidance (one notable exception is <span class="citation">Stewart (<a href="#ref-Stewart2012" role="doc-biblioref">2012</a>)</span>)
-about audit sampling (e.g., <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-A" role="doc-biblioref">2016a</a>)</span>; <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-C" role="doc-biblioref">2016b</a>)</span>) lacks sufficient detail to allow
-for full transparency or a deep understanding. Additionally, the implementation
-of these methods in practice is often even less transparent, as theory and
-calculations are hidden from the user in commercial closed-source tools or audit
-guides in the form of Excel sheets used internally by audit firms. Therefore,
-many auditors may try to understand the theory involved in statistical audit
-ampling, but they often end up with more questions than they began with. This
-book aims to empower the auditor by providing a comprehensive explanation of the
-statistical methodology used in practice.</p>
-<p>This book examines audit sampling from both a classical frequentist perspective
-and a Bayesian perspective. Through these two lenses, it explains the statistical
-theory underlying commonly applied audit sampling procedures and demonstrates
-how to apply these procedures in a statistically sound manner compliant with
-international auditing standards. It also demonstrates the use of Bayesian
-statistical methods in auditing practice, highlighting the practical benefits
-these methods can bring for auditors.</p>
-<p>This book is organized as follows. Chapter <a href="CHAPTER-1.html#CHAPTER-1">1</a> provides a
-basic introduction to the R programming language. Chapter <a href="CHAPTER-2.html#CHAPTER-2">2</a>
-discusses the basic statistical theory underlying audit sampling. Chapter
-<a href="CHAPTER-2.html#CHAPTER-2">2</a>, <a href="CHAPTER-4.html#CHAPTER-4">4</a>, <a href="CHAPTER-5.html#CHAPTER-5">5</a>, and <a href="CHAPTER-6.html#CHAPTER-6">6</a> go
-into more detail about using statistial methods to plan, select and evaluate
-audit samples. Finally, Chapter <a href="CHAPTER-7.html#CHAPTER-7">7</a> discusses other R-related
-software implementations of audit sampling.</p>
+<p>This book is intended for auditors that want to obtain the knowledge and skill
+to utilize statistical audit sampling in their practice using the R programming
+language. It covers an array of traditional and innovative statistical tools
+that are available to auditors, explaining their function, the underlying
+assumptions, and when they are best utilized. In addition, it offers practical
+guidance on integrating advanced statistical sampling methodology into audit
+practice and demonstrates its value through real-world case studies. It is our
+hope that this book will serve as a valuable resource for auditors looking to
+effectively and efficiently utilize statistical methods in their practice.</p>
+<p>The aim of this book is to address the need for a clear and transparent
+explanation of the use of statistical sampling methodology in audit practice. In
+my opinion, most guidance about audit sampling (e.g., <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-A" role="doc-biblioref">2016a</a>)</span>; <span class="citation">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-C" role="doc-biblioref">2016b</a>)</span>) lacks
+sufficient detail to allow for full transparency or a deep understanding (one
+notable exception is <span class="citation">Stewart (<a href="#ref-Stewart2012" role="doc-biblioref">2012</a>)</span>). Additionally, the implementation of
+statistical sampling methodology in practice is often even less transparent, as
+theory and calculations are hidden from auditors in commercial closed-source
+tools or in Excel sheets from audit guides used internally by audit firms. Thus,
+while attempting to comprehend the theoretical aspects of statistical audit
+sampling, auditors may encounter numerous relevant questions that are left
+unanswered by these tools. This book aims to clarify the statistical methodology
+utilized in practice, thereby empowering auditors through a comprehensive
+explanation.</p>
+<p>This book discusses the topic of audit sampling from both a classical
+(frequentist) and a Bayesian perspective. By utilizing these two approaches, the
+book elucidates the statistical theory that underlies commonly used audit
+sampling techniques and illustrates how to utilize these techniques in
+accordance with international auditing standards. Additionally, the book
+demonstrates the use of Bayesian statistical methods in auditing practice and
+highlights the practical advantages that these methods can offer for auditors.</p>
+<p>The organization of this book is as follows: Chapter <a href="CHAPTER-1.html#CHAPTER-1">1</a> provides a
+foundational introduction to the R programming language. Chapter
+<a href="CHAPTER-2.html#CHAPTER-2">2</a> addresses the fundamental statistical theory relevant to audit
+sampling. Chapters <a href="CHAPTER-2.html#CHAPTER-2">2</a>, <a href="CHAPTER-4.html#CHAPTER-4">4</a>, <a href="CHAPTER-5.html#CHAPTER-5">5</a>, and
+<a href="CHAPTER-6.html#CHAPTER-6">6</a> delve more deeply into the use of statistical methods for the
+planning, selection, and evaluation of audit samples. Finally, Chapter
+<a href="CHAPTER-7.html#CHAPTER-7">7</a> considers other software implementations of audit sampling
+utilizing R.</p>
 
 </div>
 <h3>References</h3>

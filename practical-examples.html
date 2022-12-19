@@ -189,7 +189,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.2.3" data-path="important-concepts.html"><a href="important-concepts.html#population"><i class="fa fa-check"></i><b>2.2.3</b> Population</a></li>
 <li class="chapter" data-level="2.2.4" data-path="important-concepts.html"><a href="important-concepts.html#sampling-risk"><i class="fa fa-check"></i><b>2.2.4</b> Sampling risk</a></li>
 <li class="chapter" data-level="2.2.5" data-path="important-concepts.html"><a href="important-concepts.html#sample-size"><i class="fa fa-check"></i><b>2.2.5</b> Sample Size</a></li>
-<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> notation</a></li>
+<li class="chapter" data-level="2.2.6" data-path="important-concepts.html"><a href="important-concepts.html#notation"><i class="fa fa-check"></i><b>2.2.6</b> Notation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="classical-inference.html"><a href="classical-inference.html"><i class="fa fa-check"></i><b>2.3</b> Classical Inference</a>
 <ul>
@@ -404,7 +404,7 @@ the figure below, which visualizes the industry sales versus the cost of sales.<
 <p>The relationship between the sales <span class="math inline">\(S\)</span> and the cost of sales <span class="math inline">\(C\)</span> can be modelled
 by a linear equation:</p>
 <p><span class="math display">\[\begin{equation}
-  C = \beta_0 + \beta_1 \cdot S + \epsilon
+  C = \beta_0 + \beta_1 \cdot S + \epsilon.
 \end{equation}\]</span></p>
 <p>In practice, this relationship is often more complex than is presented above,
 and the auditor must carefully construct and evaluate the applied regression
@@ -454,11 +454,14 @@ the predicted cost of sales according to the benchmark data
 <span id="cb57-2"><a href="practical-examples.html#cb57-2" aria-hidden="true" tabindex="-1"></a>mu</span>
 <span id="cb57-3"><a href="practical-examples.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.01864573</span></span></code></pre></div>
 <p>The standard deviation of the prior distribution is expressed through the
-standard deviation of the distribution of <span class="math inline">\(\epsilon\)</span>.</p>
+standard deviation of the distribution of <span class="math inline">\(\epsilon\)</span>:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="practical-examples.html#cb58-1" aria-hidden="true" tabindex="-1"></a>stdev <span class="ot">&lt;-</span> <span class="fu">sd</span>(fit<span class="sc">$</span>residuals) <span class="sc">/</span> <span class="dv">223994405</span></span>
 <span id="cb58-2"><a href="practical-examples.html#cb58-2" aria-hidden="true" tabindex="-1"></a>stdev</span>
 <span id="cb58-3"><a href="practical-examples.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.04951199</span></span></code></pre></div>
-<p>The prior distribution can be constructed through a call to <code>auditPrior()</code>:</p>
+<p>The Normal(0.019, 0.05) prior distribution can be constructed through a call to
+<code>auditPrior()</code>, where the likelihood of the prior is specified as <code>normal</code>. We
+call the function with <code>method = "param"</code> to manually specify the parameters of
+the prior distribution.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="practical-examples.html#cb59-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">&quot;param&quot;</span>, <span class="at">likelihood =</span> <span class="st">&quot;normal&quot;</span>,</span>
 <span id="cb59-2"><a href="practical-examples.html#cb59-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> mu, <span class="at">beta =</span> stdev)</span>
 <span id="cb59-3"><a href="practical-examples.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(prior)</span>
@@ -479,7 +482,7 @@ standard deviation of the distribution of <span class="math inline">\(\epsilon\)
 <span id="cb59-18"><a href="practical-examples.html#cb59-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Information entropy (nat):     -2.1306 </span></span>
 <span id="cb59-19"><a href="practical-examples.html#cb59-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent upper bound:        0.11012 </span></span>
 <span id="cb59-20"><a href="practical-examples.html#cb59-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                     0.091473</span></span></code></pre></div>
-<p>The prior distribution can be visualized using the <code>plot()</code> function.</p>
+<p>The specified prior distribution can be visualized using the <code>plot()</code> function.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="practical-examples.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span></code></pre></div>
 <p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-71-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>By using this prior distribution, the required minimum sample size is 50.</p>
@@ -491,8 +494,8 @@ standard deviation of the distribution of <span class="math inline">\(\epsilon\)
 <span id="cb61-6"><a href="practical-examples.html#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb61-7"><a href="practical-examples.html#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 50 </span></span>
 <span id="cb61-8"><a href="practical-examples.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 51 iterations via method &#39;binomial&#39; + &#39;prior&#39;</span></span></code></pre></div>
-<p>You can inspect how the prior distribution compares to the expected
-posterior distribution by using the <code>plot()</code> function.</p>
+<p>You can inspect how the prior distribution compares to the expected posterior
+distribution by using the <code>plot()</code> function.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="practical-examples.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code></pre></div>
 <p><img src="Stataud-R-Book_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" /></p>
 
