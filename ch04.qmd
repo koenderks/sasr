@@ -69,6 +69,99 @@ illustrate the outcomes for different sampling methods, we will use the
 data(BuildIt)
 ```
 
+### Random Sampling
+
+Random sampling is the most simple and straight-forward selection method. The
+random sampling method provides a method that allows every sampling unit in the
+population an equal chance of being selected, meaning that every combination of
+sampling units has the same probability of being selected as every other
+combination of the same number of sampling units. Simply put, the algorithm
+draws a random selection of size $n$ of the sampling units. Therefore, the
+selection probability for each sampling unit is defined as:
+
+$$p(x) = \frac{1}{N},$$
+
+where $N$ is the number of units in the population. To clarify this procedure,
+Figure 3 provides an illustration of the random sampling method.
+
+<center>
+
+![Figure 4.1: Illustration of random sampling](img/randomSampling.png)
+
+</center>
+
+**Advantage(s):** The random sampling method yields an optimal random selection,
+with the additional advantage that the sample can be easily extended by applying
+the same method again.
+
+**Disadvantages:** Because the selection probabilities are equal for all
+sampling units there is no guarantee that items with a large monetary value in
+the population will be included in the sample.
+
+#### Record Sampling
+
+Random sampling can easily be coded in base R. First, we have to get a vector
+of of the possible items (rows) in the population that can be selected. When we
+are performing record sampling, we can simply use R's build in `sample()`
+function to draw a random sample from a vector `1:nrow(BuildIt)` representing
+the row indices of the items and store the result in a variable `rows`.
+
+```{r}
+set.seed(1)
+rows <- sample(1:nrow(BuildIt), size = 10, replace = FALSE)
+rows
+```
+
+You can then select the sample from the population using the selected indices
+stored in `rows`.
+
+```{r}
+BuildIt[rows, ]
+```
+
+The sample can be reproduced in **jfa** via the following command:
+
+```{r}
+set.seed(1)
+sample <- selection(data = BuildIt, size = 10, units = "items",
+                    method = "random")
+sample$sample
+```
+
+#### Monetary Unit Sampling
+
+When we are performing record sampling, we have to consider that each item in
+the population consists of multiple smaller items (i.e., the monetary units),
+which means that items with a higher book value should get a higher probability
+of being selected. The `sample()` function faciliates weighted selection via the
+`prob` argument, which takes a vector of values and, using normalization,
+computes the weights for selection. The call below is similar to before, but in
+this case we use the book values in the column `bookValues` of the data set to
+weigh the items and store the result in a variable `rows`.
+
+```{r}
+set.seed(1)
+rows <- sample(1:nrow(BuildIt), size = 10, replace = FALSE,
+               prob = BuildIt$bookValue)
+rows
+```
+
+You can then select the sample from the population using the selected indices
+stored in `rows`.
+
+```{r}
+BuildIt[rows, ]
+```
+
+The sample can be reproduced in **jfa** via the following command:
+
+```{r}
+set.seed(1)
+sample <- selection(data = BuildIt, size = 100, units = "values",
+                    method = "random", values = "bookValue")
+sample$sample
+```
+
 ### Fixed Interval Sampling
 
 Fixed interval sampling is a method designed for yielding representative samples
@@ -99,7 +192,7 @@ and completely depends on the chosen starting points (using `start`).
 
 <center>
 
-![Figure 4.1: Illustration of fixed interval sampling](img/fixedIntervalSampling.png)
+![Figure 4.2: Illustration of fixed interval sampling](img/fixedIntervalSampling.png)
 
 </center>
 
@@ -157,7 +250,7 @@ $$p(x) = \frac{1}{I}.$$
 
 <center>
 
-![Figure 4.2: Illustration of cell sampling](img/cellSampling.png)
+![Figure 4.3: Illustration of cell sampling](img/cellSampling.png)
 
 </center>
 
@@ -191,54 +284,6 @@ head(sample$sample, n = 6)
 # Monetary unit sampling
 set.seed(1)
 sample <- selection(data = BuildIt, size = 100, units = "values", method = "cell", values = "bookValue")
-head(sample$sample, n = 6)
-```
-
-### Random Sampling
-
-Random sampling is the most simple and straight-forward selection method The
-random sampling method provides a method that allows every sampling unit in the
-population an equal chance of being selected, meaning that every combination of
-sampling units has the same probability of being selected as every other
-combination of the same number of sampling units. Simply put, the algorithm
-draws a random selection of size $n$ of the sampling units. Therefore, the
-selection probability for each sampling unit is defined as:
-
-$$p(x) = \frac{1}{N},$$
-
-where $N$ is the number of units in the population. To clarify this procedure,
-Figure 3 provides an illustration of the random sampling method.
-
-<center>
-
-![Figure 4.3: Illustration of random sampling](img/randomSampling.png)
-
-</center>
-
-**Advantage(s):** The random sampling method yields an optimal random selection,
-with the additional advantage that the sample can be easily extended by applying
-the same method again.
-
-**Disadvantages:** Because the selection probabilities are equal for all
-sampling units there is no guarantee that items with a large monetary value in
-the population will be included in the sample.
-
-As an example, the code below shows how to apply the random sampling (with our
-without replacement using `replace`) method in a record sampling and a monetary
-unit sampling setting. It is important to set a seed to make results
-reproducible.
-
-```{r}
-# Record sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "random")
-head(sample$sample, n = 6)
-```
-
-```{r}
-# Monetary unit sampling
-set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "random", values = "bookValue")
 head(sample$sample, n = 6)
 ```
 
