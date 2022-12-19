@@ -63,10 +63,12 @@ size $n$ has been created.
 
 The next section discusses which sampling methods are available in **jfa**. To
 illustrate the outcomes for different sampling methods, we will use the
-`BuildIt` data set that can be loaded using the code below.
+`BuildIt` data set that can be loaded using the code below. For simplicity, we
+will use a sample size of 10 for all examples.
 
 ```{r}
 data(BuildIt)
+n <- 10
 ```
 
 ### Random Sampling
@@ -108,24 +110,24 @@ the row indices of the items and store the result in a variable `rows`.
 
 ```{r}
 set.seed(1)
-rows <- sample(1:nrow(BuildIt), size = 10, replace = FALSE)
-rows
+items <- sample(1:nrow(BuildIt), size = n, replace = FALSE)
+items
 ```
 
 You can then select the sample from the population using the selected indices
 stored in `rows`.
 
 ```{r}
-BuildIt[rows, ]
+BuildIt[items, ]
 ```
 
 The sample can be reproduced in **jfa** via the following command:
 
 ```{r}
 set.seed(1)
-sample <- selection(data = BuildIt, size = 10, units = "items",
+result <- selection(data = BuildIt, size = n, units = "items",
                     method = "random")
-sample$sample
+result$sample
 ```
 
 #### Monetary Unit Sampling
@@ -141,25 +143,25 @@ weigh the items and store the result in a variable `rows`.
 
 ```{r}
 set.seed(1)
-rows <- sample(1:nrow(BuildIt), size = 10, replace = FALSE,
-               prob = BuildIt$bookValue)
-rows
+items <- sample(1:nrow(BuildIt), size = n, replace = FALSE,
+                prob = BuildIt$bookValue)
+items
 ```
 
 You can then select the sample from the population using the selected indices
 stored in `rows`.
 
 ```{r}
-BuildIt[rows, ]
+BuildIt[items, ]
 ```
 
 The sample can be reproduced in **jfa** via the following command:
 
 ```{r}
 set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values",
+result <- selection(data = BuildIt, size = n, units = "values",
                     method = "random", values = "bookValue")
-sample$sample
+result$sample
 ```
 
 ### Fixed Interval Sampling
@@ -218,21 +220,88 @@ drawing the initial sample. This is due to the chance of selecting the same
 sampling unit. However, by removing the already selected sampling units from the
 population and redrawing the intervals this problem can be efficiently solved.
 
-As an example, the code below shows how to apply the fixed interval sampling
-method in a record sampling and a monetary unit sampling setting. Note that, by
+#### Record Sampling
+
+To code fixed interval sampling in a record sampling context, we first have to
+compute the size of the interval we are working with. This is computed by
+dividing the number of items in the population by the desired sample size $n$.
+Suppose the auditor wants to select a sample of 10 items, then the interval is
+computed by:
+
+```{r}
+interval <- nrow(BuildIt) / n
+```
+
+Next, we have to determine the starting point. We are going to take the fifth
+unit in each interval in this case.
+
+```{r}
+start <- 5
+```
+
+To find which rows are part of the sample, we execute the following code:
+
+```{r}
+items <- floor(start + interval * 0:(n - 1))
+```
+
+You can then select the sample from the population using the selected indices
+stored in `rows`.
+
+```{r}
+BuildIt[items, ]
+```
+
+The sample can be reproduced in **jfa** via the following command. Note that, by
 default, the first sampling unit from each interval is selected. However, this
 can be changed by setting the argument `start = 1` to a different value.
 
 ```{r}
-# Record sampling
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "interval", start = 1)
-head(sample$sample, n = 6)
+result <- selection(data = BuildIt, size = n, units = "items",
+                    method = "interval", start = start)
+result$sample
 ```
 
+#### Monetary Unit Sampling
+
+In monetary unit sampling, the only difference is that we are computing the
+interval on the basis of the booked values in the column `bookValue` of the data
+set. In this case, the starting point `start = 5` determines which monetary unit
+from each interval is selected.
+
 ```{r}
-# Monetary unit sampling
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "interval", values = "bookValue", start = 1)
-head(sample$sample, n = 6)
+interval <- sum(BuildIt$bookValue) / n
+```
+
+To find which units are part of the sample, we execute the following code:
+
+```{r}
+units <- floor(start + interval * 0:(n - 1))
+```
+
+To obtain which items are part of the sample, 
+
+```{r}
+items <- numeric(n)
+for (i in 1:n) {
+  item <- which(units[i] <= cumsum(BuildIt$bookValue))[1]
+  items[i] <- (1:nrow(BuildIt))[item]
+}
+```
+
+You can then select the sample from the population using the selected indices
+stored in `rows`.
+
+```{r}
+BuildIt[items, ]
+```
+
+The sample can be reproduced in **jfa** via the following command:
+
+```{r}
+result <- selection(data = BuildIt, size = n, units = "values",
+                    method = "interval", values = "bookValue", start = start)
+result$sample
 ```
 
 ### Cell Sampling
@@ -269,19 +338,21 @@ selection probability of one. Besides, population items can be in two adjacent
 cells, thereby creating the possibility that an items is included in the sample
 twice.
 
+#### Record Sampling
+
 As an example, the code below shows how to apply the cell sampling method in a
 record sampling and a monetary unit sampling setting. It is important to set a
 seed to make the results reproducible.
 
 ```{r}
-# Record sampling
 set.seed(1)
 sample <- selection(data = BuildIt, size = 100, units = "items", method = "cell")
 head(sample$sample, n = 6)
 ```
 
+#### Monetary Unit Sampling
+
 ```{r}
-# Monetary unit sampling
 set.seed(1)
 sample <- selection(data = BuildIt, size = 100, units = "values", method = "cell", values = "bookValue")
 head(sample$sample, n = 6)
