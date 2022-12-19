@@ -34,7 +34,7 @@ jobs:
 
       - name: Install jsonlite
         run: |
-          install.packages('jsonlite')
+          install.packages('rmarkdown', dependencies = TRUE)
         shell: Rscript {0}
 
       - name: Render and Publish
