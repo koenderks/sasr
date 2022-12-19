@@ -1,9 +1,0 @@
----
-  bibliography: references.bib
----
-
-# (APPENDIX) Appendix {-}
-
-# References {-}
-
-<div id="refs"></div>
