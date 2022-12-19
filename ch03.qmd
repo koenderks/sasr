@@ -1,9 +1,5 @@
 ---
-output:
-  bookdown::html_document2:
-    fig_caption: yes
-editor_options:
-  chunk_output_type: console
+  bibliography: references.bib
 ---
 
 ```{r echo = FALSE, cache = FALSE}
@@ -44,7 +40,7 @@ would imply that insufficient work has been done in the end.
 Finally, next to determining the sampling objective(s) and the expected
 misstatements, it is important to determine the statistical distribution linking
 the sample outcomes to the population misstatement. This distribution is called
-the likelihood (i.e., `poisson`, `binomial`, or`hypergeometric`). All three
+the likelihood (i.e., `poisson`, `binomial`, or `hypergeometric`). All three
 aforementioned likelihoods are commonly used in an audit sampling context,
 however, `poisson` is the default likelihood in **jfa** because it is the most
 conservative of the three. In the subsections below, we elaborate on the three

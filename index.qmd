@@ -1,28 +1,8 @@
 ---
-title: "Statistical Audit Sampling with R, 1st edition"
-author: "Koen Derks"
-date: "`r Sys.Date()`"
-output:
-  html_document:
-    df_print: default
-documentclass: book
-bibliography: references.bib 
-biblio-style: apalike
-link-citations: yes
-description: |
-  This book is an overview of Bayesian and classical statistical methodology for audit sampling.
-url: https\://koenderks.github.io/sasr
-github-repo: koenderks/sasr
-twitter-handle: koenderks
-cover-image: cover.jpg
-site: bookdown::bookdown_site
-bookdown::gitbook: default
-bookdown::pdf_book: default
+bibliography: references.bib
 ---
 
 # Welcome {-}
-
-<img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
 This book, **Statistical Audit Sampling with R**, is intended as a practical
 guide for auditors who wish to utilize state-of-the-art statistical methodology

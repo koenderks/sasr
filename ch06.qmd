@@ -1,9 +1,5 @@
 ---
-output:
-  bookdown::html_document2:
-    fig_caption: yes
-editor_options:
-  chunk_output_type: console
+  bibliography: references.bib
 ---
 
 ```{r echo = FALSE, cache = FALSE}
@@ -221,11 +217,11 @@ in which the stratum estimates are poststratified to arrive at the population
 estimate.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances, prior = TRUE,
-  values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
-  alternative = "two.sided", N.units = N.units, pooling = "partial"
-)
+# x <- evaluation(
+#   materiality = 0.05, data = allowances, prior = TRUE,
+#   values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
+#   alternative = "two.sided", N.units = N.units, pooling = "partial"
+# )
 summary(x)
 ```
 
@@ -243,5 +239,5 @@ The prior and posterior distribution for the population misstatement can be
 requested via the `plot()` function.
 
 ```{r}
-plot(x, type = "posterior")
+# plot(x, type = "posterior")
 ```
