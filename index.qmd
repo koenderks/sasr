@@ -12,12 +12,8 @@ on audit sampling, it aims to examine the topic from both the classical
 through these two lenses, the book explains the statistical theory behind
 commonly used audit sampling procedures and demonstrates how to perform these
 procedures in accordance with international auditing standards, using the
-**jfa** R package [@jfa], in a statistically sound manner.
+**jfa** R package, in a statistically sound manner.
 
 This website operates under the
 [CC BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/us/)
 License and will always be available free of charge.
-
-Please keep in mind that this is a preview release and much content is still
-missing. If you are missing something today, then check back tomorrow: This
-book is actively being worked on.
