@@ -36,11 +36,9 @@ accordance with international auditing standards. Additionally, the book
 demonstrates the use of Bayesian statistical methods in auditing practice and
 highlights the practical advantages that these methods can offer for auditors.
 
-The organization of this book is as follows: Chapter \@ref(CHAPTER-1) provides a
-foundational introduction to the R programming language. Chapter
-\@ref(CHAPTER-2) addresses the fundamental statistical theory relevant to audit
-sampling. Chapters \@ref(CHAPTER-2), \@ref(CHAPTER-4), \@ref(CHAPTER-5), and
-\@ref(CHAPTER-6) delve more deeply into the use of statistical methods for the
-planning, selection, and evaluation of audit samples. Finally, Chapter
-\@ref(CHAPTER-7) considers other software implementations of audit sampling
-utilizing R.
+The organization of this book is as follows: Chapter 1 provides a foundational
+introduction to the R programming language. Chapter 2 addresses the fundamental
+statistical theory relevant to audit sampling. Chapters 3, 4, 5, and 5 delve
+more deeply into the use of statistical methods for the planning, selection, and
+evaluation of audit samples. Finally, Chapter 7 considers other software
+implementations of audit sampling utilizing R.
