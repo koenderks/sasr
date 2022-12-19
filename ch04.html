@@ -680,38 +680,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="ordering-or-randomizing-the-population" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="ordering-or-randomizing-the-population"><span class="header-section-number">4.3</span> Ordering or Randomizing the Population</h2>
-<p>The <code>selection()</code> function has additional arguments (<code>order</code>, <code>decreasing</code>, and <code>randomize</code>) to preprocess your population before selection. The <code>order</code> argument takes as input a column name in <code>data</code> which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in selection. In this case, you should use the <code>decreasing = FALSE</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-31_bd67a9bb101d14700e2c840c90eb9eeb">
+<p>The <code>selection()</code> function has additional arguments (<code>order</code>, <code>decreasing</code>, and <code>randomize</code>) to preprocess your population before selection. The <code>order</code> argument takes as input a column name in <code>data</code> which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in selection. In this case, you should use the <code>decreasing = FALSE</code> (default) argument.</p>
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-31_0b1c4cb86bc0b6a4a68202bc2ad2e36e">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>,</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="st">"bookValue"</span>, <span class="at">decreasing =</span> <span class="cn">FALSE</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2662     1 30568     14.47      14.47</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2923     1 63567    125.21     125.21</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2542     1 95807    153.56     153.56</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  101     1 64282    172.65     172.65</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  838     1 43352    188.72     188.72</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  302     1 94296    198.59     198.59</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">order =</span> <span class="st">"bookValue"</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     row times    ID bookValue auditValue</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  2662     1 30568     14.47      14.47</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2307     1 95785    244.49     244.49</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  1639     1 39570    307.54     307.54</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  2318     1 11857    360.57     360.57</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  3409     1 18796    414.75     414.75</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  1158     1 28985    468.57     468.57</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  2892     1 27448    530.73     530.73</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8  2759     1 16442    596.34     596.34</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9  3112     1 62440    678.36     678.36</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1820     1 82309    796.31     796.31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>randomize</code> argument can be used to randomly shuffle the items in the population before selection.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-32_83b1c95b4d78555e7b664d9a6643e653">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-32_f762bfce3165201b0a3b3372e2d2d002">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">selection</span>(</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">100</span>,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample<span class="sc">$</span>sample, <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1017     1 50755    618.24     618.24</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2159     1  3653    492.39     492.39</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1639     1 39570    307.54     307.54</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2698     1   225    507.18     507.18</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  355     1 27934    749.38     749.38</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1242     1 64071    759.34     759.34</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     row times    ID bookValue auditValue</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  1017     1 50755    618.24     618.24</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2097     1 53186    642.34     642.34</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  2508     1 55666    426.33     426.33</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   779     1 82046    569.21     227.68</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  2255     1 63601    234.12     234.12</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  2072     1 92569    517.14     517.14</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  1938     1 35525    366.94     366.94</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   595     1 30750    338.36     338.36</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9  3207     1 74858    884.51     884.51</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2981     1 24682    302.23     302.23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
