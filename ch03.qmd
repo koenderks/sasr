@@ -1,14 +1,13 @@
----
-  bibliography: references.bib
----
-
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
 ```
 
 # Planning a Sample {#CHAPTER-3}
 
-<p align='center'><img src='https://github.com/koenderks/jfa/raw/development/vignettes/img/planning.png' alt='planning' width='100%'></p>
+This chapter discusses the most commonly used approaches to plan a statistical
+audit sample.
+
+![](img/planning.png)
 
 One of the key considerations in audit sampling is determining the minimum
 sample size required to achieve a desired level of assurance or precision. In

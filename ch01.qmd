@@ -1,7 +1,3 @@
----
-  bibliography: references.bib
----
-
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
 ```

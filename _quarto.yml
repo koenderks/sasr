@@ -4,6 +4,8 @@ project:
 
 book:
   title: "Statistical Audit Sampling with R"
+  author: "Koen Derks"
+  date: "12/19/2022"
   reader-mode: true
 
   page-footer:
@@ -16,7 +18,7 @@ book:
   site-url: https://koenderks.github.io/sasr/
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
-  repo-actions: [edit, issue]
+  repo-actions: [edit, source, issue]
   chapters:
     - index.qmd
     - ch00.qmd
@@ -27,6 +29,9 @@ book:
     - ch05.qmd
     - ch06.qmd
     - ch07.qmd
+    - chref.qmd
+
+bibliography: references.bib
 
 format:
   html:
@@ -34,6 +39,10 @@ format:
       - cosmo
       - sasr.scss
     code-link: true
+  pdf:
+    documentclass: scrreport
+  epub:
+    cover-image: cover.png
 
     author-meta: "Koen Derks"
     callout-appearance: simple

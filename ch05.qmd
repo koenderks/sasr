@@ -1,12 +1,10 @@
----
-  bibliography: references.bib
----
-
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
 ```
 
 # Evaluating a Sample {#CHAPTER-5}
+
+![](img/selection.png)
 
 A non-stratified audit sample does not involve dividing the population into
 subgroups. Here, the auditor selects a random sample from the entire population

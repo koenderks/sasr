@@ -1,12 +1,10 @@
----
-  bibliography: references.bib
----
-
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
 ```
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
+
+![](img/selection.png)
 
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure

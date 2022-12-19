@@ -1,7 +1,3 @@
----
-  bibliography: references.bib
----
-
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
 ```
@@ -10,6 +6,8 @@ source("utils.R", local = TRUE)
 
 This chapter outlines the most commonly used sampling methodology for auditing
 and shows how to select a sample using these methods with the **jfa** package.
+
+![](img/selection.png)
 
 Auditors are often required to assess balances or processes that involve a large
 number of items. Since they cannot inspect all of these items individually, they
@@ -53,7 +51,9 @@ This section discusses the four sampling methods implemented in **jfa**. First,
 for notation, let the the population $N$ be defined as the total set of
 individual sampling units $x_i$.
 
-$$N = \{x_1, x_2, \dots, x_N\}.$$
+\begin{equation}
+  N = \{x_1, x_2, \dots, x_N\}.
+\end{equation}
 
 In statistical sampling, every sampling unit $x_i$ in the population must
 receive a selection probability $p(x_i)$. The purpose of the sampling method is
@@ -81,7 +81,9 @@ combination of the same number of sampling units. Simply put, the algorithm
 draws a random selection of size $n$ of the sampling units. Therefore, the
 selection probability for each sampling unit is defined as:
 
-$$p(x) = \frac{1}{N},$$
+\begin{equation}
+  p(x) = \frac{1}{N},
+\end{equation}
 
 where $N$ is the number of units in the population. To clarify this procedure,
 Figure 3 provides an illustration of the random sampling method.
@@ -178,7 +180,9 @@ sampling unit number 5 is chosen as the starting point, the sampling units 5,
 The number of required intervals $I$ can be determined by dividing the number of
 sampling units in the population by the required sample size:
 
-$$I = \frac{N}{n},$$
+\begin{equation}
+  I = \frac{N}{n},
+\end{equation}
 
 in which $n$ is the required sample size and $N$ is the total number of sampling
 units in the population.
@@ -186,7 +190,9 @@ units in the population.
 If the space between the selected sampling units is equal, the selection
 probability for each sampling unit is theoretically defined as:
 
-$$p(x) = \frac{1}{I},$$
+\begin{equation}
+  p(x) = \frac{1}{I},
+\end{equation}
 
 with the property that the space between selected units $i$ is the same as the
 interval $I$, see Figure 1. However, in practice the selection is deterministic
@@ -319,7 +325,9 @@ sampling units to vary.
 Like in the fixed interval sampling method, the selection probability for each
 sampling unit is defined as:
 
-$$p(x) = \frac{1}{I}.$$
+\begin{equation}
+  p(x) = \frac{1}{I}.
+\end{equation}
 
 <center>
 
@@ -434,7 +442,9 @@ Hall, & Tsay, 2010). The algorithm starts by selecting a standard uniform random
 number $R_i$ between 0 and 1 for each item in the population. Next, the sieve
 ratio:
 
-$$S_i = \frac{Y_i}{R_i}$$
+\begin{equation}
+  S_i = \frac{Y_i}{R_i}
+\end{equation}
 
 is computed for each item by dividing the book value of that item by the random
 number. Lastly, the items in the population are sorted by their sieve ratio $S$
