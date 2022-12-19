@@ -32,16 +32,16 @@ jobs:
         with:
           cache-version: 1
 
-      - name: Install remotes package
-        run: Rscript -e 'install.packages('remotes')'
-
       - name: Install sasr package from GitHub
-        run: Rscript -e 'remotes::install_github("koenderks/sasr", dependencies = TRUE)'
+        run: |
+          install.packages("remotes")
+          remotes::install_github("koenderks/sasr", dependencies = TRUE)
+        shell: Rscript {0}
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_PAT }}
 
