@@ -32,6 +32,11 @@ jobs:
         with:
           cache-version: 1
 
+      - name: Install jsonlite
+        run: |
+          install.packages('jsonlite')
+        shell: Rscript {0}
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
