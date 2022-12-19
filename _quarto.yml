@@ -27,7 +27,6 @@ book:
     - ch05.qmd
     - ch06.qmd
     - ch07.qmd
-    - chref.qmd
 
 format:
   html:
