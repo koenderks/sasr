@@ -12,13 +12,13 @@ source("utils.R", local = TRUE)
 
 # Background Information {#CHAPTER-2}
 
-Auditors use audit sampling as a way to evaluate a portion of transactions or
-items within a population in order to make conclusions about the population as a
-whole. It is a cost-effective method for testing the accuracy and reliability of
-financial information because it allows auditors to test a representative sample
-of the population instead of the entire population.
+Auditors use audit sampling as a technique to assess a selection of transactions
+or items within a population in order to form conclusions about the population
+as a whole. It is a cost-efficient method for examining the accuracy of
+financial information as it allows auditors to test a representative sample of
+the population rather than the entire population.
 
-In the realm of auditing, sampling becomes necessary when the truth about a
+In the field of auditing, sampling becomes necessary when the truth about a
 population is not readily accessible or discernible through other means. With
 the advent of modern technology, auditors often have access to an abundance of
 information about a population, which sometimes enables them to perform integral
@@ -29,19 +29,19 @@ but then must subsequently confirm the validity of these orders through detailed
 testing.
 
 In auditing, there are two primary methods of sampling: statistical and
-non-statistical. Statistical sampling involves using probability theory to
+nonstatistical. Statistical sampling involves using probability theory to
 select a sample from the population and draw conclusions about the population
-based on the sample. Non-statistical sampling, on the other hand, is based on
+based on the sample. Nonstatistical sampling, on the other hand, is based on
 the auditor's professional judgment and does not use statistical inference to
-come to a conclusion. This book does not cover non-statistical sampling.
+come to a conclusion. This book does not cover nonstatistical sampling.
 
-The way that statistical sampling should be performed is prescribed by 
-international auditing standards. The next section discusses what these
-standards say about statistical sampling..
+International auditing standards prescribe the manner in which statistical
+sampling should be conducted in an audit. The following section discusses what
+these standards say about statistical sampling.
 
 ## Auditing Standards
 
-There are three auditing standards related to staistical audit sampling:
+There are three auditing standards related to staistical sampling in the audit:
 
 - [ISA 530](https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf): 
   Auditing standard for international firms published by the International
@@ -53,29 +53,30 @@ There are three auditing standards related to staistical audit sampling:
   Auditing standard for public firms published by the Public Company
   Accounting Oversign Board (PCAOB).
 
-All three standards describe statistical sampling in a similar manner. For
-example, ISA 530 [@ISA530] describes statistical audit sampling as an approach
-that, at least, has the following two characteristics:
+All three standards present a similar explanation of statistical sampling. For
+instance, ISA 530 [@ISA530] defines statistical audit sampling as a method that
+at minimum exhibits the following two characteristics:
 
 - Random selection of sample items,
 - The use of an appropriate statistical technique to evaluate sample results,
   including measurement of sampling risk
 
-Any sampling approach that does not have these characteristics is considered
-nonstatistical sampling by the auditing standards.
+According to auditing standards, any sampling approach that lacks these two
+characteristics is considered nonstatistical sampling.
 
-In practice, statistical sampling should be used in a way that is tailored to
-the specific circumstances of the audit. This may include considering factors
-such as the size and complexity of the population, the materiality of the items
-being tested, and the degree of inherent risk in the audit area. The auditor
-should also document the sampling process in order to demonstrate that it was
-conducted compliant with auditing standards. The next section discusses these
-important concepts in statistical audit sampling.
+In order to effectively utilize statistical sampling during an audit, it is
+necessary to tailor the approach to the specific circumstances of the audit.
+This may involve considering factors such as the size and complexity of the
+population, the materiality of the items being tested, and the level of inherent
+risk in the audit area. It is also essential for the auditor to document the
+sampling process in order to demonstrate compliance with auditing standards. The
+following sections will delve further into these crucial concepts in the context
+of statistical audit sampling.
 
 ## Important Concepts
 
-In this section, we discuss some important theoretical concepts that play a key
-role in statistical audit sampling.
+This section aims to delve into several theoretical concepts that are integral
+to statistical audit sampling.
 
 ### Materiality
 
@@ -211,9 +212,10 @@ assurance, but it requires more audit effort to obtain and inspect. On the other
 hand, a smaller sample size offers a lower level of assurance, but it is less
 costly.
 
-### notation
+### Notation
 
-The table below summarizes the notation used in this book and in **jfa**.
+The table below summarizes the notation used in this book (middle column) and in
+the **jfa** R package (right column).
 
 | Meaning                     | Symbol         | **jfa**          |
 |-----------------------------|----------------|------------------|

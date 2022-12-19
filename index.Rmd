@@ -24,18 +24,19 @@ bookdown::pdf_book: default
 
 <img src="cover.jpg" width="250" height="328" align="right" alt="Cover image" />
 
-Welcome to the book **Statistical Audit Sampling with R**, a practical guide for
-auditors that want to use state-of-the-art statistical methodology in their
-audit sampling activities. While this book focuses completely on the subject of
-audit sampling, it aims to discusses it from two viewpoints: the classical
-(frequentist) approach and the Bayesian approach. Through these two lenses, it
-explains the statistical theory underlying commonly applied audit sampling
-procedures and demonstrates how to perform these procedures in a statistically
-sound manner compliant with international auditing standards using the **jfa**
-[@jfa] R package.
+This book, **Statistical Audit Sampling with R**, is intended as a practical
+guide for auditors who wish to utilize state-of-the-art statistical methodology
+in their audit sampling activities. While the focus of this book is exclusively
+on audit sampling, it aims to examine the topic from both the classical
+(frequentist) perspective and the Bayesian perspective. By examining the subject
+through these two lenses, the book explains the statistical theory behind
+commonly used audit sampling procedures and demonstrates how to perform these
+procedures in accordance with international auditing standards, using the
+**jfa** R package [@jfa], in a statistically sound manner.
 
-This website is and will always be free, licensed under the 
-[CC BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/us/) License.
+This website operates under the
+[CC BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/us/)
+License and will always be available free of charge.
 
 Please keep in mind that this is a preview release and much content is still
 missing. If you are missing something today, then check back tomorrow: This

@@ -8,41 +8,43 @@ editor_options:
 
 # Preface {-}
 
-This book is intended for auditors who wish to use statistical audit sampling in
-their audit practice using the R programming language. It covers an array of
-traditional and cutting-edge statistical tools available to auditors, explaining
-their function, the underlying assumptions, and when they should be ideally
-utilized. Additionally, it provides practical suggestions for integrating
-advanced statistical sampling methodology into audit practice and illustrates
-its value through real-life case studies. We hope that this book will serve as a
-useful resource for auditors to properly, efficiently, and effectively utilize
-statistical methods in practice.
+This book is intended for auditors that want to obtain the knowledge and skill
+to utilize statistical audit sampling in their practice using the R programming
+language. It covers an array of traditional and innovative statistical tools
+that are available to auditors, explaining their function, the underlying
+assumptions, and when they are best utilized. In addition, it offers practical
+guidance on integrating advanced statistical sampling methodology into audit
+practice and demonstrates its value through real-world case studies. It is our
+hope that this book will serve as a valuable resource for auditors looking to
+effectively and efficiently utilize statistical methods in their practice.
 
-The purpose of this book is to address the need for a clear and transparent
-description of the application of statistical sampling methodology in audit
-practice. In my opinion, most guidance (one notable exception is @Stewart2012)
-about audit sampling (e.g., @AICPA-A; @AICPA-C) lacks sufficient detail to allow
-for full transparency or a deep understanding. Additionally, the implementation
-of these methods in practice is often even less transparent, as theory and
-calculations are hidden from the user in commercial closed-source tools or audit
-guides in the form of Excel sheets used internally by audit firms. Therefore,
-many auditors may try to understand the theory involved in statistical audit 
-ampling, but they often end up with more questions than they began with. This
-book aims to empower the auditor by providing a comprehensive explanation of the
-statistical methodology used in practice.
+The aim of this book is to address the need for a clear and transparent
+explanation of the use of statistical sampling methodology in audit practice. In
+my opinion, most guidance about audit sampling (e.g., @AICPA-A; @AICPA-C) lacks
+sufficient detail to allow for full transparency or a deep understanding (one
+notable exception is @Stewart2012). Additionally, the implementation of
+statistical sampling methodology in practice is often even less transparent, as
+theory and calculations are hidden from auditors in commercial closed-source
+tools or in Excel sheets from audit guides used internally by audit firms. Thus,
+while attempting to comprehend the theoretical aspects of statistical audit
+sampling, auditors may encounter numerous relevant questions that are left
+unanswered by these tools. This book aims to clarify the statistical methodology
+utilized in practice, thereby empowering auditors through a comprehensive
+explanation.
 
-This book examines audit sampling from both a classical frequentist perspective
-and a Bayesian perspective. Through these two lenses, it explains the statistical
-theory underlying commonly applied audit sampling procedures and demonstrates
-how to apply these procedures in a statistically sound manner compliant with
-international auditing standards. It also demonstrates the use of Bayesian
-statistical methods in auditing practice, highlighting the practical benefits
-these methods can bring for auditors.
+This book discusses the topic of audit sampling from both a classical
+(frequentist) and a Bayesian perspective. By utilizing these two approaches, the
+book elucidates the statistical theory that underlies commonly used audit
+sampling techniques and illustrates how to utilize these techniques in
+accordance with international auditing standards. Additionally, the book
+demonstrates the use of Bayesian statistical methods in auditing practice and
+highlights the practical advantages that these methods can offer for auditors.
 
-This book is organized as follows. Chapter \@ref(CHAPTER-1) provides a
-basic introduction to the R programming language. Chapter \@ref(CHAPTER-2)
-discusses the basic statistical theory underlying audit sampling. Chapter
-\@ref(CHAPTER-2), \@ref(CHAPTER-4), \@ref(CHAPTER-5), and \@ref(CHAPTER-6) go
-into more detail about using statistial methods to plan, select and evaluate
-audit samples. Finally, Chapter \@ref(CHAPTER-7) discusses other R-related
-software implementations of audit sampling.
+The organization of this book is as follows: Chapter \@ref(CHAPTER-1) provides a
+foundational introduction to the R programming language. Chapter
+\@ref(CHAPTER-2) addresses the fundamental statistical theory relevant to audit
+sampling. Chapters \@ref(CHAPTER-2), \@ref(CHAPTER-4), \@ref(CHAPTER-5), and
+\@ref(CHAPTER-6) delve more deeply into the use of statistical methods for the
+planning, selection, and evaluation of audit samples. Finally, Chapter
+\@ref(CHAPTER-7) considers other software implementations of audit sampling
+utilizing R.

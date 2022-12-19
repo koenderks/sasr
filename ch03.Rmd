@@ -117,13 +117,16 @@ probability should be lower than the required sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 94))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -155,13 +158,17 @@ lower than the required sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 147))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
+           colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -292,13 +299,16 @@ should be lower than the required sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 99, prob = 0.03))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -334,13 +344,17 @@ required sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 157, prob = 0.03))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
+           colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -504,13 +518,17 @@ should be lower than the required sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 100 * 0.03))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c("firebrick", rep("darkgray", 10)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c("firebrick", rep("darkgray", 10)),
+           colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -546,13 +564,17 @@ sampling risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 159 * 0.03))
-yBreaks <- pretty(df$y, min.n = 4)
+y_breaks <- pretty(df$y, min.n = 4)
 p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity", fill = c(rep("firebrick", 2), rep("darkgray", 9)), col = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3), vjust = -0.5) +
+  geom_col(position = "identity",
+           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
+           colour = "black") +
+  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
+           vjust = -0.5) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = yBreaks, limits = range(yBreaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(yBreaks), yend = max(yBreaks)) +
+  scale_y_continuous(name = "Probability", breaks = y_breaks,
+                     limits = range(y_breaks)) +
+  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
   geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
 p
@@ -736,15 +758,18 @@ The auditee's the sum of the sales is $298,112,312 and the sum of the booked
 costs of sales is $223,994,405, respectively. This is indicated by a blue dot in
 the figure below, which visualizes the industry sales versus the cost of sales.
 
-```{r echo = FALSE, fig.width = 7, fig.height = 6}
+```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
+labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
-  geom_point(shape = 21, fill = "darkgray") +
+  geom_point(shape = 21, fill = "darkgray", size = 2) +
   geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
-             mapping = aes(x = x, y = y), fill = "dodgerblue",
+             mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
-  scale_x_continuous(name = "Sales (Million $)", breaks = breaks, limits = range(breaks)) +
-  scale_y_continuous(name = "Cost of sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  scale_x_continuous(name = "Sales", breaks = breaks,
+                     limits = range(breaks), labels = labels) +
+  scale_y_continuous(name = "Cost of sales", breaks = breaks,
+                     limits = range(breaks), labels = labels) +
   geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
   geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
@@ -755,7 +780,7 @@ The relationship between the sales $S$ and the cost of sales $C$ can be modelled
 by a linear equation:
 
 \begin{equation}
-  C = \beta_0 + \beta_1 \cdot S + \epsilon
+  C = \beta_0 + \beta_1 \cdot S + \epsilon.
 \end{equation}
 
 In practice, this relationship is often more complex than is presented above,
@@ -781,19 +806,23 @@ C_hat
 The fitted regression line and the predicted cost of sales (red dot) are
 visualized in the figure below:
 
-```{r echo = FALSE, fig.width = 7, fig.height = 6}
+```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
+labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
-  geom_smooth(stat = "smooth", formula = y ~ x, method = "lm", col = "black") +
-  geom_point(shape = 21, fill = "darkgray") +
+  geom_smooth(stat = "smooth", formula = y ~ x, method = "lm",
+              colour = "black", linewidth = 0.5) +
+  geom_point(shape = 21, fill = "darkgray", size = 2) +
   geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
-             mapping = aes(x = x, y = y), fill = "dodgerblue",
+             mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
   geom_point(data = data.frame(x = 298112312, y = C_hat), shape = 21,
-             mapping = aes(x = x, y = y), fill = "firebrick",
+             mapping = aes(x = x, y = y), fill = "firebrick", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
-  scale_x_continuous(name = "Sales (Million $)", breaks = breaks, limits = range(breaks)) +
-  scale_y_continuous(name = "Cost of sales (Million $)", breaks = breaks, limits = range(breaks)) +
+  scale_x_continuous(name = "Sales", breaks = breaks,
+                     limits = range(breaks), labels = labels) +
+  scale_y_continuous(name = "Cost of sales", breaks = breaks,
+                     limits = range(breaks), labels = labels) +
   geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
   geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
@@ -817,14 +846,17 @@ mu
 ```
 
 The standard deviation of the prior distribution is expressed through the
-standard deviation of the distribution of $\epsilon$.
+standard deviation of the distribution of $\epsilon$:
 
 ```{r}
 stdev <- sd(fit$residuals) / 223994405
 stdev
 ```
 
-The prior distribution can be constructed through a call to `auditPrior()`:
+The Normal(0.019, 0.05) prior distribution can be constructed through a call to
+`auditPrior()`, where the likelihood of the prior is specified as `normal`. We
+call the function with `method = "param"` to manually specify the parameters of
+the prior distribution.
 
 ```{r}
 prior <- auditPrior(method = "param", likelihood = "normal",
@@ -832,7 +864,7 @@ prior <- auditPrior(method = "param", likelihood = "normal",
 summary(prior)
 ```
 
-The prior distribution can be visualized using the `plot()` function.
+The specified prior distribution can be visualized using the `plot()` function.
 
 ```{r}
 plot(prior)
@@ -846,8 +878,8 @@ plan <- planning(materiality = 0.05, conf.level = 0.95,
 plan
 ```
 
-You can inspect how the prior distribution compares to the expected
-posterior distribution by using the `plot()` function.
+You can inspect how the prior distribution compares to the expected posterior
+distribution by using the `plot()` function.
 
 ```{r}
 plot(plan)
