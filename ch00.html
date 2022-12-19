@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R</title>
+<title>Statistical Audit Sampling with R - Preface</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,7 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch00.html" rel="next">
+<link href="./ch01.html" rel="next">
+<link href="./index.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -90,7 +91,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Statistical Audit Sampling with R</h1>
+      <h1 class="quarto-secondary-nav-title">Preface</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,12 +124,12 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch00.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./ch00.html" class="sidebar-item-text sidebar-link active">Preface</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -171,20 +172,14 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Statistical Audit Sampling with R</h1>
+<h1 class="title d-none d-lg-block">Preface</h1>
 </div>
 
 
@@ -199,20 +194,23 @@ div.csl-indent {
 
 </header>
 
-
-<section id="welcome" class="level1 unnumbered">
-<p><img src="cover.png" title="Statistical Audit Sampling with R" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">Welcome</h1>
-<p>This book, <strong>Statistical Audit Sampling with R</strong>, is intended as a practical guide for auditors who wish to utilize state-of-the-art statistical methodology in their audit sampling activities. While the focus of this book is exclusively on audit sampling, it aims to examine the topic from both the classical (frequentist) perspective and the Bayesian perspective. By examining the subject through these two lenses, the book explains the statistical theory behind commonly used audit sampling procedures and demonstrates how to perform these procedures in accordance with international auditing standards, using the <strong>jfa</strong> R package <span class="citation" data-cites="jfa">(<a href="#ref-jfa" role="doc-biblioref">Derks 2022</a>)</span>, in a statistically sound manner.</p>
-<p>This website operates under the <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0</a> License and will always be available free of charge.</p>
-<p>Please keep in mind that this is a preview release and much content is still missing. If you are missing something today, then check back tomorrow: This book is actively being worked on.</p>
+<p>This book is intended for auditors that want to obtain the knowledge and skill to utilize statistical audit sampling in their practice using the R programming language. It covers an array of traditional and innovative statistical tools that are available to auditors, explaining their function, the underlying assumptions, and when they are best utilized. In addition, it offers practical guidance on integrating advanced statistical sampling methodology into audit practice and demonstrates its value through real-world case studies. It is our hope that this book will serve as a valuable resource for auditors looking to effectively and efficiently utilize statistical methods in their practice.</p>
+<p>The aim of this book is to address the need for a clear and transparent explanation of the use of statistical sampling methodology in audit practice. In my opinion, most guidance about audit sampling (e.g., <span class="citation" data-cites="AICPA-A">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-A" role="doc-biblioref">2016a</a>)</span>; <span class="citation" data-cites="AICPA-C">American Institute of Certified Public Accountants (AICPA) (<a href="#ref-AICPA-C" role="doc-biblioref">2016b</a>)</span>) lacks sufficient detail to allow for full transparency or a deep understanding (one notable exception is <span class="citation" data-cites="Stewart2012">Stewart (<a href="#ref-Stewart2012" role="doc-biblioref">2012</a>)</span>). Additionally, the implementation of statistical sampling methodology in practice is often even less transparent, as theory and calculations are hidden from auditors in commercial closed-source tools or in Excel sheets from audit guides used internally by audit firms. Thus, while attempting to comprehend the theoretical aspects of statistical audit sampling, auditors may encounter numerous relevant questions that are left unanswered by these tools. This book aims to clarify the statistical methodology utilized in practice, thereby empowering auditors through a comprehensive explanation.</p>
+<p>This book discusses the topic of audit sampling from both a classical (frequentist) and a Bayesian perspective. By utilizing these two approaches, the book elucidates the statistical theory that underlies commonly used audit sampling techniques and illustrates how to utilize these techniques in accordance with international auditing standards. Additionally, the book demonstrates the use of Bayesian statistical methods in auditing practice and highlights the practical advantages that these methods can offer for auditors.</p>
+<p>The organization of this book is as follows: Chapter @ref(CHAPTER-1) provides a foundational introduction to the R programming language. Chapter @ref(CHAPTER-2) addresses the fundamental statistical theory relevant to audit sampling. Chapters @ref(CHAPTER-2), @ref(CHAPTER-4), @ref(CHAPTER-5), and @ref(CHAPTER-6) delve more deeply into the use of statistical methods for the planning, selection, and evaluation of audit samples. Finally, Chapter @ref(CHAPTER-7) considers other software implementations of audit sampling utilizing R.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-jfa" class="csl-entry" role="doc-biblioentry">
-Derks, Koen. 2022. <em><span class="nocase">jfa</span>: Statistical Methods for Auditing</em>. <a href="https://CRAN.R-project.org/package=jfa">https://CRAN.R-project.org/package=jfa</a>.
+<div id="ref-AICPA-A" class="csl-entry" role="doc-biblioentry">
+American Institute of Certified Public Accountants (AICPA). 2016a. <span>“Appendix <span>A</span>: Attributes Statistical Sampling Tables.”</span> In <em>Audit Guide: Audit Sampling</em>. https://doi.org/<a href="https://doi.org/10.1002/9781119448617.app1">https://doi.org/10.1002/9781119448617.app1</a>.
+</div>
+<div id="ref-AICPA-C" class="csl-entry" role="doc-biblioentry">
+———. 2016b. <span>“Appendix <span>C</span>: Monetary Unit Sampling Tables.”</span> In <em>Audit Guide: Audit Sampling</em>. https://doi.org/<a href="https://doi.org/10.1002/9781119448617.app3">https://doi.org/10.1002/9781119448617.app3</a>.
+</div>
+<div id="ref-Stewart2012" class="csl-entry" role="doc-biblioentry">
+Stewart, Trevor. 2012. <span>“Technical Notes on the <span>AICPA</span> Audit Guide Audit Sampling,”</span> 5–8.
 </div>
 </div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -350,10 +348,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch00.html" class="pagination-link">
-        <span class="nav-page-text">Preface</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ch01.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
