@@ -32,6 +32,7 @@ book:
     - chref.qmd
 
 bibliography: references.bib
+csl: apa.csl
 
 format:
   html:

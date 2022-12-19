@@ -149,3 +149,5 @@ summary(x)
 
 The output shows that the estimate of the misstatement in the population is
 15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.
+
+## References

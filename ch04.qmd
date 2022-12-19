@@ -505,3 +505,5 @@ result <- selection(data = BuildIt, size = n, units = "values",
                     values = "bookValue", randomize = TRUE)
 result$sample
 ```
+
+## References

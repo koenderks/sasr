@@ -98,3 +98,5 @@ downloaded with:
 ```{r, eval=FALSE}
 install.packages("MUS")
 ```
+
+## References

@@ -879,3 +879,5 @@ distribution by using the `plot()` function.
 ```{r}
 plot(plan)
 ```
+
+## References

@@ -379,3 +379,5 @@ likely to conclude that the financial statements are accurate.
 
 The **jfa** package can help us to calculate Bayes factors for and against the
 hypothesis that the financial statements are represented fairly.
+
+## References
