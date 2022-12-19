@@ -106,7 +106,7 @@ Random sampling can easily be coded in base R. First, we have to get a vector
 of of the possible items (rows) in the population that can be selected. When we
 are performing record sampling, we can simply use R's build in `sample()`
 function to draw a random sample from a vector `1:nrow(BuildIt)` representing
-the row indices of the items and store the result in a variable `rows`.
+the row indices of the items and store the result in a variable `items`.
 
 ```{r}
 set.seed(1)
@@ -115,7 +115,7 @@ items
 ```
 
 You can then select the sample from the population using the selected indices
-stored in `rows`.
+stored in `items`.
 
 ```{r}
 BuildIt[items, ]
@@ -139,7 +139,7 @@ of being selected. The `sample()` function faciliates weighted selection via the
 `prob` argument, which takes a vector of values and, using normalization,
 computes the weights for selection. The call below is similar to before, but in
 this case we use the book values in the column `bookValues` of the data set to
-weigh the items and store the result in a variable `rows`.
+weigh the items and store the result in a variable `items`.
 
 ```{r}
 set.seed(1)
@@ -149,7 +149,7 @@ items
 ```
 
 You can then select the sample from the population using the selected indices
-stored in `rows`.
+stored in `items`.
 
 ```{r}
 BuildIt[items, ]
@@ -246,7 +246,7 @@ items <- floor(start + interval * 0:(n - 1))
 ```
 
 You can then select the sample from the population using the selected indices
-stored in `rows`.
+stored in `items`.
 
 ```{r}
 BuildIt[items, ]
@@ -279,18 +279,22 @@ To find which units are part of the sample, we execute the following code:
 units <- floor(start + interval * 0:(n - 1))
 ```
 
-To obtain which items are part of the sample, 
+To obtain which items are part of the sample, we can run the following for loop.
+Note that this does not take into account whether the book values contain
+negative values, which should not be included in the cumulative sum below.
 
 ```{r}
+all_units <- ifelse(BuildIt$bookValue < 0, 0, BuildIt$bookValue)
+all_items <- 1:nrow(BuildIt)
 items <- numeric(n)
 for (i in 1:n) {
-  item <- which(units[i] <= cumsum(BuildIt$bookValue))[1]
-  items[i] <- (1:nrow(BuildIt))[item]
+  item <- which(units[i] <= cumsum(all_units))[1]
+  items[i] <- all_items[item]
 }
 ```
 
 You can then select the sample from the population using the selected indices
-stored in `rows`.
+stored in `items`.
 
 ```{r}
 BuildIt[items, ]
@@ -340,22 +344,87 @@ twice.
 
 #### Record Sampling
 
-As an example, the code below shows how to apply the cell sampling method in a
-record sampling and a monetary unit sampling setting. It is important to set a
-seed to make the results reproducible.
+To code cell sampling in a record sampling context, we again have to compute the
+size of the interval we are working with:
+
+```{r}
+interval <- nrow(BuildIt) / n
+```
+
+Next, we have to randomly determine which items are going to be selected in each
+interval.
 
 ```{r}
 set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "items", method = "cell")
-head(sample$sample, n = 6)
+starts <- floor(runif(n, 0, interval))
+```
+
+To find which rows are part of the sample, we execute the following code:
+
+```{r}
+items <- floor(starts + interval * 0:(n - 1))
+```
+
+You can then select the sample from the population using the selected indices
+stored in `items`.
+
+```{r}
+BuildIt[items, ]
+```
+
+The sample can be reproduced in **jfa** via the following command. Note that, by
+default, the first sampling unit from each interval is selected. However, this
+can be changed by setting the argument `start = 1` to a different value.
+
+```{r}
+set.seed(1)
+result <- selection(data = BuildIt, size = n, units = "items",
+                    method = "cell")
+result$sample
 ```
 
 #### Monetary Unit Sampling
 
+In monetary unit sampling, the only difference is that we are computing the
+interval on the basis of the booked values in the column `bookValue` of the data
+set. In this case, the starting points `start` determines which monetary unit
+from each interval is selected.
+
+```{r}
+interval <- sum(BuildIt$bookValue) / n
+```
+
+To obtain which items are part of the sample, we can run the following for loop.
+Note that this does not take into account whether the book values contain
+negative values, which should not be included in the cumulative sum below.
+
 ```{r}
 set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "cell", values = "bookValue")
-head(sample$sample, n = 6)
+all_units <- ifelse(BuildIt$bookValue < 0, 0, BuildIt$bookValue)
+all_items <- 1:nrow(BuildIt)
+intervals <- 0:n * interval
+items <- numeric(n)
+for (i in 1:n) {
+  unit <- stats::runif(1, intervals[i], intervals[i + 1])
+  item <- which(unit <= cumsum(all_units))[1]
+  items[i] <- all_items[item]
+}
+```
+
+You can then select the sample from the population using the selected indices
+stored in `items`.
+
+```{r}
+BuildIt[items, ]
+```
+
+The sample can be reproduced in **jfa** via the following command:
+
+```{r}
+set.seed(1)
+result <- selection(data = BuildIt, size = n, units = "values",
+                    method = "cell", values = "bookValue")
+result$sample
 ```
 
 ### Modified Sieve Sampling
@@ -373,15 +442,32 @@ number. Lastly, the items in the population are sorted by their sieve ratio $S$
 contrast to the classical sieve sampling method (Rietveld, 1978), the modified
 sieve sampling method provides precise control over sample sizes.
 
-As an example, the code below shows how to apply the modified sieve sampling
-method in a monetary unit sampling setting. It is important to set a seed to
-make results reproducible.
+#### Monetary Unit Sampling
+
 
 ```{r}
-# Monetary unit sampling
 set.seed(1)
-sample <- selection(data = BuildIt, size = 100, units = "values", method = "sieve", values = "bookValue")
-head(sample$sample, n = 6)
+all_units <- ifelse(BuildIt$bookValue < 0, 0, BuildIt$bookValue)
+all_items <- 1:nrow(BuildIt)
+ri <- all_units / stats::runif(length(all_items), 0, 1)
+items <- all_items[order(-ri)]
+items <- items[1:n]
+```
+
+You can then select the sample from the population using the selected indices
+stored in `items`.
+
+```{r}
+BuildIt[items, ]
+```
+
+The sample can be reproduced in **jfa** via the following command:
+
+```{r}
+set.seed(1)
+result <- selection(data = BuildIt, size = n, units = "values",
+                    method = "sieve", values = "bookValue")
+result$sample
 ```
 
 ## Ordering or Randomizing the Population
@@ -394,7 +480,6 @@ to highest book value before engaging in selection. In this case, you should use
 the `decreasing = FALSE` argument.
 
 ```{r}
-# Ordering population from lowest 'bookValue' to highest 'bookValue' before MUS
 set.seed(1)
 sample <- selection(
   data = BuildIt, size = 100,
@@ -408,7 +493,6 @@ The `randomize` argument can be used to randomly shuffle the items in the
 population before selection.
 
 ```{r}
-# Randomly shuffle population items before MUS
 set.seed(1)
 sample <- selection(
   data = BuildIt, size = 100,
