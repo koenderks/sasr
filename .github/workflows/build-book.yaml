@@ -12,7 +12,7 @@ name: renderbook
 
 jobs:
   build-deploy:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
