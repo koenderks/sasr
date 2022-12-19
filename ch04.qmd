@@ -477,16 +477,13 @@ and `randomize`) to preprocess your population before selection. The `order`
 argument takes as input a column name in `data` which determines the order of
 the population. For example, you can order the population from lowest book value
 to highest book value before engaging in selection. In this case, you should use
-the `decreasing = FALSE` argument.
+the `decreasing = FALSE` (default) argument.
 
 ```{r}
 set.seed(1)
-sample <- selection(
-  data = BuildIt, size = 100,
-  units = "values", values = "bookValue",
-  order = "bookValue", decreasing = FALSE
-)
-head(sample$sample, n = 6)
+result <- selection(data = BuildIt, size = n, units = "values",
+                    values = "bookValue", order = "bookValue")
+result$sample
 ```
 
 The `randomize` argument can be used to randomly shuffle the items in the
@@ -494,9 +491,7 @@ population before selection.
 
 ```{r}
 set.seed(1)
-sample <- selection(
-  data = BuildIt, size = 100,
-  units = "values", values = "bookValue", randomize = TRUE
-)
-head(sample$sample, n = 6)
+result <- selection(data = BuildIt, size = n, units = "values",
+                    values = "bookValue", randomize = TRUE)
+result$sample
 ```
