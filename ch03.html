@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Koen Derks">
 
 <title>Statistical Audit Sampling with R - 3&nbsp; Planning a Sample</title>
 <style>
@@ -231,6 +230,11 @@ div.csl-indent {
   <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Other Software</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chref.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -262,7 +266,7 @@ div.csl-indent {
   <li><a href="#benchmark-analysis" id="toc-benchmark-analysis" class="nav-link" data-scroll-target="#benchmark-analysis"><span class="toc-section-number">3.5.2</span>  Benchmark Analysis</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch03.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch03.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/blob/master/ch03.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -287,9 +291,8 @@ div.csl-indent {
 <div class="cell">
 
 </div>
-<p align="center">
-<img src="https://github.com/koenderks/jfa/raw/development/vignettes/img/planning.png" alt="planning" width="100%">
-</p>
+<p>This chapter discusses the most commonly used approaches to plan a statistical audit sample.</p>
+<p><img src="img/planning.png" class="img-fluid"></p>
 <p>One of the key considerations in audit sampling is determining the minimum sample size required to achieve a desired level of assurance or precision. In this chapter, we will discuss how to use three standard likelihoods to plan a minimum sample size for audit sampling: the hypergeometric likelihood, the binomial likelihood and the Poisson likelihood.</p>
 <section id="required-information" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="required-information"><span class="header-section-number">3.1</span> Required Information</h2>
@@ -923,8 +926,8 @@ div.csl-indent {
 </div>
 </div>
 <p>The prior distribution can be justified by the data and the auditee’s numerical prediction of the cost of sales. In this analytical procedure, the prior distribution on <span class="math inline">\(\theta\)</span> can utilize the relative error distribution from the linear regression. This relative error distribution, which is a Normal(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>) distribution, captures the uncertainty of the prediction of the cost of sales through the use of linear regression, scaled to be a percentage of the total cost of sales. The mean <span class="math inline">\(\mu\)</span> of the prior distribution is determined by the relative deviation of the auditee’s booked cost of sales when compared to the predicted cost of sales according to the benchmark data <span class="math inline">\(\frac{C - \hat{C}}{C}\)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-43_3c4c67c21ca39d3aeac20e8afb31dc6e">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> (<span class="dv">223994405</span> <span class="sc">-</span> C_hat[<span class="dv">1</span>]) <span class="sc">/</span> <span class="dv">223994405</span></span>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-43_350792ec695df5274bdddcdd6ce1bea9">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> (<span class="dv">223994405</span> <span class="sc">-</span> C_hat) <span class="sc">/</span> <span class="dv">223994405</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>mu</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.01864573</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
