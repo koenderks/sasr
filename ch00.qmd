@@ -1,4 +1,4 @@
-# Preface {-}
+# Preface {.unnumbered}
 
 This book is intended for auditors that want to obtain the knowledge and skill
 to utilize statistical audit sampling in their practice using the R programming

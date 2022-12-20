@@ -1,4 +1,4 @@
-# Welcome {-}
+# Welcome {.unnumbered}
 
 This book, **Statistical Audit Sampling with R**, is intended as a practical
 guide for auditors who wish to utilize state-of-the-art statistical methodology
