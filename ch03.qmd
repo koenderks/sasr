@@ -9,11 +9,7 @@ sample size to achieve a desired level of assurance or precision. This chapter
 will focus on three standard likelihoods commonly used in audit sampling: the
 hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 
-![Figure 3.1: The location of planning stage in the audit sampling workflow](img/planning.png){fig-align="center"}
-
-The standard audit sampling workflow consists of four stages: planning,
-selection, execution, and evaluation. The planning stage is the first of these
-stages.
+![Figure 3.1: The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The planning stage is the first of these stages.](img/planning.png){fig-align="center"}
 
 ## Required Information
 
