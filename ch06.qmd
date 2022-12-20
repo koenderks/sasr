@@ -4,7 +4,7 @@ source("utils.R", local = TRUE)
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
 
-![](img/selection.png)
+![Figure 6.1: The location of evaluation stage in the audit sampling workflow](img/evaluation.png){fig-align="center"}
 
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure
@@ -239,5 +239,3 @@ requested via the `plot()` function.
 ```{r}
 plot(x, type = "posterior")
 ```
-
-## References

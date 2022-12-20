@@ -38,5 +38,3 @@ statistical theory relevant to audit sampling. Chapters 3, 4, 5, and 5 delve
 more deeply into the use of statistical methods for the planning, selection, and
 evaluation of audit samples. Finally, Chapter 7 considers other software
 implementations of audit sampling utilizing R.
-
-## References

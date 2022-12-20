@@ -4,16 +4,16 @@ source("utils.R", local = TRUE)
 
 # Planning a Sample {#CHAPTER-3}
 
-This chapter discusses the most commonly used approaches to plan a statistical
-audit sample.
+One of the key considerations in audit sampling is determining the appropriate
+sample size to achieve a desired level of assurance or precision. This chapter
+will focus on three standard likelihoods commonly used in audit sampling: the
+hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 
-![](img/planning.png)
+![Figure 3.1: The location of planning stage in the audit sampling workflow](img/planning.png){fig-align="center"}
 
-One of the key considerations in audit sampling is determining the minimum
-sample size required to achieve a desired level of assurance or precision. In
-this chapter, we will discuss how to use three standard likelihoods to plan a
-minimum sample size for audit sampling: the hypergeometric likelihood, the
-binomial likelihood and the Poisson likelihood.
+The standard audit sampling workflow consists of four stages: planning,
+selection, execution, and evaluation. The planning stage is the first of these
+stages.
 
 ## Required Information
 
@@ -879,5 +879,3 @@ distribution by using the `plot()` function.
 ```{r}
 plot(plan)
 ```
-
-## References
