@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Koen Derks">
 
 <title>Statistical Audit Sampling with R - 2&nbsp; Background Information</title>
 <style>
@@ -170,11 +171,6 @@ div.csl-indent {
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
     </div>
       </div>
@@ -265,6 +261,7 @@ div.csl-indent {
   <li><a href="#parameter-estimation-1" id="toc-parameter-estimation-1" class="nav-link" data-scroll-target="#parameter-estimation-1"><span class="toc-section-number">2.4.1</span>  Parameter Estimation</a></li>
   <li><a href="#hypothesis-testing-1" id="toc-hypothesis-testing-1" class="nav-link" data-scroll-target="#hypothesis-testing-1"><span class="toc-section-number">2.4.2</span>  Hypothesis Testing</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.5</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch02.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/blob/master/ch02.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -303,7 +300,7 @@ div.csl-indent {
 <li><a href="https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf">AU-C 530</a>: Auditing standard for private firms published by the American Institute of Certified Public Accountants (AICPA).</li>
 <li><a href="https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315">AS 2315</a>: Auditing standard for public firms published by the Public Company Accounting Oversign Board (PCAOB).</li>
 </ul>
-<p>All three standards present a similar explanation of statistical sampling. For instance, ISA 530 <span class="citation" data-cites="ISA530">(<a href="#ref-ISA530" role="doc-biblioref">International Auditing and Assurance Standards Board (IAASB) 2018</a>)</span> defines statistical audit sampling as a method that at minimum exhibits the following two characteristics:</p>
+<p>All three standards present a similar explanation of statistical sampling. For instance, ISA 530 <span class="citation" data-cites="ISA530">(<a href="chref.html#ref-ISA530" role="doc-biblioref">International Auditing and Assurance Standards Board (IAASB), 2018</a>)</span> defines statistical audit sampling as a method that at minimum exhibits the following two characteristics:</p>
 <ul>
 <li>Random selection of sample items,</li>
 <li>The use of an appropriate statistical technique to evaluate sample results, including measurement of sampling risk</li>
@@ -485,14 +482,17 @@ div.csl-indent {
 <p>The Bayes factor can be used to assess the strength of evidence for one hypothesis over the other and to determine which hypothesis is more likely to be true given the observed data. It is often used in scientific research to help evaluate the validity of different hypotheses and to make informed decisions based on the available evidence. For auditors, the Bayes factor can be a useful tool to determine the likelihood of different hypotheses being true based on the data they have collected, and it can help them make informed decisions about the fairness of the financial statements.</p>
 <p>For example, if the Bayes factor is 5, this means that the probability of the statements being accurate given the observed data is 5 times higher than the probability of them being not accurate. In this case, the auditor would be more likely to conclude that the financial statements are accurate.</p>
 <p>The <strong>jfa</strong> package can help us to calculate Bayes factors for and against the hypothesis that the financial statements are represented fairly.</p>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-ISA530" class="csl-entry" role="doc-biblioentry">
-International Auditing and Assurance Standards Board (IAASB). 2018. <span>“<span>ISA</span> 530: Audit Sampling.”</span> In <em>International Standards on Auditing (<span>ISA</span>)</em>.
-</div>
-</div>
 </section>
+</section>
+<section id="references" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="references"><span class="header-section-number">2.5</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-ISA530" class="csl-entry" role="doc-biblioentry">
+International Auditing and Assurance Standards Board (IAASB). (2018). <span>ISA</span> 530: Audit sampling. In <em>International standards on auditing (<span>ISA</span>)</em>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

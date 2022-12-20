@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Koen Derks">
 
 <title>Statistical Audit Sampling with R - 1&nbsp; Introduction to R</title>
 <style>
@@ -169,11 +170,6 @@ div.csl-indent {
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
     </div>
       </div>
@@ -260,6 +256,7 @@ div.csl-indent {
   <li><a href="#loading-data-from-a-csv-file" id="toc-loading-data-from-a-csv-file" class="nav-link" data-scroll-target="#loading-data-from-a-csv-file"><span class="toc-section-number">1.3.1</span>  Loading Data from a CSV File</a></li>
   <li><a href="#loading-data-from-an-excel-file" id="toc-loading-data-from-an-excel-file" class="nav-link" data-scroll-target="#loading-data-from-an-excel-file"><span class="toc-section-number">1.3.2</span>  Loading Data from an Excel File</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">1.4</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch01.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/blob/master/ch01.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -286,8 +283,8 @@ div.csl-indent {
 <div class="cell">
 
 </div>
-<p>R is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization and has a large and active community of users. As a result, there are many community resources available for learning and using R. This book will provide a short introduction to R but does not offer a full course on it. If you want to dive deeper into R, I recommend reading <span class="citation" data-cites="Chang2022">Chang (<a href="#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam and Grolemund (<a href="#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>.</p>
-<p>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A resource that discusses these applications of R in the audit can be found in <span class="citation" data-cites="Lin2022">Lin (<a href="#ref-Lin2022" role="doc-biblioref">2021</a>)</span>.</p>
+<p>R is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization and has a large and active community of users. As a result, there are many community resources available for learning and using R. This book will provide a short introduction to R but does not offer a full course on it. If you want to dive deeper into R, I recommend reading <span class="citation" data-cites="Chang2022">Chang (<a href="chref.html#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam &amp; Grolemund (<a href="chref.html#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="chref.html#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="chref.html#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A resource that discusses these applications of R in the audit can be found in <span class="citation" data-cites="Lin2022">Lin (<a href="chref.html#ref-Lin2022" role="doc-biblioref">2021</a>)</span>.</p>
 <p>We will first provide a basic introduction to R and the functionality that is required for reproducing the audit sampling examples in this book.</p>
 <section id="basics" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">1.1</span> Basics</h2>
@@ -409,7 +406,7 @@ div.csl-indent {
 <h2 data-number="1.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">1.2</span> Packages</h2>
 <p>In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.</p>
 <blockquote class="blockquote">
-<p>If you want to know more about making your own package, read <span class="citation" data-cites="Wickam2022">Wickam and Brian (<a href="#ref-Wickam2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>If you want to know more about making your own package, read <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="chref.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span>.</p>
 </blockquote>
 <section id="installing-a-package" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="installing-a-package"><span class="header-section-number">1.2.1</span> Installing a Package</h3>
@@ -457,29 +454,32 @@ div.csl-indent {
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"example.csv"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
+<section id="references" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="references"><span class="header-section-number">1.4</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
 <div id="ref-Chang2022" class="csl-entry" role="doc-biblioentry">
-Chang, Winston. 2022. <em><span>R Graphics Cookbook</span></em>. O’Reilly. <a href="https://r-graphics.org/">https://r-graphics.org/</a>.
+Chang, W. (2022). <em><span>R Graphics Cookbook</span></em>. O’Reilly. <a href="https://r-graphics.org/">https://r-graphics.org/</a>
 </div>
 <div id="ref-Grolemund2014" class="csl-entry" role="doc-biblioentry">
-Grolemund, Garrett. 2014. <em><span class="nocase">Hands-On Programming with R</span></em>. <a href="https://rstudio-education.github.io/hopr/">https://rstudio-education.github.io/hopr/</a>.
+Grolemund, G. (2014). <em><span class="nocase">Hands-On Programming with R</span></em>. <a href="https://rstudio-education.github.io/hopr/">https://rstudio-education.github.io/hopr/</a>
 </div>
 <div id="ref-Lin2022" class="csl-entry" role="doc-biblioentry">
-Lin, Jonathan. 2021. <em><span class="nocase">Audit Analytics with R</span></em>. <a href="https://auditanalytics.jonlin.ca/">https://auditanalytics.jonlin.ca/</a>.
+Lin, J. (2021). <em><span class="nocase">Audit Analytics with R</span></em>. <a href="https://auditanalytics.jonlin.ca/">https://auditanalytics.jonlin.ca/</a>
 </div>
 <div id="ref-Wickam2022" class="csl-entry" role="doc-biblioentry">
-Wickam, Hadley, and Jenny Brian. 2022. <em><span>R Packages</span></em>. <a href="https://r-pkgs.org/">https://r-pkgs.org/</a>.
+Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="https://r-pkgs.org/">https://r-pkgs.org/</a>
 </div>
 <div id="ref-Wickam2017" class="csl-entry" role="doc-biblioentry">
-Wickam, Hadley, and Garrett Grolemund. 2017. <em><span class="nocase">R for Data Science</span></em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+Wickam, H., &amp; Grolemund, G. (2017). <em><span class="nocase">R for Data Science</span></em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>
 </div>
 <div id="ref-Wilke2022" class="csl-entry" role="doc-biblioentry">
-Wilke, Claus O. 2022. <em><span class="nocase">Fundamentals of Data Visualization</span></em>. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.
+Wilke, C. O. (2022). <em><span class="nocase">Fundamentals of Data Visualization</span></em>. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->

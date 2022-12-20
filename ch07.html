@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Koen Derks">
 
 <title>Statistical Audit Sampling with R - 7&nbsp; Other Software</title>
 <style>
@@ -170,11 +171,6 @@ div.csl-indent {
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
     </div>
       </div>
@@ -251,6 +247,7 @@ div.csl-indent {
   <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="toc-section-number">7.1.3</span>  Evaluation</a></li>
   </ul></li>
   <li><a href="#mus-r" id="toc-mus-r" class="nav-link" data-scroll-target="#mus-r"><span class="toc-section-number">7.2</span>  MUS (R)</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7.3</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch07.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/blob/master/ch07.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -280,7 +277,7 @@ div.csl-indent {
 <p>This chapter discusses other R-related open-source software implementing statistical techniques for audit sampling.</p>
 <section id="jasp-for-audit-gui" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="jasp-for-audit-gui"><span class="header-section-number">7.1</span> JASP for Audit (GUI)</h2>
-<p>JASP for Audit <span class="citation" data-cites="derks2021_jasp">(<a href="#ref-derks2021_jasp" role="doc-biblioref">Derks et al. 2021</a>)</span> is an add-on module for <a href="http://jasp-stats.org/">JASP</a> <span class="citation" data-cites="JASP">(<a href="#ref-JASP" role="doc-biblioref">JASP Team 2022</a>)</span>, based on the <strong>jfa</strong> package, that facilitates statistical audit sampling. Concretely, it contains graphical user interfaces (GUI’s) for calculating sample sizes, selecting items according to standard audit sampling techniques, and performing inference about the population misstatement on the basis of a data sample or summary statistics of a sample. The module also features Bayesian equivalents of these analyses that enable the user to easily incorporate prior information into the statistical procedure. In all analyses, the Audit module offers explanatory text that helps the auditor in interpreting, explaining, and reporting the analysis. Since JASP for Audit is an R-based GUI around <strong>jfa</strong>, its functionality can be mapped almost one-on-one to that of the package.</p>
+<p>JASP for Audit <span class="citation" data-cites="derks2021_jasp">(<a href="chref.html#ref-derks2021_jasp" role="doc-biblioref">Derks et al., 2021</a>)</span> is an add-on module for <a href="http://jasp-stats.org/">JASP</a> <span class="citation" data-cites="JASP">(<a href="chref.html#ref-JASP" role="doc-biblioref">JASP Team, 2022</a>)</span>, based on the <strong>jfa</strong> package, that facilitates statistical audit sampling. Concretely, it contains graphical user interfaces (GUI’s) for calculating sample sizes, selecting items according to standard audit sampling techniques, and performing inference about the population misstatement on the basis of a data sample or summary statistics of a sample. The module also features Bayesian equivalents of these analyses that enable the user to easily incorporate prior information into the statistical procedure. In all analyses, the Audit module offers explanatory text that helps the auditor in interpreting, explaining, and reporting the analysis. Since JASP for Audit is an R-based GUI around <strong>jfa</strong>, its functionality can be mapped almost one-on-one to that of the package.</p>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -367,21 +364,24 @@ div.csl-indent {
 </section>
 <section id="mus-r" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="mus-r"><span class="header-section-number">7.2</span> MUS (R)</h2>
-<p><strong>MUS</strong> <span class="citation" data-cites="MUS">(<a href="#ref-MUS" role="doc-biblioref">Prömpers and Guimarães 2019</a>)</span> is an R package proving sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via <a href="https://cran.r-project.org/package=MUS">CRAN</a> and can be downloaded with:</p>
+<p><strong>MUS</strong> <span class="citation" data-cites="MUS">(<a href="chref.html#ref-MUS" role="doc-biblioref">Prömpers &amp; Guimarães, 2019</a>)</span> is an R package proving sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via <a href="https://cran.r-project.org/package=MUS">CRAN</a> and can be downloaded with:</p>
 <div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-5_d748bc34c7dd96d711c06e03af74de43">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"MUS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="references" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="references"><span class="header-section-number">7.3</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
 <div id="ref-derks2021_jasp" class="csl-entry" role="doc-biblioentry">
-Derks, Koen, Jacques de Swart, Eric–Jan Wagenmakers, Jan Wille, and Ruud Wetzels. 2021. <span>“<span>JASP</span> for <span>A</span>udit: <span>B</span>ayesian Tools for the Auditing Practice.”</span> <em>Journal of Open Source Software</em> 6 (68): 2733.
+Derks, K., Swart, J. de, Wagenmakers, E., Wille, J., &amp; Wetzels, R. (2021). <span>JASP</span> for <span>A</span>udit: <span>B</span>ayesian tools for the auditing practice. <em>Journal of Open Source Software</em>, <em>6</em>(68), 2733.
 </div>
 <div id="ref-JASP" class="csl-entry" role="doc-biblioentry">
-JASP Team. 2022. <span>“<span class="nocase">JASP (Version 0.16.4)[Computer software]</span>.”</span> <a href="https://jasp-stats.org/">https://jasp-stats.org/</a>.
+JASP Team. (2022). <em><span class="nocase">JASP (Version 0.16.4)[Computer software]</span></em>. <a href="https://jasp-stats.org/">https://jasp-stats.org/</a>
 </div>
 <div id="ref-MUS" class="csl-entry" role="doc-biblioentry">
-Prömpers, Henning, and André Guimarães. 2019. <em><span>MUS</span>: Monetary Unit Sampling and Estimation Methods, Widely Used in Auditing</em>. <a href="https://CRAN.R-project.org/package=MUS">https://CRAN.R-project.org/package=MUS</a>.
+Prömpers, H., &amp; Guimarães, A. (2019). <em><span>MUS</span>: Monetary unit sampling and estimation methods, widely used in auditing</em>. <a href="https://CRAN.R-project.org/package=MUS">https://CRAN.R-project.org/package=MUS</a>
 </div>
 </div>
 </section>

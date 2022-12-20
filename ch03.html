@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Koen Derks">
 
 <title>Statistical Audit Sampling with R - 3&nbsp; Planning a Sample</title>
 <style>
@@ -170,11 +171,6 @@ div.csl-indent {
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
     </div>
       </div>
@@ -265,6 +261,7 @@ div.csl-indent {
   <li><a href="#audit-risk-model" id="toc-audit-risk-model" class="nav-link" data-scroll-target="#audit-risk-model"><span class="toc-section-number">3.5.1</span>  Audit Risk Model</a></li>
   <li><a href="#benchmark-analysis" id="toc-benchmark-analysis" class="nav-link" data-scroll-target="#benchmark-analysis"><span class="toc-section-number">3.5.2</span>  Benchmark Analysis</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3.6</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/ch03.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/blob/master/ch03.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -379,7 +376,7 @@ div.csl-indent {
 </section>
 <section id="bayesian-planning" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="bayesian-planning"><span class="header-section-number">3.2.2</span> Bayesian Planning</h3>
-<p>Performing Bayesian planning with the hypergeometric likelihood <span class="citation" data-cites="Dyer1993">(<a href="#ref-Dyer1993" role="doc-biblioref">Dyer and Pierce 1993</a>)</span> requires that you specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>. Practically, this means that you should provide an input for the <code>prior</code> argument in the <code>planning()</code> function.</p>
+<p>Performing Bayesian planning with the hypergeometric likelihood <span class="citation" data-cites="Dyer1993">(<a href="chref.html#ref-Dyer1993" role="doc-biblioref">Dyer &amp; Pierce, 1993</a>)</span> requires that you specify a prior distribution for the parameter <span class="math inline">\(\theta\)</span>. Practically, this means that you should provide an input for the <code>prior</code> argument in the <code>planning()</code> function.</p>
 <p>Setting <code>prior = TRUE</code> performs Bayesian planning using a <a href="https://koenderks.github.io/jfa/articles/creating-prior.html#default-priors-method-default">default prior</a> conjugate to the specified <code>likelihood</code> (i.e., a beta-binomial prior). Concretely, this means that the following statistical model is assumed:</p>
 <p><span class="math display">\[\begin{align}
   k &amp;\sim \text{Hypergeometric}(n, N, K) \\
@@ -858,7 +855,7 @@ div.csl-indent {
 </section>
 <section id="benchmark-analysis" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="benchmark-analysis"><span class="header-section-number">3.5.2</span> Benchmark Analysis</h3>
-<p>The auditor may incorporate information obtained through analytical procedures <span class="citation" data-cites="Derks2021">(<a href="#ref-Derks2021" role="doc-biblioref">Derks et al. 2021</a>)</span>, such as a benchmark analysis, into the prior distribution for <span class="math inline">\(\theta\)</span>. While we have previously discussed methods for constructing a prior distribution based on existing knowledge, there is no set procedure for incorporating information obtained through analytical procedures, as these procedures can vary significantly depending on the type of information being incorporated into the prior distribution. Therefore, it is important to thoroughly substantiate the data and assumptions used in this approach and to carefully consider how these assumptions are incorporated into the prior distribution.</p>
+<p>The auditor may incorporate information obtained through analytical procedures <span class="citation" data-cites="Derks2021">(<a href="chref.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span>, such as a benchmark analysis, into the prior distribution for <span class="math inline">\(\theta\)</span>. While we have previously discussed methods for constructing a prior distribution based on existing knowledge, there is no set procedure for incorporating information obtained through analytical procedures, as these procedures can vary significantly depending on the type of information being incorporated into the prior distribution. Therefore, it is important to thoroughly substantiate the data and assumptions used in this approach and to carefully consider how these assumptions are incorporated into the prior distribution.</p>
 <p>One way to construct a prior distribution on the basis of data is through the use of regression models, such as benchmarking the relationship between sales and costs of sales within the auditee’s specific industry sector. The <strong>jfa</strong> package includes a data set <code>benchmark</code> that can be used for this example.</p>
 <div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-38_e0f16891ffd542517cde25ce3cdb5330">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(benchmark)</span>
@@ -993,17 +990,20 @@ div.csl-indent {
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="references" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="references"><span class="header-section-number">3.6</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
 <div id="ref-Derks2021" class="csl-entry" role="doc-biblioentry">
-Derks, Koen, Jacques de Swart, Paul van Batenburg, Eric-Jan Wagenmakers, and Ruud Wetzels. 2021. <span>“Priors in a <span>B</span>ayesian Audit: How Integration of Existing Information into the Prior Distribution Can Improve Audit Transparency and Efficiency.”</span> <em>International Journal of Auditing</em> 25 (3): 621–36. <a href="https://doi.org/10.1111/ijau.12240">https://doi.org/10.1111/ijau.12240</a>.
+Derks, K., Swart, J. de, Batenburg, P. van, Wagenmakers, E.-J., &amp; Wetzels, R. (2021). Priors in a <span>B</span>ayesian audit: How integration of existing information into the prior distribution can improve audit transparency and efficiency. <em>International Journal of Auditing</em>, <em>25</em>(3), 621–636. <a href="https://doi.org/10.1111/ijau.12240">https://doi.org/10.1111/ijau.12240</a>
 </div>
 <div id="ref-Dyer1993" class="csl-entry" role="doc-biblioentry">
-Dyer, Danny, and Rebecca L Pierce. 1993. <span>“On the Choice of the Prior Distribution in Hypergeometric Sampling.”</span> <em>Communications in Statistics - Theory and Methods</em> 22 (8): 2125–46. <a href="https://doi.org/10.1080/03610929308831139">https://doi.org/10.1080/03610929308831139</a>.
+Dyer, D., &amp; Pierce, R. L. (1993). On the choice of the prior distribution in hypergeometric sampling. <em>Communications in Statistics - Theory and Methods</em>, <em>22</em>(8), 2125–2146. <a href="https://doi.org/10.1080/03610929308831139">https://doi.org/10.1080/03610929308831139</a>
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
