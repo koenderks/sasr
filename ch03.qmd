@@ -652,18 +652,20 @@ plot(plan)
 
 ## Practical Examples
 
-This section contains practical examples of how to construct a prior
-distribution based on audit information.
+This section contains practical examples of how to conduct the planning of
+statistical audit samples and demonstrates how to set up a prior distribution
+based on various types of relevant audit information.
 
 ### Audit Risk Model
 
-In this example, an auditor is performing tests of details on a population of
-the auditee. For instance, let's say an auditor is performing an audit on a
+In our first example, an auditor is performing tests of details on a population
+of the auditee. For instance, let's say an auditor is performing an audit on a
 company's accounts payable transactions. The company has a total of $N$ = 1000
 accounts payable transactions for the year. Rather than testing all 1000
 transactions, the auditor can choose to test a sample of the transactions. The
-performance materiality for the payable transactions account is set to 3%. Based
-on the results of last years audit, where the estimate of the maximum
+performance materiality for the payable transactions account is set to
+$\theta_{max}$ = 3%, and the audit risk is set to $\alpha = 0.05$, or 5%. Based
+on the results of last years audit, where the most likely estimate of the
 misstatement was 1%, the auditor wants to tolerate 1% misstatements in the
 sample before giving an unqualified opinion on the population.
 
@@ -680,37 +682,47 @@ duties and its risk management processes, and has determined that they are
 sufficient to prevent or detect material misstatements. Because the internal
 control systems were effective, the auditor assesses the control risk as medium.
 The auditor's firm defines the risk categories low, medium, and high
-respectively as 50%, 60%, and 100%.
+respectively as 50%, 60%, and 100%. According to the Audit Risk Model, the
+detection risk can be calculated as a function of the audit risk, the inherent
+risk and the control risk.
 
 ```{r}
 ir <- 1              # Inherent risk
 cr <- 0.6            # Control risk
 dr <- ar / (ir * cr) # Detection risk
+dr
 ```
 
-By using the detection risk as the adjusted audit risk, the auditor can plan
-for a sample while taking into account the risk-reducing information from the
-assessments of inherent risk and control risk. The required minimum sample size
-is 174 in this case.
+By using the detection risk of 8.33% as the sampling risk for this population,
+the auditor can plan for a sample while taking into account the risk-reducing
+information. The required minimum sample size is 174 in this case.
 
 ```{r}
 planning(materiality = 0.03, expected = expected, conf.level = 1 - dr)
 ```
 
-The auditor is free to apply a Bayesian philosophy in planning the sample. For
-example, the risk assessments from the ARM can be incorporated into a prior
-distribution. This can be done using `method = "arm"` in the `auditPrior()`
-function, which takes the values of the inherent risk probability `ir` and the
-control risk probability `cr`. Hence, the prior distribution in this example
-can be constructed using the following command:
+The example above is a frequentist one. However, the auditor is free to apply a
+Bayesian philosophy in planning the sample. For example, the risk assessments
+from the ARM can be incorporated into a prior distribution. This can be done
+using `method = "arm"` in the `auditPrior()` function, which takes the values of
+the inherent risk probability `ir` and the control risk probability `cr`. Hence,
+the prior distribution in this example can be constructed using the following
+command:
 
 ```{r}
 prior <- auditPrior(method = "arm", materiality = 0.03, expected = expected,
                     ir = ir, cr = cr)
+```
+
+The `summary()` function can be used to obtain relevant information about the
+prior distribution.
+
+```{r}
 summary(prior)
 ```
 
-The prior distribution can be visualized using the `plot()` function.
+Furthermore, the prior distribution can be visualized with a call to the
+`plot()` function.
 
 ```{r}
 plot(prior)
