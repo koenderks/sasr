@@ -2,17 +2,20 @@ project:
   type: book
   output-dir: _book
 
-book:
-  title: "Statistical Audit Sampling with R"
-  author: "Koen Derks"
-  date: "12/19/2022"
-  reader-mode: true
+author-meta: Koen Derks
+editor: visual
+callout-appearance: simple
+bibliography: references.bib
+csl: apa.csl
 
-  page-footer:
-    left: |
-      Statistical Audit Sampling with R was written by Koen Derks.
-    right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
+book:
+  title: Statistical Audit Sampling with R
+  author:
+    - name: Koen Derks
+      orcid: 0000-0002-5533-9349
+      corresponding: true
+  date: today
+  reader-mode: false
   cover-image: cover.png
   favicon: cover.png
   site-url: https://koenderks.github.io/sasr/
@@ -29,10 +32,11 @@ book:
     - ch05.qmd
     - ch06.qmd
     - ch07.qmd
-    - chref.qmd
-
-bibliography: references.bib
-csl: apa.csl
+  page-footer:
+    left: |
+      Statistical Audit Sampling with R was written by Koen Derks.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
 
 format:
   html:
@@ -42,8 +46,3 @@ format:
     code-link: true
   epub:
     cover-image: cover.png
-
-    author-meta: "Koen Derks"
-    callout-appearance: simple
-
-editor: visual
