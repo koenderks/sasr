@@ -491,7 +491,7 @@ ub_binom
 When calculated via the beta relationship, the upper bound is:
 
 ```{r}
-ub_beta <- qbeta(p = 0.95, shape1 = 1 + k, shape2 = n - k)
+ub_beta <- qbeta(p = 0.95, shape1 = 1 + 2, shape2 = 10 - 2)
 ub_beta
 ```
 
@@ -797,7 +797,7 @@ When calculated via the relationship with the gamma distribution, the upper
 bound is:
 
 ```{r}
-ub_gamma <- qgamma(p = 0.95, shape = 1 + k, rate = n)
+ub_gamma <- qgamma(p = 0.95, shape = 1 + 2, rate = 10)
 ub_gamma
 ```
 
