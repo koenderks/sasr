@@ -293,7 +293,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter should be readable but is currently undergoing final polishing.</p>
+<p>You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter should be readable but is currently undergoing polishing.</p>
 </div>
 </div>
 </div>
@@ -448,7 +448,7 @@ div.csl-indent {
 <section id="example" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="example"><span class="header-section-number">2.3.3</span> Example</h3>
 <p>As an example, the <code>binom.test()</code> function in R can be used to test if a population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use the <code>binom.test()</code> function, the auditor must input the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code>. The sampling risk is set to 5%, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to test if the proportion of misstatements in the sample is less than the hypothesized proportion.</p>
-<div class="cell" data-layout-align="center" data-hash="ch02_cache/html/unnamed-chunk-2_48eb2cd3cbd157d62f1fd27be469b284">
+<div class="cell" data-layout-align="center" data-hash="ch02_cache/html/unnamed-chunk-2_21edb3b9587c33648a56da3a9929aba0">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>

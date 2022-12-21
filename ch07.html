@@ -308,7 +308,7 @@ div.csl-indent {
 </figure>
 </div>
 <p>In <strong>jfa</strong>, these results can be reproduced via the following command:</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-2_d9c58a836ce3f44958bd8ea703086824">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-2_4b65a1c246fc19227f9fbb934b22d9fd">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning</span></span>
@@ -320,7 +320,7 @@ div.csl-indent {
 <section id="selection" class="level4" data-number="7.1.1.2">
 <h4 data-number="7.1.1.2" class="anchored" data-anchor-id="selection"><span class="header-section-number">7.1.1.2</span> Selection</h4>
 <p>Selecting a sample in JASP for Audit works similar to how you would do it in <strong>jfa</strong>. For example, the screenshot below shows how to select a sample of 60 monetary units from the <code>BuildIt</code> data set that is included in the package using a fixed interval sampling method with a starting point of 1.</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-3_17ad14da2eae6bf102a5967efb02c494">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-3_41da9208707cf293bf6adb59172d28dd">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">60</span>, <span class="at">units =</span> <span class="st">"values"</span>,</span>
@@ -351,7 +351,7 @@ div.csl-indent {
 </figure>
 </div>
 <p>In <strong>jfa</strong>, these results can be reproduced via the following command:</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-4_d57299ebee69a08932d6948ed9c0c29f">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-4_a2dab73a07e8ed09ab53af5cf013dba9">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">n =</span> <span class="dv">93</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -375,7 +375,7 @@ div.csl-indent {
 <section id="mus" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="mus"><span class="header-section-number">7.2.1</span> MUS</h3>
 <p><strong>MUS</strong> <span class="citation" data-cites="MUS">(<a href="chref.html#ref-MUS" role="doc-biblioref">Prömpers &amp; Guimarães, 2019</a>)</span> is an R package providing sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via <a href="https://cran.r-project.org/package=MUS">CRAN</a> and can be downloaded by running the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-5_d748bc34c7dd96d711c06e03af74de43">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-5_70be0ef69b1c66384c9d420e010ec773">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"MUS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the <strong>MUS</strong> package provides no functionality for Bayesian audit sampling.</p>
@@ -383,7 +383,7 @@ div.csl-indent {
 <section id="audit" class="level3" data-number="7.2.2">
 <h3 data-number="7.2.2" class="anchored" data-anchor-id="audit"><span class="header-section-number">7.2.2</span> audit</h3>
 <p><strong>audit</strong> <span class="citation" data-cites="audit">(<a href="chref.html#ref-audit" role="doc-biblioref">Meeden, 2021</a>)</span> is an R package based on the paper by <span class="citation" data-cites="Meeden2007">Meeden &amp; Sargent (<a href="chref.html#ref-Meeden2007" role="doc-biblioref">2007</a>)</span> that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <a href="https://cran.r-project.org/package=audit">CRAN</a> and can be downloaded by running the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-6_be5883c558b6c121022ae3853af68d8a">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-6_8779e77673bf6adbde84298e34b378fd">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the <strong>audit</strong> package provides limited functionality for evaluating audit samples and has no functionality for planning and selecting audit samples.</p>
@@ -391,7 +391,7 @@ div.csl-indent {
 <section id="samplingbook" class="level3" data-number="7.2.3">
 <h3 data-number="7.2.3" class="anchored" data-anchor-id="samplingbook"><span class="header-section-number">7.2.3</span> samplingbook</h3>
 <p><strong>samplingbook</strong> <span class="citation" data-cites="samplingbook">(<a href="chref.html#ref-samplingbook" role="doc-biblioref">Manitz et al., 2021</a>)</span> is an R package based on the book <strong>Stichproben: Methoden und praktische Umsetzung mit R</strong> <span class="citation" data-cites="Kauermann2010">(<a href="chref.html#ref-Kauermann2010" role="doc-biblioref">Kauermann &amp; Kuechenhoff, 2010</a>)</span> that focuses on survey sampling and statistical analysis of these samples. The package is available via <a href="https://cran.r-project.org/package=samplingbook">CRAN</a> and can be downloaded by running the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-7_49f9e381a36288b24bc82966844af27e">
+<div class="cell" data-layout-align="center" data-hash="ch07_cache/html/unnamed-chunk-7_cff76740e679a813fd7d6f11c0c2016a">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"samplingbook"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the <strong>samplingbook</strong> package provides limited functionality for auditing as it mainly focuses on survey sampling.</p>

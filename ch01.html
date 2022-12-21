@@ -299,17 +299,17 @@ div.csl-indent {
 <section id="calculations" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="calculations"><span class="header-section-number">1.1</span> Calculations</h2>
 <p>One of the basic features of R is its ability to perform calculations. In R, basic calculations work by using the standard arithmetic operators such as <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R will return the result of 5.</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-2_9cf4f8edf463d2230a744d83bb4535ad">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-2_db985f5d010b9f8b098917bb5656077a">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R also allows for more advanced calculations such as exponentiation using the <code>^</code> operator, and square roots using the <code>sqrt()</code> function. For example, to calculate the square root of 9, you would type in <code>sqrt(9)</code> and R will return the result of 3.</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-3_0c7339e208db204d4f2c1a41f239b452">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-3_4b3fb3ebe8e8b21bc289920d023a6ffc">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also use parentheses to specify the order of operations in your calculations. For example, if you want to calculate (2 + 3) * 4, you would type in <code>(2 + 3) * 4</code> to get the result of 20.</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-4_7e72268e0e526fe14a306761474e3971">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-4_7ee3f2e504d0097cbb024778b3bef619">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">4</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -317,29 +317,29 @@ div.csl-indent {
 <section id="vectors" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="vectors"><span class="header-section-number">1.1.1</span> Vectors</h3>
 <p>In R, vectors are one-dimensional arrays of data that can hold numeric, character, or logical values. Vectors can be created using the <code>c()</code> function, which stands for concatenate. For example, to create a numeric vector, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-5_d9286095618964e4d5913cb896cfe1dd">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-5_7863a059cb7e33d9d76d06a45941477c">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To create a character vector, you can use quotes around the values:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-6_f05433daea66af6be29d242d4d872804">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-6_9b0cb38aa09c836d73a207cdb25e345d">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To create a logical vector, you can use the logical values <code>TRUE</code> and <code>FALSE</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-7_4cb4837f81cd4522a22a0163fb3060f1">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-7_ce55d82dc23750bf31e5f4d1773b7f8c">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can be indexed using square brackets and a numeric value. For example, to access the second element of the vector <code>x</code>, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-8_d8e44eb76c2cbeca6ac8ea082a2ef5e8">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-8_2950d70d2dbc0d1a45dcb37d0c5c7792">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can also be subsetted using a logical vector. For example, to get all elements of the vector <code>x</code> that are greater than 3, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-9_d8a096ea46ae2c88434252421c0b053b">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-9_e429c3d6f986d5c5f02f763ee025dadf">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">3</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can also be modified using indexing and assignment. For example, to change the third element of the vector <code>x</code> to 6, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-10_68c726604bee20699c47a70750f4edf5">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-10_31a49e2007f12227c1581387021f7ab0">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">6</span></span>
@@ -347,7 +347,7 @@ div.csl-indent {
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R also has functions for performing mathematical operations on data. For example, we can use the <code>mean()</code> function to calculate the average of a vector of numbers, or we can use the <code>length()</code> function to calculate the number of elements in a vector:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-11_a8ef2de4fa923d34667fd620cb655df2">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-11_6a72e9b8efaa38e10ac384d16ff290b8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3.6</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span>
@@ -358,7 +358,7 @@ div.csl-indent {
 <section id="matrices" class="level3" data-number="1.1.2">
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="matrices"><span class="header-section-number">1.1.2</span> Matrices</h3>
 <p>In R, a matrix is a two-dimensional collection of values that are arranged in rows and columns. You can create a matrix using the <code>matrix()</code> function. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-12_a58cb18b0d54433606bf14c1f98dbf8b">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-12_8d477ab00605da3d7c05d4617ef5a8b7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>m</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
@@ -368,7 +368,7 @@ div.csl-indent {
 </div>
 <p>This creates a 3x3 matrix with the values 1, 2, 3 in the first column, 4, 5, 6 in the second column, and 7, 8, 9 in the third column.</p>
 <p>You can also create a matrix by combining several vectors using the <code>cbind()</code> or <code>rbind()</code> functions. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-13_c2d5c64b2854f771b016fc8afce1a394">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-13_6f598c50ec038f177922df6518f6261d">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
@@ -381,7 +381,7 @@ div.csl-indent {
 </div>
 <p>This creates a matrix with the same values as before, but the columns are created by binding the vectors together.</p>
 <p>You can access the elements of a matrix using the square bracket notation. For example, to access the element in the second row and third column of <code>m</code>, you would use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-14_92df0dd1a1269fa8f2744b289c37c8d3">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-14_62d0810e215607db255b0fb9997b305f">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; v3 </span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -393,17 +393,17 @@ div.csl-indent {
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">1.1.3</span> Data Frames</h3>
 <p>In R, a data frame is a two-dimensional table of data with rows and columns. Each row represents a single observation or record, and each column represents a particular variable or attribute. Data frames are similar to a spreadsheet in Excel or a table in a database. Each column in a data frame can have a different data type, such as numerical, character, or logical. The data in each row must match the data type of the corresponding column.</p>
 <p>To create a data frame in R, you can use the <code>data.frame()</code> function and pass in the data you want to include in the data frame as arguments. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-15_6debe560035233f2a56042a7527ad59e">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-15_9394c84901e883dcc11d955f262dcafa">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will create a data frame with two columns, <code>x</code> and <code>y</code>, and three rows of data. You can access the data in a data frame using indexing and subsetting. For example, to access the first row of the data frame, you can use the following command:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-16_44bf8d0c7371e12be57b4b8b01334f48">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-16_882bbeb0460097fa8840fde4f360b15c">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, ]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   x y</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To access a specific column, you can use the <code>$</code> operator (or the index):</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-17_6fab988d573887b23311ca9f5838d1f5">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-17_c60f12de8cc9e93042fe7e976f9ceae1">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>x</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">1</span>]</span>
@@ -421,18 +421,18 @@ div.csl-indent {
 <section id="installing-a-package" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="installing-a-package"><span class="header-section-number">1.2.1</span> Installing a Package</h3>
 <p>In many cases, you will download an R package from the <a href="http://cran.r-project.org/">CRAN</a> server. This can be done via the <code>install.packages()</code> function by providing the package name in quotes. For example, an important package for data visualization is <code>ggplot2</code>. To install this package, you can simply run:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-18_a4ec6610e329a495eec185523de731f5">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-18_80e01a1b364d85521d575282b798aa2a">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To illustrate its concepts and ideas, this book heavily draws from the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. Before running the examples in this book, you should install this package by running the following command in R:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-19_f5b4dbdd1fdda1aa0aee406cc0d46ab5">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-19_0999522ce26e8965563a67f0b2de7b91">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jfa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="loading-a-package" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="loading-a-package"><span class="header-section-number">1.2.2</span> Loading a Package</h3>
 <p>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <code>library()</code> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you can load the <strong>jfa</strong> package with:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-20_30ad890d67e755a334e9d9b80dff8294">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-20_8eb237126c36f3f1f6f66256b1e480c8">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
@@ -441,25 +441,26 @@ div.csl-indent {
 </section>
 <section id="updating-a-package" class="level3" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="updating-a-package"><span class="header-section-number">1.2.3</span> Updating a Package</h3>
-<p>R packages are updated regularly. To update a package in your R library you should call <code>update.packages()</code> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa* package, you can update it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-21_e5e57abdee3b70e64a66de14a3ae8b41">
+<p>R packages are updated regularly. To update a package in your R library you should call <code>update.packages()</code> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the <strong>jfa</strong> package, you can update it by running:</p>
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-21_751c7084280bc079d9ae238a15be32fc">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"jfa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="loading-data" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.3</span> Loading Data</h2>
+<p>When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.</p>
 <section id="loading-data-from-a-csv-file" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="loading-data-from-a-csv-file"><span class="header-section-number">1.3.1</span> Loading Data from a CSV File</h3>
 <p>A commonly used data type is a <code>.csv</code> file. You can load this type of files via the <code>read.csv()</code> function. For example, if the file <code>example.csv</code> is in the current working directory, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-22_7f71c70adbf2b85aff271e113385f182">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-22_11c42ff065fdfac70ccf12f184d29ecd">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"example.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="loading-data-from-an-excel-file" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="loading-data-from-an-excel-file"><span class="header-section-number">1.3.2</span> Loading Data from an Excel File</h3>
 <p>Another commonly used data type are Excel files. You can load this type of files via the <code>read_excel()</code> function from the <code>readxl</code> package. For this to work, you should first install this package using the <code>install.packages()</code> command and load it into the R session using a call to <code>library()</code>. For example, if the file <code>example.xlsx</code> is in the current working directory, and the data you want to load is on the first worksheet, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-23_4477e948626a7aed855eb150d16b173f">
+<div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-23_c8f6a4184bb88148bb6f4fb1e0c9351c">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"example.csv"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

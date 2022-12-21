@@ -304,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{equation}\]</span></p>
 <p>In statistical sampling, every sampling unit <span class="math inline">\(x_i\)</span> in the population should receive a selection probability <span class="math inline">\(p(x_i)\)</span>. The purpose of the sampling method is to provide a framework to assign selection probabilities to each of the sampling units, and subsequently draw sampling units from the population until a set of size <span class="math inline">\(n\)</span> has been created.</p>
 <p>To illustrate how the resulting sample differs for various sampling methods, we will use the <code>BuildIt</code> data set included in the <strong>jfa</strong> package. These data can be loaded into R using the code below. For simplicity, we will use a sample size of <span class="math inline">\(n = 10\)</span> for all examples.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-2_e9e38653d9bc6af0525378a50bedeec6">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-2_26d92974333e63af0502a13e578aead4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -328,14 +328,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="record-sampling" class="level4" data-number="4.2.1.1">
 <h4 data-number="4.2.1.1" class="anchored" data-anchor-id="record-sampling"><span class="header-section-number">4.2.1.1</span> Record Sampling</h4>
 <p>Random sampling can easily be coded in base R. First, we have to get a vector of of the possible items (rows) in the population that can be selected. When we are performing record sampling, we can simply use R’s build in <code>sample()</code> function to draw a random sample from a vector <code>1:nrow(BuildIt)</code> representing the row indices of the items and store the result in a variable <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-3_dd615513be8de65c87bcf3d22d513a5a">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-3_620613333cbc4134e975b8c45cdd3ca8">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(BuildIt), <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>items</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 1017  679 2177  930 1533  471 2347  270 1211 3379</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-4_1431ccd52614711c1f05f017c7719168">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-4_b1ab28b60febe2043a763a5bd5bcba47">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1017 50755    618.24     618.24</span></span>
@@ -350,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3379 85322    330.24     330.24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. This function takes as input the population data, the sample size, and the characteristics of the sampling method. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing random sampling (<code>method = 'random'</code>).</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-5_bd21f0690aeefae2ffbef05a5a983a07">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-5_75df60acbbad789d2d389c361d92688f">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"items"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"random"</span>)</span>
@@ -371,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="monetary-unit-sampling" class="level4" data-number="4.2.1.2">
 <h4 data-number="4.2.1.2" class="anchored" data-anchor-id="monetary-unit-sampling"><span class="header-section-number">4.2.1.2</span> Monetary Unit Sampling</h4>
 <p>When we are performing record sampling, we have to consider that each item in the population consists of multiple smaller items (i.e., the monetary units), which means that items with a higher book value should get a higher probability of being selected. The <code>sample()</code> function faciliates weighted selection via the <code>prob</code> argument, which takes a vector of values and, using normalization, computes the weights for selection. The call below is similar to before, but in this case we use the book values in the column <code>bookValues</code> of the data set to weigh the items and store the result in a variable <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-6_22ffbff62c32a9b8181c881dcfa88a02">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-6_8ae0a48254b4d5a2dd6c635125159a8d">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(BuildIt), <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">prob =</span> BuildIt<span class="sc">$</span>bookValue)</span>
@@ -379,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 2174 2928 1627  700  147 3056 3118 2045 1311  716</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-7_b59612eb2fb78ab4814a2fb3de3cbd5e">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-7_4b16e4a2a0409f593f2cb589a271967a">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2174 90260    625.98     625.98</span></span>
@@ -394,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 716  12815    873.43     873.43</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing random sampling (<code>method = 'random'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-8_4508213d02966968dfa7bed0b3179933">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-8_30462c26aab1b9377f8706547ddc02e3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>)</span>
@@ -440,19 +440,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="record-sampling-1" class="level4" data-number="4.2.2.1">
 <h4 data-number="4.2.2.1" class="anchored" data-anchor-id="record-sampling-1"><span class="header-section-number">4.2.2.1</span> Record Sampling</h4>
 <p>To code fixed interval sampling in a record sampling context, we first have to compute the size of the interval we are working with. This is computed by dividing the number of items in the population by the desired sample size <span class="math inline">\(n\)</span>. Suppose the auditor wants to select a sample of 10 items, then the interval is computed by:</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-9_05bed3bbdc10d306ff64993a7b02aec9">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-9_6fa322ae53c8c336aeb03d457b6911a2">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">nrow</span>(BuildIt) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we have to determine the starting point. We are going to take the fifth unit in each interval in this case.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-10_9a8e9c5f4a3a4498bf8e08993fcabf40">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-10_f32de5d295dabc04a0f46acbc03c0ce8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>start <span class="ot">&lt;-</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which rows are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-11_7fc6aaa31283e21b32e66892f5953d7c">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-11_cb8edb465834ccc865ef33ab821e7d60">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">floor</span>(start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-12_2f20da1a20599151bc018661713b60d1">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-12_b35590b5723efba5fa2d9b05c45f9ddd">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    55080    620.88     620.88</span></span>
@@ -467,7 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3155 94955    248.77     248.77</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing fixed interval sampling (<code>method = 'interval'</code>). Note that, by default, the first sampling unit from each interval is selected. However, this can be changed by setting the argument <code>start</code> to a different value.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-13_9691bbfb25e88d596a728cc9a3353ff2">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-13_32088ec2f8501a615f0438b67432531d">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"items"</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">start =</span> start)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
@@ -487,15 +487,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="monetary-unit-sampling-1" class="level4" data-number="4.2.2.2">
 <h4 data-number="4.2.2.2" class="anchored" data-anchor-id="monetary-unit-sampling-1"><span class="header-section-number">4.2.2.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting point <code>start = 5</code> determines which monetary unit from each interval is selected.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-14_c6dfc4858ea158c96eb716965e24fd9a">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-14_0f8f44530103eeb408466c06684c7b2b">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">sum</span>(BuildIt<span class="sc">$</span>bookValue) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which units are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-15_6cff90588b66b7ab8f8a20aa7bbbbe8a">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-15_93414fd858adf0b89e1437f26a2a0d70">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">floor</span>(start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-16_2b15b9e982ab908d7199d9738b741a3a">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-16_ad1e688afe512cddded0867c2444511b">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>all_units <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(BuildIt<span class="sc">$</span>bookValue <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, BuildIt<span class="sc">$</span>bookValue)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>all_items <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(BuildIt)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
@@ -505,7 +505,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-17_244e38ebfcfc8a8591416a66ccb33252">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-17_68e4468014ae2ef763efbcd423d1be42">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    82884    242.61     242.61</span></span>
@@ -520,7 +520,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3152 71832   1001.82    1001.82</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing fixed interval sampling (<code>method = 'interval'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-18_c7f316396ee1a0bfe62b5e565012bc57">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-18_69bcb663dcb7dcb9379f1b940300acb2">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> start)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
@@ -559,20 +559,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="record-sampling-2" class="level4" data-number="4.2.3.1">
 <h4 data-number="4.2.3.1" class="anchored" data-anchor-id="record-sampling-2"><span class="header-section-number">4.2.3.1</span> Record Sampling</h4>
 <p>To code cell sampling in a record sampling context, we again have to compute the size of the interval we are working with:</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-19_fd4b0c21822669ee0bd7a77a897928e8">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-19_f391365e2d94f1d50a76a7267dde93c7">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">nrow</span>(BuildIt) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we have to randomly determine which items are going to be selected in each interval.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-20_2077ebcaede1a2e6d8883efa268b7405">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-20_00e62e08d992ee3a9fd752554ba47731">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>starts <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fu">runif</span>(n, <span class="dv">0</span>, interval))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which rows are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-21_5e296cb84744dd09f483b6b860d2832c">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-21_208f49d226b6aa7937a997942738a00d">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">floor</span>(starts <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-22_cd36a9368fcd2e3912dc220df5b8c7ab">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-22_a3713676385f8bf3aad5b12710bf3833">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 92   75133    355.16     355.16</span></span>
@@ -587,7 +587,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3171 61036    387.67     387.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing cell sampling (<code>method = 'cell'</code>).</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-23_7bb2d6e27462af6964301446b71f687e">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-23_fe3c5751f3010bca381492b832eb6f8f">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"items"</span>,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"cell"</span>)</span>
@@ -608,11 +608,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="monetary-unit-sampling-2" class="level4" data-number="4.2.3.2">
 <h4 data-number="4.2.3.2" class="anchored" data-anchor-id="monetary-unit-sampling-2"><span class="header-section-number">4.2.3.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting points <code>start</code> determines which monetary unit from each interval is selected.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-24_b96dad99f1e98d3ec4b1ffe1412c9ed7">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-24_4b01af1b8972bb22ed3ca2d6aaf29700">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">sum</span>(BuildIt<span class="sc">$</span>bookValue) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-25_7b8ffd70570cc4e7a82d073f1006238e">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-25_9e81a53a4928b8a16e3dabf1a136e0b9">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>all_units <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(BuildIt<span class="sc">$</span>bookValue <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, BuildIt<span class="sc">$</span>bookValue)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>all_items <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(BuildIt)</span>
@@ -625,7 +625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-26_e3b508d3227f34b33ce4769b65a68497">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-26_9cc9d3c6a309b0ea523a91ab4a0922df">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95   15009    415.60     415.60</span></span>
@@ -640,7 +640,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3172 18286    450.57     450.57</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing cell sampling (<code>method = 'cell'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-27_1653e83f216ee8a22ce11780577b3637">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-27_7aa42f1d8555b63a72df4452cd5b56f3">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"cell"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>)</span>
@@ -668,7 +668,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>is computed for each item by dividing the book value of that item by the random number. Lastly, the items in the population are sorted by their sieve ratio <span class="math inline">\(S\)</span> (in decreasing order) and the top <span class="math inline">\(n\)</span> items are selected for inspection. In contrast to the classical sieve sampling method (Rietveld, 1978), the modified sieve sampling method provides precise control over sample sizes.</p>
 <section id="monetary-unit-sampling-3" class="level4" data-number="4.2.4.1">
 <h4 data-number="4.2.4.1" class="anchored" data-anchor-id="monetary-unit-sampling-3"><span class="header-section-number">4.2.4.1</span> Monetary Unit Sampling</h4>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-28_85d09373b6c40e0f8184fb71da90ccf6">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-28_d83063777cc381143d92dc222fa44c30">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>all_units <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(BuildIt<span class="sc">$</span>bookValue <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, BuildIt<span class="sc">$</span>bookValue)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>all_items <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(BuildIt)</span>
@@ -677,7 +677,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> items[<span class="dv">1</span><span class="sc">:</span>n]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-29_c61504ebfe3f0e94269706059d3d4208">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-29_9b4f21d7e9b6298ccd2831d72fd01ba8">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>BuildIt[items, ]</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2329 29919    681.10     681.10</span></span>
@@ -692,7 +692,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2895  8688    492.02     492.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing modified sieve sampling (<code>method = 'sieve'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-30_d11017f62e4dc6fb501a0eef8579ba99">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-30_8aaea2fea5afd6b8b5036cc2eb368672">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"sieve"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>)</span>
@@ -716,7 +716,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4.3" class="anchored" data-anchor-id="ordering-or-randomizing-the-population"><span class="header-section-number">4.3</span> Ordering or Randomizing the Population</h2>
 <p>The <code>selection()</code> function from the <strong>jfa</strong> package has three additional arguments which you can use to preprocess your population before selection. These arguments are <code>order</code>, <code>decreasing</code> and <code>randomize</code>.</p>
 <p>First, the <code>order</code> argument takes as input a column name in <code>data</code> which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in the selection. In this case, you should use the <code>decreasing = FALSE</code> (its default value) argument.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-31_0b1c4cb86bc0b6a4a68202bc2ad2e36e">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-31_7d6481259a3149df0f25dad410a2891a">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">order =</span> <span class="st">"bookValue"</span>)</span>
@@ -734,7 +734,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1820     1 82309    796.31     796.31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, the <code>randomize</code> argument can be used to randomly shuffle the items in the population before selection. For example, you can randomly shuffle the population before engaging in the selection using <code>randomize = TRUE</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-32_f762bfce3165201b0a3b3372e2d2d002">
+<div class="cell" data-layout-align="center" data-hash="ch04_cache/html/unnamed-chunk-32_dcff7f3cc1394be972118381297bec5a">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> n, <span class="at">units =</span> <span class="st">"values"</span>,</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">randomize =</span> <span class="cn">TRUE</span>)</span>
