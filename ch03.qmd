@@ -147,7 +147,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
   geom_col(position = "identity",
            fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
@@ -202,7 +202,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
            fill = c(rep("firebrick", 2), rep("darkgray", 9)),
            colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
@@ -370,7 +370,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
   geom_col(position = "identity",
            fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
@@ -430,7 +430,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
            fill = c(rep("firebrick", 2), rep("darkgray", 9)),
            colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
@@ -663,7 +663,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
            fill = c("firebrick", rep("darkgray", 10)),
            colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
@@ -722,7 +722,7 @@ p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
            fill = c(rep("firebrick", 2), rep("darkgray", 9)),
            colour = "black") +
   annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5) +
+           vjust = -0.5, size = 3) +
   scale_x_continuous(name = "Misstatements", breaks = 0:10) +
   scale_y_continuous(name = "Probability", breaks = y_breaks,
                      limits = range(y_breaks)) +
