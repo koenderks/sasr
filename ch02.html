@@ -285,12 +285,16 @@ div.csl-indent {
 </header>
 
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-:::: status
-::: callout-note 
-You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter should be readable but is currently undergoing final polishing. :::
-::::</code></pre>
+
+</div>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter should be readable but is currently undergoing final polishing.</p>
+</div>
 </div>
 </div>
 <p>Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.</p>
@@ -444,19 +448,20 @@ You are reading the work-in-progress first edition of Statistical Auditing with 
 <section id="example" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="example"><span class="header-section-number">2.3.3</span> Example</h3>
 <p>As an example, the <code>binom.test()</code> function in R can be used to test if a population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use the <code>binom.test()</code> function, the auditor must input the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code>. The sampling risk is set to 5%, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to test if the proportion of misstatements in the sample is less than the hypothesized proportion.</p>
-<div class="cell" data-layout-align="center" data-hash="ch02_cache/html/unnamed-chunk-2_d9b761c85ef160348260cb4d1ea61417">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">"less"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 100, p-value = 0.04755</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02951305</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="ch02_cache/html/unnamed-chunk-2_48eb2cd3cbd157d62f1fd27be469b284">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 100, p-value = 0.04755</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02951305</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The most likely misstatement in the population is displayed under <code>sample estimates</code> and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under <code>95 percent confidence interval</code> and is 2.95%. The <em>p</em> value is shown to be 0.04755. Since the <em>p</em> value is lower than the specified sampling risk <span class="math inline">\(\alpha\)</span>, the auditor can reject the hypothesis of material misstatement.</p>
 </section>
