@@ -14,18 +14,18 @@ statistical techniques for audit sampling.
 
 ## JASP for Audit
 
-JASP for Audit [@Derks2021_jasp] is an add-on module for
-[JASP](http://jasp-stats.org/) [@JASP], based on the **jfa** package, that
-facilitates statistical audit sampling. Concretely, it contains graphical user
-interfaces (GUI's) for calculating sample sizes, selecting items according to
-standard audit sampling techniques, and performing inference about the
-population misstatement on the basis of a data sample or summary statistics of a
-sample. The module also features Bayesian equivalents of these analyses that
-enable the user to easily incorporate prior information into the statistical
-procedure. In all analyses, the Audit module offers explanatory text that helps
-the auditor in interpreting, explaining, and reporting the analysis. Since JASP
-for Audit is an R-based GUI around **jfa**, its functionality can be mapped
-almost one-on-one to that of the package.
+JASP for Audit [@Derks2021_jasp] is an add-on module for the open-source
+statistical software [JASP](http://jasp-stats.org/) [@JASP], based on the
+**jfa** package, that facilitates statistical audit sampling. The module
+provides graphical a user interface (GUI) for calculating sample sizes,
+selecting items according to standard audit sampling techniques, and performing
+inference about the population misstatement on the basis of a data sample or
+summary statistics of a sample. The module also features Bayesian equivalents of
+these analyses that enable the user to easily incorporate prior information into
+the statistical procedure. In all analyses, the Audit module offers explanatory
+text that helps the auditor in interpreting, explaining, and reporting the
+analysis. Since JASP for Audit is an R-based GUI around **jfa**, its
+functionality can be mapped almost one-on-one to that of the package.
 
 ![Figure 7.1: The JASP welcome screen.](img/JASP.png){fig-align="center"}
 
