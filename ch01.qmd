@@ -2,7 +2,7 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.callout-note}
+::: {.callout-note appearance="simple"}
 You are reading the work-in-progress first edition of Statistical Auditing with
 R. This chapter is largely complete and just needs final proof reading.
 :::
@@ -221,9 +221,11 @@ manipulation, `ggplot2` for data visualization, and `caret` for machine
 learning. With its versatility and robust community, R is a valuable tool for
 anyone working with data.
 
-> **Note:** If you want to know more about creating your own R package,
-@Wickam2022 provides an excellent first-hand description of the principles and
-practices of creating R packages.
+::: {.callout-note}
+If you want to know more about creating your own R package, @Wickam2022
+provides an excellent first-hand description of the principles and practices of
+creating R packages.
+:::
 
 ### Installing a Package
 
@@ -257,9 +259,10 @@ examples in this book, you can load the **jfa** package with:
 library(jfa)
 ```
 
-> **Note:** If you want a deeper understanding of how the **jfa** package works, or want
-to look at the source code of the package, see the
+::: {.callout-note}
+If you want to look at the source code of the package, see the
 [package website](https://koenderks.github.io/jfa/).
+:::
 
 ### Updating a Package
 

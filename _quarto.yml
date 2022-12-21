@@ -4,7 +4,6 @@ project:
 
 author-meta: Koen Derks
 editor: visual
-callout-appearance: simple
 bibliography: references.bib
 csl: apa.csl
 

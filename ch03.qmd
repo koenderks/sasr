@@ -2,7 +2,7 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.callout-note}
+::: {.callout-note appearance="simple"}
 You are reading the work-in-progress first edition of Statistical Auditing with
 R. This chapter is largely complete and just needs final proof reading.
 :::
@@ -19,12 +19,14 @@ hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 In **jfa**, determining an appropriate sample size is achieved via the
 `planning()` function.
 
-> **Note:** When you are using the Bayesian approach to audit sampling, it is
-not required to plan a certain sample size in advance [@Derks2022]. That is
-because in Bayesian inference, the posterior distribution after seeing each item
-is used as the prior distribution for the next item. However, to get an idea of
-how many samples are required to achieve a certain amount of assurance, planning
-a sample using a Bayesian approach can still be good practice.
+::: {.callout-note}
+When you are using the Bayesian approach to audit sampling, it is not required
+to plan a certain sample size in advance [@Derks2022]. That is because in
+Bayesian inference, the posterior distribution after seeing each item is used as
+the prior distribution for the next item. However, to get an idea of how many
+samples are required to achieve a certain amount of assurance, planning a sample
+using a Bayesian approach can still be good practice.
+:::
 
 ## Required Information
 
@@ -226,13 +228,15 @@ Concretely, this means that the following statistical model is assumed:
   K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
-> **Note:** The beta-binomial prior distribution is conjugate to the
+::: {.callout-note}
+The beta-binomial prior distribution is the conjugate prior for to the
 hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $K$ can be
 determined analytically. For example, if the prior distribution for $K$ is
 beta-binomial($N$, $\alpha$, $\beta$) and the auditor has observed a sample of
 $n$ items containing $k$ misstatements, the posterior distribution for $K$ is
 beta-binomial($N - n$, $\alpha + k$, $\beta + n - k$).
+:::
 
 For example, the command below uses a default beta-binomial($N$, 1, 1) prior
 distribution to plan the sample, since `planning()` is given the hypergeometric
@@ -277,12 +281,13 @@ from the population with replacement. For our purpose, we can use the binomial
 distribution as a likelihood to model the number of misstatements that are
 expected to be found in the sample. 
 
-> **Note:** In audit sampling, the binomial likelihood is often used to
-approximate the hypergeometric likelihood since it is easier to work with (i.e.,
-it only has two parameters: $\theta$ and $n$, while the hypergeometric has
-three: $n$, $N$, and $K$). However, the binomial likelihood is more conservative
-than the hypergeometric likelihood, meaning that resulting sample sizes will be
-higher.
+::: {.callout-note}
+In audit sampling, the binomial likelihood is often used to approximate the
+hypergeometric likelihood since it is easier to work with (i.e., it only has two
+parameters: $\theta$ and $n$, while the hypergeometric has three: $n$, $N$, and
+$K$). However, the binomial likelihood is more conservative than the
+hypergeometric likelihood, meaning that resulting sample sizes will be higher.
+:::
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
@@ -314,8 +319,9 @@ formula for the minimum required sample size reduces to:
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
 \end{equation}
 
-> **Note:** $\lceil...\rceil$ is the ceiling function. This means that
-$\lceil1.2\rceil = 2$.
+::: {.callout-note}
+$\lceil...\rceil$ is the ceiling function. This means that $\lceil1.2\rceil = 2$.
+:::
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
 a performance materiality of $\theta_{max} = 0.03$, then the required sample
@@ -486,13 +492,15 @@ means that the following statistical model is assumed:
   \theta &\sim \text{Beta}(\alpha, \beta)
 \end{align}
 
-> **Note:** The beta prior distribution is conjugate to the binomial likelihood
+::: {.callout-note}
+The beta prior distribution is the conjugate prior for the binomial likelihood
 (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
 can be determined analytically. For example, if the prior distribution is
 beta($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
 containing $k$ misstatements, the posterior distribution for $\theta$ is
 beta($\alpha + k$, $\beta + n - k$).
+:::
 
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the binomial
@@ -565,11 +573,13 @@ model the number of events occurring in a fixed time or space. We can use the
 Poisson distribution as a likelihood to model the number of misstatements that
 are expected to be found in the sample.
 
-> **Note:** In audit sampling, the Poisson likelihood is often used to
-approximate the binomial likelihood since it is easier to work with (i.e., it
-only has one parameter: $\lambda$, while the binomial has two parameters:
-$\theta$ and $n$). However, the Poisson likelihood is more conservative than the
-binomial likeliood, meaning that resulting sample sizes will be higher.
+::: {.callout-note}
+In audit sampling, the Poisson likelihood is often used to approximate the
+binomial likelihood since it is easier to work with (i.e., it only has one
+parameter: $\lambda$, while the binomial has two parameters: $\theta$ and $n$).
+However, the Poisson likelihood is more conservative than the binomial
+likelihood, meaning that resulting sample sizes will be higher.
+:::
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
@@ -789,13 +799,15 @@ means that the following statistical model is assumed:
   \theta &\sim \text{Gamma}(\alpha, \beta)
 \end{align}
 
-> **Note:** The gamma prior distribution is conjugate to the Poisson likelihood
+::: {.callout-note}
+The gamma prior distribution is the conjugate prior for the Poisson likelihood
 (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
 can be determined analytically. For example, if the prior distribution is
 gamma($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
 containing $k$ misstatements, the posterior distribution for $\theta$ is
 gamma($\alpha + k$, $\beta + n$).
+:::
 
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior
 distribution to plan the sample, since `planning()` is given the Poisson
