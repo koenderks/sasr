@@ -4,7 +4,7 @@ source("utils.R", local = TRUE)
 
 ::: {.callout-note appearance="simple"}
 You are reading the work-in-progress first edition of Statistical Auditing with
-R. This chapter is largely complete and just needs final proof reading.
+R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 :::
 
 # Introduction to R {#CHAPTER-1}
