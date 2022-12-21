@@ -8,9 +8,11 @@ status("polishing")
 This chapter discusses other R-related open-source software implementing
 statistical techniques for audit sampling.
 
-## JASP for Audit (GUI)
+## Graphical User Interfaces
 
-JASP for Audit [@derks2021_jasp] is an add-on module for
+### JASP for Audit
+
+JASP for Audit [@Derks2021_jasp] is an add-on module for
 [JASP](http://jasp-stats.org/) [@JASP], based on the **jfa** package, that
 facilitates statistical audit sampling. Concretely, it contains graphical user
 interfaces (GUI's) for calculating sample sizes, selecting items according to
@@ -25,12 +27,12 @@ almost one-on-one to that of the package.
 
 ![Figure 7.1: The JASP welcome screen.](img/JASP.png){fig-align="center"}
 
-### Planning
+#### Planning
 
-Planning a sample in JASP for Audit works similar to how you would do it in
-**jfa**. For example, the screenshot below shows how to plan a minimum sample
-size for a performance materiality of 5% using a beta(1, 1) prior distribution,
-while expecting zero misstatements in the sample.
+In order to plan a sample for an audit using JASP, the process is similar to
+using **jfa**. For example, the screenshot below shows how to plan a minimum
+sample size for a performance materiality of 5% using a beta(1, 1) prior
+distribution, while expecting zero misstatements in the sample.
 
 ![Figure 7.2: The JASP interface for planning a sample.](img/JASP_planning.png){fig-align="center"}
 
@@ -40,7 +42,7 @@ In **jfa**, these results can be reproduced via the following command:
 planning(materiality = 0.05, likelihood = "binomial", prior = TRUE)
 ```
 
-### Selection
+#### Selection
 
 Selecting a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to select a sample of 60
@@ -57,7 +59,7 @@ head(result$sample)
 
 ![Figure 7.3: The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
 
-### Evaluation
+#### Evaluation
 
 Evaluating a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to evaluating a sample of
@@ -72,13 +74,48 @@ In **jfa**, these results can be reproduced via the following command:
 evaluation(materiality = 0.05, method = "binomial", x = 2, n = 93, prior = TRUE)
 ```
 
-## MUS (R)
+## R Packages
 
-**MUS** [@MUS] is an R package proving sampling and evaluation methods to apply
-Monetary Unit Sampling during an audit of financial statements. The package is
-available via [CRAN](https://cran.r-project.org/package=MUS) and can be
-downloaded with:
+### MUS
+
+**MUS** [@MUS] is an R package providing sampling and evaluation methods to
+apply Monetary Unit Sampling during an audit of financial statements. The
+package is available via [CRAN](https://cran.r-project.org/package=MUS) and can
+be downloaded by running the following code:
 
 ```{r, eval=FALSE}
 install.packages("MUS")
 ```
+
+Note that the **MUS** package provides no functionality for Bayesian audit
+sampling.
+
+### audit
+
+**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be
+used to find an upper bound for the total amount of overstatement of assets in a
+set of accounts and estimating the amount of sales tax owed on a collection of
+transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit)
+and can be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("audit")
+```
+
+Note that the **audit** package provides limited functionality for evaluating
+audit samples and has no functionality for planning and selecting audit samples.
+
+### samplingbook
+
+**samplingbook** [@samplingbook] is an R package based on the book
+**Stichproben: Methoden und praktische Umsetzung mit R** [@Kauermann2010] that
+focuses on survey sampling and statistical analysis of these samples. The
+package is available via [CRAN](https://cran.r-project.org/package=samplingbook)
+and can be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("samplingbook")
+```
+
+Note that the **samplingbook** package provides limited functionality for
+auditing as it mainly focuses on survey sampling.
