@@ -239,7 +239,7 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics"><span class="toc-section-number">1.1</span>  Basics</a>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link active" data-scroll-target="#calculations"><span class="toc-section-number">1.1</span>  Calculations</a>
   <ul class="collapse">
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="toc-section-number">1.1.1</span>  Vectors</a></li>
   <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="toc-section-number">1.1.2</span>  Matrices</a></li>
@@ -292,12 +292,13 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>R is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization and has a large and active community of users. As a result, there are many community resources available for learning and using R. This book will provide a short introduction to R but does not offer a full course on it. If you want to dive deeper into R, I recommend reading <span class="citation" data-cites="Chang2022">Chang (<a href="chref.html#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam &amp; Grolemund (<a href="chref.html#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="chref.html#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="chref.html#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>.</p>
-<p>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A resource that discusses these applications of R in the audit can be found in <span class="citation" data-cites="Lin2022">Lin (<a href="chref.html#ref-Lin2022" role="doc-biblioref">2021</a>)</span>.</p>
-<p>We will first provide a basic introduction to R and the functionality that is required for reproducing the audit sampling examples in this book.</p>
-<section id="basics" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">1.1</span> Basics</h2>
-<p>One of the basic features of R is its ability to manipulate data. In R, basic calculations work by using the standard arithmetic operators such as <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R will return the result of 5.</p>
+<p>R <span class="citation" data-cites="R">(<a href="chref.html#ref-R" role="doc-biblioref">R Core Team, 2022</a>)</span> is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization. R has a large and active community of users and, as a result, there are many community-made resources available for learning and using R.</p>
+<p>This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of R, the author recommends reading <span class="citation" data-cites="Chang2022">Chang (<a href="chref.html#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam &amp; Grolemund (<a href="chref.html#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="chref.html#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="chref.html#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.</p>
+<p>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in <span class="citation" data-cites="Lin2022">Lin (<a href="chref.html#ref-Lin2022" role="doc-biblioref">2021</a>)</span>.</p>
+<p>The next sections provide a basic introduction to R and the functionality that is required for reproducing the examples in this book.</p>
+<section id="calculations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="calculations"><span class="header-section-number">1.1</span> Calculations</h2>
+<p>One of the basic features of R is its ability to perform calculations. In R, basic calculations work by using the standard arithmetic operators such as <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R will return the result of 5.</p>
 <div class="cell" data-layout-align="center" data-hash="ch01_cache/html/unnamed-chunk-2_9cf4f8edf463d2230a744d83bb4535ad">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -415,7 +416,7 @@ div.csl-indent {
 <h2 data-number="1.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">1.2</span> Packages</h2>
 <p>In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.</p>
 <blockquote class="blockquote">
-<p>If you want to know more about making your own package, read <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="chref.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p><strong>Note:</strong> If you want to know more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="chref.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provides an excellent first-hand description of the principles and practices of creating R packages.</p>
 </blockquote>
 <section id="installing-a-package" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="installing-a-package"><span class="header-section-number">1.2.1</span> Installing a Package</h3>
@@ -435,7 +436,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p>If you want a deeper understanding of how the <strong>jfa</strong> package works, or want to look at the source code of the package, see the <a href="https://koenderks.github.io/jfa/">package website</a>.</p>
+<p><strong>Note:</strong> If you want a deeper understanding of how the <strong>jfa</strong> package works, or want to look at the source code of the package, see the <a href="https://koenderks.github.io/jfa/">package website</a>.</p>
 </blockquote>
 </section>
 <section id="updating-a-package" class="level3" data-number="1.2.3">
@@ -474,6 +475,9 @@ Grolemund, G. (2014). <em><span class="nocase">Hands-On Programming with R</span
 </div>
 <div id="ref-Lin2022" class="csl-entry" role="doc-biblioentry">
 Lin, J. (2021). <em><span class="nocase">Audit Analytics with R</span></em>. <a href="https://auditanalytics.jonlin.ca/">https://auditanalytics.jonlin.ca/</a>
+</div>
+<div id="ref-R" class="csl-entry" role="doc-biblioentry">
+R Core Team. (2022). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
 </div>
 <div id="ref-Wickam2022" class="csl-entry" role="doc-biblioentry">
 Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="https://r-pkgs.org/">https://r-pkgs.org/</a>
