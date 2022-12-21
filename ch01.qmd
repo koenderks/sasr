@@ -2,6 +2,11 @@
 source("utils.R", local = TRUE)
 ```
 
+::: {.callout-note}
+You are reading the work-in-progress first edition of Statistical Auditing with
+R. This chapter is largely complete and just needs final proof reading.
+:::
+
 # Introduction to R {#CHAPTER-1}
 
 R is a programming language and software environment for statistical computing
