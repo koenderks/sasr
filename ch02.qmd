@@ -89,7 +89,7 @@ statements before the auditor concludes that the population is materially
 misstated. Performance materiality is used by auditors to determine the
 appropriate level of testing to be performed on a population.
 
-> The performance materiality is usually defined to be lower than the
+> **Note:** The performance materiality is usually defined to be lower than the
 materiality because an individual population that is subject to audit sampling
 is often only a (small) part of the financial statements. 
 
@@ -181,9 +181,10 @@ risk and the control risk, the detection risk can be calculated as:
   \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}
 
-> The ARM is commonly used in practice, but is not a proper model of audit risk.
-For example, it is not possible to set one of the risks to 0, since that would
-result in an infinite detection risk ($\frac{0.05}{0 \times 1} = \infty$).
+> **Note:** The ARM is commonly used in practice, but is not a proper model of
+audit risk. For example, it is not possible to set one of the risks to 0, as
+that would result in an infinite detection risk
+($\frac{0.05}{0 \times 1} = \infty$).
 
 Let's consider an example. Suppose that, in their audit guide, an audit firm
 associates the following percentages with the categories high, medium and low:

@@ -219,8 +219,8 @@ Concretely, this means that the following statistical model is assumed:
   K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
-> The beta-binomial prior distribution is conjugate to the hypergeometric
-likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+> **Note:** The beta-binomial prior distribution is conjugate to the
+hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $K$ can be
 determined analytically. For example, if the prior distribution for $K$ is
 beta-binomial($N$, $\alpha$, $\beta$) and the auditor has observed a sample of
@@ -270,11 +270,12 @@ from the population with replacement. For our purpose, we can use the binomial
 distribution as a likelihood to model the number of misstatements that are
 expected to be found in the sample. 
 
-> In audit sampling, the binomial likelihood is often used to approximate the
-hypergeometric likelihood since it is easier to work with (i.e., it only has two
-parameters: $\theta$ and $n$, while the hypergeometric has three: $n$, $N$, and
-$K$). However, the binomial likelihood is more conservative than the
-hypergeometric likelihood, meaning that resulting sample sizes will be higher.
+> **Note:** In audit sampling, the binomial likelihood is often used to
+approximate the hypergeometric likelihood since it is easier to work with (i.e.,
+it only has two parameters: $\theta$ and $n$, while the hypergeometric has
+three: $n$, $N$, and $K$). However, the binomial likelihood is more conservative
+than the hypergeometric likelihood, meaning that resulting sample sizes will be
+higher.
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
@@ -306,7 +307,8 @@ formula for the minimum required sample size reduces to:
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
 \end{equation}
 
-> $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
+> **Note:** $\lceil...\rceil$ is the ceiling function. This means that
+$\lceil1.2\rceil = 2$.
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
 a performance materiality of $\theta_{max} = 0.03$, then the required sample
@@ -477,8 +479,8 @@ means that the following statistical model is assumed:
   \theta &\sim \text{Beta}(\alpha, \beta)
 \end{align}
 
-> The beta prior distribution is conjugate to the binomial likelihood (see
-this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+> **Note:** The beta prior distribution is conjugate to the binomial likelihood
+(see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
 can be determined analytically. For example, if the prior distribution is
 beta($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
@@ -556,11 +558,11 @@ model the number of events occurring in a fixed time or space. We can use the
 Poisson distribution as a likelihood to model the number of misstatements that
 are expected to be found in the sample.
 
-> In audit sampling, the Poisson likelihood is often used to approximate the
-binomial likelihood since it is easier to work with (i.e., it only has one
-parameter: $\lambda$, while the binomial has two parameters: $\theta$ and $n$).
-However, the Poisson likelihood is more conservative than the binomial
-likeliood, meaning that resulting sample sizes will be higher.
+> **Note:** In audit sampling, the Poisson likelihood is often used to
+approximate the binomial likelihood since it is easier to work with (i.e., it
+only has one parameter: $\lambda$, while the binomial has two parameters:
+$\theta$ and $n$). However, the Poisson likelihood is more conservative than the
+binomial likeliood, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
@@ -595,8 +597,6 @@ in the sample, the formula for the required sample size reduces to:
 \begin{equation}
   n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
 \end{equation}
-
-> $\lceil...\rceil$ is the ceiling function. Hence, $\lceil1.2\rceil = 2$.
 
 For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$)
 for a performance materiality of $\theta_{max} = 0.03$, then the required sample
@@ -782,8 +782,8 @@ means that the following statistical model is assumed:
   \theta &\sim \text{Gamma}(\alpha, \beta)
 \end{align}
 
-> The gamma prior distribution is conjugate to the Poisson likelihood (see
-this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
+> **Note:** The gamma prior distribution is conjugate to the Poisson likelihood
+(see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
 can be determined analytically. For example, if the prior distribution is
 gamma($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
