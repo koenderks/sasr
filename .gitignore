@@ -6,3 +6,4 @@ _book
 chapters_md/
 temp/
 /.quarto/
+.DS_Store
