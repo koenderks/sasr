@@ -19,6 +19,13 @@ hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 In **jfa**, determining an appropriate sample size is achieved via the
 `planning()` function.
 
+> **Note:** When you are using the Bayesian approach to audit sampling, it is
+not required to plan a certain sample size in advance [@Derks2022]. That is
+because in Bayesian inference, the posterior distribution after seeing each item
+is used as the prior distribution for the next item. However, to get an idea of
+how many samples are required to achieve a certain amount of assurance, planning
+a sample using a Bayesian approach can still be good practice.
+
 ## Required Information
 
 First, planning a minimum sample requires knowledge of the conditions that lead 
