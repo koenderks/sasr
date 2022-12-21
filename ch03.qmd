@@ -1,7 +1,11 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
-status("complete")
 ```
+
+::: {.callout-note}
+You are reading the work-in-progress first edition of Statistical Auditing with
+R. This chapter is largely complete and just needs final proof reading.
+:::
 
 # Planning a Sample {#CHAPTER-3}
 
@@ -107,12 +111,20 @@ integer that results in less than 5% probability of finding 0 misstatements,
 given the assumption that the population misstatement is truly 3%. The
 `dhyper()` function calculates the probability of observing $k$ missatements in
 a sample of $n$ items given the assumed hypergeometric distribution with $N$
-items and $K$ assumed misstatements in the population.
+items and $K$ assumed misstatements in the population. By calculating this
+probability for $n = 93$, we can show that this sample size is insufficient as
+the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 K <- ceiling(0.03 * 1000)
-dhyper(x = 0, m = K, n = 1000 - K, k = 93) < 0.05 # 93: Not sufficient
-dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05 # 94: Sufficient
+dhyper(x = 0, m = K, n = 1000 - K, k = 93) < 0.05
+```
+
+However, for $n = 94$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05
 ```
 
 We can make this sample size visually intuitive by showing thehypergeometric($k$
@@ -153,11 +165,19 @@ planning(materiality = 0.03, expected = 1, conf.level = 0.95,
 Once again, the sample size of 147 can be confirmed by checking that 147 is the
 minimum integer that results in less than 5% probability of finding 0 or 1
 misstatements, given the assumption that that the population misstatement is
-truly 3%.
+truly 3%. By calculating this probability for $n = 146$, we can show that this
+sample size is insufficient as the relevant probability is higher than the
+sampling risk $\alpha$.
 
 ```{r}
-sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05 # 146: Not sufficient
-sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05 # 147: Sufficient
+sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05
+```
+
+However, for $n = 147$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05
 ```
 
 Like before, we can make this sample size visually intuitive by showing the
@@ -216,7 +236,14 @@ expected misstatements in the sample is $n = 93$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 1000, prior = TRUE)
+                 likelihood = "hypergeometric", N.units = 1000,
+                 prior = TRUE)
+```
+
+The `summary()` function can be used to obatain relevant information about the
+planning.
+
+```{r}
 summary(plan)
 ```
 
@@ -302,10 +329,19 @@ integer that results in less than 5% probability of finding 0 misstatements,
 given the assumption that the population misstatement is truly 3%. The
 `dbinom()` function calculates the probability of observing $k$ missatements in
 a sample of $n$ items given an assumed misstatement probability $\theta_{max}$.
+By calculating this probability for $n = 98$, we can show that this
+sample size is insufficient as the relevant probability is higher than the
+sampling risk $\alpha$.
 
 ```{r}
-dbinom(x = 0, size = 98, prob = 0.03) < 0.05 # 98: Not sufficient
-dbinom(x = 0, size = 99, prob = 0.03) < 0.05 # 99: Sufficient
+dbinom(x = 0, size = 98, prob = 0.03) < 0.05
+```
+
+However, for $n = 99$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+dbinom(x = 0, size = 99, prob = 0.03) < 0.05
 ```
 
 We can make this sample size visually intuitive by showing the binomial($k$ |
@@ -351,11 +387,19 @@ planning(materiality = 0.03, expected = 1, conf.level = 0.95,
 Once again, the sample size of 157 can be confirmed by checking that 157 is the
 minimum integer that results in less than 5% probability of finding 0 or 1
 misstatements, given the assumption that the population misstatement is truly
-3%.
+3%. By calculating this probability for $n = 156$, we can show that this
+sample size is insufficient as the relevant probability is higher than the
+sampling risk $\alpha$.
 
 ```{r}
-sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05 # 156: Not sufficient
-sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05 # 157: Sufficient
+sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05
+```
+
+However, for $n = 157$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05
 ```
 
 Like before, we can make this sample size visually intuitive by showing the
@@ -451,6 +495,12 @@ $n = 98$.
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
                  likelihood = "binomial", prior = TRUE)
+```
+
+The `summary()` function can be used to obatain relevant information about the
+planning.
+
+```{r}
 summary(plan)
 ```
 
@@ -481,7 +531,12 @@ prior <- auditPrior(method = "param", likelihood = "normal",
 
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
                  likelihood = "poisson", prior = prior)
+```
 
+The `summary()` function can be used to obatain relevant information about the
+planning.
+
+```{r}
 summary(plan)
 ```
 
@@ -563,11 +618,20 @@ The sample size of 100 can be confirmed by checking that 100 is the minimum
 integer that results in less than 5% probability of finding 0 misstatements,
 given the assumption that the population misstatement is truly 3%. The `dpois()`
 function calculates the probability of observing $k$ missatements in a sample of
-$n$ items given an assumed misstatement probability $\theta_{max}$.
+$n$ items given an assumed misstatement probability $\theta_{max}$. By
+calculating this probability for $n = 99$, we can show that this sample size is
+insufficient as the relevant probability is higher than the sampling risk
+$\alpha$.
 
 ```{r}
-dpois(x = 0, lambda = 99 * 0.03) < 0.05  # 99:  Not sufficient
-dpois(x = 0, lambda = 100 * 0.03) < 0.05 # 100: Sufficient
+dpois(x = 0, lambda = 99 * 0.03) < 0.05
+```
+
+However, for $n = 100$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+dpois(x = 0, lambda = 100 * 0.03) < 0.05
 ```
 
 We can make this visually intuitive by showing the Poisson($k$ | 100 * 0.03)
@@ -613,11 +677,19 @@ planning(materiality = 0.03, expected = 1, conf.level = 0.95,
 Once again, the sample size of 159 can be confirmed by checking that 159 is the
 minimum integer that results in less than 5% probability of finding 0 or 1
 misstatements, given the assumption that the population misstatement is truly
-3%.
+3%. By calculating this probability for $n = 158$, we can show that this sample
+size is insufficient as the relevant probability is higher than the sampling
+risk $\alpha$.
 
 ```{r}
-sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05 # 158: Not sufficient
-sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05 # 159: Sufficient
+sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05
+```
+
+However, for $n = 159$ the relevant probability is lower than the sampling risk
+$\alpha$ and thus the sample size is considered to be sufficient.
+
+```{r}
+sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
 Like before, we can make this visually intuitive by showing the Poisson($k$ |
@@ -679,11 +751,19 @@ planning(materiality = 0.03, expected = 1.5, conf.level = 0.95,
 
 The sample size of 185 can be confirmed by checking that 185 is the minimum
 integer that results in less than 5% probability of finding a misstatement rate
-in the population equal to, or higher than, 3%.
+in the population equal to, or higher than, 3%. By calculating this probability
+for $n = 184$, we can show that this sample size is insufficient as the relevant
+upper bound is higher than the performance materiality $\theta_{max}$.
 
 ```{r}
-qgamma(p = 0.95, shape = 1 + 1.5, rate = 184) < 0.03 # 184: Not sufficient
-qgamma(p = 0.95, shape = 1 + 1.5, rate = 185) < 0.03 # 185: Sufficient
+qgamma(p = 0.95, shape = 1 + 1.5, rate = 184) < 0.03
+```
+
+However, for $n = 185$ the relevant upper bound is lower than the performance
+materiality $\theta_{max}$ and thus the sample size is sufficient.
+
+```{r}
+qgamma(p = 0.95, shape = 1 + 1.5, rate = 185) < 0.03
 ```
 
 ### Bayesian Planning
@@ -720,6 +800,12 @@ $n = 99$.
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
                  likelihood = "poisson", prior = TRUE)
+```
+
+The `summary()` function can be used to obatain relevant information about the
+planning.
+
+```{r}
 summary(plan)
 ```
 
@@ -750,7 +836,12 @@ prior <- auditPrior(method = "param", likelihood = "normal",
 
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
                  likelihood = "poisson", prior = prior)
+```
 
+The `summary()` function can be used to obatain relevant information about the
+planning.
+
+```{r}
 summary(plan)
 ```
 
@@ -876,12 +967,16 @@ The auditee's the sum of the sales is $298,112,312 and the sum of the booked
 costs of sales is $223,994,405, respectively. This is indicated by a blue dot in
 the figure below, which visualizes the industry sales versus the cost of sales.
 
+```{r}
+C_real <- 223994405
+```
+
 ```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
   geom_point(shape = 21, fill = "darkgray", size = 2) +
-  geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
+  geom_point(data = data.frame(x = 298112312, y = C_real), shape = 21,
              mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
   scale_x_continuous(name = "Sales", breaks = breaks,
@@ -916,9 +1011,9 @@ The predicted cost of sales for the auditee, based on the industry benchmark,
 can be computed as follows:
 
 ```{r}
-C_hat <- predict(fit, newdata = data.frame(sales = 298112312),
-                 interval = "prediction", level = 0.90)[1]
-C_hat
+C_pred <- predict(fit, newdata = data.frame(sales = 298112312),
+                  interval = "prediction", level = 0.90)[1]
+C_pred
 ```
 
 The fitted regression line and the predicted cost of sales (red dot) are
@@ -931,10 +1026,10 @@ p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
   geom_smooth(stat = "smooth", formula = y ~ x, method = "lm",
               colour = "black", linewidth = 0.5) +
   geom_point(shape = 21, fill = "darkgray", size = 2) +
-  geom_point(data = data.frame(x = 298112312, y = 223994405), shape = 21,
+  geom_point(data = data.frame(x = 298112312, y = C_real), shape = 21,
              mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
-  geom_point(data = data.frame(x = 298112312, y = C_hat), shape = 21,
+  geom_point(data = data.frame(x = 298112312, y = C_pred), shape = 21,
              mapping = aes(x = x, y = y), fill = "firebrick", size = 2.5,
              inherit.aes = FALSE, show.legend = FALSE) +
   scale_x_continuous(name = "Sales", breaks = breaks,
@@ -959,7 +1054,7 @@ the predicted cost of sales according to the benchmark data
 $\frac{C - \hat{C}}{C}$.
 
 ```{r}
-mu <- (223994405 - C_hat) / 223994405
+mu <- (C_real - C_pred) / C_real
 mu
 ```
 
@@ -967,7 +1062,7 @@ The standard deviation of the prior distribution is expressed through the
 standard deviation of the distribution of $\epsilon$:
 
 ```{r}
-stdev <- sd(fit$residuals) / 223994405
+stdev <- sd(fit$residuals) / C_real
 stdev
 ```
 

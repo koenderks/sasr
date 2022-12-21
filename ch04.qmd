@@ -1,7 +1,11 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
-status("polishing")
 ```
+
+::: {.callout-note}
+You are reading the work-in-progress first edition of Statistical Auditing with
+R. This chapter is largely complete and just needs final proof reading.
+:::
 
 # Selecting a Sample {#CHAPTER-4}
 

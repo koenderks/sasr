@@ -1,7 +1,11 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
-status("polishing")
 ```
+
+::: {.callout-note}
+You are reading the work-in-progress first edition of Statistical Auditing with
+R. This chapter should be readable but is currently undergoing final polishing.
+:::
 
 # Background Information {#CHAPTER-2}
 
@@ -281,7 +285,8 @@ proportion of misstatements in the sample is less than the hypothesized
 proportion.
 
 ```{r}
-binom.test(x = 0, n = 100, p = 0.03, alternative = "less", conf.level = 0.95)
+binom.test(x = 0, n = 100, p = 0.03, alternative = "less",
+           conf.level = 0.95)
 ```
 
 The most likely misstatement in the population is displayed under
