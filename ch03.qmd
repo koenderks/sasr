@@ -19,13 +19,15 @@ hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 In **jfa**, determining an appropriate sample size is achieved via the
 `planning()` function.
 
-::: {.callout-note}
+::: {.callout-tip}
+## Bayesian planning?
 When you are using the Bayesian approach to audit sampling, it is not required
 to plan a certain sample size in advance [@Derks2022]. That is because in
 Bayesian inference, the posterior distribution after seeing each item is used as
-the prior distribution for the next item. However, to get an idea of how many
-samples are required to achieve a certain amount of assurance, planning a sample
-using a Bayesian approach can still be good practice.
+the prior distribution for the next item. That means that you can simply start
+sampling and monitor the evidence in the data over time. However, to get an idea
+of how many samples are required to achieve a certain amount of assurance,
+planning a sample using a Bayesian approach can still be good practice.
 :::
 
 ## Required Information
@@ -114,6 +116,29 @@ expected misstatements in the sample is $n = 94$.
 planning(materiality = 0.03, expected = 0, conf.level = 0.95,
          likelihood = "hypergeometric", N.units = 1000)
 ```
+
+::: {.callout-tip}
+## Additional arguments
+The `planning()` function has two additional arguments that are not shown in
+the call above: `by` and `max`. The argument `by` sets the increment between
+possible sample sizes for consideration. For example, `by = 5` considers only
+samples of size 10, 20, 30, etc:
+
+```{r}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000, by = 10)
+```
+
+The argument `max` sets the sample size at which the algorithm terminates. This
+can be used to avoid too many iterations of the algorithm at very low values of
+the performance materiality. For instance, `max = 50` throws an error if more
+than 100 samples are required.
+
+```{r error=TRUE}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000, max = 50)
+```
+:::
 
 The sample size of 94 can be confirmed by checking that 94 is the minimum
 integer that results in less than 5% probability of finding 0 misstatements,
@@ -320,7 +345,7 @@ formula for the minimum required sample size reduces to:
 \end{equation}
 
 ::: {.callout-note}
-$\lceil...\rceil$ is the ceiling function. This means that $\lceil1.2\rceil = 2$.
+$\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2$.
 :::
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
@@ -450,16 +475,27 @@ To account for the fact that $k$ can have non-integer values in this case, we
 can use a well-known similarity between the binomial distribution and the beta
 distribution to plan the sample size. The upper bound for any binomial($k$; $n$,
 $\theta$) distributed variable can also be obtained via percentiles of the
-beta($1 + k$, $n - k$) distribution. For example, the upper bound for the
-outcomes below is the same, regardless of whether it is computed via the
-binomial or the beta distribution.
+beta($1 + k$, $n - k$) distribution. 
+
+For example, the upper bound for a sample of $n = 10$ items containing $k = 2$
+misstatements, when calculated via the traditional `binom.test()` is:
 
 ```{r}
-n <- 10
-k <- 2
-ub_binom <- binom.test(x = k, n = n, p = 0.03, conf.level = 0.95,
+ub_binom <- binom.test(x = 2, n = 10, p = 0.03, conf.level = 0.95,
                        alternative = "less")$conf.int[2]
+ub_binom
+```
+
+When calculated via the beta relationship, the upper bound is:
+
+```{r}
 ub_beta <- qbeta(p = 0.95, shape1 = 1 + k, shape2 = n - k)
+ub_beta
+```
+
+It can be validated that the two approaches result in the same upper bound via:
+
+```{r}
 ub_binom == ub_beta
 ```
 
@@ -468,8 +504,9 @@ deliberately **not** used in **jfa**. That is because, in the case of the
 binomial distribution, the auditing standards round the tolerable misstatements
 upwards to a whole number [@AICPA-A]. For example, if we try to call the
 `planning()` function with the argument `expected = 1.5`, **jfa** will
-internally convert this to `expected = 2` and base the sample size on this. The
-resulting sample size is $n = 208$ in that case.
+internally convert this to `expected = 2` and base the sample size on this to
+comply with @AICPA-A Appendix A. The resulting sample size is $n = 208$ in this
+case.
 
 ```{r}
 planning(materiality = 0.03, expected = 1.5, conf.level = 0.95,
@@ -742,16 +779,28 @@ To account for the fact that $k$ can have non-integer values in this case, we
 use a well-known similarity between the Poisson distribution and the gamma
 distribution to plan the sample size. The upper bound for any Poisson($k$;
 $n \theta$) distributed variable can also be obtained via percentiles of the
-gamma($1 + k$, $n$) distribution. For example, the upper bound for the outcomes
-below is the same, regardless of whether it is computed via the Poisson or the
-gamma distribution.
+gamma($1 + k$, $n$) distribution. 
+
+For example, the upper bound for a sample of $n = 10$ items containing $k = 2$
+misstatements, when calculated via the traditional `poisson.test()` is:
 
 ```{r}
-n <- 10
-k <- 2
-ub_pois <- poisson.test(x = k, T = n, r = 0.03, conf.level = 0.95,
+ub_pois <- poisson.test(x = 2, T = 10, r = 0.03, conf.level = 0.95,
                         alternative = "less")$conf.int[2]
+ub_pois
+```
+
+When calculated via the relationship with the gamma distribution, the upper
+bound is:
+
+```{r}
 ub_gamma <- qgamma(p = 0.95, shape = 1 + k, rate = n)
+ub_gamma
+```
+
+It can be validated that the two approaches result in the same upper bound via:
+
+```{r}
 ub_pois == ub_gamma
 ```
 
