@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   cache = TRUE,
   fig.show = "hold",
   fig.align = "center",
-  fig.width = 6,
+  fig.width = 5,
   fig.height = 4,
   out.width = NULL
 )

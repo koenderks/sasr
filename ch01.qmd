@@ -266,13 +266,16 @@ to look at the source code of the package, see the
 R packages are updated regularly. To update a package in your R library you
 should call `update.packages()` and provide the name of the package that you
 want to update in quotes. For example, each time there is a new release of the
-**jfa* package, you can update it by running:
+**jfa** package, you can update it by running:
 
 ```{r, eval=FALSE}
 update.packages("jfa")
 ```
 
 ## Loading Data
+
+When working with data, you will need to load the data file into your R session.
+How this is done depends on the type of data file that you want to read.
 
 ### Loading Data from a CSV File
 
