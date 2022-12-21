@@ -52,8 +52,8 @@ a fixed interval sampling method with a starting point of 1.
 ```{r}
 set.seed(1)
 data(BuildIt)
-result <- selection(data = BuildIt, size = 60, method = "interval", start = 1,
-                    units = "values", values = "bookValue")
+result <- selection(data = BuildIt, size = 60, units = "values",
+                    method = "interval", start = 1, values = "bookValue")
 head(result$sample)
 ```
 
@@ -71,7 +71,8 @@ $n = 60$ containing $x = 0$ misstatements against a performance materiality of
 In **jfa**, these results can be reproduced via the following command:
 
 ```{r}
-evaluation(materiality = 0.05, method = "binomial", x = 2, n = 93, prior = TRUE)
+evaluation(materiality = 0.03, method = "binomial", x = 2, n = 93,
+           prior = TRUE)
 ```
 
 ## R Packages
