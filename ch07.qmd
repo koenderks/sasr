@@ -12,9 +12,7 @@ R. This chapter should be readable but is currently undergoing final polishing.
 This chapter discusses other R-related open-source software implementing
 statistical techniques for audit sampling.
 
-## Graphical User Interfaces
-
-### JASP for Audit
+## JASP for Audit
 
 JASP for Audit [@Derks2021_jasp] is an add-on module for
 [JASP](http://jasp-stats.org/) [@JASP], based on the **jfa** package, that
@@ -31,7 +29,7 @@ almost one-on-one to that of the package.
 
 ![Figure 7.1: The JASP welcome screen.](img/JASP.png){fig-align="center"}
 
-#### Planning
+### Planning
 
 In order to plan a sample for an audit using JASP, the process is similar to
 using **jfa**. For example, the screenshot below shows how to plan a minimum
@@ -46,7 +44,7 @@ In **jfa**, these results can be reproduced via the following command:
 planning(materiality = 0.05, likelihood = "binomial", prior = TRUE)
 ```
 
-#### Selection
+### Selection
 
 Selecting a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to select a sample of 60
@@ -63,7 +61,7 @@ head(result$sample)
 
 ![Figure 7.3: The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
 
-#### Evaluation
+### Evaluation
 
 Evaluating a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to evaluating a sample of
