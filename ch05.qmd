@@ -1,5 +1,6 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
+status("restructuring")
 ```
 
 # Evaluating a Sample {#CHAPTER-5}

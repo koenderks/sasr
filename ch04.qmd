@@ -1,5 +1,6 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
+status("polishing")
 ```
 
 # Selecting a Sample {#CHAPTER-4}

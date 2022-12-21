@@ -1,5 +1,6 @@
 ```{r echo = FALSE, cache = FALSE}
 source("utils.R", local = TRUE)
+status("polishing")
 ```
 
 # Other Software {#CHAPTER-7}
@@ -22,11 +23,7 @@ the auditor in interpreting, explaining, and reporting the analysis. Since JASP
 for Audit is an R-based GUI around **jfa**, its functionality can be mapped
 almost one-on-one to that of the package.
 
-<center>
-
 ![Figure 7.1: The JASP welcome screen.](img/JASP.png){fig-align="center"}
-
-</center>
 
 ### Planning
 
@@ -35,18 +32,13 @@ Planning a sample in JASP for Audit works similar to how you would do it in
 size for a performance materiality of 5% using a beta(1, 1) prior distribution,
 while expecting zero misstatements in the sample.
 
-<center>
-
 ![Figure 7.2: The JASP interface for planning a sample.](img/JASP_planning.png){fig-align="center"}
-
-</center>
 
 In **jfa**, these results can be reproduced via the following command:
 
 ```{r}
 planning(materiality = 0.05, likelihood = "binomial", prior = TRUE)
 ```
-
 
 ### Selection
 
@@ -63,11 +55,7 @@ result <- selection(data = BuildIt, size = 60, method = "interval", start = 1,
 head(result$sample)
 ```
 
-<center>
-
 ![Figure 7.3: The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
-
-</center>
 
 ### Evaluation
 
@@ -76,11 +64,7 @@ Evaluating a sample in JASP for Audit works similar to how you would do it in
 $n = 60$ containing $x = 0$ misstatements against a performance materiality of
 5% using a beta(1, 1) prior distribution.
 
-<center>
-
 ![Figure 7.4: The JASP interface for evaluating a sample.](img/JASP_evaluation.png){fig-align="center"}
-
-</center>
 
 In **jfa**, these results can be reproduced via the following command:
 
