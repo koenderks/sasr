@@ -20,7 +20,7 @@ book:
   site-url: https://koenderks.github.io/sasr/
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
-  repo-actions: [edit, source, issue]
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
     - ch00.qmd
