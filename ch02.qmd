@@ -185,8 +185,8 @@ risk and the control risk, the detection risk can be calculated as:
 
 ::: {.callout-note}
 The ARM is commonly used in practice, but is not a proper model of audit risk.
-For example, it is not possible to set one of the risks to 0, as that would
-result in an infinite detection risk ($\frac{0.05}{0 \times 1} = \infty$).
+For example, it is not possible to set one of the risks to zero, as that would
+result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
 :::
 
 Let's consider an example. Suppose that, in their audit guide, an audit firm

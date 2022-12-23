@@ -241,7 +241,7 @@ p
 ### Bayesian Planning
 
 Performing Bayesian planning with the hypergeometric likelihood [@Dyer1993]
-requires that you specify a prior distribution for the parameter $\theta$.
+requires that you specify a prior distribution for the total misstatements $K$.
 Practically, this means that you should provide an input for the `prior`
 argument in the `planning()` function.
 
@@ -258,22 +258,34 @@ this is a Bayesian analysis, the following statistical model is specified:
 The beta-binomial prior distribution is the conjugate prior for to the
 hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $K$ can be
-determined analytically. For example, if the prior distribution for $K$ is
-beta-binomial($N$, $\alpha$, $\beta$) and the auditor has observed a sample of
-$n$ items containing $k$ misstatements, the posterior distribution for $K$ is
-beta-binomial($N - n$, $\alpha + k$, $\beta + n - k$).
+determined analytically. For example, if the prior distribution for $K$ is:
+
+\begin{equation}
+\text{Beta-binomial}(N, \alpha, \beta), \,\,\, K = 0, \ldots, N
+\end{equation}
+
+and the auditor has observed a sample of $n$ items containing $k$ misstatements,
+the posterior distribution for $K$ is:
+
+\begin{equation}
+\text{Beta-binomial}(N - n, \alpha + k, \beta + k - n), \,\,\, K = k, k + 1, \ldots, N - n + k
+\end{equation}
 :::
 
-For example, the command below uses a default beta-binomial($N$, 1, 1) prior
-distribution to plan the sample, since `planning()` is given the hypergeometric
-likelihood. If we want to achieve an assurance level of 95% ($\alpha = 0.05$)
-for a performance materiality of $\theta_{max} = 0.03$ in a population of
-$N = 1000$ items, then the required sample size under the assumption of zero
-expected misstatements in the sample is $n = 93$.
+#### No Expected Misstatement
+
+Planning for no expected misstatements in the sample can be done by setting the
+value for the `expected` argument to zero. If we want to achieve an assurance
+level of 95% ($\alpha = 0.05$) for a performance materiality of
+$\theta_{max} = 0.1$ in a population of $N = 20$ items, then the required sample
+size under the assumption of zero expected misstatements in the sample is
+$n = 15$. The command below uses a default beta-binomial($N$, 1, 1) prior
+distribution to plan this sample, since `planning()` is given the hypergeometric
+likelihood.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 1000,
+plan <- planning(materiality = 0.1, expected = 0, conf.level = 0.95,
+                 likelihood = "hypergeometric", N.units = 20,
                  prior = TRUE)
 ```
 
@@ -287,14 +299,36 @@ summary(plan)
 You can inspect how the prior distribution compares to the expected posterior
 distribution by using the `plot()` function. The expected posterior distribution
 is the posterior distribution that would occur if you actually observed the
-planned sample containing the expected misstatements.
+planned sample containing the expected misstatements. Note that the posterior
+distribution is only defined in the range [$k$; $N - n + k$], since a part of
+the population has already been seen.
 
 ```{r}
 plot(plan)
 ```
 
-Note that the hypergeometric likelihood does not allow for non-conjugate prior
-distributions to be used as a prior.
+#### Expected Misstatements
+
+Planning for expected misstatements in the sample can be done by setting the
+value for the `expected` argument to a different value than zero. For example,
+the command below calculates the minimum sample size to achieve an assurance
+level of 95% ($\alpha = 0.05$) for a performance materiality of
+$\theta_{max} = 0.1$ in a population of $N = 50$ items, given one expected
+misstatement in the sample. This sample size is $n = 32$.
+
+```{r}
+plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95,
+                 likelihood = "hypergeometric", N.units = 50,
+                 prior = TRUE)
+plan
+```
+
+Like before, you can inspect how the prior distribution compares to the expected
+posterior distribution by using the `plot()` function.
+
+```{r}
+plot(plan)
+```
 
 ## The Binomial Likelihood
 
