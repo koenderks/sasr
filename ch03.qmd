@@ -114,8 +114,9 @@ $N = 1000$ items, then the required sample size under the assumption of no
 expected misstatements in the sample is $n = 94$.
 
 ```{r}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "hypergeometric", N.units = 1000)
+plan
 ```
 
 ::: {.callout-tip}
@@ -162,25 +163,13 @@ $\alpha$ and thus the sample size is considered to be sufficient.
 dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing thehypergeometric($k$
-| 94, 1000, 30) distribution and highlighting the probability for $k = 0$. This
-probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this sample size visually intuitive by showing the
+hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability
+for $k = 0$. This probability is lower than the required sampling risk
+$\alpha = 0.05$.
 
-```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 94))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+```{r}
+plot(plan)
 ```
 
 #### Expected Misstatements
@@ -193,8 +182,9 @@ population of $N = 1000$ items, then the required sample size under the
 assumption of one expected misstatement in the sample is $n = 147$.
 
 ```{r}
-planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000)
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+                 likelihood = "hypergeometric", N.units = 1000)
+plan
 ```
 
 Once again, the sample size of 147 can be confirmed by checking that 147 is the
@@ -220,22 +210,8 @@ hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the
 probabilities for $k = 0$ and $k = 1$. The sum of these probabilities is lower
 than the required sampling risk $\alpha = 0.05$.
 
-```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dhyper(x = 0:10, m = K, n = 1000 - K, k = 147))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
-           colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+```{r}
+plot(plan)
 ```
 
 ### Bayesian Planning
@@ -396,8 +372,9 @@ ceiling(log(1 - 0.95) / log(1 - 0.03))
 In **jfa**, this sample size can be replicated using the following code:
 
 ```{r}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "binomial")
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "binomial")
+plan
 ```
 
 The sample size of 99 can be confirmed by checking that 99 is the minimum
@@ -424,21 +401,8 @@ We can make this sample size visually intuitive by showing the binomial($k$ |
 99, 0.03) distribution and highlighting the probability for $k = 0$. This
 probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 99, prob = 0.03))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c("firebrick", rep("darkgray", 10)), colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+```{r}
+plot(plan)
 ```
 
 #### Expected Misstatements
@@ -456,8 +420,8 @@ then the required sample size under the assumption of one expected misstatement
 in the sample is $n = 157$.
 
 ```{r}
-planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-         likelihood = "binomial")
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+                 likelihood = "binomial")
 ```
 
 Once again, the sample size of 157 can be confirmed by checking that 157 is the
@@ -483,22 +447,8 @@ binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for
 $k = 0$ and $k = 1$. The sum of these probabilities is lower than the
 required sampling risk $\alpha = 0.05$.
 
-```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dbinom(x = 0:10, size = 157, prob = 0.03))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
-           colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+```{r}
+plot(plan)
 ```
 
 #### Partial Expected Misstatements
@@ -701,8 +651,8 @@ ceiling(-log(1 - 0.95) / 0.03)
 In **jfa**, this sample size can be replicated using the following code:
 
 ```{r}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "poisson")
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+                 likelihood = "poisson")
 ```
 
 The sample size of 100 can be confirmed by checking that 100 is the minimum
@@ -729,22 +679,8 @@ We can make this visually intuitive by showing the Poisson($k$ | 100 * 0.03)
 distribution and highlighting the probability for $k = 0$. This probability is
 lower than the required sampling risk $\alpha = 0.05$.
 
-```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 100 * 0.03))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c("firebrick", rep("darkgray", 10)),
-           colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+```{r}
+plot(plan)
 ```
 
 #### Expected Misstatements
@@ -761,8 +697,8 @@ size under the assumption of one expected misstatement in the sample is
 $n = 159$.
 
 ```{r}
-planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-         likelihood = "poisson")
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
+                 likelihood = "poisson")
 ```
 
 Once again, the sample size of 159 can be confirmed by checking that 159 is the
@@ -789,21 +725,7 @@ $k = 1$. The sum of these probabilities is lower than the required sampling risk
 $\alpha = 0.05$.
 
 ```{r echo = FALSE}
-df <- data.frame(x = 0:10, y = dpois(x = 0:10, lambda = 159 * 0.03))
-y_breaks <- pretty(df$y, min.n = 4)
-p <- ggplot(data = df, mapping = aes(x = x, y = y)) +
-  geom_col(position = "identity",
-           fill = c(rep("firebrick", 2), rep("darkgray", 9)),
-           colour = "black") +
-  annotate(geom = "text", x = df$x, y = df$y, label = round(df$y, 3),
-           vjust = -0.5, size = 3) +
-  scale_x_continuous(name = "Misstatements", breaks = 0:10) +
-  scale_y_continuous(name = "Probability", breaks = y_breaks,
-                     limits = range(y_breaks)) +
-  geom_segment(x = -Inf, xend = -Inf, y = min(y_breaks), yend = max(y_breaks)) +
-  geom_segment(x = 0, xend = 10, y = -Inf, yend = -Inf)
-p <- jfa:::.theme_jfa(p)
-p
+plot(plan)
 ```
 
 #### Partial Expected Misstatements
