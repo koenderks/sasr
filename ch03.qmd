@@ -237,14 +237,14 @@ of conjugate priors), which means that the posterior distribution of $K$ can be
 determined analytically. For example, if the prior distribution for $K$ is:
 
 \begin{equation}
-  K \sim \text{Beta-binomial}(N, \alpha, \beta) \,\,\,\,\, K = 0, \ldots, N
+  K \sim \text{Beta-binomial}(N, \alpha, \beta) \,\,\,\,\,\,\,\,\,\, K = 0, \ldots, N
 \end{equation}
 
 and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 then the posterior distribution for $K$ is:
 
 \begin{equation}
-  K \sim \text{Beta-binomial}(N - n, \alpha + k, \beta + k - n) \,\,\,\,\, K = k, k + 1, \ldots, N - n + k.
+  K \sim \text{Beta-binomial}(N - n, \alpha + k, \beta + k - n) \,\,\,\,\,\,\,\,\,\, K = k, k + 1, \ldots, N - n + k.
 \end{equation}
 :::
 
@@ -523,14 +523,14 @@ can be determined analytically. For example, if the prior distribution for
 $\theta$ is:
 
 \begin{equation}
-  \theta \sim \text{Beta}(\alpha, \beta) \,\,\,\,\, \theta \in [0, 1]
+  \theta \sim \text{Beta}(\alpha, \beta) \,\,\,\,\,\,\,\,\,\, \theta \in [0, 1]
 \end{equation}
 
 and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 then the posterior distribution for $\theta$ is:
 
 \begin{equation}
-  \theta \sim \text{Beta}(\alpha + k, \beta + n - k) \,\,\,\,\, \theta \in [0, 1].
+  \theta \sim \text{Beta}(\alpha + k, \beta + n - k) \,\,\,\,\,\,\,\,\,\, \theta \in [0, 1].
 \end{equation}
 :::
 
@@ -824,14 +824,14 @@ can be determined analytically. For example, if the prior distribution for
 $\theta$ is:
 
 \begin{equation}
-  \theta \sim \text{Gamma}(\alpha, \beta) \,\,\,\,\, \theta \in [0, \infty]
+  \theta \sim \text{Gamma}(\alpha, \beta) \,\,\,\,\,\,\,\,\,\, \theta \in [0, \infty]
 \end{equation}
 
 and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 then the posterior distribution for $\theta$ is:
 
 \begin{equation}
-  \theta \sim \text{Gamma}(\alpha + k, \beta + n) \,\,\,\,\, \theta \in [0, \infty].
+  \theta \sim \text{Gamma}(\alpha + k, \beta + n) \,\,\,\,\,\,\,\,\,\, \theta \in [0, \infty].
 \end{equation}
 :::
 
