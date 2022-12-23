@@ -237,14 +237,14 @@ of conjugate priors), which means that the posterior distribution of $K$ can be
 determined analytically. For example, if the prior distribution for $K$ is:
 
 \begin{equation}
-\text{Beta-binomial}(N, \alpha, \beta), \,\,\, K = 0, \ldots, N
+  K \sim \text{Beta-binomial}(N, \alpha, \beta) \,\,\,\,\, K = 0, \ldots, N
 \end{equation}
 
 and the auditor has observed a sample of $n$ items containing $k$ misstatements,
-the posterior distribution for $K$ is:
+then the posterior distribution for $K$ is:
 
 \begin{equation}
-\text{Beta-binomial}(N - n, \alpha + k, \beta + k - n), \,\,\, K = k, k + 1, \ldots, N - n + k
+  K \sim \text{Beta-binomial}(N - n, \alpha + k, \beta + k - n) \,\,\,\,\, K = k, k + 1, \ldots, N - n + k.
 \end{equation}
 :::
 
@@ -519,10 +519,19 @@ Bayesian analysis, the following statistical model is specified:
 The beta prior distribution is the conjugate prior for the binomial likelihood
 (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
-can be determined analytically. For example, if the prior distribution is
-beta($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
-containing $k$ misstatements, the posterior distribution for $\theta$ is
-beta($\alpha + k$, $\beta + n - k$).
+can be determined analytically. For example, if the prior distribution for
+$\theta$ is:
+
+\begin{equation}
+  \theta \sim \text{Beta}(\alpha, \beta) \,\,\,\,\, \theta \in [0, 1]
+\end{equation}
+
+and the auditor has observed a sample of $n$ items containing $k$ misstatements,
+then the posterior distribution for $\theta$ is:
+
+\begin{equation}
+  \theta \sim \text{Beta}(\alpha + k, \beta + n - k) \,\,\,\,\, \theta \in [0, 1].
+\end{equation}
 :::
 
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior
@@ -811,10 +820,19 @@ Bayesian analysis, the following statistical model is specified:
 The gamma prior distribution is the conjugate prior for the Poisson likelihood
 (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions)
 of conjugate priors), which means that the posterior distribution of $\theta$
-can be determined analytically. For example, if the prior distribution is
-gamma($\alpha$, $\beta$) and the auditor has observed a sample of $n$ items
-containing $k$ misstatements, the posterior distribution for $\theta$ is
-gamma($\alpha + k$, $\beta + n$).
+can be determined analytically. For example, if the prior distribution for
+$\theta$ is:
+
+\begin{equation}
+  \theta \sim \text{Gamma}(\alpha, \beta) \,\,\,\,\, \theta \in [0, \infty]
+\end{equation}
+
+and the auditor has observed a sample of $n$ items containing $k$ misstatements,
+then the posterior distribution for $\theta$ is:
+
+\begin{equation}
+  \theta \sim \text{Gamma}(\alpha + k, \beta + n) \,\,\,\,\, \theta \in [0, \infty].
+\end{equation}
 :::
 
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior
