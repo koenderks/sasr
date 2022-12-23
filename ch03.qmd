@@ -1142,3 +1142,64 @@ distribution by using the `plot()` function.
 ```{r}
 plot(plan)
 ```
+
+### Predictive Analytics
+
+The auditor can incorporate information obtained through predictive analytics
+into the prior distribution for $\theta$. In this example, we place ourselves in
+the shoes of an auditor that is auditing a client they have audited for ten
+years. The population under consideration is:
+
+```{r}
+population <- read.csv("https://osf.io/download/vge5d/")[, -4]
+head(population)
+```
+
+Because the auditor is auditing a long-term client, the auditor has access to
+all samples of the last ten years. These samples are gathered in a single data
+set called `history`.
+
+```{r}
+set.seed(1)
+history <- data.frame(k = factor(c(rep(0, 3300), rep(1, 200))),
+                      x1 = runif(3500, min(population$x1), max(population$x1)),
+                      x2 = runif(3500, min(population$x2), max(population$x2)))
+head(history)
+```
+
+The goal of the analytical procedure is to make a prediction about the number of
+possible misstatements in the population. Hence, the auditor fits a predictive
+model to predict the variable `k` in the training data `history`.
+
+```{r}
+fit <- randomForest::randomForest(formula = k ~ x1 + x2, data = history)
+```
+
+The predictions for the unknown `k` in the `population` data can be obtained by
+calling the `predict()` function:
+
+```{r}
+predictions <- predict(object = fit, newdata = population, type = "prob")
+predictions[1:5]
+```
+
+This distribution does not have a shape that resembles any known distribution.
+
+```{r}
+prior <- auditPrior(method = "nonparam", samples = predictions[, 2])
+plot(prior)
+```
+
+The sample size can be calculated with the command below and is 32.
+
+```{r}
+plan <- planning(materiality = 0.05, likelihood = "binomial", prior = prior)
+summary(plan)
+```
+
+You can inspect how the prior distribution compares to the expected posterior
+distribution by using the `plot()` function.
+
+```{r}
+plot(plan)
+```
