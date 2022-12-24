@@ -9,7 +9,7 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Planning a Sample {#CHAPTER-3}
 
-![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+![](img/book_puzzle.png){fig-align="center" width=75%}
 
 One of the key considerations in audit sampling is determining the appropriate
 sample size to achieve a desired level of assurance or precision. This chapter

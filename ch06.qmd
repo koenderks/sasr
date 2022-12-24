@@ -9,7 +9,7 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
 
-![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){fig-align="center" width=75%}
+![](img/book_pyramid.png){fig-align="center" width=75%}
 
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure

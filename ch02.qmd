@@ -245,8 +245,6 @@ which provide a measure of the reliability of the estimates. Overall,
 frequentist statistics is a rigorous and reliable approach that is widely used
 in the scientific community for making informed decisions based on data.
 
-![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){fig-align="center" width=75%}
-
 ### Parameter Estimation
 
 The philosophy behind frequentist parameter estimation is based on the idea that
@@ -275,6 +273,8 @@ misstatements versus the expected frequency under the assumption of material
 misstatement. If the *p* value is below the sampling risk $\alpha$, we reject
 the hypothesis that the population is materially misstated and conclude that it
 is not materially misstated.
+
+![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science.](img/book_fisher.png){fig-align="center" width=75%}
 
 ### Example
 
@@ -324,8 +324,6 @@ distributions that can be difficult to quantify. That is because, especially in
 an audit, all information that is incorporated into the statistical analysis
 should be based on audit evidence and should be properly justified.
 
-![Sir Harold Jeffreys revolutionized statistical modeling with his Bayesian approach, paving the way for modern data analysis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){fig-align="center" width=75%}
-
 ### Parameter Estimation
 
 One major difference between classical and Bayesian statistics is the way
@@ -352,6 +350,8 @@ often given as follows:
 \begin{equation}
   p(\theta | y) \propto p(y | \theta) \times p(\theta)
 \end{equation}
+
+![Thomas Bayes](img/book_bayes.png){fig-align="center" width=75%}
 
 ### Hypothesis Testing
 
@@ -393,3 +393,7 @@ likely to conclude that the financial statements are accurate.
 
 The **jfa** package can help us to calculate Bayes factors for and against the
 hypothesis that the financial statements are represented fairly.
+
+![Sir Harold Jeffreys revolutionized statistical hypothesis testing with his Bayesian approach, paving the way for modern data analysis.](img/book_jeffreys.png){fig-align="center" width=75%}
+
+### Example
