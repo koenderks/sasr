@@ -36,6 +36,8 @@ applications of R in the audit can be found in @Lin2022.
 The next sections provide a basic introduction to R and the functionality that
 is required for reproducing the examples in this book.
 
+![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
+
 ## Calculations
 
 One of the basic features of R is its ability to perform calculations. In R,
