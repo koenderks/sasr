@@ -9,13 +9,13 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
 
-![](img/book_pyramid.png){fig-align="center" width=75%}
-
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure
 that the sample is representative of the population. This means that there is a
 hierarchical structure in the data (strata are nested in the population) and the
 statistical model should ideally reflect this.
+
+![](img/book_pyramid.png){fig-align="center" width=75%}
 
 In general, there are three approaches to evaluating a stratified sample: no
 pooling, complete pooling, and partial pooling. No pooling assumes no

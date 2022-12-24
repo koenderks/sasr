@@ -9,8 +9,6 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Selecting a Sample {#CHAPTER-4}
 
-![](img/book_selection.png){fig-align="center" width=75%}
-
 Auditors must often evaluate balances or populations that include a large
 quantity of items. As it is not possible to individually examine all of these
 items, they must select a subset, or sample, from the total population to make a
@@ -19,6 +17,8 @@ methodologies, which are widely accepted in the audit context, are available for
 this purpose. This chapter discusses the most frequently used sampling
 methodology for audit sampling and demonstrates how to select a sample using
 these methods in R.
+
+![](img/book_selection.png){fig-align="center" width=75%}
 
 ## Sampling Units
 

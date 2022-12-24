@@ -9,8 +9,6 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Background Information {#CHAPTER-2}
 
-![](img/book_fishing.png){fig-align="center" width=75%}
-
 Auditors use audit sampling as a technique to assess a selection of transactions
 or items within a population in order to form conclusions about the population
 as a whole. It is a cost-efficient method for examining the accuracy of
@@ -33,6 +31,8 @@ select a sample from the population and draw conclusions about the population
 based on the sample. Nonstatistical sampling, on the other hand, is based on
 the auditor's professional judgment and does not use statistical inference to
 come to a conclusion. This book does not cover nonstatistical sampling.
+
+![](img/book_fishing.png){fig-align="center" width=75%}
 
 International auditing standards prescribe the manner in which statistical
 sampling should be conducted in an audit. The following section discusses what

@@ -1,7 +1,5 @@
 # Preface {.unnumbered}
 
-![](img/book_roads.png){fig-align="center" width=75%}
-
 This book is intended for auditors that want to obtain the knowledge and skill
 to utilize statistical audit sampling in their practice using the R programming
 language. It covers an array of traditional and innovative statistical tools
@@ -33,6 +31,8 @@ sampling techniques and illustrates how to utilize these techniques in
 accordance with international auditing standards. Additionally, the book
 demonstrates the use of Bayesian statistical methods in auditing practice and
 highlights the practical advantages that these methods can offer for auditors.
+
+![](img/book_roads.png){fig-align="center" width=75%}
 
 The organization of this book is as follows: Chapter 1 provides a foundational
 introduction to the R programming language. Chapter 2 addresses the fundamental
