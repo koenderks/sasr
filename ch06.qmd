@@ -9,11 +9,23 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
 
-![The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The evaluation stage is the last of these stages.](img/workflow_evaluation.png){fig-align="center"}
+![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){fig-align="center" width=75%}
 
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure
-that the sample is representative of the population.
+that the sample is representative of the population. This means that there is a
+hierarchical structure in the data (strata are nested in the population) and the
+statistical model should ideally reflect this.
+
+In general, there are three approaches to evaluating a stratified sample: no
+pooling, complete pooling, and partial pooling. No pooling assumes no
+similarities between strata, which means that all strata are analyzed
+independently. Complete pooling assumes no difference between strata, which
+means that all data is aggregated and analyzed as a whole. Finally, partial
+pooling assumes differences and similarities between strata, which means that
+information can be shared between strata. Partial pooling (i.e., hierarchical
+modeling) is a powerful technique that can result in more efficient population
+and stratum estimates.
 
 For example, if you want to audit the expense claims of a large organization,
 you can stratify the population based on the department, location, or business
@@ -32,21 +44,6 @@ reported the outcomes to the group auditor.
 data(retailer)
 head(retailer)
 ```
-
-In general, there are three approaches to evaluating a stratified sample: no
-pooling, complete pooling, and partial pooling (see Derks et al., 2022). When
-using `evaluation()`, you must to indicate which type of pooling to use via the
-`pooling` argument. No pooling assumes no similarities between strata, which
-means that all strata are analyzed independently. Complete pooling assumes no
-difference between strata, which means that all data is aggregated and analyzed
-as a whole. Finally, partial pooling assumes differences and similarities
-between strata, which means that information can be shared between strata.
-Partial pooling (i.e., multilevel/hierarchical modeling) is a powerful
-technique that can result in more efficient population and stratum estimates but
-is currently only feasible when performing a Bayesian analysis. For this reason,
-this vignette only describes the Bayesian approach to stratified evaluation but
-going from this approach to a classical approach only requires setting
-`prior = FALSE`.
 
 The number of units per stratum in the population can be provided with `N.units`
 to weigh the stratum estimates to determine population estimate. This is called

@@ -9,12 +9,12 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Planning a Sample {#CHAPTER-3}
 
+![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+
 One of the key considerations in audit sampling is determining the appropriate
 sample size to achieve a desired level of assurance or precision. This chapter
 will focus on three standard likelihoods commonly used in audit sampling: the
 hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
-
-![The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The planning stage is the first of these stages. ](img/workflow_planning.png){fig-align="center"}
 
 In **jfa**, determining an appropriate sample size is achieved via the
 `planning()` function.

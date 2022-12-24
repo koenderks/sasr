@@ -18,8 +18,6 @@ this purpose. This chapter discusses the most frequently used sampling
 methodology for audit sampling and demonstrates how to select a sample using
 these methods in R.
 
-![The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The selection stage is the second of these stages.](img/workflow_selection.png){fig-align="center"}
-
 ## Sampling Units
 
 Selecting a subset from the population requires knowledge of the sampling units;

@@ -9,6 +9,8 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Introduction to R {#CHAPTER-1}
 
+![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
+
 R [@R] is a programming language and software environment for statistical
 computing and graphics. It is widely used among statisticians and data
 scientists for data analysis and data visualization. R has a large and active
@@ -35,8 +37,6 @@ applications of R in the audit can be found in @Lin2022.
 
 The next sections provide a basic introduction to R and the functionality that
 is required for reproducing the examples in this book.
-
-![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
 
 ## Calculations
 
