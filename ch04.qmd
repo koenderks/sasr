@@ -18,7 +18,7 @@ this purpose. This chapter discusses the most frequently used sampling
 methodology for audit sampling and demonstrates how to select a sample using
 these methods in R.
 
-![Figure 4.1: The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The selection stage is the second of these stages.](img/workflow_selection.png){fig-align="center"}
+![The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The selection stage is the second of these stages.](img/workflow_selection.png){fig-align="center"}
 
 ## Sampling Units
 
@@ -97,10 +97,10 @@ selection probability for each sampling unit is defined as:
   p(x) = \frac{1}{N}.
 \end{equation}
 
-To make this procedure visually intuitive, Figure 4.2 provides an illustration
-of the random sampling method.
+To make this procedure visually intuitive, the figure below provides an
+illustration of the random sampling method.
 
-![Figure 4.2: Illustration of random sampling](img/selection_random.png){fig-align="center"}
+![Illustration of random sampling](img/selection_random.png){fig-align="center"}
 
 - **Advantage(s):** The random sampling method yields an optimal random
   selection, with the additional advantage that the sample can be easily
@@ -212,10 +212,11 @@ probability for each sampling unit is theoretically defined as:
 \end{equation}
 
 with the property that the space between selected units $i$ is the same as the
-interval $I$, see Figure 4.3. However, in practice the selection is deterministic
-and completely depends on the chosen starting points (using `start`).
+interval $I$, see the figure below. However, in practice the selection is
+deterministic and completely depends on the chosen starting points (using
+`start`).
 
-![Figure 4.3: Illustration of fixed interval sampling](img/selection_interval.png){fig-align="center"}
+![Illustration of fixed interval sampling](img/selection_interval.png){fig-align="center"}
 
 The fixed interval method yields a sample that allows every sampling unit in the
 population an equal chance of being selected. However, the fixed interval method
@@ -350,7 +351,7 @@ sampling unit is defined as:
   p(x) = \frac{1}{I}.
 \end{equation}
 
-![Figure 4.4: Illustration of cell sampling](img/selection_cell.png){fig-align="center"}
+![Illustration of cell sampling](img/selection_cell.png){fig-align="center"}
 
 The cell sampling method has the property that all items in the population with
 a monetary value larger than twice the interval $I$ have a selection probability

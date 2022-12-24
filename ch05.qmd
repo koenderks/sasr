@@ -9,7 +9,7 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Sample {#CHAPTER-5}
 
-![Figure 5.1: The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The evaluation stage is the last of these stages.](img/workflow_evaluation.png){fig-align="center"}
+![The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The evaluation stage is the last of these stages.](img/workflow_evaluation.png){fig-align="center"}
 
 A non-stratified audit sample does not involve dividing the population into
 subgroups. Here, the auditor selects a random sample from the entire population
