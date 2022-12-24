@@ -9,6 +9,8 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Background Information {#CHAPTER-2}
 
+![](img/book_fishing.png){fig-align="center" width=75%}
+
 Auditors use audit sampling as a technique to assess a selection of transactions
 or items within a population in order to form conclusions about the population
 as a whole. It is a cost-efficient method for examining the accuracy of

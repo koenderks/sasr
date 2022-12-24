@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-![](img/book_roads.png){fig-align="center" width=75%}
+![](img/book_fishing.png){fig-align="center" width=75%}
 
 This book is intended for auditors that want to obtain the knowledge and skill
 to utilize statistical audit sampling in their practice using the R programming
