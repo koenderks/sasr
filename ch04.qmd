@@ -9,7 +9,7 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Selecting a Sample {#CHAPTER-4}
 
-![](img/book_fishing.png){fig-align="center" width=75%}
+![](img/book_selection.png){fig-align="center" width=75%}
 
 Auditors must often evaluate balances or populations that include a large
 quantity of items. As it is not possible to individually examine all of these
