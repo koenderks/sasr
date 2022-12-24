@@ -245,6 +245,8 @@ which provide a measure of the reliability of the estimates. Overall,
 frequentist statistics is a rigorous and reliable approach that is widely used
 in the scientific community for making informed decisions based on data.
 
+![Figure 2.1. Sir Ronald Fisher.](img/book_fisher.png){fig-align="center"}
+
 ### Parameter Estimation
 
 The philosophy behind frequentist parameter estimation is based on the idea that
@@ -321,6 +323,8 @@ in statistical audit sampling, but it requires the specification of prior
 distributions that can be difficult to quantify. That is because, especially in
 an audit, all information that is incorporated into the statistical analysis
 should be based on audit evidence and should be properly justified.
+
+![Figure 2.2. Sir Harold Jeffreys.](img/book_jeffreys.png){fig-align="center"}
 
 ### Parameter Estimation
 

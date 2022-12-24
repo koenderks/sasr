@@ -9,7 +9,7 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Stratified Sample {#CHAPTER-6}
 
-![Figure 6.1: The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The evaluation stage is the last of these stages.](img/evaluation.png){fig-align="center"}
+![Figure 6.1: The standard audit sampling workflow consists of four stages: planning, selection, execution, and evaluation. The evaluation stage is the last of these stages.](img/workflow_evaluation.png){fig-align="center"}
 
 In an audit context, stratified sampling can be used to select a sample of
 transactions from different departments, locations, or business units to ensure
