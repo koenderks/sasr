@@ -30,6 +30,8 @@ of how many samples are required to achieve a certain amount of assurance,
 planning a sample using a Bayesian approach can still be good practice.
 :::
 
+![Figure 3.2. Properly planning your sample size can be key to ensuring an efficient audit.](img/book_planning.png){fig-align="center" width=75%}
+
 ## Required Information
 
 First, planning a minimum sample requires knowledge of the conditions that lead 

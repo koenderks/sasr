@@ -245,7 +245,7 @@ which provide a measure of the reliability of the estimates. Overall,
 frequentist statistics is a rigorous and reliable approach that is widely used
 in the scientific community for making informed decisions based on data.
 
-![Figure 2.1. Sir Ronald Fisher.](img/book_fisher.png){fig-align="center"}
+![Figure 2.1. Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science.](img/book_fisher.png){fig-align="center" width=75%}
 
 ### Parameter Estimation
 
@@ -324,7 +324,7 @@ distributions that can be difficult to quantify. That is because, especially in
 an audit, all information that is incorporated into the statistical analysis
 should be based on audit evidence and should be properly justified.
 
-![Figure 2.2. Sir Harold Jeffreys.](img/book_jeffreys.png){fig-align="center"}
+![Figure 2.2. Sir Harold Jeffreys revolutionized statistical modeling with his Bayesian approach, paving the way for modern data analysis.](img/book_jeffreys.png){fig-align="center" width=75%}
 
 ### Parameter Estimation
 
