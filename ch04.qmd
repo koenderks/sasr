@@ -18,8 +18,6 @@ this purpose. This chapter discusses the most frequently used sampling
 methodology for audit sampling and demonstrates how to select a sample using
 these methods in R.
 
-![Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_selection.png){fig-align="center" width=75%}
-
 ## Sampling Units
 
 Selecting a subset from the population requires knowledge of the sampling units;

@@ -59,7 +59,7 @@ conservative of the three. In the subsections below, we elaborate on the three
 standard likelihoods for audit sampling and demonstrate how they can be used
 to obtain a minimum sample size.
 
-![When all other puzzle pieces are defined, there is only one piece that fits perfectly. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+![When the sampling objectives, the expected misstatements, and the likelihood are known, there is only one sample size that is optimal. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
 
 ## The Hypergeometric Likelihood
 
