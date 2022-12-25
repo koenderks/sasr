@@ -9,7 +9,23 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # Evaluating a Sample {#CHAPTER-5}
 
-![](img/book_justice.png){fig-align="center" width=75%}
+Evaluating a sample is the final stage in the audit sampling workflow. In this
+stage, the auditor weighs the audit evidence obtained from the sample together
+with the audit evidence obtained in earlier stages of the audit to determine
+their opinion about the population.
+
+Like planning a sample, evaluating a sample requires knowledge of the conditions
+that lead  to acceptance or rejection of the population (i.e., the sampling
+objectives). A quick reminder: Sampling objectives can be classified into one of
+the following two categories:
+
+- **Hypothesis testing**: The goal of the sample is to obtain evidence for or
+  against the claim that the misstatement in the population is lower than a
+  given value (i.e., the performance materiality).
+- **Estimation**: The goal of the sample is to obtain an accurate estimate of
+  the misstatement in the population (with a minimum precision).
+
+![When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_justice.png){fig-align="center" width=75%}
 
 A non-stratified audit sample does not involve dividing the population into
 subgroups. Here, the auditor selects a random sample from the entire population

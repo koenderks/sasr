@@ -32,8 +32,6 @@ based on the sample. Nonstatistical sampling, on the other hand, is based on
 the auditor's professional judgment and does not use statistical inference to
 come to a conclusion. This book does not cover nonstatistical sampling.
 
-![](img/book_fishing.png){fig-align="center" width=75%}
-
 International auditing standards prescribe the manner in which statistical
 sampling should be conducted in an audit. The following section discusses what
 these standards say about statistical sampling.
@@ -276,7 +274,7 @@ misstatement. If the *p* value is below the sampling risk $\alpha$, we reject
 the hypothesis that the population is materially misstated and conclude that it
 is not materially misstated.
 
-![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science.](img/book_fisher.png){fig-align="center" width=75%}
+![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){fig-align="center" width=75%}
 
 ### Example
 
@@ -353,7 +351,7 @@ often given as follows:
   p(\theta | y) \propto p(y | \theta) \times p(\theta)
 \end{equation}
 
-![Thomas Bayes](img/book_bayes.png){fig-align="center" width=75%}
+![Thomas Bayes revolutionized the world of statistics and probability with his groundbreaking work on Bayes' Theorem. His contributions continue to shape the way we understand and analyze data today. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_bayes.png){fig-align="center" width=75%}
 
 ### Hypothesis Testing
 
@@ -396,6 +394,6 @@ likely to conclude that the financial statements are accurate.
 The **jfa** package can help us to calculate Bayes factors for and against the
 hypothesis that the financial statements are represented fairly.
 
-![Sir Harold Jeffreys revolutionized statistical hypothesis testing with his Bayesian approach, paving the way for modern data analysis.](img/book_jeffreys.png){fig-align="center" width=75%}
+![Sir Harold Jeffreys innovated statistical hypothesis testing with his Bayes factor approach, helping us make better decision in the face of uncertainty. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){fig-align="center" width=75%}
 
 ### Example

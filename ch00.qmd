@@ -24,19 +24,22 @@ unanswered by these tools. This book aims to clarify the statistical methodology
 utilized in practice, thereby empowering auditors through a comprehensive
 explanation.
 
-This book discusses the topic of audit sampling from both a classical
-(frequentist) and a Bayesian perspective. By utilizing these two approaches, the
-book elucidates the statistical theory that underlies commonly used audit
-sampling techniques and illustrates how to utilize these techniques in
-accordance with international auditing standards. Additionally, the book
+This book discusses two philosphies to statistical audit sampling: the classical
+(frequentist) philosophy and the Bayesian philosophy. By utilizing these two
+approaches, the book elucidates the statistical theory that underlies commonly
+used audit sampling techniques and illustrates how to utilize these techniques
+in accordance with international auditing standards. Additionally, the book
 demonstrates the use of Bayesian statistical methods in auditing practice and
 highlights the practical advantages that these methods can offer for auditors.
 
-![](img/book_roads.png){fig-align="center" width=75%}
+The structure of this book is as follows: Chapter 1 introduces the basics of the
+R programming language. Chapter 2 discusses the fundamental statistical theory
+relevant to classical and Bayesian audit sampling. Subsequent chapters (Chapters
+3, 4, 5, and 6) provide a more in-depth exploration of the use of these methods
+for statistical planning, selection, and evaluation of audit samples. These
+chapters illustrate the practical differences and similarities between classical
+and Bayesian approaches through code and examples, thus requiring minimal
+programming expertise to follow along. Finally, Chapter 7 examines other
+open-source software implementations of audit sampling using R.
 
-The organization of this book is as follows: Chapter 1 provides a foundational
-introduction to the R programming language. Chapter 2 addresses the fundamental
-statistical theory relevant to audit sampling. Chapters 3, 4, 5, and 5 delve
-more deeply into the use of statistical methods for the planning, selection, and
-evaluation of audit samples. Finally, Chapter 7 considers other software
-implementations of audit sampling utilizing R.
+![Bayesian and classical inference are two approaches that can lead to an appropriate audit opinion, however, Bayesian inference can help you get there faster. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_roads.png){fig-align="center" width=75%}

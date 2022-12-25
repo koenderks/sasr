@@ -33,10 +33,10 @@ through the use of code and reproducible reports, enabling more efficient and
 collaborative audit processes. A useful resource that discusses relevant
 applications of R in the audit can be found in @Lin2022.
 
-![](img/book_r.png){fig-align="center" width=75%}
-
 The next sections provide a basic introduction to R and the functionality that
 is required for reproducing the examples in this book.
+
+![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
 
 ## Calculations
 
@@ -117,10 +117,10 @@ x[3] <- 6
 x[3]
 ```
 
-R also has functions for performing mathematical operations on data. For
-example, we can use the `mean()` function to calculate the average of a vector
-of numbers, or we can use the `length()` function to calculate the number of
-elements in a vector:
+R has many built-in functions for performing mathematical operations on vectors.
+For example, you can use the `mean()` function to calculate the average of a
+vector of numbers, or we can use the `length()` function to calculate the number
+of elements in a vector:
 
 ```{r}
 mean(x)

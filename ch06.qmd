@@ -15,8 +15,6 @@ that the sample is representative of the population. This means that there is a
 hierarchical structure in the data (strata are nested in the population) and the
 statistical model should ideally reflect this.
 
-![](img/book_pyramid.png){fig-align="center" width=75%}
-
 In general, there are three approaches to evaluating a stratified sample: no
 pooling, complete pooling, and partial pooling. No pooling assumes no
 similarities between strata, which means that all strata are analyzed
@@ -26,6 +24,8 @@ pooling assumes differences and similarities between strata, which means that
 information can be shared between strata. Partial pooling (i.e., hierarchical
 modeling) is a powerful technique that can result in more efficient population
 and stratum estimates.
+
+![There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_doors.png){fig-align="center" width=75%}
 
 For example, if you want to audit the expense claims of a large organization,
 you can stratify the population based on the department, location, or business
@@ -129,7 +129,11 @@ plot(result_cp, type = "posterior")
 Finally, partial pooling (`pooling = "partial"`) assumes differences and
 similarities between strata. This allows the auditor to differentiate between
 strata, while also sharing information between the strata to reduce uncertainty
-in the population estimate. The call below evaluates the sample using a Bayesian
+in the population estimate. 
+
+![Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){fig-align="center" width=75%}
+
+The call below evaluates the sample using a Bayesian
 stratified evaluation procedure, in which the stratum estimates are
 poststratified to arrive at the population estimate.
 
