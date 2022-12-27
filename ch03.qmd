@@ -59,7 +59,7 @@ conservative of the three. In the subsections below, we elaborate on the three
 standard likelihoods for audit sampling and demonstrate how they can be used
 to obtain a minimum sample size.
 
-![When the sampling objectives, the expected misstatements, and the likelihood are known, there is only one sample size that is optimal. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+![When the sampling objectives, the expected misstatements and the likelihood are set, there exists one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
 
 ## The Hypergeometric Likelihood
 
@@ -1128,7 +1128,9 @@ The specified prior distribution can be visualized using the `plot()` function.
 plot(prior)
 ```
 
-By using this prior distribution, the required minimum sample size is 50.
+The performance materiality for this example is set to $\theta_{max}$ = 5%, and
+the audit risk is set to $\alpha = 0.05$, or 5%. By using this prior
+distribution, the required minimum sample size is 50.
 
 ```{r}
 plan <- planning(materiality = 0.05, conf.level = 0.95,
@@ -1143,57 +1145,107 @@ distribution by using the `plot()` function.
 plot(plan)
 ```
 
+By using a frequentist approach, the required minimum sample size is 50. Thus,
+by performing the analytical procedure and incorporating this information into
+the prior distribution, the auditor has achieved a reduction in sample size of
+9 items.
+
+```{r}
+plan <- planning(materiality = 0.05, conf.level = 0.95,
+                 likelihood = "binomial")
+plan
+```
+
 ### Predictive Analytics
 
-The auditor can incorporate information obtained through predictive analytics
-into the prior distribution for $\theta$. In this example, we place ourselves in
-the shoes of an auditor that is auditing a client they have audited for ten
-years. The population under consideration is:
+As a final example, we consider an example wehre the auditor incorporates
+information about the probability of misstatement obtained through predictive
+analytics into the prior distribution for $\theta$. In this example, the auditor
+is conducting an audit on a long-term client that they have been working with
+for ten years. Hence, the auditor has access to a historycal data set called
+`history`, which contains the samples from all of the previous audits that have
+been conducted on this auditee over the past ten years.
+
+```{r}
+set.seed(1)
+history <- data.frame(k = factor(c(rep(0, 3300), rep(1, 200))),
+                      ftes = runif(3500, 0, 26),
+                      days = runif(3500, 1, 10))
+head(history)
+```
+
+It should be noted that for all historical sample items, there are three known
+characteristics: whether they contained a misstatement (designated as `k`), the
+number of full-time equivalent employees (FTEs) who had access to that item
+within the internal computer systems of the auditee (designated as `ftes`), and
+the number of days that the item was outstanding (designated as `days`).
+Additionally, the `ftes` and `days` characteristics are also known for all items
+in the current year's population. Of course, it is unknown if any misstatements
+exist within the population of the current year.
 
 ```{r}
 population <- read.csv("https://osf.io/download/vge5d/")[, -4]
 head(population)
 ```
 
-Because the auditor is auditing a long-term client, the auditor has access to
-all samples of the last ten years. These samples are gathered in a single data
-set called `history`.
+The objective of this analytical procedure is to forecast potential
+misstatements within the population of the current year. In order for the
+information obtained through this procedure to serve as prior knowledge in a
+Bayesian analysis, the procedure must yield a distribution of the probability of
+misstatement. Therefore, the auditor employs a machine learning technique known
+as Random Forest [@iemand] to learn the relationship between misstatements, the
+number of full-time equivalent employees, and the number of outstanding days in
+the historical data set.
 
 ```{r}
-set.seed(1)
-history <- data.frame(k = factor(c(rep(0, 3300), rep(1, 200))),
-                      x1 = runif(3500, min(population$x1), max(population$x1)),
-                      x2 = runif(3500, min(population$x2), max(population$x2)))
-head(history)
+fit <- randomForest::randomForest(formula = k ~ ftes + days, data = history)
 ```
 
-The goal of the analytical procedure is to make a prediction about the number of
-possible misstatements in the population. Hence, the auditor fits a predictive
-model to predict the variable `k` in the training data `history`.
-
-```{r}
-fit <- randomForest::randomForest(formula = k ~ x1 + x2, data = history)
-```
-
-The predictions for the unknown `k` in the `population` data can be obtained by
-calling the `predict()` function:
+The auditor specifically uses the random forest technique due to its ability to
+provide a distribution of the misstatement probabilities. The probabilistic
+predictions for the unseen misstatements in the `population` data can be
+obtained by calling the `predict()` function with the argument `type = "prob"`.
 
 ```{r}
 predictions <- predict(object = fit, newdata = population, type = "prob")
-predictions[1:5]
 ```
 
-This distribution does not have a shape that resembles any known distribution.
+These predictions come in a probabilistic format:
+
+```{r}
+head(predictions)
+```
+
+The prior distribution for $\theta$ will be based on the distribution of
+probabilities that each item in the population is accurately stated. In contrast
+to the previous example, this distribution is not a parametric distribution,
+which means we are unable to utilize any parametric priors from **jfa**.
+However, by providing samples of the prior distribution, **jfa** is able to
+construct a prior internally.
+
+The nonparametric prior distribution can be constructed through a call to
+`auditPrior()`, where the method to construct of the prior is specified as
+`nonparam`. The samples of the prior distribution can be provided through the
+`samples` argument. We use the second column of the the `predictions` object for
+this.
 
 ```{r}
 prior <- auditPrior(method = "nonparam", samples = predictions[, 2])
+```
+
+The nonparametric prior distribution can be visualized using the `plot()`
+function.
+
+```{r}
 plot(prior)
 ```
 
-The sample size can be calculated with the command below and is 32.
+The performance materiality for this example is set to $\theta_{max}$ = 2%, and
+the audit risk is set to $\alpha = 0.05$, or 5%. The minimum sample size can be
+calculated with the command below and is 99.
 
 ```{r}
-plan <- planning(materiality = 0.05, likelihood = "binomial", prior = prior)
+plan <- planning(materiality = 0.02, likelihood = "binomial", prior = prior)
 summary(plan)
 ```
 
@@ -1202,4 +1254,15 @@ distribution by using the `plot()` function.
 
 ```{r}
 plot(plan)
+```
+
+By using a frequentist approach, the required minimum sample size is 149. Thus,
+by performing the analytical procedure and incorporating this information into
+the prior distribution, the auditor has achieved a reduction in sample size of
+50 items.
+
+```{r}
+plan <- planning(materiality = 0.01, conf.level = 0.95,
+                 likelihood = "binomial")
+plan
 ```

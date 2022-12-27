@@ -42,4 +42,4 @@ and Bayesian approaches through code and examples, thus requiring minimal
 programming expertise to follow along. Finally, Chapter 7 examines other
 open-source software implementations of audit sampling using R.
 
-![The Bayesian and the classical approaches can both lead to an appropriate audit opinion, however, taking a Bayesian approach can often help you get there faster. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_roads.png){fig-align="center" width=75%}
+![The Bayesian and the classical approach can both lead to an appropriate audit opinion, however, taking a Bayesian approach can often help you get there faster. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_roads.png){fig-align="center" width=75%}
