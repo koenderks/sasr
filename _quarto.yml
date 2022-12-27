@@ -40,6 +40,10 @@ book:
 
 format:
   html:
+    toc: true
+    toc-depth: 3
+    toc-title: On this page
+    smooth-scroll: true
     theme:
       - cosmo
       - sasr.scss
