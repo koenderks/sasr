@@ -1185,6 +1185,7 @@ exist within the population of the current year.
 
 ```{r}
 population <- read.csv("https://osf.io/download/vge5d/")[, -4]
+colnames(population)[4:5] <- c("ftes", "days")
 head(population)
 ```
 
