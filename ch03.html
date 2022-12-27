@@ -144,6 +144,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -237,7 +238,7 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#required-information" id="toc-required-information" class="nav-link active" data-scroll-target="#required-information"><span class="toc-section-number">3.1</span>  Required Information</a></li>
@@ -325,7 +326,7 @@ Bayesian planning?
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/book_puzzle.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">When the sampling objectives, the expected misstatements, and the likelihood are known, there is only one sample size that is optimal. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">When the sampling objectives, the expected misstatements and the likelihood are set, there exists one sample size that minimizes the amount of audit effort. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -1261,7 +1262,7 @@ Note
 </div>
 </div>
 </div>
-<p>By using this prior distribution, the required minimum sample size is 50.</p>
+<p>The performance materiality for this example is set to <span class="math inline">\(\theta_{max}\)</span> = 5%, and the audit risk is set to <span class="math inline">\(\alpha = 0.05\)</span>, or 5%. By using this prior distribution, the required minimum sample size is 50.</p>
 <div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-74_73a38c243a23b8ec72eedb1cd5888ce5">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
@@ -1283,29 +1284,28 @@ Note
 </div>
 </div>
 </div>
+<p>By using a frequentist approach, the required minimum sample size is 50. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-76_918cce8d9fe3b62c1bf9658a83621f83">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 59 </span></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 60 iterations via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="predictive-analytics" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="predictive-analytics"><span class="header-section-number">3.5.3</span> Predictive Analytics</h3>
-<p>The auditor can incorporate information obtained through predictive analytics into the prior distribution for <span class="math inline">\(\theta\)</span>. In this example, we place ourselves in the shoes of an auditor that is auditing a client they have audited for ten years. The population under consideration is:</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-76_bc3f598d058163b86d00eacb0b9d0efb">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://osf.io/download/vge5d/"</span>)[, <span class="sc">-</span><span class="dv">4</span>]</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(population)</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      ID bookValue auditValue x1 x2</span></span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 82884    242.61     242.61 14  4</span></span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 25064    642.99     642.99 11  4</span></span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 81235    628.53     628.53  8  3</span></span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 71769    431.87     431.87 11  3</span></span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 55080    620.88     620.88 12  3</span></span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 93224    501.76     501.76 12  5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Because the auditor is auditing a long-term client, the auditor has access to all samples of the last ten years. These samples are gathered in a single data set called <code>history</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-77_8cc455bc33624c908c59d76df2555828">
+<p>As a final example, we consider an example wehre the auditor incorporates information about the probability of misstatement obtained through predictive analytics into the prior distribution for <span class="math inline">\(\theta\)</span>. In this example, the auditor is conducting an audit on a long-term client that they have been working with for ten years. Hence, the auditor has access to a historycal data set called <code>history</code>, which contains the samples from all of the previous audits that have been conducted on this auditee over the past ten years.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-77_012ddc7ab547d706a23b97aac3e05d88">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>history <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">3300</span>), <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">200</span>))),</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">x1 =</span> <span class="fu">runif</span>(<span class="dv">3500</span>, <span class="fu">min</span>(population<span class="sc">$</span>x1), <span class="fu">max</span>(population<span class="sc">$</span>x1)),</span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">x2 =</span> <span class="fu">runif</span>(<span class="dv">3500</span>, <span class="fu">min</span>(population<span class="sc">$</span>x2), <span class="fu">max</span>(population<span class="sc">$</span>x2)))</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ftes =</span> <span class="fu">runif</span>(<span class="dv">3500</span>, <span class="dv">0</span>, <span class="dv">26</span>),</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">days =</span> <span class="fu">runif</span>(<span class="dv">3500</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span>
 <span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(history)</span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   k        x1       x2</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   k      ftes     days</span></span>
 <span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0  6.903225 6.399272</span></span>
 <span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0  9.675221 8.150091</span></span>
 <span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0 14.894187 5.541282</span></span>
@@ -1313,62 +1313,99 @@ Note
 <span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0  5.243730 1.216807</span></span>
 <span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0 23.358132 7.995063</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The goal of the analytical procedure is to make a prediction about the number of possible misstatements in the population. Hence, the auditor fits a predictive model to predict the variable <code>k</code> in the training data <code>history</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-78_a88785c9eb5cb1283a6ad14bf9ce2a50">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It should be noted that for all historical sample items, there are three known characteristics: whether they contained a misstatement (designated as <code>k</code>), the number of full-time equivalent employees (FTEs) who had access to that item within the internal computer systems of the auditee (designated as <code>ftes</code>), and the number of days that the item was outstanding (designated as <code>days</code>). Additionally, the <code>ftes</code> and <code>days</code> characteristics are also known for all items in the current year’s population. Of course, it is unknown if any misstatements exist within the population of the current year.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-78_93b2e46998360e826ce31e3da8ef867f">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://osf.io/download/vge5d/"</span>)[, <span class="sc">-</span><span class="dv">4</span>]</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(population)[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ftes"</span>, <span class="st">"days"</span>)</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(population)</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      ID bookValue auditValue ftes days</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 82884    242.61     242.61   14    4</span></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 25064    642.99     642.99   11    4</span></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 81235    628.53     628.53    8    3</span></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 71769    431.87     431.87   11    3</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 55080    620.88     620.88   12    3</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 93224    501.76     501.76   12    5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The predictions for the unknown <code>k</code> in the <code>population</code> data can be obtained by calling the <code>predict()</code> function:</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-79_38beea2dadf473223318e0b30d24c565">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> fit, <span class="at">newdata =</span> population, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>predictions[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.972 1.000 0.924 0.990 0.876</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The objective of this analytical procedure is to forecast potential misstatements within the population of the current year. In order for the information obtained through this procedure to serve as prior knowledge in a Bayesian analysis, the procedure must yield a distribution of the probability of misstatement. Therefore, the auditor employs a machine learning technique known as Random Forest <span class="citation" data-cites="iemand">(<a href="chref.html#ref-iemand" role="doc-biblioref"><strong>iemand?</strong></a>)</span> to learn the relationship between misstatements, the number of full-time equivalent employees, and the number of outstanding days in the historical data set.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-79_8ce12c6c6f772bb748886c96ef1d4355">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> ftes <span class="sc">+</span> days, <span class="at">data =</span> history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This distribution does not have a shape that resembles any known distribution.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-80_1bf0d2885cecb6f63786c0965cd9711c">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"nonparam"</span>, <span class="at">samples =</span> predictions[, <span class="dv">2</span>])</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The auditor specifically uses the random forest technique due to its ability to provide a distribution of the misstatement probabilities. The probabilistic predictions for the unseen misstatements in the <code>population</code> data can be obtained by calling the <code>predict()</code> function with the argument <code>type = "prob"</code>.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-80_33a68c09c6776f62d8e5730c3d07fe55">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> fit, <span class="at">newdata =</span> population, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These predictions come in a probabilistic format:</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-81_b66df75f1228fe3639ba5ebada1d648b">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(predictions)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       0     1</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.972 0.028</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1.000 0.000</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.924 0.076</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.990 0.010</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.876 0.124</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.962 0.038</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The prior distribution for <span class="math inline">\(\theta\)</span> will be based on the distribution of probabilities that each item in the population is accurately stated. In contrast to the previous example, this distribution is not a parametric distribution, which means we are unable to utilize any parametric priors from <strong>jfa</strong>. However, by providing samples of the prior distribution, <strong>jfa</strong> is able to construct a prior internally.</p>
+<p>The nonparametric prior distribution can be constructed through a call to <code>auditPrior()</code>, where the method to construct of the prior is specified as <code>nonparam</code>. The samples of the prior distribution can be provided through the <code>samples</code> argument. We use the second column of the the <code>predictions</code> object for this.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-82_57082357a97988f0f55096600a60156d">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"nonparam"</span>, <span class="at">samples =</span> predictions[, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The nonparametric prior distribution can be visualized using the <code>plot()</code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-83_5090ad3639ec8d0ab021f51dfb705478">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ch03_files/figure-html/unnamed-chunk-80-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="ch03_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The sample size can be calculated with the command below and is 32.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-81_c0a5b1e550fd56cd3a0a9318f5018a01">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
-<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.05 </span></span>
-<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
-<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    binomial </span></span>
-<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            Nonparametric </span></span>
-<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb77-14"><a href="#cb77-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb77-15"><a href="#cb77-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           32 </span></span>
-<span id="cb77-16"><a href="#cb77-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
-<span id="cb77-17"><a href="#cb77-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Nonparametric </span></span>
-<span id="cb77-18"><a href="#cb77-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.002182 </span></span>
-<span id="cb77-19"><a href="#cb77-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.047047 </span></span>
-<span id="cb77-20"><a href="#cb77-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.044865 </span></span>
-<span id="cb77-21"><a href="#cb77-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 14.745</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The performance materiality for this example is set to <span class="math inline">\(\theta_{max}\)</span> = 2%, and the audit risk is set to <span class="math inline">\(\alpha = 0.05\)</span>, or 5%. The minimum sample size can be calculated with the command below and is 99.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-84_75556747fe733bfe2cf1dd37be2b21b6">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plan)</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning Summary</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:              0.95 </span></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                   0.02 </span></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                    H₀: Θ &gt; 0.02 vs. H₁: Θ &lt; 0.02 </span></span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected:                      0 </span></span>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Likelihood:                    binomial </span></span>
+<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            Nonparametric </span></span>
+<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
+<span id="cb80-15"><a href="#cb80-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           95 </span></span>
+<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
+<span id="cb80-17"><a href="#cb80-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Nonparametric </span></span>
+<span id="cb80-18"><a href="#cb80-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.000735 </span></span>
+<span id="cb80-19"><a href="#cb80-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.019019 </span></span>
+<span id="cb80-20"><a href="#cb80-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.018284 </span></span>
+<span id="cb80-21"><a href="#cb80-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 26.334</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can inspect how the prior distribution compares to the expected posterior distribution by using the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-82_933e7a58c168554107c93c26118b387e">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-85_540ef7a2f0a99275f03eee341e9f4644">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ch03_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="ch03_files/figure-html/unnamed-chunk-85-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
+</div>
+<p>By using a frequentist approach, the required minimum sample size is 149. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 50 items.</p>
+<div class="cell" data-layout-align="center" data-hash="ch03_cache/html/unnamed-chunk-86_dcb0d2d91fd2782925ffc61d94cdf542">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.01</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 299 </span></span>
+<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 300 iterations via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -1545,4 +1582,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
