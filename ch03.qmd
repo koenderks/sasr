@@ -14,11 +14,8 @@ sample size to achieve a desired level of assurance or precision. This chapter
 will focus on three standard likelihoods commonly used in audit sampling: the
 hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 
-In **jfa**, determining an appropriate sample size is achieved via the
-`planning()` function.
-
 ::: {.callout-tip}
-## Bayesian planning?
+## The Bayesian approach
 When you are using the Bayesian approach to audit sampling, it is not required
 to plan a certain sample size in advance [@Derks2022]. That is because in
 Bayesian inference, the posterior distribution after seeing each item is used as
@@ -58,6 +55,9 @@ however, `poisson` is the default likelihood in **jfa** because it is the most
 conservative of the three. In the subsections below, we elaborate on the three
 standard likelihoods for audit sampling and demonstrate how they can be used
 to obtain a minimum sample size.
+
+In **jfa**, determining an appropriate sample size is achieved via the
+`planning()` function.
 
 ![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
 
