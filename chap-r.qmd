@@ -15,13 +15,6 @@ scientists for data analysis and data visualization. R has a large and active
 community of users and, as a result, there are many community-made resources
 available for learning and using R.
 
-This chapter provides a short introduction to working with R but it is not a
-full programming course in R. If you want to dive deeper into the nooks and
-crannies of R, the author recommends reading @Chang2022, @Wickam2017,
-@Grolemund2014 and @Wilke2022. These books are free to read online and discuss
-various best practices for using R, including examples in code that can be
-easily reproduced.
-
 In an audit context, R can be used to analyze and visualize large datasets,
 allowing auditors to identify trends and anomalies in the data. R is
 particularly useful for performing statistical analysis and testing hypotheses,
@@ -33,8 +26,12 @@ through the use of code and reproducible reports, enabling more efficient and
 collaborative audit processes. A useful resource that discusses relevant
 applications of R in the audit can be found in @Lin2022.
 
-The next sections provide a basic introduction to R and the functionality that
-is required for reproducing the examples in this book.
+This chapter provides a short introduction to working with R but it is not a
+full programming course in R. If you want to dive deeper into the nooks and
+crannies of R, the author recommends reading @Chang2022, @Wickam2017,
+@Grolemund2014 and @Wilke2022. These books are free to read online and discuss
+various best practices for using R, including examples in code that can be
+easily reproduced.
 
 ![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
 
