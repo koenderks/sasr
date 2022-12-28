@@ -262,7 +262,7 @@ library(jfa)
 ```
 
 ::: {.callout-note}
-If you want to look at the source code of the package, see the
+If you want to look at the source code of the **jfa** package, see the
 [package website](https://koenderks.github.io/jfa/).
 :::
 

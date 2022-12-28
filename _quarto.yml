@@ -48,5 +48,13 @@ format:
       - cosmo
       - sasr.scss
     code-link: true
+  pdf:
+    documentclass: scrbook
+    papersize: a5paper
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
   epub:
-    cover-image: cover.png
+    toc: true
+    tod-depth: 2
+    toc-title: Contents
