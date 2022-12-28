@@ -24,20 +24,21 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - preface.qmd
-    - part: part-1.qmd
+    - chap-preface.qmd
+    - part: part-basics.qmd
       chapters:
-      - r-intro.qmd
-      - info.qmd
-    - part: part-2.qmd
+      - chap-r.qmd
+      - chap-info.qmd
+    - part: part-workflow.qmd
       chapters:
-      - planning.qmd
-      - selection.qmd
-      - evaluation.qmd
-      - stratified-evaluation.qmd
-    - part: part-3.qmd
+      - chap-planning.qmd
+      - chap-selection.qmd
+      - chap-evaluation.qmd
+      - chap-stratified-evaluation.qmd
+    - part: part-software.qmd
       chapters:
-      - software.qmd
+      - chap-jasp.qmd
+      - chap-packages.qmd
     - references.qmd
   page-footer:
     left: |

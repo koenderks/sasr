@@ -1,0 +1,57 @@
+```{r echo = FALSE, cache = FALSE}
+source("utils.R", local = TRUE)
+```
+
+::: {.callout-note appearance="simple"}
+You are reading the work-in-progress first edition of Statistical Auditing with
+R. This chapter is currently a dumping ground of ideas, and it is incomplete.
+:::
+
+# R Packages {#chap-packages}
+
+This chapter discusses other R packages implementing statistical techniques for
+audit sampling.
+
+## MUS
+
+**MUS** [@MUS] is an R package providing sampling and evaluation methods to
+apply Monetary Unit Sampling during an audit of financial statements. The
+package is available via [CRAN](https://cran.r-project.org/package=MUS) and can
+be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("MUS")
+```
+
+Note that the **MUS** package provides no functionality for Bayesian audit
+sampling.
+
+## audit
+
+**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be
+used to find an upper bound for the total amount of overstatement of assets in a
+set of accounts and estimating the amount of sales tax owed on a collection of
+transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit)
+and can be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("audit")
+```
+
+Note that the **audit** package provides limited functionality for evaluating
+audit samples and has no functionality for planning and selecting audit samples.
+
+## samplingbook
+
+**samplingbook** [@samplingbook] is an R package based on the book
+**Stichproben: Methoden und praktische Umsetzung mit R** [@Kauermann2010] that
+focuses on survey sampling and statistical analysis of these samples. The
+package is available via [CRAN](https://cran.r-project.org/package=samplingbook)
+and can be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("samplingbook")
+```
+
+Note that the **samplingbook** package provides limited functionality for
+auditing as it mainly focuses on survey sampling.

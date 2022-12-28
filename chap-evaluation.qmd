@@ -7,7 +7,7 @@ You are reading the work-in-progress first edition of Statistical Auditing with
 R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 :::
 
-# Evaluating a Sample {#CHAPTER-5}
+# Evaluation {#chap-evaluation}
 
 Evaluating a sample is the final stage in the audit sampling workflow. In this
 stage, the auditor weighs the audit evidence obtained from the sample together
