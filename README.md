@@ -1,6 +1,6 @@
 ## Statistical Audit Sampling with R
 
-[![Deployment](https://github.com/koenderks/sasr/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/koenderks/sasr/actions/workflows/pages/pages-build-deployment)
+[![Build](https://github.com/koenderks/sasr/actions/workflows/build-book.yaml/badge.svg)](https://github.com/koenderks/sasr/actions/workflows/build-book.yaml)
 
 <p align='left'><img src='https://github.com/koenderks/sasr/raw/master/cover.png' width='33%'></p>
 

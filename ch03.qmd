@@ -14,16 +14,14 @@ sample size to achieve a desired level of assurance or precision. This chapter
 will focus on three standard likelihoods commonly used in audit sampling: the
 hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
 
-::: {.callout-tip}
-## The Bayesian approach
-When you are using the Bayesian approach to audit sampling, it is not required
-to plan a certain sample size in advance [@Derks2022]. That is because in
-Bayesian inference, the posterior distribution after seeing each item is used as
-the prior distribution for the next item. That means that you can simply start
-sampling and monitor the evidence in the data over time. However, to get an idea
-of how many samples are required to achieve a certain amount of assurance,
-planning a sample using a Bayesian approach can still be good practice.
-:::
+Note that, when you are using the Bayesian approach to audit sampling, it is not
+required to plan a specific sample size in advance [@Derks2022]. That is because
+in Bayesian inference, the posterior distribution after seeing each item is used
+as the prior distribution for the next item. That means that you can simply
+start sampling and monitor the evidence in the data over time. However, to get
+an idea of how many samples are required to achieve a certain amount of
+assurance, planning a sample using a Bayesian approach can still be good
+practice.
 
 ## Required Information
 
@@ -77,7 +75,7 @@ The probability mass function (PMF) of the hypergeometric distribution is given
 by:
 
 \begin{equation}
-  p(X=k)=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}},
+  p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}
 
 where $k$ is the number of misstatements in the sample, $n$ is the sample size,

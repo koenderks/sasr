@@ -14,6 +14,7 @@ book:
       orcid: 0000-0002-5533-9349
       corresponding: true
   date: today
+  page-navigation: true
   reader-mode: false
   cover-image: cover.png
   favicon: cover.png
@@ -24,13 +25,19 @@ book:
   chapters:
     - index.qmd
     - ch00.qmd
-    - ch01.qmd
-    - ch02.qmd
-    - ch03.qmd
-    - ch04.qmd
-    - ch05.qmd
-    - ch06.qmd
-    - ch07.qmd
+    - part: "PART I: THE BASICS"
+      chapters:
+      - ch01.qmd
+      - ch02.qmd
+    - part: "PART II: WORKFLOW"
+      chapters:
+      - ch03.qmd
+      - ch04.qmd
+      - ch05.qmd
+      - ch06.qmd
+    - part: "PART III: SOFTWARE"
+      chapters:
+      - ch07.qmd
     - chref.qmd
   page-footer:
     left: |

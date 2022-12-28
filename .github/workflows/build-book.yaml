@@ -8,7 +8,7 @@ on:
     - cron: '5 7 * * *'
   workflow_dispatch:
 
-name: renderbook
+name: Build
 
 jobs:
   build-deploy:
@@ -23,6 +23,8 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+        tinytex: true
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
