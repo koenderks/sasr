@@ -19,8 +19,8 @@ not provide a high level of assurance. In contrast, auditing a larger sample
 provides a higher level of assurance, but it also requires more audit effort.
 Therefore, it is often advantageous to determine the sample size beforehand in
 order to find the optimal balance between these two considerations. In Chapter
-@chap-planning, we will examine the various factors that should be taken into
-account when planning an audit sample and how to use R to aid in the sample
+3, we will examine the various factors that should be taken into account when
+planning an audit sample and how to use R to aid in the sample
 planning process.
 
 ![The planning stage is the first stage in the audit sampling workflow.](./img/workflow_planning.png)
@@ -28,9 +28,9 @@ planning process.
 ### Stage 2: Selection {.unnumbered}
 
 Selecting a sample is the second step in the audit sampling workflow. In Chapter
-@chap-selection, we will explore the various approaches and techniques that can
-be used to select an audit sample using R. We will also provide examples to help
-you understand how to apply these techniques in real-world audit scenarios.
+4, we will explore the various approaches and techniques that can be used to
+select an audit sample using R. We will also provide examples to help you
+understand how to apply these techniques in real-world audit scenarios.
 
 ![The selection stage is the second stage in the audit sampling workflow.](./img/workflow_selection.png)
 
@@ -44,14 +44,14 @@ does not involve statistical inference.
 ### Stage 4: Evaluation {.unnumbered}
 
 Evaluating an audit sample is a crucial stage in the audit sampling workflow. In
-Chapter @chap-evaluation, we will examine the methods and techniques utilized to
-evaluate an audit sample from a classical and Bayesian point of view. We will
-delve into the diverse statistical tests and metrics that can be applied to
-estimate the population misstatement and quantify the strenght of evidence for
-or against a hypothesis provided by the sample data. By the end of this
-chapter, you will possess a thorough comprehension of how to effectively and
-efficiently evaluate an audit sample using R and make informed decisions based
-on the results. Chapter @chap-stratified-evaluation discusses how these methods
-can be generalized and applied when evaluating stratified samples.
+Chapter 5, we will examine the methods and techniques utilized to evaluate an
+audit sample from a classical and Bayesian point of view. We will delve into the
+diverse statistical tests and metrics that can be applied to estimate the
+population misstatement and quantify the strenght of evidence for or against a
+hypothesis provided by the sample data. By the end of this chapter, you will
+possess a thorough comprehension of how to effectively and efficiently evaluate
+an audit sample using R and make informed decisions based on the results.
+Chapter 6 discusses how these methods can be generalized and applied when
+evaluating stratified samples.
 
 ![The evaluation stage is the final stage in the audit sampling workflow.](./img/workflow_evaluation.png)

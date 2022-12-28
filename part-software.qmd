@@ -6,7 +6,7 @@ These options may be preferred for specific tasks or may simply provide an
 alternative approach to achieving the same results.
 
 In this part of the book, we will explore some of these other software options
-and how they can be integrated into the audit sampling workflow. Chapter @jasp
+and how they can be integrated into the audit sampling workflow. Chapter 7
 discusses JASP for Audit, an open-source and user-friendly graphical user 
-interface around the **jfa** R package. In Chapte @chap-packages, we will
-discuss other R packages implementing statistical techniques for audit sampling.
+interface around the **jfa** R package. In Chapter 8, we will discuss other R
+packages implementing statistical techniques for audit sampling.

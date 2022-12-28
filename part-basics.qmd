@@ -5,6 +5,6 @@ important to have a basic understanding of statistical concepts in the context
 of international auditing standards.
 
 In this part of the book, we go over the basic knowledge required for this book.
-Chapter @chap-r introduces the basics of R, a programming language commonly used
-for statistical analysis. In Chapter @chap-info, we will cover the fundamental
-statistical concepts related to audit sampling.
+Chapter 1 introduces the basics of R, a programming language commonly used for
+statistical analysis. In Chapter 2, we will cover the fundamental statistical
+concepts related to audit sampling.

@@ -34,14 +34,12 @@ highlights the practical advantages that these methods can offer for auditors.
 
 The structure of this book is as follows: Chapter 1 introduces the basics of the
 R programming language. Chapter 2 discusses the fundamental statistical theory
-relevant to classical and Bayesian audit sampling. Subsequent chapters (Chapters
-@chap-planning, @chap-selection, @chap-evaluation, and
-@chap-stratified-evaluation) provide a more in-depth exploration of the use of
-these methods for statistical planning, selection, and evaluation of audit
-samples. These chapters illustrate the practical differences and similarities
-between the classical and the Bayesian approach through code and examples, thus
-requiring minimal programming knowledge to follow along. Finally, Chapter
-@chap-jasp and @chap-packages discuss other open-source software implementations
-of audit sampling using R.
+relevant to classical and Bayesian audit sampling. Subsequent chapters 3, 4, 5
+and 6) provide a more in-depth exploration of the use of these methods for
+statistical planning, selection, and evaluation of audit samples. These chapters
+illustrate the practical differences and similarities between the classical and
+the Bayesian approach through code and examples, thus requiring minimal
+programming knowledge to follow along. Finally, Chapter 7 and 8 discuss other
+open-source software implementations of audit sampling using R.
 
 ![The Bayesian and the classical approach can both lead to an appropriate audit opinion, however, taking a Bayesian approach can often help you get there faster. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_roads.png){fig-align="center" width=75%}
