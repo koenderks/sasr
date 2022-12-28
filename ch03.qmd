@@ -59,7 +59,7 @@ conservative of the three. In the subsections below, we elaborate on the three
 standard likelihoods for audit sampling and demonstrate how they can be used
 to obtain a minimum sample size.
 
-![When the sampling objectives, the expected misstatements and the likelihood are set, there exists one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
 
 ## The Hypergeometric Likelihood
 
@@ -104,7 +104,7 @@ sample size $n$ needed to achieve this assurance level. This sample size is
 dependent on the number of misstatements that the auditor expects, or tolerates,
 in the sample. 
 
-#### No Expected Misstatement
+#### No Expected Misstatements
 
 If the auditor does not expect any misstatements in the sample, they can set
 $k = 0$, which consequently determines how the sample size can be calculated.
@@ -248,7 +248,7 @@ then the posterior distribution for $K$ is:
 \end{equation}
 :::
 
-#### No Expected Misstatement
+#### No Expected Misstatements
 
 Planning for no expected misstatements in the sample can be done by setting the
 value for the `expected` argument to zero. If we want to achieve an assurance
@@ -343,7 +343,7 @@ model is specified:
   k \sim \text{Binomial}(n, \theta_{max})
 \end{equation}
 
-#### No Expected Misstatement
+#### No Expected Misstatements
 
 If the auditor does not expect any misstatements in the sample, they can set
 $k = 0$, which consequently determines how the sample size can be calculated.
@@ -405,7 +405,7 @@ probability is lower than the required sampling risk $\alpha = 0.05$.
 plot(plan)
 ```
 
-#### Expected Misstatements
+#### Expected Misstatementss
 
 However, if the number of expected misstatements in the sample is non-zero,
 it becomes more difficult to solve the formula for $n$. Hence, they will need to
@@ -451,10 +451,10 @@ required sampling risk $\alpha = 0.05$.
 plot(plan)
 ```
 
-#### Partial Expected Misstatements
+#### Expected Misstatement Rate
 
-When the expected misstatements in the sample $\theta_{exp}$ is assessed, the
-value for $k$ can be determined as $k = n\theta_{exp}$, which consequently
+When the expected misstatement rate in the sample $\theta_{exp}$ is assessed,
+the value for $k$ can be determined as $k = n\theta_{exp}$, which consequently
 determines how the sample size can be calculated.
 
 To account for the fact that $k$ can have non-integer values in this case, we
@@ -637,7 +637,7 @@ is specified:
   k \sim \text{Poisson}(n \theta_{max})
 \end{equation}
 
-#### No Expected Misstatement
+#### No Expected Misstatements
 
 Given the performance materiality $\theta_{max}$ and the Poisson likelihood, we
 can solve for the minimum sample size $n$ needed to achieve a certain assurance
@@ -737,7 +737,7 @@ $\alpha = 0.05$.
 plot(plan)
 ```
 
-#### Partial Expected Misstatements
+#### Expected Misstatement Rate
 
 When the expected misstatements in the sample $\theta_{exp}$ is assessed, the
 value for $k$ can be determined as $k = n\theta_{exp}$, which consequently
@@ -1156,15 +1156,15 @@ plan <- planning(materiality = 0.05, conf.level = 0.95,
 plan
 ```
 
-### Predictive Analytics
+### Machine Learning
 
 As a final example, we consider an example wehre the auditor incorporates
-information about the probability of misstatement obtained through predictive
-analytics into the prior distribution for $\theta$. In this example, the auditor
+information about the probability of misstatement obtained through a predictive
+analysis into the prior distribution for $\theta$. In this example, the auditor
 is conducting an audit on a long-term client that they have been working with
-for ten years. Hence, the auditor has access to a historycal data set called
+for fifteen years. Hence, the auditor has access to a historycal data set called
 `history`, which contains the samples from all of the previous audits that have
-been conducted on this auditee over the past ten years.
+been conducted on this auditee over the past fifteen years.
 
 ```{r}
 history <- read.csv("https://github.com/koenderks/sasr/raw/master/data/ch3_history.csv",
@@ -1191,7 +1191,7 @@ misstatements within the population of the current year. In order for the
 information obtained through this procedure to serve as prior knowledge in a
 Bayesian analysis, the procedure must yield a distribution of the probability of
 misstatement. Therefore, the auditor employs a machine learning technique known
-as Random Forest [@hastie2009] to learn the relationship between misstatements,
+as Random Forest [@Hastie2009] to learn the relationship between misstatements,
 the number of full-time equivalent employees, and the number of outstanding days
 in the historical data set.
 
