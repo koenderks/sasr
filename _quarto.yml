@@ -24,21 +24,21 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - ch00.qmd
-    - part: "PART I: THE BASICS"
+    - preface.qmd
+    - part: part-1.qmd
       chapters:
-      - ch01.qmd
-      - ch02.qmd
-    - part: "PART II: WORKFLOW"
+      - r-intro.qmd
+      - info.qmd
+    - part: part-2.qmd
       chapters:
-      - ch03.qmd
-      - ch04.qmd
-      - ch05.qmd
-      - ch06.qmd
-    - part: "PART III: SOFTWARE"
+      - planning.qmd
+      - selection.qmd
+      - evaluation.qmd
+      - stratified-evaluation.qmd
+    - part: part-3.qmd
       chapters:
-      - ch07.qmd
-    - chref.qmd
+      - software.qmd
+    - references.qmd
   page-footer:
     left: |
       Statistical Audit Sampling with R was written by Koen Derks.
