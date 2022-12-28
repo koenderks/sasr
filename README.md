@@ -7,5 +7,5 @@
 Source code for the book Statistical Sampling with R, 1st edition.
 
 - [Read online](https://koenderks.github.io/sasr/)
-- [PDF version](https://github.com/koenderks/sasr/raw/master/sasr.pdf)
-- [EPUB version](https://github.com/koenderks/sasr/raw/master/sasr.epub)
+- [PDF version](https://github.com/koenderks/sasr/raw/gh-pages/Statistical-Audit-Sampling-with-R.pdf)
+- [EPUB version](https://github.com/koenderks/sasr/raw/gh-pages/Statistical-Audit-Sampling-with-R.epub)
