@@ -355,7 +355,7 @@ div.csl-indent {
 </section>
 <section id="the-hypergeometric-likelihood" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="the-hypergeometric-likelihood"><span class="header-section-number">3.2</span> The Hypergeometric Likelihood</h2>
-<p>Let’s consider how to use the hypergeometric likelihood to calculate the minimum sample size needed to achieve the desired level of assurance. The hypergeometric distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials when the population size is known. It assumes that samples are drawn from the population without replacement, and is therefore the likelihood that most closely resembles the audit practice. For our purpose, we can use the hypergeometric distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
+<p>The hypergeometric distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials when the population size is known. It assumes that samples are drawn from the population without replacement, and is therefore the likelihood that most closely resembles the audit practice. For our purpose, we can use the hypergeometric distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
 <p>The probability mass function (PMF) of the hypergeometric distribution is given by:</p>
 <p><span class="math display">\[\begin{equation}
   p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
@@ -364,6 +364,7 @@ div.csl-indent {
 <p><span class="math display">\[\begin{equation}
   K = \theta_{max} N.
 \end{equation}\]</span></p>
+<p>Let’s consider how to use the hypergeometric likelihood to calculate the minimum sample size needed to achieve a certain level of assurance.</p>
 <section id="classical-planning" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="classical-planning"><span class="header-section-number">3.2.1</span> Classical planning</h3>
 <p>In classical planning using the hypergeometric likelihood, the following statistical model is specified:</p>
@@ -573,7 +574,7 @@ Note
 </section>
 <section id="the-binomial-likelihood" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="the-binomial-likelihood"><span class="header-section-number">3.3</span> The Binomial Likelihood</h2>
-<p>Let’s consider how to use the binomial likelihood to calculate the minimum sample size needed to achieve a desired level of assurance. The binomial distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials. It is similar to the hypergeometric distribution, however, it assumes that samples are drawn from the population with replacement. For our purpose, we can use the binomial distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
+<p>The binomial distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials. It is similar to the hypergeometric distribution, however, it assumes that samples are drawn from the population with replacement. For our purpose, we can use the binomial distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -591,7 +592,7 @@ Note
 <p><span class="math display">\[\begin{equation}
   p(k; n, \theta) = \binom{n}{k} \theta^{k} (1-\theta)^{n - k},
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(\theta\)</span> is the probability of misstatement in the population.</p>
+<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(\theta\)</span> is the probability of misstatement in the population. Let’s consider how to use the binomial likelihood to calculate the minimum sample size needed to achieve a certain level of assurance.</p>
 <section id="classical-planning-1" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="classical-planning-1"><span class="header-section-number">3.3.1</span> Classical Planning</h3>
 <p>In classical planning using the binomial likelihood, the following statistical model is specified:</p>
@@ -837,7 +838,7 @@ Note
 </section>
 <section id="the-poisson-likelihood" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="the-poisson-likelihood"><span class="header-section-number">3.4</span> The Poisson Likelihood</h2>
-<p>Let’s consider how to use the Poisson likelihood to calculate the minimum sample size needed to achieve the desired level of assurance. The Poisson distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed time or space. We can use the Poisson distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
+<p>The Poisson distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed time or space. We can use the Poisson distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -859,6 +860,7 @@ Note
 <p><span class="math display">\[\begin{equation}
   \lambda = n \theta.
 \end{equation}\]</span></p>
+<p>Let’s consider how to use the Poisson likelihood to calculate the minimum sample size needed to achieve a certain level of assurance.</p>
 <section id="classical-planning-2" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="classical-planning-2"><span class="header-section-number">3.4.1</span> Classical planning</h3>
 <p>In classical planning using the Poisson likelihood, the following statistical model is specified:</p>
