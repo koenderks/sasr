@@ -78,13 +78,17 @@ by:
 
 where $k$ is the number of misstatements in the sample, $n$ is the sample size,
 $N$ is the population size and $K$ is the total number of misstatements assumed
-in the population. The assumed misstatements $K$ is a linear extrapolation of
-the assumed misstatement rate in the population $\theta_{max}$ to the total
-population:
+in the population. The assumed misstatements $K$ is a whole number, that is, a
+linear extrapolation of the maximum tolerable misstatement rate (i.e., the
+performance materiality) $\theta_{max}$ to the total population of size $N$:
 
 \begin{equation}
-  K = \theta_{max} N.
+  K = \lceil \theta_{max} N \rceil.
 \end{equation}
+
+::: {.callout-note}
+$\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2$.
+:::
 
 Let's consider how to use the hypergeometric likelihood to calculate the minimum
 sample size needed to achieve a certain level of assurance.
@@ -98,10 +102,10 @@ statistical model is specified:
   k \sim \text{Hypergeometric}(n, N, K)
 \end{equation}
 
-Given the performance materiality $\theta_{max}$, we can solve for the minimum
-sample size $n$ needed to achieve this assurance level. This sample size is
-dependent on the number of misstatements that the auditor expects, or tolerates,
-in the sample. 
+Given the performance materiality $\theta_{max}$, we can compute $K$ and solve
+for the minimum sample size $n$ needed to achieve a certain assurance level.
+This sample size is also dependent on the number of misstatements that the
+auditor expects, or tolerates, in the sample.
 
 #### No Expected Misstatements
 
@@ -109,37 +113,15 @@ If the auditor does not expect any misstatements in the sample, they can set
 $k = 0$, which consequently determines how the sample size can be calculated.
 For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$)
 for a performance materiality of $\theta_{max} = 0.03$ in a population of
-$N = 1000$ items, then the required sample size under the assumption of no
-expected misstatements in the sample is $n = 94$.
+$N = 1000$ items, then $K = \lceil \0.03 \cdot 1000 \rceil = 30$ and the minimum
+sample size under the assumption of no expected misstatements in the sample is
+$n = 94$.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
                  likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
-
-::: {.callout-tip}
-## Additional arguments
-The `planning()` function has two additional arguments that are not shown in
-the call above: `by` and `max`. The argument `by` sets the increment between
-possible sample sizes for consideration. For example, `by = 5` considers only
-samples of size 10, 20, 30, etc:
-
-```{r}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000, by = 10)
-```
-
-The argument `max` sets the sample size at which the algorithm terminates. This
-can be used to avoid too many iterations of the algorithm at very low values of
-the performance materiality. For instance, `max = 50` throws an error if more
-than 100 samples are required.
-
-```{r error=TRUE}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000, max = 50)
-```
-:::
 
 The sample size of 94 can be confirmed by checking that 94 is the minimum
 integer that results in less than 5% probability of finding 0 misstatements,
@@ -170,6 +152,29 @@ $\alpha = 0.05$.
 ```{r}
 plot(plan)
 ```
+
+::: {.callout-tip}
+## Additional arguments
+The `planning()` function has two additional arguments that are not shown in
+the call above: `by` and `max`. The argument `by` sets the increment between
+possible sample sizes for consideration. For example, `by = 5` considers only
+samples of size 10, 20, 30, etc:
+
+```{r}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000, by = 10)
+```
+
+The argument `max` sets the sample size at which the algorithm terminates. This
+can be used to avoid too many iterations of the algorithm at very low values of
+the performance materiality. For instance, `max = 50` throws an error if more
+than 100 samples are required.
+
+```{r error=TRUE}
+planning(materiality = 0.03, expected = 0, conf.level = 0.95,
+         likelihood = "hypergeometric", N.units = 1000, max = 50)
+```
+:::
 
 #### Expected Misstatements
 
@@ -354,10 +359,6 @@ formula for the minimum required sample size reduces to:
 \begin{equation}
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
 \end{equation}
-
-::: {.callout-note}
-$\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2$.
-:::
 
 For example, if we want to achieve an assurance level of 95% ($\alpha=0.05$) for
 a performance materiality of $\theta_{max} = 0.03$, then the required sample
