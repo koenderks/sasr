@@ -733,9 +733,9 @@ sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
 Like before, we can make this visually intuitive by showing the Poisson($k$ |
-159 * 0.03) distribution and highlighting the probabilities for $k = 0$ and
-$k = 1$. The sum of these probabilities is lower than the required sampling risk
-$\alpha = 0.05$.
+159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$
+and $k = 1$. The sum of these probabilities is lower than the required sampling
+risk $\alpha = 0.05$.
 
 ```{r echo = FALSE}
 plot(plan)
