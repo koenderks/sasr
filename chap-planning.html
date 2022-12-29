@@ -360,10 +360,23 @@ div.csl-indent {
 <p><span class="math display">\[\begin{equation}
   p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(N\)</span> is the population size and <span class="math inline">\(K\)</span> is the total number of misstatements assumed in the population. The assumed misstatements <span class="math inline">\(K\)</span> is a linear extrapolation of the assumed misstatement rate in the population <span class="math inline">\(\theta_{max}\)</span> to the total population:</p>
+<p>where <span class="math inline">\(k\)</span> is the number of misstatements in the sample, <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(N\)</span> is the population size and <span class="math inline">\(K\)</span> is the total number of misstatements assumed in the population. The assumed misstatements <span class="math inline">\(K\)</span> is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) <span class="math inline">\(\theta_{max}\)</span> to the total population of size <span class="math inline">\(N\)</span>:</p>
 <p><span class="math display">\[\begin{equation}
-  K = \theta_{max} N.
+  K = \lceil \theta_{max} N \rceil.
 \end{equation}\]</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\lceil...\rceil\)</span> is the ceiling function, which means that <span class="math inline">\(\lceil1.2\rceil = 2\)</span>.</p>
+</div>
+</div>
 <p>Let’s consider how to use the hypergeometric likelihood to calculate the minimum sample size needed to achieve a certain level of assurance.</p>
 <section id="classical-planning" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="classical-planning"><span class="header-section-number">3.2.1</span> Classical planning</h3>
@@ -371,10 +384,10 @@ div.csl-indent {
 <p><span class="math display">\[\begin{equation}
   k \sim \text{Hypergeometric}(n, N, K)
 \end{equation}\]</span></p>
-<p>Given the performance materiality <span class="math inline">\(\theta_{max}\)</span>, we can solve for the minimum sample size <span class="math inline">\(n\)</span> needed to achieve this assurance level. This sample size is dependent on the number of misstatements that the auditor expects, or tolerates, in the sample.</p>
+<p>Given the performance materiality <span class="math inline">\(\theta_{max}\)</span>, we can compute <span class="math inline">\(K\)</span> and solve for the minimum sample size <span class="math inline">\(n\)</span> needed to achieve a certain assurance level. This sample size is also dependent on the number of misstatements that the auditor expects, or tolerates, in the sample.</p>
 <section id="no-expected-misstatements" class="level4" data-number="3.2.1.1">
 <h4 data-number="3.2.1.1" class="anchored" data-anchor-id="no-expected-misstatements"><span class="header-section-number">3.2.1.1</span> No Expected Misstatements</h4>
-<p>If the auditor does not expect any misstatements in the sample, they can set <span class="math inline">\(k = 0\)</span>, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha = 0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a population of <span class="math inline">\(N = 1000\)</span> items, then the required sample size under the assumption of no expected misstatements in the sample is <span class="math inline">\(n = 94\)</span>.</p>
+<p>If the auditor does not expect any misstatements in the sample, they can set <span class="math inline">\(k = 0\)</span>, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha = 0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span> in a population of <span class="math inline">\(N = 1000\)</span> items, then <span class="math inline">\(K = \lceil 0.03 \cdot 1000 \rceil = 30\)</span> and the minimum sample size under the assumption of no expected misstatements in the sample is <span class="math inline">\(n = 94\)</span>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-2_2ac61894403eeda9c0b993ba9f39d3ce">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">1000</span>)</span>
@@ -384,6 +397,28 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 94 </span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 95 iterations via method 'hypergeometric'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than 5% probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3%. The <code>dhyper()</code> function calculates the probability of observing <span class="math inline">\(k\)</span> missatements in a sample of <span class="math inline">\(n\)</span> items given the assumed hypergeometric distribution with <span class="math inline">\(N\)</span> items and <span class="math inline">\(K\)</span> assumed misstatements in the population. By calculating this probability for <span class="math inline">\(n = 93\)</span>, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk <span class="math inline">\(\alpha\)</span>.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-3_5b70189faf7c9aac8ec678bdd1285712">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fl">0.03</span> <span class="sc">*</span> <span class="dv">1000</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">93</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, for <span class="math inline">\(n = 94\)</span> the relevant probability is lower than the sampling risk <span class="math inline">\(\alpha\)</span> and thus the sample size is considered to be sufficient.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-4_57153241ff3c0a0137014697f17312c6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">94</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can make this sample size visually intuitive by showing the hypergeometric(<span class="math inline">\(k\)</span> | 94, 1000, 30) distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>. This probability is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-5_1739594eecc919df05553e4c55c4a2f1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chap-planning_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -396,42 +431,20 @@ Additional arguments
 </div>
 <div class="callout-body-container callout-body">
 <p>The <code>planning()</code> function has two additional arguments that are not shown in the call above: <code>by</code> and <code>max</code>. The argument <code>by</code> sets the increment between possible sample sizes for consideration. For example, <code>by = 5</code> considers only samples of size 10, 20, 30, etc:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-3_f1da6577f17e4021b495cfdf028392a1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">10</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 100 </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 11 iterations via method 'hypergeometric'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-6_d4ccee878d9a8d35006e431f1a790634">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 100 </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 11 iterations via method 'hypergeometric'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The argument <code>max</code> sets the sample size at which the algorithm terminates. This can be used to avoid too many iterations of the algorithm at very low values of the performance materiality. For instance, <code>max = 50</code> throws an error if more than 100 samples are required.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-4_d3130c8f2a7ae3721592adfd022b2b2a">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">max =</span> <span class="dv">50</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in planning(materiality = 0.03, expected = 0, conf.level = 0.95, : the sample size is larger than 'max'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than 5% probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3%. The <code>dhyper()</code> function calculates the probability of observing <span class="math inline">\(k\)</span> missatements in a sample of <span class="math inline">\(n\)</span> items given the assumed hypergeometric distribution with <span class="math inline">\(N\)</span> items and <span class="math inline">\(K\)</span> assumed misstatements in the population. By calculating this probability for <span class="math inline">\(n = 93\)</span>, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk <span class="math inline">\(\alpha\)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-5_d9735e9c6bf50258fcdafbb39be75399">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fl">0.03</span> <span class="sc">*</span> <span class="dv">1000</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">93</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>However, for <span class="math inline">\(n = 94\)</span> the relevant probability is lower than the sampling risk <span class="math inline">\(\alpha\)</span> and thus the sample size is considered to be sufficient.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-6_0e1acb4cecbe9147732cf8aa2e7c3b3c">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">m =</span> K, <span class="at">n =</span> <span class="dv">1000</span> <span class="sc">-</span> K, <span class="at">k =</span> <span class="dv">94</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can make this sample size visually intuitive by showing the hypergeometric(<span class="math inline">\(k\)</span> | 94, 1000, 30) distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>. This probability is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-7_cd22d42199b6cd11fe8ecdfc6eb35fa8">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-planning_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-7_812265b1995a3ac4edb64f25144422d0">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">0</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">1000</span>, <span class="at">max =</span> <span class="dv">50</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in planning(materiality = 0.03, expected = 0, conf.level = 0.95, : the sample size is larger than 'max'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -605,19 +618,6 @@ Note
 <p><span class="math display">\[\begin{equation}
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
 \end{equation}\]</span></p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math inline">\(\lceil...\rceil\)</span> is the ceiling function, which means that <span class="math inline">\(\lceil1.2\rceil = 2\)</span>.</p>
-</div>
-</div>
 <p>For example, if we want to achieve an assurance level of 95% (<span class="math inline">\(\alpha=0.05\)</span>) for a performance materiality of <span class="math inline">\(\theta_{max} = 0.03\)</span>, then the required sample size under the assumption of zero expected misstatements in the sample is <span class="math inline">\(n = 99\)</span>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-17_40957d1c8559efc4f10e24da21452452">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.03</span>))</span>
@@ -821,7 +821,7 @@ Note
 <span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029 </span></span>
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029 </span></span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 22.018</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 26.749</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 90\)</span>, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-35_0f19344aa8db26f6bc68da78165c5725">
@@ -1078,7 +1078,7 @@ Note
 <span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
 <span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029 </span></span>
 <span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029 </span></span>
-<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 21.454</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 26.063</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 91\)</span>, a reduction of 8 samples when compared to the default gamma(1, 1) prior.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-56_e72073bb4e66d20cad360c5302f5e7fa">
