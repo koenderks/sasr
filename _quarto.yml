@@ -41,8 +41,6 @@ book:
       - chap-packages.qmd
     - references.qmd
   page-footer:
-    left: |
-      Statistical Audit Sampling with R was written by Koen Derks.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
 
