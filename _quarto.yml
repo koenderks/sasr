@@ -58,9 +58,9 @@ format:
     documentclass: scrbook
     papersize: a5paper
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     toc-title: Contents
   epub:
     toc: true
-    tod-depth: 2
+    tod-depth: 3
     toc-title: Contents
