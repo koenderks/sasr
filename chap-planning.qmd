@@ -113,7 +113,7 @@ If the auditor does not expect any misstatements in the sample, they can set
 $k = 0$, which consequently determines how the sample size can be calculated.
 For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$)
 for a performance materiality of $\theta_{max} = 0.03$ in a population of
-$N = 1000$ items, then $K = \lceil \0.03 \cdot 1000 \rceil = 30$ and the minimum
+$N = 1000$ items, then $K = \lceil 0.03 \cdot 1000 \rceil = 30$ and the minimum
 sample size under the assumption of no expected misstatements in the sample is
 $n = 94$.
 
