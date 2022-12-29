@@ -818,9 +818,9 @@ Note
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           90 </span></span>
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Nonparametric </span></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.0008648 </span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029029 </span></span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.028164 </span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029029 </span></span>
 <span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 19.08</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 90\)</span>, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution.</p>
@@ -1075,9 +1075,9 @@ Note
 <span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           91 </span></span>
 <span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
 <span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Nonparametric </span></span>
-<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.0010232 </span></span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
 <span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.029029 </span></span>
-<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.028006 </span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.029029 </span></span>
 <span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 19.296</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The resulting sample size under this prior is <span class="math inline">\(n = 91\)</span>, a reduction of 8 samples when compared to the default gamma(1, 1) prior.</p>
@@ -1349,8 +1349,9 @@ Note
 <span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 93224    501.76   12    5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The objective of this analytical procedure is to forecast potential misstatements within the population of the current year. In order for the information obtained through this procedure to serve as prior knowledge in a Bayesian analysis, the procedure must yield a distribution of the probability of misstatement. Therefore, the auditor employs a machine learning technique known as Random Forest <span class="citation" data-cites="Hastie2009">(<a href="references.html#ref-Hastie2009" role="doc-biblioref">Hastie et al., 2009</a>)</span> to learn the relationship between misstatements, the number of full-time equivalent employees, and the number of outstanding days in the historical data set.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-79_7983c67fd885c62f1ce455678fcc2525">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> ftes <span class="sc">+</span> days, <span class="at">data =</span> history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-79_d4c75440957a0e203b3a0aa57dfc05b2">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> ftes <span class="sc">+</span> days, <span class="at">data =</span> history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The auditor specifically uses the random forest technique due to its ability to provide a distribution of the misstatement probabilities. The probabilistic predictions for the unseen misstatements in the <code>population</code> data can be obtained by calling the <code>predict()</code> function with the argument <code>type = "prob"</code>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-80_da1d596fa657ecd549188f213fc31946">
@@ -1360,12 +1361,12 @@ Note
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-81_7c6189e3159058a3685807fb5e3c9163">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(predictions)</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       0     1</span></span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.976 0.024</span></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.984 0.016</span></span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.986 0.014</span></span>
-<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.934 0.066</span></span>
-<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.760 0.240</span></span>
-<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.990 0.010</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.974 0.026</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.966 0.034</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.992 0.008</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.928 0.072</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.776 0.224</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.982 0.018</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The prior distribution for <span class="math inline">\(\theta\)</span> will be based on the distribution of probabilities that each item in the population is misstated. In contrast to the previous example, this distribution is not a parametric distribution, which means we are unable to utilize any parametric priors from <strong>jfa</strong>. However, by providing samples of the prior distribution, <strong>jfa</strong> is able to construct a nonparametric prior distribution internally via the density of the samples.</p>
 <p>The nonparametric prior distribution can be constructed through a call to <code>auditPrior()</code>, where the method to construct of the prior is specified as <code>nonparam</code>. The samples of the prior distribution can be provided through the <code>samples</code> argument. We use the second column of the the <code>predictions</code> object for this.</p>
@@ -1383,7 +1384,7 @@ Note
 </div>
 </div>
 </div>
-<p>The performance materiality for this example is set to <span class="math inline">\(\theta_{max}\)</span> = 2%, and the audit risk is set to <span class="math inline">\(\alpha = 0.05\)</span>, or 5%. The minimum sample size can be calculated with the command below and is 82.</p>
+<p>The performance materiality for this example is set to <span class="math inline">\(\theta_{max}\)</span> = 2%, and the audit risk is set to <span class="math inline">\(\alpha = 0.05\)</span>, or 5%. The minimum sample size can be calculated with the command below and is 102.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-84_33104b458a5de5592590301171de2974">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
@@ -1400,13 +1401,13 @@ Note
 <span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:            Nonparametric </span></span>
 <span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb80-15"><a href="#cb80-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           82 </span></span>
+<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Minimum sample size:           102 </span></span>
 <span id="cb80-17"><a href="#cb80-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Tolerable errors:              0 </span></span>
 <span id="cb80-18"><a href="#cb80-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:        Nonparametric </span></span>
-<span id="cb80-19"><a href="#cb80-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0.0005892 </span></span>
-<span id="cb80-20"><a href="#cb80-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.019019 </span></span>
-<span id="cb80-21"><a href="#cb80-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.01843 </span></span>
-<span id="cb80-22"><a href="#cb80-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 14.835</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb80-19"><a href="#cb80-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected most likely error:    0 </span></span>
+<span id="cb80-20"><a href="#cb80-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected upper bound:          0.019 </span></span>
+<span id="cb80-21"><a href="#cb80-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected precision:            0.019 </span></span>
+<span id="cb80-22"><a href="#cb80-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Expected BF₁₀:                 17.175</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can inspect how the prior distribution compares to the expected posterior distribution by using the <code>plot()</code> function.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-85_57592a591085845c26699f067b27fabb">
@@ -1419,7 +1420,7 @@ Note
 </div>
 </div>
 </div>
-<p>By using a frequentist approach, the required minimum sample size is 149. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 67 items.</p>
+<p>By using a frequentist approach, the required minimum sample size is 149. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 47 items.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-86_9106faf3d31ec5b246fd02900d9818fb">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
