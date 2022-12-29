@@ -46,6 +46,10 @@ Selecting a sample in JASP for Audit works similar to how you would do it in
 monetary units from the `BuildIt` data set that is included in the package using
 a fixed interval sampling method with a starting point of 1.
 
+![The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
+
+In **jfa**, these results can be reproduced via the following command:
+
 ```{r}
 set.seed(1)
 data(BuildIt)
@@ -53,8 +57,6 @@ result <- selection(data = BuildIt, size = 60, units = "values",
                     method = "interval", start = 1, values = "bookValue")
 head(result$sample)
 ```
-
-![The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
 
 ## Evaluation
 
