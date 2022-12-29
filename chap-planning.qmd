@@ -10,18 +10,20 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 # Planning {#chap-planning}
 
 One of the key considerations in audit sampling is determining the appropriate
-sample size to achieve a desired level of assurance or precision. This chapter
-will focus on three standard likelihoods commonly used in audit sampling: the
-hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.
+sample size to reduce the sampling risk to an appropriately low level, while
+minimizing audit effort. To quantify the sampling risk, it is necessary to
+specify the statistical model that connects the data to the population
+misstatement, referred to as the likelihood. This chapter will delve into three
+standard likelihoods commonly employed in audit sampling: the hypergeometric
+likelihood, the binomial likelihood, and the Poisson likelihood.
 
 Note that, when you are using the Bayesian approach to audit sampling, it is not
 required to plan a specific sample size in advance [@Derks2022]. That is because
 in Bayesian inference, the posterior distribution after seeing each item is used
 as the prior distribution for the next item. That means that you can simply
 start sampling and monitor the evidence in the data over time. However, to get
-an idea of how many samples are required to achieve a certain amount of
-assurance, planning a sample using a Bayesian approach can still be good
-practice.
+an idea of how many samples are required to reduce the sampling risk to an
+level, planning a sample using a Bayesian approach can still be good practice.
 
 ## Required Information
 
@@ -91,7 +93,7 @@ $\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2
 :::
 
 Let's consider how to use the hypergeometric likelihood to calculate the minimum
-sample size needed to achieve a certain level of assurance.
+sample size needed to reduce the sampling risk to an appropriately low level.
 
 ### Classical planning
 
@@ -103,9 +105,9 @@ statistical model is specified:
 \end{equation}
 
 Given the performance materiality $\theta_{max}$, we can compute $K$ and solve
-for the minimum sample size $n$ needed to achieve a certain assurance level.
-This sample size is also dependent on the number of misstatements that the
-auditor expects, or tolerates, in the sample.
+for the minimum sample size $n$ needed to reduce the sampling risk to an
+appropriately low level. This sample size is also dependent on the number of
+misstatements that the auditor expects, or tolerates, in the sample.
 
 #### No Expected Misstatements
 
@@ -336,7 +338,7 @@ The probability mass function (PMF) of the binomial distribution is given by:
 where $k$ is the number of misstatements in the sample, $n$ is the sample size
 and $\theta$ is the probability of misstatement in the population. Let's
 consider how to use the binomial likelihood to calculate the minimum sample size
-needed to achieve a certain level of assurance.
+needed to reduce the sampling risk to an appropriately low level.
 
 ### Classical Planning
 
@@ -352,9 +354,9 @@ model is specified:
 If the auditor does not expect any misstatements in the sample, they can set
 $k = 0$, which consequently determines how the sample size can be calculated.
 Given a performance materiality $\theta_{max}$, we can solve for the minimum
-sample size $n$ needed to achieve a certain assurance level. A useful trick to
-utilize is that, if we do not expect any misstatements in the sample, the
-formula for the minimum required sample size reduces to:
+sample size $n$ needed to reduce the sampling risk to an appropriately low
+level. A useful trick to utilize is that, if we do not expect any misstatements
+in the sample, the formula for the minimum required sample size reduces to:
 
 \begin{equation}
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
@@ -627,12 +629,12 @@ $\theta$, and the sample size, $n$, by the following equation:
 \end{equation}
 
 Let's consider how to use the Poisson likelihood to calculate the minimum sample
-size needed to achieve a certain level of assurance.
+size needed to reduce the sampling risk to an appropriately low level.
 
 ### Classical planning
 
-In classical planning using the Poisson likelihood, the following statistical model 
-is specified:
+In classical planning using the Poisson likelihood, the following statistical
+model  is specified:
 
 \begin{equation}
   k \sim \text{Poisson}(n \theta_{max})
@@ -641,9 +643,10 @@ is specified:
 #### No Expected Misstatements
 
 Given the performance materiality $\theta_{max}$ and the Poisson likelihood, we
-can solve for the minimum sample size $n$ needed to achieve a certain assurance
-level. A useful trick to utilize is that, if we do not expect any misstatements
-in the sample, the formula for the required sample size reduces to:
+can solve for the minimum sample size $n$ needed to reduce the sampling risk to
+an appropriately low level. A useful trick to utilize is that, if we do not
+expect any misstatements in the sample, the formula for the required sample size
+reduces to:
 
 \begin{equation}
   n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
