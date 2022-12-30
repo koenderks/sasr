@@ -125,6 +125,17 @@ Frequentist statistics, also known as classical statistics, is a statistical fra
 
 The philosophy behind frequentist parameter estimation is based on the idea that statistical parameters are fixed, but unknown, quantities that can be estimated through the process of repeated sampling. This approach assumes that the sample data represent a random sample from a larger population, and that the sample statistics (i.e., the sample proportion of misstatements) can be used to estimate the corresponding population parameters (i.e., the population misstatement). The key principle of frequentist estimation is that the estimated parameter values should be unbiased and have a certain level of uncertainty, which can be quantified through confidence bounds or intervals.
 
+#### Example
+
+As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n = 60$ items containing $k = 0$ misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality), which is irrelevant and should thus be sert to `p = 1`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
+
+```{r}
+binom.test(x = 0, n = 60, p = 1, alternative = "less",
+           conf.level = 0.95)
+```
+
+The most likely misstatement in the population is displayed under `sample estimates` and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 4.87%.
+
 ### Hypothesis Testing
 
 Frequentist hypothesis testing is a statistical method that involves evaluating the probability of obtaining a certain sample outcome or more extreme, given a certain assumption or hypothesis. This probability, known as the *p* value, is used to determine the likelihood of the hypothesis being true.
@@ -133,16 +144,16 @@ For example, in a typical audit sampling hypothesis test using the binomial dist
 
 ![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){fig-align="center" width=75%}
 
-### Example
+#### Example
 
-As an example, the `binom.test()` function in R can be used to test if a population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
+Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
 
 ```{r}
 binom.test(x = 0, n = 100, p = 0.03, alternative = "less",
            conf.level = 0.95)
 ```
 
-The most likely misstatement in the population is displayed under `sample estimates` and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 2.95%. The *p* value is shown to be 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis of material misstatement.
+The *p* value is shown under `p-value` and is 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.
 
 ## Bayesian Inference
 
@@ -170,6 +181,38 @@ where $p(\theta | y)$ is the posterior probability of the population parameter $
 
 ![Thomas Bayes revolutionized the world of statistics and probability with his groundbreaking work on Bayes' Theorem. His contributions continue to shape the way we understand and analyze data today. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_bayes.png){fig-align="center" width=75%}
 
+#### Example
+
+Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes. Chapters 3, 4, 5 and 6 dive deeper into the R functions from the **jfa** package used in this example, such as the `auditPrior()` function below.
+
+```{r}
+prior <- auditPrior(method = "default", likelihood = "binomial")
+plot(prior)
+```
+
+After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes' theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement.
+
+```{r}
+eval <- evaluation(x = 0, n = 30, method = "binomial", prior = prior)
+plot(eval)
+```
+
+The most likely value of the population misstatement based on these data is shown as a point above the highest point of the posterior distribution. The uncertainty about the population misstatement can be quantified using a credible interval (shown as a line above the posterior distribution). In this case, the figure above shows a 95% credible interval, which contains the true value of the population misstatement with a 95% probability.
+
+After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before.
+
+```{r}
+eval <- evaluation(x = 0, n = 30, method = "binomial", prior = eval$posterior)
+plot(eval)
+```
+
+The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data.
+
+```{r}
+eval <- evaluation(x = 1, n = 1, method = "binomial", prior = eval$posterior)
+plot(eval)
+```
+
 ### Hypothesis Testing
 
 The Bayes factor is a measure used in Bayesian inference to compare the relative strength of evidence between two competing hypotheses. The Bayes factor is calculated by comparing the probability of the observed data given each of the two competing hypotheses. This probability is known as the likelihood of the data. The Bayes factor is then the ratio of the likelihood of the data under one hypothesis to the likelihood of the data under the other hypothesis. The Bayes factor can be used in the context of an audit, where the auditor is trying to determine the likelihood that a particular financial statement is represented fairly or not.
@@ -184,18 +227,6 @@ For example, if the Bayes factor is 5, this means that the probability of the st
 
 ![Sir Harold Jeffreys innovated statistical hypothesis testing with his Bayes factor approach, helping us make better decision in the face of uncertainty. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){fig-align="center" width=75%}
 
-### Example
+#### Example
 
-Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes.
-
-```{r echot = FALSE}
-prior <- auditPrior(method = "default", likelihood = "binomial")
-plot(prior)
-```
-
-After seeing a single observation, the prior is updated to the posterior via Bayes' theorem. Next, the posterior is used as a prior and is once again updated to a new posterior after seeing another observation. This can continue indefinately. After 10 observations, of which 0 contained a misstatement, the posterior distribution has the following shape.
-
-```{r echo = FALSE}
-eval <- evaluation(x = 0, n = 10, method = "binomial", prior = prior)
-plot(eval)
-```
+The prior distribution and posterior distribution can be used to directly obtain the Bayes factor in favor of (in)tolerable misstatement.
