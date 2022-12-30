@@ -910,7 +910,7 @@ The `auditPrior()` function is used to specify a prior distribution for audit
 sampling. Below is an enumeration of the several ways that a prior distribution
 can be constructed using this function.
 
-### Default priors (`method = 'default'`)
+### Default Prior
 
 The default prior distributions are created using `method = 'default'`.
 **jfa**'s default priors satisfy two criteria: 1) they contain relatively little
@@ -954,7 +954,7 @@ function.
 plot(predict(prior, n = 10))
 ```
 
-### Priors with custom parameters (`method = 'param'`)
+### Parametric Prior
 
 You can manually specify the parameters of the prior distribution with
 `method = 'param'` and the `alpha` and `beta` arguments, which correspond to the
@@ -968,7 +968,7 @@ auditPrior(method = "param", likelihood = "normal", alpha = 0.025, beta = 0.05)
 auditPrior(method = "param", likelihood = "t", alpha = 0.01)
 ```
 
-### Improper priors (`method = 'strict'`)
+### Improper Prior
 
 You can construct an improper prior distribution with classical properties using
 `method = 'strict'`. The posterior distribution of from this prior yields the
@@ -985,7 +985,7 @@ This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 auditPrior(method = "strict", likelihood = "binomial")
 ```
 
-### Impartial priors (`method = 'impartial'`)
+### Impartial Prior
 
 You can incorporate the assumption that tolerable misstatement is equally likely
 as intolerable misstatement [@Derks2022b] using `method = 'impartial'`. For
@@ -1001,7 +1001,7 @@ auditPrior(method = "impartial", likelihood = "binomial",
            materiality = 0.05)
 ```
 
-### Priors with custom prior probabilities (`method = 'hyp'`)
+### Probability of Tolerable Misstatement
 
 You can manually assign prior probabilities to the hypothesis of tolerable 
 misstatement and the hypotheses of intolerable misstatement [@Derks2021] with
@@ -1018,7 +1018,7 @@ auditPrior(method = "hyp", likelihood = "binomial",
            materiality = 0.05, p.hmin = 0.6)
 ```
 
-### Priors based on the Audit Risk Model (`method = 'arm'`)
+### Audit Risk Model
 
 You can translate risk assessments from the Audit Risk Model (inherent risk and
 internal control risk) into a prior distribution [@Derks2021] using
@@ -1035,7 +1035,7 @@ auditPrior(method = "arm", likelihood = "binomial",
            materiality = 0.05, ir = 0.9, cr = 0.6)
 ```
 
-### Priors based on the Bayesian Risk Assessment Model (`method = 'bram'`)
+### Bayesian Risk Assessment Model
 
 You can incorporate information about the mode and the upper bound of the prior
 distribution using `method = 'bram'`. For example, the code below incorporates
@@ -1051,7 +1051,7 @@ auditPrior(method = "bram", likelihood = "binomial",
            materiality = 0.05, expected = 0.01, ub = 0.6)
 ```
 
-### Priors based on an earlier sample (`method = 'sample'`)
+### Earlier Sample
 
 You can incorporate information from an earlier sample into the prior
 distribution [@Derks2021] using `method = 'sample'` in combination with `x` and
@@ -1068,7 +1068,7 @@ auditPrior(method = "sample", likelihood = "binomial",
            x = 0, n = 30)
 ```
 
-### Priors based on a weighted earlier sample (`method = 'factor'`)
+### Weighted Earlier Sample
 
 You can incorporate information from last years results, weighted by a factor
 [@Derks2021], into the prior distribution using `method = 'factor'` in
@@ -1086,7 +1086,7 @@ auditPrior(method = "factor", likelihood = "binomial",
            x = 0, n = 58, factor = 0.7)
 ```
 
-### Nonparametric prior distributions (`method = 'nonparam'`)
+### Nonparametric Prior
 
 You can base the prior on samples of the prior distribution using 
 `method = 'nonparam'` in combination with `samples`. For example, the command
