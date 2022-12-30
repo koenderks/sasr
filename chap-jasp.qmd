@@ -80,18 +80,20 @@ The above screenshot shows an analysis where the auditor is using the binomial l
 Using **jfa**, this analysis can be reproduced by executing the following code:
 
 ```{r}
-evaluation(materiality = 0.03, method = "binomial", x = 0, n = 50)
+evaluation(materiality = 0.06, method = "binomial", x = 0, n = 50)
 ```
 
 The figure below showcases a snapshot of the Bayesian evaluation analysis in JASP. The graphical user interface is fairly similar to that of the classical evaluation analysis, with the exception that we can specify a prior distribution with the options under "Prior".
 
-![Snapshot of the Bayesian evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood together with a default beta prior, a sampling risk of 5%, a performance materiality of 3% and evaluates a sample of 93 items of which 2 contained a misstatement. The resulting upper bound is 6.54%.](img/JASP_evaluation_bayesian.png){fig-align="center"}
+![Snapshot of the Bayesian evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood together with a beta prior distribution, a sampling risk of 5%, a performance materiality of 3% and evaluates a sample of 120 items of which 1 contained a misstatement. The resulting upper bound is 3.27%.](img/JASP_evaluation_bayesian.png){fig-align="center"}
 
-The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a default beta prior, a sampling risk of 5%, a performance materiality of 3% and evaluates a sample of $n = 93$ items of which $k = 2$ contained a misstatement. The resulting 95% upper credible bound is 6.54%.
+The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a beta prior distribution based on an expected error rate of 3% constructed using the audit risk model, a sampling risk of 5%, a performance materiality of 3% and evaluates a sample of $n = 120$ items of which $k = 1$ contained a misstatement. The resulting 95% upper credible bound is 3.27%.
 
 Using **jfa**, this analysis can be reproduced by executing the following code:
 
 ```{r}
-evaluation(materiality = 0.03, method = "binomial", x = 2, n = 93,
-           prior = TRUE)
+prior <- auditPrior(method = "arm", likelihood = "binomial",
+                    materiality = 0.03, expected = 0.01, ir = 0.6, cr = 1)
+evaluation(materiality = 0.03, method = "binomial", x = 1, n = 120,
+           prior = prior)
 ```
