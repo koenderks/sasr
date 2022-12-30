@@ -47,7 +47,56 @@ evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
 
 The output shows that the most likely error in the population is estimated to be 1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to 4.61%. The small difference between the classical and default Bayesian results is due to the prior distribution, which must be proper in order to calculate a Bayes factor (classical results can be emulated by constructing a prior with `method = "strict"` in the `auditPrior()` function). The Bayes factor in this case is shown to be $BF_{10}=515$, meaning that the data from the sample are about 515 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of material misstatement.
 
-Note that this is a very high Bayes factor for the little data that is observed. That is because the Bayes factor is dependent on the prior distribution for $\theta$. As a rule of thumb, when the prior distribution is highly conservative (as with `method = 'default'`) with respect to the hypothesis of tolerable misstatement, the Bayes factor tends to over quantify the evidence in favor of this hypothesis. You can mitigate this dependency by using a prior distribution that is impartial with respect to the hypotheses via `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
+The prior distribution and posterior distribution can be used to directly calculate the Bayes factor in favor of (in)tolerable misstatement. To begin, we compute the prior probability of the hypothesis of tolerable misstatement.
+
+```{r}
+prior.prob.h1 <- pbeta(0.05, shape1 = 1, shape2 = 1)
+prior.prob.h1
+```
+
+Since the hypothesis of intolerable misstatement is the complement of the hypothesis of tolerable misstatement, its probabilitiy is simply one minus the prior probability of the hypothesis of tolerable misstatement.
+
+```{r}
+prior.prob.h0 <- 1 - prior.prob.h1
+prior.prob.h0
+```
+
+The prior odds is the ratio of the prior probabilities.
+
+```{r}
+prior.odds.h1 <- prior.prob.h1 / prior.prob.h0
+prior.odds.h1
+```
+
+Next, the posterior probability of the hypothesis of tolerable misstatement can be computed using the posterior distribution.
+
+```{r}
+post.prob.h1 <- pbeta(0.05, shape1 = 1 + 1, shape2 = 1 + 100 - 1)
+post.prob.h1
+```
+
+The posterior probabilitiy of the hypothesis of intolerable misstatement is one minus the posterior probability of the hypothesis of tolerable misstatement.
+
+```{r}
+post.prob.h0 <- 1 - post.prob.h1
+post.prob.h0
+```
+
+The posterior odds is the ratio of the posterior probabilities.
+
+```{r}
+post.odds.h1 <- post.prob.h1 / post.prob.h0
+post.odds.h1
+```
+
+The Bayes factor is the ratio of posterior odds and prior odds and equals 515.86.
+
+```{r}
+bf10 <- post.odds.h1 / prior.odds.h1
+bf10
+```
+
+Note that this is a very high Bayes factor for the little data that is observed. That is because the Bayes factor is dependent on the prior distribution for the model parameters (in this case $\theta$). As a rule of thumb, when the prior distribution is highly conservative (as with `method = 'default'`) with respect to the hypothesis of tolerable misstatement, the Bayes factor tends to over quantify the evidence in favor of this hypothesis. You can mitigate this dependency by using a prior distribution that is impartial with respect to the hypotheses via `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
 
 ```{r}
 prior <- auditPrior(materiality = 0.05, method = "impartial", likelihood = "binomial")
