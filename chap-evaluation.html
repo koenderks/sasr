@@ -84,6 +84,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -170,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -356,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output shows that the most likely error in the population is estimated to be 1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to 4.61%. The small difference between the classical and default Bayesian results is due to the prior distribution, which must be proper in order to calculate a Bayes factor (classical results can be emulated by constructing a prior with <code>method = "strict"</code> in the <code>auditPrior()</code> function). The Bayes factor in this case is shown to be <span class="math inline">\(BF_{10}=515\)</span>, meaning that the data from the sample are about 515 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of material misstatement.</p>
-<p>Note that this is a very high Bayes factor for the little data that is observed. That is because the Bayes factor is dependent on the prior distribution for <span class="math inline">\(\theta\)</span>. As a rule of thumb, when the prior distribution is highly conservative (as with <code>method = 'default'</code>) with respect to the hypothesis of tolerable misstatement, the Bayes factor tends to over quantify the evidence in favor of this hypothesis. You can mitigate this dependency by using a prior distribution that is impartial with respect to the hypotheses via <code>method = "impartial"</code> in the <code>auditPrior()</code> function (Derks et al., 2022).</p>
+<p>Note that this is a very high Bayes factor for the little data that is observed. That is because the Bayes factor is dependent on the prior distribution for <span class="math inline">\(\theta\)</span>. As a rule of thumb, when the prior distribution is highly conservative (as with <code>method = 'default'</code>) with respect to the hypothesis of tolerable misstatement, the Bayes factor tends to over quantify the evidence in favor of this hypothesis. You can mitigate this dependency by using a prior distribution that is impartial with respect to the hypotheses via <code>method = "impartial"</code> in the <code>auditPrior()</code> function <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022</a>)</span>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-4_701b846c64d87b1bc0d98e1a9e07c06a">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
@@ -455,6 +474,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The output shows that the estimate of the misstatement in the population is 15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-Derks2022b" class="csl-entry" role="doc-biblioentry">
+Derks, K., Swart, J. de, Wagenmakers, E., &amp; Wetzels, R. (2022). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
+</div>
+</div>
 </section>
 </section>
 

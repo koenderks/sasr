@@ -146,6 +146,7 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -188,7 +189,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,8 +277,8 @@ div.csl-indent {
    
   <ul>
   <li><a href="#mus" id="toc-mus" class="nav-link active" data-scroll-target="#mus"><span class="toc-section-number">8.1</span>  MUS</a></li>
-  <li><a href="#audit" id="toc-audit" class="nav-link" data-scroll-target="#audit"><span class="toc-section-number">8.2</span>  audit</a></li>
-  <li><a href="#samplingbook" id="toc-samplingbook" class="nav-link" data-scroll-target="#samplingbook"><span class="toc-section-number">8.3</span>  samplingbook</a></li>
+  <li><a href="#samplingbook" id="toc-samplingbook" class="nav-link" data-scroll-target="#samplingbook"><span class="toc-section-number">8.2</span>  samplingbook</a></li>
+  <li><a href="#audit" id="toc-audit" class="nav-link" data-scroll-target="#audit"><span class="toc-section-number">8.3</span>  audit</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-packages.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -314,30 +315,124 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>This chapter discusses other R packages implementing statistical techniques for audit sampling.</p>
+<p>This chapter discusses other R packages that implement statistical techniques for audit sampling. Such information may be useful for auditors who wish to explore alternative approaches or simply want to confirm the results obtained through the use of the <strong>jfa</strong> package. By exploring these other packages, auditors can gain a greater understanding of the various options available for audit sample planning, selection and evaluation.</p>
 <section id="mus" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="mus"><span class="header-section-number">8.1</span> MUS</h2>
 <p><strong>MUS</strong> <span class="citation" data-cites="MUS">(<a href="references.html#ref-MUS" role="doc-biblioref">Prömpers &amp; Guimarães, 2019</a>)</span> is an R package providing sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via <a href="https://cran.r-project.org/package=MUS">CRAN</a> and can be downloaded by running the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-2_d9fed9b452675c21f1992e896bc34113">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"MUS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the <strong>MUS</strong> package provides no functionality for Bayesian audit sampling.</p>
-</section>
-<section id="audit" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="audit"><span class="header-section-number">8.2</span> audit</h2>
-<p><strong>audit</strong> <span class="citation" data-cites="audit">(<a href="references.html#ref-audit" role="doc-biblioref">Meeden, 2021</a>)</span> is an R package based on the paper by <span class="citation" data-cites="Meeden2007">Meeden &amp; Sargent (<a href="references.html#ref-Meeden2007" role="doc-biblioref">2007</a>)</span> that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <a href="https://cran.r-project.org/package=audit">CRAN</a> and can be downloaded by running the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-3_c93eeedcf52083f4f97788d3145ef8ff">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To show the diffences and similarities between the use of the <strong>MUS</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to plan a monetary unit sample such that the sampling risk can be reduced below 5%. The population in this example consists of <span class="math inline">\(N = 1000\)</span> monetary units and the performance materiality is defined as 10% (or 100 monetary units). The auditor plans the sample using an expected misstatement rate of 1% (or 10 monetary units).</p>
+<p>To compute this sample size, the <strong>MUS</strong> package provides the <code>MUS.calc.n.conservative()</code> function, which takes the performance materiality in monetary units as the <code>tolerable.error</code> argument, the expected misstatements in monetary units as the <code>expected.error</code> argument, and the total number of unit in the population as the <code>book.value</code> argument. The resulting sample size is 37.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-3_0cd3ff39ae91f656abe680886dce0dba">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MUS)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">MUS.calc.n.conservative</span>(<span class="at">tolerable.error =</span> <span class="dv">100</span>, <span class="at">expected.error =</span> <span class="dv">10</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">book.value =</span> <span class="dv">1000</span>, <span class="at">confidence.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the <strong>audit</strong> package provides limited functionality for evaluating audit samples and has no functionality for planning and selecting audit samples.</p>
+<p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-4_ed2be7cb1e365c572265f343c91ae331">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.1</span>, <span class="at">expected =</span> <span class="fl">0.01</span>, <span class="at">likelihood =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 37 </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 38 iterations via method 'poisson'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <strong>MUS</strong> package provides no functionality for Bayesian audit sampling.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="samplingbook" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="samplingbook"><span class="header-section-number">8.3</span> samplingbook</h2>
+<section id="samplingbook" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="samplingbook"><span class="header-section-number">8.2</span> samplingbook</h2>
 <p><strong>samplingbook</strong> <span class="citation" data-cites="samplingbook">(<a href="references.html#ref-samplingbook" role="doc-biblioref">Manitz et al., 2021</a>)</span> is an R package based on the book <strong>Stichproben: Methoden und praktische Umsetzung mit R</strong> <span class="citation" data-cites="Kauermann2010">(<a href="references.html#ref-Kauermann2010" role="doc-biblioref">Kauermann &amp; Kuechenhoff, 2010</a>)</span> that focuses on survey sampling and statistical analysis of these samples. The package is available via <a href="https://cran.r-project.org/package=samplingbook">CRAN</a> and can be downloaded by running the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-4_75f099d574fc7ddbb4170555d0fe5241">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"samplingbook"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-5_0064bef91d80fe7f61ff40f52ba7c0a3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"samplingbook"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the <strong>samplingbook</strong> package provides limited functionality for auditing as it mainly focuses on survey sampling.</p>
+<p>To show the diffences and similarities between the use of the <strong>samplingbook</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to evaluate a sample of items and is interested in estimating the 95% upper confidence bound. The population in this example consists of <span class="math inline">\(N = 300\)</span> items and the auditor has inspected a sample of <span class="math inline">\(n = 100\)</span> items, of which <span class="math inline">\(k = 3\)</span> contained a misstatement.</p>
+<p>To compute the upper bound, the <strong>samplingbook</strong> package provides the <code>Sprop()</code> function, which takes the number of found misstatements in the sample as the <code>m</code> argument, the sample size as the <code>n</code> argument and the population size as the <code>N</code> argument. Note that because this function solely computes a two-sided interval for the population misstatement, the 95% upper bound can be obtained by using an interval of 90% with <code>level = 0.9</code>. The resulting upper bound is 0.07.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-6_c20074a368bdb5bd40490202d763e529">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(samplingbook)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: pps</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: sampling</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: survey</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: grid</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: Matrix</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: survival</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'survival'</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:sampling':</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     cluster, strata</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'survey'</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from 'package:graphics':</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dotchart</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">Sprop</span>(<span class="at">m =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N =</span> <span class="dv">300</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sprop object: Sample proportion estimate</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; With finite population correction: N = 300 </span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion estimate:  0.03 </span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Standard error:  0.014 </span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% approximate confidence interval: </span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.007,0.053]</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,15]</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% exact hypergeometric confidence interval: </span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.01,0.07]</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,21]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-7_fd3468774726b415d3296e90f2c9de03">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N.units =</span> <span class="dv">300</span>, <span class="at">method =</span> <span class="st">"hypergeometric"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">alternative =</span> <span class="st">"less"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  3 and 100</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 3, number of samples = 100, taint = 3</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.06666667</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.03 </span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'hypergeometric'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <strong>samplingbook</strong> package provides limited functionality for auditing as it mainly focuses on survey sampling.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="audit" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="audit"><span class="header-section-number">8.3</span> audit</h2>
+<p><strong>audit</strong> <span class="citation" data-cites="audit">(<a href="references.html#ref-audit" role="doc-biblioref">Meeden, 2021</a>)</span> is an R package based on the paper by <span class="citation" data-cites="Meeden2007">Meeden &amp; Sargent (<a href="references.html#ref-Meeden2007" role="doc-biblioref">2007</a>)</span> that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <a href="https://cran.r-project.org/package=audit">CRAN</a> and can be downloaded by running the following code:</p>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-8_98c77c87586ecc8f3bdc3778e3c9a260">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <strong>audit</strong> package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.</p>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
