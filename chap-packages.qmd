@@ -9,8 +9,12 @@ R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 
 # R Packages {#chap-packages}
 
-This chapter discusses other R packages implementing statistical techniques for
-audit sampling.
+This final chapter discusses other R packages that implement statistical
+techniques for audit sampling. Such information may be useful for auditors who
+wish to explore alternative approaches or simply want to confirm the results
+obtained through the use of the **jfa** package. By exploring these other
+packages, auditors can gain a greater understanding of the various options
+available for audit sample planning, selection and evaluation.
 
 ## MUS
 
@@ -23,23 +27,35 @@ be downloaded by running the following code:
 install.packages("MUS")
 ```
 
-Note that the **MUS** package provides no functionality for Bayesian audit
-sampling.
+To show the diffences and similarities between the use of the **MUS** package
+and the **jfa** package, consider a scenario in which an auditor wants to plan a
+monetary unit sample such that the sampling risk can be reduced below 5%. The
+population in this example consists of $N = 1000$ monetary units and the
+performance materiality is defined as 10% (or 100 monetary units). The auditor
+plans the sample using an expected misstatement rate of 1% (or 10 monetary
+units).
 
-## audit
+To compute this sample size, the **MUS** package provides the
+`MUS.calc.n.conservative()` function, which takes the performance materiality in
+monetary units as the `tolerable.error` argument, the expected misstatements in
+monetary units as the `expected.error` argument, and the total number of unit in
+the population as the `book.value` argument. The resulting sample size is 37.
 
-**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be
-used to find an upper bound for the total amount of overstatement of assets in a
-set of accounts and estimating the amount of sales tax owed on a collection of
-transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit)
-and can be downloaded by running the following code:
-
-```{r, eval=FALSE}
-install.packages("audit")
+```{r}
+library(MUS)
+MUS.calc.n.conservative(tolerable.error = 100, expected.error = 10,
+                        book.value = 1000)
 ```
 
-Note that the **audit** package provides limited functionality for evaluating
-audit samples and has no functionality for planning and selecting audit samples.
+These results can be reproduced in **jfa** using the following command:
+
+```{r}
+planning(materiality = 0.1, expected = 0.01, likelihood = "poisson")
+```
+
+::: {.callout-note appearance="simple"}
+The **MUS** package provides no functionality for Bayesian audit sampling.
+:::
 
 ## samplingbook
 
@@ -53,5 +69,50 @@ and can be downloaded by running the following code:
 install.packages("samplingbook")
 ```
 
-Note that the **samplingbook** package provides limited functionality for
-auditing as it mainly focuses on survey sampling.
+To show the diffences and similarities between the use of the **samplingbook**
+package and the **jfa** package, consider a scenario in which an auditor wants
+to evaluate a sample of items and is interested in estimating the 95% upper
+confidence bound. The population in this example consists of $N = 300$ items and
+the auditor has inspected a sample of $n = 100$ items, of which $k = 3$
+contained a misstatement.
+
+To compute the upper bound, the **samplingbook** package provides the
+`Sprop()` function, which takes the number of found misstatements in the sample
+as the `m` argument, the sample size as the `n` argument and the population size
+as the `N` argument. Note that because this function solely computes a two-sided
+interval for the population misstatement, the 95% upper bound can be obtained by
+using an interval of 90% with `level = 0.9`. The resulting upper bound is 0.07.
+
+```{r}
+library(samplingbook)
+Sprop(m = 3, n = 100, N = 300, level = 0.90)
+```
+
+These results can be reproduced in **jfa** using the following command:
+
+```{r}
+evaluation(x = 3, n = 100, N.units = 300, method = "hypergeometric",
+           alternative = "less", conf.level = 0.95)
+```
+
+::: {.callout-note appearance="simple"}
+The **samplingbook** package provides limited functionality for auditing as it
+mainly focuses on survey sampling.
+:::
+
+## audit
+
+**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be
+used to find an upper bound for the total amount of overstatement of assets in a
+set of accounts and estimating the amount of sales tax owed on a collection of
+transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit)
+and can be downloaded by running the following code:
+
+```{r, eval=FALSE}
+install.packages("audit")
+```
+
+::: {.callout-note appearance="simple"}
+The **audit** package provides limited functionality for evaluating audit
+samples and has no functionality for planning and selecting audit samples.
+:::
