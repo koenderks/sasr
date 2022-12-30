@@ -4,6 +4,8 @@ options(width = 77)
 
 library(jfa)
 library(ggplot2)
+library(MUS)
+library(samplingbook)
 
 knitr::opts_chunk$set(
   collapse = TRUE,
