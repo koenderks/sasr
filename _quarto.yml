@@ -24,7 +24,7 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - chap-preface.qmd
+    - preface.qmd
     - part: part-basics.qmd
       chapters:
       - chap-r.qmd

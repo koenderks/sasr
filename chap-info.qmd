@@ -3,201 +3,95 @@ source("utils.R", local = TRUE)
 ```
 
 ::: {.callout-note appearance="simple"}
-You are reading the work-in-progress first edition of Statistical Auditing with
-R. This chapter is currently a dumping ground of ideas, and it is incomplete.
+You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 :::
 
 # Background Information {#chap-info}
 
-Auditors use audit sampling as a technique to assess a selection of transactions
-or items within a population in order to form conclusions about the population
-as a whole. It is a cost-efficient method for examining the accuracy of
-financial information as it allows auditors to test a representative sample of
-the population rather than the entire population.
+Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.
 
-In the field of auditing, sampling becomes necessary when the truth about a
-population is not readily accessible or discernible through other means. With
-the advent of modern technology, auditors often have access to an abundance of
-information about a population, which sometimes enables them to perform integral
-testing. Nonetheless, there are situations where a sample is still necessary due
-to the unavailability of complete data. For instance, an auditor may utilize
-analytical procedures to verify the consistency of payments with payment orders,
-but then must subsequently confirm the validity of these orders through detailed
-testing.
+In the field of auditing, sampling becomes necessary when the truth about a population is not readily accessible or discernible through other means. With the advent of modern technology, auditors often have access to an abundance of information about a population, which sometimes enables them to perform integral testing. Nonetheless, there are situations where a sample is still necessary due to the unavailability of complete data. For instance, an auditor may utilize analytical procedures to verify the consistency of payments with payment orders, but then must subsequently confirm the validity of these orders through detailed testing.
 
-In auditing, there are two primary methods of sampling: statistical and
-nonstatistical. Statistical sampling involves using probability theory to
-select a sample from the population and draw conclusions about the population
-based on the sample. Nonstatistical sampling, on the other hand, is based on
-the auditor's professional judgment and does not use statistical inference to
-come to a conclusion. This book does not cover nonstatistical sampling.
+In auditing, there are two primary methods of sampling: statistical and nonstatistical. Statistical sampling involves using probability theory to select a sample from the population and draw conclusions about the population based on the sample. Nonstatistical sampling, on the other hand, is based on the auditor's professional judgment and does not use statistical inference to come to a conclusion. This book does not cover nonstatistical sampling.
 
-International auditing standards prescribe the manner in which statistical
-sampling should be conducted in an audit. The following section discusses what
-these standards say about statistical sampling.
+International auditing standards prescribe the manner in which statistical sampling should be conducted in an audit. The following section discusses what these standards say about statistical sampling.
 
 ## Auditing Standards
 
 There are three auditing standards related to staistical sampling in the audit:
 
-- [ISA 530](https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf): 
-  Auditing standard for international firms published by the International
-  Auditing and Assurance Standards Board (IAASB).
-- [AU-C 530](https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf): 
-  Auditing standard for private firms published by the American Institute of
-  Certified Public Accountants (AICPA).
-- [AS 2315](https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315): 
-  Auditing standard for public firms published by the Public Company
-  Accounting Oversign Board (PCAOB).
+- [ISA 530](https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf): Auditing standard for international firms published by the International Auditing and Assurance Standards Board (IAASB).
+- [AU-C 530](https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf): Auditing standard for private firms published by the American Institute of Certified Public Accountants (AICPA).
+- [AS 2315](https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315): Auditing standard for public firms published by the Public Company Accounting Oversign Board (PCAOB).
 
-All three standards present a similar explanation of statistical sampling. For
-instance, ISA 530 [@ISA530] defines statistical audit sampling as a method that
-at minimum exhibits the following two characteristics:
+All three standards present a similar explanation of statistical sampling. For instance, ISA 530 [@ISA530] defines statistical audit sampling as a method that at minimum exhibits the following two characteristics:
 
 - Random selection of sample items,
 - The use of an appropriate statistical technique to evaluate sample results,
   including measurement of sampling risk
 
-According to auditing standards, any sampling approach that lacks these two
-characteristics is considered nonstatistical sampling.
+According to auditing standards, any sampling approach that lacks these two characteristics is considered nonstatistical sampling.
 
-In order to effectively utilize statistical sampling during an audit, it is
-necessary to tailor the approach to the specific circumstances of the audit.
-This may involve considering factors such as the size and complexity of the
-population, the materiality of the items being tested, and the level of inherent
-risk in the audit area. It is also essential for the auditor to document the
-sampling process in order to demonstrate compliance with auditing standards. The
-following sections will delve further into these crucial concepts in the context
-of statistical audit sampling.
+In order to effectively utilize statistical sampling during an audit, it is necessary to tailor the approach to the specific circumstances of the audit. This may involve considering factors such as the size and complexity of the population, the materiality of the items being tested, and the level of inherent risk in the audit area. It is also essential for the auditor to document the sampling process in order to demonstrate compliance with auditing standards. The following sections will delve further into these crucial concepts in the context of statistical audit sampling.
 
 ## Important Concepts
 
-This section aims to delve into several theoretical concepts that are integral
-to statistical audit sampling.
+This section aims to delve into several theoretical concepts that are integral to statistical audit sampling.
 
 ### Materiality
 
-In an audit, materiality is the maximum amount of misstatement that can be
-present in the financial statements of the auditee before the auditor concludes
-that the financical statements are materially misstated, meaning that they
-contains misstatements that would influence the decisions of stakeholders
-relying on those statements.
+In an audit, materiality is the maximum amount of misstatement that can be present in the financial statements of the auditee before the auditor concludes that the financical statements are materially misstated, meaning that they contains misstatements that would influence the decisions of stakeholders relying on those statements.
 
-The term performance materiality refers to the maximum amount of misstatement
-that can be present in a given population that is part of the financial
-statements before the auditor concludes that the population is materially
-misstated. Performance materiality is used by auditors to determine the
-appropriate level of testing to be performed on a population.
+The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population.
 
 ::: {.callout-note}
-The performance materiality is usually defined to be lower than the materiality
-because an individual population that is subject to audit sampling is often only
-a (small) part of the financial statements.
+The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.
 :::
 
-For example, consider an audit of a company's financial statements for the year
-ended December 31, 2021. The auditor determines that the company's accounts
-receivable balance is a large part of to the financial statements and decides
-to test a sample of the accounts receivable transactions to assess the accuracy
-of the balance. The auditor calculates the performance materiality for the
-accounts receivable balance by considering the materiality for the financial
-statements as a whole. If the auditor finds misstatements in the sample such
-that their estimate of the misstatement exceeds the performance materiality, the
-auditor would need to express an unqualified opinion on the population or would
-need to perform additional testing on the population. If the auditor finds
-misstatements in the sample such that their estimate of the misstatement does
-not exceed the performance materiality, the auditor would express a positive
-opinion on the financial statements.
+For example, consider an audit of a company's financial statements for the year ended December 31, 2021. The auditor determines that the company's accounts receivable balance is a large part of to the financial statements and decides to test a sample of the accounts receivable transactions to assess the accuracy of the balance. The auditor calculates the performance materiality for the accounts receivable balance by considering the materiality for the financial statements as a whole. If the auditor finds misstatements in the sample such that their estimate of the misstatement exceeds the performance materiality, the auditor would need to express an unqualified opinion on the population or would need to perform additional testing on the population. If the auditor finds misstatements in the sample such that their estimate of the misstatement does not exceed the performance materiality, the auditor would express a positive opinion on the financial statements.
 
 ### Audit risk
 
-After completing an audit and making any necessary corrections, an auditor will
-issue a written report stating whether the financial statements are accurate and
-free of material misstatement. The potential for this opinion to be incorrect is
-known as audit risk, and it is the auditor's job to minimize this risk as much
-as possible.
+After completing an audit and making any necessary corrections, an auditor will issue a written report stating whether the financial statements are accurate and free of material misstatement. The potential for this opinion to be incorrect is known as audit risk, and it is the auditor's job to minimize this risk as much as possible.
 
-For example, during an audit of a company's financial statements, the auditor
-may carefully review documentation, perform tests of details via audit sampling,
-and speak with management in order to reduce the audit risk and provide a
-reliable opinion on the accuracy of the financial statements as a whole.
+For example, during an audit of a company's financial statements, the auditor may carefully review documentation, perform tests of details via audit sampling, and speak with management in order to reduce the audit risk and provide a reliable opinion on the accuracy of the financial statements as a whole.
 
 ### Population
 
-In statistical inference, the term population refers to the entire group of
-individuals or items that have some common characteristic or interest, and about
-which we want to gather data or make inferences. A population can be as large as
-all the people in a country or, as is more sensible in auditing, as small as a
-group of employees in a specific department of a company.
+In statistical inference, the term population refers to the entire group of individuals or items that have some common characteristic or interest, and about which we want to gather data or make inferences. A population can be as large as all the people in a country or, as is more sensible in auditing, as small as a group of employees in a specific department of a company.
 
-For example, consider an audit of a company's payroll records. The population in
-this case would be all the employees of the company, and the goal of the audit
-would be to gather data on their salaries, benefits, and other payroll-related
-information. The audit team would collect this data from a a representative
-group of employees (i.e., a sample) of the population and use statistical
-methods to draw conclusions about the entire population.
+For example, consider an audit of a company's payroll records. The population in this case would be all the employees of the company, and the goal of the audit would be to gather data on their salaries, benefits, and other payroll-related information. The audit team would collect this data from a a representative group of employees (i.e., a sample) of the population and use statistical methods to draw conclusions about the entire population.
 
 ### Sampling risk
 
-There is a possibility that the results of an audit based on a sample may differ
-from the results if the entire population were examined using the same
-procedures. This is known as sampling risk. Sampling risk can result in two
-types of incorrect conclusions:
+There is a possibility that the results of an audit based on a sample may differ from the results if the entire population were examined using the same procedures. This is known as sampling risk. Sampling risk can result in two types of incorrect conclusions:
 
-1. The first type is when, in a test of controls, the controls are perceived to
-   be more effective than they actually are, or in a test of details, a material
-   misstatement is believed to not exist when it actually does. This type of
-   erroneous conclusion is particularly concerning for auditors because it can
-   compromise the effectiveness of the audit and may lead to an inappropriate
-   audit opinion.
-2. The second type of incorrect conclusion is when, in a test of controls, the
-   controls are perceived to be less effective than they actually are, or in a
-   test of details, a material misstatement is believed to exist when it
-   actually does not. This type of erroneous conclusion impacts the efficiency
-   of the audit as it may require additional work to determine that the initial
-   conclusions were incorrect.
+1. The first type is when, in a test of controls, the controls are perceived to be more effective than they actually are, or in a test of details, a material misstatement is believed to not exist when it actually does. This type of erroneous conclusion is particularly concerning for auditors because it can compromise the effectiveness of the audit and may lead to an inappropriate audit opinion.
+2. The second type of incorrect conclusion is when, in a test of controls, the controls are perceived to be less effective than they actually are, or in a test of details, a material misstatement is believed to exist when it actually does not. This type of erroneous conclusion impacts the efficiency of the audit as it may require additional work to determine that the initial conclusions were incorrect.
 
-Many audits are performed according to the *audit risk model (ARM)*, which
-determines that the uncertainty about the auditor's statement as a whole is a
-factor of three terms: the inherent risk, the control risk, and the detection
-risk (i.e., the sampling risk). Inherent risk is the risk posed by a
-misstatement in the auditees financial statements that could be material, before
-consideration of any related control systems (e.g., computer systems). Control
-risk is the risk that a material misstatement is not prevented or detected by
-the auditee's internal control systems. Detection risk is the risk that the
-auditor will fail to find material misstatements that exist in the auditee's
-financial statements. The *ARM* is practically useful because, for a given level
-of audit risk, the tolerable detection risk bears an inverse relation to the
-other two risks.
+Many audits are performed according to the *audit risk model (ARM)*, which determines that the uncertainty about the auditor's statement as a whole is a factor of three terms: the inherent risk, the control risk, and the detection risk (i.e., the sampling risk). Inherent risk is the risk posed by a misstatement in the auditees financial statements that could be material, before consideration of any related control systems (e.g., computer systems). Control risk is the risk that a material misstatement is not prevented or detected by the auditee's internal control systems. Detection risk is the risk that the auditor will fail to find material misstatements that exist in the auditee's financial statements. The *ARM* is practically useful because, for a given level of audit risk, the tolerable detection risk bears an inverse relation to the other two risks.
 
 \begin{equation}
   \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}
 \end{equation}
 
-Usually the auditor judges inherent risk and control risk on a three-point scale
-consisting of low, medium, and high. Different audit firms handle different
-standard percentages for these categories. Given an assessment of the inherent
-risk and the control risk, the detection risk can be calculated as:
+Usually the auditor judges inherent risk and control risk on a three-point scale consisting of low, medium, and high. Different audit firms handle different standard percentages for these categories. Given an assessment of the inherent risk and the control risk, the detection risk can be calculated as:
 
 \begin{equation}
   \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}
 
 ::: {.callout-note}
-The ARM is commonly used in practice, but is not a proper model of audit risk.
-For example, it is not possible to set one of the risks to zero, as that would
-result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
+The ARM is commonly used in practice, but is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
 :::
 
-Let's consider an example. Suppose that, in their audit guide, an audit firm
-associates the following percentages with the categories high, medium and low:
+Let's consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:
 
 - High: 100%
 - Medium: 60%
 - Low: 50%
 
-If an auditor is working with an audit risk of 5%, and judges inherent and
-control risk to both be medium, the sampling risk can be calculated as:
+If an auditor is working with an audit risk of 5%, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:
 
 \begin{equation}
   \frac{0.05}{0.6 \times 0.6} = 0.139
@@ -205,18 +99,11 @@ control risk to both be medium, the sampling risk can be calculated as:
 
 ### Sample Size
 
-The sample size is an important consideration in the context of audit sampling,
-as it determines the number of items that will be selected for testing during
-the audit process. This factor has an impact on both effectiveness and
-efficiency. In general, a larger sample size can provide a higher level of
-assurance, but it requires more audit effort to obtain and inspect. On the other
-hand, a smaller sample size offers a lower level of assurance, but it is less
-costly.
+The sample size is an important consideration in the context of audit sampling, as it determines the number of items that will be selected for testing during the audit process. This factor has an impact on both effectiveness and efficiency. In general, a larger sample size can provide a higher level of assurance, but it requires more audit effort to obtain and inspect. On the other hand, a smaller sample size offers a lower level of assurance, but it is less costly.
 
 ### Notation
 
-The table below summarizes the notation used in this book (middle column) and in
-the **jfa** R package (right column).
+The table below summarizes the notation used in this book (middle column) and in the **jfa** R package (right column).
 
 | Meaning                     | Symbol         | **jfa**          |
 |-----------------------------|----------------|------------------|
@@ -232,120 +119,50 @@ the **jfa** R package (right column).
 
 ## Classical Inference
 
-Frequentist statistics, also known as classical statistics, is a statistical
-framework that is based on the concept of probability as a long-term frequency
-of events. This approach assumes that statistical models are purely objective
-and that data is generated by a well-defined process, which can be described by
-a set of probabilistic assumptions. The philosophy behind frequentist statistics
-is that statistical estimates should be based on the frequency of events in a
-population, rather than on subjective or personal beliefs. This approach is
-particularly useful for making predictions or making decisions based on data,
-as it allows for the calculation of confidence intervals and statistical tests,
-which provide a measure of the reliability of the estimates. Overall,
-frequentist statistics is a rigorous and reliable approach that is widely used
-in the scientific community for making informed decisions based on data.
+Frequentist statistics, also known as classical statistics, is a statistical framework that is based on the concept of probability as a long-term frequency of events. This approach assumes that statistical models are purely objective and that data is generated by a well-defined process, which can be described by a set of probabilistic assumptions. The philosophy behind frequentist statistics is that statistical estimates should be based on the frequency of events in a population, rather than on subjective or personal beliefs. This approach is particularly useful for making predictions or making decisions based on data, as it allows for the calculation of confidence intervals and statistical tests, which provide a measure of the reliability of the estimates. Overall, frequentist statistics is a rigorous and reliable approach that is widely used in the scientific community for making informed decisions based on data.
 
 ### Parameter Estimation
 
-The philosophy behind frequentist parameter estimation is based on the idea that
-statistical parameters are fixed, but unknown, quantities that can be estimated
-through the process of repeated sampling. This approach assumes that the sample
-data represent a random sample from a larger population, and that the sample
-statistics (i.e., the sample proportion of misstatements) can be used to
-estimate the corresponding population parameters (i.e., the population
-misstatement). The key principle of frequentist estimation is that the estimated
-parameter values should be unbiased and have a certain level of precision, which
-can be quantified through statistical measures such as confidence bounds or
-intervals.
+The philosophy behind frequentist parameter estimation is based on the idea that statistical parameters are fixed, but unknown, quantities that can be estimated through the process of repeated sampling. This approach assumes that the sample data represent a random sample from a larger population, and that the sample statistics (i.e., the sample proportion of misstatements) can be used to estimate the corresponding population parameters (i.e., the population misstatement). The key principle of frequentist estimation is that the estimated parameter values should be unbiased and have a certain level of uncertainty, which can be quantified through confidence bounds or intervals.
 
 ### Hypothesis Testing
 
-Frequentist hypothesis testing is a statistical method that involves evaluating
-the probability of obtaining a certain sample outcome or more extreme, given a
-certain assumption or hypothesis. This probability, known as the *p* value, is
-used to determine the likelihood of the hypothesis being true.
+Frequentist hypothesis testing is a statistical method that involves evaluating the probability of obtaining a certain sample outcome or more extreme, given a certain assumption or hypothesis. This probability, known as the *p* value, is used to determine the likelihood of the hypothesis being true.
 
-For example, in a typical audit sampling hypothesis test using the binomial
-distribution, we may be interested in testing the hypothesis that the
-misstatement is higher or lower than the performance materiality. We would
-inspect a sample and calculate the *p* value based on the observed frequency of
-misstatements versus the expected frequency under the assumption of material
-misstatement. If the *p* value is below the sampling risk $\alpha$, we reject
-the hypothesis that the population is materially misstated and conclude that it
-is not materially misstated.
+For example, in a typical audit sampling hypothesis test using the binomial distribution, we may be interested in testing the hypothesis that the misstatement is higher or lower than the performance materiality. We would inspect a sample and calculate the *p* value based on the observed frequency of misstatements versus the expected frequency under the assumption of material misstatement. If the *p* value is below the sampling risk $\alpha$, we reject the hypothesis that the population is materially misstated and conclude that it is not materially misstated.
 
 ![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){fig-align="center" width=75%}
 
 ### Example
 
-As an example, the `binom.test()` function in R can be used to test if a
-population contains less than 3 percent misstatements. Suppose an auditor
-obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use
-the `binom.test()` function, the auditor must input the number of items in the
-sample `n = 100`, the number of misstatements in the sample `x = 0`, and the
-hypothesized proportion of misstatement in the population (i.e., the performance
-materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can
-provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can
-specify the alternative hypothesis as `alternative = "less"` to test if the
-proportion of misstatements in the sample is less than the hypothesized
-proportion.
+As an example, the `binom.test()` function in R can be used to test if a population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
 
 ```{r}
 binom.test(x = 0, n = 100, p = 0.03, alternative = "less",
            conf.level = 0.95)
 ```
 
-The most likely misstatement in the population is displayed under
-`sample estimates` and is 0%. The 95% upper confidence bound for the estimate of
-the population misstatement is displayed under `95 percent confidence interval`
-and is 2.95%. The *p* value is shown to be 0.04755. Since the *p* value is lower
-than the specified sampling risk $\alpha$, the auditor can reject the hypothesis
-of material misstatement.
+The most likely misstatement in the population is displayed under `sample estimates` and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 2.95%. The *p* value is shown to be 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis of material misstatement.
 
 ## Bayesian Inference
 
-Bayesian inference is based on the idea that the parameters in a statistical
-model are not fixed but uncertain. In this approach, the parameter is 
-onsidered to be a random variable with a certain distribution, and the goal is
-to use the data and any prior knowledge about the parameter to update our belief
-about its value. This is typically done using Bayes' theorem, which states that
-the posterior probability (i.e., the updated belief about the parameter after
-seeing the data) is equal to the prior probability (i.e., the belief about the
-parameter before seeing the data) times the likelihood (i.e., the probability of
-the data given the parameter).
+Bayesian inference is based on the idea that the parameters in a statistical model are not fixed but uncertain. In this approach, the parameter is  onsidered to be a random variable with a certain distribution, and the goal is to use the data and any prior knowledge about the parameter to update our belief about its value. This is typically done using Bayes' theorem, which states that the posterior probability (i.e., the updated belief about the parameter after seeing the data) is equal to the prior probability (i.e., the belief about the parameter before seeing the data) times the likelihood (i.e., the probability of the data given the parameter).
 
 \begin{equation}
   \text{Posterior} \propto \text{Likelihood} \times \text{Prior}
 \end{equation}
 
-Bayesian statistics is a more nuanced approach that allows for more efficiency
-in statistical audit sampling, but it requires the specification of prior
-distributions that can be difficult to quantify. That is because, especially in
-an audit, all information that is incorporated into the statistical analysis
-should be based on audit evidence and should be properly justified.
+Bayesian statistics is a more nuanced approach that allows for more efficiency in statistical audit sampling, but it requires the specification of prior distributions that can be difficult to quantify. That is because, especially in an audit, all information that is incorporated into the statistical analysis should be based on audit evidence and should be properly justified.
 
 ### Parameter Estimation
 
-One major difference between classical and Bayesian statistics is the way
-they handle uncertainty. In classical statistics, uncertainty is represented
-by the standard error of an estimate, which is a measure of the precision of an
-estimate. In Bayesian statistics, uncertainty is represented by the posterior
-distribution, which is a distribution of the possible values of the population
-parameter given the sample data and our prior beliefs. Bayesian inferences
-uses uses Bayes' theorem to update the prior beliefs about the population
-parameter with the new information from the sample data. Bayes' theorem is given
-by the following formula:
+One major difference between classical and Bayesian statistics is the way they handle uncertainty. In classical statistics, uncertainty is represented by the standard error of an estimate, which is a measure of the precision of an estimate. In Bayesian statistics, uncertainty is represented by the posterior distribution, which is a distribution of the possible values of the population parameter given the sample data and our prior beliefs. Bayesian inferences uses uses Bayes' theorem to update the prior beliefs about the population parameter with the new information from the sample data. Bayes' theorem is given by the following formula:
 
 \begin{equation}
   p(\theta | y) = \frac{p(y | \theta)p(\theta)}{p(y)}
 \end{equation}
 
-where $p(\theta | y)$ is the posterior probability of the population
-parameter $\theta$ given the sample data $y$, $p(y | \theta)$ is the
-likelihood of the sample data given $\theta$, $p(\theta)$ is the prior
-probability of $\theta$, and $p(y)$ is the total probability of the sample data
-occurring. Because with a fixed sample $p(y)$ is a constant, Bayes' theorem is
-often given as follows:
+where $p(\theta | y)$ is the posterior probability of the population parameter $\theta$ given the sample data $y$, $p(y | \theta)$ is the likelihood of the sample data given $\theta$, $p(\theta)$ is the prior probability of $\theta$, and $p(y)$ is the total probability of the sample data occurring. Because with a fixed sample $p(y)$ is a constant, Bayes' theorem is often given as follows:
 
 \begin{equation}
   p(\theta | y) \propto p(y | \theta) \times p(\theta)
@@ -355,45 +172,30 @@ often given as follows:
 
 ### Hypothesis Testing
 
-The Bayes factor is a measure used in Bayesian inference to compare the relative
-strength of evidence between two competing hypotheses. The Bayes factor is
-calculated by comparing the probability of the observed data given each of the
-two competing hypotheses. This probability is known as the likelihood of the
-data. The Bayes factor is then the ratio of the likelihood of the data under one
-hypothesis to the likelihood of the data under the other hypothesis. The Bayes
-factor can be used in the context of an audit, where the auditor is trying to
-determine the likelihood that a particular financial statement is represented
-fairly or not.
+The Bayes factor is a measure used in Bayesian inference to compare the relative strength of evidence between two competing hypotheses. The Bayes factor is calculated by comparing the probability of the observed data given each of the two competing hypotheses. This probability is known as the likelihood of the data. The Bayes factor is then the ratio of the likelihood of the data under one hypothesis to the likelihood of the data under the other hypothesis. The Bayes factor can be used in the context of an audit, where the auditor is trying to determine the likelihood that a particular financial statement is represented fairly or not.
 
-For example, an auditor might be evaluating the fairness of a company's
-financial statements for the year. They have two hypotheses: the first is that
-the statements are accurate, and the second is that the statements are not
-accurate. The auditor gathers data from a statistical audit sample and uses this
-data to calculate the Bayes factor.
+For example, an auditor might be evaluating the fairness of a company's financial statements for the year. They have two hypotheses: the first is that the statements are accurate, and the second is that the statements are not accurate. The auditor gathers data from a statistical audit sample and uses this data to calculate the Bayes factor.
 
-The Bayes factor is calculated by taking the ratio of the probability of the
-first hypothesis (that the statements are accurate) given the observed data, to
-the probability of the second hypothesis (that the statements are not accurate)
-given the observed data. The higher the Bayes factor, the more likely it is that
-the first hypothesis is true.
+The Bayes factor is calculated by taking the ratio of the probability of the first hypothesis (that the statements are accurate) given the observed data, to the probability of the second hypothesis (that the statements are not accurate) given the observed data. The higher the Bayes factor, the more likely it is that the first hypothesis is true.
 
-The Bayes factor can be used to assess the strength of evidence for one
-hypothesis over the other and to determine which hypothesis is more likely to
-be true given the observed data. It is often used in scientific research to help
-evaluate the validity of different hypotheses and to make informed decisions
-based on the available evidence. For auditors, the Bayes factor can be a useful
-tool to determine the likelihood of different hypotheses being true based on the
-data they have collected, and it can help them make informed decisions about the
-fairness of the financial statements.
+The Bayes factor can be used to assess the strength of evidence for one hypothesis over the other and to determine which hypothesis is more likely to be true given the observed data. It is often used in scientific research to help evaluate the validity of different hypotheses and to make informed decisions based on the available evidence. For auditors, the Bayes factor can be a useful tool to determine the likelihood of different hypotheses being true based on the data they have collected, and it can help them make informed decisions about the fairness of the financial statements.
 
-For example, if the Bayes factor is 5, this means that the probability of the
-statements being accurate given the observed data is 5 times higher than the
-probability of them being not accurate. In this case, the auditor would be more
-likely to conclude that the financial statements are accurate.
-
-The **jfa** package can help us to calculate Bayes factors for and against the
-hypothesis that the financial statements are represented fairly.
+For example, if the Bayes factor is 5, this means that the probability of the statements being accurate given the observed data is 5 times higher than the probability of them being not accurate. In this case, the auditor would be more likely to conclude that the financial statements are accurate.
 
 ![Sir Harold Jeffreys innovated statistical hypothesis testing with his Bayes factor approach, helping us make better decision in the face of uncertainty. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){fig-align="center" width=75%}
 
 ### Example
+
+Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes.
+
+```{r echot = FALSE}
+prior <- auditPrior(method = "default", likelihood = "binomial")
+plot(prior)
+```
+
+After seeing a single observation, the prior is updated to the posterior via Bayes' theorem. Next, the posterior is used as a prior and is once again updated to a new posterior after seeing another observation. This can continue indefinately. After 10 observations, of which 0 contained a misstatement, the posterior distribution has the following shape.
+
+```{r echo = FALSE}
+eval <- evaluation(x = 0, n = 10, method = "binomial", prior = prior)
+plot(eval)
+```

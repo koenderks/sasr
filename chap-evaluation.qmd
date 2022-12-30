@@ -3,145 +3,73 @@ source("utils.R", local = TRUE)
 ```
 
 ::: {.callout-note appearance="simple"}
-You are reading the work-in-progress first edition of Statistical Auditing with
-R. This chapter is currently a dumping ground of ideas, and it is incomplete.
+You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 :::
 
 # Evaluation {#chap-evaluation}
 
-Evaluating a sample is the final stage in the audit sampling workflow. In this
-stage, the auditor weighs the audit evidence obtained from the sample together
-with the audit evidence obtained in earlier stages of the audit to determine
+Evaluating a sample is the final stage in the audit sampling workflow. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine
 their opinion about the population.
 
-Like planning a sample, evaluating a sample requires knowledge of the conditions
-that lead  to acceptance or rejection of the population (i.e., the sampling
-objectives). A quick reminder: Sampling objectives can be classified into one of
-the following two categories:
+Like planning a sample, evaluating a sample requires knowledge of the conditions that lead  to acceptance or rejection of the population (i.e., the sampling objectives). A quick reminder: Sampling objectives can be classified into one of the following two categories:
 
-- **Hypothesis testing**: The goal of the sample is to obtain evidence for or
-  against the claim that the misstatement in the population is lower than a
-  given value (i.e., the performance materiality).
-- **Estimation**: The goal of the sample is to obtain an accurate estimate of
-  the misstatement in the population (with a minimum precision).
+- **Hypothesis testing**: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).
+- **Estimation**: The goal of the sample is to obtain an accurate estimate of the misstatement in the population (with a minimum precision).
 
 ![When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_justice.png){fig-align="center" width=75%}
 
-A non-stratified audit sample does not involve dividing the population into
-subgroups. Here, the auditor selects a random sample from the entire population
-without considering any specific characteristics of the population. 
+A non-stratified audit sample does not involve dividing the population into subgroups. Here, the auditor selects a random sample from the entire population without considering any specific characteristics of the population.
 
-For example, in an audit of a company's inventory, the auditor may simply select
-a random sample of items from the entire inventory without dividing it into
-subgroups based on characteristics such as location or type of item. Another
-example of such a situation would be where the auditor is auditing the general
-ledger of a small business.
+For example, in an audit of a company's inventory, the auditor may simply select a random sample of items from the entire inventory without dividing it into subgroups based on characteristics such as location or type of item. Another example of such a situation would be where the auditor is auditing the general ledger of a small business.
 
-Naturally, non-stratified sampling is simpler than stratified sampling and can
-be used when the population is considered homogenous or the auditor does not
-need to consider differences between subgroups (e.g., strata).
+Naturally, non-stratified sampling is simpler than stratified sampling and can be used when the population is considered homogenous or the auditor does not need to consider differences between subgroups (e.g., strata).
 
 ## Classical Evaluation
 
-Classical hypothesis testing uses the *p*-value to make a decision about whether
-to reject the hypothesis $H_0$ or not. As an example, consider that an auditor
-wants to verify whether the population contains less than 5 percent misstatement,
-implying the hypotheses $H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have
-taken a sample of 100 items, of which 1 contained an error. They set the
-significance level for the *p*-value to 0.05, implying that $p < 0.05$ will be
-enough to reject the hypothesis $H_0$. The call below evaluates the sample using
-a classical non-stratified evaluation procedure.
+Classical hypothesis testing uses the *p*-value to make a decision about whether to reject the hypothesis $H_0$ or not. As an example, consider that an auditor wants to verify whether the population contains less than 5 percent misstatement, implying the hypotheses $H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have taken a sample of 100 items, of which 1 contained an error. They set the significance level for the *p*-value to 0.05, implying that $p < 0.05$ will be enough to reject the hypothesis $H_0$. The call below evaluates the sample using a classical non-stratified evaluation procedure.
 
 ```{r}
 evaluation(materiality = 0.05, x = 1, n = 100)
 ```
 
-The output shows that the most likely error in the population is estimated to be
-1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to
-4.74%. The output also shows that the *p*-value is lower than 0.05 implying that
-the hypothesis $H_0$ can be rejected. Hence, the auditor is able to conclude
-that the sample provides sufficient evidence to state with reasonable assurance
-that the population does not contain material misstatement.
+The output shows that the most likely error in the population is estimated to be 1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to 4.74%. The output also shows that the *p*-value is lower than 0.05 implying that the hypothesis $H_0$ can be rejected. Hence, the auditor is able to conclude that the sample provides sufficient evidence to state with reasonable assurance that the population does not contain material misstatement.
 
 ## Bayesian Evaluation
 
-Bayesian hypothesis testing uses the Bayes factor, $BF_{10}$ or $BF_{01}$, to
-make a statement about the evidence provided by the sample in support for one of
-the two hypotheses $H_1$ or $H_0$. As an example of how to interpret the Bayes
-factor, the value of $BF_{10} = 10$ (provided by the `evaluation()` function)
-can be interpreted as: *the data are 10 times more likely to have occurred under the hypothesis $H_1$ than under the hypothesis $H_0$*.
-$BF_{10} > 1$ indicates evidence in favor of $H_1$ and against $H_0$, while
-$BF_{10} < 1$ indicates evidence in favor of $H_0$ and against $H_1$. The
-`evaluation()` function returns the value for $BF_{10}$, but $BF_{01}$ can be
-computed as $\frac{1}{BF_{10}}$.
+Bayesian hypothesis testing uses the Bayes factor, $BF_{10}$ or $BF_{01}$, to make a statement about the evidence provided by the sample in support for one of the two hypotheses $H_1$ or $H_0$. As an example of how to interpret the Bayes factor, the value of $BF_{10} = 10$ (provided by the `evaluation()` function) can be interpreted as: *the data are 10 times more likely to have occurred under the hypothesis $H_1$ than under the hypothesis $H_0$*. $BF_{10} > 1$ indicates evidence in favor of $H_1$ and against $H_0$, while $BF_{10} < 1$ indicates evidence in favor of $H_0$ and against $H_1$. The `evaluation()` function returns the value for $BF_{10}$, but $BF_{01}$ can be computed as $\frac{1}{BF_{10}}$.
 
-Consider the previous example of an auditor who wants to verify whether the
-population contains less than 5 percent misstatement, implying the hypotheses
-$H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have taken a sample of 100
-items, of which 1 was found to contain a misstatement. The prior distribution is
-assumed to be a default *beta(1,1)* prior. The call below evaluates the sample
-using a Bayesian non-stratified evaluation procedure.
+Consider the previous example of an auditor who wants to verify whether the population contains less than 5 percent misstatement, implying the hypotheses $H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. They have taken a sample of 100 items, of which 1 was found to contain a misstatement. The prior distribution is assumed to be a default *beta(1,1)* prior. The call below evaluates the sample using a Bayesian non-stratified evaluation procedure.
 
 ```{r}
 prior <- auditPrior(materiality = 0.05, method = "default", likelihood = "binomial")
 evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
 ```
 
-The output shows that the most likely error in the population is estimated to be
-1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to
-4.61%. The small difference between the classical and default Bayesian results
-is due to the prior distribution, which must be proper in order to calculate a
-Bayes factor (classical results can be emulated by constructing a prior with
-`method = "strict"` in the `auditPrior()` function). The Bayes factor in this
-case is shown to be $BF_{10}=515$, meaning that the data from the sample are
-about 515 times more likely to occur under the hypothesis of tolerable
-misstatement than under the hypothesis of material misstatement.
+The output shows that the most likely error in the population is estimated to be 1 / 100 = 1% and that the 95% (one-sided) credible interval ranges from 0% to 4.61%. The small difference between the classical and default Bayesian results is due to the prior distribution, which must be proper in order to calculate a Bayes factor (classical results can be emulated by constructing a prior with `method = "strict"` in the `auditPrior()` function). The Bayes factor in this case is shown to be $BF_{10}=515$, meaning that the data from the sample are about 515 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of material misstatement.
 
-Note that this is a very high Bayes factor for the little data that is observed.
-That is because the Bayes factor is dependent on the prior distribution for
-$\theta$. As a rule of thumb, when the prior distribution is highly conservative
-(as with `method = 'default'`) with respect to the hypothesis of tolerable
-misstatement, the Bayes factor tends to over quantify the evidence in favor of
-this hypothesis. You can mitigate this dependency by using a prior distribution
-that is impartial with respect to the hypotheses via `method = "impartial"` in
-the `auditPrior()` function (Derks et al., 2022).
+Note that this is a very high Bayes factor for the little data that is observed. That is because the Bayes factor is dependent on the prior distribution for $\theta$. As a rule of thumb, when the prior distribution is highly conservative (as with `method = 'default'`) with respect to the hypothesis of tolerable misstatement, the Bayes factor tends to over quantify the evidence in favor of this hypothesis. You can mitigate this dependency by using a prior distribution that is impartial with respect to the hypotheses via `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
 
 ```{r}
 prior <- auditPrior(materiality = 0.05, method = "impartial", likelihood = "binomial")
 evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
 ```
 
-The output shows that $BF_{10}=47$, implying that under the assumption of
-impartiality there is strong evidence for $H_1$, the hypothesis that the
-population contains misstatements lower than 5 percent of the population
-(tolerable misstatement). Since the two prior distributions both resulted in
-convincing Bayes factors, the results can be considered robust to the choice of
-prior distribution. Hence, the auditor is able to conclude that the sample
-provides convincing evidence to state that the population does not contain
-material misstatement.
+The output shows that $BF_{10}=47$, implying that under the assumption of impartiality there is strong evidence for $H_1$, the hypothesis that the population contains misstatements lower than 5 percent of the population (tolerable misstatement). Since the two prior distributions both resulted in convincing Bayes factors, the results can be considered robust to the choice of prior distribution. Hence, the auditor is able to conclude that the sample provides convincing evidence to state that the population does not contain material misstatement.
 
 ## Evaluation using Data
 
-For this example, we take the `allowances` that set that comes with the package.
-This data set contains 3500 financial statement line items, each with a booked
-value `bookValue` and, for illustrative purposes, and audited (true) value
-`auditValue`. Since the focus of this vignette is the evaluation stage in the
-audit, the sample is already indicated in the data set. The performance
-materiality in this example is set to 5%.
+For this example, we take the `allowances` that set that comes with the package. This data set contains 3500 financial statement line items, each with a booked value `bookValue` and, for illustrative purposes, and audited (true) value `auditValue`. Since the focus of this vignette is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5%.
 
 ```{r}
 data(allowances)
 head(allowances)
 ```
 
-Evaluating a non-stratified sample using data requires specification of the
-`data`, `values` and `values.audit` arguments. The input for these arguments is
-the name of the specific column in `data`.
+Evaluating a non-stratified sample using data requires specification of the `data`, `values` and `values.audit` arguments. The input for these arguments is the name of the specific column in `data`.
 
 ### Classical Evaluation
 
-The call below evaluates the `allowances` sample using a classical
-non-stratified evaluation procedure.
+The call below evaluates the `allowances` sample using a classical non-stratified evaluation procedure.
 
 ```{r}
 x <- evaluation(
@@ -151,14 +79,11 @@ x <- evaluation(
 summary(x)
 ```
 
-In this case, the output shows that the estimate of the misstatement in the
-population is 15.77%, with the 95% (one-sided) confidence interval ranging from
-0% to 17.5%.
+In this case, the output shows that the estimate of the misstatement in the population is 15.77%, with the 95% (one-sided) confidence interval ranging from 0% to 17.5%.
 
 ### Bayesian evaluation
 
-The call below evaluates the `allowances` sample using a Bayesian non-stratified
-evaluation procedure.
+The call below evaluates the `allowances` sample using a Bayesian non-stratified evaluation procedure.
 
 ```{r}
 x <- evaluation(
@@ -168,5 +93,4 @@ x <- evaluation(
 summary(x)
 ```
 
-The output shows that the estimate of the misstatement in the population is
-15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.
+The output shows that the estimate of the misstatement in the population is 15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.

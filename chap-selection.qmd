@@ -3,78 +3,43 @@ source("utils.R", local = TRUE)
 ```
 
 ::: {.callout-note appearance="simple"}
-You are reading the work-in-progress first edition of Statistical Auditing with
-R. This chapter is currently a dumping ground of ideas, and it is incomplete.
+You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
 :::
 
 # Selection {#chap-selection}
 
-Auditors must often evaluate balances or populations that include a large
-quantity of items. As it is not possible to individually examine all of these
-items, they must select a subset, or sample, from the total population to make a
-statement about a specific characteristic of the population. Several selection
-methodologies, which are widely accepted in the audit context, are available for
-this purpose. This chapter discusses the most frequently used sampling
-methodology for audit sampling and demonstrates how to select a sample using
-these methods in R.
+Auditors must often evaluate balances or populations that include a large quantity of items. As it is not possible to individually examine all of these items, they must select a subset, or sample, from the total population to make a statement about a specific characteristic of the population. Several selection methodologies, which are widely accepted in the audit context, are available for this purpose. This chapter discusses the most frequently used sampling methodology for audit sampling and demonstrates how to select a sample using these methods in R.
 
 ## Sampling Units
 
-Selecting a subset from the population requires knowledge of the sampling units;
-physical representations of the population that needs to be audited. Generally,
-the auditor has to choose between two types of sampling units: individual items
-in the population or individual monetary units in the population. In order to
-perform statistical selection, the population must be divided into individual
-sampling units that can be assigned a probability to be included in the sample.
-The total collection of all sampling units which have been assigned a selection
-probability is called the sampling frame.
+Selecting a subset from the population requires knowledge of the sampling units; physical representations of the population that needs to be audited. Generally, the auditor has to choose between two types of sampling units: individual items in the population or individual monetary units in the population. In order to perform statistical selection, the population must be divided into individual sampling units that can be assigned a probability to be included in the sample. The total collection of all sampling units which have been assigned a selection probability is called the sampling frame.
 
 ### Items
 
-A sampling unit for record (i.e., attributes) sampling is generally a
-characteristic of an item in the population. For example, suppose that you
-inspect a population of receipts. A possible sampling unit for record sampling
-can be the date of payment of the receipt. When a sampling unit (e.g., date of
-payment) is selected by the sampling method, the population item that
-corresponds to the sampled unit is included in the sample.
+A sampling unit for record (i.e., attributes) sampling is generally a characteristic of an item in the population. For example, suppose that you inspect a population of receipts. A possible sampling unit for record sampling can be the date of payment of the receipt. When a sampling unit (e.g., date of payment) is selected by the sampling method, the population item that corresponds to the sampled unit is included in the sample.
 
 ### Monetary Units
 
-A sampling unit for monetary unit sampling is different than a sampling unit for
-record sampling in that it is an individual monetary unit within an item or
-transaction, like an individual dollar. For example, a single sampling unit can
-be the 10$^{th}$ dollar from a specific receipt in the population. When a
-sampling unit (e.g., individual dollar) is selected by the sampling method, the
-population item that includes the sampling unit is included in the sample.
+A sampling unit for monetary unit sampling is different than a sampling unit for record sampling in that it is an individual monetary unit within an item or transaction, like an individual dollar. For example, a single sampling unit can be the 10$^{th}$ dollar from a specific receipt in the population. When a sampling unit (e.g., individual dollar) is selected by the sampling method, the population item that includes the sampling unit is included in the sample.
 
 ## Sampling Methods
 
-This section discusses four sampling methods that are commonly used in audit
-sampling. The methods that will be discussed are:
+This section discusses four sampling methods that are commonly used in audit sampling. The methods that will be discussed are:
 
 - Random sampling
 - Fixed interval sampling
 - Cell sampling
 - Modified sieve sampling
 
-First, let's get some notation out of the way. As discussed in Chapter 2, the
-population size $N$ is defined as the total set of individual sampling units
-(denoted by $x_i$).
+First, let's get some notation out of the way. As discussed in Chapter 2, the population size $N$ is defined as the total set of individual sampling units (denoted by $x_i$).
 
 \begin{equation}
   N = \{x_1, x_2, \dots, x_N\}.
 \end{equation}
 
-In statistical sampling, every sampling unit $x_i$ in the population should
-receive a selection probability $p(x_i)$. The purpose of the sampling method is
-to provide a framework to assign selection probabilities to each of the sampling
-units, and subsequently draw sampling units from the population until a set of
-size $n$ has been created.
+In statistical sampling, every sampling unit $x_i$ in the population should receive a selection probability $p(x_i)$. The purpose of the sampling method is to provide a framework to assign selection probabilities to each of the sampling units, and subsequently draw sampling units from the population until a set of size $n$ has been created.
 
-To illustrate how the resulting sample differs for various sampling methods, we
-will use the `BuildIt` data set included in the **jfa** package. These data can
-be loaded into R using the code below. For simplicity, we will use a sample size
-of $n = 10$ for all examples.
+To illustrate how the resulting sample differs for various sampling methods, we will use the `BuildIt` data set included in the **jfa** package. These data can be loaded into R using the code below. For simplicity, we will use a sample size of $n = 10$ for all examples.
 
 ```{r}
 data(BuildIt)
@@ -83,37 +48,22 @@ n <- 10
 
 ### Random Sampling
 
-Random sampling is the most simple and straight-forward selection method. The
-random sampling method provides a method that allows every sampling unit in the
-population an equal chance of being selected, meaning that every combination of
-sampling units has the same probability of being selected as every other
-combination of the same number of sampling units. Simply put, the algorithm
-draws a random selection of size $n$ of the sampling units. Therefore, the
-selection probability for each sampling unit is defined as:
+Random sampling is the most simple and straight-forward selection method. The random sampling method provides a method that allows every sampling unit in the population an equal chance of being selected, meaning that every combination of sampling units has the same probability of being selected as every other combination of the same number of sampling units. Simply put, the algorithm draws a random selection of size $n$ of the sampling units. Therefore, the selection probability for each sampling unit is defined as:
 
 \begin{equation}
   p(x) = \frac{1}{N}.
 \end{equation}
 
-To make this procedure visually intuitive, the figure below provides an
-illustration of the random sampling method.
+To make this procedure visually intuitive, the figure below provides an illustration of the random sampling method.
 
 ![Illustration of random sampling](img/selection_random.png){fig-align="center"}
 
-- **Advantage(s):** The random sampling method yields an optimal random
-  selection, with the additional advantage that the sample can be easily
-  extended by applying the same method again.
-- **Disadvantages:** Because the selection probabilities are equal for all
-  sampling units there is no guarantee that items with a large monetary value in
-  the population will be included in the sample.
+- **Advantage(s):** The random sampling method yields an optimal random selection, with the additional advantage that the sample can be easily extended by applying the same method again.
+- **Disadvantages:** Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.
 
 #### Record Sampling
 
-Random sampling can easily be coded in base R. First, we have to get a vector
-of of the possible items (rows) in the population that can be selected. When we
-are performing record sampling, we can simply use R's build in `sample()`
-function to draw a random sample from a vector `1:nrow(BuildIt)` representing
-the row indices of the items and store the result in a variable `items`.
+Random sampling can easily be coded in base R. First, we have to get a vector of of the possible items (rows) in the population that can be selected. When we are performing record sampling, we can simply use R's build in `sample()` function to draw a random sample from a vector `1:nrow(BuildIt)` representing the row indices of the items and store the result in a variable `items`.
 
 ```{r}
 set.seed(1)
@@ -121,19 +71,13 @@ items <- sample(1:nrow(BuildIt), size = n, replace = FALSE)
 items
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. This
-function takes as input the population data, the sample size, and the
-characteristics of the sampling method. The argument `units` allows you to
-specify that you want to use record sampling (`units = "items"`), while the
-`method` argument enables you to specify that you are performing random sampling
-(`method = 'random'`).
+The sample can be reproduced in **jfa** via the `selection()` function. This function takes as input the population data, the sample size, and the characteristics of the sampling method. The argument `units` allows you to specify that you want to use record sampling (`units = "items"`), while the `method` argument enables you to specify that you are performing random sampling (`method = 'random'`).
 
 ```{r}
 set.seed(1)
@@ -142,16 +86,32 @@ result <- selection(data = BuildIt, size = n, units = "items",
 result$sample
 ```
 
+::: {.callout-tip}
+## Additional arguments to `selection()`
+The `selection()` function has three additional arguments which you can use to preprocess your population before selection. These arguments are `order`, `decreasing` and `randomize`.
+
+The `order` argument takes as input a column name in `data` which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in the selection. In this case, you should use the `decreasing = FALSE` (its default value) argument.
+
+```{r}
+set.seed(1)
+result <- selection(data = BuildIt, size = n, units = "items",
+                    method = "random", order = "bookValue")
+result$sample
+```
+
+The `randomize` argument can be used to randomly shuffle the items in the population before selection. For example, you can randomly shuffle the population before engaging in the selection using `randomize = TRUE`.
+
+```{r}
+set.seed(1)
+result <- selection(data = BuildIt, size = n, units = "items",
+                    method = "random", randomize = TRUE)
+result$sample
+```
+:::
+
 #### Monetary Unit Sampling
 
-When we are performing record sampling, we have to consider that each item in
-the population consists of multiple smaller items (i.e., the monetary units),
-which means that items with a higher book value should get a higher probability
-of being selected. The `sample()` function faciliates weighted selection via the
-`prob` argument, which takes a vector of values and, using normalization,
-computes the weights for selection. The call below is similar to before, but in
-this case we use the book values in the column `bookValues` of the data set to
-weigh the items and store the result in a variable `items`.
+When we are performing record sampling, we have to consider that each item in the population consists of multiple smaller items (i.e., the monetary units), which means that items with a higher book value should get a higher probability of being selected. The `sample()` function faciliates weighted selection via the `prob` argument, which takes a vector of values and, using normalization, computes the weights for selection. The call below is similar to before, but in this case we use the book values in the column `bookValues` of the data set to weigh the items and store the result in a variable `items`.
 
 ```{r}
 set.seed(1)
@@ -160,19 +120,13 @@ items <- sample(1:nrow(BuildIt), size = n, replace = FALSE,
 items
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use monetary unit
-sampling (`units = "values"`), while the `method` argument enables you to
-specify that you are performing random sampling (`method = 'random'`). Note that
-you should provide the name of the column in the data that contains the monetary
-units via the `values` argument.
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use monetary unit sampling (`units = "values"`), while the `method` argument enables you to specify that you are performing random sampling (`method = 'random'`). Note that you should provide the name of the column in the data that contains the monetary units via the `values` argument.
 
 ```{r}
 set.seed(1)
@@ -183,75 +137,40 @@ result$sample
 
 ### Fixed Interval Sampling
 
-Fixed interval sampling is a method designed for yielding representative samples
-from monetary populations. The algorithm determines a uniform interval on the
-(optionally ranked) sampling units. Next, a starting point is handpicked or
-randomly selected in the first interval and a sampling unit is selected
-throughout the population at each of the uniform intervals from the starting
-point. For example, if the interval has a width of 10 sampling units and
-sampling unit number 5 is chosen as the starting point, the sampling units 5,
-15, 25, etc. are selected to be included in the sample.
+Fixed interval sampling is a method designed for yielding representative samples from monetary populations. The algorithm determines a uniform interval on the (optionally ranked) sampling units. Next, a starting point is handpicked or randomly selected in the first interval and a sampling unit is selected throughout the population at each of the uniform intervals from the starting point. For example, if the interval has a width of 10 sampling units and sampling unit number 5 is chosen as the starting point, the sampling units 5, 15, 25, etc. are selected to be included in the sample.
 
-The number of required intervals $I$ can be determined by dividing the number of
-sampling units in the population by the required sample size:
+The number of required intervals $I$ can be determined by dividing the number of sampling units in the population by the required sample size:
 
 \begin{equation}
   I = \frac{N}{n},
 \end{equation}
 
-in which $n$ is the required sample size and $N$ is the total number of sampling
-units in the population.
+in which $n$ is the required sample size and $N$ is the total number of sampling units in the population.
 
-If the space between the selected sampling units is equal, the selection
-probability for each sampling unit is theoretically defined as:
+If the space between the selected sampling units is equal, the selection probability for each sampling unit is theoretically defined as:
 
 \begin{equation}
   p(x) = \frac{1}{I},
 \end{equation}
 
-with the property that the space between selected units $i$ is the same as the
-interval $I$, see the figure below. However, in practice the selection is
-deterministic and completely depends on the chosen starting points (using
-`start`).
+with the property that the space between selected units $i$ is the same as the interval $I$, see the figure below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using `start`).
 
 ![Illustration of fixed interval sampling](img/selection_interval.png){fig-align="center"}
 
-The fixed interval method yields a sample that allows every sampling unit in the
-population an equal chance of being selected. However, the fixed interval method
-has the property that all items in the population with a monetary value larger
-than the interval $I$ have an selection probability of one because one of these
-items' sampling units are always selected from the interval. Note that, if the
-population is arranged randomly with respect to its deviation pattern, fixed
-interval sampling is equivalent to random selection.
+The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval $I$ have an selection probability of one because one of these items' sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.
 
-- **Advantage(s):** The advantage of the fixed interval sampling method is that
-  it is often simple to understand and fast to perform. Another advantage is
-  that, in monetary unit sampling, all items that are greater than the
-  calculated interval will be included in the sample. In record sampling, since
-  units can be ranked on the basis of value, there is also a guarantee that some
-  large items will be in the sample.
-- **Disadvantage(s):** A pattern in the population can coincide with the
-  selected interval, rendering the sample less representative. What is sometimes
-  seen as an added complication for this method is that the sample is hard to
-  extend after drawing the initial sample. This is due to the chance of
-  selecting the same sampling unit. However, by removing the already selected
-  sampling units from the population and redrawing the intervals this problem
-  can be efficiently solved.
+- **Advantage(s):** The advantage of the fixed interval sampling method is that it is often simple to understand and fast to perform. Another advantage is that, in monetary unit sampling, all items that are greater than the calculated interval will be included in the sample. In record sampling, since units can be ranked on the basis of value, there is also a guarantee that some large items will be in the sample.
+- **Disadvantage(s):** A pattern in the population can coincide with the selected interval, rendering the sample less representative. What is sometimes seen as an added complication for this method is that the sample is hard to extend after drawing the initial sample. This is due to the chance of selecting the same sampling unit. However, by removing the already selected sampling units from the population and redrawing the intervals this problem can be efficiently solved.
 
 #### Record Sampling
 
-To code fixed interval sampling in a record sampling context, we first have to
-compute the size of the interval we are working with. This is computed by
-dividing the number of items in the population by the desired sample size $n$.
-Suppose the auditor wants to select a sample of 10 items, then the interval is
-computed by:
+To code fixed interval sampling in a record sampling context, we first have to compute the size of the interval we are working with. This is computed by dividing the number of items in the population by the desired sample size $n$. Suppose the auditor wants to select a sample of 10 items, then the interval is computed by:
 
 ```{r}
 interval <- nrow(BuildIt) / n
 ```
 
-Next, we have to determine the starting point. We are going to take the fifth
-unit in each interval in this case.
+Next, we have to determine the starting point. We are going to take the fifth unit in each interval in this case.
 
 ```{r}
 start <- 5
@@ -263,19 +182,13 @@ To find which rows are part of the sample, we execute the following code:
 items <- floor(start + interval * 0:(n - 1))
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use record sampling
-(`units = "items"`), while the `method` argument enables you to specify that you
-are performing fixed interval sampling (`method = 'interval'`). Note that, by
-default, the first sampling unit from each interval is selected. However, this
-can be changed by setting the argument `start` to a different value.
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use record sampling (`units = "items"`), while the `method` argument enables you to specify that you are performing fixed interval sampling (`method = 'interval'`). Note that, by default, the first sampling unit from each interval is selected. However, this can be changed by setting the argument `start` to a different value.
 
 ```{r}
 result <- selection(data = BuildIt, size = n, units = "items",
@@ -285,10 +198,7 @@ result$sample
 
 #### Monetary Unit Sampling
 
-In monetary unit sampling, the only difference is that we are computing the
-interval on the basis of the booked values in the column `bookValue` of the data
-set. In this case, the starting point `start = 5` determines which monetary unit
-from each interval is selected.
+In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column `bookValue` of the data set. In this case, the starting point `start = 5` determines which monetary unit from each interval is selected.
 
 ```{r}
 interval <- sum(BuildIt$bookValue) / n
@@ -300,9 +210,7 @@ To find which units are part of the sample, we execute the following code:
 units <- floor(start + interval * 0:(n - 1))
 ```
 
-To obtain which items are part of the sample, we can run the following for loop.
-Note that this does not take into account whether the book values contain
-negative values, which should not be included in the cumulative sum below.
+To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.
 
 ```{r}
 all_units <- ifelse(BuildIt$bookValue < 0, 0, BuildIt$bookValue)
@@ -314,19 +222,13 @@ for (i in 1:n) {
 }
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use monetary unit
-sampling (`units = "values"`), while the `method` argument enables you to
-specify that you are performing fixed interval sampling (`method = 'interval'`).
-Note that you should provide the name of the column in the data that contains
-the monetary units via the `values` argument.
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use monetary unit sampling (`units = "values"`), while the `method` argument enables you to specify that you are performing fixed interval sampling (`method = 'interval'`). Note that you should provide the name of the column in the data that contains the monetary units via the `values` argument.
 
 ```{r}
 result <- selection(data = BuildIt, size = n, units = "values",
@@ -336,14 +238,9 @@ result$sample
 
 ### Cell Sampling
 
-The cell sampling method divides the (optionally ranked) population into a set
-of intervals $I$ that are computed through the previously given equations.
-Within each interval, a sampling unit is selected by randomly drawing a number
-between 1 and the interval range $I$. This causes the space $i$ between the
-sampling units to vary.
+The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary.
 
-Like in the fixed interval sampling method, the selection probability for each
-sampling unit is defined as:
+Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:
 
 \begin{equation}
   p(x) = \frac{1}{I}.
@@ -351,31 +248,20 @@ sampling unit is defined as:
 
 ![Illustration of cell sampling](img/selection_cell.png){fig-align="center"}
 
-The cell sampling method has the property that all items in the population with
-a monetary value larger than twice the interval $I$ have a selection probability
-of one.
+The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval $I$ have a selection probability of one.
 
-- **Advantage(s):** More sets of samples are possible than in fixed interval
-  sampling, as there is no systematic interval $i$ to determine the selections.
-  It is argued that the cell sampling algorithm offers a solution to the pattern
-  problem in fixed interval sampling.
-- **Disadvantage(s):** A disadvantage of this sampling method is that not all
-  items in the population with a monetary value larger than the interval have a
-  selection probability of one. Besides, population items can be in two adjacent
-  cells, thereby creating the possibility that an items is included in the
-  sample twice.
+- **Advantage(s):** More sets of samples are possible than in fixed interval sampling, as there is no systematic interval $i$ to determine the selections. It is argued that the cell sampling algorithm offers a solution to the pattern problem in fixed interval sampling.
+- **Disadvantage(s):** A disadvantage of this sampling method is that not all items in the population with a monetary value larger than the interval have a selection probability of one. Besides, population items can be in two adjacent cells, thereby creating the possibility that an items is included in the sample twice.
 
 #### Record Sampling
 
-To code cell sampling in a record sampling context, we again have to compute the
-size of the interval we are working with:
+To code cell sampling in a record sampling context, we again have to compute the size of the interval we are working with:
 
 ```{r}
 interval <- nrow(BuildIt) / n
 ```
 
-Next, we have to randomly determine which items are going to be selected in each
-interval.
+Next, we have to randomly determine which items are going to be selected in each interval.
 
 ```{r}
 set.seed(1)
@@ -388,17 +274,13 @@ To find which rows are part of the sample, we execute the following code:
 items <- floor(starts + interval * 0:(n - 1))
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use record sampling
-(`units = "items"`), while the `method` argument enables you to specify that you
-are performing cell sampling (`method = 'cell'`).
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use record sampling (`units = "items"`), while the `method` argument enables you to specify that you are performing cell sampling (`method = 'cell'`).
 
 ```{r}
 set.seed(1)
@@ -409,18 +291,13 @@ result$sample
 
 #### Monetary Unit Sampling
 
-In monetary unit sampling, the only difference is that we are computing the
-interval on the basis of the booked values in the column `bookValue` of the data
-set. In this case, the starting points `start` determines which monetary unit
-from each interval is selected.
+In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column `bookValue` of the data set. In this case, the starting points `start` determines which monetary unit from each interval is selected.
 
 ```{r}
 interval <- sum(BuildIt$bookValue) / n
 ```
 
-To obtain which items are part of the sample, we can run the following for loop.
-Note that this does not take into account whether the book values contain
-negative values, which should not be included in the cumulative sum below.
+To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.
 
 ```{r}
 set.seed(1)
@@ -435,19 +312,13 @@ for (i in 1:n) {
 }
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use monetary unit
-sampling (`units = "values"`), while the `method` argument enables you to
-specify that you are performing cell sampling (`method = 'cell'`). Note that you
-should provide the name of the column in the data that contains the monetary
-units via the `values` argument.
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use monetary unit sampling (`units = "values"`), while the `method` argument enables you to specify that you are performing cell sampling (`method = 'cell'`). Note that you should provide the name of the column in the data that contains the monetary units via the `values` argument.
 
 ```{r}
 set.seed(1)
@@ -458,20 +329,13 @@ result$sample
 
 ### Modified Sieve Sampling
 
-The fourth option for the sampling method is modified sieve sampling (Hoogduin,
-Hall, & Tsay, 2010). The algorithm starts by selecting a standard uniform random
-number $R_i$ between 0 and 1 for each item in the population. Next, the sieve
-ratio:
+The fourth option for the sampling method is modified sieve sampling (Hoogduin, Hall, & Tsay, 2010). The algorithm starts by selecting a standard uniform random number $R_i$ between 0 and 1 for each item in the population. Next, the sieve ratio:
 
 \begin{equation}
   S_i = \frac{Y_i}{R_i}
 \end{equation}
 
-is computed for each item by dividing the book value of that item by the random
-number. Lastly, the items in the population are sorted by their sieve ratio $S$
-(in decreasing order) and the top $n$ items are selected for inspection. In
-contrast to the classical sieve sampling method (Rietveld, 1978), the modified
-sieve sampling method provides precise control over sample sizes.
+is computed for each item by dividing the book value of that item by the random number. Lastly, the items in the population are sorted by their sieve ratio $S$ (in decreasing order) and the top $n$ items are selected for inspection. In contrast to the classical sieve sampling method (Rietveld, 1978), the modified sieve sampling method provides precise control over sample sizes.
 
 #### Monetary Unit Sampling
 
@@ -484,53 +348,17 @@ items <- all_items[order(-ri)]
 items <- items[1:n]
 ```
 
-You can then select the sample from the population using the selected indices
-stored in `items`.
+You can then select the sample from the population using the selected indices stored in `items`.
 
 ```{r}
 BuildIt[items, ]
 ```
 
-The sample can be reproduced in **jfa** via the `selection()` function. The
-argument `units` allows you to specify that you want to use monetary unit
-sampling (`units = "values"`), while the `method` argument enables you to
-specify that you are performing modified sieve sampling (`method = 'sieve'`).
-Note that you should provide the name of the column in the data that contains
-the monetary units via the `values` argument.
+The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use monetary unit sampling (`units = "values"`), while the `method` argument enables you to specify that you are performing modified sieve sampling (`method = 'sieve'`). Note that you should provide the name of the column in the data that contains the monetary units via the `values` argument.
 
 ```{r}
 set.seed(1)
 result <- selection(data = BuildIt, size = n, units = "values",
                     method = "sieve", values = "bookValue")
-result$sample
-```
-
-## Ordering or Randomizing the Population
-
-The `selection()` function from the **jfa** package has three additional
-arguments which you can use to preprocess your population before selection.
-These arguments are `order`, `decreasing` and `randomize`.
-
-First, the `order` argument takes as input a column name in `data` which
-determines the order of the population. For example, you can order the
-population from lowest book value to highest book value before engaging in the
-selection. In this case, you should use the `decreasing = FALSE` (its default
-value) argument.
-
-```{r}
-set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "values",
-                    values = "bookValue", order = "bookValue")
-result$sample
-```
-
-Next, the `randomize` argument can be used to randomly shuffle the items in the
-population before selection. For example, you can randomly shuffle the
-population before engaging in the selection using `randomize = TRUE`.
-
-```{r}
-set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "values",
-                    values = "bookValue", randomize = TRUE)
 result$sample
 ```
