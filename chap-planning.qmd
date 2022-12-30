@@ -1092,7 +1092,7 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 ```
 </details>
 
-8. Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approch.
+8. Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.
 
 <details>
 <summary>Click to reveal answer</summary>
