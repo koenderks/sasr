@@ -320,7 +320,42 @@ div.csl-indent {
 </header>
 
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: pps</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: sampling</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survey</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: grid</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survival'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:sampling':
 
+    cluster, strata</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survey'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    dotchart</code></pre>
+</div>
 </div>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
@@ -498,19 +533,19 @@ Note
 <h4 data-number="2.3.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">2.3.1.1</span> Example</h4>
 <p>As an example, the <code>binom.test()</code> function in R can be used to estimate the rate of misstatement in a population given a data sample of <span class="math inline">\(n\)</span> items containing <span class="math inline">\(k\)</span> misstatements. Suppose an auditor audited a sample of <span class="math inline">\(n = 60\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use the <code>binom.test()</code> function to perform estimation, the auditor must input the number of items in the sample <code>n = 60</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality), which is irrelevant and should thus be sert to <code>p = 1</code>. The sampling risk is set to 5%, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-2_8cb68a9a50695e379554694015088014">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">60</span>, <span class="at">p =</span> <span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 60</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 60, p-value &lt; 2.2e-16</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04870291</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">60</span>, <span class="at">p =</span> <span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 60</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 60, p-value &lt; 2.2e-16</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 1</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04870291</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The most likely misstatement in the population is displayed under <code>sample estimates</code> and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under <code>95 percent confidence interval</code> and is 4.87%.</p>
 </section>
@@ -529,19 +564,19 @@ Note
 <h4 data-number="2.3.2.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">2.3.2.1</span> Example</h4>
 <p>Next to estimation, the <code>binom.test()</code> function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. To use the <code>binom.test()</code> function, the auditor must input the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code>. The sampling risk is set to 5%, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to test if the proportion of misstatements in the sample is less than the hypothesized proportion.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-3_9687952e75bed4eb3a4ae32947840dc7">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 100, p-value = 0.04755</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02951305</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.03</span>, <span class="at">alternative =</span> <span class="st">"less"</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of successes = 0, number of trials = 100, p-value = 0.04755</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is less than 0.03</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02951305</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <em>p</em> value is shown under <code>p-value</code> and is 0.04755. Since the <em>p</em> value is lower than the specified sampling risk <span class="math inline">\(\alpha\)</span>, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.</p>
 </section>
@@ -574,8 +609,8 @@ Note
 <h4 data-number="2.4.1.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">2.4.1.1</span> Example</h4>
 <p>Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes. Chapters 3, 4, 5 and 6 dive deeper into the R functions from the <strong>jfa</strong> package used in this example, such as the <code>auditPrior()</code> function below.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-4_6a31a0f90495bda969714e8f75c69804">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"default"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"default"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -586,8 +621,8 @@ Note
 </div>
 <p>After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes’ theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-5_7ccc7727cc917a19fd964ab8e945e128">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">30</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">30</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -599,8 +634,8 @@ Note
 <p>The most likely value of the population misstatement based on these data is shown as a point above the highest point of the posterior distribution. The uncertainty about the population misstatement can be quantified using a credible interval (shown as a line above the posterior distribution). In this case, the figure above shows a 95% credible interval, which contains the true value of the population misstatement with a 95% probability.</p>
 <p>After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-6_b7879c79dfab85d19f57feb5fba64b39">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">30</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> eval<span class="sc">$</span>posterior)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">30</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> eval<span class="sc">$</span>posterior)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -611,8 +646,8 @@ Note
 </div>
 <p>The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-7_71a84b5267adabbb39079f6aa12d0f44">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> eval<span class="sc">$</span>posterior)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> eval<span class="sc">$</span>posterior)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -638,7 +673,23 @@ Note
 </div>
 <section id="example-3" class="level4" data-number="2.4.2.1">
 <h4 data-number="2.4.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">2.4.2.1</span> Example</h4>
-<p>The prior distribution and posterior distribution can be used to directly obtain the Bayes factor in favor of (in)tolerable misstatement.</p>
+<p>Suppose an auditor obtained a sample of <span class="math inline">\(n = 100\)</span> items containing <span class="math inline">\(k = 0\)</span> misstatements. Given the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code> the Bayes factor is displayed under <code>BF10</code> and is 668.65, meaning that it the data are about 668 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-info_cache/html/unnamed-chunk-8_37593c44058795a321a7eff6f4c16c7d">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">method =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 100</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 0, number of samples = 100, taint = 0, BF₁₀ =</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 668.65</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.02922515</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0 </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
