@@ -22,33 +22,101 @@ text that helps the auditor in interpreting, explaining, and reporting the
 analysis. Since JASP for Audit is an R-based GUI around **jfa**, its
 functionality can be mapped almost one-on-one to that of the package.
 
-![The JASP welcome screen.](img/JASP.png){fig-align="center"}
+## JASP
 
-## Planning
+JASP (an acronym for Jeffreys’s Amazing Statistics Program) is a free and
+open-source software for statistical analysis developed at the University of
+Amsterdam. It is intended to be user-friendly and familiar to those who have
+experience with SPSS. A significant feature of JASP is that it provides most
+standard statistical analysis procedures in both their classical and Bayesian
+forms. The program can be downloaded freely from their website
+[https://jasp-stats.org](https://jasp-stats.org). The software is translated
+into various languages.
 
-In order to plan a sample for an audit using JASP, the process is similar to
-using **jfa**. For example, the screenshot below shows how to plan a minimum
-sample size for a performance materiality of 5% using a beta(1, 1) prior
-distribution, while expecting zero misstatements in the sample.
+![Upon launching JASP, you are presented with the following screen. The icons in the ribbon display a range of statistical analyses. The menu icon located in the top left corner conceals the most crucial user options. The plus icon situated in the top right corner conceals the modules.](img/JASP.png){fig-align="center"}
 
-![The JASP interface for planning a sample.](img/JASP_planning.png){fig-align="center"}
+## The Audit Module
 
-In **jfa**, these results can be reproduced via the following command:
+The Audit module in JASP, labeled as "Audit" in the module list, is included by
+default in the software, but is not initially visible upon starting the program.
+To access the Audit module, click on the `+` icon in the top right corner of the
+JASP welcome screen, and select the module from the list of available options.
+The Audit module will then be displayed with a blue icon in the ribbon at the
+top of the screen.
+
+![The `+` icon displays all modules that are currently available in JASP. To activate a module and add it to the ribbon at the top of the screen, click on the checkbox next to it.](img/JASP_modules.png){fig-align="center"}
+
+Upon selecting the Audit module icon, the user can view all of the analyses that
+the module contains. It is important to note that some of these analyses are
+grayed out by default and can only be activated once a data set has been loaded
+into JASP. This means that the user must first import a data set in order to
+access and make use of these specific analyses.
+
+![By clicking the Audit module icon in the ribbon, you can view the various analyses that are included in the audit module.](img/JASP_audit_module.png){fig-align="center"}
+
+### Planning
+
+To plan a sample for an audit using JASP, the procedure is comparable to using
+**jfa**. This means that both programs involve similar steps and considerations
+in order to effectively plan an audit sample. Like **jfa**, JASP for Audit
+offers a classical and a Bayesian approach to planning a sample.
+
+The figure below showcases a snapshot of the classical planning analysis in
+JASP for Audit. The graphical user interface is displayed on the left side of
+the screen, while the audit report containing statistical results is displayed
+on the right side. In the user interface, the auditor can input the known
+parameters for the sample planning, after which JASP calculates and directly
+displays the results.
+
+![Snapshot of the classical planning analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5%, a performance materiality of 3% and one expected misstatement in the sample. The resulting sample size is 93.](img/JASP_planning_classical.png){fig-align="center"}
+
+The above screenshot shows an analysis where an auditor is using the binomial
+distribution, a performance materiality of 5% and one expected misstatement in
+the sample. The resulting sample size is 157.
+
+Using **jfa**, this analysis can be reproduced by executing the following code:
 
 ```{r}
-planning(materiality = 0.05, likelihood = "binomial", prior = TRUE)
+planning(materiality = 0.03, expected = 1, likelihood = "binomial")
 ```
 
-## Selection
+The figure below showcases a snapshot of the Bayesian planning analysis in
+JASP. The graphical user interface is fairly similar to that of the classical
+planning analysis, with the exception that we can specify a prior distribution
+with the options under "Prior".
+
+![Snapshot of the Bayesian planning analysis in JASP for Audit. In this analysis, the auditor is using the Poisson likelihood with an impartial gamma prior, a sampling risk of 5%, a performance materiality of 10% and no expected misstatements in the sample. The resulting sample size is 22.](img/JASP_planning_bayesian.png){fig-align="center"}
+
+The above screenshot shows an analysis the auditor is using the Poisson
+likelihood together with an impartial gamma prior, a sampling risk of 5%, a
+performance materiality of 10% and no expected misstatements in the sample. The
+resulting sample size is 22.
+
+Using **jfa**, this analysis can be reproduced by executing the following code:
+
+```{r}
+prior <- auditPrior(method = "impartial", materiality = 0.1)
+planning(materiality = 0.1, likelihood = "poisson", prior = prior)
+```
+
+### Selection
 
 Selecting a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to select a sample of 60
 monetary units from the `BuildIt` data set that is included in the package using
 a fixed interval sampling method with a starting point of 1.
 
-![The JASP interface for selecting a sample.](img/JASP_selection.png){fig-align="center"}
+The figure below showcases a snapshot of the selection analysis in JASP for
+Audit. In the user interface, the auditor can input the known parameters for the
+sample selection, after which JASP calculates and directly displays the results.
 
-In **jfa**, these results can be reproduced via the following command:
+![Snapshot of the selection analysis in JASP for Audit. In this analysis, the auditor is using a fixed interval monetary unit sampling method to select a sample of 60 monetary units from a population.](img/JASP_selection.png){fig-align="center"}
+
+The above screenshot shows an analysis the auditor is using a fixed interval
+monetary unit sampling method to select a sample of 60 monetary units from the
+`BuildIt` population. They use a starting point of 1.
+
+Using **jfa**, this analysis can be reproduced by executing the following code:
 
 ```{r}
 set.seed(1)
@@ -58,7 +126,7 @@ result <- selection(data = BuildIt, size = 60, units = "values",
 head(result$sample)
 ```
 
-## Evaluation
+### Evaluation
 
 Evaluating a sample in JASP for Audit works similar to how you would do it in
 **jfa**. For example, the screenshot below shows how to evaluating a sample of
