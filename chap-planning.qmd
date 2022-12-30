@@ -34,9 +34,12 @@ following:
 
 - **Hypothesis testing**: The goal of the sample is to obtain evidence for or
   against the claim that the misstatement in the population is lower than a
-  given value (i.e., the performance materiality).
+  given value (i.e., the performance materiality). Note that if this sampling
+  objective is not specified, the performance materiality can be set to 1.
 - **Estimation**: The goal of the sample is to obtain an accurate estimate of
-  the misstatement in the population (with a minimum precision).
+  the misstatement in the population (with a minimum precision). Note that if
+  this sampling objective is not specified, the minimum precision can be set to
+  1.
 
 Second, it is advised to specify the expected (or tolerable) misstatements in
 the sample. The expected misstatements are the misstatements that you allow in
@@ -156,7 +159,7 @@ plot(plan)
 ```
 
 ::: {.callout-tip}
-## Additional arguments
+## Additional arguments to `planning()`
 The `planning()` function has two additional arguments that are not shown in
 the call above: `by` and `max`. The argument `by` sets the increment between
 possible sample sizes for consideration. For example, `by = 5` considers only
