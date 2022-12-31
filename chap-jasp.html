@@ -303,42 +303,7 @@ div.csl-indent {
 </header>
 
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: pps</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: sampling</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: survey</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: grid</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: Matrix</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: survival</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'survival'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:sampling':
 
-    cluster, strata</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'survey'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:graphics':
-
-    dotchart</code></pre>
-</div>
 </div>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
@@ -385,12 +350,12 @@ Attaching package: 'survey'</code></pre>
 <p>The above screenshot shows an analysis where the auditor is using the binomial distribution, a performance materiality of 5% and one expected misstatement in the sample. The resulting sample size is 157.</p>
 <p>Using <strong>jfa</strong>, this analysis can be reproduced by executing the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-jasp_cache/html/unnamed-chunk-2_0157b395f423240b59e85f23b462cf8f">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 157 </span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 156 iterations via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 157 </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 156 iterations via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The figure below showcases a snapshot of the Bayesian planning analysis in JASP. The graphical user interface is largely the same as the interface of the classical planning analysis, with the exception that we can specify a prior distribution with the options under “Prior”.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -402,13 +367,13 @@ Attaching package: 'survey'</code></pre>
 <p>The above screenshot shows an analysis where the auditor is using the Poisson likelihood together with an impartial gamma prior, a sampling risk of 5%, a performance materiality of 10% and no expected misstatements in the sample. The resulting sample size is 22.</p>
 <p>Using <strong>jfa</strong>, this analysis can be reproduced by executing the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-jasp_cache/html/unnamed-chunk-3_0970eb5d950a23e66904d30350c2cab1">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">materiality =</span> <span class="fl">0.1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.1</span>, <span class="at">likelihood =</span> <span class="st">"poisson"</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 24 </span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 25 iterations via method 'poisson' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">materiality =</span> <span class="fl">0.1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.1</span>, <span class="at">likelihood =</span> <span class="st">"poisson"</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Planning</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; minimum sample size = 24 </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 25 iterations via method 'poisson' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="selection" class="level2" data-number="7.2">
@@ -423,18 +388,18 @@ Attaching package: 'survey'</code></pre>
 <p>The above screenshot shows an analysis where the auditor is using a fixed interval monetary unit sampling method to select a sample of 60 monetary units from the <code>BuildIt</code> population. They use a starting point of 1.</p>
 <p>Using <strong>jfa</strong>, this analysis can be reproduced by executing the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-jasp_cache/html/unnamed-chunk-4_cf929fce0e4cd623d20e6a3436110937">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">60</span>, <span class="at">units =</span> <span class="st">"values"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(result<span class="sc">$</span>sample)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1     1 82884    242.61     242.61</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  63     1 51272    248.40     248.40</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 123     1 37985    562.09     562.09</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 183     1 96080    449.07     449.07</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 240     1 92819    690.08     690.08</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 302     1 94296    198.59     198.59</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">60</span>, <span class="at">units =</span> <span class="st">"values"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(result<span class="sc">$</span>sample)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1     1 82884    242.61     242.61</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  63     1 51272    248.40     248.40</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 123     1 37985    562.09     562.09</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 183     1 96080    449.07     449.07</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 240     1 92819    690.08     690.08</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 302     1 94296    198.59     198.59</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="evaluation" class="level2" data-number="7.3">
@@ -449,19 +414,19 @@ Attaching package: 'survey'</code></pre>
 <p>The above screenshot shows an analysis where the auditor is using the binomial likelihood, a sampling risk of 5%, a performance materiality of 6% and evaluates a sample of <span class="math inline">\(n = 50\)</span> items of which <span class="math inline">\(k = 0\)</span> contained a misstatement. The resulting 95% upper confidence bound is 5.8%.</p>
 <p>Using <strong>jfa</strong>, this analysis can be reproduced by executing the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-jasp_cache/html/unnamed-chunk-5_80e2b6b6269d6d09ac5ef12e6e65f4d8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.06</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">50</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 50</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 0, number of samples = 50, taint = 0, p-value =</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.045331</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.06</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.05815508</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0 </span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.06</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">50</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  0 and 50</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 0, number of samples = 50, taint = 0, p-value =</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.045331</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.06</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.05815508</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0 </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The figure below showcases a snapshot of the Bayesian evaluation analysis in JASP. The graphical user interface is fairly similar to that of the classical evaluation analysis, with the exception that we can specify a prior distribution with the options under “Prior”.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -473,22 +438,22 @@ Attaching package: 'survey'</code></pre>
 <p>The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a beta prior distribution based on an expected error rate of 3% constructed using the audit risk model, a sampling risk of 5%, a performance materiality of 3% and evaluates a sample of <span class="math inline">\(n = 120\)</span> items of which <span class="math inline">\(k = 1\)</span> contained a misstatement. The resulting 95% upper credible bound is 3.27%.</p>
 <p>Using <strong>jfa</strong>, this analysis can be reproduced by executing the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-jasp_cache/html/unnamed-chunk-6_f310da6f6014e73742e7d25a78c0c0db">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"arm"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="fl">0.01</span>, <span class="at">ir =</span> <span class="fl">0.6</span>, <span class="at">cr =</span> <span class="dv">1</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">120</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">prior =</span> prior)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 120</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 120, taint = 1, BF₁₀ =</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9.3941</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.03267759</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.0088415 </span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"arm"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">expected =</span> <span class="fl">0.01</span>, <span class="at">ir =</span> <span class="fl">0.6</span>, <span class="at">cr =</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">120</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">prior =</span> prior)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 120</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 120, taint = 1, BF₁₀ =</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9.3941</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.03267759</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.0088415 </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
