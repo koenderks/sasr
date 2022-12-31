@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/koenderks/sasr/actions/workflows/build-book.yaml/badge.svg)](https://github.com/koenderks/sasr/actions/workflows/build-book.yaml)
 
-<p align='left'><img src='https://github.com/koenderks/sasr/raw/master/cover/cover.png' width='33%'></p>
+<p align='left'><img src='https://github.com/koenderks/sasr/raw/master/cover/cover.svg' width='33%'></p>
 
 Source code for the book Statistical Sampling with R, 1st edition.
 
