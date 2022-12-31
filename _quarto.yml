@@ -16,8 +16,8 @@ book:
   date: today
   page-navigation: true
   reader-mode: false
-  cover-image: cover/cover.svg
-  favicon: cover/cover.svg
+  cover-image: cover/cover.png
+  favicon: cover/cover.png
   site-url: https://koenderks.github.io/sasr/
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
