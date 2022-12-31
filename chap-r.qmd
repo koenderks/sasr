@@ -213,11 +213,63 @@ read_excel("example.csv", sheet = 1)
 
 In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.
 
-1. Compute the square root of 5 using R.
+1. Compute the square root of 81 and store the result in a variable called `t1`.
 
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-sqrt(5)
+t1 <- sqrt(81)
+```
+</details>
+
+2. Compute 81 to the power a half and store the result in a variable called `t2`.
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+t2 <- 81^0.5
+```
+</details>
+
+3. Use the `==` operator to check whether the content of `t1` and `t2` is the same.
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+t1 == t2
+```
+</details>
+
+4. Use the `c()` function (or `:`) to create the following vector:
+```{r echo = FALSE}
+-2:8
+```
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+c(-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8)
+```
+or:
+```{r}
+-2:8
+```
+</details>
+
+5. Find out the length of the vector created in exercise 4.
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+length(-2:8)
+```
+</details>
+
+6. Find out the mean of the vector created in exercise 4.
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+mean(-2:8)
 ```
 </details>

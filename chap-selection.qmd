@@ -372,6 +372,19 @@ In this section, you will find a variety of exercises designed to help you pract
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-selection(data = BuildIt, size = 120, method = "random", unit = "items")
+selec <- selection(data = BuildIt, size = 120, method = "random",
+                   units = "items")
+head(selec$sample, 5)
+```
+</details>
+
+2. Select a sample of 240 monetary units from the `BuildIt` data set using a fixed interval selection method. Use a starting point of 12.
+
+<details>
+<summary>Click to reveal answer</summary>
+```{r}
+selec <- selection(data = BuildIt, size = 240, method = "interval",
+                   units = "values", values = "bookValue", start = 12)
+head(selec$sample, 5)
 ```
 </details>
