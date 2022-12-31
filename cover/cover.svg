@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.81287705"
-     inkscape:cx="374.5954"
-     inkscape:cy="2338.6071"
+     inkscape:zoom="0.28245916"
+     inkscape:cx="858.5312"
+     inkscape:cy="1642.7154"
      inkscape:window-width="1512"
      inkscape:window-height="830"
      inkscape:window-x="0"
@@ -77,14 +77,14 @@
        ry="0" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,23.251918,-1.2888527)"
+       transform="matrix(0.29994142,0,0,0.26458333,-217.02812,-3.1622799)"
        id="text111"
        style="font-size:80px;white-space:pre;shape-inside:url(#rect113);display:inline;fill:#000000"><tspan
          x="1388.8809"
          y="2366.4333"
-         id="tspan11717"><tspan
+         id="tspan11755"><tspan
            style="font-style:italic;font-family:'.New York';-inkscape-font-specification:'.New York'"
-           id="tspan11715">Koen Derks</tspan></tspan></text>
+           id="tspan11753">Koen Derks</tspan></tspan></text>
     <rect
        style="fill:#d40000;stroke-width:0.228254"
        id="rect329"
@@ -126,11 +126,11 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:213.333px;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;white-space:pre;shape-inside:url(#rect823);display:inline;fill:#ffffff"><tspan
          x="188.84206"
          y="1626.7175"
-         id="tspan11719">Statistical Audit 
+         id="tspan11757">Statistical Audit 
 </tspan><tspan
          x="185.19624"
          y="1893.3838"
-         id="tspan11721">Sampling with R</tspan></text>
+         id="tspan11759">Sampling with R</tspan></text>
     <path
        fill="#353539"
        opacity="1"
