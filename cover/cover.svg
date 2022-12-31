@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.28245916"
-     inkscape:cx="858.5312"
-     inkscape:cy="1642.7154"
+     inkscape:zoom="0.39015734"
+     inkscape:cx="857.34643"
+     inkscape:cy="645.89328"
      inkscape:window-width="1512"
      inkscape:window-height="830"
      inkscape:window-x="0"
@@ -82,16 +82,16 @@
        style="font-size:80px;white-space:pre;shape-inside:url(#rect113);display:inline;fill:#000000"><tspan
          x="1388.8809"
          y="2366.4333"
-         id="tspan11755"><tspan
+         id="tspan11754"><tspan
            style="font-style:italic;font-family:'.New York';-inkscape-font-specification:'.New York'"
-           id="tspan11753">Koen Derks</tspan></tspan></text>
+           id="tspan11751">Koen Derks</tspan></tspan></text>
     <rect
-       style="fill:#d40000;stroke-width:0.228254"
+       style="fill:#d40000;stroke-width:0.239236"
        id="rect329"
        width="465.85159"
-       height="137.63719"
+       height="151.20009"
        x="18.223618"
-       y="445.30362"
+       y="431.74072"
        sodipodi:insensitive="true" />
     <rect
        style="fill:#d40000;stroke-width:0.0631942"
@@ -100,20 +100,6 @@
        height="10.546583"
        x="18.166298"
        y="0.34685263" />
-    <rect
-       style="fill:#d40000;stroke-width:0.0631825"
-       id="rect329-5-2"
-       width="465.83578"
-       height="10.546583"
-       x="18.235817"
-       y="436.75369" />
-    <rect
-       style="fill:#d40000;stroke-width:0.0631825"
-       id="rect329-5-2-3"
-       width="465.83578"
-       height="10.546583"
-       x="18.231638"
-       y="426.99582" />
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
@@ -126,11 +112,11 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:213.333px;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;white-space:pre;shape-inside:url(#rect823);display:inline;fill:#ffffff"><tspan
          x="188.84206"
          y="1626.7175"
-         id="tspan11757">Statistical Audit 
+         id="tspan11756">Statistical Audit 
 </tspan><tspan
          x="185.19624"
          y="1893.3838"
-         id="tspan11759">Sampling with R</tspan></text>
+         id="tspan11758">Sampling with R</tspan></text>
     <path
        fill="#353539"
        opacity="1"
