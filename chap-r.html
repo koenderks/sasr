@@ -115,7 +115,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./chap-info.html" rel="next">
 <link href="./part-basics.html" rel="prev">
-<link href="./cover/cover.svg" rel="icon" type="image/svg+xml">
+<link href="./cover/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -533,15 +533,81 @@ Note
 <h2 data-number="1.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.4</span> Exercises</h2>
 <p>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</p>
 <ol type="1">
-<li>Compute the square root of 5 using R.</li>
+<li>Compute the square root of 81 and store the result in a variable called <code>t1</code>.</li>
 </ol>
 <details>
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-24_ca225123a084c726332b0bdee3f93831">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.236068</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-24_82e646f9ccac997400c9fb8e93b223db">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ol start="2" type="1">
+<li>Compute 81 to the power a half and store the result in a variable called <code>t2</code>.</li>
+</ol>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-25_28b43e89a95b9b1027d899137b53a806">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="dv">81</span><span class="sc">^</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ol start="3" type="1">
+<li>Use the <code>==</code> operator to check whether the content of <code>t1</code> and <code>t2</code> is the same.</li>
+</ol>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-26_fdd8079f7f8bc3930e703fc0ea17000b">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="sc">==</span> t2</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ol start="4" type="1">
+<li>Use the <code>c()</code> function (or <code>:</code>) to create the following vector:</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-27_2dc6993055ee81b4c609f83c15a8d316">
+<pre><code>#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</code></pre>
+</div>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-28_18817c5747edfecc882ff0fad6d79a19">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or:</p>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-29_1b278acc192a89b5c31668e821dd0f6f">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ol start="5" type="1">
+<li>Find out the length of the vector created in exercise 4.</li>
+</ol>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-30_055de0da7e412f1ecfb0a3c6e2d7ebdc">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ol start="6" type="1">
+<li>Find out the mean of the vector created in exercise 4.</li>
+</ol>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-31_e47ed919cb3976f686c11a24a3ae0117">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 
