@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.21115005"
-     inkscape:cx="826.42651"
-     inkscape:cy="1089.2728"
+     inkscape:zoom="0.27724512"
+     inkscape:cx="883.69455"
+     inkscape:cy="1738.5338"
      inkscape:window-width="1512"
      inkscape:window-height="830"
      inkscape:window-x="0"
@@ -82,9 +82,9 @@
        style="font-size:80px;white-space:pre;shape-inside:url(#rect113);display:inline;fill:#000000"><tspan
          x="1388.8809"
          y="2366.4333"
-         id="tspan35863"><tspan
+         id="tspan17292"><tspan
            style="font-family:'.New York';-inkscape-font-specification:'.New York'"
-           id="tspan35861">Koen Derks</tspan></tspan></text>
+           id="tspan17290">Koen Derks</tspan></tspan></text>
     <rect
        style="fill:#d40000;stroke-width:0.234196"
        id="rect329"
@@ -107,16 +107,16 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.333px;font-family:Papyrus;-inkscape-font-specification:Papyrus;white-space:pre;shape-inside:url(#rect655);display:inline;fill:#d40000" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26921322,0,0,0.26458333,-12.493317,58.208326)"
+       transform="matrix(0.26921322,0,0,0.2636208,-12.493317,58.672224)"
        id="text821"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:213.333px;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;white-space:pre;shape-inside:url(#rect823);display:inline;fill:#ffffff"><tspan
-         x="163.11294"
+         x="214.57119"
          y="1626.7175"
-         id="tspan35865"> Statistical Audit 
+         id="tspan17294">Statistical Audit
 </tspan><tspan
          x="185.19624"
          y="1893.3838"
-         id="tspan35867">Sampling with R</tspan></text>
+         id="tspan17296">Sampling with R</tspan></text>
     <path
        fill="#353539"
        opacity="1"
