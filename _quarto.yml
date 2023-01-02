@@ -27,6 +27,10 @@ book:
   reader-mode: false
   twitter-card:
     image: "cover.svg"
+  search:
+    limit: 20
+    collapse-after: 2
+    copy-button: true
   chapters:
     - index.qmd
     - preface.qmd
