@@ -16,6 +16,7 @@ Imports:
     jfa,
     randomForest,
     rmarkdown,
-    samplingbook
+    samplingbook,
+    sessioninfo
 Remotes:
     koenderks/jfa

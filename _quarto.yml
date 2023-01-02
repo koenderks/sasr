@@ -14,6 +14,10 @@ book:
       orcid: 0000-0002-5533-9349
       corresponding: true
   date: today
+
+  page-footer:
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
   cover-image: cover.svg
   favicon: cover.png
   site-url: https://koenderks.github.io/sasr/
@@ -21,7 +25,6 @@ book:
   repo-branch: master
   repo-actions: [edit, issue]
   downloads: [pdf, epub]
-  sharing: [twitter, facebook]
   open-graph: true
   page-navigation: true
   reader-mode: false
@@ -33,25 +36,27 @@ book:
     copy-button: true
   chapters:
     - index.qmd
-    - preface.qmd
+
+    - introduction.qmd
+
     - part: part-basics.qmd
       chapters:
       - chap-r.qmd
       - chap-info.qmd
+
     - part: part-workflow.qmd
       chapters:
       - chap-planning.qmd
       - chap-selection.qmd
       - chap-evaluation.qmd
       - chap-stratified-evaluation.qmd
+
     - part: part-software.qmd
       chapters:
       - chap-jasp.qmd
       - chap-packages.qmd
+
     - references.qmd
-  page-footer:
-    right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
 
 format:
   html:
@@ -59,21 +64,9 @@ format:
     toc-depth: 3
     toc-title: On this page
     smooth-scroll: true
+    code-link: true
+    code-overflow: wrap
+    code-tools: true
     theme:
       - cosmo
       - sasr.scss
-    code-link: false
-    code-overflow: wrap
-    highlight-style: pygments
-    code-tools: true
-    code-block-border-left: true
-  pdf:
-    documentclass: scrbook
-    papersize: a5paper
-    toc: true
-    toc-depth: 3
-    toc-title: Contents
-  epub:
-    toc: true
-    tod-depth: 3
-    toc-title: Contents

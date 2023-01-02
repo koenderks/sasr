@@ -1,0 +1,88 @@
+# Introduction {#introduction}
+
+This book is intended for auditors that want to obtain the knowledge and skill to utilize statistical audit sampling in their practice using the R programming language. It covers an array of traditional and innovative statistical tools that are available to auditors, explaining their function, the underlying assumptions, and when they are best utilized. In addition, it offers practical guidance on integrating advanced statistical sampling methodology into audit practice and demonstrates its value through real-world case studies. It is our hope that this book will serve as a valuable resource for auditors looking to effectively and efficiently utilize statistical methods in their practice.
+
+The aim of this book is to address the need for a clear and transparent explanation of the use of statistical sampling methodology in audit practice. Most guidance about audit sampling (e.g., @AICPA-A; @AICPA-C) lacks sufficient detail to allow for full transparency or a deep understanding. Additionally, the implementation of statistical sampling methodology in practice is often even less transparent, as theory and calculations are hidden from auditors in commercial closed-source tools or in Excel sheets from audit guides used internally by audit firms (one notable exception is @Stewart2012). Thus, while attempting to comprehend the theoretical aspects of statistical audit sampling, auditors may encounter numerous relevant questions that are left unanswered by these tools. This book aims to clarify the statistical methodology utilized in practice, thereby empowering auditors through a comprehensive explanation.
+
+This book discusses two philosphies to statistical audit sampling: the classical (frequentist) philosophy and the Bayesian philosophy. By utilizing these two approaches, the book elucidates the statistical theory that underlies commonly used audit sampling techniques and illustrates how to utilize these techniques in accordance with international auditing standards. Additionally, the book demonstrates the use of Bayesian statistical methods in auditing practice and highlights the practical advantages that these methods can offer for auditors.
+
+The structure of this book is as follows: Chapter 2 introduces the basics of the R programming language. Chapter 3 discusses the fundamental statistical theory relevant to classical and Bayesian audit sampling. Subsequent chapters 4, 5, 6 and 7 provide a more in-depth exploration of the use of these methods for statistical planning, selection, and evaluation of audit samples. These chapters illustrate the practical differences and similarities between the classical and the Bayesian approach through code and examples, thus requiring minimal programming knowledge to follow along. Finally, Chapter 8 and 9 discuss other open-source software implementations of audit sampling using R.
+
+In each chapter, we aim to adhere to a consistent structure: beginning with motivating examples to provide a broader context, and then delving into the specifics. Every section of the book is accompanied by exercises designed to reinforce the concepts learned. Although it may be tempting to skip the exercises, the most effective way to learn is by applying the concepts to actual problems through practice.
+
+## Prerequisites
+
+To run the code in this book, you will need three things: R, RStudio, and the **jfa** package.
+
+### R
+
+The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at https://cloud.r-project.org, as it will automatically determine the most suitable mirror for your location.
+
+It is advisable to regularly update R, as new major versions are released annually and minor releases occur two to three times per year. While upgrading can be inconvenient, particularly for major versions which require the reinstallation of all packages, failing to do so will only exacerbate the issue.
+
+### RStudio
+
+RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website (https://posit.co/downloads/). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
+
+When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.
+
+![](img/rstudio.png){fig-align="center" width=100%}
+
+The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., `1 + 1`) and press Enter. When you stored the results of a computation in a new variable (e.g., `x <- 1 + 1`), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.
+
+### jfa
+
+R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning.
+
+::: {.callout-note}
+If you want to know more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
+:::
+
+To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:
+
+```{r, eval=FALSE}
+install.packages("jfa")
+```
+
+Once you have installed a package, you must load it into every R session. To load a package into your R session, call `library()` and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you should load the **jfa** package with:
+
+```{r, eval=FALSE}
+library(jfa)
+```
+
+R packages are updated regularly. To update a package in your R library you should call `update.packages()` and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:
+
+```{r, eval=FALSE}
+update.packages("jfa")
+```
+
+::: {.callout-note}
+If you want to look at the source code of the **jfa** package, see the [package website](https://koenderks.github.io/jfa/).
+:::
+
+## Running R Code
+
+The code in this book appears as follows:
+
+```{r}
+1 + 1
+```
+
+When executing the same code within your local console, the resulting output will appear as follows:
+
+```{r eval = FALSE}
+> 1 + 1
+[1] 2
+```
+
+There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (`>`) while the book does not display this symbol. Secondly, the output in the book is commented out with `#>`, while in a console it is displayed directly after the inputted code. As a result, those working with an electronic version of the book can easily copy code from the book to the console.
+
+## Colophon
+
+An online version of this book is available at https://koenderks.github.io/sasr/. The source of the book is available at https://github.com/koenderks/sasr. The book is made with http://quarto.org which makes it easy to turn R markdown files into HTML, PDF, and ePub.
+
+This book was built with:
+
+```{r}
+sessioninfo::session_info()
+```

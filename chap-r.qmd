@@ -145,51 +145,17 @@ df[, 1]
 
 You can also use functions like `head()` and `tail()` to view the first or last few rows of a data frame. Data frames also have several built-in functions that allow you to manipulate and analyze the data. For example, you can use the `summarize()` function to calculate summary statistics for each column, or the `group_by()` function to group the data by a specific variable and apply a function to each group.
 
-## Packages
-
-In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.
-
-::: {.callout-note}
-If you want to know more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
-:::
-
-### Installing a Package
-
-In many cases, you will download an R package from the [CRAN](http://cran.r-project.org/) server. This can be done via the `install.packages()` function by providing the package name in quotes. For example, an important package for data visualization is `ggplot2`. To install this package, you can simply run:
-
-```{r, eval=FALSE}
-install.packages("ggplot2")
-```
-
-To illustrate its concepts and ideas, this book heavily draws from the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. Before running the examples in this book, you should install this package by running the following command in R:
-
-```{r, eval=FALSE}
-install.packages("jfa")
-```
-
-### Loading a Package
-
-Once you have installed a package, you must load it into every R session. To load a package into your R session, call `library()` and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you can load the **jfa** package with:
-
-```{r, eval=FALSE}
-library(jfa)
-```
-
-::: {.callout-note}
-If you want to look at the source code of the **jfa** package, see the [package website](https://koenderks.github.io/jfa/).
-:::
-
-### Updating a Package
-
-R packages are updated regularly. To update a package in your R library you should call `update.packages()` and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:
-
-```{r, eval=FALSE}
-update.packages("jfa")
-```
-
-## Loading Data
+## Data Sets
 
 When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.
+
+### Built-in Data
+
+Data that is included in an R package can be loaded via the `data()` function. For example, to load the `BuildIt` data set that is included in the **jfa** package, you can run the following R code. Note that this requires that the package is loaded in the R session via a call to `library()`.
+
+```{r}
+data(BuildIt)
+```
 
 ### Loading Data from a CSV File
 
@@ -210,8 +176,6 @@ read_excel("example.csv", sheet = 1)
 ```
 
 ## Exercises
-
-In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.
 
 1. Compute the square root of 81 and store the result in a variable called `t1`.
 
