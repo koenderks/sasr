@@ -115,7 +115,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./chap-info.html" rel="next">
 <link href="./part-basics.html" rel="prev">
-<link href="./cover/cover.svg" rel="icon" type="image/svg+xml">
+<link href="./cover.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -147,6 +147,13 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
+<meta property="og:title" content="Statistical Audit Sampling with R - 1&nbsp; Introduction to R">
+<meta property="og:description" content="R (R Core Team, 2022) is a programming language and software environment for statistical computing and graphics.">
+<meta property="og:site-name" content="Statistical Audit Sampling with R">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 1&nbsp; Introduction to R">
+<meta name="twitter:description" content="R (R Core Team, 2022) is a programming language and software environment for statistical computing and graphics.">
+<meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -169,8 +176,38 @@ div.csl-indent {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
 </div>
     </div>
       </div>
@@ -301,7 +338,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="chap-r" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-r" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -612,6 +649,8 @@ Click to reveal answer
 </details>
 
 
+<!-- -->
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
 <div id="ref-Chang2022" class="csl-entry" role="doc-biblioentry">
 Chang, W. (2022). <em><span>R Graphics Cookbook</span></em>. O’Reilly. <a href="https://r-graphics.org/">https://r-graphics.org/</a>
@@ -703,6 +742,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -782,7 +872,329 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<pre class="markdown" data-shortcodes="false"><code>```{r echo = FALSE, cache = FALSE}
+source("utils.R", local = TRUE)
+```
+
+::: {.callout-note appearance="simple"}
+You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
+:::
+
+# Introduction to R {#chap-r}
+
+R [@R] is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization. R has a large and active community of users and, as a result, there are many community-made resources available for learning and using R.
+
+In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in @Lin2022.
+
+This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of R, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
+
+![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
+
+## Calculations
+
+One of the basic features of R is its ability to perform calculations. In R, basic calculations work by using the standard arithmetic operators such as `+` for addition, `-` for subtraction, `*` for multiplication, and `/` for division. For example, if you want to calculate 2 + 3, you would type in `2 + 3` and R will return the result of 5.
+
+quarto-executable-code-5450563D
+
+```r
+2 + 3
+```
+
+R also allows for more advanced calculations such as exponentiation using the `^` operator, and square roots using the `sqrt()` function. For example, to calculate the square root of 9, you would type in `sqrt(9)` and R will return the result of 3.
+
+quarto-executable-code-5450563D
+
+```r
+sqrt(9)
+```
+
+You can also use parentheses to specify the order of operations in your calculations. For example, if you want to calculate (2 + 3) * 4, you would type in `(2 + 3) * 4` to get the result of 20.
+
+quarto-executable-code-5450563D
+
+```r
+(2 + 3) * 4
+```
+
+Overall, basic calculations in R are similar to those in other programming languages and follow the standard order of operations.
+
+### Vectors
+
+In R, vectors are one-dimensional arrays of data that can hold numeric, character, or logical values. Vectors can be created using the `c()` function, which stands for concatenate. For example, to create a numeric vector, you can use the following code:
+
+quarto-executable-code-5450563D
+
+```r
+x &lt;- c(1, 2, 3, 4, 5)
+```
+
+To create a character vector, you can use quotes around the values:
+
+quarto-executable-code-5450563D
+
+```r
+y &lt;- c("apple", "banana", "orange")
+```
+
+To create a logical vector, you can use the logical values `TRUE` and `FALSE`:
+
+quarto-executable-code-5450563D
+
+```r
+z &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+```
+
+Vectors can be indexed using square brackets and a numeric value. For example, to access the second element of the vector `x`, you can use the following code:
+
+quarto-executable-code-5450563D
+
+```r
+x[2]
+```
+
+Vectors can also be subsetted using a logical vector. For example, to get all elements of the vector `x` that are greater than 3, you can use the following code:
+
+quarto-executable-code-5450563D
+
+```r
+x[x &gt; 3]
+```
+
+Vectors can also be modified using indexing and assignment. For example, to change the third element of the vector `x` to 6, you can use the following code:
+
+quarto-executable-code-5450563D
+
+```r
+x[3]
+x[3] &lt;- 6
+x[3]
+```
+
+R has many built-in functions for performing mathematical operations on vectors. For example, you can use the `mean()` function to calculate the average of a vector of numbers, or we can use the `length()` function to calculate the number of elements in a vector:
+
+quarto-executable-code-5450563D
+
+```r
+mean(x)
+length(y)
+```
+
+Overall, vectors are a useful data structure in R for storing and manipulating data.
+
+### Matrices
+
+In R, a matrix is a two-dimensional collection of values that are arranged in rows and columns. You can create a matrix using the `matrix()` function. For example:
+
+quarto-executable-code-5450563D
+
+```r
+m &lt;- matrix(1:9, nrow = 3, ncol = 3)
+m
+```
+
+This creates a 3x3 matrix with the values 1, 2, 3 in the first column, 4, 5, 6 in the second column, and 7, 8, 9 in the third column.
+
+You can also create a matrix by combining several vectors using the `cbind()` or `rbind()` functions. For example:
+
+quarto-executable-code-5450563D
+
+```r
+v1 &lt;- c(1, 2, 3)
+v2 &lt;- c(4, 5, 6)
+v3 &lt;- c(7, 8, 9)
+m &lt;- cbind(v1, v2, v3)
+m
+```
+
+This creates a matrix with the same values as before, but the columns are created by binding the vectors together.
+
+You can access the elements of a matrix using the square bracket notation. For example, to access the element in the second row and third column of `m`, you would use the following code:
+
+quarto-executable-code-5450563D
+
+```r
+m[2, 3]
+```
+
+You can also use the `dim()` function to get the dimensions of a matrix, and the `colnames()` and `rownames()` functions to get the names of the columns and rows, respectively.
+
+There are many other functions and operations available for working with matrices in R, including mathematical operations such as matrix multiplication and inversion.
+
+### Data Frames
+
+In R, a data frame is a two-dimensional table of data with rows and columns. Each row represents a single observation or record, and each column represents a particular variable or attribute. Data frames are similar to a spreadsheet in Excel or a table in a database. Each column in a data frame can have a different data type, such as numerical, character, or logical. The data in each row must match the data type of the corresponding column.
+
+To create a data frame in R, you can use the `data.frame()` function and pass in the data you want to include in the data frame as arguments. For example:
+
+quarto-executable-code-5450563D
+
+```r
+df &lt;- data.frame(x = c(1, 2, 3), y = c(4, 5, 6))
+```
+
+This will create a data frame with two columns, `x` and `y`, and three rows of data. You can access the data in a data frame using indexing and subsetting. For example, to access the first row of the data frame, you can use the following command:
+
+quarto-executable-code-5450563D
+
+```r
+df[1, ]
+```
+
+To access a specific column, you can use the `$` operator (or the index):
+
+quarto-executable-code-5450563D
+
+```r
+df$x
+df[, 1]
+```
+
+You can also use functions like `head()` and `tail()` to view the first or last few rows of a data frame. Data frames also have several built-in functions that allow you to manipulate and analyze the data. For example, you can use the `summarize()` function to calculate summary statistics for each column, or the `group_by()` function to group the data by a specific variable and apply a function to each group.
+
+## Packages
+
+In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.
+
+::: {.callout-note}
+If you want to know more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
+:::
+
+### Installing a Package
+
+In many cases, you will download an R package from the [CRAN](http://cran.r-project.org/) server. This can be done via the `install.packages()` function by providing the package name in quotes. For example, an important package for data visualization is `ggplot2`. To install this package, you can simply run:
+
+```{r, eval=FALSE}
+install.packages("ggplot2")
+```
+
+To illustrate its concepts and ideas, this book heavily draws from the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. Before running the examples in this book, you should install this package by running the following command in R:
+
+```{r, eval=FALSE}
+install.packages("jfa")
+```
+
+### Loading a Package
+
+Once you have installed a package, you must load it into every R session. To load a package into your R session, call `library()` and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you can load the **jfa** package with:
+
+```{r, eval=FALSE}
+library(jfa)
+```
+
+::: {.callout-note}
+If you want to look at the source code of the **jfa** package, see the [package website](https://koenderks.github.io/jfa/).
+:::
+
+### Updating a Package
+
+R packages are updated regularly. To update a package in your R library you should call `update.packages()` and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:
+
+```{r, eval=FALSE}
+update.packages("jfa")
+```
+
+## Loading Data
+
+When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.
+
+### Loading Data from a CSV File
+
+A commonly used data type is a `.csv` file. You can load this type of files via the `read.csv()` function. For example, if the file `example.csv` is in the current working directory, you can load it by running:
+
+```{r, eval=FALSE}
+read.csv("example.csv")
+```
+
+### Loading Data from an Excel File
+
+Another commonly used data type are Excel files. You can load this type of files via the `read_excel()` function from the `readxl` package. For this to work, you should first install this package using the `install.packages()` command and load it into the R session using a call to `library()`. For example, if the file `example.xlsx` is in the current working directory, and the data you want to load is on the first worksheet, you can load it by running:
+
+```{r, eval=FALSE}
+install.packages("readxl")
+library(readxl)
+read_excel("example.csv", sheet = 1)
+```
+
+## Exercises
+
+In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.
+
+1. Compute the square root of 81 and store the result in a variable called `t1`.
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+t1 &lt;- sqrt(81)
+```
+&lt;/details&gt;
+
+2. Compute 81 to the power a half and store the result in a variable called `t2`.
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+t2 &lt;- 81^0.5
+```
+&lt;/details&gt;
+
+3. Use the `==` operator to check whether the content of `t1` and `t2` is the same.
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+t1 == t2
+```
+&lt;/details&gt;
+
+4. Use the `c()` function (or `:`) to create the following vector:
+```{r echo = FALSE}
+-2:8
+```
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+c(-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8)
+```
+or:
+quarto-executable-code-5450563D
+
+```r
+-2:8
+```
+&lt;/details&gt;
+
+5. Find out the length of the vector created in exercise 4.
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+length(-2:8)
+```
+&lt;/details&gt;
+
+6. Find out the mean of the vector created in exercise 4.
+
+&lt;details&gt;
+&lt;summary&gt;Click to reveal answer&lt;/summary&gt;
+quarto-executable-code-5450563D
+
+```r
+mean(-2:8)
+```
+&lt;/details&gt;</code></pre>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
