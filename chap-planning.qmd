@@ -64,8 +64,7 @@ Given the performance materiality $\theta_{max}$, we can compute $K$ and solve f
 If the auditor does not expect any misstatements in the sample, they can set $k = 0$, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.03$ in a population of $N = 1000$ items, then $K = \lceil 0.03 \cdot 1000 \rceil = 30$ and the minimum sample size under the assumption of no expected misstatements in the sample is $n = 94$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 1000)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
 
@@ -93,15 +92,13 @@ plot(plan)
 The `planning()` function has two additional arguments that are not shown in the call above: `by` and `max`. The argument `by` sets the increment between possible sample sizes for consideration. For example, `by = 5` considers only samples of size 10, 20, 30, etc:
 
 ```{r}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000, by = 10)
+planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000, by = 10)
 ```
 
 The argument `max` sets the sample size at which the algorithm terminates. This can be used to avoid too many iterations of the algorithm at very low values of the performance materiality. For instance, `max = 50` throws an error if more than 100 samples are required.
 
 ```{r error=TRUE}
-planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-         likelihood = "hypergeometric", N.units = 1000, max = 50)
+planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000, max = 50)
 ```
 :::
 
@@ -110,8 +107,7 @@ planning(materiality = 0.03, expected = 0, conf.level = 0.95,
 If the auditor expects misstatements in the sample, they can set $k$ to any integer value, which consequently determines how the sample size can be calculated. As another example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.03$ in a population of $N = 1000$ items, then the required sample size under the assumption of one expected misstatement in the sample is $n = 147$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 1000)
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
 
@@ -163,9 +159,7 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 Planning for no expected misstatements in the sample can be done by setting the value for the `expected` argument to zero. If we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.1$ in a population of $N = 20$ items, then the required sample size under the assumption of zero expected misstatements in the sample is $n = 15$. The command below uses a default beta-binomial($N$, 1, 1) prior distribution to plan this sample, since `planning()` is given the hypergeometric likelihood.
 
 ```{r}
-plan <- planning(materiality = 0.1, expected = 0, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 20,
-                 prior = TRUE)
+plan <- planning(materiality = 0.1, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 20, prior = TRUE)
 ```
 
 The `summary()` function can be used to obatain relevant information about the planning.
@@ -185,9 +179,7 @@ plot(plan)
 Planning for expected misstatements in the sample can be done by setting the value for the `expected` argument to a different value than zero. For example, the command below calculates the minimum sample size to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.1$ in a population of $N = 50$ items, given one expected misstatement in the sample. This sample size is $n = 32$.
 
 ```{r}
-plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95,
-                 likelihood = "hypergeometric", N.units = 50,
-                 prior = TRUE)
+plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95, likelihood = "hypergeometric", N.units = 50, prior = TRUE)
 plan
 ```
 
@@ -238,8 +230,7 @@ ceiling(log(1 - 0.95) / log(1 - 0.03))
 In **jfa**, this sample size can be replicated using the following code:
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "binomial")
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "binomial")
 plan
 ```
 
@@ -268,8 +259,7 @@ However, if the number of expected misstatements in the sample is non-zero, it b
 In **jfa**, this can be done by adjusting the `expected` argument in the `planning()` function. For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of one expected misstatement in the sample is $n = 157$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-                 likelihood = "binomial")
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95, likelihood = "binomial")
 ```
 
 Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than 5% probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3%. By calculating this probability for $n = 156$, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
@@ -299,8 +289,7 @@ To account for the fact that $k$ can have non-integer values in this case, we ca
 For example, the upper bound for a sample of $n = 10$ items containing $k = 2$ misstatements, when calculated via the traditional `binom.test()` is:
 
 ```{r}
-ub_binom <- binom.test(x = 2, n = 10, p = 0.03, conf.level = 0.95,
-                       alternative = "less")$conf.int[2]
+ub_binom <- binom.test(x = 2, n = 10, p = 0.03, conf.level = 0.95, alternative = "less")$conf.int[2]
 ub_binom
 ```
 
@@ -320,8 +309,7 @@ ub_binom == ub_beta
 This relationship between the binomial likelihood and the beta distribution is deliberately **not** used in **jfa**. That is because, in the case of the binomial distribution, the auditing standards round the tolerable misstatements upwards to a whole number. For example, if we try to call the `planning()` function with the argument `expected = 1.5`, **jfa** will internally convert this to `expected = 2` and base the sample size on this in order to stay compliant with @AICPA-A. The resulting sample size is $n = 208$ in this case.
 
 ```{r}
-planning(materiality = 0.03, expected = 1.5, conf.level = 0.95,
-         likelihood = "binomial")
+planning(materiality = 0.03, expected = 1.5, conf.level = 0.95, likelihood = "binomial")
 ```
 
 ### Bayesian Planning
@@ -352,8 +340,7 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior distribution to plan the sample, since `planning()` is given the binomial likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of zero expected misstatements in the sample is $n = 98$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "binomial", prior = TRUE)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "binomial", prior = TRUE)
 ```
 
 The `summary()` function can be used to obatain relevant information about the planning.
@@ -376,11 +363,8 @@ The input for the `prior` argument can also be an object created by the `auditPr
 \end{align}
 
 ```{r}
-prior <- auditPrior(method = "param", likelihood = "normal",
-                    alpha = 0, beta = 0.05)
-
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "poisson", prior = prior)
+prior <- auditPrior(method = "param", likelihood = "normal", alpha = 0, beta = 0.05)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "poisson", prior = prior)
 ```
 
 The `summary()` function can be used to obatain relevant information about the planning.
@@ -442,8 +426,7 @@ ceiling(-log(1 - 0.95) / 0.03)
 In **jfa**, this sample size can be replicated using the following code:
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "poisson")
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "poisson")
 ```
 
 The sample size of 100 can be confirmed by checking that 100 is the minimum integer that results in less than 5% probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3%. The `dpois()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n = 99$, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
@@ -471,8 +454,7 @@ However, if the number of expected misstatements in the sample is non-zero, it b
 For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of one expected misstatement in the sample is $n = 159$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95,
-                 likelihood = "poisson")
+plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95, likelihood = "poisson")
 ```
 
 Once again, the sample size of 159 can be confirmed by checking that 159 is the minimum integer that results in less than 5% probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3%. By calculating this probability for $n = 158$, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
@@ -503,8 +485,7 @@ For example, the upper bound for a sample of $n = 10$ items containing $k = 2$
 misstatements, when calculated via the traditional `poisson.test()` is:
 
 ```{r}
-ub_pois <- poisson.test(x = 2, T = 10, r = 0.03, conf.level = 0.95,
-                        alternative = "less")$conf.int[2]
+ub_pois <- poisson.test(x = 2, T = 10, r = 0.03, conf.level = 0.95, alternative = "less")$conf.int[2]
 ub_pois
 ```
 
@@ -524,8 +505,7 @@ ub_pois == ub_gamma
 This relationship between the Poisson likelihood and the gamma distribution is used under the hood in **jfa**. For example, if we want to achieve an assurance level of 95% ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of 1.5 expected misstatements in the sample is $n = 185$.
 
 ```{r}
-planning(materiality = 0.03, expected = 1.5, conf.level = 0.95,
-         likelihood = "poisson")
+planning(materiality = 0.03, expected = 1.5, conf.level = 0.95, likelihood = "poisson")
 ```
 
 The sample size of 185 can be confirmed by checking that 185 is the minimum integer that results in less than 5% probability of finding a misstatement rate in the population equal to, or higher than, 3%. By calculating this probability for $n = 184$, we can show that this sample size is insufficient as the relevant upper bound is higher than the performance materiality $\theta_{max}$.
@@ -568,8 +548,7 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior distribution to plan the sample, since `planning()` is given the Poisson likelihood. If we want to achieve an assurance level of 95% ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of zero expected misstatements in the sample is $n = 99$.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "poisson", prior = TRUE)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "poisson", prior = TRUE)
 ```
 
 The `summary()` function can be used to obatain relevant information about the planning.
@@ -592,11 +571,8 @@ The input for the `prior` argument can also be an object created by the `auditPr
 \end{align}
 
 ```{r}
-prior <- auditPrior(method = "param", likelihood = "normal",
-                    alpha = 0, beta = 0.05)
-
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95,
-                 likelihood = "poisson", prior = prior)
+prior <- auditPrior(method = "param", likelihood = "normal", alpha = 0, beta = 0.05)
+plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "poisson", prior = prior)
 ```
 
 The `summary()` function can be used to obatain relevant information about the planning.
@@ -683,8 +659,7 @@ This method requires that you specify a value for the `materiality`.
 :::
 
 ```{r}
-auditPrior(method = "impartial", likelihood = "binomial",
-           materiality = 0.05)
+auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 ```
 
 ### Probability of Tolerable Misstatement
@@ -696,8 +671,7 @@ This method requires that you specify a value for the `materiality`.
 :::
 
 ```{r}
-auditPrior(method = "hyp", likelihood = "binomial",
-           materiality = 0.05, p.hmin = 0.6)
+auditPrior(method = "hyp", likelihood = "binomial", materiality = 0.05, p.hmin = 0.6)
 ```
 
 ### Audit Risk Model
@@ -709,8 +683,7 @@ This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 :::
 
 ```{r}
-auditPrior(method = "arm", likelihood = "binomial",
-           materiality = 0.05, ir = 0.9, cr = 0.6)
+auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.9, cr = 0.6)
 ```
 
 ### Bayesian Risk Assessment Model
@@ -722,8 +695,7 @@ This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 :::
 
 ```{r}
-auditPrior(method = "bram", likelihood = "binomial",
-           materiality = 0.05, expected = 0.01, ub = 0.6)
+auditPrior(method = "bram", likelihood = "binomial", materiality = 0.05, expected = 0.01, ub = 0.6)
 ```
 
 ### Earlier Sample
@@ -735,8 +707,7 @@ This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 :::
 
 ```{r}
-auditPrior(method = "sample", likelihood = "binomial",
-           x = 0, n = 30)
+auditPrior(method = "sample", likelihood = "binomial", x = 0, n = 30)
 ```
 
 ### Weighted Earlier Sample
@@ -748,8 +719,7 @@ This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 :::
 
 ```{r}
-auditPrior(method = "factor", likelihood = "binomial",
-           x = 0, n = 58, factor = 0.7)
+auditPrior(method = "factor", likelihood = "binomial", x = 0, n = 58, factor = 0.7)
 ```
 
 ### Nonparametric Prior
@@ -796,8 +766,7 @@ planning(materiality = 0.03, expected = expected, conf.level = 1 - dr)
 The example above is a frequentist one. However, the auditor is free to apply a Bayesian philosophy in planning the sample. For example, the risk assessments from the ARM can be incorporated into a prior distribution. This can be done using `method = "arm"` in the `auditPrior()` function, which takes the values of the inherent risk probability `ir` and the control risk probability `cr`. Hence, the prior distribution in this example can be constructed using the following command:
 
 ```{r}
-prior <- auditPrior(method = "arm", materiality = 0.03, expected = expected,
-                    ir = ir, cr = cr)
+prior <- auditPrior(method = "arm", materiality = 0.03, expected = expected, ir = ir, cr = cr)
 ```
 
 The `summary()` function can be used to obtain relevant information about the prior distribution.
@@ -815,8 +784,7 @@ plot(prior)
 By using the prior distribution to incorporate the assessments of the inherent risk and the control risk, the auditor can plan a sample while taking into account the risk-reducing information. The required minimum sample size is also 174 in this case.
 
 ```{r}
-planning(materiality = 0.03, expected = expected, conf.level = 1 - ar,
-         prior = prior)
+planning(materiality = 0.03, expected = expected, conf.level = 1 - ar, prior = prior)
 ```
 
 ### Benchmark Analysis
@@ -870,8 +838,7 @@ summary(fit)
 The predicted cost of sales for the auditee, based on the industry benchmark, can be computed as follows:
 
 ```{r}
-C_pred <- predict(fit, newdata = data.frame(sales = 298112312),
-                  interval = "prediction", level = 0.90)[1]
+C_pred <- predict(fit, newdata = data.frame(sales = 298112312), interval = "prediction", level = 0.90)[1]
 C_pred
 ```
 
@@ -917,8 +884,7 @@ stdev
 The Normal(0.019, 0.05) prior distribution can be constructed through a call to `auditPrior()`, where the likelihood of the prior is specified as `normal`. We call the function with `method = "param"` to manually specify the parameters of the prior distribution.
 
 ```{r}
-prior <- auditPrior(method = "param", likelihood = "normal",
-                    alpha = mu, beta = stdev)
+prior <- auditPrior(method = "param", likelihood = "normal", alpha = mu, beta = stdev)
 summary(prior)
 ```
 
@@ -931,8 +897,7 @@ plot(prior)
 The performance materiality for this example is set to $\theta_{max}$ = 5%, and the audit risk is set to $\alpha = 0.05$, or 5%. By using this prior distribution, the required minimum sample size is 50.
 
 ```{r}
-plan <- planning(materiality = 0.05, conf.level = 0.95,
-                 likelihood = "binomial", prior = prior)
+plan <- planning(materiality = 0.05, conf.level = 0.95, likelihood = "binomial", prior = prior)
 plan
 ```
 
@@ -945,8 +910,7 @@ plot(plan)
 By using a frequentist approach, the required minimum sample size is 50. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.
 
 ```{r}
-plan <- planning(materiality = 0.05, conf.level = 0.95,
-                 likelihood = "binomial")
+plan <- planning(materiality = 0.05, conf.level = 0.95, likelihood = "binomial")
 plan
 ```
 
@@ -955,8 +919,7 @@ plan
 As a final example, we consider an example wehre the auditor incorporates information about the probability of misstatement obtained through a predictive analysis into the prior distribution for $\theta$. In this example, the auditor is conducting an audit on a long-term client that they have been working with for fifteen years. Hence, the auditor has access to a historycal data set called `history`, which contains the samples from all of the previous audits that have been conducted on this auditee over the past fifteen years.
 
 ```{r}
-history <- read.csv("https://github.com/koenderks/sasr/raw/master/data/ch3_history.csv",
-                    colClasses = c("factor", "numeric", "numeric"))
+history <- read.csv("https://github.com/koenderks/sasr/raw/master/data/ch3_history.csv", colClasses = c("factor", "numeric", "numeric"))
 head(history)
 ```
 
@@ -1003,8 +966,7 @@ plot(prior)
 The performance materiality for this example is set to $\theta_{max}$ = 1%, and the audit risk is set to $\alpha = 0.05$, or 5%. The minimum sample size can be calculated with the command below and is 108.
 
 ```{r}
-plan <- planning(materiality = 0.01, conf.level = 0.95,
-                 likelihood = "binomial", prior = prior)
+plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial", prior = prior)
 plan
 ```
 
@@ -1017,8 +979,7 @@ plot(plan)
 By using a frequentist approach, the required minimum sample size is 299. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 299 - 108 = 191 items.
 
 ```{r}
-plan <- planning(materiality = 0.01, conf.level = 0.95,
-                 likelihood = "binomial")
+plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial")
 plan
 ```
 
@@ -1040,8 +1001,7 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100,
-         prior = TRUE)
+planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior = TRUE)
 ```
 </details>
 
@@ -1059,8 +1019,7 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-planning(materiality = 0.044, likelihood = "binomial", expected = 1,
-         prior = TRUE)
+planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRUE)
 ```
 </details>
 
@@ -1097,8 +1056,7 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-prior <- auditPrior(method = "arm", likelihood = "binomial",
-                    materiality = 0.05, ir = 0.5, cr = 0.8)
+prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
 plot(prior)
 planning(materiality = 0.05, prior = prior)
 ```
@@ -1109,8 +1067,7 @@ planning(materiality = 0.05, prior = prior)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-prior <- auditPrior(method = "impartial", likelihood = "binomial",
-                    materiality = 0.05)
+prior <- auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 plot(prior)
 ```
 </details>

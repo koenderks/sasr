@@ -64,8 +64,7 @@ Using **jfa**, these statistical results can be reproduced by executing the foll
 ```{r}
 set.seed(1)
 data(BuildIt)
-result <- selection(data = BuildIt, size = 60, units = "values",
-                    method = "interval", start = 1, values = "bookValue")
+result <- selection(data = BuildIt, size = 60, units = "values", method = "interval", start = 1, values = "bookValue")
 head(result$sample)
 ```
 
@@ -92,8 +91,6 @@ The above screenshot shows an analysis where the auditor is using the binomial l
 Using **jfa**, these statistical results can be reproduced by executing the following code:
 
 ```{r}
-prior <- auditPrior(method = "arm", likelihood = "binomial",
-                    materiality = 0.03, expected = 0.01, ir = 0.6, cr = 1)
-evaluation(materiality = 0.03, method = "binomial", x = 1, n = 120,
-           prior = prior)
+prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.03, expected = 0.01, ir = 0.6, cr = 1)
+evaluation(materiality = 0.03, method = "binomial", x = 1, n = 120, prior = prior)
 ```

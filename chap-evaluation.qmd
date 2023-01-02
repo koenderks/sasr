@@ -121,10 +121,7 @@ Evaluating a non-stratified sample using data requires specification of the `dat
 The call below evaluates the `allowances` sample using a classical non-stratified evaluation procedure.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances,
-  values = "bookValue", values.audit = "auditValue", times = "times"
-)
+x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", times = "times")
 summary(x)
 ```
 
@@ -135,10 +132,7 @@ In this case, the output shows that the estimate of the misstatement in the popu
 The call below evaluates the `allowances` sample using a Bayesian non-stratified evaluation procedure.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances, prior = TRUE,
-  values = "bookValue", values.audit = "auditValue", times = "times"
-)
+x <- evaluation( materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", times = "times")
 summary(x)
 ```
 

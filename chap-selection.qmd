@@ -81,8 +81,7 @@ The sample can be reproduced in **jfa** via the `selection()` function. This fun
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "items",
-                    method = "random")
+result <- selection(data = BuildIt, size = n, units = "items", method = "random")
 result$sample
 ```
 
@@ -94,8 +93,7 @@ The `order` argument takes as input a column name in `data` which determines the
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "items",
-                    method = "random", order = "bookValue")
+result <- selection(data = BuildIt, size = n, units = "items", method = "random", order = "bookValue")
 result$sample
 ```
 
@@ -103,8 +101,7 @@ The `randomize` argument can be used to randomly shuffle the items in the popula
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "items",
-                    method = "random", randomize = TRUE)
+result <- selection(data = BuildIt, size = n, units = "items", method = "random", randomize = TRUE)
 result$sample
 ```
 :::
@@ -115,8 +112,7 @@ When we are performing record sampling, we have to consider that each item in th
 
 ```{r}
 set.seed(1)
-items <- sample(1:nrow(BuildIt), size = n, replace = FALSE,
-                prob = BuildIt$bookValue)
+items <- sample(1:nrow(BuildIt), size = n, replace = FALSE, prob = BuildIt$bookValue)
 items
 ```
 
@@ -130,8 +126,7 @@ The sample can be reproduced in **jfa** via the `selection()` function. The argu
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "values",
-                    method = "random", values = "bookValue")
+result <- selection(data = BuildIt, size = n, units = "values", method = "random", values = "bookValue")
 result$sample
 ```
 
@@ -191,8 +186,7 @@ BuildIt[items, ]
 The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use record sampling (`units = "items"`), while the `method` argument enables you to specify that you are performing fixed interval sampling (`method = 'interval'`). Note that, by default, the first sampling unit from each interval is selected. However, this can be changed by setting the argument `start` to a different value.
 
 ```{r}
-result <- selection(data = BuildIt, size = n, units = "items",
-                    method = "interval", start = start)
+result <- selection(data = BuildIt, size = n, units = "items", method = "interval", start = start)
 result$sample
 ```
 
@@ -231,8 +225,7 @@ BuildIt[items, ]
 The sample can be reproduced in **jfa** via the `selection()` function. The argument `units` allows you to specify that you want to use monetary unit sampling (`units = "values"`), while the `method` argument enables you to specify that you are performing fixed interval sampling (`method = 'interval'`). Note that you should provide the name of the column in the data that contains the monetary units via the `values` argument.
 
 ```{r}
-result <- selection(data = BuildIt, size = n, units = "values",
-                    method = "interval", values = "bookValue", start = start)
+result <- selection(data = BuildIt, size = n, units = "values", method = "interval", values = "bookValue", start = start)
 result$sample
 ```
 
@@ -284,8 +277,7 @@ The sample can be reproduced in **jfa** via the `selection()` function. The argu
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "items",
-                    method = "cell")
+result <- selection(data = BuildIt, size = n, units = "items", method = "cell")
 result$sample
 ```
 
@@ -322,8 +314,7 @@ The sample can be reproduced in **jfa** via the `selection()` function. The argu
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "values",
-                    method = "cell", values = "bookValue")
+result <- selection(data = BuildIt, size = n, units = "values", method = "cell", values = "bookValue")
 result$sample
 ```
 
@@ -358,8 +349,7 @@ The sample can be reproduced in **jfa** via the `selection()` function. The argu
 
 ```{r}
 set.seed(1)
-result <- selection(data = BuildIt, size = n, units = "values",
-                    method = "sieve", values = "bookValue")
+result <- selection(data = BuildIt, size = n, units = "values", method = "sieve", values = "bookValue")
 result$sample
 ```
 
@@ -372,8 +362,7 @@ In this section, you will find a variety of exercises designed to help you pract
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-selec <- selection(data = BuildIt, size = 120, method = "random",
-                   units = "items")
+selec <- selection(data = BuildIt, size = 120, method = "random", units = "items")
 head(selec$sample, 5)
 ```
 </details>
@@ -383,8 +372,7 @@ head(selec$sample, 5)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-selec <- selection(data = BuildIt, size = 240, method = "interval",
-                   units = "values", values = "bookValue", start = 12)
+selec <- selection(data = BuildIt, size = 240, method = "interval", units = "values", values = "bookValue", start = 12)
 head(selec$sample, 5)
 ```
 </details>

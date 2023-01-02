@@ -14,14 +14,19 @@ book:
       orcid: 0000-0002-5533-9349
       corresponding: true
   date: today
-  page-navigation: true
-  reader-mode: false
-  cover-image: cover/cover.svg
-  favicon: cover/cover.svg
+  cover-image: cover.svg
+  favicon: cover.svg
   site-url: https://koenderks.github.io/sasr/
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
   repo-actions: [edit, issue]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  open-graph: true
+  page-navigation: true
+  reader-mode: false
+  twitter-card:
+    image: "cover.svg"
   chapters:
     - index.qmd
     - preface.qmd
@@ -53,7 +58,11 @@ format:
     theme:
       - cosmo
       - sasr.scss
-    code-link: true
+    code-link: false
+    code-overflow: wrap
+    highlight-style: pygments
+    code-tools: true
+    code-block-border-left: true
   pdf:
     documentclass: scrbook
     papersize: a5paper

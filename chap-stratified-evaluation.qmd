@@ -31,11 +31,7 @@ No pooling (`pooling = "none"`, default) assumes no similarities between strata.
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
-result_np <- evaluation(
-  materiality = 0.05, method = "binomial", prior = TRUE,
-  n = retailer$samples, x = retailer$errors, N.units = retailer$items,
-  alternative = "two.sided", pooling = "none"
-)
+result_np <- evaluation( materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "none")
 summary(result_np)
 ```
 
@@ -56,11 +52,7 @@ plot(result_np, type = "posterior")
 Complete pooling (`pooling = "complete"`) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
 
 ```{r}
-result_cp <- evaluation(
-  materiality = 0.05, method = "binomial", prior = TRUE,
-  n = retailer$samples, x = retailer$errors, N.units = retailer$items,
-  alternative = "two.sided", pooling = "complete"
-)
+result_cp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "complete")
 summary(result_cp)
 ```
 
@@ -86,11 +78,7 @@ The call below evaluates the sample using a Bayesian stratified evaluation proce
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
-result_pp <- evaluation(
-  materiality = 0.05, method = "binomial", prior = TRUE,
-  n = retailer$samples, x = retailer$errors, N.units = retailer$items,
-  alternative = "two.sided", pooling = "partial"
-)
+result_pp <- evaluation( materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "partial")
 summary(result_pp)
 ```
 
@@ -126,11 +114,7 @@ N.units <- aggregate(allowances$bookValue, list(allowances$branch), sum)$x
 The call below evaluates the `allowances` sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances,
-  values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
-  alternative = "two.sided", N.units = N.units
-)
+x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units)
 summary(x)
 ```
 
@@ -145,11 +129,7 @@ plot(x, type = "estimates")
 Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The call below evaluates the `allowances` sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
-x <- evaluation(
-  materiality = 0.05, data = allowances, prior = TRUE,
-  values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times",
-  alternative = "two.sided", N.units = N.units, pooling = "partial"
-)
+x <- evaluation(materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units, pooling = "partial")
 summary(x)
 ```
 

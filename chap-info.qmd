@@ -130,8 +130,7 @@ The philosophy behind frequentist parameter estimation is based on the idea that
 As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n = 60$ items containing $k = 0$ misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality), which is irrelevant and should thus be sert to `p = 1`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
 
 ```{r}
-binom.test(x = 0, n = 60, p = 1, alternative = "less",
-           conf.level = 0.95)
+binom.test(x = 0, n = 60, p = 1, alternative = "less", conf.level = 0.95)
 ```
 
 The most likely misstatement in the population is displayed under `sample estimates` and is 0%. The 95% upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 4.87%.
@@ -149,8 +148,7 @@ For example, in a typical audit sampling hypothesis test using the binomial dist
 Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5%, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
 
 ```{r}
-binom.test(x = 0, n = 100, p = 0.03, alternative = "less",
-           conf.level = 0.95)
+binom.test(x = 0, n = 100, p = 0.03, alternative = "less", conf.level = 0.95)
 ```
 
 The *p* value is shown under `p-value` and is 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.
@@ -232,6 +230,5 @@ For example, if the Bayes factor is 5, this means that the probability of the st
 Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. Given the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03` the Bayes factor is displayed under `BF10` and is 668.65, meaning that it the data are about 668 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
 
 ```{r}
-evaluation(materiality = 0.03, x = 0, n = 100, method = "binomial",
-           prior = TRUE)
+evaluation(materiality = 0.03, x = 0, n = 100, method = "binomial", prior = TRUE)
 ```
