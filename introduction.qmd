@@ -20,7 +20,7 @@ To run the code in this book, you will need three things: R, RStudio, and the **
 
 ### R
 
-The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [https://cloud.r-project.org](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location.
+The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [https://cloud.r-project.org](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location. Please ensure that you have at least R 3.5.0 installed for the purposes of this book.
 
 It is advisable to regularly update R, as new major versions are released annually and minor releases occur two to three times per year. While upgrading can be inconvenient, particularly for major versions which require the reinstallation of all packages, failing to do so will only exacerbate the issue.
 
@@ -79,11 +79,11 @@ When executing the same code within your local console, the resulting output wil
 [1] 2
 ```
 
-There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (`>`) while the book does not display this symbol. Secondly, the output in the book is commented out with `#>`, while in a console it is displayed directly after the inputted code. As a result, those working with an electronic version of the book can easily copy code from the book to the console.
+There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (`>`) while the book does not display this symbol. Secondly, the output in the book is commented out with `#>`, while in a console it is displayed directly after the inputted code. Hence, those working with an electronic version of the book can directly copy code from the book to the console.
 
 ## Colophon
 
-An online version of this book is available at [https://koenderks.github.io/sasr/](https://koenderks.github.io/sasr/). The source of the book is available at [https://github.com/koenderks/sasr](https://github.com/koenderks/sasr). The book is made with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
+An online version of this book is available at [https://koenderks.github.io/sasr/](https://koenderks.github.io/sasr/). The source of the book is available at [https://github.com/koenderks/sasr](https://github.com/koenderks/sasr). The book is built with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
 
 This book was built with:
 
