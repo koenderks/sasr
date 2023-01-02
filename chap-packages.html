@@ -346,10 +346,9 @@ div.csl-indent {
 </div>
 <p>To show the diffences and similarities between the use of the <strong>MUS</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to plan a monetary unit sample such that the sampling risk can be reduced below 5%. The population in this example consists of <span class="math inline">\(N = 1000\)</span> monetary units and the performance materiality is defined as 10% (or 100 monetary units). The auditor plans the sample using an expected misstatement rate of 1% (or 10 monetary units).</p>
 <p>To compute this sample size, the <strong>MUS</strong> package provides the <code>MUS.calc.n.conservative()</code> function, which takes the performance materiality in monetary units as the <code>tolerable.error</code> argument, the expected misstatements in monetary units as the <code>expected.error</code> argument, and the total number of unit in the population as the <code>book.value</code> argument. The resulting sample size is 37.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-3_28a7492e7f8631c7366e7c8026906d54">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MUS, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">MUS.calc.n.conservative</span>(<span class="at">tolerable.error =</span> <span class="dv">100</span>, <span class="at">expected.error =</span> <span class="dv">10</span>, <span class="at">book.value =</span> <span class="dv">1000</span>, <span class="at">confidence.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-3_88d5248839bbf7e9fce41e19a5cb6a41">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MUS<span class="sc">::</span><span class="fu">MUS.calc.n.conservative</span>(<span class="at">tolerable.error =</span> <span class="dv">100</span>, <span class="at">expected.error =</span> <span class="dv">10</span>, <span class="at">book.value =</span> <span class="dv">1000</span>, <span class="at">confidence.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-4_ed2be7cb1e365c572265f343c91ae331">
@@ -379,32 +378,21 @@ div.csl-indent {
 </div>
 <p>To show the diffences and similarities between the use of the <strong>samplingbook</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to evaluate a sample of items and is interested in estimating the 95% upper confidence bound. The population in this example consists of <span class="math inline">\(N = 300\)</span> items and the auditor has inspected a sample of <span class="math inline">\(n = 100\)</span> items, of which <span class="math inline">\(k = 3\)</span> contained a misstatement.</p>
 <p>To compute the upper bound, the <strong>samplingbook</strong> package provides the <code>Sprop()</code> function, which takes the number of found misstatements in the sample as the <code>m</code> argument, the sample size as the <code>n</code> argument and the population size as the <code>N</code> argument. Note that because this function solely computes a two-sided interval for the population misstatement, the 95% upper bound can be obtained by using an interval of 90% with <code>level = 0.9</code>. The resulting upper bound is 0.07.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-6_3cc977eb01587b3f50f7a000e62ce146">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(samplingbook, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-6_22070b2d5730959245db0f3f3506bc4f">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>samplingbook<span class="sc">::</span><span class="fu">Sprop</span>(<span class="at">m =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N =</span> <span class="dv">300</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'survival'</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from 'package:sampling':</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sprop object: Sample proportion estimate</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; With finite population correction: N = 300 </span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     cluster, strata</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'survey'</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from 'package:graphics':</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dotchart</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Sprop</span>(<span class="at">m =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N =</span> <span class="dv">300</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sprop object: Sample proportion estimate</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; With finite population correction: N = 300 </span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion estimate:  0.03 </span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Standard error:  0.014 </span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% approximate confidence interval: </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.007,0.053]</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,15]</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% exact hypergeometric confidence interval: </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.01,0.07]</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,21]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion estimate:  0.03 </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Standard error:  0.014 </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% approximate confidence interval: </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.007,0.053]</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,15]</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 90% exact hypergeometric confidence interval: </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  proportion: [0.01,0.07]</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  number in population: [3,21]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-packages_cache/html/unnamed-chunk-7_3b7e22b045a0fd9f160262b6da93168f">
@@ -692,58 +680,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>To compute this sample size, the **MUS** package provides the <span class="in">`MUS.calc.n.conservative()`</span> function, which takes the performance materiality in monetary units as the <span class="in">`tolerable.error`</span> argument, the expected misstatements in monetary units as the <span class="in">`expected.error`</span> argument, and the total number of unit in the population as the <span class="in">`book.value`</span> argument. The resulting sample size is 37.</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MUS, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">MUS.calc.n.conservative</span>(<span class="at">tolerable.error =</span> <span class="dv">100</span>, <span class="at">expected.error =</span> <span class="dv">10</span>, <span class="at">book.value =</span> <span class="dv">1000</span>, <span class="at">confidence.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>These results can be reproduced in **jfa** using the following command:</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.1</span>, <span class="at">expected =</span> <span class="fl">0.01</span>, <span class="at">likelihood =</span> <span class="st">"poisson"</span>)</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>The **MUS** package provides no functionality for Bayesian audit sampling.</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## samplingbook</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>**samplingbook** [@samplingbook] is an R package based on the book **Stichproben: Methoden und praktische Umsetzung mit R** <span class="co">[</span><span class="ot">@Kauermann2010</span><span class="co">]</span> that focuses on survey sampling and statistical analysis of these samples. The package is available via <span class="co">[</span><span class="ot">CRAN</span><span class="co">](https://cran.r-project.org/package=samplingbook)</span> and can be downloaded by running the following code:</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"samplingbook"</span>)</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>To show the diffences and similarities between the use of the **samplingbook** package and the **jfa** package, consider a scenario in which an auditor wants to evaluate a sample of items and is interested in estimating the 95% upper confidence bound. The population in this example consists of $N = 300$ items and the auditor has inspected a sample of $n = 100$ items, of which $k = 3$ contained a misstatement.</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>To compute the upper bound, the **samplingbook** package provides the <span class="in">`Sprop()`</span> function, which takes the number of found misstatements in the sample as the <span class="in">`m`</span> argument, the sample size as the <span class="in">`n`</span> argument and the population size as the <span class="in">`N`</span> argument. Note that because this function solely computes a two-sided interval for the population misstatement, the 95% upper bound can be obtained by using an interval of 90% with <span class="in">`level = 0.9`</span>. The resulting upper bound is 0.07.</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(samplingbook, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">Sprop</span>(<span class="at">m =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N =</span> <span class="dv">300</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>MUS<span class="sc">::</span><span class="fu">MUS.calc.n.conservative</span>(<span class="at">tolerable.error =</span> <span class="dv">100</span>, <span class="at">expected.error =</span> <span class="dv">10</span>, <span class="at">book.value =</span> <span class="dv">1000</span>, <span class="at">confidence.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>These results can be reproduced in **jfa** using the following command:</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.1</span>, <span class="at">expected =</span> <span class="fl">0.01</span>, <span class="at">likelihood =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>The **MUS** package provides no functionality for Bayesian audit sampling.</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## samplingbook</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>**samplingbook** [@samplingbook] is an R package based on the book **Stichproben: Methoden und praktische Umsetzung mit R** <span class="co">[</span><span class="ot">@Kauermann2010</span><span class="co">]</span> that focuses on survey sampling and statistical analysis of these samples. The package is available via <span class="co">[</span><span class="ot">CRAN</span><span class="co">](https://cran.r-project.org/package=samplingbook)</span> and can be downloaded by running the following code:</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"samplingbook"</span>)</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>To show the diffences and similarities between the use of the **samplingbook** package and the **jfa** package, consider a scenario in which an auditor wants to evaluate a sample of items and is interested in estimating the 95% upper confidence bound. The population in this example consists of $N = 300$ items and the auditor has inspected a sample of $n = 100$ items, of which $k = 3$ contained a misstatement.</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>To compute the upper bound, the **samplingbook** package provides the <span class="in">`Sprop()`</span> function, which takes the number of found misstatements in the sample as the <span class="in">`m`</span> argument, the sample size as the <span class="in">`n`</span> argument and the population size as the <span class="in">`N`</span> argument. Note that because this function solely computes a two-sided interval for the population misstatement, the 95% upper bound can be obtained by using an interval of 90% with <span class="in">`level = 0.9`</span>. The resulting upper bound is 0.07.</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>samplingbook<span class="sc">::</span><span class="fu">Sprop</span>(<span class="at">m =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N =</span> <span class="dv">300</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>These results can be reproduced in **jfa** using the following command:</span>
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>These results can be reproduced in **jfa** using the following command:</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N.units =</span> <span class="dv">300</span>, <span class="at">method =</span> <span class="st">"hypergeometric"</span>, <span class="at">alternative =</span> <span class="st">"less"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>The **samplingbook** package provides limited functionality for auditing as it mainly focuses on survey sampling.</span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">N.units =</span> <span class="dv">300</span>, <span class="at">method =</span> <span class="st">"hypergeometric"</span>, <span class="at">alternative =</span> <span class="st">"less"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>The **samplingbook** package provides limited functionality for auditing as it mainly focuses on survey sampling.</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## audit</span></span>
 <span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## audit</span></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>**audit** <span class="co">[</span><span class="ot">@audit</span><span class="co">]</span> is an R package based on the paper by @Meeden2007 that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <span class="co">[</span><span class="ot">CRAN</span><span class="co">](https://cran.r-project.org/package=audit)</span> and can be downloaded by running the following code:</span>
 <span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>**audit** <span class="co">[</span><span class="ot">@audit</span><span class="co">]</span> is an R package based on the paper by @Meeden2007 that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <span class="co">[</span><span class="ot">CRAN</span><span class="co">](https://cran.r-project.org/package=audit)</span> and can be downloaded by running the following code:</span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>The **audit** package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.</span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>The **audit** package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
