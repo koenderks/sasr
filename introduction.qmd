@@ -1,3 +1,7 @@
+```{r echo = FALSE, cache = FALSE}
+source("utils.R", local = TRUE)
+```
+
 # Introduction {#introduction}
 
 This book is intended for auditors that want to obtain the knowledge and skill to utilize statistical audit sampling in their practice using the R programming language. It covers an array of traditional and innovative statistical tools that are available to auditors, explaining their function, the underlying assumptions, and when they are best utilized. In addition, it offers practical guidance on integrating advanced statistical sampling methodology into audit practice and demonstrates its value through real-world case studies. It is our hope that this book will serve as a valuable resource for auditors looking to effectively and efficiently utilize statistical methods in their practice.
@@ -16,13 +20,13 @@ To run the code in this book, you will need three things: R, RStudio, and the **
 
 ### R
 
-The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at https://cloud.r-project.org, as it will automatically determine the most suitable mirror for your location.
+The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [https://cloud.r-project.org](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location.
 
 It is advisable to regularly update R, as new major versions are released annually and minor releases occur two to three times per year. While upgrading can be inconvenient, particularly for major versions which require the reinstallation of all packages, failing to do so will only exacerbate the issue.
 
 ### RStudio
 
-RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website (https://posit.co/downloads/). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
+RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website ([https://posit.co/downloads/](https://posit.co/downloads/)). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
 
 When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.
 
@@ -79,7 +83,7 @@ There are two primary distinctions between the use of a console and the presenta
 
 ## Colophon
 
-An online version of this book is available at https://koenderks.github.io/sasr/. The source of the book is available at https://github.com/koenderks/sasr. The book is made with http://quarto.org which makes it easy to turn R markdown files into HTML, PDF, and ePub.
+An online version of this book is available at [https://koenderks.github.io/sasr/](https://koenderks.github.io/sasr/). The source of the book is available at [https://github.com/koenderks/sasr](https://github.com/koenderks/sasr). The book is made with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
 
 This book was built with:
 
