@@ -8,7 +8,7 @@ You are reading the work-in-progress first edition of Statistical Auditing with 
 
 # Evaluation {#chap-evaluation}
 
-Evaluating a sample is the final stage in the audit sampling workflow. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine
+Evaluating a sample is the final stage in the audit sampling workflow and the bread and butter of statistical audit sampling. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine
 their opinion about the population.
 
 Like planning a sample, evaluating a sample requires knowledge of the conditions that lead  to acceptance or rejection of the population (i.e., the sampling objectives). A quick reminder: Sampling objectives can be classified into one of the following two categories:
@@ -132,7 +132,7 @@ In this case, the output shows that the estimate of the misstatement in the popu
 The call below evaluates the `allowances` sample using a Bayesian non-stratified evaluation procedure.
 
 ```{r}
-x <- evaluation( materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", times = "times")
+x <- evaluation(materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", times = "times")
 summary(x)
 ```
 

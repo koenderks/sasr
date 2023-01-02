@@ -1,6 +1,6 @@
 # Standard Workflow {#part-workflow}
 
-The audit sampling workflow is an essential component of statistical audit sampling with R. It involves a series of steps that help auditors select a representative sample from a population of transactions or items, and then use statistical analysis to draw conclusions about the entire population.
+The audit sampling workflow involves a series of steps that help auditors select a representative sample from a population of transactions or items, and then use statistical analysis to draw conclusions about the entire population. It consists of four stages: planning, selection, execution and evaluation. Probability theory can be employed in three of these stages.
 
 In this part of the book, we will delve into the details of the standard audit sampling workflow and how it can be implemented using the powerful tools and techniques available in R.
 
