@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation</title>
+<title>Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,10 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
+<meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta property="og:description" content="In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the…">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta name="twitter:description" content="In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the…">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -158,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -172,21 +172,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
           </a>
         </li>
     </ul>
@@ -207,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -220,12 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></a>
+  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></a>
   </div>
 </li>
       </ul>
@@ -240,22 +225,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></a>
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a>
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -270,12 +255,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></a>
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -294,15 +279,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="toc-section-number">6.1</span>  No pooling</a></li>
-  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="toc-section-number">6.2</span>  Complete pooling</a></li>
-  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="toc-section-number">6.3</span>  Partial pooling</a></li>
-  <li><a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="toc-section-number">6.4</span>  Evaluation using data</a>
+  <li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="toc-section-number">7.1</span>  No pooling</a></li>
+  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="toc-section-number">7.2</span>  Complete pooling</a></li>
+  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="toc-section-number">7.3</span>  Partial pooling</a></li>
+  <li><a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="toc-section-number">7.4</span>  Evaluation using data</a>
   <ul class="collapse">
-  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="toc-section-number">6.4.1</span>  Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="toc-section-number">6.4.2</span>  Bayesian Evaluation</a></li>
+  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="toc-section-number">7.4.1</span>  Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="toc-section-number">7.4.2</span>  Bayesian Evaluation</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">6.5</span>  Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">7.5</span>  Exercises</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -311,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -361,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The number of units per stratum in the population can be provided with <code>N.units</code> to weigh the stratum estimates to determine population estimate. This is called poststratification. If <code>N.units</code> is not specified, each stratum is assumed to be equally represented in the population.</p>
-<section id="no-pooling" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="no-pooling"><span class="header-section-number">6.1</span> No pooling</h2>
+<section id="no-pooling" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="no-pooling"><span class="header-section-number">7.1</span> No pooling</h2>
 <p>No pooling (<code>pooling = "none"</code>, default) assumes no similarities between strata. This means that the prior distribution specified through <code>prior</code> is applied independently for each stratum. This allows for independent estimates for the misstatement in each stratum but also results in a relatively high uncertainty in the population estimate. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-3_0f73db720723bb7d272d9bdf0f48ab14">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
@@ -437,8 +422,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="complete-pooling" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="complete-pooling"><span class="header-section-number">6.2</span> Complete pooling</h2>
+<section id="complete-pooling" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="complete-pooling"><span class="header-section-number">7.2</span> Complete pooling</h2>
 <p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-6_dd78285972792341aed9595e244dc9d0">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">pooling =</span> <span class="st">"complete"</span>)</span>
@@ -512,8 +497,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="partial-pooling" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="partial-pooling"><span class="header-section-number">6.3</span> Partial pooling</h2>
+<section id="partial-pooling" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="partial-pooling"><span class="header-section-number">7.3</span> Partial pooling</h2>
 <p>Finally, partial pooling (<code>pooling = "partial"</code>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -595,8 +580,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="evaluation-using-data" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="evaluation-using-data"><span class="header-section-number">6.4</span> Evaluation using data</h2>
+<section id="evaluation-using-data" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="evaluation-using-data"><span class="header-section-number">7.4</span> Evaluation using data</h2>
 <p>For this example, we take the <code>allowances</code> that set that comes with the package. This data set contains 3500 financial statement line items, each with a booked value <code>bookValue</code> and, for illustrative purposes, and audited (true) value <code>auditValue</code>. Since the focus of this chapter is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5%.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-12_07a835fe6db7e069d2051c4165ed1fba">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
@@ -613,8 +598,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-13_c26e4886196a0b5f8d249710bdda899c">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>N.units <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(allowances<span class="sc">$</span>bookValue, <span class="fu">list</span>(allowances<span class="sc">$</span>branch), sum)<span class="sc">$</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="classical-evaluation" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">6.4.1</span> Classical Evaluation</h3>
+<section id="classical-evaluation" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">7.4.1</span> Classical Evaluation</h3>
 <p>The call below evaluates the <code>allowances</code> sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-14_bb80b963bbac5b42e3297a94d3c59ed3">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">strata =</span> <span class="st">"branch"</span>, <span class="at">times =</span> <span class="st">"times"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">N.units =</span> N.units)</span>
@@ -671,8 +656,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="bayesian-evaluation" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">6.4.2</span> Bayesian Evaluation</h3>
+<section id="bayesian-evaluation" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">7.4.2</span> Bayesian Evaluation</h3>
 <p>Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The call below evaluates the <code>allowances</code> sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-16_0bedbc49037377f57b55635cadd3960e">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">strata =</span> <span class="st">"branch"</span>, <span class="at">times =</span> <span class="st">"times"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">N.units =</span> N.units, <span class="at">pooling =</span> <span class="st">"partial"</span>)</span>
@@ -743,9 +728,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.5</span> Exercises</h2>
-<p>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</p>
+<section id="exercises" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
 <ol type="1">
 <li>Evaluate a stratified sample of <span class="math inline">\(n = [30, 40, 50]\)</span> items containing <span class="math inline">\(k = [0, 1, 2]\)</span> misstatements. Use the classical approach.</li>
 </ol>
@@ -961,7 +945,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chap-evaluation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1119,16 +1103,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a stratified sample of $n = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span>$ items containing $k = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span>$ misstatements. Use the classical approach.</span>
 <span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a stratified sample of $n = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span>$ items containing $k = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span>$ misstatements. Use the classical approach.</span>
-<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

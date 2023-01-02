@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R - 7&nbsp; JASP for Audit</title>
+<title>Statistical Audit Sampling with R - 8&nbsp; JASP for Audit</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,10 +148,10 @@ div.csl-indent {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; JASP for Audit">
+<meta property="og:title" content="Statistical Audit Sampling with R - 8&nbsp; JASP for Audit">
 <meta property="og:description" content="JASP (JASP Team, 2022), an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam.">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; JASP for Audit">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 8&nbsp; JASP for Audit">
 <meta name="twitter:description" content="JASP (JASP Team, 2022), an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam.">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -163,7 +163,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -177,7 +177,7 @@ div.csl-indent {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -191,21 +191,6 @@ div.csl-indent {
           <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
           </a>
         </li>
     </ul>
@@ -226,7 +211,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -239,12 +224,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></a>
+  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></a>
   </div>
 </li>
       </ul>
@@ -259,22 +244,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></a>
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a>
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -289,12 +274,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></a>
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -313,9 +298,9 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#planning" id="toc-planning" class="nav-link active" data-scroll-target="#planning"><span class="toc-section-number">7.1</span>  Planning</a></li>
-  <li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection"><span class="toc-section-number">7.2</span>  Selection</a></li>
-  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="toc-section-number">7.3</span>  Evaluation</a></li>
+  <li><a href="#planning" id="toc-planning" class="nav-link active" data-scroll-target="#planning"><span class="toc-section-number">8.1</span>  Planning</a></li>
+  <li><a href="#selection" id="toc-selection" class="nav-link" data-scroll-target="#selection"><span class="toc-section-number">8.2</span>  Selection</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="toc-section-number">8.3</span>  Evaluation</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-jasp.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -324,7 +309,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-jasp" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-jasp" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -374,8 +359,8 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">By clicking the Audit module icon in the ribbon, you can view the various analyses that are included in the audit module.</figcaption><p></p>
 </figure>
 </div>
-<section id="planning" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="planning"><span class="header-section-number">7.1</span> Planning</h2>
+<section id="planning" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="planning"><span class="header-section-number">8.1</span> Planning</h2>
 <p>To plan a sample for an audit using JASP, the procedure is comparable to using <strong>jfa</strong>. This means that both programs involve similar steps and considerations in order to effectively plan an audit sample. Like <strong>jfa</strong>, JASP for Audit offers a classical and a Bayesian approach to planning a sample.</p>
 <p>The figure below showcases a snapshot of the classical planning analysis in JASP for Audit. The graphical user interface is displayed on the left side of the screen, while the audit report containing statistical results is displayed on the right side. In the user interface, the auditor can input the known parameters for the sample planning, after which JASP calculates and directly displays the statistical results.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -413,8 +398,8 @@ div.csl-indent {
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample size obtained in 25 iterations via method 'poisson' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="selection" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="selection"><span class="header-section-number">7.2</span> Selection</h2>
+<section id="selection" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="selection"><span class="header-section-number">8.2</span> Selection</h2>
 <p>Selecting a sample in JASP for Audit works similar to how you would do it in <strong>jfa</strong>. The figure below showcases a snapshot of the selection analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample selection, after which JASP calculates and directly displays the statistical results.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -438,8 +423,8 @@ div.csl-indent {
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 302     1 94296    198.59     198.59</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="evaluation" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">7.3</span> Evaluation</h2>
+<section id="evaluation" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">8.3</span> Evaluation</h2>
 <p>Finally, evaluating a sample in JASP for Audit works similar to how you would do it in <strong>jfa</strong>. The figure below showcases a snapshot of the evaluation analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample evaluation, after which JASP calculates and directly displays the statistical results.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -696,7 +681,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-packages.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

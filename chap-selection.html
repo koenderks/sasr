@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R - 4&nbsp; Selection</title>
+<title>Statistical Audit Sampling with R - 5&nbsp; Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,10 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Statistical Audit Sampling with R - 4&nbsp; Selection">
+<meta property="og:title" content="Statistical Audit Sampling with R - 5&nbsp; Selection">
 <meta property="og:description" content="Auditors must often evaluate balances or populations that include a large quantity of items.">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 4&nbsp; Selection">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 5&nbsp; Selection">
 <meta name="twitter:description" content="Auditors must often evaluate balances or populations that include a large quantity of items.">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -158,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -172,21 +172,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
           </a>
         </li>
     </ul>
@@ -207,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -220,12 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></a>
+  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></a>
   </div>
 </li>
       </ul>
@@ -240,22 +225,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></a>
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a>
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -270,12 +255,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></a>
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -294,19 +279,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sampling-units" id="toc-sampling-units" class="nav-link active" data-scroll-target="#sampling-units"><span class="toc-section-number">4.1</span>  Sampling Units</a>
+  <li><a href="#sampling-units" id="toc-sampling-units" class="nav-link active" data-scroll-target="#sampling-units"><span class="toc-section-number">5.1</span>  Sampling Units</a>
   <ul class="collapse">
-  <li><a href="#items" id="toc-items" class="nav-link" data-scroll-target="#items"><span class="toc-section-number">4.1.1</span>  Items</a></li>
-  <li><a href="#monetary-units" id="toc-monetary-units" class="nav-link" data-scroll-target="#monetary-units"><span class="toc-section-number">4.1.2</span>  Monetary Units</a></li>
+  <li><a href="#items" id="toc-items" class="nav-link" data-scroll-target="#items"><span class="toc-section-number">5.1.1</span>  Items</a></li>
+  <li><a href="#monetary-units" id="toc-monetary-units" class="nav-link" data-scroll-target="#monetary-units"><span class="toc-section-number">5.1.2</span>  Monetary Units</a></li>
   </ul></li>
-  <li><a href="#sampling-methods" id="toc-sampling-methods" class="nav-link" data-scroll-target="#sampling-methods"><span class="toc-section-number">4.2</span>  Sampling Methods</a>
+  <li><a href="#sampling-methods" id="toc-sampling-methods" class="nav-link" data-scroll-target="#sampling-methods"><span class="toc-section-number">5.2</span>  Sampling Methods</a>
   <ul class="collapse">
-  <li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling"><span class="toc-section-number">4.2.1</span>  Random Sampling</a></li>
-  <li><a href="#fixed-interval-sampling" id="toc-fixed-interval-sampling" class="nav-link" data-scroll-target="#fixed-interval-sampling"><span class="toc-section-number">4.2.2</span>  Fixed Interval Sampling</a></li>
-  <li><a href="#cell-sampling" id="toc-cell-sampling" class="nav-link" data-scroll-target="#cell-sampling"><span class="toc-section-number">4.2.3</span>  Cell Sampling</a></li>
-  <li><a href="#modified-sieve-sampling" id="toc-modified-sieve-sampling" class="nav-link" data-scroll-target="#modified-sieve-sampling"><span class="toc-section-number">4.2.4</span>  Modified Sieve Sampling</a></li>
+  <li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling"><span class="toc-section-number">5.2.1</span>  Random Sampling</a></li>
+  <li><a href="#fixed-interval-sampling" id="toc-fixed-interval-sampling" class="nav-link" data-scroll-target="#fixed-interval-sampling"><span class="toc-section-number">5.2.2</span>  Fixed Interval Sampling</a></li>
+  <li><a href="#cell-sampling" id="toc-cell-sampling" class="nav-link" data-scroll-target="#cell-sampling"><span class="toc-section-number">5.2.3</span>  Cell Sampling</a></li>
+  <li><a href="#modified-sieve-sampling" id="toc-modified-sieve-sampling" class="nav-link" data-scroll-target="#modified-sieve-sampling"><span class="toc-section-number">5.2.4</span>  Modified Sieve Sampling</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">4.3</span>  Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">5.3</span>  Exercises</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-selection.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -315,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-selection" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-selection" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -344,20 +329,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Auditors must often evaluate balances or populations that include a large quantity of items. As it is not possible to individually examine all of these items, they must select a subset, or sample, from the total population to make a statement about a specific characteristic of the population. Several selection methodologies, which are widely accepted in the audit context, are available for this purpose. This chapter discusses the most frequently used sampling methodology for audit sampling and demonstrates how to select a sample using these methods in R.</p>
-<section id="sampling-units" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="sampling-units"><span class="header-section-number">4.1</span> Sampling Units</h2>
+<section id="sampling-units" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sampling-units"><span class="header-section-number">5.1</span> Sampling Units</h2>
 <p>Selecting a subset from the population requires knowledge of the sampling units; physical representations of the population that needs to be audited. Generally, the auditor has to choose between two types of sampling units: individual items in the population or individual monetary units in the population. In order to perform statistical selection, the population must be divided into individual sampling units that can be assigned a probability to be included in the sample. The total collection of all sampling units which have been assigned a selection probability is called the sampling frame.</p>
-<section id="items" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="items"><span class="header-section-number">4.1.1</span> Items</h3>
+<section id="items" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="items"><span class="header-section-number">5.1.1</span> Items</h3>
 <p>A sampling unit for record (i.e., attributes) sampling is generally a characteristic of an item in the population. For example, suppose that you inspect a population of receipts. A possible sampling unit for record sampling can be the date of payment of the receipt. When a sampling unit (e.g., date of payment) is selected by the sampling method, the population item that corresponds to the sampled unit is included in the sample.</p>
 </section>
-<section id="monetary-units" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="monetary-units"><span class="header-section-number">4.1.2</span> Monetary Units</h3>
+<section id="monetary-units" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="monetary-units"><span class="header-section-number">5.1.2</span> Monetary Units</h3>
 <p>A sampling unit for monetary unit sampling is different than a sampling unit for record sampling in that it is an individual monetary unit within an item or transaction, like an individual dollar. For example, a single sampling unit can be the 10<span class="math inline">\(^{th}\)</span> dollar from a specific receipt in the population. When a sampling unit (e.g., individual dollar) is selected by the sampling method, the population item that includes the sampling unit is included in the sample.</p>
 </section>
 </section>
-<section id="sampling-methods" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sampling-methods"><span class="header-section-number">4.2</span> Sampling Methods</h2>
+<section id="sampling-methods" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sampling-methods"><span class="header-section-number">5.2</span> Sampling Methods</h2>
 <p>This section discusses four sampling methods that are commonly used in audit sampling. The methods that will be discussed are:</p>
 <ul>
 <li>Random sampling</li>
@@ -375,8 +360,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="random-sampling" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="random-sampling"><span class="header-section-number">4.2.1</span> Random Sampling</h3>
+<section id="random-sampling" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="random-sampling"><span class="header-section-number">5.2.1</span> Random Sampling</h3>
 <p>Random sampling is the most simple and straight-forward selection method. The random sampling method provides a method that allows every sampling unit in the population an equal chance of being selected, meaning that every combination of sampling units has the same probability of being selected as every other combination of the same number of sampling units. Simply put, the algorithm draws a random selection of size <span class="math inline">\(n\)</span> of the sampling units. Therefore, the selection probability for each sampling unit is defined as:</p>
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{N}.
@@ -392,8 +377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Advantage(s):</strong> The random sampling method yields an optimal random selection, with the additional advantage that the sample can be easily extended by applying the same method again.</li>
 <li><strong>Disadvantages:</strong> Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.</li>
 </ul>
-<section id="record-sampling" class="level4" data-number="4.2.1.1">
-<h4 data-number="4.2.1.1" class="anchored" data-anchor-id="record-sampling"><span class="header-section-number">4.2.1.1</span> Record Sampling</h4>
+<section id="record-sampling" class="level4" data-number="5.2.1.1">
+<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="record-sampling"><span class="header-section-number">5.2.1.1</span> Record Sampling</h4>
 <p>Random sampling can easily be coded in base R. First, we have to get a vector of of the possible items (rows) in the population that can be selected. When we are performing record sampling, we can simply use R’s build in <code>sample()</code> function to draw a random sample from a vector <code>1:nrow(BuildIt)</code> representing the row indices of the items and store the result in a variable <code>items</code>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-3_da5c5fde03205fbecbbdd4a84ddf0c13">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -481,8 +466,8 @@ Additional arguments to <code>selection()</code>
 </div>
 </div>
 </section>
-<section id="monetary-unit-sampling" class="level4" data-number="4.2.1.2">
-<h4 data-number="4.2.1.2" class="anchored" data-anchor-id="monetary-unit-sampling"><span class="header-section-number">4.2.1.2</span> Monetary Unit Sampling</h4>
+<section id="monetary-unit-sampling" class="level4" data-number="5.2.1.2">
+<h4 data-number="5.2.1.2" class="anchored" data-anchor-id="monetary-unit-sampling"><span class="header-section-number">5.2.1.2</span> Monetary Unit Sampling</h4>
 <p>When we are performing record sampling, we have to consider that each item in the population consists of multiple smaller items (i.e., the monetary units), which means that items with a higher book value should get a higher probability of being selected. The <code>sample()</code> function faciliates weighted selection via the <code>prob</code> argument, which takes a vector of values and, using normalization, computes the weights for selection. The call below is similar to before, but in this case we use the book values in the column <code>bookValues</code> of the data set to weigh the items and store the result in a variable <code>items</code>.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-8_ecdc42589d9219b4ff9f98b54b6b67fe">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -524,8 +509,8 @@ Additional arguments to <code>selection()</code>
 </div>
 </section>
 </section>
-<section id="fixed-interval-sampling" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="fixed-interval-sampling"><span class="header-section-number">4.2.2</span> Fixed Interval Sampling</h3>
+<section id="fixed-interval-sampling" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="fixed-interval-sampling"><span class="header-section-number">5.2.2</span> Fixed Interval Sampling</h3>
 <p>Fixed interval sampling is a method designed for yielding representative samples from monetary populations. The algorithm determines a uniform interval on the (optionally ranked) sampling units. Next, a starting point is handpicked or randomly selected in the first interval and a sampling unit is selected throughout the population at each of the uniform intervals from the starting point. For example, if the interval has a width of 10 sampling units and sampling unit number 5 is chosen as the starting point, the sampling units 5, 15, 25, etc. are selected to be included in the sample.</p>
 <p>The number of required intervals <span class="math inline">\(I\)</span> can be determined by dividing the number of sampling units in the population by the required sample size:</p>
 <p><span class="math display">\[\begin{equation}
@@ -548,8 +533,8 @@ Additional arguments to <code>selection()</code>
 <li><strong>Advantage(s):</strong> The advantage of the fixed interval sampling method is that it is often simple to understand and fast to perform. Another advantage is that, in monetary unit sampling, all items that are greater than the calculated interval will be included in the sample. In record sampling, since units can be ranked on the basis of value, there is also a guarantee that some large items will be in the sample.</li>
 <li><strong>Disadvantage(s):</strong> A pattern in the population can coincide with the selected interval, rendering the sample less representative. What is sometimes seen as an added complication for this method is that the sample is hard to extend after drawing the initial sample. This is due to the chance of selecting the same sampling unit. However, by removing the already selected sampling units from the population and redrawing the intervals this problem can be efficiently solved.</li>
 </ul>
-<section id="record-sampling-1" class="level4" data-number="4.2.2.1">
-<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="record-sampling-1"><span class="header-section-number">4.2.2.1</span> Record Sampling</h4>
+<section id="record-sampling-1" class="level4" data-number="5.2.2.1">
+<h4 data-number="5.2.2.1" class="anchored" data-anchor-id="record-sampling-1"><span class="header-section-number">5.2.2.1</span> Record Sampling</h4>
 <p>To code fixed interval sampling in a record sampling context, we first have to compute the size of the interval we are working with. This is computed by dividing the number of items in the population by the desired sample size <span class="math inline">\(n\)</span>. Suppose the auditor wants to select a sample of 10 items, then the interval is computed by:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-11_18b92749c1e991a7e51bdcf962d4d15d">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">nrow</span>(BuildIt) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -594,8 +579,8 @@ Additional arguments to <code>selection()</code>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 3155     1 94955    248.77     248.77</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="monetary-unit-sampling-1" class="level4" data-number="4.2.2.2">
-<h4 data-number="4.2.2.2" class="anchored" data-anchor-id="monetary-unit-sampling-1"><span class="header-section-number">4.2.2.2</span> Monetary Unit Sampling</h4>
+<section id="monetary-unit-sampling-1" class="level4" data-number="5.2.2.2">
+<h4 data-number="5.2.2.2" class="anchored" data-anchor-id="monetary-unit-sampling-1"><span class="header-section-number">5.2.2.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting point <code>start = 5</code> determines which monetary unit from each interval is selected.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-16_1d5a572638b3453ea5e26f38391c2ca2">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">sum</span>(BuildIt<span class="sc">$</span>bookValue) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -647,8 +632,8 @@ Additional arguments to <code>selection()</code>
 </div>
 </section>
 </section>
-<section id="cell-sampling" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="cell-sampling"><span class="header-section-number">4.2.3</span> Cell Sampling</h3>
+<section id="cell-sampling" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="cell-sampling"><span class="header-section-number">5.2.3</span> Cell Sampling</h3>
 <p>The cell sampling method divides the (optionally ranked) population into a set of intervals <span class="math inline">\(I\)</span> that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range <span class="math inline">\(I\)</span>. This causes the space <span class="math inline">\(i\)</span> between the sampling units to vary.</p>
 <p>Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:</p>
 <p><span class="math display">\[\begin{equation}
@@ -665,8 +650,8 @@ Additional arguments to <code>selection()</code>
 <li><strong>Advantage(s):</strong> More sets of samples are possible than in fixed interval sampling, as there is no systematic interval <span class="math inline">\(i\)</span> to determine the selections. It is argued that the cell sampling algorithm offers a solution to the pattern problem in fixed interval sampling.</li>
 <li><strong>Disadvantage(s):</strong> A disadvantage of this sampling method is that not all items in the population with a monetary value larger than the interval have a selection probability of one. Besides, population items can be in two adjacent cells, thereby creating the possibility that an items is included in the sample twice.</li>
 </ul>
-<section id="record-sampling-2" class="level4" data-number="4.2.3.1">
-<h4 data-number="4.2.3.1" class="anchored" data-anchor-id="record-sampling-2"><span class="header-section-number">4.2.3.1</span> Record Sampling</h4>
+<section id="record-sampling-2" class="level4" data-number="5.2.3.1">
+<h4 data-number="5.2.3.1" class="anchored" data-anchor-id="record-sampling-2"><span class="header-section-number">5.2.3.1</span> Record Sampling</h4>
 <p>To code cell sampling in a record sampling context, we again have to compute the size of the interval we are working with:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-21_ed023f9368076ea2c656fda0ff1b6e8e">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">nrow</span>(BuildIt) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -713,8 +698,8 @@ Additional arguments to <code>selection()</code>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 3171     1 61036    387.67     387.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="monetary-unit-sampling-2" class="level4" data-number="4.2.3.2">
-<h4 data-number="4.2.3.2" class="anchored" data-anchor-id="monetary-unit-sampling-2"><span class="header-section-number">4.2.3.2</span> Monetary Unit Sampling</h4>
+<section id="monetary-unit-sampling-2" class="level4" data-number="5.2.3.2">
+<h4 data-number="5.2.3.2" class="anchored" data-anchor-id="monetary-unit-sampling-2"><span class="header-section-number">5.2.3.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting points <code>start</code> determines which monetary unit from each interval is selected.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-26_5291fee5703ebc5407bd2b8a5e3872c2">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">sum</span>(BuildIt<span class="sc">$</span>bookValue) <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -766,15 +751,15 @@ Additional arguments to <code>selection()</code>
 </div>
 </section>
 </section>
-<section id="modified-sieve-sampling" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="modified-sieve-sampling"><span class="header-section-number">4.2.4</span> Modified Sieve Sampling</h3>
+<section id="modified-sieve-sampling" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="modified-sieve-sampling"><span class="header-section-number">5.2.4</span> Modified Sieve Sampling</h3>
 <p>The fourth option for the sampling method is modified sieve sampling (Hoogduin, Hall, &amp; Tsay, 2010). The algorithm starts by selecting a standard uniform random number <span class="math inline">\(R_i\)</span> between 0 and 1 for each item in the population. Next, the sieve ratio:</p>
 <p><span class="math display">\[\begin{equation}
   S_i = \frac{Y_i}{R_i}
 \end{equation}\]</span></p>
 <p>is computed for each item by dividing the book value of that item by the random number. Lastly, the items in the population are sorted by their sieve ratio <span class="math inline">\(S\)</span> (in decreasing order) and the top <span class="math inline">\(n\)</span> items are selected for inspection. In contrast to the classical sieve sampling method (Rietveld, 1978), the modified sieve sampling method provides precise control over sample sizes.</p>
-<section id="monetary-unit-sampling-3" class="level4" data-number="4.2.4.1">
-<h4 data-number="4.2.4.1" class="anchored" data-anchor-id="monetary-unit-sampling-3"><span class="header-section-number">4.2.4.1</span> Monetary Unit Sampling</h4>
+<section id="monetary-unit-sampling-3" class="level4" data-number="5.2.4.1">
+<h4 data-number="5.2.4.1" class="anchored" data-anchor-id="monetary-unit-sampling-3"><span class="header-section-number">5.2.4.1</span> Monetary Unit Sampling</h4>
 <div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-30_1a6d5acdb005b2b92827028e58abf606">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>all_units <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(BuildIt<span class="sc">$</span>bookValue <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, BuildIt<span class="sc">$</span>bookValue)</span>
@@ -818,9 +803,8 @@ Additional arguments to <code>selection()</code>
 </section>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.3</span> Exercises</h2>
-<p>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</p>
+<section id="exercises" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.3</span> Exercises</h2>
 <ol type="1">
 <li>Select a random sample of 120 items from the <code>BuildIt</code> data set.</li>
 </ol>
@@ -1051,12 +1035,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chap-planning.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1417,27 +1401,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-417"><a href="#cb34-417" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-418"><a href="#cb34-418" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb34-419"><a href="#cb34-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-420"><a href="#cb34-420" aria-hidden="true" tabindex="-1"></a>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</span>
+<span id="cb34-420"><a href="#cb34-420" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Select a random sample of 120 items from the <span class="in">`BuildIt`</span> data set.</span>
 <span id="cb34-421"><a href="#cb34-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-422"><a href="#cb34-422" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Select a random sample of 120 items from the <span class="in">`BuildIt`</span> data set.</span>
-<span id="cb34-423"><a href="#cb34-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-424"><a href="#cb34-424" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb34-425"><a href="#cb34-425" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb34-428"><a href="#cb34-428" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-429"><a href="#cb34-429" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
-<span id="cb34-430"><a href="#cb34-430" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb34-431"><a href="#cb34-431" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-432"><a href="#cb34-432" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb34-422"><a href="#cb34-422" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb34-423"><a href="#cb34-423" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb34-426"><a href="#cb34-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-427"><a href="#cb34-427" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
+<span id="cb34-428"><a href="#cb34-428" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb34-429"><a href="#cb34-429" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-430"><a href="#cb34-430" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb34-431"><a href="#cb34-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-432"><a href="#cb34-432" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Select a sample of 240 monetary units from the <span class="in">`BuildIt`</span> data set using a fixed interval selection method. Use a starting point of 12.</span>
 <span id="cb34-433"><a href="#cb34-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-434"><a href="#cb34-434" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Select a sample of 240 monetary units from the <span class="in">`BuildIt`</span> data set using a fixed interval selection method. Use a starting point of 12.</span>
-<span id="cb34-435"><a href="#cb34-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-436"><a href="#cb34-436" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb34-437"><a href="#cb34-437" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb34-440"><a href="#cb34-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-441"><a href="#cb34-441" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
-<span id="cb34-442"><a href="#cb34-442" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb34-443"><a href="#cb34-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-444"><a href="#cb34-444" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb34-434"><a href="#cb34-434" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb34-435"><a href="#cb34-435" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb34-438"><a href="#cb34-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-439"><a href="#cb34-439" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
+<span id="cb34-440"><a href="#cb34-440" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb34-441"><a href="#cb34-441" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-442"><a href="#cb34-442" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

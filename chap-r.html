@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R - 1&nbsp; Introduction to R</title>
+<title>Statistical Audit Sampling with R - 2&nbsp; Introduction to R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,10 +147,10 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="Statistical Audit Sampling with R - 1&nbsp; Introduction to R">
+<meta property="og:title" content="Statistical Audit Sampling with R - 2&nbsp; Introduction to R">
 <meta property="og:description" content="R (R Core Team, 2022) is a programming language and software environment for statistical computing and graphics.">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 1&nbsp; Introduction to R">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 2&nbsp; Introduction to R">
 <meta name="twitter:description" content="R (R Core Team, 2022) is a programming language and software environment for statistical computing and graphics.">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -162,7 +162,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -176,7 +176,7 @@ div.csl-indent {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -190,21 +190,6 @@ div.csl-indent {
           <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
           </a>
         </li>
     </ul>
@@ -225,7 +210,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -238,12 +223,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./chap-r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></a>
+  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></a>
   </div>
 </li>
       </ul>
@@ -258,22 +243,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></a>
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a>
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -288,12 +273,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></a>
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -312,24 +297,19 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#calculations" id="toc-calculations" class="nav-link active" data-scroll-target="#calculations"><span class="toc-section-number">1.1</span>  Calculations</a>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link active" data-scroll-target="#calculations"><span class="toc-section-number">2.1</span>  Calculations</a>
   <ul class="collapse">
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="toc-section-number">1.1.1</span>  Vectors</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="toc-section-number">1.1.2</span>  Matrices</a></li>
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="toc-section-number">1.1.3</span>  Data Frames</a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="toc-section-number">2.1.1</span>  Vectors</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="toc-section-number">2.1.2</span>  Matrices</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="toc-section-number">2.1.3</span>  Data Frames</a></li>
   </ul></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span class="toc-section-number">1.2</span>  Packages</a>
+  <li><a href="#data-sets" id="toc-data-sets" class="nav-link" data-scroll-target="#data-sets"><span class="toc-section-number">2.2</span>  Data Sets</a>
   <ul class="collapse">
-  <li><a href="#installing-a-package" id="toc-installing-a-package" class="nav-link" data-scroll-target="#installing-a-package"><span class="toc-section-number">1.2.1</span>  Installing a Package</a></li>
-  <li><a href="#loading-a-package" id="toc-loading-a-package" class="nav-link" data-scroll-target="#loading-a-package"><span class="toc-section-number">1.2.2</span>  Loading a Package</a></li>
-  <li><a href="#updating-a-package" id="toc-updating-a-package" class="nav-link" data-scroll-target="#updating-a-package"><span class="toc-section-number">1.2.3</span>  Updating a Package</a></li>
+  <li><a href="#built-in-data" id="toc-built-in-data" class="nav-link" data-scroll-target="#built-in-data"><span class="toc-section-number">2.2.1</span>  Built-in Data</a></li>
+  <li><a href="#loading-data-from-a-csv-file" id="toc-loading-data-from-a-csv-file" class="nav-link" data-scroll-target="#loading-data-from-a-csv-file"><span class="toc-section-number">2.2.2</span>  Loading Data from a CSV File</a></li>
+  <li><a href="#loading-data-from-an-excel-file" id="toc-loading-data-from-an-excel-file" class="nav-link" data-scroll-target="#loading-data-from-an-excel-file"><span class="toc-section-number">2.2.3</span>  Loading Data from an Excel File</a></li>
   </ul></li>
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="toc-section-number">1.3</span>  Loading Data</a>
-  <ul class="collapse">
-  <li><a href="#loading-data-from-a-csv-file" id="toc-loading-data-from-a-csv-file" class="nav-link" data-scroll-target="#loading-data-from-a-csv-file"><span class="toc-section-number">1.3.1</span>  Loading Data from a CSV File</a></li>
-  <li><a href="#loading-data-from-an-excel-file" id="toc-loading-data-from-an-excel-file" class="nav-link" data-scroll-target="#loading-data-from-an-excel-file"><span class="toc-section-number">1.3.2</span>  Loading Data from an Excel File</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">1.4</span>  Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">2.3</span>  Exercises</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-r.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -338,7 +318,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-r" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-r" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -375,8 +355,8 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">R can be a powerful tool in a business context. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption><p></p>
 </figure>
 </div>
-<section id="calculations" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="calculations"><span class="header-section-number">1.1</span> Calculations</h2>
+<section id="calculations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="calculations"><span class="header-section-number">2.1</span> Calculations</h2>
 <p>One of the basic features of R is its ability to perform calculations. In R, basic calculations work by using the standard arithmetic operators such as <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R will return the result of 5.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-2_b6221780847f13de5b8f0f2946911e0b">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
@@ -393,8 +373,8 @@ div.csl-indent {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Overall, basic calculations in R are similar to those in other programming languages and follow the standard order of operations.</p>
-<section id="vectors" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="vectors"><span class="header-section-number">1.1.1</span> Vectors</h3>
+<section id="vectors" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="vectors"><span class="header-section-number">2.1.1</span> Vectors</h3>
 <p>In R, vectors are one-dimensional arrays of data that can hold numeric, character, or logical values. Vectors can be created using the <code>c()</code> function, which stands for concatenate. For example, to create a numeric vector, you can use the following code:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-5_dda2443ac048f2ba5f3dab10437298fd">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -434,8 +414,8 @@ div.csl-indent {
 </div>
 <p>Overall, vectors are a useful data structure in R for storing and manipulating data.</p>
 </section>
-<section id="matrices" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="matrices"><span class="header-section-number">1.1.2</span> Matrices</h3>
+<section id="matrices" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="matrices"><span class="header-section-number">2.1.2</span> Matrices</h3>
 <p>In R, a matrix is a two-dimensional collection of values that are arranged in rows and columns. You can create a matrix using the <code>matrix()</code> function. For example:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-12_40e95e0932211cdf6948ab2b75953dc4">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
@@ -468,8 +448,8 @@ div.csl-indent {
 <p>You can also use the <code>dim()</code> function to get the dimensions of a matrix, and the <code>colnames()</code> and <code>rownames()</code> functions to get the names of the columns and rows, respectively.</p>
 <p>There are many other functions and operations available for working with matrices in R, including mathematical operations such as matrix multiplication and inversion.</p>
 </section>
-<section id="data-frames" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">1.1.3</span> Data Frames</h3>
+<section id="data-frames" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">2.1.3</span> Data Frames</h3>
 <p>In R, a data frame is a two-dimensional table of data with rows and columns. Each row represents a single observation or record, and each column represents a particular variable or attribute. Data frames are similar to a spreadsheet in Excel or a table in a database. Each column in a data frame can have a different data type, such as numerical, character, or logical. The data in each row must match the data type of the corresponding column.</p>
 <p>To create a data frame in R, you can use the <code>data.frame()</code> function and pass in the data you want to include in the data frame as arguments. For example:</p>
 <div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-15_22efe4d6cd5da693b0ba16f7e3b2483e">
@@ -491,84 +471,35 @@ div.csl-indent {
 <p>You can also use functions like <code>head()</code> and <code>tail()</code> to view the first or last few rows of a data frame. Data frames also have several built-in functions that allow you to manipulate and analyze the data. For example, you can use the <code>summarize()</code> function to calculate summary statistics for each column, or the <code>group_by()</code> function to group the data by a specific variable and apply a function to each group.</p>
 </section>
 </section>
-<section id="packages" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">1.2</span> Packages</h2>
-<p>In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you want to know more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="references.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provides an excellent first-hand description of the principles and practices of creating R packages.</p>
-</div>
-</div>
-<section id="installing-a-package" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="installing-a-package"><span class="header-section-number">1.2.1</span> Installing a Package</h3>
-<p>In many cases, you will download an R package from the <a href="http://cran.r-project.org/">CRAN</a> server. This can be done via the <code>install.packages()</code> function by providing the package name in quotes. For example, an important package for data visualization is <code>ggplot2</code>. To install this package, you can simply run:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-18_4f1d41abd38dfc1c16390da20d769d6a">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>To illustrate its concepts and ideas, this book heavily draws from the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. Before running the examples in this book, you should install this package by running the following command in R:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-19_77f0c1db8056614acba74b60b965806a">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jfa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="loading-a-package" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="loading-a-package"><span class="header-section-number">1.2.2</span> Loading a Package</h3>
-<p>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <code>library()</code> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you can load the <strong>jfa</strong> package with:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-20_a808f0ab0eba37f0ba7fc2205294dc60">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you want to look at the source code of the <strong>jfa</strong> package, see the <a href="https://koenderks.github.io/jfa/">package website</a>.</p>
-</div>
-</div>
-</section>
-<section id="updating-a-package" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="updating-a-package"><span class="header-section-number">1.2.3</span> Updating a Package</h3>
-<p>R packages are updated regularly. To update a package in your R library you should call <code>update.packages()</code> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the <strong>jfa</strong> package, you can update it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-21_692028961c143c559c2e8fa80747c2c9">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"jfa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="loading-data" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.3</span> Loading Data</h2>
+<section id="data-sets" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-sets"><span class="header-section-number">2.2</span> Data Sets</h2>
 <p>When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.</p>
-<section id="loading-data-from-a-csv-file" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="loading-data-from-a-csv-file"><span class="header-section-number">1.3.1</span> Loading Data from a CSV File</h3>
+<section id="built-in-data" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="built-in-data"><span class="header-section-number">2.2.1</span> Built-in Data</h3>
+<p>Data that is included in an R package can be loaded via the <code>data()</code> function. For example, to load the <code>BuildIt</code> data set that is included in the <strong>jfa</strong> package, you can run the following R code. Note that this requires that the package is loaded in the R session via a call to <code>library()</code>.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-18_f1325d0cb39f069c27b6477f31c73f7b">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BuildIt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-data-from-a-csv-file" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="loading-data-from-a-csv-file"><span class="header-section-number">2.2.2</span> Loading Data from a CSV File</h3>
 <p>A commonly used data type is a <code>.csv</code> file. You can load this type of files via the <code>read.csv()</code> function. For example, if the file <code>example.csv</code> is in the current working directory, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-22_3d0e56a3efad6b15e31013d24406d633">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"example.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-19_71fdd1c01ae7b75efec692c594af791f">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"example.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="loading-data-from-an-excel-file" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="loading-data-from-an-excel-file"><span class="header-section-number">1.3.2</span> Loading Data from an Excel File</h3>
+<section id="loading-data-from-an-excel-file" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="loading-data-from-an-excel-file"><span class="header-section-number">2.2.3</span> Loading Data from an Excel File</h3>
 <p>Another commonly used data type are Excel files. You can load this type of files via the <code>read_excel()</code> function from the <code>readxl</code> package. For this to work, you should first install this package using the <code>install.packages()</code> command and load it into the R session using a call to <code>library()</code>. For example, if the file <code>example.xlsx</code> is in the current working directory, and the data you want to load is on the first worksheet, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-23_1e5dd41648f923c1542c0334cb21feef">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"example.csv"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-20_0ad522cb9f705f673e849a067707aadb">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"example.csv"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.4</span> Exercises</h2>
-<p>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</p>
+<section id="exercises" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.3</span> Exercises</h2>
 <ol type="1">
 <li>Compute the square root of 81 and store the result in a variable called <code>t1</code>.</li>
 </ol>
@@ -576,8 +507,8 @@ Note
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-24_82e646f9ccac997400c9fb8e93b223db">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-21_1b90afd5c3d0bac00164776e94de5bdc">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ol start="2" type="1">
@@ -587,8 +518,8 @@ Click to reveal answer
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-25_28b43e89a95b9b1027d899137b53a806">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="dv">81</span><span class="sc">^</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-22_6d4adbd8809cd2bae0e5d3e8f76f0cd4">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="dv">81</span><span class="sc">^</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ol start="3" type="1">
@@ -598,29 +529,29 @@ Click to reveal answer
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-26_fdd8079f7f8bc3930e703fc0ea17000b">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="sc">==</span> t2</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-23_675dd3d4eb890fb47a6f50c7b7dbc5eb">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="sc">==</span> t2</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ol start="4" type="1">
 <li>Use the <code>c()</code> function (or <code>:</code>) to create the following vector:</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-27_2dc6993055ee81b4c609f83c15a8d316">
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-24_ebbb3b0b2e1a9843c377329fd89bf832">
 <pre><code>#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</code></pre>
 </div>
 <details>
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-28_18817c5747edfecc882ff0fad6d79a19">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-25_839cc1f6911d9a4430bde6448a6d03e7">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-29_1b278acc192a89b5c31668e821dd0f6f">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-26_e67ff0c8512af780c080c5dee555e219">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ol start="5" type="1">
@@ -630,9 +561,9 @@ Click to reveal answer
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-30_055de0da7e412f1ecfb0a3c6e2d7ebdc">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-27_bc92a36f68546882a75cef5b6e0943f8">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ol start="6" type="1">
@@ -642,9 +573,9 @@ Click to reveal answer
 <summary>
 Click to reveal answer
 </summary>
-<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-31_e47ed919cb3976f686c11a24a3ae0117">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-r_cache/html/unnamed-chunk-28_1038566caf4f5f557ba7cb27976f1fad">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 
@@ -663,9 +594,6 @@ Lin, J. (2021). <em><span class="nocase">Audit Analytics with R</span></em>. <a 
 </div>
 <div id="ref-R" class="csl-entry" role="doc-biblioentry">
 R Core Team. (2022). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
-</div>
-<div id="ref-Wickam2022" class="csl-entry" role="doc-biblioentry">
-Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="https://r-pkgs.org/">https://r-pkgs.org/</a>
 </div>
 <div id="ref-Wickam2017" class="csl-entry" role="doc-biblioentry">
 Wickam, H., &amp; Grolemund, G. (2017). <em><span class="nocase">R for Data Science</span></em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>
@@ -869,7 +797,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-info.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1052,51 +980,19 @@ df[, 1]
 
 You can also use functions like `head()` and `tail()` to view the first or last few rows of a data frame. Data frames also have several built-in functions that allow you to manipulate and analyze the data. For example, you can use the `summarize()` function to calculate summary statistics for each column, or the `group_by()` function to group the data by a specific variable and apply a function to each group.
 
-## Packages
-
-In addition to these basic features, R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. A package is a small bundle of code that an R user (or group of users) wrote and uploaded to a central server for everybody to access, download and use. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. With its versatility and robust community, R is a valuable tool for anyone working with data.
-
-::: {.callout-note}
-If you want to know more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
-:::
-
-### Installing a Package
-
-In many cases, you will download an R package from the [CRAN](http://cran.r-project.org/) server. This can be done via the `install.packages()` function by providing the package name in quotes. For example, an important package for data visualization is `ggplot2`. To install this package, you can simply run:
-
-```{r, eval=FALSE}
-install.packages("ggplot2")
-```
-
-To illustrate its concepts and ideas, this book heavily draws from the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. Before running the examples in this book, you should install this package by running the following command in R:
-
-```{r, eval=FALSE}
-install.packages("jfa")
-```
-
-### Loading a Package
-
-Once you have installed a package, you must load it into every R session. To load a package into your R session, call `library()` and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you can load the **jfa** package with:
-
-```{r, eval=FALSE}
-library(jfa)
-```
-
-::: {.callout-note}
-If you want to look at the source code of the **jfa** package, see the [package website](https://koenderks.github.io/jfa/).
-:::
-
-### Updating a Package
-
-R packages are updated regularly. To update a package in your R library you should call `update.packages()` and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:
-
-```{r, eval=FALSE}
-update.packages("jfa")
-```
-
-## Loading Data
+## Data Sets
 
 When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.
+
+### Built-in Data
+
+Data that is included in an R package can be loaded via the `data()` function. For example, to load the `BuildIt` data set that is included in the **jfa** package, you can run the following R code. Note that this requires that the package is loaded in the R session via a call to `library()`.
+
+quarto-executable-code-5450563D
+
+```r
+data(BuildIt)
+```
 
 ### Loading Data from a CSV File
 
@@ -1117,8 +1013,6 @@ read_excel("example.csv", sheet = 1)
 ```
 
 ## Exercises
-
-In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.
 
 1. Compute the square root of 81 and store the result in a variable called `t1`.
 

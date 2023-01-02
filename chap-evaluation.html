@@ -8,7 +8,7 @@
 
 <meta name="author" content="Koen Derks">
 
-<title>Statistical Audit Sampling with R - 5&nbsp; Evaluation</title>
+<title>Statistical Audit Sampling with R - 6&nbsp; Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,11 +148,11 @@ div.csl-indent {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
-<meta property="og:description" content="Evaluating a sample is the final stage in the audit sampling workflow.">
+<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
+<meta property="og:description" content="Evaluating a sample is the final stage in the audit sampling workflow and the bread and butter of statistical audit sampling.">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
-<meta name="twitter:description" content="Evaluating a sample is the final stage in the audit sampling workflow.">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
+<meta name="twitter:description" content="Evaluating a sample is the final stage in the audit sampling workflow and the bread and butter of statistical audit sampling.">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/cover.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -163,7 +163,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -177,7 +177,7 @@ div.csl-indent {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/koenderks/sasr/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -191,21 +191,6 @@ div.csl-indent {
           <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
           </a>
         </li>
     </ul>
@@ -226,7 +211,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -239,12 +224,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./chap-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Information</span></a>
+  <a href="./chap-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background Information</span></a>
   </div>
 </li>
       </ul>
@@ -259,22 +244,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></a>
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a>
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -289,12 +274,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></a>
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></a>
   </div>
 </li>
       </ul>
@@ -313,14 +298,14 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="toc-section-number">5.1</span>  Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="toc-section-number">5.2</span>  Bayesian Evaluation</a></li>
-  <li><a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="toc-section-number">5.3</span>  Evaluation using Data</a>
+  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="toc-section-number">6.1</span>  Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="toc-section-number">6.2</span>  Bayesian Evaluation</a></li>
+  <li><a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="toc-section-number">6.3</span>  Evaluation using Data</a>
   <ul class="collapse">
-  <li><a href="#classical-evaluation-1" id="toc-classical-evaluation-1" class="nav-link" data-scroll-target="#classical-evaluation-1"><span class="toc-section-number">5.3.1</span>  Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation-1" id="toc-bayesian-evaluation-1" class="nav-link" data-scroll-target="#bayesian-evaluation-1"><span class="toc-section-number">5.3.2</span>  Bayesian evaluation</a></li>
+  <li><a href="#classical-evaluation-1" id="toc-classical-evaluation-1" class="nav-link" data-scroll-target="#classical-evaluation-1"><span class="toc-section-number">6.3.1</span>  Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation-1" id="toc-bayesian-evaluation-1" class="nav-link" data-scroll-target="#bayesian-evaluation-1"><span class="toc-section-number">6.3.2</span>  Bayesian evaluation</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">5.4</span>  Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">6.4</span>  Exercises</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -329,7 +314,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -357,7 +342,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Evaluating a sample is the final stage in the audit sampling workflow. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine their opinion about the population.</p>
+<p>Evaluating a sample is the final stage in the audit sampling workflow and the bread and butter of statistical audit sampling. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine their opinion about the population.</p>
 <p>Like planning a sample, evaluating a sample requires knowledge of the conditions that lead to acceptance or rejection of the population (i.e., the sampling objectives). A quick reminder: Sampling objectives can be classified into one of the following two categories:</p>
 <ul>
 <li><strong>Hypothesis testing</strong>: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).</li>
@@ -372,8 +357,8 @@ div.csl-indent {
 <p>A non-stratified audit sample does not involve dividing the population into subgroups. Here, the auditor selects a random sample from the entire population without considering any specific characteristics of the population.</p>
 <p>For example, in an audit of a company’s inventory, the auditor may simply select a random sample of items from the entire inventory without dividing it into subgroups based on characteristics such as location or type of item. Another example of such a situation would be where the auditor is auditing the general ledger of a small business.</p>
 <p>Naturally, non-stratified sampling is simpler than stratified sampling and can be used when the population is considered homogenous or the auditor does not need to consider differences between subgroups (e.g., strata).</p>
-<section id="classical-evaluation" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">5.1</span> Classical Evaluation</h2>
+<section id="classical-evaluation" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">6.1</span> Classical Evaluation</h2>
 <p>Classical hypothesis testing uses the <em>p</em>-value to make a decision about whether to reject the hypothesis <span class="math inline">\(H_0\)</span> or not. As an example, consider that an auditor wants to verify whether the population contains less than 5 percent misstatement, implying the hypotheses <span class="math inline">\(H_1:\theta&lt;0.05\)</span> and <span class="math inline">\(H_0:\theta\geq0.05\)</span>. They have taken a sample of 100 items, of which 1 contained an error. They set the significance level for the <em>p</em>-value to 0.05, implying that <span class="math inline">\(p &lt; 0.05\)</span> will be enough to reject the hypothesis <span class="math inline">\(H_0\)</span>. The call below evaluates the sample using a classical non-stratified evaluation procedure.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-2_d16905c16a932ef264dcb48c9a4f3cb9">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>)</span>
@@ -392,8 +377,8 @@ div.csl-indent {
 </div>
 <p>The output shows that the most likely error in the population is estimated to be 1 / 100 = 1% and that the 95% (one-sided) confidence interval ranges from 0% to 4.74%. The output also shows that the <em>p</em>-value is lower than 0.05 implying that the hypothesis <span class="math inline">\(H_0\)</span> can be rejected. Hence, the auditor is able to conclude that the sample provides sufficient evidence to state with reasonable assurance that the population does not contain material misstatement.</p>
 </section>
-<section id="bayesian-evaluation" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">5.2</span> Bayesian Evaluation</h2>
+<section id="bayesian-evaluation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">6.2</span> Bayesian Evaluation</h2>
 <p>Bayesian hypothesis testing uses the Bayes factor, <span class="math inline">\(BF_{10}\)</span> or <span class="math inline">\(BF_{01}\)</span>, to make a statement about the evidence provided by the sample in support for one of the two hypotheses <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_0\)</span>. As an example of how to interpret the Bayes factor, the value of <span class="math inline">\(BF_{10} = 10\)</span> (provided by the <code>evaluation()</code> function) can be interpreted as: <em>the data are 10 times more likely to have occurred under the hypothesis <span class="math inline">\(H_1\)</span> than under the hypothesis <span class="math inline">\(H_0\)</span></em>. <span class="math inline">\(BF_{10} &gt; 1\)</span> indicates evidence in favor of <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span>, while <span class="math inline">\(BF_{10} &lt; 1\)</span> indicates evidence in favor of <span class="math inline">\(H_0\)</span> and against <span class="math inline">\(H_1\)</span>. The <code>evaluation()</code> function returns the value for <span class="math inline">\(BF_{10}\)</span>, but <span class="math inline">\(BF_{01}\)</span> can be computed as <span class="math inline">\(\frac{1}{BF_{10}}\)</span>.</p>
 <p>Consider the previous example of an auditor who wants to verify whether the population contains less than 5 percent misstatement, implying the hypotheses <span class="math inline">\(H_1:\theta&lt;0.05\)</span> and <span class="math inline">\(H_0:\theta\geq0.05\)</span>. They have taken a sample of 100 items, of which 1 was found to contain a misstatement. The prior distribution is assumed to be a default <em>beta(1,1)</em> prior. The call below evaluates the sample using a Bayesian non-stratified evaluation procedure.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-3_cb51ebf256ae59ee61a07351951a30d5">
@@ -474,8 +459,8 @@ div.csl-indent {
 </div>
 <p>The output shows that <span class="math inline">\(BF_{10}=47\)</span>, implying that under the assumption of impartiality there is strong evidence for <span class="math inline">\(H_1\)</span>, the hypothesis that the population contains misstatements lower than 5 percent of the population (tolerable misstatement). Since the two prior distributions both resulted in convincing Bayes factors, the results can be considered robust to the choice of prior distribution. Hence, the auditor is able to conclude that the sample provides convincing evidence to state that the population does not contain material misstatement.</p>
 </section>
-<section id="evaluation-using-data" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="evaluation-using-data"><span class="header-section-number">5.3</span> Evaluation using Data</h2>
+<section id="evaluation-using-data" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="evaluation-using-data"><span class="header-section-number">6.3</span> Evaluation using Data</h2>
 <p>For this example, we take the <code>allowances</code> that set that comes with the package. This data set contains 3500 financial statement line items, each with a booked value <code>bookValue</code> and, for illustrative purposes, and audited (true) value <code>auditValue</code>. Since the focus of this vignette is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5%.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-12_f14cc831dcc399c109297329e228052b">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
@@ -489,8 +474,8 @@ div.csl-indent {
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Evaluating a non-stratified sample using data requires specification of the <code>data</code>, <code>values</code> and <code>values.audit</code> arguments. The input for these arguments is the name of the specific column in <code>data</code>.</p>
-<section id="classical-evaluation-1" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="classical-evaluation-1"><span class="header-section-number">5.3.1</span> Classical Evaluation</h3>
+<section id="classical-evaluation-1" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="classical-evaluation-1"><span class="header-section-number">6.3.1</span> Classical Evaluation</h3>
 <p>The call below evaluates the <code>allowances</code> sample using a classical non-stratified evaluation procedure.</p>
 <div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-13_addcaa511abd26210b96d37c51031d84">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
@@ -517,11 +502,11 @@ div.csl-indent {
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 15.77%, with the 95% (one-sided) confidence interval ranging from 0% to 17.5%.</p>
 </section>
-<section id="bayesian-evaluation-1" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="bayesian-evaluation-1"><span class="header-section-number">5.3.2</span> Bayesian evaluation</h3>
+<section id="bayesian-evaluation-1" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="bayesian-evaluation-1"><span class="header-section-number">6.3.2</span> Bayesian evaluation</h3>
 <p>The call below evaluates the <code>allowances</code> sample using a Bayesian non-stratified evaluation procedure.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-14_55ff899f0b1d961a80479b5c90dacfaf">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>( <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-14_179ebce749827ed8f47a83f316ffd1ca">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
@@ -548,9 +533,8 @@ div.csl-indent {
 <p>The output shows that the estimate of the misstatement in the population is 15.76%, with the 95% (one-sided) credible interval ranging from 0% to 17.49%.</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.4</span> Exercises</h2>
-<p>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</p>
+<section id="exercises" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.4</span> Exercises</h2>
 <ol type="1">
 <li>Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatement. Use the classical approach.</li>
 </ol>
@@ -771,12 +755,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chap-selection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-stratified-evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -790,7 +774,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Evaluation {#chap-evaluation}</span></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>Evaluating a sample is the final stage in the audit sampling workflow. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>Evaluating a sample is the final stage in the audit sampling workflow and the bread and butter of statistical audit sampling. In this stage, the auditor weighs the audit evidence obtained from the sample together with the audit evidence obtained in earlier stages of the audit to determine</span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>their opinion about the population.</span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>Like planning a sample, evaluating a sample requires knowledge of the conditions that lead  to acceptance or rejection of the population (i.e., the sampling objectives). A quick reminder: Sampling objectives can be classified into one of the following two categories:</span>
@@ -914,7 +898,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>The call below evaluates the <span class="in">`allowances`</span> sample using a Bayesian non-stratified evaluation procedure.</span>
 <span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>( <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
 <span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a></span>
@@ -922,16 +906,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a>In this section, you will find a variety of exercises designed to help you practice and reinforce the concepts and skills that you have learned in this chapter. These exercises are an important part of the learning process, as they allow you to actively apply what you have learned and see how it works in practice. Whether you are working through this book on your own or as part of a class, we encourage you to take the time to complete these exercises and get the most out of your learning experience.</span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a sample of $n = 30$ items containing $k = 2$ misstatement. Use the classical approach.</span>
 <span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a sample of $n = 30$ items containing $k = 2$ misstatement. Use the classical approach.</span>
-<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
