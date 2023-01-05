@@ -41,8 +41,8 @@ book:
 
     - part: part-basics.qmd
       chapters:
-      - chap-r.qmd
-      - chap-info.qmd
+      - chap-foundations.qmd
+      - chap-inference.qmd
 
     - part: part-workflow.qmd
       chapters:
@@ -57,6 +57,7 @@ book:
       - chap-packages.qmd
 
     - references.qmd
+    - tutorial.qmd
 
 format:
   html:
