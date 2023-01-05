@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://koenderks.github.io/sasr/index.html</loc>
-    <lastmod>2023-01-05T08:05:54.785Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.266Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/introduction.html</loc>
-    <lastmod>2023-01-05T08:05:54.785Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.270Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/part-basics.html</loc>
-    <lastmod>2023-01-05T08:05:54.789Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.270Z</lastmod>
   </url>
   <url>
-    <loc>https://koenderks.github.io/sasr/chap-r.html</loc>
-    <lastmod>2023-01-05T08:05:54.789Z</lastmod>
+    <loc>https://koenderks.github.io/sasr/chap-foundations.html</loc>
+    <lastmod>2023-01-05T09:49:13.274Z</lastmod>
   </url>
   <url>
-    <loc>https://koenderks.github.io/sasr/chap-info.html</loc>
-    <lastmod>2023-01-05T08:05:54.793Z</lastmod>
+    <loc>https://koenderks.github.io/sasr/chap-inference.html</loc>
+    <lastmod>2023-01-05T09:49:13.278Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/part-workflow.html</loc>
-    <lastmod>2023-01-05T08:05:54.793Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.278Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-planning.html</loc>
-    <lastmod>2023-01-05T08:05:54.813Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.302Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-selection.html</loc>
-    <lastmod>2023-01-05T08:05:54.821Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.314Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-evaluation.html</loc>
-    <lastmod>2023-01-05T08:05:54.825Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.318Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-stratified-evaluation.html</loc>
-    <lastmod>2023-01-05T08:05:54.829Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.322Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/part-software.html</loc>
-    <lastmod>2023-01-05T08:05:54.829Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.326Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-jasp.html</loc>
-    <lastmod>2023-01-05T08:05:54.833Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.326Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/chap-packages.html</loc>
-    <lastmod>2023-01-05T08:05:54.833Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.330Z</lastmod>
   </url>
   <url>
     <loc>https://koenderks.github.io/sasr/references.html</loc>
-    <lastmod>2023-01-05T08:05:54.833Z</lastmod>
+    <lastmod>2023-01-05T09:49:13.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://koenderks.github.io/sasr/tutorial.html</loc>
+    <lastmod>2023-01-05T09:49:13.334Z</lastmod>
   </url>
 </urlset>
