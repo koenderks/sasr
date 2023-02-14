@@ -39,19 +39,19 @@ book:
 
     - introduction.qmd
 
-    - part: part-basics.qmd
+    - part: The Basics
       chapters:
       - chap-foundations.qmd
       - chap-inference.qmd
 
-    - part: part-workflow.qmd
+    - part: Workflow
       chapters:
       - chap-planning.qmd
       - chap-selection.qmd
       - chap-evaluation.qmd
       - chap-stratified-evaluation.qmd
 
-    - part: part-software.qmd
+    - part: Software
       chapters:
       - chap-jasp.qmd
       - chap-packages.qmd
@@ -71,3 +71,20 @@ format:
     theme:
       - cosmo
       - sasr.scss
+  pdf:
+    include-in-header: 
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+    documentclass: scrbook
+    keep-tex: true
+    papersize: letter
+    classoption: [12pt,twoside, openright]
+    pagestyle: headings
+    geometry:
+      - heightrounded
+    fontfamily: libertinus
+    toc-title: Contents
+    toc-depth: 2
+    toc: true
+    number-sections: true
