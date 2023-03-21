@@ -91,7 +91,7 @@ Let's consider an example. Suppose that, in their audit guide, an audit firm ass
 - Medium: 60%
 - Low: 50%
 
-If an auditor is working with an audit risk of 5%, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:
+If an auditor is working with an audit risk of 5 percent, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:
 
 \begin{equation}
   \frac{0.05}{0.6 \times 0.6} = 0.139
