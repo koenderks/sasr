@@ -52,81 +52,81 @@ plot(eval)
 
 ## Bayesian Evaluation
 
-In classical inference, we use confidence intervals to quantify the uncertainty of our estimate. In Bayesian inference, we use credible intervals for this purpose. To do Bayesian inference, we need to specify a prior distribution, which is our best guess about what the misstatement might look like before we actually collect any data. Then, we combine this prior with the information from our sample to get a posterior distribution.
+Classical inference involves using confidence intervals to measure the uncertainty of our estimate, while in Bayesian inference, we use credible intervals for this purpose. To perform Bayesian inference, we start by specifying a prior distribution, which specifies our prior knowledge about the misstatement in the population before collecting any data. We then combine this prior with the information obtained from our sample to obtain a posterior distribution.
 
 We can use this posterior distribution to estimate the most likely misstatement in the population and the range of values that we are 95 percent confident the true value lies within. The classical confidence interval is often misinterpreted as a Bayesian credible interval. That is, a Bayesian 95 percent credible interval can be intuitively interpreted as: *"There is a 95 percent probability that the misstatement falls within the credible interval"*.
 
-For example, if we have a uniform *beta(1, 1)* prior, sample of 100 units and we find that one contains a misstatement, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can calculate that there is a 95 percent probability that the true misstatement rate is between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results is due to the uniform beta(1, 1) prior distribution. Classical results can be emulated by constructing a prior with `method = "strict"` in the `auditPrior()` function. Remember that any call to `evaluation()` can be done in a Bayesian way by specifying a prior distribution. Hence, the only difference between the call for a classical analysis and the call for a Bayesian analysis is the use of a `prior` constructed via a call to `auditPrior()`.
+For instance, suppose we have a uniform *beta(1, 1)* prior, a sample of 100 units, and we discover one with a misstatement. In that case, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can determine that there is a 95 percent probability that the true misstatement rate falls between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform *beta(1, 1)* prior distribution. To achieve classical results, we can create a prior with `method="strict"` using the `auditPrior()` function. Remember that any call to `evaluation()` can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the `prior` constructed through a call to `auditPrior()`.
 
 ```{r}
-prior <- auditPrior(materiality = 0.05, method = "default", likelihood = "binomial")
+prior <- auditPrior(method = "default", likelihood = "binomial")
 eval <- evaluation(x = 1, n = 100, prior = prior)
 eval
 ```
 
-The posterior distribution with the most likely misstatement and credible interval can be visualized with the `plot()` function.
+You can use the `plot()` function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.
 
 ```{r}
 plot(eval)
 ```
 
-Classical inference relies on *p*-values to assess the strength of evidence against the hypothesis of intolerable misstatement, while Bayesian inference uses the Bayes factor to measure evidence in support or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing uses the Bayes factor, either $BF_{10}$ or $BF_{01}$, to draw conclusions about the evidence provided by the sample in favor of one of the two hypotheses, $H_1$ or $H_0$. 
+To determine the strength of evidence against the hypothesis of intolerable misstatement, classical inference relies on *p*-values, while Bayesian inference uses the Bayes factor to measure evidence in support of or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing employs the Bayes factor, either $BF_{10}$ or $BF_{01}$, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, $H_1$ or $H_0$.
 
-The Bayes factor is an intuitive measure of statistical evidence that allows auditors to interpret the likelihood of the data occurring under either hypothesis. For example, if the value of $BF_{10}$ is 10 (as outputted by the `evaluation()` function), it means that the data are 10 times more likely to have arisen under $H_1$ than under $H_0$. A Bayes factor $BF_{10}$ greater than 1 indicates evidence for $H_1$ and against $H_0$, while a Bayes factor $BF_{10}$ less than 1 indicates evidence for $H_0$ and against $H_1$. The `evaluation()` function returns $BF_{10}$ by default, but $BF_{01}$ can be computed as the inverse of $BF_{10}$ (i.e., $\frac{1}{BF_{10}}$).
+The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the `evaluation()` function outputs a value of 10 for $BF_{10}$, it means that the data are ten times more likely to have arisen under $H_1$ than under $H_0$. A Bayes factor $BF_{10}$ greater than 1 suggests evidence for $H_1$ and against $H_0$, while a Bayes factor $BF_{10}$ less than 1 suggests evidence for $H_0$ and against $H_1$. Although the `evaluation()` function returns $BF_{10}$ by default, one can compute $BF_{01}$ as the inverse of $BF_{10}$ (i.e., $\frac{1}{BF_{10}}$).
 
-Let's take the example of an auditor who wants to verify whether a population contains less than 5 percent misstatement, which corresponds to the hypotheses $H_1:\theta<0.05$ and $H_0:\theta\geq0.05$. The auditor has taken a sample of 100 items, and only one was found to contain a misstatement. Assuming a default *beta(1,1)* prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The `materiality = 0.05` argument specifies the materiality for this audit.
+To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses $H_1:\theta<0.03$ and $H_0:\theta\geq0.03$. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default *beta(1,1)* prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The `materiality = 0.03` argument specifies the materiality for this audit.
 
 ```{r}
-evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
+evaluation(materiality = 0.03, x = 1, n = 100, prior = prior)
 ```
 
-The Bayes factor for this case is $BF_{10}=515$, indicating that the sample data is 515 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of material misstatement. To calculate this Bayes factor, we use the prior distribution and the posterior distribution. The Bayes factor is defined as the change from prior-to-posterior odds. To begin, we calculate the prior probability of the hypothesis of tolerable misstatement under the *beta(1,1)* prior distribution.
+In this case, the Bayes factor is $BF_{10}=137.65$, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the *beta(1,1)* prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.
 
 ```{r}
-prior.prob.h1 <- pbeta(0.05, shape1 = 1, shape2 = 1)
+prior.prob.h1 <- pbeta(0.03, shape1 = 1, shape2 = 1)
 prior.prob.h1
 ```
 
-The probability of intolerable misstatement hypothesis is the complement of the probability of tolerable misstatement hypothesis. To put it simply, it is just one minus the prior probability of the hypothesis of tolerable misstatement.
+The probability of the hypothesis of intolerable misstatement is essentially the opposite of the probability of the hypothesis of tolerable misstatement. To clarify, it is just one minus the prior probability of the hypothesis of tolerable misstatement.
 
 ```{r}
 prior.prob.h0 <- 1 - prior.prob.h1
 prior.prob.h0
 ```
 
-The prior odds is defined as the ratio of the prior probabilities.
+We use the prior probabilities to calculate the prior odds, which is the ratio of the prior probabilities.
 
 ```{r}
 prior.odds.h1 <- prior.prob.h1 / prior.prob.h0
 prior.odds.h1
 ```
 
-To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution. Additionally, we can obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting the posterior probability of tolerable misstatement from one. Finally, the ratio of the posterior probabilities is known as the posterior odds.
+To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution and essentially follow the same steps. Hence, we calculate the posterior probability for the hypothesis of tolerable misstatement, then obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting this probability from one. Finally, the posterior odds are calculated as the ratio of the posterior probabilities
 
 ```{r}
-post.prob.h1 <- pbeta(0.05, shape1 = 1 + 1, shape2 = 1 + 100 - 1)
+post.prob.h1 <- pbeta(0.03, shape1 = 1 + 1, shape2 = 1 + 100 - 1)
 post.prob.h0 <- 1 - post.prob.h1
 post.odds.h1 <- post.prob.h1 / post.prob.h0
 post.odds.h1
 ```
 
-The Bayes factor can be computed as the ratio of posterior odds and prior odds and equals 515.86.
+Finally, the Bayes factor can be computed as the ratio of the posterior odds and the prior odds.
 
 ```{r}
 bf10 <- post.odds.h1 / prior.odds.h1
 bf10
 ```
 
-It is worth noting that this Bayes factor is remarkably high, considering the limited data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution of the parameters in the statistical model (in this case, $\theta$). Typically, when the prior distribution is very conservative, as is the case with the *beta(1, 1)* prior created with `method = 'default'`, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this dependence, you can use a prior distribution that is impartial towards the hypotheses by using `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
+It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for $\theta$. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the *beta(1, 1)* prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
 
 ```{r}
-prior <- auditPrior(materiality = 0.05, method = "impartial", likelihood = "binomial")
-evaluation(materiality = 0.05, x = 1, n = 100, prior = prior)
+prior <- auditPrior(materiality = 0.03, method = "impartial", likelihood = "binomial")
+evaluation(materiality = 0.03, x = 1, n = 100, prior = prior)
 ```
 
-The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}=47$, which strongly supports $H_1$. This hypothesis suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides convincing evidence that the population does not contain a material misstatement.
+The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}=7.77$, which moderately supports $H_1$. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.
 
-## Using a Data Set
+## Using Data
 
 Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the `evaluation()` function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.
 
@@ -137,7 +137,7 @@ data(allowances)
 head(allowances)
 ```
 
-When evaluating an audit sample using a data set, it is necessary to specify the `data`, `values`, and `values.audit` arguments in the function. The input for these arguments should be the name of the relevant column in `data`. The call below evaluates the `allowances` sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.
+When evaluating an audit sample using a data set, it is necessary to specify the `data`, `values`, and `values.audit` arguments in the `evaluation()` function. The input for these arguments should be the name of the relevant column in `data`. For example, the call below evaluates the `allowances` sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.
 
 ```{r}
 x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", times = "times")
@@ -146,7 +146,7 @@ summary(x)
 
 ## Exercises
 
-1. Evaluate a sample of $n = 30$ items containing $k = 2$ misstatement. Use the classical approach.
+1. Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
 
 <details>
 <summary>Click to reveal answer</summary>
