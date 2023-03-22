@@ -13,10 +13,8 @@ Depends:
     R (>= 3.5.0)
 Imports:
     MUS,
-    jfa,
+    jfa (>= 0.6.5),
     randomForest,
     rmarkdown,
     samplingbook,
     sessioninfo
-Remotes:
-    koenderks/jfa
