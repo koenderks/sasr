@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # Planning {#chap-planning}
 
 One of the key considerations in audit sampling is determining the appropriate sample size to reduce the sampling risk to an appropriately low level, while minimizing audit effort. To quantify the sampling risk, it is necessary to specify the statistical model that connects the data to the population misstatement, referred to as the likelihood. This chapter will delve into three standard likelihoods commonly employed in audit sampling: the hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.

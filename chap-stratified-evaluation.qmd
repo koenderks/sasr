@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # Stratified Evaluation {#chap-stratified-evaluation}
 
 In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the population. This means that there is a hierarchical structure in the data (strata are nested in the population) and the statistical model should ideally reflect this.

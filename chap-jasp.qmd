@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # JASP for Audit {#chap-jasp}
 
 JASP [@JASP], an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam. It is intended to be user-friendly and familiar to those who have experience with SPSS. A significant feature of JASP is that it provides most standard statistical analysis procedures in both their classical and Bayesian forms. The program can be downloaded freely from their website [https://jasp-stats.org](https://jasp-stats.org). The software is translated into various languages.

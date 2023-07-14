@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # Selection {#chap-selection}
 
 Auditors must often evaluate balances or populations that include a large quantity of items. As it is not possible to individually examine all of these items, they must select a subset, or sample, from the total population to make a statement about a specific characteristic of the population. Several selection methodologies, which are widely accepted in the audit context, are available for this purpose. This chapter discusses the most frequently used sampling methodology for audit sampling and demonstrates how to select a sample using these methods in R.

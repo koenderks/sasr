@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # Foundations of Auditing {#chap-foundations}
 
 Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.

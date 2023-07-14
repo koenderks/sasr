@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # Evaluation {#chap-evaluation}
 
 In statistical audit sampling, the evaluation of the sample is the crucial last step in the process. Here, the auditor assesses the audit evidence collected from the sample and blends it with the evidence gathered in earlier stages of the audit. The outcome of this evaluation forms the auditor's overall opinion of the population being audited.

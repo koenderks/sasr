@@ -2,12 +2,6 @@
 source("utils.R", local = TRUE)
 ```
 
-::: {.content-visible when-format="html"}
-   ::: {.callout-note appearance="simple"}
-   You are reading the work-in-progress first edition of Statistical Auditing with R. This chapter is currently a dumping ground of ideas, and it is incomplete.
-   :::
-:::
-
 # R Packages {#chap-packages}
 
 This chapter discusses other R packages that implement statistical techniques for audit sampling. Such information may be useful for auditors who wish to explore alternative approaches or simply want to confirm the results obtained through the use of the **jfa** package. By exploring these other packages, auditors can gain a greater understanding of the various options available for audit sample planning, selection and evaluation.
