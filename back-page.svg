@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="180mm"
+   height="254mm"
+   viewBox="0 0 180 254"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   sodipodi:docname="back-page.svg"
+   inkscape:export-filename="back-page.pdf"
+   inkscape:export-xdpi="25.4"
+   inkscape:export-ydpi="25.4"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.24353581"
+     inkscape:cx="180.67158"
+     inkscape:cy="546.12092"
+     inkscape:window-width="1512"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="177.51939"
+       y="1434.244"
+       width="1580.7679"
+       height="766.43292"
+       id="rect823" />
+    <rect
+       x="208.51485"
+       y="1487.7816"
+       width="1527.2303"
+       height="690.35321"
+       id="rect655" />
+    <rect
+       x="1388.8802"
+       y="2292.6038"
+       width="442.34885"
+       height="147.44962"
+       id="rect113" />
+    <rect
+       x="1388.8802"
+       y="2292.6038"
+       width="442.34885"
+       height="147.44962"
+       id="rect113-5" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#e3e3d8;fill-opacity:1;stroke:none;stroke-width:0.0934819"
+       id="rect6077"
+       width="180"
+       height="254"
+       x="2.8421709e-14"
+       y="0"
+       ry="0" />
+    <rect
+       style="fill:#d40000;stroke-width:0.022576"
+       id="rect329-5"
+       width="162"
+       height="3.8719511"
+       x="9"
+       y="0" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.09525,0.10244537)"
+       id="text653"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.333px;font-family:Papyrus;-inkscape-font-specification:Papyrus;white-space:pre;shape-inside:url(#rect655);display:inline;fill:#d40000" />
+  </g>
+</svg>

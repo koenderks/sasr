@@ -18,8 +18,8 @@ book:
   page-footer:
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
-  cover-image: cover.svg
-  favicon: cover.png
+  cover-image: front-page.svg
+  favicon: front-page.png
   site-url: https://koenderks.github.io/sasr/
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
@@ -29,7 +29,7 @@ book:
   page-navigation: true
   reader-mode: false
   twitter-card:
-    image: "cover.svg"
+    image: "front-page.svg"
   search:
     limit: 20
     collapse-after: 2
@@ -71,18 +71,38 @@ format:
     theme:
       - cosmo
       - sasr.scss
+
   pdf:
     include-in-header: 
       text: |
         \usepackage{fvextra}
         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+          \usepackage{tikz}
+          \renewcommand{\frontmatter}{%
+              \thispagestyle{empty}%
+              \begin{tikzpicture}[remember picture,overlay]
+              \node at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{front-page.pdf}};
+              \end{tikzpicture}%
+          }
+          \renewcommand{\backmatter}{%
+              \thispagestyle{empty}%
+              \begin{tikzpicture}[remember picture,overlay]
+              \node at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{back-page.pdf}};
+              \end{tikzpicture}%
+          }
     documentclass: scrbook
-    keep-tex: true
-    papersize: letter
-    classoption: [12pt,twoside, openright]
+    keep-tex: false
+    classoption: [10pt,twoside]
     pagestyle: headings
     geometry:
-      - heightrounded
+      - twoside
+      - left = 25mm
+      - right = 25mm
+      - bottom = 19.05mm
+      - top = 12.7mm
+      - paperwidth = 180mm
+      - paperheight = 254mm
+      - includefoot
     fontfamily: libertinus
     toc-title: Contents
     toc-depth: 2

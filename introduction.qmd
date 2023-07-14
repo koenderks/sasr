@@ -85,8 +85,10 @@ There are two primary distinctions between the use of a console and the presenta
 
 An online version of this book is available at [https://koenderks.github.io/sasr/](https://koenderks.github.io/sasr/). The source of the book is available at [https://github.com/koenderks/sasr](https://github.com/koenderks/sasr). The book is built with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
 
+::: {.content-visible when-format="html"}
 This book was built with:
 
 ```{r}
 sessioninfo::session_info()
 ```
+:::
