@@ -1370,15 +1370,15 @@ Note
 <section id="audit-risk-model-1" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="audit-risk-model-1"><span class="header-section-number">4.6.1</span> Audit Risk Model</h3>
 <p>In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let’s say an auditor is performing an audit on a company’s accounts payable transactions. The company has a total of <span class="math inline">\(N\)</span> = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to <span class="math inline">\(\theta_{max}\)</span> = 3 percent, and the audit risk is set to <span class="math inline">\(\alpha = 0.05\)</span>, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-70_45e4462ab178524fc0a765e68824b456">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>ar          <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># Audit risk</span></span>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-70_8394b564f41d2182cff6bed4da2e9ec0">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>ar <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># Audit risk</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.03</span> <span class="co"># Performance materiality</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>expected    <span class="ot">&lt;-</span> <span class="fl">0.01</span> <span class="co"># Tolerable deviation rate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.01</span> <span class="co"># Tolerable deviation rate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Before tests of details, the auditor has assessed risk of material misstatement via the audit risk model. In this example, the auditor has assessed the effectiveness of the company’s internal controls, such as its segregation of duties and its risk management processes, and has determined that they are sufficient to prevent or detect material misstatements. Because the internal control systems were effective, the auditor assesses the control risk as medium. The auditor’s firm defines the risk categories low, medium, and high respectively as 50 percent, 60 percent, and 100 percent. According to the Audit Risk Model, the detection risk can be calculated as a function of the audit risk, the inherent risk and the control risk.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-71_dd09e491b122555f58e3dae69db7554f">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span>              <span class="co"># Inherent risk</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span>            <span class="co"># Control risk</span></span>
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-71_69476954f0605dbf09b4b394c6ee3d59">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Inherent risk</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># Control risk</span></span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> ar <span class="sc">/</span> (ir <span class="sc">*</span> cr) <span class="co"># Detection risk</span></span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>dr</span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.08333333</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1457,7 +1457,7 @@ Note
 <div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-78_2888d046d6255c4c71f6ac55baa5a1b1">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>C_real <span class="ot">&lt;-</span> <span class="dv">223994405</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-79_e69134c81e0d6a2a78695626f4ec9838">
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-79_b536c5815f80239c0fe41e1191298076">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1500,7 +1500,7 @@ Note
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 219817866</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The fitted regression line and the predicted cost of sales (red dot) are visualized in the figure below:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-82_9b286f909c5f54b3ca002c790ddbcc99">
+<div class="cell" data-layout-align="center" data-hash="chap-planning_cache/html/unnamed-chunk-82_2d688c954943c87b10f1c3155b95ca2d">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2904,16 +2904,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb105-871"><a href="#cb105-871" aria-hidden="true" tabindex="-1"></a>In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of $N$ = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 3 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.</span>
 <span id="cb105-872"><a href="#cb105-872" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb105-875"><a href="#cb105-875" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-876"><a href="#cb105-876" aria-hidden="true" tabindex="-1"></a>ar          <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># Audit risk</span></span>
+<span id="cb105-876"><a href="#cb105-876" aria-hidden="true" tabindex="-1"></a>ar <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="co"># Audit risk</span></span>
 <span id="cb105-877"><a href="#cb105-877" aria-hidden="true" tabindex="-1"></a>materiality <span class="ot">&lt;-</span> <span class="fl">0.03</span> <span class="co"># Performance materiality</span></span>
-<span id="cb105-878"><a href="#cb105-878" aria-hidden="true" tabindex="-1"></a>expected    <span class="ot">&lt;-</span> <span class="fl">0.01</span> <span class="co"># Tolerable deviation rate</span></span>
+<span id="cb105-878"><a href="#cb105-878" aria-hidden="true" tabindex="-1"></a>expected <span class="ot">&lt;-</span> <span class="fl">0.01</span> <span class="co"># Tolerable deviation rate</span></span>
 <span id="cb105-879"><a href="#cb105-879" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb105-880"><a href="#cb105-880" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb105-881"><a href="#cb105-881" aria-hidden="true" tabindex="-1"></a>Before tests of details, the auditor has assessed risk of material misstatement via the audit risk model. In this example, the auditor has assessed the effectiveness of the company's internal controls, such as its segregation of duties and its risk management processes, and has determined that they are sufficient to prevent or detect material misstatements. Because the internal control systems were effective, the auditor assesses the control risk as medium. The auditor's firm defines the risk categories low, medium, and high respectively as 50 percent, 60 percent, and 100 percent. According to the Audit Risk Model, the detection risk can be calculated as a function of the audit risk, the inherent risk and the control risk.</span>
 <span id="cb105-882"><a href="#cb105-882" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb105-885"><a href="#cb105-885" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-886"><a href="#cb105-886" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span>              <span class="co"># Inherent risk</span></span>
-<span id="cb105-887"><a href="#cb105-887" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span>            <span class="co"># Control risk</span></span>
+<span id="cb105-886"><a href="#cb105-886" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Inherent risk</span></span>
+<span id="cb105-887"><a href="#cb105-887" aria-hidden="true" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="co"># Control risk</span></span>
 <span id="cb105-888"><a href="#cb105-888" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> ar <span class="sc">/</span> (ir <span class="sc">*</span> cr) <span class="co"># Detection risk</span></span>
 <span id="cb105-889"><a href="#cb105-889" aria-hidden="true" tabindex="-1"></a>dr</span>
 <span id="cb105-890"><a href="#cb105-890" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -2970,266 +2970,282 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb105-955"><a href="#cb105-955" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"$"</span>, <span class="fu">format</span>(breaks <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>), <span class="st">"M"</span>)</span>
 <span id="cb105-956"><a href="#cb105-956" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> benchmark, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sales, <span class="at">y =</span> costofsales)) <span class="sc">+</span></span>
 <span id="cb105-957"><a href="#cb105-957" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"darkgray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb105-958"><a href="#cb105-958" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_real), <span class="at">shape =</span> <span class="dv">21</span>,</span>
-<span id="cb105-959"><a href="#cb105-959" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
-<span id="cb105-960"><a href="#cb105-960" aria-hidden="true" tabindex="-1"></a>             <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb105-961"><a href="#cb105-961" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Sales"</span>, <span class="at">breaks =</span> breaks,</span>
-<span id="cb105-962"><a href="#cb105-962" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels) <span class="sc">+</span></span>
-<span id="cb105-963"><a href="#cb105-963" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Cost of sales"</span>, <span class="at">breaks =</span> breaks,</span>
-<span id="cb105-964"><a href="#cb105-964" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels) <span class="sc">+</span></span>
-<span id="cb105-965"><a href="#cb105-965" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xend =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">y =</span> <span class="fu">min</span>(breaks), <span class="at">yend =</span> <span class="fu">max</span>(breaks)) <span class="sc">+</span></span>
-<span id="cb105-966"><a href="#cb105-966" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">min</span>(breaks), <span class="at">xend =</span> <span class="fu">max</span>(breaks), <span class="at">y =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="cn">Inf</span>)</span>
-<span id="cb105-967"><a href="#cb105-967" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> jfa<span class="sc">:::</span><span class="fu">.theme_jfa</span>(p)</span>
-<span id="cb105-968"><a href="#cb105-968" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb105-969"><a href="#cb105-969" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-970"><a href="#cb105-970" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-971"><a href="#cb105-971" aria-hidden="true" tabindex="-1"></a>The relationship between the sales $S$ and the cost of sales $C$ can be modelled by a linear equation:</span>
-<span id="cb105-972"><a href="#cb105-972" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-973"><a href="#cb105-973" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
-<span id="cb105-974"><a href="#cb105-974" aria-hidden="true" tabindex="-1"></a>  C = \beta_0 + \beta_1 \cdot S + \epsilon.</span>
-<span id="cb105-975"><a href="#cb105-975" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
+<span id="cb105-958"><a href="#cb105-958" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb105-959"><a href="#cb105-959" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_real), <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb105-960"><a href="#cb105-960" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb105-961"><a href="#cb105-961" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb105-962"><a href="#cb105-962" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-963"><a href="#cb105-963" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb105-964"><a href="#cb105-964" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Sales"</span>, <span class="at">breaks =</span> breaks,</span>
+<span id="cb105-965"><a href="#cb105-965" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels</span>
+<span id="cb105-966"><a href="#cb105-966" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-967"><a href="#cb105-967" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb105-968"><a href="#cb105-968" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Cost of sales"</span>, <span class="at">breaks =</span> breaks,</span>
+<span id="cb105-969"><a href="#cb105-969" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels</span>
+<span id="cb105-970"><a href="#cb105-970" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-971"><a href="#cb105-971" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xend =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">y =</span> <span class="fu">min</span>(breaks), <span class="at">yend =</span> <span class="fu">max</span>(breaks)) <span class="sc">+</span></span>
+<span id="cb105-972"><a href="#cb105-972" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">min</span>(breaks), <span class="at">xend =</span> <span class="fu">max</span>(breaks), <span class="at">y =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="cn">Inf</span>)</span>
+<span id="cb105-973"><a href="#cb105-973" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> jfa<span class="sc">:::</span><span class="fu">.theme_jfa</span>(p)</span>
+<span id="cb105-974"><a href="#cb105-974" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb105-975"><a href="#cb105-975" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb105-976"><a href="#cb105-976" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-977"><a href="#cb105-977" aria-hidden="true" tabindex="-1"></a>In practice, this relationship is often more complex than is presented above, and the auditor must carefully construct and evaluate the applied regression model. However, for ease of understanding we will continue our example with this toy model. The auditor can estimate the regression model using the following command:</span>
+<span id="cb105-977"><a href="#cb105-977" aria-hidden="true" tabindex="-1"></a>The relationship between the sales $S$ and the cost of sales $C$ can be modelled by a linear equation:</span>
 <span id="cb105-978"><a href="#cb105-978" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-981"><a href="#cb105-981" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-982"><a href="#cb105-982" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(costofsales <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> sales, <span class="at">data =</span> benchmark)</span>
-<span id="cb105-983"><a href="#cb105-983" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
-<span id="cb105-984"><a href="#cb105-984" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-985"><a href="#cb105-985" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-986"><a href="#cb105-986" aria-hidden="true" tabindex="-1"></a>The predicted cost of sales for the auditee, based on the industry benchmark, can be computed as follows:</span>
-<span id="cb105-987"><a href="#cb105-987" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-990"><a href="#cb105-990" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-991"><a href="#cb105-991" aria-hidden="true" tabindex="-1"></a>C_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">sales =</span> <span class="dv">298112312</span>), <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.90</span>)[<span class="dv">1</span>]</span>
-<span id="cb105-992"><a href="#cb105-992" aria-hidden="true" tabindex="-1"></a>C_pred</span>
-<span id="cb105-993"><a href="#cb105-993" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-994"><a href="#cb105-994" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-995"><a href="#cb105-995" aria-hidden="true" tabindex="-1"></a>The fitted regression line and the predicted cost of sales (red dot) are visualized in the figure below:</span>
-<span id="cb105-996"><a href="#cb105-996" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-997"><a href="#cb105-997" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}</span></span>
-<span id="cb105-998"><a href="#cb105-998" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">pretty</span>(<span class="fu">c</span>(benchmark<span class="sc">$</span>sales, benchmark<span class="sc">$</span>costofsales))</span>
-<span id="cb105-999"><a href="#cb105-999" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"$"</span>, <span class="fu">format</span>(breaks <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>), <span class="st">"M"</span>)</span>
-<span id="cb105-1000"><a href="#cb105-1000" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> benchmark, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sales, <span class="at">y =</span> costofsales)) <span class="sc">+</span></span>
-<span id="cb105-1001"><a href="#cb105-1001" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb105-1002"><a href="#cb105-1002" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb105-1003"><a href="#cb105-1003" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"darkgray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb105-1004"><a href="#cb105-1004" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_real), <span class="at">shape =</span> <span class="dv">21</span>,</span>
-<span id="cb105-1005"><a href="#cb105-1005" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
-<span id="cb105-1006"><a href="#cb105-1006" aria-hidden="true" tabindex="-1"></a>             <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb105-1007"><a href="#cb105-1007" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_pred), <span class="at">shape =</span> <span class="dv">21</span>,</span>
-<span id="cb105-1008"><a href="#cb105-1008" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
-<span id="cb105-1009"><a href="#cb105-1009" aria-hidden="true" tabindex="-1"></a>             <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb105-1010"><a href="#cb105-1010" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Sales"</span>, <span class="at">breaks =</span> breaks,</span>
-<span id="cb105-1011"><a href="#cb105-1011" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels) <span class="sc">+</span></span>
-<span id="cb105-1012"><a href="#cb105-1012" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Cost of sales"</span>, <span class="at">breaks =</span> breaks,</span>
-<span id="cb105-1013"><a href="#cb105-1013" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels) <span class="sc">+</span></span>
-<span id="cb105-1014"><a href="#cb105-1014" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xend =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">y =</span> <span class="fu">min</span>(breaks), <span class="at">yend =</span> <span class="fu">max</span>(breaks)) <span class="sc">+</span></span>
-<span id="cb105-1015"><a href="#cb105-1015" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">min</span>(breaks), <span class="at">xend =</span> <span class="fu">max</span>(breaks), <span class="at">y =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="cn">Inf</span>)</span>
-<span id="cb105-1016"><a href="#cb105-1016" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> jfa<span class="sc">:::</span><span class="fu">.theme_jfa</span>(p)</span>
-<span id="cb105-1017"><a href="#cb105-1017" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb105-1018"><a href="#cb105-1018" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1019"><a href="#cb105-1019" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1020"><a href="#cb105-1020" aria-hidden="true" tabindex="-1"></a>The prior distribution can be justified by the data and the auditee's numerical prediction of the cost of sales. In this analytical procedure, the prior distribution on $\theta$ can utilize the relative error distribution from the linear regression. This relative error distribution, which is a Normal($\mu$, $\sigma$) distribution, captures the uncertainty of the prediction of the cost of sales through the use of linear regression, scaled to be a percentage of the total cost of sales. The mean $\mu$ of the prior distribution is determined by the relative deviation of the auditee's booked cost of sales when compared to the predicted cost of sales according to the benchmark data $\frac{C - \hat{C}}{C}$.</span>
-<span id="cb105-1021"><a href="#cb105-1021" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1024"><a href="#cb105-1024" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1025"><a href="#cb105-1025" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> (C_real <span class="sc">-</span> C_pred) <span class="sc">/</span> C_real</span>
-<span id="cb105-1026"><a href="#cb105-1026" aria-hidden="true" tabindex="-1"></a>mu</span>
-<span id="cb105-1027"><a href="#cb105-1027" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1028"><a href="#cb105-1028" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1029"><a href="#cb105-1029" aria-hidden="true" tabindex="-1"></a>The standard deviation of the prior distribution is expressed through the standard deviation of the distribution of $\epsilon$:</span>
-<span id="cb105-1030"><a href="#cb105-1030" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1033"><a href="#cb105-1033" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1034"><a href="#cb105-1034" aria-hidden="true" tabindex="-1"></a>stdev <span class="ot">&lt;-</span> <span class="fu">sd</span>(fit<span class="sc">$</span>residuals) <span class="sc">/</span> C_real</span>
-<span id="cb105-1035"><a href="#cb105-1035" aria-hidden="true" tabindex="-1"></a>stdev</span>
-<span id="cb105-1036"><a href="#cb105-1036" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-979"><a href="#cb105-979" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
+<span id="cb105-980"><a href="#cb105-980" aria-hidden="true" tabindex="-1"></a>  C = \beta_0 + \beta_1 \cdot S + \epsilon.</span>
+<span id="cb105-981"><a href="#cb105-981" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
+<span id="cb105-982"><a href="#cb105-982" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-983"><a href="#cb105-983" aria-hidden="true" tabindex="-1"></a>In practice, this relationship is often more complex than is presented above, and the auditor must carefully construct and evaluate the applied regression model. However, for ease of understanding we will continue our example with this toy model. The auditor can estimate the regression model using the following command:</span>
+<span id="cb105-984"><a href="#cb105-984" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-987"><a href="#cb105-987" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-988"><a href="#cb105-988" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(costofsales <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> sales, <span class="at">data =</span> benchmark)</span>
+<span id="cb105-989"><a href="#cb105-989" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb105-990"><a href="#cb105-990" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-991"><a href="#cb105-991" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-992"><a href="#cb105-992" aria-hidden="true" tabindex="-1"></a>The predicted cost of sales for the auditee, based on the industry benchmark, can be computed as follows:</span>
+<span id="cb105-993"><a href="#cb105-993" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-996"><a href="#cb105-996" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-997"><a href="#cb105-997" aria-hidden="true" tabindex="-1"></a>C_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">sales =</span> <span class="dv">298112312</span>), <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.90</span>)[<span class="dv">1</span>]</span>
+<span id="cb105-998"><a href="#cb105-998" aria-hidden="true" tabindex="-1"></a>C_pred</span>
+<span id="cb105-999"><a href="#cb105-999" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1000"><a href="#cb105-1000" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1001"><a href="#cb105-1001" aria-hidden="true" tabindex="-1"></a>The fitted regression line and the predicted cost of sales (red dot) are visualized in the figure below:</span>
+<span id="cb105-1002"><a href="#cb105-1002" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1003"><a href="#cb105-1003" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}</span></span>
+<span id="cb105-1004"><a href="#cb105-1004" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">pretty</span>(<span class="fu">c</span>(benchmark<span class="sc">$</span>sales, benchmark<span class="sc">$</span>costofsales))</span>
+<span id="cb105-1005"><a href="#cb105-1005" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"$"</span>, <span class="fu">format</span>(breaks <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>), <span class="st">"M"</span>)</span>
+<span id="cb105-1006"><a href="#cb105-1006" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> benchmark, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sales, <span class="at">y =</span> costofsales)) <span class="sc">+</span></span>
+<span id="cb105-1007"><a href="#cb105-1007" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb105-1008"><a href="#cb105-1008" aria-hidden="true" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb105-1009"><a href="#cb105-1009" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
+<span id="cb105-1010"><a href="#cb105-1010" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-1011"><a href="#cb105-1011" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"darkgray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb105-1012"><a href="#cb105-1012" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb105-1013"><a href="#cb105-1013" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_real), <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb105-1014"><a href="#cb105-1014" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb105-1015"><a href="#cb105-1015" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb105-1016"><a href="#cb105-1016" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-1017"><a href="#cb105-1017" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb105-1018"><a href="#cb105-1018" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">298112312</span>, <span class="at">y =</span> C_pred), <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb105-1019"><a href="#cb105-1019" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb105-1020"><a href="#cb105-1020" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb105-1021"><a href="#cb105-1021" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-1022"><a href="#cb105-1022" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb105-1023"><a href="#cb105-1023" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Sales"</span>, <span class="at">breaks =</span> breaks,</span>
+<span id="cb105-1024"><a href="#cb105-1024" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels</span>
+<span id="cb105-1025"><a href="#cb105-1025" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-1026"><a href="#cb105-1026" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb105-1027"><a href="#cb105-1027" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Cost of sales"</span>, <span class="at">breaks =</span> breaks,</span>
+<span id="cb105-1028"><a href="#cb105-1028" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">range</span>(breaks), <span class="at">labels =</span> labels</span>
+<span id="cb105-1029"><a href="#cb105-1029" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb105-1030"><a href="#cb105-1030" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xend =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">y =</span> <span class="fu">min</span>(breaks), <span class="at">yend =</span> <span class="fu">max</span>(breaks)) <span class="sc">+</span></span>
+<span id="cb105-1031"><a href="#cb105-1031" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">min</span>(breaks), <span class="at">xend =</span> <span class="fu">max</span>(breaks), <span class="at">y =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="cn">Inf</span>)</span>
+<span id="cb105-1032"><a href="#cb105-1032" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> jfa<span class="sc">:::</span><span class="fu">.theme_jfa</span>(p)</span>
+<span id="cb105-1033"><a href="#cb105-1033" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb105-1034"><a href="#cb105-1034" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1035"><a href="#cb105-1035" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1036"><a href="#cb105-1036" aria-hidden="true" tabindex="-1"></a>The prior distribution can be justified by the data and the auditee's numerical prediction of the cost of sales. In this analytical procedure, the prior distribution on $\theta$ can utilize the relative error distribution from the linear regression. This relative error distribution, which is a Normal($\mu$, $\sigma$) distribution, captures the uncertainty of the prediction of the cost of sales through the use of linear regression, scaled to be a percentage of the total cost of sales. The mean $\mu$ of the prior distribution is determined by the relative deviation of the auditee's booked cost of sales when compared to the predicted cost of sales according to the benchmark data $\frac{C - \hat{C}}{C}$.</span>
 <span id="cb105-1037"><a href="#cb105-1037" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1038"><a href="#cb105-1038" aria-hidden="true" tabindex="-1"></a>The Normal(0.019, 0.05) prior distribution can be constructed through a call to <span class="in">`auditPrior()`</span>, where the likelihood of the prior is specified as <span class="in">`normal`</span>. We call the function with <span class="in">`method = "param"`</span> to manually specify the parameters of the prior distribution.</span>
-<span id="cb105-1039"><a href="#cb105-1039" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1042"><a href="#cb105-1042" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1043"><a href="#cb105-1043" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"param"</span>, <span class="at">likelihood =</span> <span class="st">"normal"</span>, <span class="at">alpha =</span> mu, <span class="at">beta =</span> stdev)</span>
-<span id="cb105-1044"><a href="#cb105-1044" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(prior)</span>
-<span id="cb105-1045"><a href="#cb105-1045" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1040"><a href="#cb105-1040" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1041"><a href="#cb105-1041" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> (C_real <span class="sc">-</span> C_pred) <span class="sc">/</span> C_real</span>
+<span id="cb105-1042"><a href="#cb105-1042" aria-hidden="true" tabindex="-1"></a>mu</span>
+<span id="cb105-1043"><a href="#cb105-1043" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1044"><a href="#cb105-1044" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1045"><a href="#cb105-1045" aria-hidden="true" tabindex="-1"></a>The standard deviation of the prior distribution is expressed through the standard deviation of the distribution of $\epsilon$:</span>
 <span id="cb105-1046"><a href="#cb105-1046" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1047"><a href="#cb105-1047" aria-hidden="true" tabindex="-1"></a>The specified prior distribution can be visualized using the <span class="in">`plot()`</span> function.</span>
-<span id="cb105-1048"><a href="#cb105-1048" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1051"><a href="#cb105-1051" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1052"><a href="#cb105-1052" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
-<span id="cb105-1053"><a href="#cb105-1053" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1054"><a href="#cb105-1054" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1055"><a href="#cb105-1055" aria-hidden="true" tabindex="-1"></a>The performance materiality for this example is set to $\theta_{max}$ = 5 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. By using this prior distribution, the required minimum sample size is 50.</span>
-<span id="cb105-1056"><a href="#cb105-1056" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1059"><a href="#cb105-1059" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1060"><a href="#cb105-1060" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb105-1061"><a href="#cb105-1061" aria-hidden="true" tabindex="-1"></a>plan</span>
-<span id="cb105-1062"><a href="#cb105-1062" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1063"><a href="#cb105-1063" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1064"><a href="#cb105-1064" aria-hidden="true" tabindex="-1"></a>You can inspect how the prior distribution compares to the expected posterior distribution by using the <span class="in">`plot()`</span> function.</span>
-<span id="cb105-1065"><a href="#cb105-1065" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1068"><a href="#cb105-1068" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1069"><a href="#cb105-1069" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
-<span id="cb105-1070"><a href="#cb105-1070" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1071"><a href="#cb105-1071" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1072"><a href="#cb105-1072" aria-hidden="true" tabindex="-1"></a>By using a frequentist approach, the required minimum sample size is 50. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.</span>
-<span id="cb105-1073"><a href="#cb105-1073" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1076"><a href="#cb105-1076" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1077"><a href="#cb105-1077" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb105-1078"><a href="#cb105-1078" aria-hidden="true" tabindex="-1"></a>plan</span>
-<span id="cb105-1079"><a href="#cb105-1079" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1080"><a href="#cb105-1080" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1081"><a href="#cb105-1081" aria-hidden="true" tabindex="-1"></a><span class="fu">### Predictive Modeling</span></span>
-<span id="cb105-1082"><a href="#cb105-1082" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1083"><a href="#cb105-1083" aria-hidden="true" tabindex="-1"></a>As a final example, we consider an example wehre the auditor incorporates information about the probability of misstatement obtained through a predictive analysis into the prior distribution for $\theta$. In this example, the auditor is conducting an audit on a long-term client that they have been working with for fifteen years. Hence, the auditor has access to a historycal data set called <span class="in">`history`</span>, which contains the samples from all of the previous audits that have been conducted on this auditee over the past fifteen years.</span>
-<span id="cb105-1084"><a href="#cb105-1084" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1087"><a href="#cb105-1087" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1088"><a href="#cb105-1088" aria-hidden="true" tabindex="-1"></a>history <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://github.com/koenderks/sasr/raw/master/data/ch3_history.csv"</span>, <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"factor"</span>, <span class="st">"numeric"</span>, <span class="st">"numeric"</span>))</span>
-<span id="cb105-1089"><a href="#cb105-1089" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(history)</span>
-<span id="cb105-1090"><a href="#cb105-1090" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1091"><a href="#cb105-1091" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1092"><a href="#cb105-1092" aria-hidden="true" tabindex="-1"></a>It should be noted that for all historical sample items, there are three known characteristics: whether they contained a misstatement (designated as <span class="in">`k`</span>), the number of full-time equivalent employees (FTEs) who had access to that item within the internal computer systems of the auditee (designated as <span class="in">`ftes`</span>), and the number of days that the item was outstanding (designated as <span class="in">`days`</span>). Additionally, the <span class="in">`ftes`</span> and <span class="in">`days`</span> characteristics are also known for all items in the current year's population. Of course, it is unknown if any misstatements exist within the population of the current year.</span>
-<span id="cb105-1093"><a href="#cb105-1093" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1096"><a href="#cb105-1096" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1097"><a href="#cb105-1097" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://github.com/koenderks/sasr/raw/master/data/ch3_population.csv"</span>)</span>
-<span id="cb105-1098"><a href="#cb105-1098" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(population)</span>
-<span id="cb105-1099"><a href="#cb105-1099" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1049"><a href="#cb105-1049" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1050"><a href="#cb105-1050" aria-hidden="true" tabindex="-1"></a>stdev <span class="ot">&lt;-</span> <span class="fu">sd</span>(fit<span class="sc">$</span>residuals) <span class="sc">/</span> C_real</span>
+<span id="cb105-1051"><a href="#cb105-1051" aria-hidden="true" tabindex="-1"></a>stdev</span>
+<span id="cb105-1052"><a href="#cb105-1052" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1053"><a href="#cb105-1053" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1054"><a href="#cb105-1054" aria-hidden="true" tabindex="-1"></a>The Normal(0.019, 0.05) prior distribution can be constructed through a call to <span class="in">`auditPrior()`</span>, where the likelihood of the prior is specified as <span class="in">`normal`</span>. We call the function with <span class="in">`method = "param"`</span> to manually specify the parameters of the prior distribution.</span>
+<span id="cb105-1055"><a href="#cb105-1055" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1058"><a href="#cb105-1058" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1059"><a href="#cb105-1059" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"param"</span>, <span class="at">likelihood =</span> <span class="st">"normal"</span>, <span class="at">alpha =</span> mu, <span class="at">beta =</span> stdev)</span>
+<span id="cb105-1060"><a href="#cb105-1060" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(prior)</span>
+<span id="cb105-1061"><a href="#cb105-1061" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1062"><a href="#cb105-1062" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1063"><a href="#cb105-1063" aria-hidden="true" tabindex="-1"></a>The specified prior distribution can be visualized using the <span class="in">`plot()`</span> function.</span>
+<span id="cb105-1064"><a href="#cb105-1064" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1067"><a href="#cb105-1067" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1068"><a href="#cb105-1068" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
+<span id="cb105-1069"><a href="#cb105-1069" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1070"><a href="#cb105-1070" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1071"><a href="#cb105-1071" aria-hidden="true" tabindex="-1"></a>The performance materiality for this example is set to $\theta_{max}$ = 5 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. By using this prior distribution, the required minimum sample size is 50.</span>
+<span id="cb105-1072"><a href="#cb105-1072" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1075"><a href="#cb105-1075" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1076"><a href="#cb105-1076" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb105-1077"><a href="#cb105-1077" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb105-1078"><a href="#cb105-1078" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1079"><a href="#cb105-1079" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1080"><a href="#cb105-1080" aria-hidden="true" tabindex="-1"></a>You can inspect how the prior distribution compares to the expected posterior distribution by using the <span class="in">`plot()`</span> function.</span>
+<span id="cb105-1081"><a href="#cb105-1081" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1084"><a href="#cb105-1084" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1085"><a href="#cb105-1085" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
+<span id="cb105-1086"><a href="#cb105-1086" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1087"><a href="#cb105-1087" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1088"><a href="#cb105-1088" aria-hidden="true" tabindex="-1"></a>By using a frequentist approach, the required minimum sample size is 50. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.</span>
+<span id="cb105-1089"><a href="#cb105-1089" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1092"><a href="#cb105-1092" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1093"><a href="#cb105-1093" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb105-1094"><a href="#cb105-1094" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb105-1095"><a href="#cb105-1095" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1096"><a href="#cb105-1096" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1097"><a href="#cb105-1097" aria-hidden="true" tabindex="-1"></a><span class="fu">### Predictive Modeling</span></span>
+<span id="cb105-1098"><a href="#cb105-1098" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1099"><a href="#cb105-1099" aria-hidden="true" tabindex="-1"></a>As a final example, we consider an example wehre the auditor incorporates information about the probability of misstatement obtained through a predictive analysis into the prior distribution for $\theta$. In this example, the auditor is conducting an audit on a long-term client that they have been working with for fifteen years. Hence, the auditor has access to a historycal data set called <span class="in">`history`</span>, which contains the samples from all of the previous audits that have been conducted on this auditee over the past fifteen years.</span>
 <span id="cb105-1100"><a href="#cb105-1100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1101"><a href="#cb105-1101" aria-hidden="true" tabindex="-1"></a>The objective of this analytical procedure is to forecast potential misstatements within the population of the current year. In order for the information obtained through this procedure to serve as prior knowledge in a Bayesian analysis, the procedure must yield a distribution of the probability of misstatement. Therefore, the auditor employs a machine learning technique known as Random Forest <span class="co">[</span><span class="ot">@Hastie2009</span><span class="co">]</span> to learn the relationship between misstatements, the number of full-time equivalent employees, and the number of outstanding days in the historical data set.</span>
-<span id="cb105-1102"><a href="#cb105-1102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1105"><a href="#cb105-1105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1106"><a href="#cb105-1106" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb105-1107"><a href="#cb105-1107" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> ftes <span class="sc">+</span> days, <span class="at">data =</span> history)</span>
-<span id="cb105-1108"><a href="#cb105-1108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1103"><a href="#cb105-1103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1104"><a href="#cb105-1104" aria-hidden="true" tabindex="-1"></a>history <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://github.com/koenderks/sasr/raw/master/data/ch3_history.csv"</span>, <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"factor"</span>, <span class="st">"numeric"</span>, <span class="st">"numeric"</span>))</span>
+<span id="cb105-1105"><a href="#cb105-1105" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(history)</span>
+<span id="cb105-1106"><a href="#cb105-1106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1107"><a href="#cb105-1107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1108"><a href="#cb105-1108" aria-hidden="true" tabindex="-1"></a>It should be noted that for all historical sample items, there are three known characteristics: whether they contained a misstatement (designated as <span class="in">`k`</span>), the number of full-time equivalent employees (FTEs) who had access to that item within the internal computer systems of the auditee (designated as <span class="in">`ftes`</span>), and the number of days that the item was outstanding (designated as <span class="in">`days`</span>). Additionally, the <span class="in">`ftes`</span> and <span class="in">`days`</span> characteristics are also known for all items in the current year's population. Of course, it is unknown if any misstatements exist within the population of the current year.</span>
 <span id="cb105-1109"><a href="#cb105-1109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1110"><a href="#cb105-1110" aria-hidden="true" tabindex="-1"></a>The auditor specifically uses the random forest technique due to its ability to provide a distribution of the misstatement probabilities. The probabilistic predictions for the unseen misstatements in the <span class="in">`population`</span> data can be obtained by calling the <span class="in">`predict()`</span> function with the argument <span class="in">`type = "prob"`</span>.</span>
-<span id="cb105-1111"><a href="#cb105-1111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1114"><a href="#cb105-1114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1115"><a href="#cb105-1115" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> fit, <span class="at">newdata =</span> population, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
-<span id="cb105-1116"><a href="#cb105-1116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1117"><a href="#cb105-1117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1118"><a href="#cb105-1118" aria-hidden="true" tabindex="-1"></a>These predictions come in a probabilistic format, which means that for each item in the population of the current year there is a predicted probability that that item is misstated. These probabilities are stored in the second column of the <span class="in">`predictions`</span> data frame.</span>
-<span id="cb105-1119"><a href="#cb105-1119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1122"><a href="#cb105-1122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1123"><a href="#cb105-1123" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(predictions)</span>
+<span id="cb105-1112"><a href="#cb105-1112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1113"><a href="#cb105-1113" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://github.com/koenderks/sasr/raw/master/data/ch3_population.csv"</span>)</span>
+<span id="cb105-1114"><a href="#cb105-1114" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(population)</span>
+<span id="cb105-1115"><a href="#cb105-1115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1116"><a href="#cb105-1116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1117"><a href="#cb105-1117" aria-hidden="true" tabindex="-1"></a>The objective of this analytical procedure is to forecast potential misstatements within the population of the current year. In order for the information obtained through this procedure to serve as prior knowledge in a Bayesian analysis, the procedure must yield a distribution of the probability of misstatement. Therefore, the auditor employs a machine learning technique known as Random Forest <span class="co">[</span><span class="ot">@Hastie2009</span><span class="co">]</span> to learn the relationship between misstatements, the number of full-time equivalent employees, and the number of outstanding days in the historical data set.</span>
+<span id="cb105-1118"><a href="#cb105-1118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1121"><a href="#cb105-1121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1122"><a href="#cb105-1122" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb105-1123"><a href="#cb105-1123" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> randomForest<span class="sc">::</span><span class="fu">randomForest</span>(<span class="at">formula =</span> k <span class="sc">~</span> ftes <span class="sc">+</span> days, <span class="at">data =</span> history)</span>
 <span id="cb105-1124"><a href="#cb105-1124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb105-1125"><a href="#cb105-1125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1126"><a href="#cb105-1126" aria-hidden="true" tabindex="-1"></a>The prior distribution for $\theta$ will be based on the distribution of probabilities that each item in the population is misstated. In contrast to the previous example, this distribution is not a parametric distribution, which means we are unable to utilize any parametric priors from **jfa**. However, by providing samples of the prior distribution, **jfa** is able to construct a nonparametric prior distribution internally via the density of the samples.</span>
+<span id="cb105-1126"><a href="#cb105-1126" aria-hidden="true" tabindex="-1"></a>The auditor specifically uses the random forest technique due to its ability to provide a distribution of the misstatement probabilities. The probabilistic predictions for the unseen misstatements in the <span class="in">`population`</span> data can be obtained by calling the <span class="in">`predict()`</span> function with the argument <span class="in">`type = "prob"`</span>.</span>
 <span id="cb105-1127"><a href="#cb105-1127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1128"><a href="#cb105-1128" aria-hidden="true" tabindex="-1"></a>The nonparametric prior distribution can be constructed through a call to <span class="in">`auditPrior()`</span>, where the method to construct of the prior is specified as <span class="in">`nonparam`</span>. The samples of the prior distribution can be provided through the <span class="in">`samples`</span> argument. We use the second column of the the <span class="in">`predictions`</span> object for this.</span>
-<span id="cb105-1129"><a href="#cb105-1129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1132"><a href="#cb105-1132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1133"><a href="#cb105-1133" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"nonparam"</span>, <span class="at">samples =</span> predictions[, <span class="dv">2</span>])</span>
-<span id="cb105-1134"><a href="#cb105-1134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1130"><a href="#cb105-1130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1131"><a href="#cb105-1131" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> fit, <span class="at">newdata =</span> population, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
+<span id="cb105-1132"><a href="#cb105-1132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1133"><a href="#cb105-1133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1134"><a href="#cb105-1134" aria-hidden="true" tabindex="-1"></a>These predictions come in a probabilistic format, which means that for each item in the population of the current year there is a predicted probability that that item is misstated. These probabilities are stored in the second column of the <span class="in">`predictions`</span> data frame.</span>
 <span id="cb105-1135"><a href="#cb105-1135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1136"><a href="#cb105-1136" aria-hidden="true" tabindex="-1"></a>The nonparametric prior distribution can be visualized using the <span class="in">`plot()`</span> function.</span>
-<span id="cb105-1137"><a href="#cb105-1137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1140"><a href="#cb105-1140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1141"><a href="#cb105-1141" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
-<span id="cb105-1142"><a href="#cb105-1142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1138"><a href="#cb105-1138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1139"><a href="#cb105-1139" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(predictions)</span>
+<span id="cb105-1140"><a href="#cb105-1140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1141"><a href="#cb105-1141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1142"><a href="#cb105-1142" aria-hidden="true" tabindex="-1"></a>The prior distribution for $\theta$ will be based on the distribution of probabilities that each item in the population is misstated. In contrast to the previous example, this distribution is not a parametric distribution, which means we are unable to utilize any parametric priors from **jfa**. However, by providing samples of the prior distribution, **jfa** is able to construct a nonparametric prior distribution internally via the density of the samples.</span>
 <span id="cb105-1143"><a href="#cb105-1143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1144"><a href="#cb105-1144" aria-hidden="true" tabindex="-1"></a>The performance materiality for this example is set to $\theta_{max}$ = 1 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. The minimum sample size can be calculated with the command below and is 108.</span>
+<span id="cb105-1144"><a href="#cb105-1144" aria-hidden="true" tabindex="-1"></a>The nonparametric prior distribution can be constructed through a call to <span class="in">`auditPrior()`</span>, where the method to construct of the prior is specified as <span class="in">`nonparam`</span>. The samples of the prior distribution can be provided through the <span class="in">`samples`</span> argument. We use the second column of the the <span class="in">`predictions`</span> object for this.</span>
 <span id="cb105-1145"><a href="#cb105-1145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb105-1148"><a href="#cb105-1148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1149"><a href="#cb105-1149" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.01</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb105-1150"><a href="#cb105-1150" aria-hidden="true" tabindex="-1"></a>plan</span>
-<span id="cb105-1151"><a href="#cb105-1151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1152"><a href="#cb105-1152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1153"><a href="#cb105-1153" aria-hidden="true" tabindex="-1"></a>You can inspect how the prior distribution compares to the expected posterior distribution by using the <span class="in">`plot()`</span> function.</span>
-<span id="cb105-1154"><a href="#cb105-1154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1157"><a href="#cb105-1157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1158"><a href="#cb105-1158" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
-<span id="cb105-1159"><a href="#cb105-1159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1160"><a href="#cb105-1160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1161"><a href="#cb105-1161" aria-hidden="true" tabindex="-1"></a>By using a frequentist approach, the required minimum sample size is 299. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 299 - 108 = 191 items.</span>
-<span id="cb105-1162"><a href="#cb105-1162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1165"><a href="#cb105-1165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1166"><a href="#cb105-1166" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.01</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb105-1167"><a href="#cb105-1167" aria-hidden="true" tabindex="-1"></a>plan</span>
-<span id="cb105-1168"><a href="#cb105-1168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1169"><a href="#cb105-1169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1170"><a href="#cb105-1170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
-<span id="cb105-1171"><a href="#cb105-1171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1172"><a href="#cb105-1172" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.</span>
-<span id="cb105-1173"><a href="#cb105-1173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1174"><a href="#cb105-1174" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1175"><a href="#cb105-1175" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1178"><a href="#cb105-1178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1179"><a href="#cb105-1179" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">100</span>)</span>
-<span id="cb105-1180"><a href="#cb105-1180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1181"><a href="#cb105-1181" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1182"><a href="#cb105-1182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1183"><a href="#cb105-1183" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
-<span id="cb105-1184"><a href="#cb105-1184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1185"><a href="#cb105-1185" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1186"><a href="#cb105-1186" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1189"><a href="#cb105-1189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1190"><a href="#cb105-1190" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">100</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb105-1191"><a href="#cb105-1191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1192"><a href="#cb105-1192" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1193"><a href="#cb105-1193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1194"><a href="#cb105-1194" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.</span>
-<span id="cb105-1195"><a href="#cb105-1195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1196"><a href="#cb105-1196" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1197"><a href="#cb105-1197" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1200"><a href="#cb105-1200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1201"><a href="#cb105-1201" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.044</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">expected =</span> <span class="dv">1</span>)</span>
-<span id="cb105-1202"><a href="#cb105-1202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1203"><a href="#cb105-1203" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1204"><a href="#cb105-1204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1205"><a href="#cb105-1205" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
-<span id="cb105-1206"><a href="#cb105-1206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1207"><a href="#cb105-1207" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1208"><a href="#cb105-1208" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1211"><a href="#cb105-1211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1212"><a href="#cb105-1212" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.044</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb105-1213"><a href="#cb105-1213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1214"><a href="#cb105-1214" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1215"><a href="#cb105-1215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1216"><a href="#cb105-1216" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.</span>
-<span id="cb105-1217"><a href="#cb105-1217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1218"><a href="#cb105-1218" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1219"><a href="#cb105-1219" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1222"><a href="#cb105-1222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1223"><a href="#cb105-1223" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="fl">0.005</span>)</span>
-<span id="cb105-1224"><a href="#cb105-1224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1225"><a href="#cb105-1225" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1226"><a href="#cb105-1226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1227"><a href="#cb105-1227" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
-<span id="cb105-1228"><a href="#cb105-1228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1229"><a href="#cb105-1229" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1230"><a href="#cb105-1230" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1233"><a href="#cb105-1233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1234"><a href="#cb105-1234" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="fl">0.005</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb105-1235"><a href="#cb105-1235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1236"><a href="#cb105-1236" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1237"><a href="#cb105-1237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1238"><a href="#cb105-1238" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80$. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.</span>
-<span id="cb105-1239"><a href="#cb105-1239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1240"><a href="#cb105-1240" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1241"><a href="#cb105-1241" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1244"><a href="#cb105-1244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1245"><a href="#cb105-1245" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="sc">/</span> (<span class="fl">0.5</span> <span class="sc">*</span> <span class="fl">0.8</span>)</span>
-<span id="cb105-1246"><a href="#cb105-1246" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="dv">1</span> <span class="sc">-</span> dr)</span>
-<span id="cb105-1247"><a href="#cb105-1247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1248"><a href="#cb105-1248" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1249"><a href="#cb105-1249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1250"><a href="#cb105-1250" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.</span>
-<span id="cb105-1251"><a href="#cb105-1251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1252"><a href="#cb105-1252" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1253"><a href="#cb105-1253" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1256"><a href="#cb105-1256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1257"><a href="#cb105-1257" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"arm"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">ir =</span> <span class="fl">0.5</span>, <span class="at">cr =</span> <span class="fl">0.8</span>)</span>
-<span id="cb105-1258"><a href="#cb105-1258" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
-<span id="cb105-1259"><a href="#cb105-1259" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb105-1260"><a href="#cb105-1260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1261"><a href="#cb105-1261" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb105-1262"><a href="#cb105-1262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1263"><a href="#cb105-1263" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.</span>
-<span id="cb105-1264"><a href="#cb105-1264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-1265"><a href="#cb105-1265" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb105-1266"><a href="#cb105-1266" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb105-1269"><a href="#cb105-1269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb105-1270"><a href="#cb105-1270" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">materiality =</span> <span class="fl">0.05</span>)</span>
-<span id="cb105-1271"><a href="#cb105-1271" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
-<span id="cb105-1272"><a href="#cb105-1272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb105-1273"><a href="#cb105-1273" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1149"><a href="#cb105-1149" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"nonparam"</span>, <span class="at">samples =</span> predictions[, <span class="dv">2</span>])</span>
+<span id="cb105-1150"><a href="#cb105-1150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1151"><a href="#cb105-1151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1152"><a href="#cb105-1152" aria-hidden="true" tabindex="-1"></a>The nonparametric prior distribution can be visualized using the <span class="in">`plot()`</span> function.</span>
+<span id="cb105-1153"><a href="#cb105-1153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1156"><a href="#cb105-1156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1157"><a href="#cb105-1157" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
+<span id="cb105-1158"><a href="#cb105-1158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1159"><a href="#cb105-1159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1160"><a href="#cb105-1160" aria-hidden="true" tabindex="-1"></a>The performance materiality for this example is set to $\theta_{max}$ = 1 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. The minimum sample size can be calculated with the command below and is 108.</span>
+<span id="cb105-1161"><a href="#cb105-1161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1164"><a href="#cb105-1164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1165"><a href="#cb105-1165" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.01</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb105-1166"><a href="#cb105-1166" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb105-1167"><a href="#cb105-1167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1168"><a href="#cb105-1168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1169"><a href="#cb105-1169" aria-hidden="true" tabindex="-1"></a>You can inspect how the prior distribution compares to the expected posterior distribution by using the <span class="in">`plot()`</span> function.</span>
+<span id="cb105-1170"><a href="#cb105-1170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1173"><a href="#cb105-1173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1174"><a href="#cb105-1174" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
+<span id="cb105-1175"><a href="#cb105-1175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1176"><a href="#cb105-1176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1177"><a href="#cb105-1177" aria-hidden="true" tabindex="-1"></a>By using a frequentist approach, the required minimum sample size is 299. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 299 - 108 = 191 items.</span>
+<span id="cb105-1178"><a href="#cb105-1178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1181"><a href="#cb105-1181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1182"><a href="#cb105-1182" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.01</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb105-1183"><a href="#cb105-1183" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb105-1184"><a href="#cb105-1184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1185"><a href="#cb105-1185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1186"><a href="#cb105-1186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb105-1187"><a href="#cb105-1187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1188"><a href="#cb105-1188" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.</span>
+<span id="cb105-1189"><a href="#cb105-1189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1190"><a href="#cb105-1190" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1191"><a href="#cb105-1191" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1194"><a href="#cb105-1194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1195"><a href="#cb105-1195" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">100</span>)</span>
+<span id="cb105-1196"><a href="#cb105-1196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1197"><a href="#cb105-1197" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1198"><a href="#cb105-1198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1199"><a href="#cb105-1199" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
+<span id="cb105-1200"><a href="#cb105-1200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1201"><a href="#cb105-1201" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1202"><a href="#cb105-1202" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1205"><a href="#cb105-1205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1206"><a href="#cb105-1206" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">likelihood =</span> <span class="st">"hypergeometric"</span>, <span class="at">N.units =</span> <span class="dv">100</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb105-1207"><a href="#cb105-1207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1208"><a href="#cb105-1208" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1209"><a href="#cb105-1209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1210"><a href="#cb105-1210" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.</span>
+<span id="cb105-1211"><a href="#cb105-1211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1212"><a href="#cb105-1212" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1213"><a href="#cb105-1213" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1216"><a href="#cb105-1216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1217"><a href="#cb105-1217" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.044</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">expected =</span> <span class="dv">1</span>)</span>
+<span id="cb105-1218"><a href="#cb105-1218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1219"><a href="#cb105-1219" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1220"><a href="#cb105-1220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1221"><a href="#cb105-1221" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
+<span id="cb105-1222"><a href="#cb105-1222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1223"><a href="#cb105-1223" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1224"><a href="#cb105-1224" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1227"><a href="#cb105-1227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1228"><a href="#cb105-1228" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.044</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">expected =</span> <span class="dv">1</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb105-1229"><a href="#cb105-1229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1230"><a href="#cb105-1230" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1231"><a href="#cb105-1231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1232"><a href="#cb105-1232" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.</span>
+<span id="cb105-1233"><a href="#cb105-1233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1234"><a href="#cb105-1234" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1235"><a href="#cb105-1235" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1238"><a href="#cb105-1238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1239"><a href="#cb105-1239" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="fl">0.005</span>)</span>
+<span id="cb105-1240"><a href="#cb105-1240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1241"><a href="#cb105-1241" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1242"><a href="#cb105-1242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1243"><a href="#cb105-1243" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Recompute the previous sample size with the Bayesian approach using a default prior.</span>
+<span id="cb105-1244"><a href="#cb105-1244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1245"><a href="#cb105-1245" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1246"><a href="#cb105-1246" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1249"><a href="#cb105-1249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1250"><a href="#cb105-1250" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.02</span>, <span class="at">expected =</span> <span class="fl">0.005</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb105-1251"><a href="#cb105-1251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1252"><a href="#cb105-1252" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1253"><a href="#cb105-1253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1254"><a href="#cb105-1254" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80$. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.</span>
+<span id="cb105-1255"><a href="#cb105-1255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1256"><a href="#cb105-1256" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1257"><a href="#cb105-1257" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1260"><a href="#cb105-1260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1261"><a href="#cb105-1261" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="sc">/</span> (<span class="fl">0.5</span> <span class="sc">*</span> <span class="fl">0.8</span>)</span>
+<span id="cb105-1262"><a href="#cb105-1262" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">conf.level =</span> <span class="dv">1</span> <span class="sc">-</span> dr)</span>
+<span id="cb105-1263"><a href="#cb105-1263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1264"><a href="#cb105-1264" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1265"><a href="#cb105-1265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1266"><a href="#cb105-1266" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.</span>
+<span id="cb105-1267"><a href="#cb105-1267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1268"><a href="#cb105-1268" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1269"><a href="#cb105-1269" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1272"><a href="#cb105-1272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1273"><a href="#cb105-1273" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"arm"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">ir =</span> <span class="fl">0.5</span>, <span class="at">cr =</span> <span class="fl">0.8</span>)</span>
+<span id="cb105-1274"><a href="#cb105-1274" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
+<span id="cb105-1275"><a href="#cb105-1275" aria-hidden="true" tabindex="-1"></a><span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb105-1276"><a href="#cb105-1276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1277"><a href="#cb105-1277" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb105-1278"><a href="#cb105-1278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1279"><a href="#cb105-1279" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.</span>
+<span id="cb105-1280"><a href="#cb105-1280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-1281"><a href="#cb105-1281" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb105-1282"><a href="#cb105-1282" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb105-1285"><a href="#cb105-1285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb105-1286"><a href="#cb105-1286" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">materiality =</span> <span class="fl">0.05</span>)</span>
+<span id="cb105-1287"><a href="#cb105-1287" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prior)</span>
+<span id="cb105-1288"><a href="#cb105-1288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb105-1289"><a href="#cb105-1289" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

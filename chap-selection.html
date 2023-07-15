@@ -415,9 +415,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> plan, <span class="at">units =</span> <span class="st">"items"</span>, <span class="at">method =</span> <span class="st">"random"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The ability of one function to accept input from another function allows for the implementation of a workflow in which the <code>planning()</code> function and the <code>selection()</code> function are sequentially linked. Additionally, the use of R’s native pipe operator <code>|&gt;</code> further simplifies this process.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-7_97dcb37bca809e6d02be6edcea563b1e">
+<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-7_1d2c50b8203a529f91cd38ea89a5f8ad">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">units =</span> <span class="st">"items"</span>, <span class="at">method =</span> <span class="st">"random"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">units =</span> <span class="st">"items"</span>, <span class="at">method =</span> <span class="st">"random"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1239,7 +1239,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-102"><a href="#cb36-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-105"><a href="#cb36-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb36-106"><a href="#cb36-106" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">planning</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>) <span class="sc">|&gt;</span></span>
-<span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">units =</span> <span class="st">"items"</span>, <span class="at">method =</span> <span class="st">"random"</span>)</span>
+<span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">units =</span> <span class="st">"items"</span>, <span class="at">method =</span> <span class="st">"random"</span>)</span>
 <span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-109"><a href="#cb36-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-110"><a href="#cb36-110" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
