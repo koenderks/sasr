@@ -27,7 +27,7 @@ No pooling (`pooling = "none"`, default) assumes no similarities between strata.
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
-result_np <- evaluation( materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "none")
+result_np <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "none")
 summary(result_np)
 ```
 
@@ -74,7 +74,7 @@ The call below evaluates the sample using a Bayesian stratified evaluation proce
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
-result_pp <- evaluation( materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "partial")
+result_pp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "partial")
 summary(result_pp)
 ```
 

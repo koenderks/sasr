@@ -92,7 +92,7 @@ The ability of one function to accept input from another function allows for the
 
 ```{r}
 result <- planning(materiality = 0.03) |>
-            selection(data = BuildIt, units = "items", method = "random")
+  selection(data = BuildIt, units = "items", method = "random")
 ```
 
 ::: {.callout-tip}

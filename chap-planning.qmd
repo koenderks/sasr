@@ -739,16 +739,16 @@ This section contains practical examples of how to conduct the planning of stati
 In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of $N$ = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 3 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.
 
 ```{r}
-ar          <- 0.05 # Audit risk
+ar <- 0.05 # Audit risk
 materiality <- 0.03 # Performance materiality
-expected    <- 0.01 # Tolerable deviation rate
+expected <- 0.01 # Tolerable deviation rate
 ```
 
 Before tests of details, the auditor has assessed risk of material misstatement via the audit risk model. In this example, the auditor has assessed the effectiveness of the company's internal controls, such as its segregation of duties and its risk management processes, and has determined that they are sufficient to prevent or detect material misstatements. Because the internal control systems were effective, the auditor assesses the control risk as medium. The auditor's firm defines the risk categories low, medium, and high respectively as 50 percent, 60 percent, and 100 percent. According to the Audit Risk Model, the detection risk can be calculated as a function of the audit risk, the inherent risk and the control risk.
 
 ```{r}
-ir <- 1              # Inherent risk
-cr <- 0.6            # Control risk
+ir <- 1 # Inherent risk
+cr <- 0.6 # Control risk
 dr <- ar / (ir * cr) # Detection risk
 dr
 ```
@@ -805,13 +805,19 @@ breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
   geom_point(shape = 21, fill = "darkgray", size = 2) +
-  geom_point(data = data.frame(x = 298112312, y = C_real), shape = 21,
-             mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
-             inherit.aes = FALSE, show.legend = FALSE) +
-  scale_x_continuous(name = "Sales", breaks = breaks,
-                     limits = range(breaks), labels = labels) +
-  scale_y_continuous(name = "Cost of sales", breaks = breaks,
-                     limits = range(breaks), labels = labels) +
+  geom_point(
+    data = data.frame(x = 298112312, y = C_real), shape = 21,
+    mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
+    inherit.aes = FALSE, show.legend = FALSE
+  ) +
+  scale_x_continuous(
+    name = "Sales", breaks = breaks,
+    limits = range(breaks), labels = labels
+  ) +
+  scale_y_continuous(
+    name = "Cost of sales", breaks = breaks,
+    limits = range(breaks), labels = labels
+  ) +
   geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
   geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)
@@ -844,19 +850,29 @@ The fitted regression line and the predicted cost of sales (red dot) are visuali
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
-  geom_smooth(stat = "smooth", formula = y ~ x, method = "lm",
-              colour = "black", linewidth = 0.5) +
+  geom_smooth(
+    stat = "smooth", formula = y ~ x, method = "lm",
+    colour = "black", linewidth = 0.5
+  ) +
   geom_point(shape = 21, fill = "darkgray", size = 2) +
-  geom_point(data = data.frame(x = 298112312, y = C_real), shape = 21,
-             mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
-             inherit.aes = FALSE, show.legend = FALSE) +
-  geom_point(data = data.frame(x = 298112312, y = C_pred), shape = 21,
-             mapping = aes(x = x, y = y), fill = "firebrick", size = 2.5,
-             inherit.aes = FALSE, show.legend = FALSE) +
-  scale_x_continuous(name = "Sales", breaks = breaks,
-                     limits = range(breaks), labels = labels) +
-  scale_y_continuous(name = "Cost of sales", breaks = breaks,
-                     limits = range(breaks), labels = labels) +
+  geom_point(
+    data = data.frame(x = 298112312, y = C_real), shape = 21,
+    mapping = aes(x = x, y = y), fill = "dodgerblue", size = 2.5,
+    inherit.aes = FALSE, show.legend = FALSE
+  ) +
+  geom_point(
+    data = data.frame(x = 298112312, y = C_pred), shape = 21,
+    mapping = aes(x = x, y = y), fill = "firebrick", size = 2.5,
+    inherit.aes = FALSE, show.legend = FALSE
+  ) +
+  scale_x_continuous(
+    name = "Sales", breaks = breaks,
+    limits = range(breaks), labels = labels
+  ) +
+  scale_y_continuous(
+    name = "Cost of sales", breaks = breaks,
+    limits = range(breaks), labels = labels
+  ) +
   geom_segment(x = -Inf, xend = -Inf, y = min(breaks), yend = max(breaks)) +
   geom_segment(x = min(breaks), xend = max(breaks), y = -Inf, yend = -Inf)
 p <- jfa:::.theme_jfa(p)

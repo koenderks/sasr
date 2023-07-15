@@ -4,7 +4,11 @@ source("utils.R", local = TRUE)
 
 # JASP for Audit {#chap-jasp}
 
-JASP [@JASP], an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam. It is intended to be user-friendly and familiar to those who have experience with SPSS. A significant feature of JASP is that it provides most standard statistical analysis procedures in both their classical and Bayesian forms. The program can be downloaded freely from their website [https://jasp-stats.org](https://jasp-stats.org). The software is translated into various languages.
+JASP [@JASP, @Love2019], an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam. It is intended to be user-friendly and familiar to those who have experience with SPSS. A significant feature of JASP is that it provides most standard statistical analysis procedures in both their classical and Bayesian forms. Furthermore, the software is actively being translated into various languages, including Dutch.
+
+## Downloading JASP
+
+You can freely download JASP from their website [https://jasp-stats.org](https://jasp-stats.org). Simply click on the 'Download JASP' button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.
 
 ![Upon launching JASP, you are presented with the following screen. The icons in the ribbon display a range of statistical analyses. The menu icon located in the top left corner conceals the most crucial user options. The plus icon situated in the top right corner conceals the modules.](img/JASP_welcome.png){fig-align="center"}
 
@@ -90,3 +94,57 @@ Using **jfa**, these statistical results can be reproduced by executing the foll
 prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.03, expected = 0.01, ir = 0.6, cr = 1)
 evaluation(materiality = 0.03, method = "binomial", x = 1, n = 120, prior = prior)
 ```
+
+## Sampling Workflow
+
+This example demonstrates how JASP for Audit simplifies the standard audit sampling workflow, also known as the "audit workflow." Let's consider an instance of the Classical audit workflow involving a fictional construction company called BuildIt, which is being audited by an external auditor from a fictional audit firm.
+
+BuildIt diligently maintains a record of every transaction made in their general ledger throughout the year. The auditor's primary responsibility is to assess the fairness of these general ledger items, specifically to determine whether this population of general ledger items is free of material misstatement. Material misstatement indicates the presence of large enough to potentially impact decisions made based by someone relying on the financial statements. Given that BuildIt is a small company, its general ledger population comprise only 3500 items, each accompanied by a corresponding recorded book value. Before scrutinizing the population in detail, the auditor must evaluate the reliability of BuildIt's internal control systems, which processed these general ledger items, and deems them to be reasonably dependable. Therefore, the auditor determines the control risk to be "medium".
+
+To arrive at a conclusion regarding the accuracy of BuildIt's recorded items, the auditor divides the audit workflow into the four (by now) well-known stages. Firstly, they plans the size of the sample that needs to be examined to make well-founded inferences about the entire population. Secondly, the auditor selects the necessary sampling units from the population. Thirdly, the auditor inspects the selected sample and determines the audit value (true value) of the items it contains. Lastly, the auditor employs the information gathered from the audited sample to draw inferences about the financial statements as a whole.
+
+To initiate this workflow, the auditor begins by importing BuildIt's financial statements into JASP. The dataset containing this information is accessible in JASP through the path: "Open" -> "Data Library" -> "7. Audit" -> "Testing for Overstatements".
+
+### Audit Risk Model
+
+In statistical terms, the auditor aims to make a statement with 95% confidence about the misstatement in the population is lower than the materiality threshold (i.e., the performance materiality). In this example, the performance materiality is set at 1%. Drawing from the previous year's audit at BuildIt, where no misstatements were found, the auditor expects zero misstatements in the sample that will be audited. Consequently, the statistical statement can be rephrased as follows: When zero misstatements are detected in the sample, the auditor can conclude with 95% confidence that the misstatement in the entire population is below the 1% materiality threshold.
+
+Typically, auditors evaluate inherent risk and control risk (sometimes analytical risk is also taken into acocunt as a fourth constituent of audit risk) using a three-point scale consisting of "Low", "Medium", and "High". Different audit firms employ varying standard percentages for these risk categories. JASP for Audit defines the probabilities associated with low, medium, and high as shown in the table below. Since the auditor has conducted testing on BuildIt's computer systems, the control risk assessment is determined to be medium (52%).
+
+| Inherent Risk (IR) | Control Risk (CR) | Analytical Risk (CAR) |
+| ----------------- | ----------------- | -------------------------- |
+|        1          |        1          |            1               |
+|       0.63        |       0.52        |           0.5              |
+|       0.40        |       0.34        |           0.25             |
+
+### Planning
+
+The Sampling Workflow begins with the Planning stage. The auditor enters a performance materiality value of 1% and keeps the confidence level at 95%. To ensure the creation of an annotated report, the Explanatory text option is enabled. Moving on, the auditor selects the variables ID and bookValues and assigns them to their respective fields in the interface. Finally, the control risk assessment is adjusted from High to Medium, and the distribution used (e.g., likelihood) is set to the binomial distribution.
+
+![A snapshot of the planning stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_planning_workflow.png){fig-align="center"}
+
+The default output provides information that if no misstatements are encountered in the sample, the auditor needs to audit 234 items from the population of 3500 items. This sample size will sufficiently reduce the audit risk to conclude that the population does not contain misstatements larger than 1%. The auditor proceeds to the Selection stage by clicking the "To Selection" button located in the bottom-right corner of the interface.
+
+### Selection
+
+The auditor has a variable in the "Book Value" field in the previous stage, which automatically selects the "monetary units" option for sampling units in the Selection stage. By default, the chosen sampling method is "Fixed interval sampling," and a random starting point is applied. However, these settings can be modified in the corresponding section if needed. The default output shows that 234 euros have been selected, distributed over 234 items. The selection has a total value of 114,896.23 euros, which is 8.19% of the total value of the population.
+
+![A snapshot of the selection stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_selection_workflow.png){fig-align="center"}
+
+Upon reviewing the default output, the auditor determines that no adjustments are required in this stage. To proceed to the Execution stage, the auditor clicks the "To Execution" button located in the bottom-right corner of the interface.
+
+### Execution
+
+During the execution phase, the auditor is prompted to provide two column names. The first column, referred to as the "Column name selection result," records the frequency of monetary units selected within a transaction for the sample. The second column, known as the "Column name audit values," allows the auditor to manually enter the audited amounts for the transactions. These column names are automatically populated, but they can be modified based on preference. To input the values for these variables in the dataset, the auditor clicks the "Fill Variables" button. Once clciked, the "Data Entry" section opens, allowing the auditor to input the audit values for the sample. However, if using an example file where the audited amounts are already known, the auditor can proceed directly to the evaluation step without entering the audit values. 
+
+Suppose the auditor finds a single misstatement in the sample. Specifically, item 4 has a recorded value of 431.87 euros and a true value of 200 euros. Hence, it is overstated by 231.87 euros.
+
+### Evaluation
+
+In the Evaluation stage, the column created and filled with the audit values is placed in the Audit Values field within the interface. The inference is automatically conducted based on the selected options from the previous stages. The auditor has the ability to adjust the evaluation method, if applicable, and modify the numerical format of the results using the advanced options. Additionally, tables and plots that provide clear visualization of the statistical outcomes can be requested.
+
+Based on the default output, the auditor discovers that out of the 234 items in the sample, 1 item contained a partial misstatement. This information yields a most likely error of 0.002 (0.23%), with an upper bound of 0.014 (1.37%) at a confidence level of 90.38%. The precision is calculated to be 0.011 (1.1%).
+
+![A snapshot of the evaluation stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_evaluation_workflow.png){fig-align="center"}
+
+Since the 90.38% upper bound on misstatement in BuildIt's financial statements exceeds the performance materiality threshold of 1%, the auditor is unable to conclude that the population as a whole is free from misstatements below 1%. Consequently, the auditor cannot determine that the sampling risk has been sufficiently reduced to conclude that BuildIt's financial statements are free of material misstatement.
