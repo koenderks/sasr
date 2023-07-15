@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.24353581"
-     inkscape:cx="180.67158"
-     inkscape:cy="546.12092"
+     inkscape:zoom="0.75333977"
+     inkscape:cx="363.05"
+     inkscape:cy="508.40274"
      inkscape:window-width="1512"
      inkscape:window-height="834"
      inkscape:window-x="0"
@@ -38,6 +38,30 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs2">
+    <rect
+       x="29.20329"
+       y="691.58701"
+       width="588.04808"
+       height="55.751736"
+       id="rect23087" />
+    <rect
+       x="140.70676"
+       y="807.07275"
+       width="436.72193"
+       height="67.698537"
+       id="rect23079" />
+    <rect
+       x="43.373357"
+       y="55.870765"
+       width="596.19988"
+       height="213.92622"
+       id="rect9095" />
+    <rect
+       x="45.356889"
+       y="62.155737"
+       width="594.67921"
+       height="433.41028"
+       id="rect6905" />
     <rect
        x="177.51939"
        y="1434.244"
@@ -62,6 +86,12 @@
        width="442.34885"
        height="147.44962"
        id="rect113-5" />
+    <rect
+       x="1388.8802"
+       y="2292.6038"
+       width="442.34885"
+       height="147.44962"
+       id="rect113-7" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -87,5 +117,140 @@
        transform="scale(0.09525,0.10244537)"
        id="text653"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.333px;font-family:Papyrus;-inkscape-font-specification:Papyrus;white-space:pre;shape-inside:url(#rect655);display:inline;fill:#d40000" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text6903"
+       style="font-size:13333.3px;font-family:Trattatello;-inkscape-font-specification:Trattatello;text-align:center;white-space:pre;shape-inside:url(#rect6905);display:inline;fill:#110000;stroke-width:15.1181;stroke-linejoin:round"><tspan
+         x="45.357422"
+         y="11877.967"
+         id="tspan23795"><tspan
+           dx="0 9.1340914 6.9205561"
+           style="font-size:13.3333px;font-family:'.New York';-inkscape-font-specification:'.New York'"
+           id="tspan23793">Hoi</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text9093"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.57779px;line-height:1.5;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:start;white-space:pre;shape-inside:url(#rect329-5) url(#rect6077);display:inline;fill:#110000;stroke-width:25.9377;stroke-linejoin:round"
+       x="479.43286"
+       y="19.319323"
+       transform="matrix(0.89883039,0,0,1.0000026,9.1370876,13.853598)"><tspan
+         x="0"
+         y="5.8195367"
+         id="tspan23803"><tspan
+           dx="0 0 0 0 0 1.7394359"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23797">This book, </tspan><tspan
+           dx="1.7394359 0 0 0 0 0 0 0 0 0 0 0 1.7394307 0 0 0 0 0 1.7394345 0 0 0 0 0 0 0 0 1.7394307 0 0 0 0 1.7394307"
+           style="font-weight:bold;text-align:justify"
+           id="tspan23799">Statistical Audit Sampling with R</tspan><tspan
+           dx="0 0 1.7394302 0 0 1.7394302 0 0 0 0 0 0 0 0 1.7394454 0 0 1.7394302"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23801">, is intended as a </tspan></tspan><tspan
+         x="0"
+         y="14.27614"
+         id="tspan23807"><tspan
+           dx="0 0 0 0 0 0 0 0 0 0 1.1307266 0 0 0 0 0 1.1307266 0 0 0 1.1307266 0 0 0 0 0 0 0 0 1.1307266 0 0 0 1.1307266 0 0 0 0 1.1307266 0 0 1.1307266 0 0 0 0 0 0 1.1307266 0 0 0 0 0 0 0 0 0 0 0 1.1307266 0 0 0 0 0 0 1.1307266"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23805">practical guide for auditors who wish to employ probability theory in </tspan></tspan><tspan
+         x="0"
+         y="22.732743"
+         id="tspan23811"><tspan
+           dx="0 0 0 0 0 0 0.19131446 0 0 0 0 0 0.19131541 0 0 0 0 0 0 0 0 0.19131541 0 0 0 0 0 0 0 0 0 0 0 0.1913116 0 0 0 0 0 0.1913116 0 0 0 0.19131923 0 0 0 0 0 0.1913116 0 0 0.1913116 0 0 0 0 0.19131923 0 0 0 0 0.19131923 0 0 0.19130397"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23809">their audit sampling activities. While the focus of this book is exclusively </tspan></tspan><tspan
+         x="0"
+         y="31.189345"
+         id="tspan23815"><tspan
+           dx="0 0 0 0.90278029 0 0 0 0 0 0.90277934 0 0 0 0 0 0 0 0 0 0.90277934 0 0 0.90278316 0 0 0 0 0.90278316 0 0 0.90278316 0 0 0 0 0 0 0 0.90278316 0 0 0 0.90278316 0 0 0 0 0 0.90278316 0 0 0 0 0.90277553 0 0 0 0 0.90277553 0 0 0 0.90277553"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23813">on audit sampling, it aims to discuss the topic from both the classical </tspan></tspan><tspan
+         x="0"
+         y="39.645949"
+         id="tspan23819"><tspan
+           dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13437152 0 0 0 0 0 0 0 0 0 0 0 0.13436961 0 0 0 0.13437343 0 0 0 0.13437343 0 0 0 0 0 0 0 0 0.1343658 0 0 0 0 0 0 0 0 0 0 0 0 0.13437343 0 0 0.13435817 0 0 0 0 0 0 0 0 0 0.13435817"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23817">(frequentist) perspective and the Bayesian perspective. By examining the </tspan></tspan><tspan
+         x="0"
+         y="48.102553"
+         id="tspan23823"><tspan
+           dx="0 0 0 0 0 0 0 0 0.28044009 0 0 0 0 0 0 0 0.280442 0 0 0 0 0 0.280442 0 0 0 0.28043818 0 0 0 0 0 0 0 0.28043818 0 0 0 0.28044581 0 0 0 0 0.28043818 0 0 0 0 0 0 0 0 0.28043818 0 0 0 0.28043056 0 0 0 0 0 0 0 0 0 0 0 0.28044581"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23821">subject through these two lenses, the book explains the statistical theory </tspan></tspan><tspan
+         x="0"
+         y="56.559157"
+         id="tspan23827"><tspan
+           dx="0 0 0 0 0 0 0 1.4270103 0 0 0 0 0 0 0 0 1.4270103 0 0 0 0 1.4270103 0 0 0 0 0 1.4270141 0 0 0 0 0 0 0 0 1.4270065 0 0 0 0 0 0 0 0 0 0 1.4270065 0 0 0 1.4270217"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23825">behind commonly used audit sampling procedures and demonstrates </tspan></tspan><tspan
+         x="0"
+         y="65.015761"
+         id="tspan23831"><tspan
+           dx="0 0 0 0 2.1875713 0 0 2.1875713 0 0 0 0 0 0 0 2.1875732 0 0 0 0 0 2.1875732 0 0 0 0 0 0 0 0 0 0 2.1875656 0 0 2.1875656 0 0 0 0 0 0 0 0 0 0 2.1875808 0 0 0 0 2.1875656"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23829">how to perform these procedures in accordance with international </tspan></tspan><tspan
+         x="0"
+         y="73.472361"
+         id="tspan23835"><tspan
+           dx="0 0 0 0 0 0 0 0 0 1.6522834 0 0 0 0 0 0 0 0 0 0 1.6522796 0 0 0 0 0 1.6522796 0 0 0 1.6522796 0 0 0 1.6522872 0 1.6522796 0 0 0 0 0 0 0 0 1.6522796 0 0 1.6522796 0 1.6522872 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6522872"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23833">auditing standards, using the jfa R package, in a statistically sound </tspan></tspan><tspan
+         x="0"
+         y="81.928965"
+         id="tspan23839"><tspan
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23837">manner.
+</tspan></tspan><tspan
+         x="0"
+         y="90.385569"
+         id="tspan23843"><tspan
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23841">
+</tspan></tspan><tspan
+         x="0"
+         y="98.842173"
+         id="tspan23847"><tspan
+           dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1.2500312 0 0 0 1.2500312 0 0 0 0 1.2500312 0 0 0 0 0 0 1.2500274 0 0 1.2500274 0 1.250035 0 0 0 0 1.250035 0 0 0 0 0 0 1.2500274 0 0 0 1.2500198 0 0 0 1.250035 0 0 0 1.250035 0 0 0 0 1.250035"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23845">Furthermore, the book serves as a user manual for jfa and JASP for </tspan></tspan><tspan
+         x="0"
+         y="107.29878"
+         id="tspan23851"><tspan
+           dx="0 0 0 0 0 0 0 0.07915473 0 0 0 0 0 0.079153776 0 0 0.079155684 0 0.079151869 0 0 0 0 0 0 0.079151869 0 0 0 0.079151869 0 0 0 0.079151869 0 0 0 0 0.079151869 0 0 0 0.079151869 0 0 0 0 0 0 0 0 0 0 0 0.079151869 0 0 0 0 0 0 0 0 0 0 0 0.079151869"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23849">Audit, which is a module for the free and open-source statistical software </tspan></tspan><tspan
+         x="0"
+         y="115.75538"
+         id="tspan23855"><tspan
+           dx="0 0 0 0 0 0 0 0 1.0220573 0 0 0 0 1.0220573 0 0 0 0 1.0220573 0 0 0 0 0 0 0 0 0 0 1.0220535 0 0 0 1.0220611 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0220611 0 0 1.0220535 0 0 0 1.0220535 0 0 0 1.0220687 0 0 0 0 0 0 0 1.0220687"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23853">program JASP that integrates the functionality of the jfa package and </tspan></tspan><tspan
+         x="0"
+         y="124.21199"
+         id="tspan23859"><tspan
+           dx="0 0 0 0 0 0 0 2.2068756 0 2.2068756 0 0 0 0 2.2068756 0 0 0 0 0 0 0 0 2.2068756 0 0 0 0 0 0 0 0 0 2.2068756 0 0 0 0 0 0 0 0 0 2.2068756 0 0 0 0 2.2068756 0 0 0 0 0 0 2.2068679 0 0 0 0 0 0 0 0 0 0 0 0 2.2068679"
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23857">offers a user friendly graphical interface that caters specifically to </tspan></tspan><tspan
+         x="0"
+         y="132.66859"
+         id="tspan23867"><tspan
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23861">statistical auditing (</tspan><tspan
+           style="font-weight:bold"
+           id="tspan23863">https://www.jasp-stats.org</tspan><tspan
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23865">).
+</tspan></tspan><tspan
+         x="0"
+         y="141.12519"
+         id="tspan23871"><tspan
+           style="font-family:Georgia;-inkscape-font-specification:Georgia;text-align:justify"
+           id="tspan23869">
+</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text23085"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;white-space:pre;shape-inside:url(#rect23087);display:inline;fill:#110000;stroke-width:15.1181;stroke-linejoin:round" />
   </g>
 </svg>
