@@ -2,7 +2,7 @@
 source("utils.R", local = TRUE)
 ```
 
-# Foundations of Auditing {#chap-foundations}
+# Statistics and Auditing {#chap-foundations}
 
 Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.
 
@@ -24,7 +24,7 @@ All three standards present a similar explanation of statistical sampling. For i
 
 - Random selection of sample items,
 - The use of an appropriate statistical technique to evaluate sample results,
-  including measurement of sampling risk
+  including measurement of sampling risk.
 
 According to auditing standards, any sampling approach that lacks these two characteristics is considered nonstatistical sampling.
 
@@ -38,11 +38,7 @@ This section aims to delve into several theoretical concepts that are integral t
 
 In an audit, materiality is the maximum amount of misstatement that can be present in the financial statements of the auditee before the auditor concludes that the financical statements are materially misstated, meaning that they contains misstatements that would influence the decisions of stakeholders relying on those statements.
 
-The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population.
-
-::: {.callout-note}
-The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.
-:::
+The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population. The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.
 
 For example, consider an audit of a company's financial statements for the year ended December 31, 2021. The auditor determines that the company's accounts receivable balance is a large part of to the financial statements and decides to test a sample of the accounts receivable transactions to assess the accuracy of the balance. The auditor calculates the performance materiality for the accounts receivable balance by considering the materiality for the financial statements as a whole. If the auditor finds misstatements in the sample such that their estimate of the misstatement exceeds the performance materiality, the auditor would need to express an unqualified opinion on the population or would need to perform additional testing on the population. If the auditor finds misstatements in the sample such that their estimate of the misstatement does not exceed the performance materiality, the auditor would express a positive opinion on the financial statements.
 
@@ -77,10 +73,6 @@ Usually the auditor judges inherent risk and control risk on a three-point scale
   \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}
 
-::: {.callout-note}
-The ARM is commonly used in practice, but is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
-:::
-
 Let's consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:
 
 - High: 100%
@@ -92,6 +84,8 @@ If an auditor is working with an audit risk of 5 percent, and judges inherent an
 \begin{equation}
   \frac{0.05}{0.6 \times 0.6} = 0.139
 \end{equation}
+
+Note that the ARM is commonly used in practice but it is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
 
 ### Sample Size
 

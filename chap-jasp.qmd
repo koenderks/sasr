@@ -8,7 +8,7 @@ JASP [@JASP, @Love2019], an acronym for Jeffreys’s Amazing Statistics Program,
 
 ## Downloading JASP
 
-You can freely download JASP from their website [https://jasp-stats.org](https://jasp-stats.org). Simply click on the 'Download JASP' button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.
+You can freely download JASP from their website [`https://jasp-stats.org`](https://jasp-stats.org). Simply click on the 'Download JASP' button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.
 
 ![Upon launching JASP, you are presented with the following screen. The icons in the ribbon display a range of statistical analyses. The menu icon located in the top left corner conceals the most crucial user options. The plus icon situated in the top right corner conceals the modules.](img/JASP_welcome.png){fig-align="center"}
 

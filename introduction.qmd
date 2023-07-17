@@ -2,7 +2,7 @@
 source("utils.R", local = TRUE)
 ```
 
-# Introduction {#introduction}
+# Getting Started {.unnumbered}
 
 This book is intended for auditors that want to obtain the knowledge and skill to utilize statistical audit sampling in their practice using the R programming language. It covers an array of traditional and innovative statistical tools that are available to auditors, explaining their function, the underlying assumptions, and when they are best utilized. In addition, it offers practical guidance on integrating advanced statistical sampling methodology into audit practice and demonstrates its value through real-world case studies. It is our hope that this book will serve as a valuable resource for auditors looking to effectively and efficiently utilize statistical methods in their practice.
 
@@ -20,13 +20,13 @@ To run the code in this book, you will need three things: R, RStudio, and the **
 
 ### R
 
-The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [https://cloud.r-project.org](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location. Please ensure that you have at least R 3.5.0 installed for the purposes of this book.
+The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [`https://cloud.r-project.org`](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location. Please ensure that you have at least R 3.5.0 installed for the purposes of this book.
 
 It is advisable to regularly update R, as new major versions are released annually and minor releases occur two to three times per year. While upgrading can be inconvenient, particularly for major versions which require the reinstallation of all packages, failing to do so will only exacerbate the issue.
 
 ### RStudio
 
-RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website ([https://posit.co/downloads/](https://posit.co/downloads/)). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
+RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website ([`https://posit.co/downloads/`](https://posit.co/downloads/)). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
 
 When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.
 
@@ -36,11 +36,7 @@ The console in the left panel allows you to run R code. To execute some R code, 
 
 ### jfa
 
-R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning.
-
-::: {.callout-note}
-If you want to know more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
-:::
+R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
 
 To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:
 
@@ -60,9 +56,7 @@ R packages are updated regularly. To update a package in your R library you shou
 update.packages("jfa")
 ```
 
-::: {.callout-note}
-If you want to look at the source code of the **jfa** package, see the [package website](https://koenderks.github.io/jfa/).
-:::
+If you want to look at the source code of the **jfa** package, see the package website at [`https://koenderks.github.io/jfa`](https://koenderks.github.io/jfa/).
 
 ## Running R Code
 
@@ -83,10 +77,10 @@ There are two primary distinctions between the use of a console and the presenta
 
 ## Colophon
 
-An online version of this book is available at [https://koenderks.github.io/sasr/](https://koenderks.github.io/sasr/). The source of the book is available at [https://github.com/koenderks/sasr](https://github.com/koenderks/sasr). The book is built with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
+An online version of this book is available at [`https://koenderks.github.io/sasr/`](https://koenderks.github.io/sasr/). The source code of the book is available at [`https://github.com/koenderks/sasr`](https://github.com/koenderks/sasr). The book is built with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
 
 ::: {.content-visible when-format="html"}
-This book was built with:
+This book was built using the following R packages:
 
 ```{r}
 sessioninfo::session_info()

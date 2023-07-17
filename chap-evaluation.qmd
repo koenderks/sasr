@@ -142,7 +142,9 @@ summary(x)
 
 ## Exercises
 
-1. Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -151,3 +153,17 @@ evaluation(n = 30, x = 2, method = "binomial")
 ```
 </details>
 
+:::
+
+::: {.content-visible when-format="pdf"}
+
+\clearpage
+
+## Answers
+
+**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+
+```{r}
+evaluation(n = 30, x = 2, method = "binomial")
+```
+:::

@@ -8,7 +8,7 @@ R [@R] is a programming language and software environment for statistical comput
 
 In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in @Lin2022.
 
-This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of R, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
+This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
 
 ![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
 
@@ -173,7 +173,9 @@ read_excel("example.csv", sheet = 1)
 
 ## Exercises
 
-1. Compute the square root of 81 and store the result in a variable called `t1`.
+**1.** Compute the square root of 81 and store the result in a variable called `t1`.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -182,7 +184,11 @@ t1 <- sqrt(81)
 ```
 </details>
 
-2. Compute 81 to the power a half and store the result in a variable called `t2`.
+:::
+
+**2.** Compute 81 to the power a half and store the result in a variable called `t2`.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -191,7 +197,11 @@ t2 <- 81^0.5
 ```
 </details>
 
-3. Use the `==` operator to check whether the content of `t1` and `t2` is the same.
+:::
+
+**3.** Use the `==` operator to check whether the content of `t1` and `t2` is the same.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -200,10 +210,11 @@ t1 == t2
 ```
 </details>
 
-4. Use the `c()` function (or `:`) to create the following vector:
-```{r echo = FALSE}
--2:8
-```
+:::
+
+**4.** Use the `c()` function (or `:`) to create the following vector: `-2 -1 0 1 2 3 4 5 6 7 8`.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -216,7 +227,11 @@ or:
 ```
 </details>
 
-5. Find out the length of the vector created in exercise 4.
+:::
+
+**5.** Find out the length of the vector created in exercise 4.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -225,7 +240,11 @@ length(-2:8)
 ```
 </details>
 
-6. Find out the mean of the vector created in exercise 4.
+:::
+
+**6.** Find out the mean of the vector created in exercise 4.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -233,3 +252,57 @@ length(-2:8)
 mean(-2:8)
 ```
 </details>
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+\clearpage
+
+## Answers
+
+**1.**
+
+```{r}
+t1 <- sqrt(81)
+```
+
+**2.**
+
+```{r}
+t2 <- 81^0.5
+```
+
+**3.**
+
+```{r}
+t1 == t2
+```
+
+**4.**
+
+```{r}
+c(-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8)
+```
+
+or:
+
+```{r}
+-2:8
+```
+
+**5.**
+
+```{r}
+length(-2:8)
+```
+
+**6.**
+
+```{r}
+mean(-2:8)
+```
+
+:::
+
+\clearpage

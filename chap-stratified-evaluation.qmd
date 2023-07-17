@@ -143,7 +143,9 @@ plot(x, type = "posterior")
 
 ## Exercises
 
-1. Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
+**1.** Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -151,3 +153,19 @@ plot(x, type = "posterior")
 evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")
 ```
 </details>
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+\clearpage
+
+## Answers
+
+**1.**
+
+```{r}
+evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")
+```
+
+:::

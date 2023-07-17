@@ -33,15 +33,11 @@ The probability mass function (PMF) of the hypergeometric distribution is given 
   p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}
 
-where $k$ is the number of misstatements in the sample, $n$ is the sample size, $N$ is the population size and $K$ is the total number of misstatements assumed in the population. The assumed misstatements $K$ is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size $N$:
+where $k$ is the number of misstatements in the sample, $n$ is the sample size, $N$ is the population size and $K$ is the total number of misstatements assumed in the population. The assumed misstatements $K$ is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size $N$. In the equation below, $\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2$.
 
 \begin{equation}
   K = \lceil \theta_{max} N \rceil.
 \end{equation}
-
-::: {.callout-note}
-$\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil = 2$.
-:::
 
 Let's consider how to use the hypergeometric likelihood to calculate the minimum sample size needed to reduce the sampling risk to an appropriately low level.
 
@@ -83,8 +79,6 @@ We can make this sample size visually intuitive by showing the hypergeometric($k
 plot(plan)
 ```
 
-::: {.callout-tip}
-## Additional arguments to `planning()`
 The `planning()` function has two additional arguments that are not shown in the call above: `by` and `max`. The argument `by` sets the increment between possible sample sizes for consideration. For example, `by = 5` considers only samples of size 10, 20, 30, etc:
 
 ```{r}
@@ -96,7 +90,6 @@ The argument `max` sets the sample size at which the algorithm terminates. This 
 ```{r error=TRUE}
 planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000, max = 50)
 ```
-:::
 
 #### Expected Misstatements
 
@@ -136,7 +129,6 @@ Setting `prior = TRUE` performs Bayesian planning using a default prior conjugat
   K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
-::: {.callout-note}
 The beta-binomial prior distribution is the conjugate prior for to the hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions) of conjugate priors), which means that the posterior distribution of $K$ can be determined analytically. For example, if the prior distribution for $K$ is:
 
 \begin{equation}
@@ -148,7 +140,6 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 \begin{equation}
   K \sim \text{Beta-binomial}(N - n, \alpha + k, \beta + k - n) \,\,\,\,\,\,\,\,\,\, K = k, k + 1, \ldots, N - n + k.
 \end{equation}
-:::
 
 #### No Expected Misstatements
 
@@ -189,9 +180,7 @@ plot(plan)
 
 The binomial distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials. It is similar to the hypergeometric distribution, however, it assumes that samples are drawn from the population with replacement. For our purpose, we can use the binomial distribution as a likelihood to model the number of misstatements that are expected to be found in the sample. 
 
-::: {.callout-note}
 In audit sampling, the binomial likelihood is often used to approximate the hypergeometric likelihood since it is easier to work with (i.e., it only has two parameters: $\theta$ and $n$, while the hypergeometric has three: $n$, $N$, and $K$). However, the binomial likelihood is more conservative than the hypergeometric likelihood, meaning that resulting sample sizes will be higher.
-:::
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
@@ -319,7 +308,6 @@ Setting `prior = TRUE` performs Bayesian planning using a default prior conjugat
   \theta &\sim \text{Beta}(\alpha, \beta)
 \end{align}
 
-::: {.callout-note}
 The beta prior distribution is the conjugate prior for the binomial likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions) of conjugate priors), which means that the posterior distribution of $\theta$ can be determined analytically. For example, if the prior distribution for $\theta$ is:
 
 \begin{equation}
@@ -331,7 +319,6 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 \begin{equation}
   \theta \sim \text{Beta}(\alpha + k, \beta + n - k) \,\,\,\,\,\,\,\,\,\, \theta \in [0, 1].
 \end{equation}
-:::
 
 For example, the command below uses a default beta($\alpha=1$, $\beta=1$) prior distribution to plan the sample, since `planning()` is given the binomial likelihood. If we want to achieve an assurance level of 95 percent ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of zero expected misstatements in the sample is $n = 98$.
 
@@ -379,9 +366,7 @@ plot(plan)
 
 The Poisson distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed time or space. We can use the Poisson distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.
 
-::: {.callout-note}
 In audit sampling, the Poisson likelihood is often used to approximate the binomial likelihood since it is easier to work with (i.e., it only has one parameter: $\lambda$, while the binomial has two parameters: $\theta$ and $n$). However, the Poisson likelihood is more conservative than the binomial likelihood, meaning that resulting sample sizes will be higher.
-:::
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
@@ -527,7 +512,6 @@ Setting `prior = TRUE` performs Bayesian planning using a default prior conjugat
   \theta &\sim \text{Gamma}(\alpha, \beta)
 \end{align}
 
-::: {.callout-note}
 The gamma prior distribution is the conjugate prior for the Poisson likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions) of conjugate priors), which means that the posterior distribution of $\theta$ can be determined analytically. For example, if the prior distribution for $\theta$ is:
 
 \begin{equation}
@@ -539,7 +523,6 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 \begin{equation}
   \theta \sim \text{Gamma}(\alpha + k, \beta + n) \,\,\,\,\,\,\,\,\,\, \theta \in [0, \infty].
 \end{equation}
-:::
 
 For example, the command below uses a default gamma($\alpha=1$, $\beta=1$) prior distribution to plan the sample, since `planning()` is given the Poisson likelihood. If we want to achieve an assurance level of 95 percent ($\alpha=0.05$) for a performance materiality of $\theta_{max} = 0.03$, then the required sample size under the assumption of zero expected misstatements in the sample is $n = 99$.
 
@@ -636,11 +619,7 @@ auditPrior(method = "param", likelihood = "t", alpha = 0.01)
 
 ### Improper Prior
 
-You can construct an improper prior distribution with classical properties using `method = 'strict'`. The posterior distribution of from this prior yields the same results as the classical methodology with respect to sample sizes and upper limits, but is only proper once a single non-misstated unit is present in the  sample [@Derks2022b]. For example, the command below creates an improper beta(1, 0) prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
-:::
+You can construct an improper prior distribution with classical properties using `method = 'strict'`. The posterior distribution of from this prior yields the same results as the classical methodology with respect to sample sizes and upper limits, but is only proper once a single non-misstated unit is present in the  sample [@Derks2022b]. For example, the command below creates an improper beta(1, 0) prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "strict", likelihood = "binomial")
@@ -648,11 +627,7 @@ auditPrior(method = "strict", likelihood = "binomial")
 
 ### Impartial Prior
 
-You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement [@Derks2022b] using `method = 'impartial'`. For example, the command below creates an impartial beta prior distribution for a performance materiality of 5 percent.
-
-::: {.callout-note appearance="simple"}
-This method requires that you specify a value for the `materiality`.
-:::
+You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement [@Derks2022b] using `method = 'impartial'`. For example, the command below creates an impartial beta prior distribution for a performance materiality of 5 percent. This method requires that you specify a value for the `materiality`.
 
 ```{r}
 auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
@@ -660,11 +635,7 @@ auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 
 ### Probability of Tolerable Misstatement
 
-You can manually assign prior probabilities to the hypothesis of tolerable  misstatement and the hypotheses of intolerable misstatement [@Derks2021] with `method = 'hyp'` in combination with `p.hmin`. For example, the command below incorporates the information that the hypothesis of tolerable misstatement  has a probability of 60 percent into a beta prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires that you specify a value for the `materiality`.
-:::
+You can manually assign prior probabilities to the hypothesis of tolerable  misstatement and the hypotheses of intolerable misstatement [@Derks2021] with `method = 'hyp'` in combination with `p.hmin`. For example, the command below incorporates the information that the hypothesis of tolerable misstatement  has a probability of 60 percent into a beta prior distribution. This method requires that you specify a value for the `materiality`.
 
 ```{r}
 auditPrior(method = "hyp", likelihood = "binomial", materiality = 0.05, p.hmin = 0.6)
@@ -672,11 +643,7 @@ auditPrior(method = "hyp", likelihood = "binomial", materiality = 0.05, p.hmin =
 
 ### Audit Risk Model
 
-You can translate risk assessments from the Audit Risk Model (inherent risk and internal control risk) into a prior distribution [@Derks2021] using `method = 'arm'` in combination with the `ir` and `cr` arguments. For example, the command below incorporates the information that the inherent risk is equal to 90 percent and internal control risk is equal to 60 percent into a beta prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
-:::
+You can translate risk assessments from the Audit Risk Model (inherent risk and internal control risk) into a prior distribution [@Derks2021] using `method = 'arm'` in combination with the `ir` and `cr` arguments. For example, the command below incorporates the information that the inherent risk is equal to 90 percent and internal control risk is equal to 60 percent into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.9, cr = 0.6)
@@ -684,11 +651,7 @@ auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.9
 
 ### Bayesian Risk Assessment Model
 
-You can incorporate information about the mode and the upper bound of the prior distribution using `method = 'bram'`. For example, the code below incorporates the information that the mode of the prior distribution is 1 percent and the upper bound is 60 percent into a beta prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
-:::
+You can incorporate information about the mode and the upper bound of the prior distribution using `method = 'bram'`. For example, the code below incorporates the information that the mode of the prior distribution is 1 percent and the upper bound is 60 percent into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "bram", likelihood = "binomial", materiality = 0.05, expected = 0.01, ub = 0.6)
@@ -696,11 +659,7 @@ auditPrior(method = "bram", likelihood = "binomial", materiality = 0.05, expecte
 
 ### Earlier Sample
 
-You can incorporate information from an earlier sample into the prior distribution [@Derks2021] using `method = 'sample'` in combination with `x` and `n`. For example, the command below incorporates the information from an earlier sample of 30 items in which 0 misstatements were found into a beta prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
-:::
+You can incorporate information from an earlier sample into the prior distribution [@Derks2021] using `method = 'sample'` in combination with `x` and `n`. For example, the command below incorporates the information from an earlier sample of 30 items in which 0 misstatements were found into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "sample", likelihood = "binomial", x = 0, n = 30)
@@ -708,11 +667,7 @@ auditPrior(method = "sample", likelihood = "binomial", x = 0, n = 30)
 
 ### Weighted Earlier Sample
 
-You can incorporate information from last years results, weighted by a factor [@Derks2021], into the prior distribution using `method = 'factor'` in combination with `x` and `n`. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution.
-
-::: {.callout-note appearance="simple"}
-This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
-:::
+You can incorporate information from last years results, weighted by a factor [@Derks2021], into the prior distribution using `method = 'factor'` in combination with `x` and `n`. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "factor", likelihood = "binomial", x = 0, n = 58, factor = 0.7)
@@ -720,11 +675,7 @@ auditPrior(method = "factor", likelihood = "binomial", x = 0, n = 58, factor = 0
 
 ### Nonparametric Prior
 
-You can base the prior on samples of the prior distribution using  `method = 'nonparam'` in combination with `samples`. For example, the command below creates a prior on 1000 samples of a beta(1, 10) distribution.
-
-::: {.callout-note appearance="simple"}
-The `likelihood` argument is not required and will be ignored in this method.
-:::
+You can base the prior on samples of the prior distribution using  `method = 'nonparam'` in combination with `samples`. For example, the command below creates a prior on 1000 samples of a beta(1, 10) distribution. The `likelihood` argument is not required and will be ignored in this method.
 
 ```{r}
 auditPrior(method = "nonparam", samples = stats::rbeta(1000, 1, 10))
@@ -997,7 +948,9 @@ plan
 
 ## Exercises
 
-1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
+**1.** Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1006,7 +959,11 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
 ```
 </details>
 
-2. Recompute the previous sample size with the Bayesian approach using a default prior.
+:::
+
+**2.** Recompute the previous sample size with the Bayesian approach using a default prior.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1015,7 +972,11 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior
 ```
 </details>
 
-3. Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.
+:::
+
+**3.** Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1024,7 +985,11 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1)
 ```
 </details>
 
-4. Recompute the previous sample size with the Bayesian approach using a default prior.
+:::
+
+**4.** Recompute the previous sample size with the Bayesian approach using a default prior.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1033,7 +998,11 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRU
 ```
 </details>
 
-5. Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.
+:::
+
+**5.** Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1042,7 +1011,11 @@ planning(materiality = 0.02, expected = 0.005)
 ```
 </details>
 
-6. Recompute the previous sample size with the Bayesian approach using a default prior.
+:::
+
+**6.** Recompute the previous sample size with the Bayesian approach using a default prior.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1051,7 +1024,11 @@ planning(materiality = 0.02, expected = 0.005, prior = TRUE)
 ```
 </details>
 
-7. Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80$. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.
+:::
+
+**7.** Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80$. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1061,7 +1038,11 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 ```
 </details>
 
-8. Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.
+:::
+
+**8.** Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1072,7 +1053,11 @@ planning(materiality = 0.05, prior = prior)
 ```
 </details>
 
-9. Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.
+:::
+
+**9.** Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -1081,3 +1066,71 @@ prior <- auditPrior(method = "impartial", likelihood = "binomial", materiality =
 plot(prior)
 ```
 </details>
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+\clearpage
+
+## Answers
+
+**1.**
+
+```{r}
+planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
+```
+
+**2.**
+
+```{r}
+planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior = TRUE)
+```
+
+**3.**
+
+```{r}
+planning(materiality = 0.044, likelihood = "binomial", expected = 1)
+```
+
+**4.**
+
+```{r}
+planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRUE)
+```
+
+**5.**
+
+```{r}
+planning(materiality = 0.02, expected = 0.005)
+```
+
+**6.**
+
+```{r}
+planning(materiality = 0.02, expected = 0.005, prior = TRUE)
+```
+
+**7.**
+
+```{r}
+dr <- 0.05 / (0.5 * 0.8)
+planning(materiality = 0.05, conf.level = 1 - dr)
+```
+
+**8.**
+
+```{r}
+prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
+plot(prior)
+planning(materiality = 0.05, prior = prior)
+```
+
+**9.**
+
+```{r}
+prior <- auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
+plot(prior)
+```
+
+:::

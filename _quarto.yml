@@ -1,12 +1,10 @@
 project:
   type: book
   output-dir: _book
-
 author-meta: Koen Derks
 editor: visual
 bibliography: references.bib
 csl: apa.csl
-
 book:
   title: Statistical Audit Sampling with R
   author:
@@ -14,7 +12,6 @@ book:
       orcid: 0000-0002-5533-9349
       corresponding: true
   date: today
-
   page-footer:
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
@@ -36,29 +33,23 @@ book:
     copy-button: true
   chapters:
     - index.qmd
-
     - introduction.qmd
-
     - part: The Basics
       chapters:
       - chap-foundations.qmd
       - chap-inference.qmd
-
     - part: Workflow
       chapters:
       - chap-planning.qmd
       - chap-selection.qmd
       - chap-evaluation.qmd
       - chap-stratified-evaluation.qmd
-
     - part: Software
       chapters:
       - chap-jasp.qmd
       - chap-packages.qmd
-
     - references.qmd
     - tutorial.qmd
-
 format:
   html:
     toc: true
@@ -71,10 +62,12 @@ format:
     theme:
       - cosmo
       - sasr.scss
-
   pdf:
-    include-in-header: 
+    documentclass: book
+    extra_dependencies: ["float"]
+    include-in-header:
       text: |
+        \pagenumbering{arabic}
         \usepackage{fvextra}
         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
           \usepackage{tikz}
@@ -90,7 +83,15 @@ format:
               \node at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{back-page.pdf}};
               \end{tikzpicture}%
           }
-    documentclass: scrbook
+          \renewcommand{\mainmatter}{\clearpage}
+          \renewcommand{\maketitle}{}
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhead{}
+          \fancyhead[RO,LE]{\leftmark}
+          \fancyfoot{}
+          \fancyfoot[C]{\thepage}
+          \setkeys{Gin}{width=0.75\textwidth}
     keep-tex: false
     classoption: [10pt,twoside]
     pagestyle: headings
@@ -102,6 +103,7 @@ format:
       - top = 12.7mm
       - paperwidth = 180mm
       - paperheight = 254mm
+      - includehead
       - includefoot
     fontfamily: libertinus
     toc-title: Contents

@@ -95,8 +95,6 @@ result <- planning(materiality = 0.03) |>
   selection(data = BuildIt, units = "items", method = "random")
 ```
 
-::: {.callout-tip}
-## Additional arguments to `selection()`
 The `selection()` function has three additional arguments which you can use to preprocess your population before selection. These arguments are `order`, `decreasing` and `randomize`.
 
 The `order` argument takes as input a column name in `data` which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in the selection. In this case, you should use the `decreasing = FALSE` (its default value) argument.
@@ -114,7 +112,6 @@ set.seed(1)
 result <- selection(data = BuildIt, size = n, units = "items", method = "random", randomize = TRUE)
 result$sample
 ```
-:::
 
 #### Monetary Unit Sampling
 
@@ -365,7 +362,9 @@ result$sample
 
 ## Exercises
 
-1. Select a random sample of 120 items from the `BuildIt` data set.
+**1.** Select a random sample of 120 items from the `BuildIt` data set.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -375,7 +374,11 @@ head(selec$sample, 5)
 ```
 </details>
 
-2. Select a sample of 240 monetary units from the `BuildIt` data set using a fixed interval selection method. Use a starting point of 12.
+:::
+
+**2.** Select a sample of 240 monetary units from the `BuildIt` data set using a fixed interval selection method. Use a starting point of 12.
+
+::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
@@ -384,3 +387,27 @@ selec <- selection(data = BuildIt, size = 240, method = "interval", units = "val
 head(selec$sample, 5)
 ```
 </details>
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+\clearpage
+
+## Answers
+
+**1.**
+
+```{r}
+selec <- selection(data = BuildIt, size = 120, method = "random", units = "items")
+head(selec$sample, 5)
+```
+
+**2.**
+
+```{r}
+selec <- selection(data = BuildIt, size = 240, method = "interval", units = "values", values = "bookValue", start = 12)
+head(selec$sample, 5)
+```
+
+:::

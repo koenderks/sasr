@@ -8,7 +8,7 @@ This chapter discusses other R packages that implement statistical techniques fo
 
 ## MUS
 
-**MUS** [@MUS] is an R package providing sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via [CRAN](https://cran.r-project.org/package=MUS) and can be downloaded by running the following code:
+**MUS** [@MUS] is an R package providing sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via [CRAN](https://cran.r-project.org/package=MUS) and can be downloaded by running the code below. Unlike **jfa**, the **MUS** package provides no functionality for Bayesian audit sampling.
 
 ```{r, eval=FALSE}
 install.packages("MUS")
@@ -28,13 +28,9 @@ These results can be reproduced in **jfa** using the following command:
 planning(materiality = 0.1, expected = 0.01, likelihood = "poisson")
 ```
 
-::: {.callout-note appearance="simple"}
-The **MUS** package provides no functionality for Bayesian audit sampling.
-:::
-
 ## samplingbook
 
-**samplingbook** [@samplingbook] is an R package based on the book **Stichproben: Methoden und praktische Umsetzung mit R** [@Kauermann2010] that focuses on survey sampling and statistical analysis of these samples. The package is available via [CRAN](https://cran.r-project.org/package=samplingbook) and can be downloaded by running the following code:
+**samplingbook** [@samplingbook] is an R package based on the book **Stichproben: Methoden und praktische Umsetzung mit R** [@Kauermann2010] that focuses on survey sampling and statistical analysis of these samples. The package is available via [CRAN](https://cran.r-project.org/package=samplingbook) and can be downloaded by running the code below. Unlike **jfa**, the **samplingbook** package provides limited functionality for auditing as it mainly focuses on survey sampling.
 
 ```{r, eval=FALSE}
 install.packages("samplingbook")
@@ -54,18 +50,10 @@ These results can be reproduced in **jfa** using the following command:
 evaluation(x = 3, n = 100, N.units = 300, method = "hypergeometric", alternative = "less", conf.level = 0.95)
 ```
 
-::: {.callout-note appearance="simple"}
-The **samplingbook** package provides limited functionality for auditing as it mainly focuses on survey sampling.
-:::
-
 ## audit
 
-**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit) and can be downloaded by running the following code:
+**audit** [@audit] is an R package based on the paper by @Meeden2007 that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via [CRAN](https://cran.r-project.org/package=audit) and can be downloaded by running the code below. Unlike **jfa**, The **audit** package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.
 
 ```{r, eval=FALSE}
 install.packages("audit")
 ```
-
-::: {.callout-note appearance="simple"}
-The **audit** package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.
-:::
