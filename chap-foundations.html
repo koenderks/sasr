@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Koen Derks">
-
-<title>Statistical Audit Sampling with R - 2&nbsp; Foundations of Auditing</title>
+<title>Statistical Audit Sampling with R - 1&nbsp; Statistics and Auditing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +73,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,8 +91,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
   "collapse-after": 2,
@@ -115,44 +110,33 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<meta property="og:title" content="Statistical Audit Sampling with R - 2&nbsp; Foundations of Auditing">
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<meta property="og:title" content="Statistical Audit Sampling with R - 1&nbsp; Statistics and Auditing">
 <meta property="og:description" content="">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 2&nbsp; Foundations of Auditing">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 1&nbsp; Statistics and Auditing">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-foundations.html">The Basics</a></li><li class="breadcrumb-item"><a href="./chap-foundations.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Foundations of Auditing</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-foundations.html">The Basics</a></li><li class="breadcrumb-item"><a href="./chap-foundations.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
@@ -160,7 +144,7 @@ div.csl-indent {
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
+<li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
@@ -173,7 +157,7 @@ div.csl-indent {
             </a>
           </li>
       </ul>
-    </div>
+</div>
 </div>
     </div>
       </div>
@@ -184,7 +168,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -193,7 +177,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,21 +188,21 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-foundations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Foundations of Auditing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -227,33 +211,33 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -262,21 +246,21 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -290,34 +274,30 @@ div.csl-indent {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#auditing-standards" id="toc-auditing-standards" class="nav-link active" data-scroll-target="#auditing-standards"><span class="header-section-number">2.1</span> Auditing Standards</a></li>
-  <li><a href="#important-concepts" id="toc-important-concepts" class="nav-link" data-scroll-target="#important-concepts"><span class="header-section-number">2.2</span> Important Concepts</a>
+<li><a href="#auditing-standards" id="toc-auditing-standards" class="nav-link active" data-scroll-target="#auditing-standards"><span class="header-section-number">1.1</span> Auditing Standards</a></li>
+  <li>
+<a href="#important-concepts" id="toc-important-concepts" class="nav-link" data-scroll-target="#important-concepts"><span class="header-section-number">1.2</span> Important Concepts</a>
   <ul class="collapse">
-  <li><a href="#materiality" id="toc-materiality" class="nav-link" data-scroll-target="#materiality"><span class="header-section-number">2.2.1</span> Materiality</a></li>
-  <li><a href="#audit-risk" id="toc-audit-risk" class="nav-link" data-scroll-target="#audit-risk"><span class="header-section-number">2.2.2</span> Audit risk</a></li>
-  <li><a href="#population" id="toc-population" class="nav-link" data-scroll-target="#population"><span class="header-section-number">2.2.3</span> Population</a></li>
-  <li><a href="#sampling-risk" id="toc-sampling-risk" class="nav-link" data-scroll-target="#sampling-risk"><span class="header-section-number">2.2.4</span> Sampling risk</a></li>
-  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size"><span class="header-section-number">2.2.5</span> Sample Size</a></li>
-  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">2.2.6</span> Notation</a></li>
-  </ul></li>
+<li><a href="#materiality" id="toc-materiality" class="nav-link" data-scroll-target="#materiality"><span class="header-section-number">1.2.1</span> Materiality</a></li>
+  <li><a href="#audit-risk" id="toc-audit-risk" class="nav-link" data-scroll-target="#audit-risk"><span class="header-section-number">1.2.2</span> Audit risk</a></li>
+  <li><a href="#population" id="toc-population" class="nav-link" data-scroll-target="#population"><span class="header-section-number">1.2.3</span> Population</a></li>
+  <li><a href="#sampling-risk" id="toc-sampling-risk" class="nav-link" data-scroll-target="#sampling-risk"><span class="header-section-number">1.2.4</span> Sampling risk</a></li>
+  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size"><span class="header-section-number">1.2.5</span> Sample Size</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">1.2.6</span> Notation</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-foundations.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-foundations.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-foundations" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Foundations of Auditing</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-foundations" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -330,62 +310,46 @@ div.csl-indent {
   </div>
   
 
-</header>
-
-<p>Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.</p>
+</header><p>Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.</p>
 <p>In the field of auditing, sampling becomes necessary when the truth about a population is not readily accessible or discernible through other means. With the advent of modern technology, auditors often have access to an abundance of information about a population, which sometimes enables them to perform integral testing. Nonetheless, there are situations where a sample is still necessary due to the unavailability of complete data. For instance, an auditor may utilize analytical procedures to verify the consistency of payments with payment orders, but then must subsequently confirm the validity of these orders through detailed testing.</p>
 <p>In auditing, there are two primary methods of sampling: statistical and nonstatistical. Statistical sampling involves using probability theory to select a sample from the population and draw conclusions about the population based on the sample. Nonstatistical sampling, on the other hand, is based on the auditor’s professional judgment and does not use statistical inference to come to a conclusion. This book does not cover nonstatistical sampling.</p>
 <p>International auditing standards prescribe the manner in which statistical sampling should be conducted in an audit. The following section discusses what these standards say about statistical sampling.</p>
-<section id="auditing-standards" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="auditing-standards"><span class="header-section-number">2.1</span> Auditing Standards</h2>
+<section id="auditing-standards" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="auditing-standards">
+<span class="header-section-number">1.1</span> Auditing Standards</h2>
 <p>There are three auditing standards related to staistical sampling in the audit:</p>
 <ul>
-<li><a href="https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf">ISA 530</a>: Auditing standard for international firms published by the International Auditing and Assurance Standards Board (IAASB).</li>
-<li><a href="https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf">AU-C 530</a>: Auditing standard for private firms published by the American Institute of Certified Public Accountants (AICPA).</li>
-<li><a href="https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315">AS 2315</a>: Auditing standard for public firms published by the Public Company Accounting Oversign Board (PCAOB).</li>
+<li>
+<a href="https://www.ifac.org/system/files/downloads/a027-2010-iaasb-handbook-isa-530.pdf">ISA 530</a>: Auditing standard for international firms published by the International Auditing and Assurance Standards Board (IAASB).</li>
+<li>
+<a href="https://www.aicpa.org/content/dam/aicpa/research/standards/auditattest/downloadabledocuments/au-c-00530.pdf">AU-C 530</a>: Auditing standard for private firms published by the American Institute of Certified Public Accountants (AICPA).</li>
+<li>
+<a href="https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315">AS 2315</a>: Auditing standard for public firms published by the Public Company Accounting Oversign Board (PCAOB).</li>
 </ul>
 <p>All three standards present a similar explanation of statistical sampling. For instance, ISA 530 <span class="citation" data-cites="ISA530">(<a href="references.html#ref-ISA530" role="doc-biblioref">International Auditing and Assurance Standards Board (IAASB), 2018</a>)</span> defines statistical audit sampling as a method that at minimum exhibits the following two characteristics:</p>
 <ul>
 <li>Random selection of sample items,</li>
-<li>The use of an appropriate statistical technique to evaluate sample results, including measurement of sampling risk</li>
+<li>The use of an appropriate statistical technique to evaluate sample results, including measurement of sampling risk.</li>
 </ul>
 <p>According to auditing standards, any sampling approach that lacks these two characteristics is considered nonstatistical sampling.</p>
 <p>In order to effectively utilize statistical sampling during an audit, it is necessary to tailor the approach to the specific circumstances of the audit. This may involve considering factors such as the size and complexity of the population, the materiality of the items being tested, and the level of inherent risk in the audit area. It is also essential for the auditor to document the sampling process in order to demonstrate compliance with auditing standards. The following sections will delve further into these crucial concepts in the context of statistical audit sampling.</p>
-</section>
-<section id="important-concepts" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="important-concepts"><span class="header-section-number">2.2</span> Important Concepts</h2>
+</section><section id="important-concepts" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="important-concepts">
+<span class="header-section-number">1.2</span> Important Concepts</h2>
 <p>This section aims to delve into several theoretical concepts that are integral to statistical audit sampling.</p>
-<section id="materiality" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="materiality"><span class="header-section-number">2.2.1</span> Materiality</h3>
+<section id="materiality" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="materiality">
+<span class="header-section-number">1.2.1</span> Materiality</h3>
 <p>In an audit, materiality is the maximum amount of misstatement that can be present in the financial statements of the auditee before the auditor concludes that the financical statements are materially misstated, meaning that they contains misstatements that would influence the decisions of stakeholders relying on those statements.</p>
-<p>The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.</p>
-</div>
-</div>
+<p>The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population. The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.</p>
 <p>For example, consider an audit of a company’s financial statements for the year ended December 31, 2021. The auditor determines that the company’s accounts receivable balance is a large part of to the financial statements and decides to test a sample of the accounts receivable transactions to assess the accuracy of the balance. The auditor calculates the performance materiality for the accounts receivable balance by considering the materiality for the financial statements as a whole. If the auditor finds misstatements in the sample such that their estimate of the misstatement exceeds the performance materiality, the auditor would need to express an unqualified opinion on the population or would need to perform additional testing on the population. If the auditor finds misstatements in the sample such that their estimate of the misstatement does not exceed the performance materiality, the auditor would express a positive opinion on the financial statements.</p>
-</section>
-<section id="audit-risk" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="audit-risk"><span class="header-section-number">2.2.2</span> Audit risk</h3>
+</section><section id="audit-risk" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="audit-risk">
+<span class="header-section-number">1.2.2</span> Audit risk</h3>
 <p>After completing an audit and making any necessary corrections, an auditor will issue a written report stating whether the financial statements are accurate and free of material misstatement. The potential for this opinion to be incorrect is known as audit risk, and it is the auditor’s job to minimize this risk as much as possible.</p>
 <p>For example, during an audit of a company’s financial statements, the auditor may carefully review documentation, perform tests of details via audit sampling, and speak with management in order to reduce the audit risk and provide a reliable opinion on the accuracy of the financial statements as a whole.</p>
-</section>
-<section id="population" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="population"><span class="header-section-number">2.2.3</span> Population</h3>
+</section><section id="population" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="population">
+<span class="header-section-number">1.2.3</span> Population</h3>
 <p>In statistical inference, the term population refers to the entire group of individuals or items that have some common characteristic or interest, and about which we want to gather data or make inferences. A population can be as large as all the people in a country or, as is more sensible in auditing, as small as a group of employees in a specific department of a company.</p>
 <p>For example, consider an audit of a company’s payroll records. The population in this case would be all the employees of the company, and the goal of the audit would be to gather data on their salaries, benefits, and other payroll-related information. The audit team would collect this data from a a representative group of employees (i.e., a sample) of the population and use statistical methods to draw conclusions about the entire population.</p>
-</section>
-<section id="sampling-risk" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="sampling-risk"><span class="header-section-number">2.2.4</span> Sampling risk</h3>
+</section><section id="sampling-risk" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="sampling-risk">
+<span class="header-section-number">1.2.4</span> Sampling risk</h3>
 <p>There is a possibility that the results of an audit based on a sample may differ from the results if the entire population were examined using the same procedures. This is known as sampling risk. Sampling risk can result in two types of incorrect conclusions:</p>
 <ol type="1">
 <li>The first type is when, in a test of controls, the controls are perceived to be more effective than they actually are, or in a test of details, a material misstatement is believed to not exist when it actually does. This type of erroneous conclusion is particularly concerning for auditors because it can compromise the effectiveness of the audit and may lead to an inappropriate audit opinion.</li>
@@ -399,19 +363,6 @@ Note
 <p><span class="math display">\[\begin{equation}
   \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}
 \end{equation}\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The ARM is commonly used in practice, but is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., <span class="math inline">\(\frac{0.05}{0 \times 1} = \infty\)</span>).</p>
-</div>
-</div>
 <p>Let’s consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:</p>
 <ul>
 <li>High: 100%</li>
@@ -422,22 +373,19 @@ Note
 <p><span class="math display">\[\begin{equation}
   \frac{0.05}{0.6 \times 0.6} = 0.139
 \end{equation}\]</span></p>
-</section>
-<section id="sample-size" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="sample-size"><span class="header-section-number">2.2.5</span> Sample Size</h3>
+<p>Note that the ARM is commonly used in practice but it is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., <span class="math inline">\(\frac{0.05}{0 \times 1} = \infty\)</span>).</p>
+</section><section id="sample-size" class="level3" data-number="1.2.5"><h3 data-number="1.2.5" class="anchored" data-anchor-id="sample-size">
+<span class="header-section-number">1.2.5</span> Sample Size</h3>
 <p>The sample size is an important consideration in the context of audit sampling, as it determines the number of items that will be selected for testing during the audit process. This factor has an impact on both effectiveness and efficiency. In general, a larger sample size can provide a higher level of assurance, but it requires more audit effort to obtain and inspect. On the other hand, a smaller sample size offers a lower level of assurance, but it is less costly.</p>
-</section>
-<section id="notation" class="level3" data-number="2.2.6">
-<h3 data-number="2.2.6" class="anchored" data-anchor-id="notation"><span class="header-section-number">2.2.6</span> Notation</h3>
+</section><section id="notation" class="level3" data-number="1.2.6"><h3 data-number="1.2.6" class="anchored" data-anchor-id="notation">
+<span class="header-section-number">1.2.6</span> Notation</h3>
 <p>The table below summarizes the notation used in this book (middle column) and in the <strong>jfa</strong> R package (right column).</p>
 <table class="table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Meaning</th>
 <th>Symbol</th>
 <th><strong>jfa</strong></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Probability of misstatement</td>
@@ -495,11 +443,7 @@ Note
 International Auditing and Assurance Standards Board (IAASB). (2018). <span>ISA</span> 530: Audit sampling. In <em>International standards on auditing (<span>ISA</span>)</em>.
 </div>
 </div>
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -782,16 +726,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./introduction.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-inference.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -799,7 +741,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Foundations of Auditing {#chap-foundations}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Statistics and Auditing {#chap-foundations}</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -821,7 +763,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Random selection of sample items,</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The use of an appropriate statistical technique to evaluate sample results,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  including measurement of sampling risk</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  including measurement of sampling risk.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>According to auditing standards, any sampling approach that lacks these two characteristics is considered nonstatistical sampling.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
@@ -835,84 +777,77 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>In an audit, materiality is the maximum amount of misstatement that can be present in the financial statements of the auditee before the auditor concludes that the financical statements are materially misstated, meaning that they contains misstatements that would influence the decisions of stakeholders relying on those statements.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The term performance materiality refers to the maximum amount of misstatement that can be present in a given population that is part of the financial statements before the auditor concludes that the population is materially misstated. Performance materiality is used by auditors to determine the appropriate level of testing to be performed on a population. The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The performance materiality is usually defined to be lower than the materiality because an individual population that is subject to audit sampling is often only a (small) part of the financial statements.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>For example, consider an audit of a company's financial statements for the year ended December 31, 2021. The auditor determines that the company's accounts receivable balance is a large part of to the financial statements and decides to test a sample of the accounts receivable transactions to assess the accuracy of the balance. The auditor calculates the performance materiality for the accounts receivable balance by considering the materiality for the financial statements as a whole. If the auditor finds misstatements in the sample such that their estimate of the misstatement exceeds the performance materiality, the auditor would need to express an unqualified opinion on the population or would need to perform additional testing on the population. If the auditor finds misstatements in the sample such that their estimate of the misstatement does not exceed the performance materiality, the auditor would express a positive opinion on the financial statements.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Audit risk</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>For example, consider an audit of a company's financial statements for the year ended December 31, 2021. The auditor determines that the company's accounts receivable balance is a large part of to the financial statements and decides to test a sample of the accounts receivable transactions to assess the accuracy of the balance. The auditor calculates the performance materiality for the accounts receivable balance by considering the materiality for the financial statements as a whole. If the auditor finds misstatements in the sample such that their estimate of the misstatement exceeds the performance materiality, the auditor would need to express an unqualified opinion on the population or would need to perform additional testing on the population. If the auditor finds misstatements in the sample such that their estimate of the misstatement does not exceed the performance materiality, the auditor would express a positive opinion on the financial statements.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>After completing an audit and making any necessary corrections, an auditor will issue a written report stating whether the financial statements are accurate and free of material misstatement. The potential for this opinion to be incorrect is known as audit risk, and it is the auditor's job to minimize this risk as much as possible.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Audit risk</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>For example, during an audit of a company's financial statements, the auditor may carefully review documentation, perform tests of details via audit sampling, and speak with management in order to reduce the audit risk and provide a reliable opinion on the accuracy of the financial statements as a whole.</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>After completing an audit and making any necessary corrections, an auditor will issue a written report stating whether the financial statements are accurate and free of material misstatement. The potential for this opinion to be incorrect is known as audit risk, and it is the auditor's job to minimize this risk as much as possible.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Population</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>For example, during an audit of a company's financial statements, the auditor may carefully review documentation, perform tests of details via audit sampling, and speak with management in order to reduce the audit risk and provide a reliable opinion on the accuracy of the financial statements as a whole.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>In statistical inference, the term population refers to the entire group of individuals or items that have some common characteristic or interest, and about which we want to gather data or make inferences. A population can be as large as all the people in a country or, as is more sensible in auditing, as small as a group of employees in a specific department of a company.</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Population</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>For example, consider an audit of a company's payroll records. The population in this case would be all the employees of the company, and the goal of the audit would be to gather data on their salaries, benefits, and other payroll-related information. The audit team would collect this data from a a representative group of employees (i.e., a sample) of the population and use statistical methods to draw conclusions about the entire population.</span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>In statistical inference, the term population refers to the entire group of individuals or items that have some common characteristic or interest, and about which we want to gather data or make inferences. A population can be as large as all the people in a country or, as is more sensible in auditing, as small as a group of employees in a specific department of a company.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sampling risk</span></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>For example, consider an audit of a company's payroll records. The population in this case would be all the employees of the company, and the goal of the audit would be to gather data on their salaries, benefits, and other payroll-related information. The audit team would collect this data from a a representative group of employees (i.e., a sample) of the population and use statistical methods to draw conclusions about the entire population.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>There is a possibility that the results of an audit based on a sample may differ from the results if the entire population were examined using the same procedures. This is known as sampling risk. Sampling risk can result in two types of incorrect conclusions:</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sampling risk</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>There is a possibility that the results of an audit based on a sample may differ from the results if the entire population were examined using the same procedures. This is known as sampling risk. Sampling risk can result in two types of incorrect conclusions:</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The first type is when, in a test of controls, the controls are perceived to be more effective than they actually are, or in a test of details, a material misstatement is believed to not exist when it actually does. This type of erroneous conclusion is particularly concerning for auditors because it can compromise the effectiveness of the audit and may lead to an inappropriate audit opinion.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>The second type of incorrect conclusion is when, in a test of controls, the controls are perceived to be less effective than they actually are, or in a test of details, a material misstatement is believed to exist when it actually does not. This type of erroneous conclusion impacts the efficiency of the audit as it may require additional work to determine that the initial conclusions were incorrect.</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>Many audits are performed according to the *audit risk model (ARM)*, which determines that the uncertainty about the auditor's statement as a whole is a factor of three terms: the inherent risk, the control risk, and the detection risk (i.e., the sampling risk). Inherent risk is the risk posed by a misstatement in the auditees financial statements that could be material, before consideration of any related control systems (e.g., computer systems). Control risk is the risk that a material misstatement is not prevented or detected by the auditee's internal control systems. Detection risk is the risk that the auditor will fail to find material misstatements that exist in the auditee's financial statements. The *ARM* is practically useful because, for a given level of audit risk, the tolerable detection risk bears an inverse relation to the other two risks.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The first type is when, in a test of controls, the controls are perceived to be more effective than they actually are, or in a test of details, a material misstatement is believed to not exist when it actually does. This type of erroneous conclusion is particularly concerning for auditors because it can compromise the effectiveness of the audit and may lead to an inappropriate audit opinion.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>The second type of incorrect conclusion is when, in a test of controls, the controls are perceived to be less effective than they actually are, or in a test of details, a material misstatement is believed to exist when it actually does not. This type of erroneous conclusion impacts the efficiency of the audit as it may require additional work to determine that the initial conclusions were incorrect.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Many audits are performed according to the *audit risk model (ARM)*, which determines that the uncertainty about the auditor's statement as a whole is a factor of three terms: the inherent risk, the control risk, and the detection risk (i.e., the sampling risk). Inherent risk is the risk posed by a misstatement in the auditees financial statements that could be material, before consideration of any related control systems (e.g., computer systems). Control risk is the risk that a material misstatement is not prevented or detected by the auditee's internal control systems. Detection risk is the risk that the auditor will fail to find material misstatements that exist in the auditee's financial statements. The *ARM* is practically useful because, for a given level of audit risk, the tolerable detection risk bears an inverse relation to the other two risks.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>Usually the auditor judges inherent risk and control risk on a three-point scale consisting of low, medium, and high. Different audit firms handle different standard percentages for these categories. Given an assessment of the inherent risk and the control risk, the detection risk can be calculated as:</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Usually the auditor judges inherent risk and control risk on a three-point scale consisting of low, medium, and high. Different audit firms handle different standard percentages for these categories. Given an assessment of the inherent risk and the control risk, the detection risk can be calculated as:</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  \text{Detection risk} = \frac{\text{Audit risk}}{\text{Inherent risk} \times \text{Control risk}}</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>The ARM is commonly used in practice, but is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>Let's consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>High: 100%</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medium: 60%</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Low: 50%</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>If an auditor is working with an audit risk of 5 percent, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:</span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>Let's consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>High: 100%</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medium: 60%</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Low: 50%</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  \frac{0.05}{0.6 \times 0.6} = 0.139</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Note that the ARM is commonly used in practice but it is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).</span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>If an auditor is working with an audit risk of 5 percent, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sample Size</span></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>\begin{equation}</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  \frac{0.05}{0.6 \times 0.6} = 0.139</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>The sample size is an important consideration in the context of audit sampling, as it determines the number of items that will be selected for testing during the audit process. This factor has an impact on both effectiveness and efficiency. In general, a larger sample size can provide a higher level of assurance, but it requires more audit effort to obtain and inspect. On the other hand, a smaller sample size offers a lower level of assurance, but it is less costly.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### Notation</span></span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sample Size</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>The table below summarizes the notation used in this book (middle column) and in the **jfa** R package (right column).</span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>The sample size is an important consideration in the context of audit sampling, as it determines the number of items that will be selected for testing during the audit process. This factor has an impact on both effectiveness and efficiency. In general, a larger sample size can provide a higher level of assurance, but it requires more audit effort to obtain and inspect. On the other hand, a smaller sample size offers a lower level of assurance, but it is less costly.</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### Notation</span></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>The table below summarizes the notation used in this book (middle column) and in the **jfa** R package (right column).</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>| Meaning                     | Symbol         | **jfa**          |</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>|-----------------------------|----------------|------------------|</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>| Probability of misstatement | $\theta$       |                  |</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>| Performance materiality     | $\theta_{max}$ | <span class="in">`materiality`</span>    |</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>| Expected deviation rate     | $\theta_{exp}$ | <span class="in">`expected`</span>       |</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>| Type-I error probability    | $\alpha$       | <span class="in">`1 - conf.level`</span> |</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>| Type-II error probability   | $\beta$        |                  |</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>| Population size             | $N$            | <span class="in">`N.units`</span>        |</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>| Population misstatements    | $K$            |                  |</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>| Sample size                 | $n$            | <span class="in">`n`</span>              |</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>| Observed misstatements      | $k$            | <span class="in">`x`</span>              |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>| Meaning                     | Symbol         | **jfa**          |</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>|-----------------------------|----------------|------------------|</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>| Probability of misstatement | $\theta$       |                  |</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>| Performance materiality     | $\theta_{max}$ | <span class="in">`materiality`</span>    |</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>| Expected deviation rate     | $\theta_{exp}$ | <span class="in">`expected`</span>       |</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>| Type-I error probability    | $\alpha$       | <span class="in">`1 - conf.level`</span> |</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>| Type-II error probability   | $\beta$        |                  |</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>| Population size             | $N$            | <span class="in">`N.units`</span>        |</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>| Population misstatements    | $K$            |                  |</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>| Sample size                 | $n$            | <span class="in">`n`</span>              |</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>| Observed misstatements      | $k$            | <span class="in">`x`</span>              |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -922,7 +857,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>

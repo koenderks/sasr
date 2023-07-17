@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Koen Derks">
-
-<title>Statistical Audit Sampling with R - 6&nbsp; Evaluation</title>
+<title>Statistical Audit Sampling with R - 5&nbsp; Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +73,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,8 +91,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
   "collapse-after": 2,
@@ -115,47 +110,36 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<meta property="og:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/book_justice.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1536">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-evaluation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-evaluation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
@@ -163,7 +147,7 @@ div.csl-indent {
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
+<li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
@@ -176,7 +160,7 @@ div.csl-indent {
             </a>
           </li>
       </ul>
-    </div>
+</div>
 </div>
     </div>
       </div>
@@ -187,7 +171,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -196,7 +180,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -207,21 +191,21 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Foundations of Auditing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -230,33 +214,33 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -265,21 +249,21 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -293,28 +277,22 @@ div.csl-indent {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="header-section-number">6.1</span> Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">6.2</span> Bayesian Evaluation</a></li>
-  <li><a href="#using-data" id="toc-using-data" class="nav-link" data-scroll-target="#using-data"><span class="header-section-number">6.3</span> Using Data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.4</span> Exercises</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="header-section-number">5.1</span> Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">5.2</span> Bayesian Evaluation</a></li>
+  <li><a href="#using-data" id="toc-using-data" class="nav-link" data-scroll-target="#using-data"><span class="header-section-number">5.3</span> Using Data</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.4</span> Exercises</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -327,98 +305,93 @@ div.csl-indent {
   </div>
   
 
-</header>
-
-<p>In statistical audit sampling, the evaluation of the sample is the crucial last step in the process. Here, the auditor assesses the audit evidence collected from the sample and blends it with the evidence gathered in earlier stages of the audit. The outcome of this evaluation forms the auditor’s overall opinion of the population being audited.</p>
+</header><p>In statistical audit sampling, the evaluation of the sample is the crucial last step in the process. Here, the auditor assesses the audit evidence collected from the sample and blends it with the evidence gathered in earlier stages of the audit. The outcome of this evaluation forms the auditor’s overall opinion of the population being audited.</p>
 <p>Just as with planning a sample, evaluating a sample requires knowledge of the circumstances that determine whether the population should be accepted or rejected, which are referred to as sampling objectives. Sampling objectives can be divided into two main categories:</p>
 <ul>
-<li><strong>Hypothesis testing</strong>: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).</li>
-<li><strong>Estimation</strong>: The goal of the sample is to obtain an accurate estimate of the misstatement in the population with a certain precision.</li>
+<li>
+<strong>Hypothesis testing</strong>: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).</li>
+<li>
+<strong>Estimation</strong>: The goal of the sample is to obtain an accurate estimate of the misstatement in the population with a certain precision.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/book_justice.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption>
-</figure>
+<figure class="figure"><p><img src="img/book_justice.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>When an auditor needs to perform audit sampling, they typically have two options: non-stratified or stratified sampling. Non-stratified sampling involves selecting a sample of units without considering any categorical characteristics, such as product type or store location, of these items. Stratified sampling involves dividing the population into subgroups based on specific characteristics and selecting a sample from each subgroup. In comparison to non-stratified sampling, stratified sampling can improve efficiency. However, in this chapter, we will focus on non-stratified audit sampling, while stratified audit sampling will be covered in the next chapter.</p>
 <p>Non-stratified sampling is typically used when the population is considered homogenous, meaning there are no significant differences between subgroups. This approach is also suitable when the auditor does not need to consider differences between subgroups. For example, when an auditor reviews a company’s inventory using non-stratified sampling, they may choose a random sample of items from the entire inventory without dividing it into subgroups. Similarly, when conducting an audit of a small business’s general ledger, an auditor may select a sample of entries without dividing them based on categorical features such as payment method.</p>
 <p>To get started with non-stratified evaluation of audit samples, the auditor must first decide if they want to evaluate based on summary statistics derived from a sample (i.e., 1 misstatement in 100 items) or if they want to calculate the misstatements from a data set. To make the principle of evaluation easier to understand, we will first explain how to evaluate a sample using summary statistics from a sample.</p>
-<section id="classical-evaluation" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">6.1</span> Classical Evaluation</h2>
+<section id="classical-evaluation" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="classical-evaluation">
+<span class="header-section-number">5.1</span> Classical Evaluation</h2>
 <p>In classical evaluation, confidence intervals and <em>p</em>-values are used to measure the uncertainty and the evidence against the hypothesis of intolerable misstatement, respectively.</p>
 <p>Confidence intervals play a crucial role in classical inference by helping to determine the uncertainty in a sample estimate. For example, if an auditor needs to estimate the misstatement in a tax return, they can calculate a confidence interval for the misstatement using classical inference. This confidence interval represents a range of possible values in which the true misstatement of the population is likely to fall. This range helps auditors make informed decisions about the misstatement and determine the potential impact of the misstatement on the (loss of) taxes.</p>
 <p>To illustrate, suppose an auditor wants to estimate the misstatement in a population based on a sample of 100 items containing one misstatement. Using the <code>evaluation()</code> function in <strong>jfa</strong> and specifying <code>x = 1</code> and <code>n = 100</code>, the output shows that the estimated most likely misstatement in the population is 1 percent, and the 95 percent (one-sided) confidence interval ranges from 0 percent to 4.74 percent. It is important to note that the correct interpretation of a 95 percent confidence interval is: <em>“If we were to repeat the experiment over and over, then 95 percent of the time the confidence interval contains the true misstatement rate”</em> <span class="citation" data-cites="Hoekstra2014">(<a href="references.html#ref-Hoekstra2014" role="doc-biblioref">Hoekstra et al., 2014</a>)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-2_0eeaec67b26b896b8596e5be693b57a7">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04655981</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.01 </span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-2_66c74abc6d3692404b66e08c446fb7af">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  1 and 100</span></span>
+<span><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.04655981</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.01 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Classical hypothesis testing relies on the <em>p</em>-value to determine whether to accept or reject a certain hypothesis about a population. For example, suppose an auditor wishes to test whether the population contains misstatements of less than 3 percent (they formulate the performance materiality based on existing rules and regulations). They would create the hypotheses <span class="math inline">\(H_1:\theta&lt;0.03\)</span> and <span class="math inline">\(H_0:\theta\geq0.03\)</span>. The significance level is set to 0.05, equivalent to an audit risk of 5 percent. This means that a <em>p</em>-value below 0.05 is sufficient to reject the hypothesis of intolerable misstatement <span class="math inline">\(H_0\)</span>.</p>
 <p>In <strong>jfa</strong>, a classical hypothesis test using the <em>p</em>-value can be conducted by specifying the <code>materiality</code> argument in the <code>evaluation()</code> function. For example, to indicate a performance materiality of 3 percent, the auditor can specify <code>materiality = 0.03</code>. Along with the confidence interval, the output displays a <em>p</em>-value of 0.19462, which is greater than 0.05. Therefore, the hypothesis <span class="math inline">\(H_0\)</span> cannot be rejected at a significance level of 5 percent. As a result, the auditor cannot conclude that the sample provides sufficient evidence to reduce the audit risk to an appropriate level and cannot state that the population does not have misstatements of 3 percent or more.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-3_6399bd8d8c9ee4ee8fdf9bad618c67ef">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eval</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.19462</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04655981</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.01 </span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-3_b7b4175889ea1e27bbb730c2d56211cc">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="va">eval</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  1 and 100</span></span>
+<span><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, p-value =</span></span>
+<span><span class="co">#&gt; 0.19462</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.04655981</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.01 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The exact definition of the <em>p</em>-value is <em>“the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement”</em>. The <em>p</em>-value of 0.19462 can be visualized via the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-4_b35d135e03b72f6831ab36e275a9bd03">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The exact definition of the <em>p</em>-value is <em>“the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement”</em>. The <em>p</em>-value of 0.19462 can be visualized via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-4_82efce3590fb542d3570b543081ab6e1">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="bayesian-evaluation" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">6.2</span> Bayesian Evaluation</h2>
+</section><section id="bayesian-evaluation" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="bayesian-evaluation">
+<span class="header-section-number">5.2</span> Bayesian Evaluation</h2>
 <p>Classical inference involves using confidence intervals to measure the uncertainty of our estimate, while in Bayesian inference, we use credible intervals for this purpose. To perform Bayesian inference, we start by specifying a prior distribution, which specifies our prior knowledge about the misstatement in the population before collecting any data. We then combine this prior with the information obtained from our sample to obtain a posterior distribution.</p>
 <p>We can use this posterior distribution to estimate the most likely misstatement in the population and the range of values that we are 95 percent confident the true value lies within. The classical confidence interval is often misinterpreted as a Bayesian credible interval. That is, a Bayesian 95 percent credible interval can be intuitively interpreted as: <em>“There is a 95 percent probability that the misstatement falls within the credible interval”</em>.</p>
 <p>For instance, suppose we have a uniform <em>beta(1, 1)</em> prior, a sample of 100 units, and we discover one with a misstatement. In that case, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can determine that there is a 95 percent probability that the true misstatement rate falls between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform <em>beta(1, 1)</em> prior distribution. To achieve classical results, we can create a prior with <code>method="strict"</code> using the <code>auditPrior()</code> function. Remember that any call to <code>evaluation()</code> can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the <code>prior</code> constructed through a call to <code>auditPrior()</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-5_12e7689a3f3745e33486370adef32f14">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"default"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>eval</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04610735</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.01 </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-5_7b2b2cb0b897ce0e58936d9478bd56d7">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"default"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
+<span><span class="va">eval</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  1 and 100</span></span>
+<span><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1</span></span>
+<span><span class="co">#&gt; 95 percent credible interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.04610735</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.01 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can use the <code>plot()</code> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-6_2f24fad5fa92caf6209d684dcc934b64">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-6_e4138d8464905707753a80b38647d155">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-evaluation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-evaluation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
@@ -426,151 +399,141 @@ div.csl-indent {
 <p>To determine the strength of evidence against the hypothesis of intolerable misstatement, classical inference relies on <em>p</em>-values, while Bayesian inference uses the Bayes factor to measure evidence in support of or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing employs the Bayes factor, either <span class="math inline">\(BF_{10}\)</span> or <span class="math inline">\(BF_{01}\)</span>, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_0\)</span>.</p>
 <p>The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the <code>evaluation()</code> function outputs a value of 10 for <span class="math inline">\(BF_{10}\)</span>, it means that the data are ten times more likely to have arisen under <span class="math inline">\(H_1\)</span> than under <span class="math inline">\(H_0\)</span>. A Bayes factor <span class="math inline">\(BF_{10}\)</span> greater than 1 suggests evidence for <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span>, while a Bayes factor <span class="math inline">\(BF_{10}\)</span> less than 1 suggests evidence for <span class="math inline">\(H_0\)</span> and against <span class="math inline">\(H_1\)</span>. Although the <code>evaluation()</code> function returns <span class="math inline">\(BF_{10}\)</span> by default, one can compute <span class="math inline">\(BF_{01}\)</span> as the inverse of <span class="math inline">\(BF_{10}\)</span> (i.e., <span class="math inline">\(\frac{1}{BF_{10}}\)</span>).</p>
 <p>To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses <span class="math inline">\(H_1:\theta&lt;0.03\)</span> and <span class="math inline">\(H_0:\theta\geq0.03\)</span>. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default <em>beta(1,1)</em> prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The <code>materiality = 0.03</code> argument specifies the materiality for this audit.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-7_7fbe662cde005b8b9215b00b7e20ef1c">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 137.65</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.04610735</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.01 </span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-7_4ade15cf51e454de2af7761509d94bef">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  1 and 100</span></span>
+<span><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span><span class="co">#&gt; 137.65</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
+<span><span class="co">#&gt; 95 percent credible interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.04610735</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.01 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the Bayes factor is <span class="math inline">\(BF_{10}=137.65\)</span>, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the <em>beta(1,1)</em> prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-8_f58d0750e173db78e320141dd5f86a0a">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>prior.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prior.prob.h1</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-8_9a6d862437b2b48a6928b029da438a57">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.prob.h1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">pbeta</a></span><span class="op">(</span><span class="fl">0.03</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">prior.prob.h1</span></span>
+<span><span class="co">#&gt; [1] 0.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The probability of the hypothesis of intolerable misstatement is essentially the opposite of the probability of the hypothesis of tolerable misstatement. To clarify, it is just one minus the prior probability of the hypothesis of tolerable misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-9_942db23a2f02d44a935580ba34adfcbf">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>prior.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> prior.prob.h1</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>prior.prob.h0</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.97</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-9_5ea6854dbc4740d6ed65125f26892e1c">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.prob.h0</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">prior.prob.h1</span></span>
+<span><span class="va">prior.prob.h0</span></span>
+<span><span class="co">#&gt; [1] 0.97</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We use the prior probabilities to calculate the prior odds, which is the ratio of the prior probabilities.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-10_01c9e9296ecb46fac97474eca3afe910">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>prior.odds.h1 <span class="ot">&lt;-</span> prior.prob.h1 <span class="sc">/</span> prior.prob.h0</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>prior.odds.h1</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.03092784</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-10_f7082ff02afac0afb9bd868425f9ad69">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.odds.h1</span> <span class="op">&lt;-</span> <span class="va">prior.prob.h1</span> <span class="op">/</span> <span class="va">prior.prob.h0</span></span>
+<span><span class="va">prior.odds.h1</span></span>
+<span><span class="co">#&gt; [1] 0.03092784</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution and essentially follow the same steps. Hence, we calculate the posterior probability for the hypothesis of tolerable misstatement, then obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting this probability from one. Finally, the posterior odds are calculated as the ratio of the posterior probabilities</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-11_3664246a2901ecc3b48927546ae22b6f">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>post.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">100</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>post.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> post.prob.h1</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>post.odds.h1 <span class="ot">&lt;-</span> post.prob.h1 <span class="sc">/</span> post.prob.h0</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>post.odds.h1</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4.257346</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-11_725e4ebcb6b952aaf56833a3be32c73e">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">post.prob.h1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">pbeta</a></span><span class="op">(</span><span class="fl">0.03</span>, shape1 <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">100</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">post.prob.h0</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">post.prob.h1</span></span>
+<span><span class="va">post.odds.h1</span> <span class="op">&lt;-</span> <span class="va">post.prob.h1</span> <span class="op">/</span> <span class="va">post.prob.h0</span></span>
+<span><span class="va">post.odds.h1</span></span>
+<span><span class="co">#&gt; [1] 4.257346</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, the Bayes factor can be computed as the ratio of the posterior odds and the prior odds.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-12_df2893959db1ad22278cc2d163880ac2">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bf10 <span class="ot">&lt;-</span> post.odds.h1 <span class="sc">/</span> prior.odds.h1</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>bf10</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 137.6542</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-12_21fa42a6ecd5c94db943394a5f879355">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bf10</span> <span class="op">&lt;-</span> <span class="va">post.odds.h1</span> <span class="op">/</span> <span class="va">prior.odds.h1</span></span>
+<span><span class="va">bf10</span></span>
+<span><span class="co">#&gt; [1] 137.6542</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for <span class="math inline">\(\theta\)</span>. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the <em>beta(1, 1)</em> prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <code>method = "impartial"</code> in the <code>auditPrior()</code> function <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022</a>)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-13_59118a7922e2fbb204d7825053440923">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  1 and 100</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7.7685</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.03806016</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.0082131 </span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-13_1ce9e0dba6930f0247c220ef7742ea1c">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, method <span class="op">=</span> <span class="st">"impartial"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  1 and 100</span></span>
+<span><span class="co">#&gt; number of errors = 1, number of samples = 100, taint = 1, BF₁₀ =</span></span>
+<span><span class="co">#&gt; 7.7685</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true misstatement rate is less than 0.03</span></span>
+<span><span class="co">#&gt; 95 percent credible interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.03806016</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.0082131 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The analysis above was conducted using an impartial prior. The resulting output indicates that <span class="math inline">\(BF_{10}=7.77\)</span>, which moderately supports <span class="math inline">\(H_1\)</span>. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.</p>
-</section>
-<section id="using-data" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="using-data"><span class="header-section-number">6.3</span> Using Data</h2>
+</section><section id="using-data" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="using-data">
+<span class="header-section-number">5.3</span> Using Data</h2>
 <p>Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the <code>evaluation()</code> function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.</p>
 <p>To demonstrate how this works, we will use the <code>allowances</code> data set that comes with the <strong>jfa</strong> package. This data set includes 3500 financial statement line items, each with a booked value (<code>bookValue</code>) and an audited (true) value (<code>auditValue</code>) for illustrative purposes. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-14_22872056f7342b94a5610c2c90812084">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    1     12      1600       1600     1</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    2     12      1625         NA     0</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    3     12      1775         NA     0</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4     12      1250       1250     1</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    5     12      1400         NA     0</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-14_4b83741b8613faa235297124d3fe71f4">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
+<span><span class="co">#&gt; 1    1     12      1600       1600     1</span></span>
+<span><span class="co">#&gt; 2    2     12      1625         NA     0</span></span>
+<span><span class="co">#&gt; 3    3     12      1775         NA     0</span></span>
+<span><span class="co">#&gt; 4    4     12      1250       1250     1</span></span>
+<span><span class="co">#&gt; 5    5     12      1400         NA     0</span></span>
+<span><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When evaluating an audit sample using a data set, it is necessary to specify the <code>data</code>, <code>values</code>, and <code>values.audit</code> arguments in the <code>evaluation()</code> function. The input for these arguments should be the name of the relevant column in <code>data</code>. For example, the call below evaluates the <code>allowances</code> sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-15_e03959bc4769283d333a7670fb05eead">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    1604 </span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               401 </span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.15769 </span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent confidence interval: [0, 0.175] </span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.017311 </span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p-value:                        1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-15_59364bd5551e047d3808c0f64810da99">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, times <span class="op">=</span> <span class="st">"times"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ &gt;= 0.05 vs. H₁: Θ &lt; 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         poisson </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    1604 </span></span>
+<span><span class="co">#&gt;   Number of errors:               401 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Most likely error:              0.15769 </span></span>
+<span><span class="co">#&gt;   95 percent confidence interval: [0, 0.175] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.017311 </span></span>
+<span><span class="co">#&gt;   p-value:                        1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="exercises" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.4</span> Exercises</h2>
-<ol type="1">
-<li>Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatements. Use the classical approach.</li>
-</ol>
-<details>
-<summary>
+</section><section id="exercises" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">5.4</span> Exercises</h2>
+<p><strong>1.</strong> Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatements. Use the classical approach.</p>
+<details><summary>
 Click to reveal answer
-</summary>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-16_e1972658cf156e7d7e51b4c9fa8f21a0">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  2 and 30</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 2, number of samples = 30, taint = 2</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.000000 0.195326</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.066667 </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary><div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-16_7d4cfa6e4d55d0e80d0da20fc5e6f555">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">30</span>, x <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  2 and 30</span></span>
+<span><span class="co">#&gt; number of errors = 2, number of samples = 30, taint = 2</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  0.000000 0.195326</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.066667 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
-
 
 <!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Derks2022b" class="csl-entry" role="listitem">
-Derks, K., Swart, J. de, Wagenmakers, E., &amp; Wetzels, R. (2022). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
+Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R. (2022). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
 </div>
 <div id="ref-Hoekstra2014" class="csl-entry" role="listitem">
 Hoekstra, R., Morey, R. D., Rouder, J. N., &amp; Wagenmakers, E. (2014). Robust misinterpretation of confidence intervals. <em>Psychonomic Bulletin &amp; Review</em>, <em>21</em>, 1157–1164.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -853,16 +816,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./chap-selection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-stratified-evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1010,19 +971,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
 <span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
+<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -1032,7 +1009,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>

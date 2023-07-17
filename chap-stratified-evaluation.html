@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Koen Derks">
-
-<title>Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation</title>
+<title>Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -76,8 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": true,
   "collapse-after": 2,
@@ -96,47 +91,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/book_doors.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1536">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main">
@@ -144,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
+<li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
@@ -157,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
       </ul>
-    </div>
+</div>
 </div>
     </div>
       </div>
@@ -168,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -177,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -188,21 +172,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Foundations of Auditing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -211,33 +195,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -246,21 +230,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -274,33 +258,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="header-section-number">7.1</span> No pooling</a></li>
-  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="header-section-number">7.2</span> Complete pooling</a></li>
-  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="header-section-number">7.3</span> Partial pooling</a></li>
-  <li><a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="header-section-number">7.4</span> Evaluation using data</a>
+<li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="header-section-number">6.1</span> No pooling</a></li>
+  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="header-section-number">6.2</span> Complete pooling</a></li>
+  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="header-section-number">6.3</span> Partial pooling</a></li>
+  <li>
+<a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="header-section-number">6.4</span> Evaluation using data</a>
   <ul class="collapse">
-  <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="header-section-number">7.4.1</span> Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">7.4.2</span> Bayesian Evaluation</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.5</span> Exercises</a></li>
+<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="header-section-number">6.4.1</span> Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">6.4.2</span> Bayesian Evaluation</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.5</span> Exercises</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -313,443 +293,414 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<p>In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the population. This means that there is a hierarchical structure in the data (strata are nested in the population) and the statistical model should ideally reflect this.</p>
+</header><p>In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the population. This means that there is a hierarchical structure in the data (strata are nested in the population) and the statistical model should ideally reflect this.</p>
 <p>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption>
-</figure>
+<figure class="figure"><p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors.</p>
 <p>As a data example, consider the <code>retailer</code> data set that comes with the package. The organization in question consists of 20 branches across the country. In each of the 20 strata, a component auditor has taken a statistical sample and reported the outcomes to the group auditor.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-2_8783d4fe439155ce447c2be0f23c1451">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(retailer)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(retailer)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stratum items samples errors</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       1  5000     300     21</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       2  5000     300     16</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       3  5000     300     15</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       4  5000     300     14</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       5  5000     300     16</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       6  5000     150      5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-2_88c7c58ef47412721cf44d4b1a293bd9">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">retailer</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">retailer</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   stratum items samples errors</span></span>
+<span><span class="co">#&gt; 1       1  5000     300     21</span></span>
+<span><span class="co">#&gt; 2       2  5000     300     16</span></span>
+<span><span class="co">#&gt; 3       3  5000     300     15</span></span>
+<span><span class="co">#&gt; 4       4  5000     300     14</span></span>
+<span><span class="co">#&gt; 5       5  5000     300     16</span></span>
+<span><span class="co">#&gt; 6       6  5000     150      5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The number of units per stratum in the population can be provided with <code>N.units</code> to weigh the stratum estimates to determine population estimate. This is called poststratification. If <code>N.units</code> is not specified, each stratum is assumed to be equally represented in the population.</p>
-<section id="no-pooling" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="no-pooling"><span class="header-section-number">7.1</span> No pooling</h2>
+<section id="no-pooling" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="no-pooling">
+<span class="header-section-number">6.1</span> No pooling</h2>
 <p>No pooling (<code>pooling = "none"</code>, default) assumes no similarities between strata. This means that the prior distribution specified through <code>prior</code> is applied independently for each stratum. This allows for independent estimates for the misstatement in each stratum but also results in a relatively high uncertainty in the population estimate. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-3_d9fe2891cbd7458c6dd697d485410113">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result_np <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">pooling =</span> <span class="st">"none"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_np)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.0598 </span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.042763, 0.082201] </span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.022401 </span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0 </span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.07000 0.04637 0.10467   0.03467</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.05000 0.03069 0.08086   0.03086</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.04667 0.02816 0.07681   0.03014</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.02000 0.00726 0.05696   0.03696</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.06000 0.02178 0.16242   0.10242</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.02000 0.00478 0.10447   0.08447</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.00000 0.00050 0.06978   0.06978</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.06667 0.01551 0.30232   0.23565</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.20000 0.07266 0.45646   0.25646</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-3_5bf867b4e243b10f9b9b841f1f6a5696">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
+<span><span class="va">result_np</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_np</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Population size:                144000 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         binomial </span></span>
+<span><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    2575 </span></span>
+<span><span class="co">#&gt;   Number of errors:               115 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  115 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
+<span><span class="co">#&gt;   Most likely error:              0.0598 </span></span>
+<span><span class="co">#&gt;   95 percent credible interval:   [0.042763, 0.082201] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.022401 </span></span>
+<span><span class="co">#&gt;   BF₁₀:                            0 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Strata (20):</span></span>
+<span><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision</span></span>
+<span><span class="co">#&gt; 1   5000 300 21 21 0.07000 0.04637 0.10467   0.03467</span></span>
+<span><span class="co">#&gt; 2   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
+<span><span class="co">#&gt; 3   5000 300 15 15 0.05000 0.03069 0.08086   0.03086</span></span>
+<span><span class="co">#&gt; 4   5000 300 14 14 0.04667 0.02816 0.07681   0.03014</span></span>
+<span><span class="co">#&gt; 5   5000 300 16 16 0.05333 0.03324 0.08489   0.03156</span></span>
+<span><span class="co">#&gt; 6   5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
+<span><span class="co">#&gt; 7   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
+<span><span class="co">#&gt; 8   5000 150  3  3 0.02000 0.00726 0.05696   0.03696</span></span>
+<span><span class="co">#&gt; 9   5000 150  4  4 0.02667 0.01084 0.06643   0.03977</span></span>
+<span><span class="co">#&gt; 10  5000 150  5  5 0.03333 0.01472 0.07558   0.04225</span></span>
+<span><span class="co">#&gt; 11 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
+<span><span class="co">#&gt; 12 10000  50  3  3 0.06000 0.02178 0.16242   0.10242</span></span>
+<span><span class="co">#&gt; 13 10000  50  2  2 0.04000 0.01230 0.13459   0.09459</span></span>
+<span><span class="co">#&gt; 14 10000  50  1  1 0.02000 0.00478 0.10447   0.08447</span></span>
+<span><span class="co">#&gt; 15 10000  50  0  0 0.00000 0.00050 0.06978   0.06978</span></span>
+<span><span class="co">#&gt; 16 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span><span class="co">#&gt; 17 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span><span class="co">#&gt; 18 10000  15  0  0 0.00000 0.00158 0.20591   0.20591</span></span>
+<span><span class="co">#&gt; 19 10000  15  1  1 0.06667 0.01551 0.30232   0.23565</span></span>
+<span><span class="co">#&gt; 20  4000  15  3  3 0.20000 0.07266 0.45646   0.25646</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output of the <code>summary()</code> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates differ substantially from each other but are relatively uncertain.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-4_0764173da74579004afe8e51a24e4502">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"estimates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates differ substantially from each other but are relatively uncertain.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-4_1126a6ed6032815b210989a1a66798b4">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-5_0b9a20c371cd54b2f7cc34b2d8641b43">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"posterior"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-5_25c4578f53ffabd688ebb5d4213c2f01">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="complete-pooling" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="complete-pooling"><span class="header-section-number">7.2</span> Complete pooling</h2>
+</section><section id="complete-pooling" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="complete-pooling">
+<span class="header-section-number">6.2</span> Complete pooling</h2>
 <p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-6_dd78285972792341aed9595e244dc9d0">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">pooling =</span> <span class="st">"complete"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_cp)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             beta(α = 1, β = 1) </span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         beta(α = 116, β = 2461) </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.04466 </span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.03735, 0.053345] </span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0086852 </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0.022725 </span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision    bf10</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-6_2babbd5a3ee84ebcab7b9d7ca9b1cb76">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result_cp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_cp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Population size:                144000 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         binomial </span></span>
+<span><span class="co">#&gt;   Prior distribution:             beta(α = 1, β = 1) </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    2575 </span></span>
+<span><span class="co">#&gt;   Number of errors:               115 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  115 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Posterior distribution:         beta(α = 116, β = 2461) </span></span>
+<span><span class="co">#&gt;   Most likely error:              0.04466 </span></span>
+<span><span class="co">#&gt;   95 percent credible interval:   [0.03735, 0.053345] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.0086852 </span></span>
+<span><span class="co">#&gt;   BF₁₀:                            0.022725 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Strata (20):</span></span>
+<span><span class="co">#&gt;        N   n  x  t     mle      lb      ub precision    bf10</span></span>
+<span><span class="co">#&gt; 1   5000 300 21 21 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 2   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 3   5000 300 15 15 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 4   5000 300 14 14 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 5   5000 300 16 16 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 6   5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 7   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 8   5000 150  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 9   5000 150  4  4 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 10  5000 150  5  5 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 11 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 12 10000  50  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 13 10000  50  2  2 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 14 10000  50  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 15 10000  50  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 16 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 17 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 18 10000  15  0  0 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 19 10000  15  1  1 0.04466 0.03735 0.05335   0.00869 0.02273</span></span>
+<span><span class="co">#&gt; 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For example, the output of the <code>summary()</code> function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-7_e929544a0488dfecd40da7888bae5753">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-7_6422ae3b4d4faa5fef93f4a75a4efb12">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-8_34015a5bec401f4e23f91ad92b8bd58e">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-8_738608464a79dce22277dca97127468a">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="partial-pooling" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="partial-pooling"><span class="header-section-number">7.3</span> Partial pooling</h2>
+</section><section id="partial-pooling" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="partial-pooling">
+<span class="header-section-number">6.3</span> Partial pooling</h2>
 <p>Finally, partial pooling (<code>pooling = "partial"</code>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption>
-</figure>
+<figure class="figure"><p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-9_eccd3f39e60df1d8d537319295e82b62">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>result_pp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">pooling =</span> <span class="st">"partial"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_pp)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                144000 </span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         binomial </span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    2575 </span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               115 </span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  115 </span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.0436 </span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.034359, 0.052939] </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.0093391 </span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            0.016934 </span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (20):</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        N   n  x  t    mle      lb      ub precision</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   5000 300 21 21 0.0469 0.03808 0.08001   0.03311</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   5000 300 16 16 0.0440 0.03346 0.06723   0.02323</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   5000 300 15 15 0.0418 0.03215 0.06442   0.02262</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   5000 300 14 14 0.0453 0.03081 0.06266   0.01736</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   5000 300 16 16 0.0438 0.03275 0.06691   0.02311</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   5000 150  5  5 0.0427 0.02258 0.05888   0.01618</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   5000 150  4  4 0.0374 0.02088 0.05661   0.01921</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   5000 150  3  3 0.0388 0.01863 0.05475   0.01595</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   5000 150  4  4 0.0386 0.02105 0.05688   0.01828</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  5000 150  5  5 0.0437 0.02389 0.05928   0.01558</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 10000  50  2  2 0.0444 0.02385 0.06593   0.02153</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 10000  50  3  3 0.0454 0.02705 0.07348   0.02808</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 10000  50  2  2 0.0432 0.02273 0.06707   0.02387</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 10000  50  1  1 0.0386 0.02055 0.06055   0.02195</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 10000  50  0  0 0.0421 0.01643 0.05854   0.01644</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 10000  15  0  0 0.0436 0.01994 0.06536   0.02176</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 10000  15  0  0 0.0441 0.02041 0.06794   0.02384</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18 10000  15  0  0 0.0436 0.01970 0.06705   0.02345</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 19 10000  15  1  1 0.0412 0.02320 0.07635   0.03515</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20  4000  15  3  3 0.0441 0.03051 0.10039   0.05629</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-9_2368655abf44de0608fba4f02dd1bf58">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
+<span><span class="va">result_pp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"partial"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_pp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Population size:                144000 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         binomial </span></span>
+<span><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    2575 </span></span>
+<span><span class="co">#&gt;   Number of errors:               115 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  115 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
+<span><span class="co">#&gt;   Most likely error:              0.0436 </span></span>
+<span><span class="co">#&gt;   95 percent credible interval:   [0.034359, 0.052939] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.0093391 </span></span>
+<span><span class="co">#&gt;   BF₁₀:                            0.016934 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Strata (20):</span></span>
+<span><span class="co">#&gt;        N   n  x  t    mle      lb      ub precision</span></span>
+<span><span class="co">#&gt; 1   5000 300 21 21 0.0469 0.03808 0.08001   0.03311</span></span>
+<span><span class="co">#&gt; 2   5000 300 16 16 0.0440 0.03346 0.06723   0.02323</span></span>
+<span><span class="co">#&gt; 3   5000 300 15 15 0.0418 0.03215 0.06442   0.02262</span></span>
+<span><span class="co">#&gt; 4   5000 300 14 14 0.0453 0.03081 0.06266   0.01736</span></span>
+<span><span class="co">#&gt; 5   5000 300 16 16 0.0438 0.03275 0.06691   0.02311</span></span>
+<span><span class="co">#&gt; 6   5000 150  5  5 0.0427 0.02258 0.05888   0.01618</span></span>
+<span><span class="co">#&gt; 7   5000 150  4  4 0.0374 0.02088 0.05661   0.01921</span></span>
+<span><span class="co">#&gt; 8   5000 150  3  3 0.0388 0.01863 0.05475   0.01595</span></span>
+<span><span class="co">#&gt; 9   5000 150  4  4 0.0386 0.02105 0.05688   0.01828</span></span>
+<span><span class="co">#&gt; 10  5000 150  5  5 0.0437 0.02389 0.05928   0.01558</span></span>
+<span><span class="co">#&gt; 11 10000  50  2  2 0.0444 0.02385 0.06593   0.02153</span></span>
+<span><span class="co">#&gt; 12 10000  50  3  3 0.0454 0.02705 0.07348   0.02808</span></span>
+<span><span class="co">#&gt; 13 10000  50  2  2 0.0432 0.02273 0.06707   0.02387</span></span>
+<span><span class="co">#&gt; 14 10000  50  1  1 0.0386 0.02055 0.06055   0.02195</span></span>
+<span><span class="co">#&gt; 15 10000  50  0  0 0.0421 0.01643 0.05854   0.01644</span></span>
+<span><span class="co">#&gt; 16 10000  15  0  0 0.0436 0.01994 0.06536   0.02176</span></span>
+<span><span class="co">#&gt; 17 10000  15  0  0 0.0441 0.02041 0.06794   0.02384</span></span>
+<span><span class="co">#&gt; 18 10000  15  0  0 0.0436 0.01970 0.06705   0.02345</span></span>
+<span><span class="co">#&gt; 19 10000  15  1  1 0.0412 0.02320 0.07635   0.03515</span></span>
+<span><span class="co">#&gt; 20  4000  15  3  3 0.0441 0.03051 0.10039   0.05629</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-10_1c11d731a229289198df50c145fc2ac9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-10_faac989ba6bd68d8120029200f782ca9">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-11_2b73b58bf4dec6c445c8212f5f056379">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-11_593db0c882f461242dbcb31d4fae29eb">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="evaluation-using-data" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="evaluation-using-data"><span class="header-section-number">7.4</span> Evaluation using data</h2>
+</section><section id="evaluation-using-data" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="evaluation-using-data">
+<span class="header-section-number">6.4</span> Evaluation using data</h2>
 <p>For this example, we take the <code>allowances</code> that set that comes with the package. This data set contains 3500 financial statement line items, each with a booked value <code>bookValue</code> and, for illustrative purposes, and audited (true) value <code>auditValue</code>. Since the focus of this chapter is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-12_07a835fe6db7e069d2051c4165ed1fba">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    1     12      1600       1600     1</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    2     12      1625         NA     0</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    3     12      1775         NA     0</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    4     12      1250       1250     1</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    5     12      1400         NA     0</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-12_3e83935e433d9c7b7dcac3f99ae855ed">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
+<span><span class="co">#&gt; 1    1     12      1600       1600     1</span></span>
+<span><span class="co">#&gt; 2    2     12      1625         NA     0</span></span>
+<span><span class="co">#&gt; 3    3     12      1775         NA     0</span></span>
+<span><span class="co">#&gt; 4    4     12      1250       1250     1</span></span>
+<span><span class="co">#&gt; 5    5     12      1400         NA     0</span></span>
+<span><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Evaluating a stratified sample using data requires specification of the <code>data</code>, <code>values</code>, <code>values.audit</code> and <code>strata</code> arguments in the <code>evaluation()</code> function. In this case, the units are monetary and calculated by aggregating the book values of the items in each stratum.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-13_c26e4886196a0b5f8d249710bdda899c">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>N.units <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(allowances<span class="sc">$</span>bookValue, <span class="fu">list</span>(allowances<span class="sc">$</span>branch), sum)<span class="sc">$</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-13_e4754c03c1e1abf998843c03d75df54a">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N.units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">$</span><span class="va">bookValue</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">$</span><span class="va">branch</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span><span class="op">$</span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="classical-evaluation" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="classical-evaluation"><span class="header-section-number">7.4.1</span> Classical Evaluation</h3>
+<section id="classical-evaluation" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="classical-evaluation">
+<span class="header-section-number">6.4.1</span> Classical Evaluation</h3>
 <p>The call below evaluates the <code>allowances</code> sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-14_bb80b963bbac5b42e3297a94d3c59ed3">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">strata =</span> <span class="st">"branch"</span>, <span class="at">times =</span> <span class="st">"times"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">N.units =</span> N.units)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                16772249 </span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    1604 </span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               401 </span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.14723 </span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent confidence interval: [0.12549, 0.18239] </span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.03516 </span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p-value:                        NA </span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (16):</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             N   n   x         t     mle      lb      ub precision p.value</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   317200.09  87   6   1.27814 0.01469 0.00073 0.06950   0.05481 0.46285</span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2792814.33 305 233 193.23313 0.63355 0.54558 0.72945   0.09590 0.00000</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  1144231.69  55   3   3.00000 0.05455 0.01105 0.15940   0.10486 0.75827</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   414202.89  70  45  15.05094 0.21501 0.11878 0.35434   0.13933 0.00000</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    96660.53  18   1   0.64537 0.03585 0.00015 0.27456   0.23871 0.59343</span></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   348006.13  34   1   0.17866 0.00525 0.00000 0.11926   0.11401 1.00000</span></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  2384079.33  55  14   9.44448 0.17172 0.07885 0.32122   0.14950 0.00058</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8  1840399.33  96   1   0.00813 0.00008 0.00000 0.03860   0.03852 0.10355</span></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   563957.70  92   0   0.00000 0.00000 0.00000 0.04010   0.04010 0.01783</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 3198877.73 201   7   0.92023 0.00458 0.00009 0.02703   0.02245 0.00122</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 1983299.06 128   7   1.50034 0.01172 0.00084 0.05013   0.03841 0.10773</span></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12  319144.13  86   5   1.68141 0.01955 0.00174 0.07806   0.05851 0.46069</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13  148905.79  25   0   0.00000 0.00000 0.00000 0.14756   0.14756 0.64187</span></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14  513058.76 150   0   0.00000 0.00000 0.00000 0.02459   0.02459 0.00134</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15  432007.61 150  39  21.80000 0.14533 0.09026 0.22045   0.07511 0.00001</span></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16  275403.70  52  39   4.18726 0.08052 0.02237 0.20215   0.12163 0.12258</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-14_05bf1f98807d2e93c3e0283ef01b9455">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, strata <span class="op">=</span> <span class="st">"branch"</span>, times <span class="op">=</span> <span class="st">"times"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, N.units <span class="op">=</span> <span class="va">N.units</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Population size:                16772249 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         poisson </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    1604 </span></span>
+<span><span class="co">#&gt;   Number of errors:               401 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  252.9281046 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Most likely error:              0.14723 </span></span>
+<span><span class="co">#&gt;   95 percent confidence interval: [0.12549, 0.18239] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.03516 </span></span>
+<span><span class="co">#&gt;   p-value:                        NA </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Strata (16):</span></span>
+<span><span class="co">#&gt;             N   n   x         t     mle      lb      ub precision p.value</span></span>
+<span><span class="co">#&gt; 1   317200.09  87   6   1.27814 0.01469 0.00073 0.06950   0.05481 0.46285</span></span>
+<span><span class="co">#&gt; 2  2792814.33 305 233 193.23313 0.63355 0.54558 0.72945   0.09590 0.00000</span></span>
+<span><span class="co">#&gt; 3  1144231.69  55   3   3.00000 0.05455 0.01105 0.15940   0.10486 0.75827</span></span>
+<span><span class="co">#&gt; 4   414202.89  70  45  15.05094 0.21501 0.11878 0.35434   0.13933 0.00000</span></span>
+<span><span class="co">#&gt; 5    96660.53  18   1   0.64537 0.03585 0.00015 0.27456   0.23871 0.59343</span></span>
+<span><span class="co">#&gt; 6   348006.13  34   1   0.17866 0.00525 0.00000 0.11926   0.11401 1.00000</span></span>
+<span><span class="co">#&gt; 7  2384079.33  55  14   9.44448 0.17172 0.07885 0.32122   0.14950 0.00058</span></span>
+<span><span class="co">#&gt; 8  1840399.33  96   1   0.00813 0.00008 0.00000 0.03860   0.03852 0.10355</span></span>
+<span><span class="co">#&gt; 9   563957.70  92   0   0.00000 0.00000 0.00000 0.04010   0.04010 0.01783</span></span>
+<span><span class="co">#&gt; 10 3198877.73 201   7   0.92023 0.00458 0.00009 0.02703   0.02245 0.00122</span></span>
+<span><span class="co">#&gt; 11 1983299.06 128   7   1.50034 0.01172 0.00084 0.05013   0.03841 0.10773</span></span>
+<span><span class="co">#&gt; 12  319144.13  86   5   1.68141 0.01955 0.00174 0.07806   0.05851 0.46069</span></span>
+<span><span class="co">#&gt; 13  148905.79  25   0   0.00000 0.00000 0.00000 0.14756   0.14756 0.64187</span></span>
+<span><span class="co">#&gt; 14  513058.76 150   0   0.00000 0.00000 0.00000 0.02459   0.02459 0.00134</span></span>
+<span><span class="co">#&gt; 15  432007.61 150  39  21.80000 0.14533 0.09026 0.22045   0.07511 0.00001</span></span>
+<span><span class="co">#&gt; 16  275403.70  52  39   4.18726 0.08052 0.02237 0.20215   0.12163 0.12258</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <code>summary()</code> function and are visualized below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-15_ab133723477b4c209247fdacc45c8c38">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"estimates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized below.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-15_5b84b1c1984d1625ec125652f52b04f4">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="bayesian-evaluation" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="bayesian-evaluation"><span class="header-section-number">7.4.2</span> Bayesian Evaluation</h3>
+</section><section id="bayesian-evaluation" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="bayesian-evaluation">
+<span class="header-section-number">6.4.2</span> Bayesian Evaluation</h3>
 <p>Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The call below evaluates the <code>allowances</code> sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-16_0bedbc49037377f57b55635cadd3960e">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">strata =</span> <span class="st">"branch"</span>, <span class="at">times =</span> <span class="st">"times"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">N.units =</span> N.units, <span class="at">pooling =</span> <span class="st">"partial"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Options:</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Confidence level:               0.95 </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Population size:                16772249 </span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Materiality:                    0.05 </span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Method:                         poisson </span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data:</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample size:                    1350 </span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of errors:               401 </span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sum of taints:                  224.657517 </span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results:</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Most likely error:              0.1558 </span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   95 percent credible interval:   [0.14555, 0.17039] </span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Precision:                      0.014594 </span></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   BF₁₀:                            Inf </span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Strata (16):</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             N   n   x         t    mle      lb      ub precision</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   317200.09  62   6   1.07814 0.0205 0.01376 0.03643   0.01593</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2792814.33 283 233 176.87807 0.6238 0.57166 0.65244   0.02864</span></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  1144231.69  55   3   3.00000 0.1543 0.11536 0.24590   0.09160</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   414202.89  48  45  11.65094 0.2857 0.22315 0.34922   0.06352</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    96660.53   9   1   0.21512 0.0219 0.01061 0.09504   0.07314</span></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   348006.13  14   1   0.04467 0.0149 0.00722 0.04000   0.02510</span></span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  2384079.33  44  14   6.65401 0.1102 0.09183 0.21622   0.10602</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8  1840399.33  78   1   0.00813 0.0065 0.00463 0.00938   0.00288</span></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   563957.70  74   0   0.00000 0.0062 0.00463 0.00978   0.00358</span></span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 3198877.73 184   7   0.89982 0.0074 0.00620 0.01071   0.00331</span></span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 1983299.06 111   7   1.35066 0.0158 0.01097 0.02233   0.00653</span></span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12  319144.13  56   5   1.19069 0.0918 0.05736 0.14419   0.05239</span></span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13  148905.79  10   0   0.00000 0.0121 0.00646 0.04757   0.03547</span></span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14  513058.76 150   0   0.00000 0.0048 0.00377 0.00640   0.00160</span></span>
-<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15  432007.61 128  39  18.30000 0.2693 0.22926 0.33691   0.06761</span></span>
-<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16  275403.70  44  39   3.38726 0.0739 0.05806 0.10273   0.02883</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-16_01f1870889ac0303c91de233fea4b465">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, strata <span class="op">=</span> <span class="st">"branch"</span>, times <span class="op">=</span> <span class="st">"times"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, N.units <span class="op">=</span> <span class="va">N.units</span>, pooling <span class="op">=</span> <span class="st">"partial"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Bayesian Audit Sample Evaluation Summary</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Options:</span></span>
+<span><span class="co">#&gt;   Confidence level:               0.95 </span></span>
+<span><span class="co">#&gt;   Population size:                16772249 </span></span>
+<span><span class="co">#&gt;   Materiality:                    0.05 </span></span>
+<span><span class="co">#&gt;   Hypotheses:                     H₀: Θ = 0.05 vs. H₁: Θ ≠ 0.05 </span></span>
+<span><span class="co">#&gt;   Method:                         poisson </span></span>
+<span><span class="co">#&gt;   Prior distribution:             Nonparametric </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Data:</span></span>
+<span><span class="co">#&gt;   Sample size:                    1350 </span></span>
+<span><span class="co">#&gt;   Number of errors:               401 </span></span>
+<span><span class="co">#&gt;   Sum of taints:                  224.657517 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results:</span></span>
+<span><span class="co">#&gt;   Posterior distribution:         Nonparametric </span></span>
+<span><span class="co">#&gt;   Most likely error:              0.1558 </span></span>
+<span><span class="co">#&gt;   95 percent credible interval:   [0.14555, 0.17039] </span></span>
+<span><span class="co">#&gt;   Precision:                      0.014594 </span></span>
+<span><span class="co">#&gt;   BF₁₀:                            Inf </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Strata (16):</span></span>
+<span><span class="co">#&gt;             N   n   x         t    mle      lb      ub precision</span></span>
+<span><span class="co">#&gt; 1   317200.09  62   6   1.07814 0.0205 0.01376 0.03643   0.01593</span></span>
+<span><span class="co">#&gt; 2  2792814.33 283 233 176.87807 0.6238 0.57166 0.65244   0.02864</span></span>
+<span><span class="co">#&gt; 3  1144231.69  55   3   3.00000 0.1543 0.11536 0.24590   0.09160</span></span>
+<span><span class="co">#&gt; 4   414202.89  48  45  11.65094 0.2857 0.22315 0.34922   0.06352</span></span>
+<span><span class="co">#&gt; 5    96660.53   9   1   0.21512 0.0219 0.01061 0.09504   0.07314</span></span>
+<span><span class="co">#&gt; 6   348006.13  14   1   0.04467 0.0149 0.00722 0.04000   0.02510</span></span>
+<span><span class="co">#&gt; 7  2384079.33  44  14   6.65401 0.1102 0.09183 0.21622   0.10602</span></span>
+<span><span class="co">#&gt; 8  1840399.33  78   1   0.00813 0.0065 0.00463 0.00938   0.00288</span></span>
+<span><span class="co">#&gt; 9   563957.70  74   0   0.00000 0.0062 0.00463 0.00978   0.00358</span></span>
+<span><span class="co">#&gt; 10 3198877.73 184   7   0.89982 0.0074 0.00620 0.01071   0.00331</span></span>
+<span><span class="co">#&gt; 11 1983299.06 111   7   1.35066 0.0158 0.01097 0.02233   0.00653</span></span>
+<span><span class="co">#&gt; 12  319144.13  56   5   1.19069 0.0918 0.05736 0.14419   0.05239</span></span>
+<span><span class="co">#&gt; 13  148905.79  10   0   0.00000 0.0121 0.00646 0.04757   0.03547</span></span>
+<span><span class="co">#&gt; 14  513058.76 150   0   0.00000 0.0048 0.00377 0.00640   0.00160</span></span>
+<span><span class="co">#&gt; 15  432007.61 128  39  18.30000 0.2693 0.22926 0.33691   0.06761</span></span>
+<span><span class="co">#&gt; 16  275403.70  44  39   3.38726 0.0739 0.05806 0.10273   0.02883</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code>summary()</code> function and are visualized below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-17_cf40ff198c9863c03b004af8198502c4">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"estimates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized below.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-17_59025364f5db8e7b09a3273eaaf49bd9">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code>plot()</code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-18_37fd107636891e5334539a042ed582d1">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"posterior"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-18_326fe63668fa79330dbd1aa376d5e4cd">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="480"></p>
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
-<ol type="1">
-<li>Evaluate a stratified sample of <span class="math inline">\(n = [30, 40, 50]\)</span> items containing <span class="math inline">\(k = [0, 1, 2]\)</span> misstatements. Use the classical approach.</li>
-</ol>
-<details>
-<summary>
+</section></section><section id="exercises" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">6.5</span> Exercises</h2>
+<p><strong>1.</strong> Evaluate a stratified sample of <span class="math inline">\(n = [30, 40, 50]\)</span> items containing <span class="math inline">\(k = [0, 1, 2]\)</span> misstatements. Use the classical approach.</p>
+<details><summary>
 Click to reveal answer
-</summary>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-19_ca367787dd29836cc235bd62e0a03f99">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  4 and 120</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number of errors = 4, number of samples = 120, taint = 4</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.00000000 0.08898339</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; most likely estimate:</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.028333 </span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; results obtained via method 'binomial' + 'no-pooling'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary><div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-19_f7ca782eb14f1cfaf7227b553babdd46">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">40</span>, <span class="fl">50</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  4 and 120</span></span>
+<span><span class="co">#&gt; number of errors = 4, number of samples = 120, taint = 4</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  0.00000000 0.08898339</span></span>
+<span><span class="co">#&gt; most likely estimate:</span></span>
+<span><span class="co">#&gt;  0.028333 </span></span>
+<span><span class="co">#&gt; results obtained via method 'binomial' + 'no-pooling'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 
-
 <!-- -->
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1032,16 +983,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./chap-evaluation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-jasp.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1190,19 +1139,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
 <span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a stratified sample of $n = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span>$ items containing $k = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span>$ misstatements. Use the classical approach.</span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a stratified sample of $n = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span>$ items containing $k = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span>$ misstatements. Use the classical approach.</span>
 <span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a>**1.**</span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-206"><a href="#cb19-206" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb19-207"><a href="#cb19-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-208"><a href="#cb19-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-209"><a href="#cb19-209" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -1212,7 +1178,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>
