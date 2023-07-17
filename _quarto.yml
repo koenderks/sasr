@@ -24,13 +24,9 @@ book:
   downloads: [pdf, epub]
   open-graph: true
   page-navigation: true
-  reader-mode: false
+  reader-mode: true
   twitter-card:
     image: "front-page.svg"
-  search:
-    limit: 20
-    collapse-after: 2
-    copy-button: true
   chapters:
     - index.qmd
     - introduction.qmd
