@@ -161,7 +161,7 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -280,6 +280,7 @@ div.csl-indent {
 <li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="header-section-number">6.1</span> Classical Evaluation</a></li>
   <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">6.2</span> Bayesian Evaluation</a></li>
   <li><a href="#using-data" id="toc-using-data" class="nav-link" data-scroll-target="#using-data"><span class="header-section-number">6.3</span> Using Data</a></li>
+  <li><a href="#practical-exercises" id="toc-practical-exercises" class="nav-link" data-scroll-target="#practical-exercises"><span class="header-section-number">6.4</span> Practical Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -495,11 +496,15 @@ div.csl-indent {
 <span><span class="co">#&gt;   Precision:                      0.017311 </span></span>
 <span><span class="co">#&gt;   p-value:                        1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
-<p><strong>1.</strong> Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatements. Use the classical approach.</p>
+</section><section id="practical-exercises" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="practical-exercises">
+<span class="header-section-number">6.4</span> Practical Exercises</h2>
+<ol type="1">
+<li>Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatements. Use the classical approach.</li>
+</ol>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center">
+</summary><p>The evaluation can be performed using the <code>evaluation()</code> function with the default arguments.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">30</span>, x <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
@@ -960,33 +965,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Exercises</span></span>
 <span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
 <span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
 <span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
 <span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
-<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>The evaluation can be performed using the <span class="in">`evaluation()`</span> function with the default arguments.</span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers to the Exercises</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The evaluation can be performed using the <span class="in">`evaluation()`</span> function with the default arguments.</span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

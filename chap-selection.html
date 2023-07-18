@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -274,6 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#modified-sieve-sampling" id="toc-modified-sieve-sampling" class="nav-link" data-scroll-target="#modified-sieve-sampling"><span class="header-section-number">5.2.4</span> Modified Sieve Sampling</a></li>
   </ul>
 </li>
+  <li><a href="#practical-exercises" id="toc-practical-exercises" class="nav-link" data-scroll-target="#practical-exercises"><span class="header-section-number">5.3</span> Practical Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-selection.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -749,11 +750,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  1311     1 91955    398.96     398.96</span></span>
 <span><span class="co">#&gt; 10 2895     1  8688    492.02     492.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section></section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
-<p><strong>1.</strong> Select a random sample of 120 items from the <code>BuildIt</code> data set.</p>
+</section></section></section><section id="practical-exercises" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="practical-exercises">
+<span class="header-section-number">5.3</span> Practical Exercises</h2>
+<ol type="1">
+<li>Select a random sample of 120 items from the <code>BuildIt</code> data set.</li>
+</ol>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center">
+</summary><p>Selecting a random sample of items can be done using the <code>selection()</code> function with the additional arguments <code>size = 120</code>, <code>method = "random"</code> and <code>units = "items"</code>.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">selec</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="fl">120</span>, method <span class="op">=</span> <span class="st">"random"</span>, units <span class="op">=</span> <span class="st">"items"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selec</span><span class="op">$</span><span class="va">sample</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
@@ -763,10 +768,13 @@ Click to reveal answer
 <span><span class="co">#&gt; 4 2632     1  3335    237.32     237.32</span></span>
 <span><span class="co">#&gt; 5 1579     1 62317    309.74     309.74</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</details><p><strong>2.</strong> Select a sample of 240 monetary units from the <code>BuildIt</code> data set using a fixed interval selection method. Use a starting point of 12.</p>
+</details><ol start="2" type="1">
+<li>Select a sample of 240 monetary units from the <code>BuildIt</code> data set using a fixed interval selection method. Use a starting point of 12.</li>
+</ol>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center">
+</summary><p>Selecting a random sample of items can be done using the <code>selection()</code> function with the arguments <code>size = 240</code>, <code>method = "interval"</code> and <code>units = "values"</code>. Additionally, for fixed interval monetary unit sampling, the book values must be given in via argument <code>values = "bookValue"</code>. The starting point is indicated using <code>start = 12</code>.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">selec</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="fl">240</span>, method <span class="op">=</span> <span class="st">"interval"</span>, units <span class="op">=</span> <span class="st">"values"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, start <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selec</span><span class="op">$</span><span class="va">sample</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
@@ -1436,57 +1444,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-426"><a href="#cb36-426" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
 <span id="cb36-427"><a href="#cb36-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-428"><a href="#cb36-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-429"><a href="#cb36-429" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
+<span id="cb36-429"><a href="#cb36-429" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Exercises</span></span>
 <span id="cb36-430"><a href="#cb36-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-431"><a href="#cb36-431" aria-hidden="true" tabindex="-1"></a>**1.** Select a random sample of 120 items from the <span class="in">`BuildIt`</span> data set.</span>
+<span id="cb36-431"><a href="#cb36-431" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Select a random sample of 120 items from the <span class="in">`BuildIt`</span> data set.</span>
 <span id="cb36-432"><a href="#cb36-432" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-433"><a href="#cb36-433" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
 <span id="cb36-434"><a href="#cb36-434" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-435"><a href="#cb36-435" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
 <span id="cb36-436"><a href="#cb36-436" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb36-439"><a href="#cb36-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-440"><a href="#cb36-440" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
-<span id="cb36-441"><a href="#cb36-441" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb36-442"><a href="#cb36-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-443"><a href="#cb36-443" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb36-444"><a href="#cb36-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-445"><a href="#cb36-445" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb36-446"><a href="#cb36-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-447"><a href="#cb36-447" aria-hidden="true" tabindex="-1"></a>**2.** Select a sample of 240 monetary units from the <span class="in">`BuildIt`</span> data set using a fixed interval selection method. Use a starting point of 12.</span>
-<span id="cb36-448"><a href="#cb36-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-449"><a href="#cb36-449" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb36-450"><a href="#cb36-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-451"><a href="#cb36-451" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb36-452"><a href="#cb36-452" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb36-455"><a href="#cb36-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-456"><a href="#cb36-456" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
-<span id="cb36-457"><a href="#cb36-457" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb36-458"><a href="#cb36-458" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-459"><a href="#cb36-459" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
-<span id="cb36-460"><a href="#cb36-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-461"><a href="#cb36-461" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb36-437"><a href="#cb36-437" aria-hidden="true" tabindex="-1"></a>Selecting a random sample of items can be done using the <span class="in">`selection()`</span> function with the additional arguments <span class="in">`size = 120`</span>, <span class="in">`method = "random"`</span> and <span class="in">`units = "items"`</span>.</span>
+<span id="cb36-440"><a href="#cb36-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-441"><a href="#cb36-441" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
+<span id="cb36-442"><a href="#cb36-442" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb36-443"><a href="#cb36-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-444"><a href="#cb36-444" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb36-445"><a href="#cb36-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-446"><a href="#cb36-446" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb36-447"><a href="#cb36-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-448"><a href="#cb36-448" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Select a sample of 240 monetary units from the <span class="in">`BuildIt`</span> data set using a fixed interval selection method. Use a starting point of 12.</span>
+<span id="cb36-449"><a href="#cb36-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-450"><a href="#cb36-450" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb36-451"><a href="#cb36-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-452"><a href="#cb36-452" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb36-453"><a href="#cb36-453" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb36-454"><a href="#cb36-454" aria-hidden="true" tabindex="-1"></a>Selecting a random sample of items can be done using the <span class="in">`selection()`</span> function with the arguments <span class="in">`size = 240`</span>, <span class="in">`method = "interval"`</span> and <span class="in">`units = "values"`</span>. Additionally, for fixed interval monetary unit sampling, the book values must be given in via argument <span class="in">`values = "bookValue"`</span>. The starting point is indicated using <span class="in">`start = 12`</span>.</span>
+<span id="cb36-457"><a href="#cb36-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-458"><a href="#cb36-458" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
+<span id="cb36-459"><a href="#cb36-459" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb36-460"><a href="#cb36-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-461"><a href="#cb36-461" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
 <span id="cb36-462"><a href="#cb36-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-463"><a href="#cb36-463" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb36-463"><a href="#cb36-463" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb36-464"><a href="#cb36-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-465"><a href="#cb36-465" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
+<span id="cb36-465"><a href="#cb36-465" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
 <span id="cb36-466"><a href="#cb36-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-467"><a href="#cb36-467" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
+<span id="cb36-467"><a href="#cb36-467" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
 <span id="cb36-468"><a href="#cb36-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-469"><a href="#cb36-469" aria-hidden="true" tabindex="-1"></a>**1.**</span>
+<span id="cb36-469"><a href="#cb36-469" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers to the Exercises</span></span>
 <span id="cb36-470"><a href="#cb36-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-473"><a href="#cb36-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-474"><a href="#cb36-474" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
-<span id="cb36-475"><a href="#cb36-475" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb36-476"><a href="#cb36-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-477"><a href="#cb36-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-478"><a href="#cb36-478" aria-hidden="true" tabindex="-1"></a>**2.**</span>
+<span id="cb36-471"><a href="#cb36-471" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Selecting a random sample of 120 items can be done using the <span class="in">`selection()`</span> function with the additional arguments <span class="in">`size = 120`</span>, <span class="in">`method = "random"`</span> and <span class="in">`units = "items"`</span>.</span>
+<span id="cb36-472"><a href="#cb36-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-475"><a href="#cb36-475" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-476"><a href="#cb36-476" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">units =</span> <span class="st">"items"</span>)</span>
+<span id="cb36-477"><a href="#cb36-477" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb36-478"><a href="#cb36-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-479"><a href="#cb36-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-482"><a href="#cb36-482" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-483"><a href="#cb36-483" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
-<span id="cb36-484"><a href="#cb36-484" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
-<span id="cb36-485"><a href="#cb36-485" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-486"><a href="#cb36-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-487"><a href="#cb36-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb36-480"><a href="#cb36-480" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Selecting a random sample of 240 monetary units can be done using the <span class="in">`selection()`</span> function with the arguments <span class="in">`size = 240`</span>, <span class="in">`method = "interval"`</span> and <span class="in">`units = "values"`</span>. Additionally, for fixed interval monetary unit sampling, the book values must be given in via argument <span class="in">`values = "bookValue"`</span>. The starting point is indicated using <span class="in">`start = 12`</span>.</span>
+<span id="cb36-481"><a href="#cb36-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-484"><a href="#cb36-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-485"><a href="#cb36-485" aria-hidden="true" tabindex="-1"></a>selec <span class="ot">&lt;-</span> <span class="fu">selection</span>(<span class="at">data =</span> BuildIt, <span class="at">size =</span> <span class="dv">240</span>, <span class="at">method =</span> <span class="st">"interval"</span>, <span class="at">units =</span> <span class="st">"values"</span>, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">start =</span> <span class="dv">12</span>)</span>
+<span id="cb36-486"><a href="#cb36-486" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(selec<span class="sc">$</span>sample, <span class="dv">5</span>)</span>
+<span id="cb36-487"><a href="#cb36-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-488"><a href="#cb36-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-489"><a href="#cb36-489" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
