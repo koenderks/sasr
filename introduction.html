@@ -130,23 +130,7 @@ div.csl-indent {
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/koenderks/sasr/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
-            </a>
-          </li>
-      </ul>
-</div>
+    <a href="./Statistical-Audit-Sampling-with-R.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -322,7 +306,7 @@ div.csl-indent {
 </div>
 <p>The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., <code>1 + 1</code>) and press Enter. When you stored the results of a computation in a new variable (e.g., <code>x &lt;- 1 + 1</code>), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.</p>
 </section><section id="jfa" class="level3"><h3 class="anchored" data-anchor-id="jfa">jfa</h3>
-<p>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. If you want to learn more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="references.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provides an excellent first-hand description of the principles and practices of creating R packages.</p>
+<p>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. If you want to learn more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="references.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provide an excellent first-hand description of the principles and practices of creating R packages.</p>
 <p>To illustrate its concepts and ideas, this book uses the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function by providing the package name in quotes. Thus, before running the examples in this book, you should install the <strong>jfa</strong> package by running the following command in R:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -774,7 +758,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### jfa</span></span>
 <span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <span class="in">`dplyr`</span> for data manipulation, <span class="in">`ggplot2`</span> for data visualization, and <span class="in">`caret`</span> for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <span class="in">`dplyr`</span> for data manipulation, <span class="in">`ggplot2`</span> for data visualization, and <span class="in">`caret`</span> for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provide an excellent first-hand description of the principles and practices of creating R packages.</span>
 <span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:</span>
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
