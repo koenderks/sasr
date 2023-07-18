@@ -21,7 +21,7 @@ Finally, next to determining the sampling objective(s) and the expected misstate
 
 In **jfa**, determining an appropriate sample size is achieved via the `planning()` function.
 
-![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=65%}
+![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){#fig-planning-1 fig-align="center" width=65%}
 
 ## The Hypergeometric Likelihood
 
@@ -73,9 +73,9 @@ However, for $n = 94$ the relevant probability is lower than the sampling risk $
 dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-hyper-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this sample size visually intuitive by showing the hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability for $k = 0$, see @fig-planning-hyper-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-hyper-nomis}The hypergeometric($k$ | 94, 1000, 30) distribution showing the probability for $k = 0$ misstatements as a red bar."}
+```{r label="fig-planning-hyper-nomis", fig.cap="The hypergeometric($k$ | 94, 1000, 30) distribution showing the probability for $k = 0$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -112,9 +112,9 @@ However, for $n = 147$ the relevant probability is lower than the sampling risk 
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-hyper-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this sample size visually intuitive by showing the hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-hyper-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-hyper-mis}The hypergeometric($k$ | 147, 1000, 30) distribution showing the probability for $k = 0$ and $k = 1$ misstatements as a red bar."}
+```{r label="fig-planning-hyper-mis", fig.cap="The hypergeometric($k$ | 147, 1000, 30) distribution showing the probability for $k = 0$ and $k = 1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -155,9 +155,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [$k$; $N - n + k$], since a part of the population has already been seen.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-bbinom-nomis. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [$k$; $N - n + k$], since a part of the population has already been seen.
 
-```{r fig.cap="\\label{fig:planning-bbinom-nomis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing no misstatements in the sample."}
+```{r label="fig-planning-bbinom-nomis", fig.cap="The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing no misstatements in the sample."}
 plot(plan)
 ```
 
@@ -170,9 +170,9 @@ plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95, likelihood 
 plan
 ```
 
-Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-mis} below for the output of this call.
+Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-bbinom-mis below for the output of this call.
 
-```{r fig.cap="\\label{fig:planning-bbinom-mis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing one misstatement in the sample."}
+```{r label="fig-planning-bbinom-mis", fig.cap="The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing one misstatement in the sample."}
 plot(plan)
 ```
 
@@ -231,9 +231,9 @@ However, for $n = 99$ the relevant probability is lower than the sampling risk $
 dbinom(x = 0, size = 99, prob = 0.03) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the binomial($k$ | 99, 0.03) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-binom-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this sample size visually intuitive by showing the binomial($k$ | 99, 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-binom-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-binom-nomis}The binomial($k$ | 99, 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
+```{r label="fig-planning-binom-nomis", fig.cap="The binomial($k$ | 99, 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
 plot(plan)
 ```
 
@@ -259,9 +259,9 @@ However, for $n = 157$ the relevant probability is lower than the sampling risk 
 sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-binom-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this sample size visually intuitive by showing the binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-binom-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-binom-mis}The binomial($k$ | 157, 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
+```{r label="fig-planning-binom-mis", fig.cap="The binomial($k$ | 157, 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -332,9 +332,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-beta-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-beta-nomis. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
 
-```{r fig.cap="\\label{fig:planning-beta-nomis}The beta prior and posterior distribution on the range [0; 1] after seeing no misstatements in the sample of 98 units."}
+```{r label="fig-planning-beta-nomis", fig.cap="The beta prior and posterior distribution on the range [0; 1] after seeing no misstatements in the sample of 98 units."}
 plot(plan)
 ```
 
@@ -356,9 +356,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. Figure \ref{fig:planning-beta-nomis2} shows this prior and posterior distribution.
+The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. @fig-planning-beta-nomis2 shows this prior and posterior distribution.
 
-```{r fig.cap="\\label{fig:planning-beta-nomis2}The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units."}
+```{r label="fig-planning-beta-nomis2", fig.cap="The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units."}
 plot(plan)
 ```
 
@@ -422,9 +422,9 @@ However, for $n = 100$ the relevant probability is lower than the sampling risk 
 dpois(x = 0, lambda = 100 * 0.03) < 0.05
 ```
 
-We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-pois-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-pois-nomis}The Poisson($k$ | 100 $\times$ 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
+```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\times$ 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
 plot(plan)
 ```
 
@@ -450,9 +450,9 @@ However, for $n = 159$ the relevant probability is lower than the sampling risk 
 sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
-Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-pois-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r fig.cap="\\label{fig:planning-pois-mis}The Poisson($k$ | 159 $\times$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
+```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\times$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -536,9 +536,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{planning-gamma-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-gamma-nomis. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
 
-```{r fig.cap="\\label{fig:planning-gamma-nomis}The gamma prior and posterior distribution on the range [0; $\\infty$] after seeing no misstatements in the sample of 99 units."}
+```{r label="fig-planning-gamma-nomis", fig.cap="The gamma prior and posterior distribution on the range [0; $\\infty$] after seeing no misstatements in the sample of 99 units."}
 plot(plan)
 ```
 
@@ -560,9 +560,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior. Figure \ref{fig:planning-gamma-nomis2} shows this prior and posterior distribution.
+The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior. @fig-planning-gamma-nomis2 shows this prior and posterior distribution.
 
-```{r fig.cap="\\label{fig:planning-gamma-nomis2}The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units."}
+```{r label="fig-planning-gamma-nomis2", fig.cap="The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units."}
 plot(plan)
 ```
 
@@ -591,9 +591,9 @@ prior <- auditPrior(method = "default", likelihood = "binomial")
 summary(prior)
 ```
 
-All prior distributions can be visually inspected via the `plot()` function, see Figure \ref{fig:planning-prior-default}.
+All prior distributions can be visually inspected via the `plot()` function, see @fig-planning-prior-default.
 
-```{r fig.cap="\\label{fig:planning-prior-default}The default beta(1, 1) prior distribution."}
+```{r label="fig-planning-prior-default", fig.cap="The default beta(1, 1) prior distribution."}
 plot(prior)
 ```
 
@@ -603,9 +603,9 @@ Furthermore, the `predict()` function produces the predictions of the prior dist
 predict(prior, n = 6)
 ```
 
-The predictions of the prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-predict}.
+The predictions of the prior distribution can be visualized using the `plot()` function, see @fig-planning-prior-predict.
 
-```{r fig.cap="\\label{fig:planning-prior-predict}The predictions of the beta(1, 1) prior distribution concerming the possible misstatements in an an intended sample of $n=6$."}
+```{r label="fig-planning-prior-predict", fig.cap="The predictions of the beta(1, 1) prior distribution concerming the possible misstatements in an an intended sample of $n=6$."}
 plot(predict(prior, n = 10))
 ```
 
@@ -724,9 +724,9 @@ The `summary()` function can be used to obtain relevant information about the pr
 summary(prior)
 ```
 
-Furthermore, the prior distribution can be visualized with a call to the `plot()` function, see Figure \ref{fig:planning-prior-example1}.
+Furthermore, the prior distribution can be visualized with a call to the `plot()` function, see @fig-planning-prior-example1.
 
-```{r fig.cap="\\label{fig:planning-prior-example1}The prior distribution constructed on the basis of the assessments of inherent risk and control risk."}
+```{r label="fig-planning-prior-example1", fig.cap="The prior distribution constructed on the basis of the assessments of inherent risk and control risk."}
 plot(prior)
 ```
 
@@ -747,13 +747,13 @@ data(benchmark)
 head(benchmark)
 ```
 
-The auditee's the sum of the sales is $298,112,312 and the sum of the booked costs of sales is $223,994,405, respectively. This is indicated by a blue dot in Figure \ref{fig:planning-scatter-1} below, which visualizes the industry sales versus the cost of sales.
+The auditee's the sum of the sales is $298,112,312 and the sum of the booked costs of sales is $223,994,405, respectively. This is indicated by a blue dot in @fig-planning-scatter-1 below, which visualizes the industry sales versus the cost of sales.
 
 ```{r}
 C_real <- 223994405
 ```
 
-```{r fig.cap="\\label{fig:planning-scatter-1}Scatter plot of the industry sales versus the cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
+```{r label="fig-planning-scatter-1", fig.cap="Scatter plot of the industry sales versus the cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
@@ -797,9 +797,9 @@ C_pred <- predict(fit, newdata = data.frame(sales = 298112312), interval = "pred
 C_pred
 ```
 
-The fitted regression line and the predicted cost of sales (red dot) are visualized in Figure \ref{fig:planning-scatter-2} below.
+The fitted regression line and the predicted cost of sales (red dot) are visualized in @fig-planning-scatter-2 below.
 
-```{r fig.cap="\\label{fig:planning-scatter-2}Scatter plot of the industry sales versus the cost of sales including the regression line and the auditee's (predicted) cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
+```{r label="fig-planning-scatter-2", fig.cap="Scatter plot of the industry sales versus the cost of sales including the regression line and the auditee's (predicted) cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
@@ -853,9 +853,9 @@ prior <- auditPrior(method = "param", likelihood = "normal", alpha = mu, beta = 
 summary(prior)
 ```
 
-The specified prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-example2}.
+The specified prior distribution can be visualized using the `plot()` function, see @fig-planning-prior-example2.
 
-```{r fig.cap="\\label{fig:planning-prior-example2}The prior distribution constructed on the basis of the benchmark analysis."}
+```{r label="fig-planning-prior-example2", fig.cap="The prior distribution constructed on the basis of the benchmark analysis."}
 plot(prior)
 ```
 
@@ -866,9 +866,9 @@ plan <- planning(materiality = 0.05, conf.level = 0.95, likelihood = "binomial",
 plan
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-prior-posterior-example2}.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-prior-posterior-example2.
 
-```{r fig.cap="\\label{fig:planning-prior-posterior-example2}The prior and expected posterior distribution for this example after seeing a sample of $n=50$ containing no misstatements."}
+```{r label="fig-planning-prior-posterior-example2", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of $n=50$ containing no misstatements."}
 plot(plan)
 ```
 
@@ -922,9 +922,9 @@ The nonparametric prior distribution can be constructed through a call to `audit
 prior <- auditPrior(method = "nonparam", samples = predictions[, 2])
 ```
 
-The nonparametric prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-example3}.
+The nonparametric prior distribution can be visualized using the `plot()` function, see @fig-planning-prior-example3.
 
-```{r fig.cap="\\label{fig:planning-prior-example3}The prior distribution constructed on the basis of the predictive model."}
+```{r label="fig-planning-prior-example3", fig.cap="The prior distribution constructed on the basis of the predictive model."}
 plot(prior)
 ```
 
@@ -935,9 +935,9 @@ plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial",
 plan
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see \ref{fig:planning-prior-posterior-example3}.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-prior-posterior-example3.
 
-```{r fig.cap="\\label{fig:planning-prior-posterior-example3}The prior and expected posterior distribution for this example after seeing a sample of $n=108$ units containing no misstatements."}
+```{r label="fig-planning-prior-posterior-example3", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of $n=108$ units containing no misstatements."}
 plot(plan)
 ```
 

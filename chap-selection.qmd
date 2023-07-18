@@ -50,9 +50,9 @@ Random sampling is the most simple and straight-forward selection method. The ra
   p(x) = \frac{1}{N}.
 \end{equation}
 
-To make this procedure visually intuitive, Figure 5.1 below provides an illustration of the random sampling method.
+To make this procedure visually intuitive, @fig-selection-random below provides an illustration of the random sampling method.
 
-![Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample. ](img/selection_random.png){fig-align="center"}
+![Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample. ](img/selection_random.png){#fig-selection-random fig-align="center"}
 
 - **Advantage(s):** The random sampling method yields an optimal random selection, with the additional advantage that the sample can be easily extended by applying the same method again.
 - **Disadvantages:** Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.
@@ -155,9 +155,9 @@ If the space between the selected sampling units is equal, the selection probabi
   p(x) = \frac{1}{I},
 \end{equation}
 
-with the property that the space between selected units $i$ (of which the first one is the starting point) is the same as the interval $I$, see Figure 5.2 below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using `start`).
+with the property that the space between selected units $i$ (of which the first one is the starting point) is the same as the interval $I$, see @#fig-selection-interval below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using `start`).
 
-![Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size $I$ at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every $\text{i}^{\text{th}}$ unit in the population is included in the sample.](img/selection_interval.png){fig-align="center"}
+![Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size $I$ at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every $\text{i}^{\text{th}}$ unit in the population is included in the sample.](img/selection_interval.png){#fig-selection-interval fig-align="center"}
 
 The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval $I$ have an selection probability of one because one of these items' sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.
 
@@ -238,7 +238,7 @@ result$sample
 
 ### Cell Sampling
 
-The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary. The procedure is displayed in Figure 5.3.
+The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary. The procedure is displayed in @#fig-selection-cell.
 
 Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:
 
@@ -246,7 +246,7 @@ Like in the fixed interval sampling method, the selection probability for each s
   p(x) = \frac{1}{I}.
 \end{equation}
 
-![Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size $I$ and subsequently a random sampling unit is selected within each cell such that the space between units $i$ varies.](img/selection_cell.png){fig-align="center"}
+![Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size $I$ and subsequently a random sampling unit is selected within each cell such that the space between units $i$ varies.](img/selection_cell.png){#fig-selection-cell fig-align="center"}
 
 The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval $I$ have a selection probability of one.
 

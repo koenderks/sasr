@@ -30,7 +30,7 @@ Frequentist hypothesis testing is a statistical method that involves evaluating 
 
 For example, in a typical audit sampling hypothesis test using the binomial distribution, we may be interested in testing the hypothesis that the misstatement is higher or lower than the performance materiality. We would inspect a sample and calculate the *p* value based on the observed frequency of misstatements versus the expected frequency under the assumption of material misstatement. If the *p* value is below the sampling risk $\alpha$, we reject the hypothesis that the population is materially misstated and conclude that it is not materially misstated.
 
-![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){fig-align="center" width=65%}
+![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){#fig-fisher fig-align="center" width=65%}
 
 #### Example
 
@@ -66,36 +66,36 @@ where $p(\theta | y)$ is the posterior probability of the population parameter $
   p(\theta | y) \propto p(y | \theta) \times p(\theta)
 \end{equation}
 
-![Thomas Bayes revolutionized the world of statistics and probability with his groundbreaking work on Bayes' Theorem. His contributions continue to shape the way we understand and analyze data today. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_bayes.png){fig-align="center" width=65%}
+![Thomas Bayes revolutionized the world of statistics and probability with his groundbreaking work on Bayes' Theorem. His contributions continue to shape the way we understand and analyze data today. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_bayes.png){#fig-bayes fig-align="center" width=65%}
 
 #### Example
 
-Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes. This prior distribution is shown in Figure \ref{fig:uniform_prior} Chapters 3, 4, 5 and 6 dive deeper into the R functions from the **jfa** package used in this example, such as the `auditPrior()` function below.
+Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes. This prior distribution is shown in @fig-uniform_prior. Chapters 3, 4, 5 and 6 dive deeper into the R functions from the **jfa** package used in this example, such as the `auditPrior()` function below.
 
-```{r fig.cap="\\label{fig:uniform_prior}A uniform prior distribution assigning equal probability to every possible value of the population misstatement $\\theta$."}
+```{r label="fig-uniform_prior", fig.cap="A uniform prior distribution assigning equal probability to every possible value of the population misstatement $\\theta$."}
 prior <- auditPrior(method = "default", likelihood = "binomial")
 plot(prior)
 ```
 
-After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes' theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement. Figure \ref{fig:uniform_posterior} displays the prior and posterior distribution.
+After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes' theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement. @fig-uniform-posterior displays the prior and posterior distribution.
 
-```{r fig.cap="\\label{fig:uniform_posterior}The prior and posterior distribution after seeing a sample of $n=30$ items, of which none contained a misstatement. After seeing these data, lower values of the population misstatement now receive a relatively high probability."}
+```{r label="fig-uniform-posterior", fig.cap="The prior and posterior distribution after seeing a sample of $n=30$ items, of which none contained a misstatement. After seeing these data, lower values of the population misstatement now receive a relatively high probability."}
 eval <- evaluation(x = 0, n = 30, method = "binomial", prior = prior)
 plot(eval)
 ```
 
 The most likely value of the population misstatement based on these data is shown as a point above the highest point of the posterior distribution. The uncertainty about the population misstatement can be quantified using a credible interval (shown as a line above the posterior distribution). In this case, the figure above shows a 95 percent credible interval, which contains the true value of the population misstatement with a 95 percent probability.
 
-After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before. This is displayed in Figure \ref{fig:uniform_posterior_2}.
+After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before. This is displayed in @fig-uniform-posterior-2.
 
-```{r fig.cap="\\label{fig:uniform_posterior_2}The prior and posterior distribution after seeing a second sample of $n=30$ items, of which none contained a misstatement. The posterior distribution is relatively less wide than in the previous example."}
+```{r label="fig-uniform-posterior-2", fig.cap="The prior and posterior distribution after seeing a second sample of $n=30$ items, of which none contained a misstatement. The posterior distribution is relatively less wide than in the previous example."}
 eval <- evaluation(x = 0, n = 30, method = "binomial", prior = eval$posterior)
 plot(eval)
 ```
 
-The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data, see Figure \ref{fig:unifom_posterior_3}.
+The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data, see @fig-uniform-posterior-3.
 
-```{r fig.cap="\\label{fig:uniform_posterior_3}The prior and posterior distribution after seeing a third sample of a single item which contained a misstatement. Given this item on top of the other items in the sample, the posterior distribution does not peak at zero anymore."}
+```{r label="fig-uniform-posterior-3", fig.cap="The prior and posterior distribution after seeing a third sample of a single item which contained a misstatement. Given this item on top of the other items in the sample, the posterior distribution does not peak at zero anymore."}
 eval <- evaluation(x = 1, n = 1, method = "binomial", prior = eval$posterior)
 plot(eval)
 ```
@@ -112,7 +112,7 @@ The Bayes factor can be used to assess the strength of evidence for one hypothes
 
 For example, if the Bayes factor is 5, this means that the probability of the statements being accurate given the observed data is 5 times higher than the probability of them being not accurate. In this case, the auditor would be more likely to conclude that the financial statements are accurate.
 
-![Sir Harold Jeffreys innovated statistical hypothesis testing with his Bayes factor approach, helping us make better decision in the face of uncertainty. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){fig-align="center" width=65%}
+![Sir Harold Jeffreys innovated statistical hypothesis testing with his Bayes factor approach, helping us make better decision in the face of uncertainty. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_jeffreys.png){#fig-jeffreys fig-align="center" width=65%}
 
 #### Example
 

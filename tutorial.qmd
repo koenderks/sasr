@@ -10,7 +10,7 @@ In an audit context, R can be used to analyze and visualize large datasets, allo
 
 This chapter provides a short introduction to working with R but it is not a full programming course in R. Furthermore, if you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
 
-![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=65%}
+![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){#fig-r fig-align="center" width=65%}
 
 ## Calculations
 

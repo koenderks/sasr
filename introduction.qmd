@@ -30,7 +30,7 @@ RStudio is an Integrated Development Environment (IDE) specifically designed for
 
 When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.
 
-![The RStudio IDE with the three important regions: the console, the environment, and the output panel. The console, located in the left panel, allows users to execute R code. The environment, displayed in the top right panel, keeps track of the variables and objects created in the session. The output panel, located in the bottom right, shows the generated plots.](img/rstudio.png){fig-align="center" width=100%}
+![The RStudio IDE with the three important regions: the console, the environment, and the output panel. The console, located in the left panel, allows users to execute R code. The environment, displayed in the top right panel, keeps track of the variables and objects created in the session. The output panel, located in the bottom right, shows the generated plots.](img/rstudio.png){#fig-rstudio fig-align="center" width=100%}
 
 The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., `1 + 1`) and press Enter. When you stored the results of a computation in a new variable (e.g., `x <- 1 + 1`), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.
 

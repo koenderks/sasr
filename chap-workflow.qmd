@@ -2,7 +2,7 @@
 
 The audit sampling workflow involves a series of steps that help auditors select a representative sample from a population of transactions or items, and then use statistical analysis to draw conclusions about the entire population. It consists of four stages: planning, selection, execution and evaluation. Probability theory can be employed in three of these stages.
 
-![The standard audit sampling workflow consists of four stages: planning, selection, execution and evaluation.](./img/workflow.png){fig-align="center" width=75%}
+![The standard audit sampling workflow consists of four stages: planning, selection, execution and evaluation.](./img/workflow.png){#fig-workflow-1 fig-align="center" width=75%}
 
 In the planning stage, auditors lay the foundation for an effective and efficient audit sample. Careful planning allows auditors to determine the appropriate sample size, considering factors such as the desired level of assurance, the risk of material misstatement, and the available resources. This stage involves understanding the objectives of the audit, identifying relevant population characteristics, and considering any constraints or limitations. Probability theory can be applied in this stage to help auditors quantify the level of confidence they aim to achieve and make informed decisions about the sample size and selection methodology.
 
@@ -16,7 +16,7 @@ In this chapter of the book, we will explore the intricacies of the standard aud
 
 The first stage in the audit sampling workflow is the planning stage. Proper planning of a sample plays a crucial role in enhancing audit efficiency. When auditors select a small sample, the audit effort required is relatively low. However, this approach may not provide a high level of assurance since the sample may not accurately represent the entire population of transactions or items under audit. On the other hand, auditing a larger sample increases the level of assurance but demands more audit effort and resources.
 
-![The planning stage is the first stage in the audit sampling workflow.](./img/workflow_planning.png){fig-align="center" width=75%}
+![The planning stage is the first stage in the audit sampling workflow.](./img/workflow_planning.png){#fig-workflow-2 fig-align="center" width=75%}
 
 To strike a balance between efficiency and assurance, it is beneficial to determine the sample size in advance. By carefully considering various factors, auditors can optimize the sample size to meet the objectives of the audit engagement. Factors such as the desired level of confidence, acceptable precision, materiality thresholds, and the nature of the population being examined all influence the determination of the optimal sample size.
 
@@ -30,7 +30,7 @@ The second stage in the audit sampling workflow is the planning stage.
 
 Selecting a sample is the second step in the audit sampling workflow and plays a crucial role in obtaining a representative subset of the population for examination. In Chapter 5, we will delve into the intricacies of selecting an audit sample and explore a range of approaches and techniques that can be employed using R.
 
-![The selection stage is the second stage in the audit sampling workflow.](./img/workflow_selection.png){fig-align="center" width=75%}
+![The selection stage is the second stage in the audit sampling workflow.](./img/workflow_selection.png){#fig-workflow-3 fig-align="center" width=75%}
 
 The selection of an audit sample requires careful consideration of factors such as the sampling method, sample size, and sampling frame. We will discuss popular sampling methods, including simple random sampling, fixed interval sampling, and cell sampling. Each method has its own advantages and considerations, and we will provide insights on when and how to effectively use them based on the characteristics of the population under audit.
 
@@ -56,7 +56,7 @@ In summary, the execution stage represents a meticulous and labor-intensive phas
 
 The final stage in the audit sampling workflow is the evaluation stage, which plays a crucial role in drawing meaningful conclusions and making informed decisions based on the results obtained from the selected sample. During this stage, auditors employ various statistical tests, metrics, and estimation techniques to assess the findings and extrapolate them to the entire population.
 
-![The evaluation stage is the final stage in the audit sampling workflow.](./img/workflow_evaluation.png){fig-align="center" width=75%}
+![The evaluation stage is the final stage in the audit sampling workflow.](./img/workflow_evaluation.png){#fig-workflow-4 fig-align="center" width=75%}
 
 In the evaluation stage, auditors aim to estimate the extent of misstatement or deviation from expected values within the population. They analyze the sample data and apply statistical procedures to quantify the level of confidence or uncertainty associated with the findings. This enables auditors to provide a reliable assessment of the population's characteristics, identify potential risks, and evaluate the effectiveness of internal controls.
 
