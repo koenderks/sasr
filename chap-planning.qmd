@@ -21,7 +21,7 @@ Finally, next to determining the sampling objective(s) and the expected misstate
 
 In **jfa**, determining an appropriate sample size is achieved via the `planning()` function.
 
-![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=75%}
+![When the sampling objectives, the expected misstatements and the likelihood are set, there exists only one sample size that minimizes the amount of audit effort. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_puzzle.png){fig-align="center" width=65%}
 
 ## The Hypergeometric Likelihood
 
@@ -73,9 +73,9 @@ However, for $n = 94$ the relevant probability is lower than the sampling risk $
 dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability for $k = 0$. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this sample size visually intuitive by showing the hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-hyper-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-hyper-nomis}The hypergeometric($k$ | 94, 1000, 30) distribution showing the probability for $k = 0$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -112,9 +112,9 @@ However, for $n = 147$ the relevant probability is lower than the sampling risk 
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the probabilities for $k = 0$ and $k = 1$. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this sample size visually intuitive by showing the hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-hyper-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-hyper-mis}The hypergeometric($k$ | 147, 1000, 30) distribution showing the probability for $k = 0$ and $k = 1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -155,9 +155,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [$k$; $N - n + k$], since a part of the population has already been seen.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [$k$; $N - n + k$], since a part of the population has already been seen.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-bbinom-nomis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing no misstatements in the sample."}
 plot(plan)
 ```
 
@@ -170,9 +170,9 @@ plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95, likelihood 
 plan
 ```
 
-Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function.
+Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-mis}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-bbinom-mis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing misstatements in the sample."}
 plot(plan)
 ```
 
@@ -231,9 +231,9 @@ However, for $n = 99$ the relevant probability is lower than the sampling risk $
 dbinom(x = 0, size = 99, prob = 0.03) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the binomial($k$ | 99, 0.03) distribution and highlighting the probability for $k = 0$. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this sample size visually intuitive by showing the binomial($k$ | 99, 0.03) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-binom-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-binom-nomis}The binomial($k$ | 99, 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
 plot(plan)
 ```
 
@@ -259,9 +259,9 @@ However, for $n = 157$ the relevant probability is lower than the sampling risk 
 sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this sample size visually intuitive by showing the binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-binom-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-binom-mis}The binomial($k$ | 157, 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -332,9 +332,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-beta-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-beta-nomis}The beta prior and posterior distribution on the range [0; 1] after seeing no misstatements in the sample of 98 units."}
 plot(plan)
 ```
 
@@ -356,9 +356,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution.
+The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. Figure \ref{fig:planning-beta-nomis2} shows this prior and posterior distribution.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-beta-nomis2}The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units."}
 plot(plan)
 ```
 
@@ -946,7 +946,7 @@ plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial")
 plan
 ```
 
-## Exercises
+## Exercises {.unlisted .unnumbered}
 
 **1.** Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
 
@@ -1048,7 +1048,6 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 <summary>Click to reveal answer</summary>
 ```{r}
 prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
-plot(prior)
 planning(materiality = 0.05, prior = prior)
 ```
 </details>
@@ -1062,8 +1061,7 @@ planning(materiality = 0.05, prior = prior)
 <details>
 <summary>Click to reveal answer</summary>
 ```{r}
-prior <- auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
-plot(prior)
+auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 ```
 </details>
 
@@ -1073,7 +1071,7 @@ plot(prior)
 
 \clearpage
 
-## Answers
+## Answers {.unlisted .unnumbered}
 
 **1.**
 
@@ -1122,15 +1120,13 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 
 ```{r}
 prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
-plot(prior)
 planning(materiality = 0.05, prior = prior)
 ```
 
 **9.**
 
 ```{r}
-prior <- auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
-plot(prior)
+auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 ```
 
 :::

@@ -8,7 +8,7 @@ In an audit context, stratified sampling can be used to select a sample of trans
 
 In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.
 
-![There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_doors.png){fig-align="center" width=75%}
+![There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_doors.png){fig-align="center" width=65%}
 
 For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors. 
 
@@ -68,7 +68,7 @@ plot(result_cp, type = "posterior")
 
 Finally, partial pooling (`pooling = "partial"`) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. 
 
-![Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){fig-align="center" width=75%}
+![Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){fig-align="center" width=65%}
 
 The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
@@ -141,7 +141,7 @@ The prior and posterior distribution for the population misstatement can be requ
 plot(x, type = "posterior")
 ```
 
-## Exercises
+## Exercises {.unlisted .unnumbered}
 
 **1.** Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
 
@@ -160,7 +160,7 @@ evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")
 
 \clearpage
 
-## Answers
+## Answers {.unlisted .unnumbered}
 
 **1.**
 

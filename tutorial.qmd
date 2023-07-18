@@ -2,15 +2,15 @@
 source("utils.R", local = TRUE)
 ```
 
-# R Tutorial {.unnumbered}
+# Appendix: R Tutorial {.unnumbered}
 
 R [@R] is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization. R has a large and active community of users and, as a result, there are many community-made resources available for learning and using R.
 
 In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in @Lin2022.
 
-This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
+This chapter provides a short introduction to working with R but it is not a full programming course in R. Furthermore, if you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.
 
-![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=75%}
+![R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_r.png){fig-align="center" width=65%}
 
 ## Calculations
 
@@ -171,7 +171,7 @@ library(readxl)
 read_excel("example.csv", sheet = 1)
 ```
 
-## Exercises
+## Exercises {.unlisted .unnumbered}
 
 **1.** Compute the square root of 81 and store the result in a variable called `t1`.
 
@@ -259,7 +259,7 @@ mean(-2:8)
 
 \clearpage
 
-## Answers
+## Answers {.unlisted .unnumbered}
 
 **1.**
 

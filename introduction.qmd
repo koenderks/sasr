@@ -10,7 +10,7 @@ The aim of this book is to address the need for a clear and transparent explanat
 
 This book discusses two philosphies to statistical audit sampling: the classical (frequentist) philosophy and the Bayesian philosophy. By utilizing these two approaches, the book elucidates the statistical theory that underlies commonly used audit sampling techniques and illustrates how to utilize these techniques in accordance with international auditing standards. Additionally, the book demonstrates the use of Bayesian statistical methods in auditing practice and highlights the practical advantages that these methods can offer for auditors.
 
-The structure of this book is as follows: Chapter 2 introduces the basics of the R programming language. Chapter 3 discusses the fundamental statistical theory relevant to classical and Bayesian audit sampling. Subsequent chapters 4, 5, 6 and 7 provide a more in-depth exploration of the use of these methods for statistical planning, selection, and evaluation of audit samples. These chapters illustrate the practical differences and similarities between the classical and the Bayesian approach through code and examples, thus requiring minimal programming knowledge to follow along. Finally, Chapter 8 and 9 discuss other open-source software implementations of audit sampling using R.
+The structure of this book is as follows: Chapter 2 introduces the basics of the R programming language. Chapter 3 discusses the fundamental statistical theory relevant to classical and Bayesian audit sampling. Subsequent chapters 4, 5, 6, 7 and 8 provide a more in-depth exploration of the use of these methods for statistical planning, selection, and evaluation of audit samples. These chapters illustrate the practical differences and similarities between the classical and the Bayesian approach through code and examples, thus requiring minimal programming knowledge to follow along. Finally, Chapter 9 and 10 discuss other open-source software implementations of audit sampling using R.
 
 In each chapter, we aim to adhere to a consistent structure: beginning with motivating examples to provide a broader context, and then delving into the specifics. Every section of the book is accompanied by exercises designed to reinforce the concepts learned. Although it may be tempting to skip the exercises, the most effective way to learn is by applying the concepts to actual problems through practice.
 
@@ -20,17 +20,17 @@ To run the code in this book, you will need three things: R, RStudio, and the **
 
 ### R
 
-The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [`https://cloud.r-project.org`](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location. Please ensure that you have at least R 3.5.0 installed for the purposes of this book.
+The **C**omprehensive **R** **A**rchive **N**etwork (CRAN) is a collection of mirror servers distributed globally that can be utilized to obtain both R and R packages. When seeking to download R, it is recommended to utilize the cloud mirror located at [`https://cloud.r-project.org`](https://cloud.r-project.org), as it will automatically determine the most suitable mirror for your location. Please ensure that you have at least R `3.5.0` installed for the purposes of this book.
 
 It is advisable to regularly update R, as new major versions are released annually and minor releases occur two to three times per year. While upgrading can be inconvenient, particularly for major versions which require the reinstallation of all packages, failing to do so will only exacerbate the issue.
 
 ### RStudio
 
-RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website ([`https://posit.co/downloads/`](https://posit.co/downloads/)). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio 1.0.0 installed for the purposes of this book.
+RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website ([`https://posit.co/downloads/`](https://posit.co/downloads/)). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio `1.0.0` installed for the purposes of this book.
 
 When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.
 
-![](img/rstudio.png){fig-align="center" width=100%}
+![The RStudio IDE with the three important regions: the console, the environment, and the output panel. The console, located in the left panel, allows users to execute R code. The environment, displayed in the top right panel, keeps track of the variables and objects created in the session. The output panel, located in the bottom right, shows the generated plots.](img/rstudio.png){fig-align="center" width=100%}
 
 The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., `1 + 1`) and press Enter. When you stored the results of a computation in a new variable (e.g., `x <- 1 + 1`), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.
 

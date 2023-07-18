@@ -10,17 +10,17 @@ JASP [@JASP, @Love2019], an acronym for Jeffreys’s Amazing Statistics Program,
 
 You can freely download JASP from their website [`https://jasp-stats.org`](https://jasp-stats.org). Simply click on the 'Download JASP' button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.
 
-![Upon launching JASP, you are presented with the following screen. The icons in the ribbon display a range of statistical analyses. The menu icon located in the top left corner conceals the most crucial user options. The plus icon situated in the top right corner conceals the modules.](img/JASP_welcome.png){fig-align="center"}
+![Upon launching JASP, you are presented with the following screen. The icons in the ribbon display a range of statistical analyses. The menu icon located in the top left corner conceals the most crucial user options. The plus icon situated in the top right corner conceals the modules.](img/JASP_welcome.png){fig-align="center" width=100%}
 
 JASP for Audit [@Derks2021_jasp] is an add-on module for JASP based on the **jfa** package, that facilitates statistical audit sampling. The module provides graphical a user interface (GUI) for calculating sample sizes, selecting items according to standard audit sampling techniques, and performing inference about the population misstatement on the basis of a data sample or summary statistics of a sample. The module also features Bayesian equivalents of these analyses that enable the user to easily incorporate prior information into the statistical procedure. In all analyses, the Audit module offers explanatory text that helps the auditor in interpreting, explaining, and reporting the analysis. Since JASP for Audit is an R-based GUI around **jfa**, its functionality can be mapped almost one-on-one to that of the package.
 
 The Audit module in JASP, labeled as "Audit" in the module list, is included by default in the software, but is not initially visible upon starting the program. To access the Audit module, click on the `+` icon in the top right corner of the JASP welcome screen, and select the module from the list of available options. The Audit module will then be displayed with a blue icon in the ribbon at the top of the screen.
 
-![The `+` icon displays all modules that are currently available in JASP. To activate a module and add it to the ribbon at the top of the screen, click on the checkbox next to it.](img/JASP_modules.png){fig-align="center"}
+![The `+` icon displays all modules that are currently available in JASP. To activate a module and add it to the ribbon at the top of the screen, click on the checkbox next to it.](img/JASP_modules.png){fig-align="center" width=100%}
 
 Upon selecting the Audit module icon, the user can view all of the analyses that the module contains. It is important to note that some of these analyses are grayed out by default and can only be activated once a data set has been loaded into JASP. This means that the user must first import a data set in order to access and make use of these specific analyses.
 
-![By clicking the Audit module icon in the ribbon, you can view the various analyses that are included in the audit module.](img/JASP_audit_module.png){fig-align="center"}
+![By clicking the Audit module icon in the ribbon, you can view the various analyses that are included in the audit module.](img/JASP_audit_module.png){fig-align="center" width=100%}
 
 ## Planning
 
@@ -28,7 +28,7 @@ To plan a sample for an audit using JASP, the procedure is comparable to using *
 
 The figure below showcases a snapshot of the classical planning analysis in JASP for Audit. The graphical user interface is displayed on the left side of the screen, while the audit report containing statistical results is displayed on the right side. In the user interface, the auditor can input the known parameters for the sample planning, after which JASP calculates and directly displays the statistical results.
 
-![A snapshot of the classical planning analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 3 percent and one expected misstatement in the sample. The resulting sample size is 157.](img/JASP_planning_classical.png){fig-align="center"}
+![A snapshot of the classical planning analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 3 percent and one expected misstatement in the sample. The resulting sample size is 157.](img/JASP_planning_classical.png){fig-align="center" width=100%}
 
 The above screenshot shows an analysis where the auditor is using the binomial distribution, a sampling risk of 5 percent, a performance materiality of 3 percent and one expected misstatement in the sample. The resulting sample size is 157.
 
@@ -40,7 +40,7 @@ planning(materiality = 0.03, expected = 1, likelihood = "binomial")
 
 The figure below showcases a snapshot of the Bayesian planning analysis in JASP. The graphical user interface is largely the same as the interface of the classical planning analysis, with the exception that we can specify a prior distribution with the options under "Prior".
 
-![Snapshot of the Bayesian planning analysis in JASP for Audit. In this analysis, the auditor is using the Poisson likelihood with an impartial gamma prior, a sampling risk of 5 percent, a performance materiality of 10 percent and no expected misstatements in the sample. The resulting sample size is 24.](img/JASP_planning_bayesian.png){fig-align="center"}
+![Snapshot of the Bayesian planning analysis in JASP for Audit. In this analysis, the auditor is using the Poisson likelihood with an impartial gamma prior, a sampling risk of 5 percent, a performance materiality of 10 percent and no expected misstatements in the sample. The resulting sample size is 24.](img/JASP_planning_bayesian.png){fig-align="center" width=100%}
 
 The above screenshot shows an analysis where the auditor is using the Poisson likelihood together with an impartial gamma prior, a sampling risk of 5 percent, a performance materiality of 10 percent and no expected misstatements in the sample. The resulting sample size is 24.
 
@@ -55,7 +55,7 @@ planning(materiality = 0.1, likelihood = "poisson", prior = prior)
 
 Selecting a sample in JASP for Audit works similar to how you would do it in **jfa**. The figure below showcases a snapshot of the selection analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample selection, after which JASP calculates and directly displays the statistical results.
 
-![A snapshot of the selection analysis in JASP for Audit. In this analysis, the auditor is using a fixed interval monetary unit sampling method to select a sample of 60 monetary units from a population.](img/JASP_selection.png){fig-align="center"}
+![A snapshot of the selection analysis in JASP for Audit. In this analysis, the auditor is using a fixed interval monetary unit sampling method to select a sample of 60 monetary units from a population.](img/JASP_selection.png){fig-align="center" width=100%}
 
 The above screenshot shows an analysis where the auditor is using a fixed interval monetary unit sampling method to select a sample of 60 monetary units from the `BuildIt` population. They use a starting point of 1.
 
@@ -72,7 +72,7 @@ head(result$sample)
 
 Finally, evaluating a sample in JASP for Audit works similar to how you would do it in **jfa**. The figure below showcases a snapshot of the evaluation analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample evaluation, after which JASP calculates and directly displays the statistical results.
 
-![A snapshot of the classical evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of 50 items of which 0 contained a misstatement. The resulting upper bound is 5.8 percent and the *p*-value is 0.045.](img/JASP_evaluation_classical.png){fig-align="center"}
+![A snapshot of the classical evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of 50 items of which 0 contained a misstatement. The resulting upper bound is 5.8 percent and the *p*-value is 0.045.](img/JASP_evaluation_classical.png){fig-align="center" width=100%}
 
 The above screenshot shows an analysis where the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of $n = 50$ items of which $k = 0$ contained a misstatement. The resulting 95 percent upper confidence bound is 5.8 percent and the *p*-value is 0.045, which is lower than the sampling risk of 5 percent.
 
@@ -84,7 +84,7 @@ evaluation(materiality = 0.06, method = "binomial", x = 0, n = 50)
 
 The figure below showcases a snapshot of the Bayesian evaluation analysis in JASP. The graphical user interface is fairly similar to that of the classical evaluation analysis, with the exception that we can specify a prior distribution with the options under "Prior".
 
-![Snapshot of the Bayesian evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood together with a beta prior distribution, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of 120 items of which 1 contained a misstatement. The resulting upper bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394.](img/JASP_evaluation_bayesian.png){fig-align="center"}
+![Snapshot of the Bayesian evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood together with a beta prior distribution, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of 120 items of which 1 contained a misstatement. The resulting upper bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394.](img/JASP_evaluation_bayesian.png){fig-align="center" width=100%}
 
 The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a beta prior distribution based on an expected error rate of 3 percent constructed using the audit risk model, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of $n = 120$ items of which $k = 1$ contained a misstatement. The resulting 95 percent upper credible bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394, indicating that the sample data are about 9 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
 
@@ -112,16 +112,16 @@ In statistical terms, the auditor aims to make a statement with 95% confidence a
 Typically, auditors evaluate inherent risk and control risk (sometimes analytical risk is also taken into acocunt as a fourth constituent of audit risk) using a three-point scale consisting of "Low", "Medium", and "High". Different audit firms employ varying standard percentages for these risk categories. JASP for Audit defines the probabilities associated with low, medium, and high as shown in the table below. Since the auditor has conducted testing on BuildIt's computer systems, the control risk assessment is determined to be medium (52%).
 
 | Inherent Risk (IR) | Control Risk (CR) | Analytical Risk (CAR) |
-| ----------------- | ----------------- | -------------------------- |
-|        1          |        1          |            1               |
-|       0.63        |       0.52        |           0.5              |
-|       0.40        |       0.34        |           0.25             |
+| :----------------: | :---------------: | :-------------------: |
+|        1           |        1          |            1          |
+|       0.63         |       0.52        |           0.5         |
+|       0.40         |       0.34        |           0.25        |
 
 ### Planning
 
 The Sampling Workflow begins with the Planning stage. The auditor enters a performance materiality value of 1% and keeps the confidence level at 95%. To ensure the creation of an annotated report, the Explanatory text option is enabled. Moving on, the auditor selects the variables ID and bookValues and assigns them to their respective fields in the interface. Finally, the control risk assessment is adjusted from High to Medium, and the distribution used (e.g., likelihood) is set to the binomial distribution.
 
-![A snapshot of the planning stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_planning_workflow.png){fig-align="center"}
+![A snapshot of the planning stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_planning_workflow.png){fig-align="center" width=100%}
 
 The default output provides information that if no misstatements are encountered in the sample, the auditor needs to audit 234 items from the population of 3500 items. This sample size will sufficiently reduce the audit risk to conclude that the population does not contain misstatements larger than 1%. The auditor proceeds to the Selection stage by clicking the "To Selection" button located in the bottom-right corner of the interface.
 
@@ -129,7 +129,7 @@ The default output provides information that if no misstatements are encountered
 
 The auditor has a variable in the "Book Value" field in the previous stage, which automatically selects the "monetary units" option for sampling units in the Selection stage. By default, the chosen sampling method is "Fixed interval sampling," and a random starting point is applied. However, these settings can be modified in the corresponding section if needed. The default output shows that 234 euros have been selected, distributed over 234 items. The selection has a total value of 114,896.23 euros, which is 8.19% of the total value of the population.
 
-![A snapshot of the selection stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_selection_workflow.png){fig-align="center"}
+![A snapshot of the selection stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_selection_workflow.png){fig-align="center" width=100%}
 
 Upon reviewing the default output, the auditor determines that no adjustments are required in this stage. To proceed to the Execution stage, the auditor clicks the "To Execution" button located in the bottom-right corner of the interface.
 
@@ -145,6 +145,6 @@ In the Evaluation stage, the column created and filled with the audit values is 
 
 Based on the default output, the auditor discovers that out of the 234 items in the sample, 1 item contained a partial misstatement. This information yields a most likely error of 0.002 (0.23%), with an upper bound of 0.014 (1.37%) at a confidence level of 90.38%. The precision is calculated to be 0.011 (1.1%).
 
-![A snapshot of the evaluation stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_evaluation_workflow.png){fig-align="center"}
+![A snapshot of the evaluation stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_evaluation_workflow.png){fig-align="center" width=100%}
 
 Since the 90.38% upper bound on misstatement in BuildIt's financial statements exceeds the performance materiality threshold of 1%, the auditor is unable to conclude that the population as a whole is free from misstatements below 1%. Consequently, the auditor cannot determine that the sampling risk has been sufficiently reduced to conclude that BuildIt's financial statements are free of material misstatement.

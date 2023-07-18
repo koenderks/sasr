@@ -1,5 +1,0 @@
-# The Basics {#part-basics}
-
-In order to effectively use statistical audit sampling techniques, it is important to have a basic understanding of statistical concepts in the context of international auditing standards.
-
-In this part of the book, we go over the basic knowledge required for this book. Chapter 1 introduces the basics of R, a programming language commonly used for statistical analysis. In Chapter 2, we will cover the fundamental statistical concepts related to audit sampling.

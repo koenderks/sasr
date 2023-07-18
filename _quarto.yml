@@ -31,12 +31,13 @@ book:
   chapters:
     - index.qmd
     - introduction.qmd
-    - part: The Basics
+    - part: Theory
       chapters:
       - chap-foundations.qmd
       - chap-inference.qmd
-    - part: Workflow
+    - part: Application
       chapters:
+      - chap-workflow.qmd
       - chap-planning.qmd
       - chap-selection.qmd
       - chap-evaluation.qmd
@@ -85,10 +86,12 @@ format:
           \usepackage{fancyhdr}
           \pagestyle{fancy}
           \fancyhead{}
-          \fancyhead[RO,LE]{\leftmark}
+          \fancyhead[RO,LE]{\nouppercase{\leftmark}}
           \fancyfoot{}
           \fancyfoot[C]{\thepage}
-          \setkeys{Gin}{width=0.75\textwidth}
+          \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ | #1}{}}
+          \setkeys{Gin}{width=0.65\textwidth}
+          \usepackage[labelsep=period, labelfont=bf]{caption}
     keep-tex: false
     classoption: [10pt,twoside]
     pagestyle: headings

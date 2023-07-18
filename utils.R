@@ -10,11 +10,10 @@ library(xml2)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  cache = TRUE,
-  fig.show = "hold",
+  cache = FALSE,
   fig.align = "center",
   fig.width = 5,
   fig.height = 4,
-  fig.pos = "H",
+  fig.caption = "yes",
   out.width = NULL
 )

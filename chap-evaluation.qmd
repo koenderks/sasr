@@ -11,7 +11,7 @@ Just as with planning a sample, evaluating a sample requires knowledge of the ci
 - **Hypothesis testing**: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).
 - **Estimation**: The goal of the sample is to obtain an accurate estimate of the misstatement in the population with a certain precision.
 
-![When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_justice.png){fig-align="center" width=75%}
+![When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_justice.png){fig-align="center" width=65%}
 
 When an auditor needs to perform audit sampling, they typically have two options: non-stratified or stratified sampling. Non-stratified sampling involves selecting a sample of units without considering any categorical characteristics, such as product type or store location, of these items. Stratified sampling involves dividing the population into subgroups based on specific characteristics and selecting a sample from each subgroup. In comparison to non-stratified sampling, stratified sampling can improve efficiency. However, in this chapter, we will focus on non-stratified audit sampling, while stratified audit sampling will be covered in the next chapter.
 
@@ -40,9 +40,9 @@ eval <- evaluation(materiality = 0.03, x = 1, n = 100, method = "binomial")
 eval
 ```
 
-The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the `plot()` function.
+The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the `plot()` function, see Figure \ref{fig:evaluation-freq-1}.
 
-```{r}
+```{r fig.cap="\\label{fig:evaluation-freq-1}The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k=0$ and $k=1$ and equals 0.048 + 0.147 = 0.195."}
 plot(eval)
 ```
 
@@ -60,9 +60,9 @@ eval <- evaluation(x = 1, n = 100, prior = prior)
 eval
 ```
 
-You can use the `plot()` function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.
+You can use the `plot()` function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. Figure \ref{fig:evaluation-bayes-1} shows this posterior distribution.
 
-```{r}
+```{r fig.cap="\\label{fig:evaluation-bayes-1}The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars."}
 plot(eval)
 ```
 
@@ -140,7 +140,7 @@ x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", val
 summary(x)
 ```
 
-## Exercises
+## Exercises {.unlisted .unnumbered}
 
 **1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
 
@@ -159,7 +159,7 @@ evaluation(n = 30, x = 2, method = "binomial")
 
 \clearpage
 
-## Answers
+## Answers {.unlisted .unnumbered}
 
 **1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
 
