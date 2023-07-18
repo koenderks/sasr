@@ -288,9 +288,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><p>In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the population. This means that there is a hierarchical structure in the data (strata are nested in the population) and the statistical model should ideally reflect this.</p>
 <p>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-ss-evaluation-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;7.1: There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors.</p>
 <p>As a data example, consider the <code>retailer</code> data set that comes with the package. The organization in question consists of 20 branches across the country. In each of the 20 strata, a component auditor has taken a statistical sample and reported the outcomes to the group auditor.</p>
@@ -359,29 +359,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 19 10000  15  1  1 0.06667 0.01551 0.30232   0.23565</span></span>
 <span><span class="co">#&gt; 20  4000  15  3  3 0.20000 0.07266 0.45646   0.25646</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in combination with <code>type = "estimates</code>, see Figure <span class="math inline">\(\ref{fig:stratified-ss-np-estimates}\)</span>. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</p>
+<p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in combination with <code>type = "estimates</code>, see <a href="#fig-stratified-ss-np-estimates">Figure&nbsp;<span>7.2</span></a>. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-np-estimates" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-estimates-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.2: Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <span class="math inline">\(\ref{fig:stratified-ss-np-posterior}\)</span>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-np-posterior">Figure&nbsp;<span>7.3</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Prior and posterior distribution for the population misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-np-posterior" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-posterior-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.3: Prior and posterior distribution for the population misstatement under the no pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
 </section><section id="complete-pooling" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="complete-pooling">
 <span class="header-section-number">7.2</span> Complete pooling</h2>
-<p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see Figure <span class="math inline">\(\ref{fig:stratified-ss-cp-estimates}\)</span>. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</p>
+<p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see <a href="#fig-stratified-ss-cp-estimates">Figure&nbsp;<span>7.4</span></a>. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result_cp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_cp</span><span class="op">)</span></span>
@@ -435,28 +435,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Estimates of the population and stratum misstatement under the complete pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-cp-estimates" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.4: Estimates of the population and stratum misstatement under the complete pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see Figure <span class="math inline">\(\ref{fig:stratified-ss-cp-posterior}\)</span>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-cp-posterior">Figure&nbsp;<span>7.5</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Prior and posterior distribution for the population misstatement under the complete pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-cp-posterior" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.5: Prior and posterior distribution for the population misstatement under the complete pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
 </section><section id="partial-pooling" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="partial-pooling">
 <span class="header-section-number">7.3</span> Partial pooling</h2>
 <p>Finally, partial pooling (<code>pooling = "partial"</code>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate.</p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-ss-evaluation-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;7.6: Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
 <div class="cell" data-layout-align="center">
@@ -509,23 +509,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 19 10000  15  1  1 0.0412 0.02320 0.07635   0.03515</span></span>
 <span><span class="co">#&gt; 20  4000  15  3  3 0.0441 0.03051 0.10039   0.05629</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Figure <span class="math inline">\(\ref{fig:stratified-ss-pp-estimates}\)</span> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
+<p>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. <a href="#fig-stratified-ss-pp-estimates">Figure&nbsp;<span>7.7</span></a> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-pp-estimates" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.7: Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see Figure <span class="math inline">\(\ref{fig:stratified-ss-pp-posterior}\)</span>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-pp-posterior">Figure&nbsp;<span>7.8</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-pp-posterior" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.8: Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -593,13 +593,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 15  432007.61 150  39  21.80000 0.14533 0.09026 0.22045   0.07511 0.00001</span></span>
 <span><span class="co">#&gt; 16  275403.70  52  39   4.18726 0.08052 0.02237 0.20215   0.12163 0.12258</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in Figure <span class="math inline">\(\ref{fig:stratified-np-estimates}\)</span> below.</p>
+<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-np-estimates">Figure&nbsp;<span>7.9</span></a> below.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-np-estimates" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-np-estimates-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.9: Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -651,23 +651,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 15  432007.61 128  39  18.30000 0.2693 0.22926 0.33691   0.06761</span></span>
 <span><span class="co">#&gt; 16  275403.70  44  39   3.38726 0.0739 0.05806 0.10273   0.02883</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in Figure <span class="math inline">\(\ref{fig:stratified-pp-estimates}\)</span> below.</p>
+<p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-pp-estimates">Figure&nbsp;<span>7.10</span></a> below.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-pp-estimates" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.10: Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see Figure <span class="math inline">\(\ref{fig:stratified-pp-posterior}\)</span>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-pp-posterior">Figure&nbsp;<span>7.11</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-pp-posterior" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.11: Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1000,7 +1000,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_doors.png)</span>{fig-align="center" width=65%}</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_doors.png)</span>{#fig-ss-evaluation-1 fig-align="center" width=65%}</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors. </span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -1023,21 +1023,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_np)</span>
 <span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>In this case, the output of the <span class="in">`summary()`</span> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <span class="in">`plot()`</span> function in combination with <span class="in">`type = "estimates`</span>, see Figure \ref{fig:stratified-ss-np-estimates}. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>In this case, the output of the <span class="in">`summary()`</span> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <span class="in">`plot()`</span> function in combination with <span class="in">`type = "estimates`</span>, see @fig-stratified-ss-np-estimates. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</span>
 <span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-np-estimates}Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
 <span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
 <span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see \ref{fig:stratified-ss-np-posterior}.</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-np-posterior.</span>
 <span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-np-posterior}Prior and posterior distribution for the population misstatement under the no pooling model."}</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-np-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the no pooling model."}</span></span>
 <span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete pooling</span></span>
 <span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>Complete pooling (<span class="in">`pooling = "complete"`</span>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see Figure \ref{fig:stratified-ss-cp-estimates}. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>Complete pooling (<span class="in">`pooling = "complete"`</span>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see @fig-stratified-ss-cp-estimates. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</span>
 <span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> retailer<span class="sc">$</span>samples, <span class="at">x =</span> retailer<span class="sc">$</span>errors, <span class="at">N.units =</span> retailer<span class="sc">$</span>items, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">pooling =</span> <span class="st">"complete"</span>)</span>
@@ -1046,13 +1046,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>For example, the output of the <span class="in">`summary()`</span> function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).</span>
 <span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-cp-estimates}Estimates of the population and stratum misstatement under the complete pooling model."}</span></span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-cp-estimates", fig.cap="Estimates of the population and stratum misstatement under the complete pooling model."}</span></span>
 <span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
 <span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see Figure \ref{fig:stratified-ss-cp-posterior}.</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-cp-posterior.</span>
 <span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-cp-posterior}Prior and posterior distribution for the population misstatement under the complete pooling model."}</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-cp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the complete pooling model."}</span></span>
 <span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a></span>
@@ -1060,7 +1060,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>Finally, partial pooling (<span class="in">`pooling = "partial"`</span>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. </span>
 <span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_pyramid.png)</span>{fig-align="center" width=65%}</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_pyramid.png)</span>{#fig-ss-evaluation-2 fig-align="center" width=65%}</span>
 <span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</span>
 <span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a></span>
@@ -1070,15 +1070,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result_pp)</span>
 <span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Figure \ref{fig:stratified-ss-pp-estimates} visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</span>
 <span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-pp-estimates}Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
 <span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
 <span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see Figure \ref{fig:stratified-ss-pp-posterior}.</span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-pp-posterior.</span>
 <span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-ss-pp-posterior}Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-pp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
 <span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a></span>
@@ -1106,9 +1106,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in Figure \ref{fig:stratified-np-estimates} below.</span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in @fig-stratified-np-estimates below.</span>
 <span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-np-estimates}Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
 <span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
 <span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a></span>
@@ -1121,15 +1121,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
 <span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in Figure \ref{fig:stratified-pp-estimates} below.</span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in @fig-stratified-pp-estimates below.</span>
 <span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-pp-estimates}Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
 <span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
 <span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see Figure \ref{fig:stratified-pp-posterior}.</span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-pp-posterior.</span>
 <span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:stratified-pp-posterior}Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
+<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-pp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
 <span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a></span>

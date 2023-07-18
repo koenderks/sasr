@@ -327,10 +327,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{N}.
 \end{equation}\]</span></p>
-<p>To make this procedure visually intuitive, Figure 5.1 below provides an illustration of the random sampling method.</p>
-<div class="quarto-figure quarto-figure-center">
+<p>To make this procedure visually intuitive, <a href="#fig-selection-random">Figure&nbsp;<span>5.1</span></a> below provides an illustration of the random sampling method.</p>
+<div id="fig-selection-random" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/selection_random.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;5.1: Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample.</figcaption></figure>
 </div>
 <ul>
 <li>
@@ -477,10 +477,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{I},
 \end{equation}\]</span></p>
-<p>with the property that the space between selected units <span class="math inline">\(i\)</span> (of which the first one is the starting point) is the same as the interval <span class="math inline">\(I\)</span>, see Figure 5.2 below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <code>start</code>).</p>
-<div class="quarto-figure quarto-figure-center">
+<p>with the property that the space between selected units <span class="math inline">\(i\)</span> (of which the first one is the starting point) is the same as the interval <span class="math inline">\(I\)</span>, see @#fig-selection-interval below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <code>start</code>).</p>
+<div id="fig-selection-interval" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/selection_interval.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size <span class="math inline">\(I\)</span> at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every <span class="math inline">\(\text{i}^{\text{th}}\)</span> unit in the population is included in the sample.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;5.2: Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size <span class="math inline">\(I\)</span> at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every <span class="math inline">\(\text{i}^{\text{th}}\)</span> unit in the population is included in the sample.</figcaption></figure>
 </div>
 <p>The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval <span class="math inline">\(I\)</span> have an selection probability of one because one of these items’ sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.</p>
 <ul>
@@ -587,14 +587,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section></section><section id="cell-sampling" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="cell-sampling">
 <span class="header-section-number">5.2.3</span> Cell Sampling</h3>
-<p>The cell sampling method divides the (optionally ranked) population into a set of intervals <span class="math inline">\(I\)</span> that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range <span class="math inline">\(I\)</span>. This causes the space <span class="math inline">\(i\)</span> between the sampling units to vary. The procedure is displayed in Figure 5.3.</p>
+<p>The cell sampling method divides the (optionally ranked) population into a set of intervals <span class="math inline">\(I\)</span> that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range <span class="math inline">\(I\)</span>. This causes the space <span class="math inline">\(i\)</span> between the sampling units to vary. The procedure is displayed in @#fig-selection-cell.</p>
 <p>Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:</p>
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{I}.
 \end{equation}\]</span></p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-selection-cell" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/selection_cell.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size <span class="math inline">\(I\)</span> and subsequently a random sampling unit is selected within each cell such that the space between units <span class="math inline">\(i\)</span> varies.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;5.3: Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size <span class="math inline">\(I\)</span> and subsequently a random sampling unit is selected within each cell such that the space between units <span class="math inline">\(i\)</span> varies.</figcaption></figure>
 </div>
 <p>The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval <span class="math inline">\(I\)</span> have a selection probability of one.</p>
 <ul>
@@ -1134,9 +1134,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{N}.</span>
 <span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>To make this procedure visually intuitive, Figure 5.1 below provides an illustration of the random sampling method.</span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>To make this procedure visually intuitive, @fig-selection-random below provides an illustration of the random sampling method.</span>
 <span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample. ](img/selection_random.png)</span>{fig-align="center"}</span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample. ](img/selection_random.png)</span>{#fig-selection-random fig-align="center"}</span>
 <span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Advantage(s):** The random sampling method yields an optimal random selection, with the additional advantage that the sample can be easily extended by applying the same method again.</span>
 <span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Disadvantages:** Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.</span>
@@ -1239,9 +1239,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-177"><a href="#cb36-177" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{I},</span>
 <span id="cb36-178"><a href="#cb36-178" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-179"><a href="#cb36-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>with the property that the space between selected units $i$ (of which the first one is the starting point) is the same as the interval $I$, see Figure 5.2 below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <span class="in">`start`</span>).</span>
+<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>with the property that the space between selected units $i$ (of which the first one is the starting point) is the same as the interval $I$, see @#fig-selection-interval below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <span class="in">`start`</span>).</span>
 <span id="cb36-181"><a href="#cb36-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size $I$ at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every $\text{i}^{\text{th}}$ unit in the population is included in the sample.](img/selection_interval.png)</span>{fig-align="center"}</span>
+<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size $I$ at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every $\text{i}^{\text{th}}$ unit in the population is included in the sample.](img/selection_interval.png)</span>{#fig-selection-interval fig-align="center"}</span>
 <span id="cb36-183"><a href="#cb36-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-184"><a href="#cb36-184" aria-hidden="true" tabindex="-1"></a>The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval $I$ have an selection probability of one because one of these items' sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.</span>
 <span id="cb36-185"><a href="#cb36-185" aria-hidden="true" tabindex="-1"></a></span>
@@ -1322,7 +1322,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-280"><a href="#cb36-280" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-281"><a href="#cb36-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cell Sampling</span></span>
 <span id="cb36-282"><a href="#cb36-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a>The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary. The procedure is displayed in Figure 5.3.</span>
+<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a>The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary. The procedure is displayed in @#fig-selection-cell.</span>
 <span id="cb36-284"><a href="#cb36-284" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-285"><a href="#cb36-285" aria-hidden="true" tabindex="-1"></a>Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:</span>
 <span id="cb36-286"><a href="#cb36-286" aria-hidden="true" tabindex="-1"></a></span>
@@ -1330,7 +1330,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-288"><a href="#cb36-288" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{I}.</span>
 <span id="cb36-289"><a href="#cb36-289" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-290"><a href="#cb36-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-291"><a href="#cb36-291" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size $I$ and subsequently a random sampling unit is selected within each cell such that the space between units $i$ varies.](img/selection_cell.png)</span>{fig-align="center"}</span>
+<span id="cb36-291"><a href="#cb36-291" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size $I$ and subsequently a random sampling unit is selected within each cell such that the space between units $i$ varies.](img/selection_cell.png)</span>{#fig-selection-cell fig-align="center"}</span>
 <span id="cb36-292"><a href="#cb36-292" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-293"><a href="#cb36-293" aria-hidden="true" tabindex="-1"></a>The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval $I$ have a selection probability of one.</span>
 <span id="cb36-294"><a href="#cb36-294" aria-hidden="true" tabindex="-1"></a></span>
