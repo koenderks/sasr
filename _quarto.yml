@@ -21,7 +21,7 @@ book:
   repo-url: https://github.com/koenderks/sasr/
   repo-branch: master
   repo-actions: [edit, issue]
-  downloads: [pdf, epub]
+  downloads: [pdf]
   open-graph: true
   page-navigation: true
   reader-mode: true

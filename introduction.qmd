@@ -36,7 +36,7 @@ The console in the left panel allows you to run R code. To execute some R code, 
 
 ### jfa
 
-R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provides an excellent first-hand description of the principles and practices of creating R packages.
+R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provide an excellent first-hand description of the principles and practices of creating R packages.
 
 To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:
 
