@@ -2,15 +2,15 @@
 source("utils.R", local = TRUE)
 ```
 
-# Statistics and Auditing {#chap-foundations}
+# Audit Sampling {#chap-foundations}
 
 Auditors use audit sampling as a technique to assess a selection of transactions or items within a population in order to form conclusions about the population as a whole. It is a cost-efficient method for examining the accuracy of financial information as it allows auditors to test a representative sample of the population rather than the entire population.
 
-In the field of auditing, sampling becomes necessary when the truth about a population is not readily accessible or discernible through other means. With the advent of modern technology, auditors often have access to an abundance of information about a population, which sometimes enables them to perform integral testing. Nonetheless, there are situations where a sample is still necessary due to the unavailability of complete data. For instance, an auditor may utilize analytical procedures to verify the consistency of payments with payment orders, but then must subsequently confirm the validity of these orders through detailed testing.
+In the field of auditing, sampling becomes necessary when the truth about a population is not readily accessible or discernible through other means. With the advent of modern technology, auditors often have access to an abundance of information about a population, which sometimes enables them to perform full population (i.e., integral) testing. Nonetheless, there are situations where a sample is still necessary due to the unavailability of complete data. For instance, an auditor may utilize analytical procedures to verify the consistency of payments with payment orders, but then must subsequently confirm the validity of these orders through detailed testing.
 
 In auditing, there are two primary methods of sampling: statistical and nonstatistical. Statistical sampling involves using probability theory to select a sample from the population and draw conclusions about the population based on the sample. Nonstatistical sampling, on the other hand, is based on the auditor's professional judgment and does not use statistical inference to come to a conclusion. This book does not cover nonstatistical sampling.
 
-International auditing standards prescribe the manner in which statistical sampling should be conducted in an audit. The following section discusses what these standards say about statistical sampling.
+International auditing standards prescribe the manner in which statistical sampling should be conducted in an audit. The following section discusses what these standards require from the auditor's approach to statistical sampling.
 
 ## Auditing Standards
 
