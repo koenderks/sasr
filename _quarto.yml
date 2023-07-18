@@ -92,7 +92,7 @@ format:
           \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ | #1}{}}
           \setkeys{Gin}{width=0.65\textwidth}
           \usepackage[labelsep=period, labelfont=bf]{caption}
-    keep-tex: false
+    keep-tex: true
     classoption: [10pt,twoside]
     pagestyle: headings
     geometry:

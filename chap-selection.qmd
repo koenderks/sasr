@@ -360,14 +360,15 @@ result <- selection(data = BuildIt, size = n, units = "values", method = "sieve"
 result$sample
 ```
 
-## Exercises {.unlisted .unnumbered}
+## Practical Exercises
 
-**1.** Select a random sample of 120 items from the `BuildIt` data set.
+1. Select a random sample of 120 items from the `BuildIt` data set.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+Selecting a random sample of items can be done using the `selection()` function with the additional arguments `size = 120`, `method = "random"` and `units = "items"`.
 ```{r}
 selec <- selection(data = BuildIt, size = 120, method = "random", units = "items")
 head(selec$sample, 5)
@@ -376,12 +377,13 @@ head(selec$sample, 5)
 
 :::
 
-**2.** Select a sample of 240 monetary units from the `BuildIt` data set using a fixed interval selection method. Use a starting point of 12.
+2. Select a sample of 240 monetary units from the `BuildIt` data set using a fixed interval selection method. Use a starting point of 12.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+Selecting a random sample of items can be done using the `selection()` function with the arguments `size = 240`, `method = "interval"` and `units = "values"`. Additionally, for fixed interval monetary unit sampling, the book values must be given in via argument `values = "bookValue"`. The starting point is indicated using `start = 12`.
 ```{r}
 selec <- selection(data = BuildIt, size = 240, method = "interval", units = "values", values = "bookValue", start = 12)
 head(selec$sample, 5)
@@ -394,16 +396,16 @@ head(selec$sample, 5)
 
 \clearpage
 
-## Answers {.unlisted .unnumbered}
+## Answers to the Exercises
 
-**1.**
+1. Selecting a random sample of 120 items can be done using the `selection()` function with the additional arguments `size = 120`, `method = "random"` and `units = "items"`.
 
 ```{r}
 selec <- selection(data = BuildIt, size = 120, method = "random", units = "items")
 head(selec$sample, 5)
 ```
 
-**2.**
+2. Selecting a random sample of 240 monetary units can be done using the `selection()` function with the arguments `size = 240`, `method = "interval"` and `units = "values"`. Additionally, for fixed interval monetary unit sampling, the book values must be given in via argument `values = "bookValue"`. The starting point is indicated using `start = 12`.
 
 ```{r}
 selec <- selection(data = BuildIt, size = 240, method = "interval", units = "values", values = "bookValue", start = 12)

@@ -31,21 +31,21 @@ result_np <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n
 summary(result_np)
 ```
 
-In this case, the output of the `summary()` function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates differ substantially from each other but are relatively uncertain.
+In this case, the output of the `summary()` function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the `plot()` function in combination with `type = "estimates`, see Figure \ref{fig:stratified-ss-np-estimates}. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-np-estimates}Estimates of the population and stratum misstatement under the no pooling model."}
 plot(result_np, type = "estimates")
 ```
 
-The prior and posterior distribution for the population misstatement can be requested via the `plot()` function.
+The prior and posterior distribution for the population misstatement can be requested via the `plot()` function, see \ref{fig:stratified-ss-np-posterior}.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-np-posterior}Prior and posterior distribution for the population misstatement under the no pooling model."}
 plot(result_np, type = "posterior")
 ```
 
 ## Complete pooling
 
-Complete pooling (`pooling = "complete"`) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
+Complete pooling (`pooling = "complete"`) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see Figure \ref{fig:stratified-ss-cp-estimates}. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
 
 ```{r}
 result_cp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "complete")
@@ -54,13 +54,13 @@ summary(result_cp)
 
 For example, the output of the `summary()` function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-cp-estimates}Estimates of the population and stratum misstatement under the complete pooling model."}
 plot(result_cp, type = "estimates")
 ```
 
-The prior and posterior distribution for the population misstatement can be requested via the `plot()` function.
+The prior and posterior distribution for the population misstatement can be requested via the `plot()` function, see Figure \ref{fig:stratified-ss-cp-posterior}.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-cp-posterior}Prior and posterior distribution for the population misstatement under the complete pooling model."}
 plot(result_cp, type = "posterior")
 ```
 
@@ -78,15 +78,15 @@ result_pp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n
 summary(result_pp)
 ```
 
-In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
+In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Figure \ref{fig:stratified-ss-pp-estimates} visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-pp-estimates}Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(result_pp, type = "estimates")
 ```
 
-The prior and posterior distribution for the population misstatement can be requested via the `plot()` function.
+The prior and posterior distribution for the population misstatement can be requested via the `plot()` function, see Figure \ref{fig:stratified-ss-pp-posterior}.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-ss-pp-posterior}Prior and posterior distribution for the population misstatement under the partial pooling model."}
 plot(result_pp, type = "posterior")
 ```
 
@@ -114,9 +114,9 @@ x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", val
 summary(x)
 ```
 
-In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized below.
+In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized in Figure \ref{fig:stratified-np-estimates} below.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-np-estimates}Estimates of the population and stratum misstatement under the no pooling model."}
 plot(x, type = "estimates")
 ```
 
@@ -129,26 +129,27 @@ x <- evaluation(materiality = 0.05, data = allowances, prior = TRUE, values = "b
 summary(x)
 ```
 
-The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized below.
+The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in Figure \ref{fig:stratified-pp-estimates} below.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-pp-estimates}Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(x, type = "estimates")
 ```
 
-The prior and posterior distribution for the population misstatement can be requested via the `plot()` function.
+The prior and posterior distribution for the population misstatement can be requested via the `plot()` function, see Figure \ref{fig:stratified-pp-posterior}.
 
-```{r}
+```{r fig.cap="\\label{fig:stratified-pp-posterior}Prior and posterior distribution for the population misstatement under the partial pooling model."}
 plot(x, type = "posterior")
 ```
 
-## Exercises {.unlisted .unnumbered}
+## Practical Exercises
 
-**1.** Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
+1. Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+To evaluate a stratified sample using the classical approach, the `evaluation()` function can be used with the default arguments.
 ```{r}
 evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")
 ```
@@ -160,9 +161,9 @@ evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")
 
 \clearpage
 
-## Answers {.unlisted .unnumbered}
+## Answers to the Exercises
 
-**1.**
+1. To evaluate a stratified sample using the classical approach, the `evaluation()` function can be used with the default arguments.
 
 ```{r}
 evaluation(n = c(30, 40, 50), x = c(0, 1, 3), method = "binomial")

@@ -140,14 +140,15 @@ x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", val
 summary(x)
 ```
 
-## Exercises {.unlisted .unnumbered}
+## Practical Exercises
 
-**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+1. Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The evaluation can be performed using the `evaluation()` function with the default arguments.
 ```{r}
 evaluation(n = 30, x = 2, method = "binomial")
 ```
@@ -159,9 +160,9 @@ evaluation(n = 30, x = 2, method = "binomial")
 
 \clearpage
 
-## Answers {.unlisted .unnumbered}
+## Answers to the Exercises
 
-**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+1. The evaluation can be performed using the `evaluation()` function with the default arguments.
 
 ```{r}
 evaluation(n = 30, x = 2, method = "binomial")

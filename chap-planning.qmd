@@ -163,16 +163,16 @@ plot(plan)
 
 #### Expected Misstatements
 
-Planning for expected misstatements in the sample can be done by setting the value for the `expected` argument to a different value than zero. For example, the command below calculates the minimum sample size to achieve an assurance level of 95 percent ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.1$ in a population of $N = 50$ items, given one expected misstatement in the sample. This sample size is $n = 32$.
+Planning for expected misstatements in the sample can be done by setting the value for the `expected` argument to a different value than zero. For example, the code below calculates the minimum sample size to achieve an assurance level of 95 percent ($\alpha = 0.05$) for a performance materiality of $\theta_{max} = 0.1$ in a population of $N = 50$ items, given one expected misstatement in the sample. This sample size is $n = 32$.
 
 ```{r}
 plan <- planning(materiality = 0.1, expected = 1, conf.level = 0.95, likelihood = "hypergeometric", N.units = 50, prior = TRUE)
 plan
 ```
 
-Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-mis}.
+Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-bbinom-mis} below for the output of this call.
 
-```{r fig.cap="\\label{fig:planning-bbinom-mis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing misstatements in the sample."}
+```{r fig.cap="\\label{fig:planning-bbinom-mis}The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing one misstatement in the sample."}
 plot(plan)
 ```
 
@@ -422,9 +422,9 @@ However, for $n = 100$ the relevant probability is lower than the sampling risk 
 dpois(x = 0, lambda = 100 * 0.03) < 0.05
 ```
 
-We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$, see Figure \ref{fig:planning-pois-nomis}. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-pois-nomis}The Poisson($k$ | 100 $\times$ 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
 plot(plan)
 ```
 
@@ -450,9 +450,9 @@ However, for $n = 159$ the relevant probability is lower than the sampling risk 
 sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
-Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see Figure \ref{fig:planning-pois-mis}. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r echo = FALSE}
+```{r fig.cap="\\label{fig:planning-pois-mis}The Poisson($k$ | 159 $\times$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -536,9 +536,9 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{planning-gamma-nomis}. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-gamma-nomis}The gamma prior and posterior distribution on the range [0; $\\infty$] after seeing no misstatements in the sample of 99 units."}
 plot(plan)
 ```
 
@@ -560,19 +560,19 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior.
+The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior. Figure \ref{fig:planning-gamma-nomis2} shows this prior and posterior distribution.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-gamma-nomis2}The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units."}
 plot(plan)
 ```
 
 ## Prior Distributions
 
-The `auditPrior()` function is used to specify a prior distribution for audit sampling. Below is an enumeration of the several ways that a prior distribution can be constructed using this function.
+In principle, any distribution that covers the range of $\theta$ can be used as a prior distribution. However, some distributions are more suitable than others. For instance, the beta-binomial, beta and gamma distributions are all commonly used because they are so-called conjugate distributions, that is, they stay in the same family when updated by the data. The **jfa** package provides the ability to construct a prior distribution for audit sampling. More specifically, the `auditPrior()` function is used to specify a prior distribution that can be used as input for the `prior` argument in the `planning()` (and `evaluation()`) function. Below is an enumeration of the several ways that a prior distribution can be constructed using the `auditPrior` function.
 
 ### Default Prior
 
-The default prior distributions are created using `method = 'default'`. **jfa**'s default priors satisfy two criteria: 1) they contain relatively little information about the population misstatement and 2) they are proper (i.e., they integrate to 1). The default priors in **jfa** are:
+The default prior distributions are created using `method = 'default'`. There are no explicit rules for what constitutes a default prior. However, **jfa**'s default priors satisfy two criteria: 1) they contain relatively little information about the population misstatement and 2) they are proper (i.e., they integrate to 1). For completeness, all default priors in **jfa** are provided in the following list.
 
 * `likelihood = 'poisson'`: gamma($\alpha$ = 1, $\beta$ = 1)
 * `likelihood = 'binomial'`: beta($\alpha$ = 1, $\beta$ = 1)
@@ -584,14 +584,16 @@ The default prior distributions are created using `method = 'default'`. **jfa**'
 * `likelihood = 'chisq'`: chi-squared(df = 1)
 * `likelihood = 'exponential'`: exponential($\lambda$ = 1)
 
+For instance, to create a default prior distribution using the binomial likelihood (i.e., a beta(1, 1) prior), you can use the following code that creates a prior distribution and stores it in the `prior` object. You can then use the `summary()` function to obtain relevant information about the prior distribution.
+
 ```{r}
 prior <- auditPrior(method = "default", likelihood = "binomial")
 summary(prior)
 ```
 
-All prior distributions can be visually inspected via the `plot()` function.
+All prior distributions can be visually inspected via the `plot()` function, see Figure \ref{fig:planning-prior-default}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-default}The default beta(1, 1) prior distribution."}
 plot(prior)
 ```
 
@@ -601,9 +603,9 @@ Furthermore, the `predict()` function produces the predictions of the prior dist
 predict(prior, n = 6)
 ```
 
-The predictions of the prior distribution can be visualized using the `plot()` function.
+The predictions of the prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-predict}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-predict}The predictions of the beta(1, 1) prior distribution concerming the possible misstatements in an an intended sample of $n=6$."}
 plot(predict(prior, n = 10))
 ```
 
@@ -722,9 +724,9 @@ The `summary()` function can be used to obtain relevant information about the pr
 summary(prior)
 ```
 
-Furthermore, the prior distribution can be visualized with a call to the `plot()` function.
+Furthermore, the prior distribution can be visualized with a call to the `plot()` function, see Figure \ref{fig:planning-prior-example1}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-example1}The prior distribution constructed on the basis of the assessments of inherent risk and control risk."}
 plot(prior)
 ```
 
@@ -745,13 +747,13 @@ data(benchmark)
 head(benchmark)
 ```
 
-The auditee's the sum of the sales is $298,112,312 and the sum of the booked costs of sales is $223,994,405, respectively. This is indicated by a blue dot in the figure below, which visualizes the industry sales versus the cost of sales.
+The auditee's the sum of the sales is $298,112,312 and the sum of the booked costs of sales is $223,994,405, respectively. This is indicated by a blue dot in Figure \ref{fig:planning-scatter-1} below, which visualizes the industry sales versus the cost of sales.
 
 ```{r}
 C_real <- 223994405
 ```
 
-```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
+```{r fig.cap="\\label{fig:planning-scatter-1}Scatter plot of the industry sales versus the cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
@@ -795,9 +797,9 @@ C_pred <- predict(fit, newdata = data.frame(sales = 298112312), interval = "pred
 C_pred
 ```
 
-The fitted regression line and the predicted cost of sales (red dot) are visualized in the figure below:
+The fitted regression line and the predicted cost of sales (red dot) are visualized in Figure \ref{fig:planning-scatter-2} below.
 
-```{r echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
+```{r fig.cap="\\label{fig:planning-scatter-2}Scatter plot of the industry sales versus the cost of sales including the regression line and the auditee's (predicted) cost of sales.", echo = FALSE, fig.width = 7, fig.height = 6, fig.align = "center"}
 breaks <- pretty(c(benchmark$sales, benchmark$costofsales))
 labels <- paste0("$", format(breaks / 1000000, scientific = FALSE), "M")
 p <- ggplot(data = benchmark, mapping = aes(x = sales, y = costofsales)) +
@@ -851,9 +853,9 @@ prior <- auditPrior(method = "param", likelihood = "normal", alpha = mu, beta = 
 summary(prior)
 ```
 
-The specified prior distribution can be visualized using the `plot()` function.
+The specified prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-example2}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-example2}The prior distribution constructed on the basis of the benchmark analysis."}
 plot(prior)
 ```
 
@@ -864,13 +866,13 @@ plan <- planning(materiality = 0.05, conf.level = 0.95, likelihood = "binomial",
 plan
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see Figure \ref{fig:planning-prior-posterior-example2}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-posterior-example2}The prior and expected posterior distribution for this example after seeing a sample of $n=50$ containing no misstatements."}
 plot(plan)
 ```
 
-By using a frequentist approach, the required minimum sample size is 50. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.
+By using a frequentist approach, the required minimum sample size is 59. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.
 
 ```{r}
 plan <- planning(materiality = 0.05, conf.level = 0.95, likelihood = "binomial")
@@ -920,9 +922,9 @@ The nonparametric prior distribution can be constructed through a call to `audit
 prior <- auditPrior(method = "nonparam", samples = predictions[, 2])
 ```
 
-The nonparametric prior distribution can be visualized using the `plot()` function.
+The nonparametric prior distribution can be visualized using the `plot()` function, see Figure \ref{fig:planning-prior-example3}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-example3}The prior distribution constructed on the basis of the predictive model."}
 plot(prior)
 ```
 
@@ -933,9 +935,9 @@ plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial",
 plan
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see \ref{fig:planning-prior-posterior-example3}.
 
-```{r}
+```{r fig.cap="\\label{fig:planning-prior-posterior-example3}The prior and expected posterior distribution for this example after seeing a sample of $n=108$ units containing no misstatements."}
 plot(plan)
 ```
 
@@ -946,14 +948,15 @@ plan <- planning(materiality = 0.01, conf.level = 0.95, likelihood = "binomial")
 plan
 ```
 
-## Exercises {.unlisted .unnumbered}
+## Practical Exercises
 
-**1.** Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
+1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+This sample size can be computed using the `planning()` function with the arguments `likelihood = "hypergeometric"` and `N.units = 100`.
 ```{r}
 planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
 ```
@@ -961,12 +964,13 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
 
 :::
 
-**2.** Recompute the previous sample size with the Bayesian approach using a default prior.
+2. Recompute the previous sample size with the Bayesian approach using a default prior.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 ```{r}
 planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior = TRUE)
 ```
@@ -974,12 +978,13 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior
 
 :::
 
-**3.** Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.
+3. Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+This sample size can be computed using the `planning()` function with the arguments `likelihood = "binomial"` and `expected = 1`.
 ```{r}
 planning(materiality = 0.044, likelihood = "binomial", expected = 1)
 ```
@@ -987,12 +992,13 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1)
 
 :::
 
-**4.** Recompute the previous sample size with the Bayesian approach using a default prior.
+4. Recompute the previous sample size with the Bayesian approach using a default prior.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 ```{r}
 planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRUE)
 ```
@@ -1000,12 +1006,13 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRU
 
 :::
 
-**5.** Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.
+5. Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+This sample size can be computed using the `planning()` function with the argument `expected = 0.005`.
 ```{r}
 planning(materiality = 0.02, expected = 0.005)
 ```
@@ -1013,12 +1020,13 @@ planning(materiality = 0.02, expected = 0.005)
 
 :::
 
-**6.** Recompute the previous sample size with the Bayesian approach using a default prior.
+6. Recompute the previous sample size with the Bayesian approach using a default prior.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 ```{r}
 planning(materiality = 0.02, expected = 0.005, prior = TRUE)
 ```
@@ -1026,12 +1034,13 @@ planning(materiality = 0.02, expected = 0.005, prior = TRUE)
 
 :::
 
-**7.** Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80$. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.
+7. Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80 percent. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+This sample size can be computed by using an adjusted confidence level via the `conf.level` argument.
 ```{r}
 dr <- 0.05 / (0.5 * 0.8)
 planning(materiality = 0.05, conf.level = 1 - dr)
@@ -1040,12 +1049,13 @@ planning(materiality = 0.05, conf.level = 1 - dr)
 
 :::
 
-**8.** Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.
+8. Construct a prior distribution on the basis of the information in exercise 7. Use this prior distribution to recompute the previous sample size with the Bayesian approach.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The information in exercise 7 can be incorporated into the prior distribution by using the `auditPrior()` function in combination with `method = "arm"`.
 ```{r}
 prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
 planning(materiality = 0.05, prior = prior)
@@ -1054,12 +1064,13 @@ planning(materiality = 0.05, prior = prior)
 
 :::
 
-**9.** Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.
+9. Construct a prior distribution on the basis of the assumption that tolerable misstatement is equally likely as intolerable misstatement before seeing the sample data. Use the binomial likelihood and assume a performance materiality of 2.5 percent.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+This prior distribution can be constructed using the `auditPrior()` function in combination with `method = "impartial"`, while providing a value for the `materiality`.
 ```{r}
 auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 ```
@@ -1071,59 +1082,59 @@ auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 
 \clearpage
 
-## Answers {.unlisted .unnumbered}
+## Answers to the Exercises
 
-**1.**
+1. This sample size can be computed using the `planning()` function with the arguments `likelihood = "hypergeometric"` and `N.units = 100`.
 
 ```{r}
 planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100)
 ```
 
-**2.**
+2. The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 
 ```{r}
 planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior = TRUE)
 ```
 
-**3.**
+3. This sample size can be computed using the `planning()` function with the arguments `likelihood = "binomial"` and `expected = 1`.
 
 ```{r}
 planning(materiality = 0.044, likelihood = "binomial", expected = 1)
 ```
 
-**4.**
+4. The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 
 ```{r}
 planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRUE)
 ```
 
-**5.**
+5. This sample size can be computed using the `planning()` function with the argument `expected = 0.005`.
 
 ```{r}
 planning(materiality = 0.02, expected = 0.005)
 ```
 
-**6.**
+6. The previous sample size can be recomputed using a default prior by adding `prior = TRUE` to the call.
 
 ```{r}
 planning(materiality = 0.02, expected = 0.005, prior = TRUE)
 ```
 
-**7.**
+7. This sample size can be computed by using an adjusted confidence level via the `conf.level` argument.
 
 ```{r}
 dr <- 0.05 / (0.5 * 0.8)
 planning(materiality = 0.05, conf.level = 1 - dr)
 ```
 
-**8.**
+8. The information in exercise 7 can be incorporated into the prior distribution by using the `auditPrior()` function in combination with `method = "arm"`.
 
 ```{r}
 prior <- auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.5, cr = 0.8)
 planning(materiality = 0.05, prior = prior)
 ```
 
-**9.**
+9. This prior distribution can be constructed using the `auditPrior()` function in combination with `method = "impartial"`, while providing a value for the `materiality`.
 
 ```{r}
 auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)

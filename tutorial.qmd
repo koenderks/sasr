@@ -171,14 +171,15 @@ library(readxl)
 read_excel("example.csv", sheet = 1)
 ```
 
-## Exercises {.unlisted .unnumbered}
+## Practical Exercises
 
-**1.** Compute the square root of 81 and store the result in a variable called `t1`.
+1. Compute the square root of 81 and store the result in a variable called `t1`.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+Assigning a variable can be achieved via the `<-` operator, while the square root is computed via the `sqrt()` function.
 ```{r}
 t1 <- sqrt(81)
 ```
@@ -186,12 +187,13 @@ t1 <- sqrt(81)
 
 :::
 
-**2.** Compute 81 to the power a half and store the result in a variable called `t2`.
+2. Compute 81 to the power a half and store the result in a variable called `t2`.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+The square root can also be computed using the power operator `^`.
 ```{r}
 t2 <- 81^0.5
 ```
@@ -199,12 +201,13 @@ t2 <- 81^0.5
 
 :::
 
-**3.** Use the `==` operator to check whether the content of `t1` and `t2` is the same.
+3. Use the `==` operator to check whether the content of `t1` and `t2` is the same.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+You can check if the contents of `t1` and `t2` are the same using the `==` operator.
 ```{r}
 t1 == t2
 ```
@@ -212,12 +215,13 @@ t1 == t2
 
 :::
 
-**4.** Use the `c()` function (or `:`) to create the following vector: `-2 -1 0 1 2 3 4 5 6 7 8`.
+4. Use the `c()` function (or `:`) to create the following vector: `-2 -1 0 1 2 3 4 5 6 7 8`.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+There are two main (and many more other) ways of creating this vector:
 ```{r}
 c(-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8)
 ```
@@ -229,12 +233,13 @@ or:
 
 :::
 
-**5.** Find out the length of the vector created in exercise 4.
+5. Find out the length of the vector created in exercise 4.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+You can compute the length of any vector using the `length()` function.
 ```{r}
 length(-2:8)
 ```
@@ -242,12 +247,13 @@ length(-2:8)
 
 :::
 
-**6.** Find out the mean of the vector created in exercise 4.
+6. Find out the mean of the vector created in exercise 4.
 
 ::: {.content-visible when-format="html"}
 
 <details>
 <summary>Click to reveal answer</summary>
+You can compute the average of any vector using the `mean()` function.
 ```{r}
 mean(-2:8)
 ```
@@ -259,27 +265,27 @@ mean(-2:8)
 
 \clearpage
 
-## Answers {.unlisted .unnumbered}
+## Answers to the Exercises
 
-**1.**
+1. Assigning a variable can be achieved via the `<-` operator, while the square root is computed via the `sqrt()` function.
 
 ```{r}
 t1 <- sqrt(81)
 ```
 
-**2.**
+2. The square root can also be computed using the power operator `^`.
 
 ```{r}
 t2 <- 81^0.5
 ```
 
-**3.**
+3. The `==` operator can be used to check if the contents of `t1` and `t2` are the same.
 
 ```{r}
 t1 == t2
 ```
 
-**4.**
+4. There are two main (and many more other) ways of creating this vector:
 
 ```{r}
 c(-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8)
@@ -291,13 +297,13 @@ or:
 -2:8
 ```
 
-**5.**
+5. The length of any vector can be obtained using the `length()` function.
 
 ```{r}
 length(-2:8)
 ```
 
-**6.**
+6. The average of any vector can be obtained using the `mean()` function.
 
 ```{r}
 mean(-2:8)
