@@ -25,6 +25,7 @@ book:
   open-graph: true
   page-navigation: true
   reader-mode: true
+  search: false
   twitter-card:
     image: "front-page.svg"
   chapters:
