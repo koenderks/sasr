@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - 5&nbsp; Evaluation</title>
+<title>Statistical Audit Sampling with R - 6&nbsp; Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,13 +102,13 @@ div.csl-indent {
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-<meta property="og:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
+<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/book_justice.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1536">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 5&nbsp; Evaluation">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Evaluation">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -120,7 +120,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-evaluation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-evaluation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -173,7 +173,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">The Basics</span></a>
+ <span class="menu-text">Theory</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,7 +196,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Workflow</span></a>
+ <span class="menu-text">Application</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,26 +204,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chap-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -240,13 +246,13 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,7 +266,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Tutorial</span></a>
+ <span class="menu-text">Appendix: R Tutorial</span></a>
   </div>
 </li>
     </ul>
@@ -271,15 +277,14 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="header-section-number">5.1</span> Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">5.2</span> Bayesian Evaluation</a></li>
-  <li><a href="#using-data" id="toc-using-data" class="nav-link" data-scroll-target="#using-data"><span class="header-section-number">5.3</span> Using Data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.4</span> Exercises</a></li>
+<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link active" data-scroll-target="#classical-evaluation"><span class="header-section-number">6.1</span> Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">6.2</span> Bayesian Evaluation</a></li>
+  <li><a href="#using-data" id="toc-using-data" class="nav-link" data-scroll-target="#using-data"><span class="header-section-number">6.3</span> Using Data</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-evaluation" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -301,18 +306,18 @@ div.csl-indent {
 <strong>Estimation</strong>: The goal of the sample is to obtain an accurate estimate of the misstatement in the population with a certain precision.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="img/book_justice.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figure class="figure"><p><img src="img/book_justice.png" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption class="figure-caption">When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>When an auditor needs to perform audit sampling, they typically have two options: non-stratified or stratified sampling. Non-stratified sampling involves selecting a sample of units without considering any categorical characteristics, such as product type or store location, of these items. Stratified sampling involves dividing the population into subgroups based on specific characteristics and selecting a sample from each subgroup. In comparison to non-stratified sampling, stratified sampling can improve efficiency. However, in this chapter, we will focus on non-stratified audit sampling, while stratified audit sampling will be covered in the next chapter.</p>
 <p>Non-stratified sampling is typically used when the population is considered homogenous, meaning there are no significant differences between subgroups. This approach is also suitable when the auditor does not need to consider differences between subgroups. For example, when an auditor reviews a company’s inventory using non-stratified sampling, they may choose a random sample of items from the entire inventory without dividing it into subgroups. Similarly, when conducting an audit of a small business’s general ledger, an auditor may select a sample of entries without dividing them based on categorical features such as payment method.</p>
 <p>To get started with non-stratified evaluation of audit samples, the auditor must first decide if they want to evaluate based on summary statistics derived from a sample (i.e., 1 misstatement in 100 items) or if they want to calculate the misstatements from a data set. To make the principle of evaluation easier to understand, we will first explain how to evaluate a sample using summary statistics from a sample.</p>
-<section id="classical-evaluation" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="classical-evaluation">
-<span class="header-section-number">5.1</span> Classical Evaluation</h2>
+<section id="classical-evaluation" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="classical-evaluation">
+<span class="header-section-number">6.1</span> Classical Evaluation</h2>
 <p>In classical evaluation, confidence intervals and <em>p</em>-values are used to measure the uncertainty and the evidence against the hypothesis of intolerable misstatement, respectively.</p>
 <p>Confidence intervals play a crucial role in classical inference by helping to determine the uncertainty in a sample estimate. For example, if an auditor needs to estimate the misstatement in a tax return, they can calculate a confidence interval for the misstatement using classical inference. This confidence interval represents a range of possible values in which the true misstatement of the population is likely to fall. This range helps auditors make informed decisions about the misstatement and determine the potential impact of the misstatement on the (loss of) taxes.</p>
 <p>To illustrate, suppose an auditor wants to estimate the misstatement in a population based on a sample of 100 items containing one misstatement. Using the <code>evaluation()</code> function in <strong>jfa</strong> and specifying <code>x = 1</code> and <code>n = 100</code>, the output shows that the estimated most likely misstatement in the population is 1 percent, and the 95 percent (one-sided) confidence interval ranges from 0 percent to 4.74 percent. It is important to note that the correct interpretation of a 95 percent confidence interval is: <em>“If we were to repeat the experiment over and over, then 95 percent of the time the confidence interval contains the true misstatement rate”</em> <span class="citation" data-cites="Hoekstra2014">(<a href="references.html#ref-Hoekstra2014" role="doc-biblioref">Hoekstra et al., 2014</a>)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-2_66c74abc6d3692404b66e08c446fb7af">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
@@ -327,7 +332,7 @@ div.csl-indent {
 </div>
 <p>Classical hypothesis testing relies on the <em>p</em>-value to determine whether to accept or reject a certain hypothesis about a population. For example, suppose an auditor wishes to test whether the population contains misstatements of less than 3 percent (they formulate the performance materiality based on existing rules and regulations). They would create the hypotheses <span class="math inline">\(H_1:\theta&lt;0.03\)</span> and <span class="math inline">\(H_0:\theta\geq0.03\)</span>. The significance level is set to 0.05, equivalent to an audit risk of 5 percent. This means that a <em>p</em>-value below 0.05 is sufficient to reject the hypothesis of intolerable misstatement <span class="math inline">\(H_0\)</span>.</p>
 <p>In <strong>jfa</strong>, a classical hypothesis test using the <em>p</em>-value can be conducted by specifying the <code>materiality</code> argument in the <code>evaluation()</code> function. For example, to indicate a performance materiality of 3 percent, the auditor can specify <code>materiality = 0.03</code>. Along with the confidence interval, the output displays a <em>p</em>-value of 0.19462, which is greater than 0.05. Therefore, the hypothesis <span class="math inline">\(H_0\)</span> cannot be rejected at a significance level of 5 percent. As a result, the auditor cannot conclude that the sample provides sufficient evidence to reduce the audit risk to an appropriate level and cannot state that the population does not have misstatements of 3 percent or more.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-3_b7b4175889ea1e27bbb730c2d56211cc">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="va">eval</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -343,22 +348,22 @@ div.csl-indent {
 <span><span class="co">#&gt;  0.01 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The exact definition of the <em>p</em>-value is <em>“the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement”</em>. The <em>p</em>-value of 0.19462 can be visualized via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-4_82efce3590fb542d3570b543081ab6e1">
+<p>The exact definition of the <em>p</em>-value is <em>“the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement”</em>. The <em>p</em>-value of 0.19462 can be visualized via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see Figure <span class="math inline">\(\ref{fig:evaluation-freq-1}\)</span>.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="chap-evaluation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
+<figcaption class="figure-caption">The <em>p</em>-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of <span class="math inline">\(k=0\)</span> and <span class="math inline">\(k=1\)</span> and equals 0.048 + 0.147 = 0.195.</figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="bayesian-evaluation" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="bayesian-evaluation">
-<span class="header-section-number">5.2</span> Bayesian Evaluation</h2>
+</section><section id="bayesian-evaluation" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="bayesian-evaluation">
+<span class="header-section-number">6.2</span> Bayesian Evaluation</h2>
 <p>Classical inference involves using confidence intervals to measure the uncertainty of our estimate, while in Bayesian inference, we use credible intervals for this purpose. To perform Bayesian inference, we start by specifying a prior distribution, which specifies our prior knowledge about the misstatement in the population before collecting any data. We then combine this prior with the information obtained from our sample to obtain a posterior distribution.</p>
 <p>We can use this posterior distribution to estimate the most likely misstatement in the population and the range of values that we are 95 percent confident the true value lies within. The classical confidence interval is often misinterpreted as a Bayesian credible interval. That is, a Bayesian 95 percent credible interval can be intuitively interpreted as: <em>“There is a 95 percent probability that the misstatement falls within the credible interval”</em>.</p>
 <p>For instance, suppose we have a uniform <em>beta(1, 1)</em> prior, a sample of 100 units, and we discover one with a misstatement. In that case, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can determine that there is a 95 percent probability that the true misstatement rate falls between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform <em>beta(1, 1)</em> prior distribution. To achieve classical results, we can create a prior with <code>method="strict"</code> using the <code>auditPrior()</code> function. Remember that any call to <code>evaluation()</code> can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the <code>prior</code> constructed through a call to <code>auditPrior()</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-5_7b2b2cb0b897ce0e58936d9478bd56d7">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"default"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
 <span><span class="va">eval</span></span>
@@ -373,20 +378,20 @@ div.csl-indent {
 <span><span class="co">#&gt;  0.01 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-6_e4138d8464905707753a80b38647d155">
+<p>You can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. Figure <span class="math inline">\(\ref{fig:evaluation-bayes-1}\)</span> shows this posterior distribution.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="chap-evaluation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
+<figcaption class="figure-caption">The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>To determine the strength of evidence against the hypothesis of intolerable misstatement, classical inference relies on <em>p</em>-values, while Bayesian inference uses the Bayes factor to measure evidence in support of or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing employs the Bayes factor, either <span class="math inline">\(BF_{10}\)</span> or <span class="math inline">\(BF_{01}\)</span>, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_0\)</span>.</p>
 <p>The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the <code>evaluation()</code> function outputs a value of 10 for <span class="math inline">\(BF_{10}\)</span>, it means that the data are ten times more likely to have arisen under <span class="math inline">\(H_1\)</span> than under <span class="math inline">\(H_0\)</span>. A Bayes factor <span class="math inline">\(BF_{10}\)</span> greater than 1 suggests evidence for <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span>, while a Bayes factor <span class="math inline">\(BF_{10}\)</span> less than 1 suggests evidence for <span class="math inline">\(H_0\)</span> and against <span class="math inline">\(H_1\)</span>. Although the <code>evaluation()</code> function returns <span class="math inline">\(BF_{10}\)</span> by default, one can compute <span class="math inline">\(BF_{01}\)</span> as the inverse of <span class="math inline">\(BF_{10}\)</span> (i.e., <span class="math inline">\(\frac{1}{BF_{10}}\)</span>).</p>
 <p>To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses <span class="math inline">\(H_1:\theta&lt;0.03\)</span> and <span class="math inline">\(H_0:\theta\geq0.03\)</span>. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default <em>beta(1,1)</em> prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The <code>materiality = 0.03</code> argument specifies the materiality for this audit.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-7_4ade15cf51e454de2af7761509d94bef">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
@@ -402,25 +407,25 @@ div.csl-indent {
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the Bayes factor is <span class="math inline">\(BF_{10}=137.65\)</span>, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the <em>beta(1,1)</em> prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-8_9a6d862437b2b48a6928b029da438a57">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.prob.h1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">pbeta</a></span><span class="op">(</span><span class="fl">0.03</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">prior.prob.h1</span></span>
 <span><span class="co">#&gt; [1] 0.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The probability of the hypothesis of intolerable misstatement is essentially the opposite of the probability of the hypothesis of tolerable misstatement. To clarify, it is just one minus the prior probability of the hypothesis of tolerable misstatement.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-9_5ea6854dbc4740d6ed65125f26892e1c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.prob.h0</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">prior.prob.h1</span></span>
 <span><span class="va">prior.prob.h0</span></span>
 <span><span class="co">#&gt; [1] 0.97</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We use the prior probabilities to calculate the prior odds, which is the ratio of the prior probabilities.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-10_f7082ff02afac0afb9bd868425f9ad69">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior.odds.h1</span> <span class="op">&lt;-</span> <span class="va">prior.prob.h1</span> <span class="op">/</span> <span class="va">prior.prob.h0</span></span>
 <span><span class="va">prior.odds.h1</span></span>
 <span><span class="co">#&gt; [1] 0.03092784</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution and essentially follow the same steps. Hence, we calculate the posterior probability for the hypothesis of tolerable misstatement, then obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting this probability from one. Finally, the posterior odds are calculated as the ratio of the posterior probabilities</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-11_725e4ebcb6b952aaf56833a3be32c73e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">post.prob.h1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">pbeta</a></span><span class="op">(</span><span class="fl">0.03</span>, shape1 <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">100</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">post.prob.h0</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">post.prob.h1</span></span>
 <span><span class="va">post.odds.h1</span> <span class="op">&lt;-</span> <span class="va">post.prob.h1</span> <span class="op">/</span> <span class="va">post.prob.h0</span></span>
@@ -428,13 +433,13 @@ div.csl-indent {
 <span><span class="co">#&gt; [1] 4.257346</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, the Bayes factor can be computed as the ratio of the posterior odds and the prior odds.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-12_21fa42a6ecd5c94db943394a5f879355">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bf10</span> <span class="op">&lt;-</span> <span class="va">post.odds.h1</span> <span class="op">/</span> <span class="va">prior.odds.h1</span></span>
 <span><span class="va">bf10</span></span>
 <span><span class="co">#&gt; [1] 137.6542</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for <span class="math inline">\(\theta\)</span>. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the <em>beta(1, 1)</em> prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <code>method = "impartial"</code> in the <code>auditPrior()</code> function <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022</a>)</span>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-13_1ce9e0dba6930f0247c220ef7742ea1c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, method <span class="op">=</span> <span class="st">"impartial"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -451,11 +456,11 @@ div.csl-indent {
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The analysis above was conducted using an impartial prior. The resulting output indicates that <span class="math inline">\(BF_{10}=7.77\)</span>, which moderately supports <span class="math inline">\(H_1\)</span>. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.</p>
-</section><section id="using-data" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="using-data">
-<span class="header-section-number">5.3</span> Using Data</h2>
+</section><section id="using-data" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="using-data">
+<span class="header-section-number">6.3</span> Using Data</h2>
 <p>Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the <code>evaluation()</code> function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.</p>
 <p>To demonstrate how this works, we will use the <code>allowances</code> data set that comes with the <strong>jfa</strong> package. This data set includes 3500 financial statement line items, each with a booked value (<code>bookValue</code>) and an audited (true) value (<code>auditValue</code>) for illustrative purposes. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-14_4b83741b8613faa235297124d3fe71f4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
@@ -467,7 +472,7 @@ div.csl-indent {
 <span><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When evaluating an audit sample using a data set, it is necessary to specify the <code>data</code>, <code>values</code>, and <code>values.audit</code> arguments in the <code>evaluation()</code> function. The input for these arguments should be the name of the relevant column in <code>data</code>. For example, the call below evaluates the <code>allowances</code> sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-15_59364bd5551e047d3808c0f64810da99">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, times <span class="op">=</span> <span class="st">"times"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -490,12 +495,11 @@ div.csl-indent {
 <span><span class="co">#&gt;   Precision:                      0.017311 </span></span>
 <span><span class="co">#&gt;   p-value:                        1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="exercises" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">5.4</span> Exercises</h2>
+</section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <p><strong>1.</strong> Evaluate a sample of <span class="math inline">\(n = 30\)</span> items containing <span class="math inline">\(k = 2\)</span> misstatements. Use the classical approach.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="chap-evaluation_cache/html/unnamed-chunk-16_7d4cfa6e4d55d0e80d0da20fc5e6f555">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">30</span>, x <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
@@ -805,12 +809,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./chap-selection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-stratified-evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -827,7 +831,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hypothesis testing**: The goal of the sample is to obtain evidence for or against the claim that the misstatement in the population is lower than a given value (i.e., the performance materiality).</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Estimation**: The goal of the sample is to obtain an accurate estimate of the misstatement in the population with a certain precision.</span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_justice.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">When evaluating a sample with respect to a specific hypothesis, the auditor must consider the evidence in favour as well as the evidence against that hypothesis. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_justice.png)</span>{fig-align="center" width=65%}</span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>When an auditor needs to perform audit sampling, they typically have two options: non-stratified or stratified sampling. Non-stratified sampling involves selecting a sample of units without considering any categorical characteristics, such as product type or store location, of these items. Stratified sampling involves dividing the population into subgroups based on specific characteristics and selecting a sample from each subgroup. In comparison to non-stratified sampling, stratified sampling can improve efficiency. However, in this chapter, we will focus on non-stratified audit sampling, while stratified audit sampling will be covered in the next chapter.</span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -856,133 +860,133 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>eval</span>
 <span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the <span class="in">`plot()`</span> function.</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the <span class="in">`plot()`</span> function, see Figure \ref{fig:evaluation-freq-1}.</span>
 <span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:evaluation-freq-1}The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k=0$ and $k=1$ and equals 0.048 + 0.147 = 0.195."}</span></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian Evaluation</span></span>
 <span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian Evaluation</span></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>Classical inference involves using confidence intervals to measure the uncertainty of our estimate, while in Bayesian inference, we use credible intervals for this purpose. To perform Bayesian inference, we start by specifying a prior distribution, which specifies our prior knowledge about the misstatement in the population before collecting any data. We then combine this prior with the information obtained from our sample to obtain a posterior distribution.</span>
 <span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>Classical inference involves using confidence intervals to measure the uncertainty of our estimate, while in Bayesian inference, we use credible intervals for this purpose. To perform Bayesian inference, we start by specifying a prior distribution, which specifies our prior knowledge about the misstatement in the population before collecting any data. We then combine this prior with the information obtained from our sample to obtain a posterior distribution.</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>We can use this posterior distribution to estimate the most likely misstatement in the population and the range of values that we are 95 percent confident the true value lies within. The classical confidence interval is often misinterpreted as a Bayesian credible interval. That is, a Bayesian 95 percent credible interval can be intuitively interpreted as: *"There is a 95 percent probability that the misstatement falls within the credible interval"*.</span>
 <span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>We can use this posterior distribution to estimate the most likely misstatement in the population and the range of values that we are 95 percent confident the true value lies within. The classical confidence interval is often misinterpreted as a Bayesian credible interval. That is, a Bayesian 95 percent credible interval can be intuitively interpreted as: *"There is a 95 percent probability that the misstatement falls within the credible interval"*.</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>For instance, suppose we have a uniform *beta(1, 1)* prior, a sample of 100 units, and we discover one with a misstatement. In that case, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can determine that there is a 95 percent probability that the true misstatement rate falls between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform *beta(1, 1)* prior distribution. To achieve classical results, we can create a prior with <span class="in">`method="strict"`</span> using the <span class="in">`auditPrior()`</span> function. Remember that any call to <span class="in">`evaluation()`</span> can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the <span class="in">`prior`</span> constructed through a call to <span class="in">`auditPrior()`</span>.</span>
 <span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>For instance, suppose we have a uniform *beta(1, 1)* prior, a sample of 100 units, and we discover one with a misstatement. In that case, we can estimate that the most likely misstatement in the population is 1 percent. Using the posterior distribution, we can determine that there is a 95 percent probability that the true misstatement rate falls between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform *beta(1, 1)* prior distribution. To achieve classical results, we can create a prior with <span class="in">`method="strict"`</span> using the <span class="in">`auditPrior()`</span> function. Remember that any call to <span class="in">`evaluation()`</span> can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the <span class="in">`prior`</span> constructed through a call to <span class="in">`auditPrior()`</span>.</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"default"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>eval</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"default"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>eval <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>eval</span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>You can use the <span class="in">`plot()`</span> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. Figure \ref{fig:evaluation-bayes-1} shows this posterior distribution.</span>
 <span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>You can use the <span class="in">`plot()`</span> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement.</span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="\\label{fig:evaluation-bayes-1}The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars."}</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>To determine the strength of evidence against the hypothesis of intolerable misstatement, classical inference relies on *p*-values, while Bayesian inference uses the Bayes factor to measure evidence in support of or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing employs the Bayes factor, either $BF_{10}$ or $BF_{01}$, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, $H_1$ or $H_0$.</span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the <span class="in">`evaluation()`</span> function outputs a value of 10 for $BF_{10}$, it means that the data are ten times more likely to have arisen under $H_1$ than under $H_0$. A Bayes factor $BF_{10}$ greater than 1 suggests evidence for $H_1$ and against $H_0$, while a Bayes factor $BF_{10}$ less than 1 suggests evidence for $H_0$ and against $H_1$. Although the <span class="in">`evaluation()`</span> function returns $BF_{10}$ by default, one can compute $BF_{01}$ as the inverse of $BF_{10}$ (i.e., $\frac{1}{BF_{10}}$).</span>
 <span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>To determine the strength of evidence against the hypothesis of intolerable misstatement, classical inference relies on *p*-values, while Bayesian inference uses the Bayes factor to measure evidence in support of or against the hypotheses of tolerable or intolerable misstatement. Bayesian hypothesis testing employs the Bayes factor, either $BF_{10}$ or $BF_{01}$, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, $H_1$ or $H_0$.</span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses $H_1:\theta&lt;0.03$ and $H_0:\theta\geq0.03$. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default *beta(1,1)* prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The <span class="in">`materiality = 0.03`</span> argument specifies the materiality for this audit.</span>
 <span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the <span class="in">`evaluation()`</span> function outputs a value of 10 for $BF_{10}$, it means that the data are ten times more likely to have arisen under $H_1$ than under $H_0$. A Bayes factor $BF_{10}$ greater than 1 suggests evidence for $H_1$ and against $H_0$, while a Bayes factor $BF_{10}$ less than 1 suggests evidence for $H_0$ and against $H_1$. Although the <span class="in">`evaluation()`</span> function returns $BF_{10}$ by default, one can compute $BF_{01}$ as the inverse of $BF_{10}$ (i.e., $\frac{1}{BF_{10}}$).</span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses $H_1:\theta&lt;0.03$ and $H_0:\theta\geq0.03$. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default *beta(1,1)* prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The <span class="in">`materiality = 0.03`</span> argument specifies the materiality for this audit.</span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>In this case, the Bayes factor is $BF_{10}=137.65$, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the *beta(1,1)* prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.</span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>prior.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span>)</span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>prior.prob.h1</span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a>The probability of the hypothesis of intolerable misstatement is essentially the opposite of the probability of the hypothesis of tolerable misstatement. To clarify, it is just one minus the prior probability of the hypothesis of tolerable misstatement.</span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>prior.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> prior.prob.h1</span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>prior.prob.h0</span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>We use the prior probabilities to calculate the prior odds, which is the ratio of the prior probabilities.</span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>prior.odds.h1 <span class="ot">&lt;-</span> prior.prob.h1 <span class="sc">/</span> prior.prob.h0</span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>prior.odds.h1</span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution and essentially follow the same steps. Hence, we calculate the posterior probability for the hypothesis of tolerable misstatement, then obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting this probability from one. Finally, the posterior odds are calculated as the ratio of the posterior probabilities</span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>post.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">100</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>post.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> post.prob.h1</span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>post.odds.h1 <span class="ot">&lt;-</span> post.prob.h1 <span class="sc">/</span> post.prob.h0</span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>post.odds.h1</span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>Finally, the Bayes factor can be computed as the ratio of the posterior odds and the prior odds.</span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>bf10 <span class="ot">&lt;-</span> post.odds.h1 <span class="sc">/</span> prior.odds.h1</span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a>bf10</span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for $\theta$. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the *beta(1, 1)* prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <span class="in">`method = "impartial"`</span> in the <span class="in">`auditPrior()`</span> function <span class="co">[</span><span class="ot">@Derks2022b</span><span class="co">]</span>.</span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>In this case, the Bayes factor is $BF_{10}=137.65$, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the *beta(1,1)* prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.</span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a>prior.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span>)</span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>prior.prob.h1</span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>The probability of the hypothesis of intolerable misstatement is essentially the opposite of the probability of the hypothesis of tolerable misstatement. To clarify, it is just one minus the prior probability of the hypothesis of tolerable misstatement.</span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>prior.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> prior.prob.h1</span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>prior.prob.h0</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>We use the prior probabilities to calculate the prior odds, which is the ratio of the prior probabilities.</span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a>prior.odds.h1 <span class="ot">&lt;-</span> prior.prob.h1 <span class="sc">/</span> prior.prob.h0</span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a>prior.odds.h1</span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>To compute the posterior probability of the hypothesis of tolerable misstatement, we can use the posterior distribution and essentially follow the same steps. Hence, we calculate the posterior probability for the hypothesis of tolerable misstatement, then obtain the posterior probability of the hypothesis of intolerable misstatement by subtracting this probability from one. Finally, the posterior odds are calculated as the ratio of the posterior probabilities</span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>post.prob.h1 <span class="ot">&lt;-</span> <span class="fu">pbeta</span>(<span class="fl">0.03</span>, <span class="at">shape1 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">100</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>post.prob.h0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> post.prob.h1</span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>post.odds.h1 <span class="ot">&lt;-</span> post.prob.h1 <span class="sc">/</span> post.prob.h0</span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>post.odds.h1</span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>Finally, the Bayes factor can be computed as the ratio of the posterior odds and the prior odds.</span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>bf10 <span class="ot">&lt;-</span> post.odds.h1 <span class="sc">/</span> prior.odds.h1</span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>bf10</span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for $\theta$. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the *beta(1, 1)* prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <span class="in">`method = "impartial"`</span> in the <span class="in">`auditPrior()`</span> function <span class="co">[</span><span class="ot">@Derks2022b</span><span class="co">]</span>.</span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">auditPrior</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">method =</span> <span class="st">"impartial"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">prior =</span> prior)</span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}=7.77$, which moderately supports $H_1$. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.</span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using Data</span></span>
 <span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}=7.77$, which moderately supports $H_1$. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.</span>
+<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the <span class="in">`evaluation()`</span> function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.</span>
 <span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using Data</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>To demonstrate how this works, we will use the <span class="in">`allowances`</span> data set that comes with the **jfa** package. This data set includes 3500 financial statement line items, each with a booked value (<span class="in">`bookValue`</span>) and an audited (true) value (<span class="in">`auditValue`</span>) for illustrative purposes. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent.</span>
 <span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the <span class="in">`evaluation()`</span> function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.</span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>To demonstrate how this works, we will use the <span class="in">`allowances`</span> data set that comes with the **jfa** package. This data set includes 3500 financial statement line items, each with a booked value (<span class="in">`bookValue`</span>) and an audited (true) value (<span class="in">`auditValue`</span>) for illustrative purposes. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent.</span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>When evaluating an audit sample using a data set, it is necessary to specify the <span class="in">`data`</span>, <span class="in">`values`</span>, and <span class="in">`values.audit`</span> arguments in the <span class="in">`evaluation()`</span> function. The input for these arguments should be the name of the relevant column in <span class="in">`data`</span>. For example, the call below evaluates the <span class="in">`allowances`</span> sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.</span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(allowances)</span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allowances)</span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>When evaluating an audit sample using a data set, it is necessary to specify the <span class="in">`data`</span>, <span class="in">`values`</span>, and <span class="in">`values.audit`</span> arguments in the <span class="in">`evaluation()`</span> function. The input for these arguments should be the name of the relevant column in <span class="in">`data`</span>. For example, the call below evaluates the <span class="in">`allowances`</span> sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.</span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.05</span>, <span class="at">data =</span> allowances, <span class="at">values =</span> <span class="st">"bookValue"</span>, <span class="at">values.audit =</span> <span class="st">"auditValue"</span>, <span class="at">times =</span> <span class="st">"times"</span>)</span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
 <span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
 <span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
 <span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
 <span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
 <span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
 <span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
-<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.</span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

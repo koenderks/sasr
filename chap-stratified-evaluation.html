@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation</title>
+<title>Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,13 +83,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-<meta property="og:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
+<meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/book_doors.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1536">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 6&nbsp; Stratified Evaluation">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">The Basics</span></a>
+ <span class="menu-text">Theory</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Workflow</span></a>
+ <span class="menu-text">Application</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -185,26 +185,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chap-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,13 +227,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Tutorial</span></a>
+ <span class="menu-text">Appendix: R Tutorial</span></a>
   </div>
 </li>
     </ul>
@@ -252,22 +258,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="header-section-number">6.1</span> No pooling</a></li>
-  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="header-section-number">6.2</span> Complete pooling</a></li>
-  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="header-section-number">6.3</span> Partial pooling</a></li>
+<li><a href="#no-pooling" id="toc-no-pooling" class="nav-link active" data-scroll-target="#no-pooling"><span class="header-section-number">7.1</span> No pooling</a></li>
+  <li><a href="#complete-pooling" id="toc-complete-pooling" class="nav-link" data-scroll-target="#complete-pooling"><span class="header-section-number">7.2</span> Complete pooling</a></li>
+  <li><a href="#partial-pooling" id="toc-partial-pooling" class="nav-link" data-scroll-target="#partial-pooling"><span class="header-section-number">7.3</span> Partial pooling</a></li>
   <li>
-<a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="header-section-number">6.4</span> Evaluation using data</a>
+<a href="#evaluation-using-data" id="toc-evaluation-using-data" class="nav-link" data-scroll-target="#evaluation-using-data"><span class="header-section-number">7.4</span> Evaluation using data</a>
   <ul class="collapse">
-<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="header-section-number">6.4.1</span> Classical Evaluation</a></li>
-  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">6.4.2</span> Bayesian Evaluation</a></li>
+<li><a href="#classical-evaluation" id="toc-classical-evaluation" class="nav-link" data-scroll-target="#classical-evaluation"><span class="header-section-number">7.4.1</span> Classical Evaluation</a></li>
+  <li><a href="#bayesian-evaluation" id="toc-bayesian-evaluation" class="nav-link" data-scroll-target="#bayesian-evaluation"><span class="header-section-number">7.4.2</span> Bayesian Evaluation</a></li>
   </ul>
 </li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.5</span> Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -283,12 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><p>In an audit context, stratified sampling can be used to select a sample of transactions from different departments, locations, or business units to ensure that the sample is representative of the population. This means that there is a hierarchical structure in the data (strata are nested in the population) and the statistical model should ideally reflect this.</p>
 <p>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figure class="figure"><p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption class="figure-caption">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors.</p>
 <p>As a data example, consider the <code>retailer</code> data set that comes with the package. The organization in question consists of 20 branches across the country. In each of the 20 strata, a component auditor has taken a statistical sample and reported the outcomes to the group auditor.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-2_88c7c58ef47412721cf44d4b1a293bd9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">retailer</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">retailer</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   stratum items samples errors</span></span>
@@ -300,10 +305,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 6       6  5000     150      5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The number of units per stratum in the population can be provided with <code>N.units</code> to weigh the stratum estimates to determine population estimate. This is called poststratification. If <code>N.units</code> is not specified, each stratum is assumed to be equally represented in the population.</p>
-<section id="no-pooling" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="no-pooling">
-<span class="header-section-number">6.1</span> No pooling</h2>
+<section id="no-pooling" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="no-pooling">
+<span class="header-section-number">7.1</span> No pooling</h2>
 <p>No pooling (<code>pooling = "none"</code>, default) assumes no similarities between strata. This means that the prior distribution specified through <code>prior</code> is applied independently for each stratum. This allows for independent estimates for the misstatement in each stratum but also results in a relatively high uncertainty in the population estimate. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-3_5bf867b4e243b10f9b9b841f1f6a5696">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
 <span><span class="va">result_np</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_np</span><span class="op">)</span></span>
@@ -354,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 20  4000  15  3  3 0.20000 0.07266 0.45646   0.25646</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates differ substantially from each other but are relatively uncertain.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-4_1126a6ed6032815b210989a1a66798b4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -364,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-5_25c4578f53ffabd688ebb5d4213c2f01">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -373,10 +378,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="complete-pooling" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="complete-pooling">
-<span class="header-section-number">6.2</span> Complete pooling</h2>
+</section><section id="complete-pooling" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="complete-pooling">
+<span class="header-section-number">7.2</span> Complete pooling</h2>
 <p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-6_2babbd5a3ee84ebcab7b9d7ca9b1cb76">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result_cp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_cp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -426,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 20  4000  15  3  3 0.04466 0.03735 0.05335   0.00869 0.02273</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-7_6422ae3b4d4faa5fef93f4a75a4efb12">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -436,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-8_738608464a79dce22277dca97127468a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -445,15 +450,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="partial-pooling" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="partial-pooling">
-<span class="header-section-number">6.3</span> Partial pooling</h2>
+</section><section id="partial-pooling" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="partial-pooling">
+<span class="header-section-number">7.3</span> Partial pooling</h2>
 <p>Finally, partial pooling (<code>pooling = "partial"</code>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figure class="figure"><p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption class="figure-caption">Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <p>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-9_2368655abf44de0608fba4f02dd1bf58">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># Important because the posterior distribution is determined via sampling</span></span>
 <span><span class="va">result_pp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>, x <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">errors</span>, N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">items</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, pooling <span class="op">=</span> <span class="st">"partial"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">result_pp</span><span class="op">)</span></span>
@@ -504,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 20  4000  15  3  3 0.0441 0.03051 0.10039   0.05629</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-10_faac989ba6bd68d8120029200f782ca9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -514,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-11_593db0c882f461242dbcb31d4fae29eb">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -523,10 +528,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="evaluation-using-data" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="evaluation-using-data">
-<span class="header-section-number">6.4</span> Evaluation using data</h2>
+</section><section id="evaluation-using-data" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="evaluation-using-data">
+<span class="header-section-number">7.4</span> Evaluation using data</h2>
 <p>For this example, we take the <code>allowances</code> that set that comes with the package. This data set contains 3500 financial statement line items, each with a booked value <code>bookValue</code> and, for illustrative purposes, and audited (true) value <code>auditValue</code>. Since the focus of this chapter is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5 percent.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-12_3e83935e433d9c7b7dcac3f99ae855ed">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   item branch bookValue auditValue times</span></span>
@@ -538,13 +543,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 6    6     12      1190         NA     0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Evaluating a stratified sample using data requires specification of the <code>data</code>, <code>values</code>, <code>values.audit</code> and <code>strata</code> arguments in the <code>evaluation()</code> function. In this case, the units are monetary and calculated by aggregating the book values of the items in each stratum.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-13_e4754c03c1e1abf998843c03d75df54a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N.units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">$</span><span class="va">bookValue</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">allowances</span><span class="op">$</span><span class="va">branch</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span><span class="op">$</span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="classical-evaluation" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="classical-evaluation">
-<span class="header-section-number">6.4.1</span> Classical Evaluation</h3>
+<section id="classical-evaluation" class="level3" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="classical-evaluation">
+<span class="header-section-number">7.4.1</span> Classical Evaluation</h3>
 <p>The call below evaluates the <code>allowances</code> sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-14_05bf1f98807d2e93c3e0283ef01b9455">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, strata <span class="op">=</span> <span class="st">"branch"</span>, times <span class="op">=</span> <span class="st">"times"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, N.units <span class="op">=</span> <span class="va">N.units</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -588,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 16  275403.70  52  39   4.18726 0.08052 0.02237 0.20215   0.12163 0.12258</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-15_5b84b1c1984d1625ec125652f52b04f4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -597,10 +602,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="bayesian-evaluation" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="bayesian-evaluation">
-<span class="header-section-number">6.4.2</span> Bayesian Evaluation</h3>
+</section><section id="bayesian-evaluation" class="level3" data-number="7.4.2"><h3 data-number="7.4.2" class="anchored" data-anchor-id="bayesian-evaluation">
+<span class="header-section-number">7.4.2</span> Bayesian Evaluation</h3>
 <p>Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The call below evaluates the <code>allowances</code> sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-16_01f1870889ac0303c91de233fea4b465">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.05</span>, data <span class="op">=</span> <span class="va">allowances</span>, prior <span class="op">=</span> <span class="cn">TRUE</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, values.audit <span class="op">=</span> <span class="st">"auditValue"</span>, strata <span class="op">=</span> <span class="st">"branch"</span>, times <span class="op">=</span> <span class="st">"times"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, N.units <span class="op">=</span> <span class="va">N.units</span>, pooling <span class="op">=</span> <span class="st">"partial"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -646,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 16  275403.70  44  39   3.38726 0.0739 0.05806 0.10273   0.02883</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-17_59025364f5db8e7b09a3273eaaf49bd9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -656,7 +661,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-18_326fe63668fa79330dbd1aa376d5e4cd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -665,12 +670,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="exercises" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">6.5</span> Exercises</h2>
+</section></section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <p><strong>1.</strong> Evaluate a stratified sample of <span class="math inline">\(n = [30, 40, 50]\)</span> items containing <span class="math inline">\(k = [0, 1, 2]\)</span> misstatements. Use the classical approach.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="chap-stratified-evaluation_cache/html/unnamed-chunk-19_f7ca782eb14f1cfaf7227b553babdd46">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">40</span>, <span class="fl">50</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
@@ -972,12 +976,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./chap-evaluation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-jasp.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -991,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_doors.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_doors.png)</span>{fig-align="center" width=65%}</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>For example, if you want to audit the expense claims of a large organization, you can stratify the population based on the department, location, or business unit to ensure that all departments are represented accordingly in the sample. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors. </span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -1051,7 +1055,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>Finally, partial pooling (<span class="in">`pooling = "partial"`</span>) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. </span>
 <span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_pyramid.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_pyramid.png)</span>{fig-align="center" width=65%}</span>
 <span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</span>
 <span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a></span>
@@ -1124,7 +1128,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
 <span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a>**1.** Evaluate a stratified sample of $n = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span>$ items containing $k = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span>$ misstatements. Use the classical approach.</span>
 <span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a></span>
@@ -1143,7 +1147,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
 <span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
 <span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a>**1.**</span>
 <span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a></span>

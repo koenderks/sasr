@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Koen Derks">
+
+<title>Statistical Audit Sampling with R - 3&nbsp; Sampling Workflow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./chap-planning.html" rel="next">
+<link href="./chap-inference.html" rel="prev">
+<link href="./front-page.png" rel="icon" type="image/png">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="Statistical Audit Sampling with R - 3&nbsp; Sampling Workflow">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://koenderks.github.io/sasr/img/workflow.png">
+<meta property="og:site-name" content="Statistical Audit Sampling with R">
+<meta property="og:image:height" content="92">
+<meta property="og:image:width" content="786">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 3&nbsp; Sampling Workflow">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Audit Sampling with R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/koenderks/sasr/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Audit-Sampling-with-R.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Auditing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Application</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Software</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix: R Tutorial</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#stage-1-planning" id="toc-stage-1-planning" class="nav-link active" data-scroll-target="#stage-1-planning"><span class="header-section-number">3.1</span> Stage 1: Planning</a></li>
+  <li><a href="#stage-2-selection" id="toc-stage-2-selection" class="nav-link" data-scroll-target="#stage-2-selection"><span class="header-section-number">3.2</span> Stage 2: Selection</a></li>
+  <li><a href="#stage-3-execution" id="toc-stage-3-execution" class="nav-link" data-scroll-target="#stage-3-execution"><span class="header-section-number">3.3</span> Stage 3: Execution</a></li>
+  <li><a href="#stage-4-evaluation" id="toc-stage-4-evaluation" class="nav-link" data-scroll-target="#stage-4-evaluation"><span class="header-section-number">3.4</span> Stage 4: Evaluation</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-workflow.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-workflow" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The audit sampling workflow involves a series of steps that help auditors select a representative sample from a population of transactions or items, and then use statistical analysis to draw conclusions about the entire population. It consists of four stages: planning, selection, execution and evaluation. Probability theory can be employed in three of these stages.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/workflow.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">The standard audit sampling workflow consists of four stages: planning, selection, execution and evaluation.</figcaption>
+</figure>
+</div>
+<p>In the planning stage, auditors lay the foundation for an effective and efficient audit sample. Careful planning allows auditors to determine the appropriate sample size, considering factors such as the desired level of assurance, the risk of material misstatement, and the available resources. This stage involves understanding the objectives of the audit, identifying relevant population characteristics, and considering any constraints or limitations. Probability theory can be applied in this stage to help auditors quantify the level of confidence they aim to achieve and make informed decisions about the sample size and selection methodology.</p>
+<p>The selection stage focuses on the actual sampling process. Auditors employ various techniques to choose a representative sample that accurately reflects the characteristics of the population under investigation. This stage often involves random sampling methods, such as simple random sampling or stratified sampling, to ensure that each item in the population has an equal or known chance of being included in the sample. Probability theory plays a fundamental role in sample selection, as it provides the theoretical framework to ensure unbiased and statistically valid sampling methods.</p>
+<p>Once the sample has been selected, the execution stage comes into play. During this stage, auditors carry out tests of details and inspections on the items in the sample. They examine financial information, scrutinize supporting documents, and perform other procedures to assess the accuracy, completeness, and fairness of the selected items. The execution stage relies on auditing techniques and procedures specific to the nature of the audit engagement. While statistical inference is not typically employed during this stage, the execution phase provides the groundwork for the subsequent evaluation stage.</p>
+<p>In this chapter of the book, we will explore the intricacies of the standard audit sampling workflow and demonstrate how it can be implemented using the powerful tools and techniques available in R. By understanding the various stages of the workflow and leveraging the capabilities of statistical analysis in R, auditors can enhance the efficiency and effectiveness of their audit procedures. Throughout this chapter, we will delve into the practical aspects of each stage, providing examples and step-by-step guidance to equip auditors with the necessary knowledge and skills to navigate the audit sampling process successfully.</p>
+<section id="stage-1-planning" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="stage-1-planning"><span class="header-section-number">3.1</span> Stage 1: Planning</h2>
+<p>The first stage in the audit sampling workflow is the planning stage. Proper planning of a sample plays a crucial role in enhancing audit efficiency. When auditors select a small sample, the audit effort required is relatively low. However, this approach may not provide a high level of assurance since the sample may not accurately represent the entire population of transactions or items under audit. On the other hand, auditing a larger sample increases the level of assurance but demands more audit effort and resources.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/workflow_planning.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">The planning stage is the first stage in the audit sampling workflow.</figcaption>
+</figure>
+</div>
+<p>To strike a balance between efficiency and assurance, it is beneficial to determine the sample size in advance. By carefully considering various factors, auditors can optimize the sample size to meet the objectives of the audit engagement. Factors such as the desired level of confidence, acceptable precision, materiality thresholds, and the nature of the population being examined all influence the determination of the optimal sample size.</p>
+<p>In Chapter 4, we will delve into the intricacies of planning an audit sample and explore the factors that should be taken into account. We will discuss the importance of understanding the characteristics of the population, identifying relevant risk factors, and applying statistical techniques to ensure an appropriate sample size. Furthermore, we will demonstrate how R can be leveraged to facilitate the sample planning process. R provides a wide range of tools and functions that aid in sample size calculations via the <strong>jfa</strong> package, allowing auditors to make informed decisions based on quantitative analysis.</p>
+<p>By comprehensively addressing the considerations involved in sample planning and utilizing the capabilities of R, auditors can optimize the efficiency and effectiveness of their sampling procedures. This, in turn, contributes to the reliability and quality of the audit results, enabling auditors to provide valuable insights and recommendations to stakeholders.</p>
+</section>
+<section id="stage-2-selection" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="stage-2-selection"><span class="header-section-number">3.2</span> Stage 2: Selection</h2>
+<p>The second stage in the audit sampling workflow is the planning stage.</p>
+<p>Selecting a sample is the second step in the audit sampling workflow and plays a crucial role in obtaining a representative subset of the population for examination. In Chapter 5, we will delve into the intricacies of selecting an audit sample and explore a range of approaches and techniques that can be employed using R.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/workflow_selection.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">The selection stage is the second stage in the audit sampling workflow.</figcaption>
+</figure>
+</div>
+<p>The selection of an audit sample requires careful consideration of factors such as the sampling method, sample size, and sampling frame. We will discuss popular sampling methods, including simple random sampling, fixed interval sampling, and cell sampling. Each method has its own advantages and considerations, and we will provide insights on when and how to effectively use them based on the characteristics of the population under audit.</p>
+<p>Furthermore, we will explore the utilization of R to implement the sample selection techniques discussed. R provides a wide range of functions and packages specifically designed for sampling and randomization via the <strong>jfa</strong> package, making it an ideal tool for auditors seeking to streamline their sampling processes and enhance efficiency.</p>
+<p>To ensure a comprehensive understanding of the material, we will present practical examples and demonstrate how these selection techniques can be applied in real-world audit scenarios. By examining these examples, you will gain practical insights into the application of different sampling methods, learn to navigate potential challenges, and develop a deeper understanding of the impact of sampling choices on the reliability and effectiveness of audit procedures.</p>
+<p>By the end of Chapter 5, you will have a solid grasp of the various approaches and techniques available for selecting an audit sample, equipped with the knowledge and practical skills to implement them using R. This knowledge will enable you to make informed decisions regarding sample selection and enhance the overall quality and efficiency of your audit engagements.</p>
+</section>
+<section id="stage-3-execution" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="stage-3-execution"><span class="header-section-number">3.3</span> Stage 3: Execution</h2>
+<p>The execution stage of the audit sampling process is a hands-on phase where the auditor meticulously examines a carefully chosen selection of items from the population under scrutiny. In this stage, the auditor focuses on assessing the accuracy, completeness, and fairness of the items in question. Through a combination of analytical procedures, substantive testing, and detailed scrutiny of relevant documentation, the auditor seeks to gather concrete evidence and form objective judgments about the quality and integrity of the sample items.</p>
+<p>Unlike the previous stages that heavily rely on statistical inference, the execution stage predominantly involves manual labor and detailed examination of the selected items. The auditor applies their expertise, professional judgment, and industry-specific knowledge to delve into the intricacies of each item, scrutinizing transactions, verifying supporting documentation, and assessing compliance with relevant regulations and accounting principles.</p>
+<p>During this stage, auditors meticulously analyze financial statements, delve into underlying records, evaluate the authenticity of documents, and engage in interviews with key personnel. They perform detailed tests and inspections to identify potential discrepancies, irregularities, or areas of concern that may warrant further investigation. This rigorous examination enables the auditor to gain a comprehensive understanding of the accuracy, validity, and completeness of the sample items and helps them uncover potential red flags or areas where misstatements or irregularities may occur.</p>
+<p>While the execution stage does not directly involve statistical inference, it plays a crucial role in gathering firsthand evidence, obtaining a deeper understanding of the audited items, and establishing a solid foundation for subsequent evaluation. The information and insights gathered during this stage form the basis for drawing meaningful conclusions about the entire population and provide a vital context for the subsequent statistical analysis performed in the evaluation stage.</p>
+<p>In summary, the execution stage represents a meticulous and labor-intensive phase of the audit sampling process. Through detailed examinations and analyses, auditors ensure the accuracy, fairness, and compliance of the selected items. By conducting thorough manual inspections, auditors gather valuable evidence that serves as a cornerstone for the subsequent stages of the audit, ultimately contributing to the overall reliability and integrity of the audit findings.</p>
+</section>
+<section id="stage-4-evaluation" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="stage-4-evaluation"><span class="header-section-number">3.4</span> Stage 4: Evaluation</h2>
+<p>The final stage in the audit sampling workflow is the evaluation stage, which plays a crucial role in drawing meaningful conclusions and making informed decisions based on the results obtained from the selected sample. During this stage, auditors employ various statistical tests, metrics, and estimation techniques to assess the findings and extrapolate them to the entire population.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/workflow_evaluation.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">The evaluation stage is the final stage in the audit sampling workflow.</figcaption>
+</figure>
+</div>
+<p>In the evaluation stage, auditors aim to estimate the extent of misstatement or deviation from expected values within the population. They analyze the sample data and apply statistical procedures to quantify the level of confidence or uncertainty associated with the findings. This enables auditors to provide a reliable assessment of the population’s characteristics, identify potential risks, and evaluate the effectiveness of internal controls.</p>
+<p>Statistical techniques commonly used in the evaluation stage include point estimation, interval estimation, and hypothesis testing. Point estimation involves estimating population parameters, such as the mean or proportion, based on the sample statistics. Interval estimation provides a range of plausible values for the population parameter, accompanied by a confidence level. Hypothesis testing allows auditors to test specific claims or hypotheses about the population based on the sample data.</p>
+<p>In Chapter 6, we will examine the methods and techniques utilized to evaluate an audit sample from both a classical and Bayesian point of view. We will delve into the diverse range of statistical tests and metrics that can be applied to estimate the population misstatement and quantify the strength of evidence for or against a hypothesis based on the sample data.</p>
+<p>Through detailed explanations and practical examples, you will gain a comprehensive understanding of how to effectively and efficiently evaluate an audit sample using R. You will learn how to interpret the results obtained from statistical tests and metrics, enabling you to make informed decisions in the context of the audit engagement. This chapter will equip you with valuable skills to assess the reliability of the audited information and provide meaningful insights to stakeholders.</p>
+<p>Furthermore, Chapter 7 expands upon these evaluation methods and explores their generalization to stratified samples. Stratification allows auditors to partition the population into subgroups or strata based on specific characteristics. By evaluating samples within each stratum, auditors can obtain more detailed and targeted information about different segments of the population. We will discuss the application of evaluation techniques to stratified samples, enabling you to enhance the precision and accuracy of your audit conclusions.</p>
+<p>By the end of Chapter 7, you will have a comprehensive toolkit to evaluate audit samples, whether they are obtained from simple random sampling or more complex stratified sampling designs. This knowledge will empower you to conduct thorough and rigorous audits, ensuring the reliability and integrity of the financial information under examination.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chap-inference.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chap-planning.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sampling Workflow {#chap-workflow}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>The audit sampling workflow involves a series of steps that help auditors select a representative sample from a population of transactions or items, and then use statistical analysis to draw conclusions about the entire population. It consists of four stages: planning, selection, execution and evaluation. Probability theory can be employed in three of these stages.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="al">![The standard audit sampling workflow consists of four stages: planning, selection, execution and evaluation.](./img/workflow.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>In the planning stage, auditors lay the foundation for an effective and efficient audit sample. Careful planning allows auditors to determine the appropriate sample size, considering factors such as the desired level of assurance, the risk of material misstatement, and the available resources. This stage involves understanding the objectives of the audit, identifying relevant population characteristics, and considering any constraints or limitations. Probability theory can be applied in this stage to help auditors quantify the level of confidence they aim to achieve and make informed decisions about the sample size and selection methodology.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>The selection stage focuses on the actual sampling process. Auditors employ various techniques to choose a representative sample that accurately reflects the characteristics of the population under investigation. This stage often involves random sampling methods, such as simple random sampling or stratified sampling, to ensure that each item in the population has an equal or known chance of being included in the sample. Probability theory plays a fundamental role in sample selection, as it provides the theoretical framework to ensure unbiased and statistically valid sampling methods.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Once the sample has been selected, the execution stage comes into play. During this stage, auditors carry out tests of details and inspections on the items in the sample. They examine financial information, scrutinize supporting documents, and perform other procedures to assess the accuracy, completeness, and fairness of the selected items. The execution stage relies on auditing techniques and procedures specific to the nature of the audit engagement. While statistical inference is not typically employed during this stage, the execution phase provides the groundwork for the subsequent evaluation stage.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>In this chapter of the book, we will explore the intricacies of the standard audit sampling workflow and demonstrate how it can be implemented using the powerful tools and techniques available in R. By understanding the various stages of the workflow and leveraging the capabilities of statistical analysis in R, auditors can enhance the efficiency and effectiveness of their audit procedures. Throughout this chapter, we will delve into the practical aspects of each stage, providing examples and step-by-step guidance to equip auditors with the necessary knowledge and skills to navigate the audit sampling process successfully.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 1: Planning</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The first stage in the audit sampling workflow is the planning stage. Proper planning of a sample plays a crucial role in enhancing audit efficiency. When auditors select a small sample, the audit effort required is relatively low. However, this approach may not provide a high level of assurance since the sample may not accurately represent the entire population of transactions or items under audit. On the other hand, auditing a larger sample increases the level of assurance but demands more audit effort and resources.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="al">![The planning stage is the first stage in the audit sampling workflow.](./img/workflow_planning.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>To strike a balance between efficiency and assurance, it is beneficial to determine the sample size in advance. By carefully considering various factors, auditors can optimize the sample size to meet the objectives of the audit engagement. Factors such as the desired level of confidence, acceptable precision, materiality thresholds, and the nature of the population being examined all influence the determination of the optimal sample size.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>In Chapter 4, we will delve into the intricacies of planning an audit sample and explore the factors that should be taken into account. We will discuss the importance of understanding the characteristics of the population, identifying relevant risk factors, and applying statistical techniques to ensure an appropriate sample size. Furthermore, we will demonstrate how R can be leveraged to facilitate the sample planning process. R provides a wide range of tools and functions that aid in sample size calculations via the **jfa** package, allowing auditors to make informed decisions based on quantitative analysis.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>By comprehensively addressing the considerations involved in sample planning and utilizing the capabilities of R, auditors can optimize the efficiency and effectiveness of their sampling procedures. This, in turn, contributes to the reliability and quality of the audit results, enabling auditors to provide valuable insights and recommendations to stakeholders.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 2: Selection</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>The second stage in the audit sampling workflow is the planning stage.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Selecting a sample is the second step in the audit sampling workflow and plays a crucial role in obtaining a representative subset of the population for examination. In Chapter 5, we will delve into the intricacies of selecting an audit sample and explore a range of approaches and techniques that can be employed using R.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="al">![The selection stage is the second stage in the audit sampling workflow.](./img/workflow_selection.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The selection of an audit sample requires careful consideration of factors such as the sampling method, sample size, and sampling frame. We will discuss popular sampling methods, including simple random sampling, fixed interval sampling, and cell sampling. Each method has its own advantages and considerations, and we will provide insights on when and how to effectively use them based on the characteristics of the population under audit.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Furthermore, we will explore the utilization of R to implement the sample selection techniques discussed. R provides a wide range of functions and packages specifically designed for sampling and randomization via the **jfa** package, making it an ideal tool for auditors seeking to streamline their sampling processes and enhance efficiency.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>To ensure a comprehensive understanding of the material, we will present practical examples and demonstrate how these selection techniques can be applied in real-world audit scenarios. By examining these examples, you will gain practical insights into the application of different sampling methods, learn to navigate potential challenges, and develop a deeper understanding of the impact of sampling choices on the reliability and effectiveness of audit procedures.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>By the end of Chapter 5, you will have a solid grasp of the various approaches and techniques available for selecting an audit sample, equipped with the knowledge and practical skills to implement them using R. This knowledge will enable you to make informed decisions regarding sample selection and enhance the overall quality and efficiency of your audit engagements.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 3: Execution</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>The execution stage of the audit sampling process is a hands-on phase where the auditor meticulously examines a carefully chosen selection of items from the population under scrutiny. In this stage, the auditor focuses on assessing the accuracy, completeness, and fairness of the items in question. Through a combination of analytical procedures, substantive testing, and detailed scrutiny of relevant documentation, the auditor seeks to gather concrete evidence and form objective judgments about the quality and integrity of the sample items.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Unlike the previous stages that heavily rely on statistical inference, the execution stage predominantly involves manual labor and detailed examination of the selected items. The auditor applies their expertise, professional judgment, and industry-specific knowledge to delve into the intricacies of each item, scrutinizing transactions, verifying supporting documentation, and assessing compliance with relevant regulations and accounting principles.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>During this stage, auditors meticulously analyze financial statements, delve into underlying records, evaluate the authenticity of documents, and engage in interviews with key personnel. They perform detailed tests and inspections to identify potential discrepancies, irregularities, or areas of concern that may warrant further investigation. This rigorous examination enables the auditor to gain a comprehensive understanding of the accuracy, validity, and completeness of the sample items and helps them uncover potential red flags or areas where misstatements or irregularities may occur.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>While the execution stage does not directly involve statistical inference, it plays a crucial role in gathering firsthand evidence, obtaining a deeper understanding of the audited items, and establishing a solid foundation for subsequent evaluation. The information and insights gathered during this stage form the basis for drawing meaningful conclusions about the entire population and provide a vital context for the subsequent statistical analysis performed in the evaluation stage.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>In summary, the execution stage represents a meticulous and labor-intensive phase of the audit sampling process. Through detailed examinations and analyses, auditors ensure the accuracy, fairness, and compliance of the selected items. By conducting thorough manual inspections, auditors gather valuable evidence that serves as a cornerstone for the subsequent stages of the audit, ultimately contributing to the overall reliability and integrity of the audit findings.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 4: Evaluation</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>The final stage in the audit sampling workflow is the evaluation stage, which plays a crucial role in drawing meaningful conclusions and making informed decisions based on the results obtained from the selected sample. During this stage, auditors employ various statistical tests, metrics, and estimation techniques to assess the findings and extrapolate them to the entire population.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="al">![The evaluation stage is the final stage in the audit sampling workflow.](./img/workflow_evaluation.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>In the evaluation stage, auditors aim to estimate the extent of misstatement or deviation from expected values within the population. They analyze the sample data and apply statistical procedures to quantify the level of confidence or uncertainty associated with the findings. This enables auditors to provide a reliable assessment of the population's characteristics, identify potential risks, and evaluate the effectiveness of internal controls.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Statistical techniques commonly used in the evaluation stage include point estimation, interval estimation, and hypothesis testing. Point estimation involves estimating population parameters, such as the mean or proportion, based on the sample statistics. Interval estimation provides a range of plausible values for the population parameter, accompanied by a confidence level. Hypothesis testing allows auditors to test specific claims or hypotheses about the population based on the sample data.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>In Chapter 6, we will examine the methods and techniques utilized to evaluate an audit sample from both a classical and Bayesian point of view. We will delve into the diverse range of statistical tests and metrics that can be applied to estimate the population misstatement and quantify the strength of evidence for or against a hypothesis based on the sample data. </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Through detailed explanations and practical examples, you will gain a comprehensive understanding of how to effectively and efficiently evaluate an audit sample using R. You will learn how to interpret the results obtained from statistical tests and metrics, enabling you to make informed decisions in the context of the audit engagement. This chapter will equip you with valuable skills to assess the reliability of the audited information and provide meaningful insights to stakeholders.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Furthermore, Chapter 7 expands upon these evaluation methods and explores their generalization to stratified samples. Stratification allows auditors to partition the population into subgroups or strata based on specific characteristics. By evaluating samples within each stratum, auditors can obtain more detailed and targeted information about different segments of the population. We will discuss the application of evaluation techniques to stratified samples, enabling you to enhance the precision and accuracy of your audit conclusions. </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>By the end of Chapter 7, you will have a comprehensive toolkit to evaluate audit samples, whether they are obtained from simple random sampling or more complex stratified sampling designs. This knowledge will empower you to conduct thorough and rigorous audits, ensuring the reliability and integrity of the financial information under examination.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - R Tutorial</title>
+<title>Statistical Audit Sampling with R - Appendix: R Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,13 +100,13 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<meta property="og:title" content="Statistical Audit Sampling with R - R Tutorial">
+<meta property="og:title" content="Statistical Audit Sampling with R - Appendix: R Tutorial">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/book_r.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1536">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - R Tutorial">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - Appendix: R Tutorial">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial.html">R Tutorial</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial.html">Appendix: R Tutorial</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -171,7 +171,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">The Basics</span></a>
+ <span class="menu-text">Theory</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,7 +194,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Workflow</span></a>
+ <span class="menu-text">Application</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,26 +202,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chap-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -238,13 +244,13 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,7 +264,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">R Tutorial</span></a>
+ <span class="menu-text">Appendix: R Tutorial</span></a>
   </div>
 </li>
     </ul>
@@ -285,12 +291,11 @@ div.csl-indent {
   <li><a href="#loading-data-from-an-excel-file" id="toc-loading-data-from-an-excel-file" class="nav-link" data-scroll-target="#loading-data-from-an-excel-file">Loading Data from an Excel File</a></li>
   </ul>
 </li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/tutorial.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">R Tutorial</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Appendix: R Tutorial</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -305,53 +310,53 @@ div.csl-indent {
 
 </header><p>R <span class="citation" data-cites="R">(<a href="references.html#ref-R" role="doc-biblioref">R Core Team, 2022</a>)</span> is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization. R has a large and active community of users and, as a result, there are many community-made resources available for learning and using R.</p>
 <p>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in <span class="citation" data-cites="Lin2022">Lin (<a href="references.html#ref-Lin2022" role="doc-biblioref">2021</a>)</span>.</p>
-<p>This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of this language, the author recommends reading <span class="citation" data-cites="Chang2022">Chang (<a href="references.html#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam &amp; Grolemund (<a href="references.html#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="references.html#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="references.html#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.</p>
+<p>This chapter provides a short introduction to working with R but it is not a full programming course in R. Furthermore, if you want to dive deeper into the nooks and crannies of this language, the author recommends reading <span class="citation" data-cites="Chang2022">Chang (<a href="references.html#ref-Chang2022" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Wickam2017">Wickam &amp; Grolemund (<a href="references.html#ref-Wickam2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="Grolemund2014">Grolemund (<a href="references.html#ref-Grolemund2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="Wilke2022">Wilke (<a href="references.html#ref-Wilke2022" role="doc-biblioref">2022</a>)</span>. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="img/book_r.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figure class="figure"><p><img src="img/book_r.png" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption class="figure-caption">R can be a powerful tool in a business context. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
 </div>
 <section id="calculations" class="level2"><h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
 <p>One of the basic features of R is its ability to perform calculations. In R, basic calculations work by using the standard arithmetic operators such as <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. For example, if you want to calculate 2 + 3, you would type in <code>2 + 3</code> and R will return the result of 5.</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-2_1eb0b816650eea5cab7952eaed029de3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span></span>
 <span><span class="co">#&gt; [1] 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R also allows for more advanced calculations such as exponentiation using the <code>^</code> operator, and square roots using the <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> function. For example, to calculate the square root of 9, you would type in <code>sqrt(9)</code> and R will return the result of 3.</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-3_6ae1f1328b026f2817d9ff9cebb7d0ac">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also use parentheses to specify the order of operations in your calculations. For example, if you want to calculate (2 + 3) * 4, you would type in <code>(2 + 3) * 4</code> to get the result of 20.</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-4_76658f57a9da6473e5993001e2e95ca2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">)</span> <span class="op">*</span> <span class="fl">4</span></span>
 <span><span class="co">#&gt; [1] 20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Overall, basic calculations in R are similar to those in other programming languages and follow the standard order of operations.</p>
 <section id="vectors" class="level3"><h3 class="anchored" data-anchor-id="vectors">Vectors</h3>
 <p>In R, vectors are one-dimensional arrays of data that can hold numeric, character, or logical values. Vectors can be created using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function, which stands for concatenate. For example, to create a numeric vector, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-5_cc39d014ee50db7d1c9946867c4fddb3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To create a character vector, you can use quotes around the values:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-6_c2a4a2c17b9851dc8e484c422c6095e7">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To create a logical vector, you can use the logical values <code>TRUE</code> and <code>FALSE</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-7_623768035ffb0342c0ef5d70708f71bb">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can be indexed using square brackets and a numeric value. For example, to access the second element of the vector <code>x</code>, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-8_5e58cbe52d57041720e44cb70b02005d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can also be subsetted using a logical vector. For example, to get all elements of the vector <code>x</code> that are greater than 3, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-9_3aaa5315c4fabe14f8ea0d63519df3a5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 4 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vectors can also be modified using indexing and assignment. For example, to change the third element of the vector <code>x</code> to 6, you can use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-10_790d2fe78d6362c4a698d59a87b4bc69">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
 <span><span class="va">x</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
@@ -359,7 +364,7 @@ div.csl-indent {
 <span><span class="co">#&gt; [1] 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R has many built-in functions for performing mathematical operations on vectors. For example, you can use the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function to calculate the average of a vector of numbers, or we can use the <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> function to calculate the number of elements in a vector:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-11_2f3fb12d1a805984dafc3620ccb512d0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3.6</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
@@ -368,7 +373,7 @@ div.csl-indent {
 <p>Overall, vectors are a useful data structure in R for storing and manipulating data.</p>
 </section><section id="matrices" class="level3"><h3 class="anchored" data-anchor-id="matrices">Matrices</h3>
 <p>In R, a matrix is a two-dimensional collection of values that are arranged in rows and columns. You can create a matrix using the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-12_02dc42b9faed18ae0734e8454882cc72">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">m</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
@@ -378,7 +383,7 @@ div.csl-indent {
 </div>
 <p>This creates a 3x3 matrix with the values 1, 2, 3 in the first column, 4, 5, 6 in the second column, and 7, 8, 9 in the third column.</p>
 <p>You can also create a matrix by combining several vectors using the <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> or <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> functions. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-13_eff8dddc097ff6dd64095897bfce8d64">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="va">v3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span><span class="op">)</span></span>
@@ -391,7 +396,7 @@ div.csl-indent {
 </div>
 <p>This creates a matrix with the same values as before, but the columns are created by binding the vectors together.</p>
 <p>You can access the elements of a matrix using the square bracket notation. For example, to access the element in the second row and third column of <code>m</code>, you would use the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-14_0565d6f34df2ce8448e8ae7bad1e72f2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; v3 </span></span>
 <span><span class="co">#&gt;  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -401,17 +406,17 @@ div.csl-indent {
 </section><section id="data-frames" class="level3"><h3 class="anchored" data-anchor-id="data-frames">Data Frames</h3>
 <p>In R, a data frame is a two-dimensional table of data with rows and columns. Each row represents a single observation or record, and each column represents a particular variable or attribute. Data frames are similar to a spreadsheet in Excel or a table in a database. Each column in a data frame can have a different data type, such as numerical, character, or logical. The data in each row must match the data type of the corresponding column.</p>
 <p>To create a data frame in R, you can use the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function and pass in the data you want to include in the data frame as arguments. For example:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-15_2b3eb19db18438f0bf17678d993b62f0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will create a data frame with two columns, <code>x</code> and <code>y</code>, and three rows of data. You can access the data in a data frame using indexing and subsetting. For example, to access the first row of the data frame, you can use the following command:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-16_c40020844dab92edb8ee068e8dc23364">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;   x y</span></span>
 <span><span class="co">#&gt; 1 1 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To access a specific column, you can use the <code>$</code> operator (or the index):</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-17_cc5fb26f0df9a01cb58a4eece83713b3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">$</span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] 1 2 3</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span>
@@ -422,64 +427,64 @@ div.csl-indent {
 <p>When working with data, you will need to load the data file into your R session. How this is done depends on the type of data file that you want to read.</p>
 <section id="built-in-data" class="level3"><h3 class="anchored" data-anchor-id="built-in-data">Built-in Data</h3>
 <p>Data that is included in an R package can be loaded via the <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> function. For example, to load the <code>BuildIt</code> data set that is included in the <strong>jfa</strong> package, you can run the following R code. Note that this requires that the package is loaded in the R session via a call to <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>.</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-18_2cda589401c9a83618c8ef626a648d10">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="loading-data-from-a-csv-file" class="level3"><h3 class="anchored" data-anchor-id="loading-data-from-a-csv-file">Loading Data from a CSV File</h3>
 <p>A commonly used data type is a <code>.csv</code> file. You can load this type of files via the <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> function. For example, if the file <code>example.csv</code> is in the current working directory, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-19_d9cc2335610dbed154b8afc7c43a5757">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"example.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="loading-data-from-an-excel-file" class="level3"><h3 class="anchored" data-anchor-id="loading-data-from-an-excel-file">Loading Data from an Excel File</h3>
 <p>Another commonly used data type are Excel files. You can load this type of files via the <code>read_excel()</code> function from the <code>readxl</code> package. For this to work, you should first install this package using the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> command and load it into the R session using a call to <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>. For example, if the file <code>example.xlsx</code> is in the current working directory, and the data you want to load is on the first worksheet, you can load it by running:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-20_b7c7f797c3ce453ec2c86866d9d6b86b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readxl"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="fu">read_excel</span><span class="op">(</span><span class="st">"example.csv"</span>, sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+</section></section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <p><strong>1.</strong> Compute the square root of 81 and store the result in a variable called <code>t1</code>.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-21_e8238e3ed7a28ec8cb931cd477b8e571">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">81</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details><p><strong>2.</strong> Compute 81 to the power a half and store the result in a variable called <code>t2</code>.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-22_f92da0b09693eef97de5972241065090">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">t2</span> <span class="op">&lt;-</span> <span class="fl">81</span><span class="op">^</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details><p><strong>3.</strong> Use the <code>==</code> operator to check whether the content of <code>t1</code> and <code>t2</code> is the same.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-23_6bcf72629b472a70e11bc897681cfb45">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">t1</span> <span class="op">==</span> <span class="va">t2</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details><p><strong>4.</strong> Use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function (or <code>:</code>) to create the following vector: <code>-2 -1 0 1 2 3 4 5 6 7 8</code>.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-24_2b56cb27bf9f88d52754b204f60bb29f">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or:</p>
-<div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-25_3c4d0e8ef3fc8db5dc3beec529e95c8c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">-</span><span class="fl">2</span><span class="op">:</span><span class="fl">8</span></span>
 <span><span class="co">#&gt;  [1] -2 -1  0  1  2  3  4  5  6  7  8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details><p><strong>5.</strong> Find out the length of the vector created in exercise 4.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-26_c27acb4894551cb633f6fc183da1d632">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details><p><strong>6.</strong> Find out the mean of the vector created in exercise 4.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="tutorial_cache/html/unnamed-chunk-27_dd261a80bec210b7646d905a5588b224">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -802,15 +807,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># R Tutorial {.unnumbered}</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Appendix: R Tutorial {.unnumbered}</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>R <span class="co">[</span><span class="ot">@R</span><span class="co">]</span> is a programming language and software environment for statistical computing and graphics. It is widely used among statisticians and data scientists for data analysis and data visualization. R has a large and active community of users and, as a result, there are many community-made resources available for learning and using R.</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>In an audit context, R can be used to analyze and visualize large datasets, allowing auditors to identify trends and anomalies in the data. R is particularly useful for performing statistical analysis and testing hypotheses, which can be employed in verifying the accuracy and reliability of financial statements. R can also be used to automate certain audit procedures, reducing the time and effort required to manually review and analyze large amounts of data. Additionally, R allows auditors to easily share their work with others through the use of code and reproducible reports, enabling more efficient and collaborative audit processes. A useful resource that discusses relevant applications of R in the audit can be found in @Lin2022.</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>This chapter provides a short introduction to working with R but it is not a full programming course in R. If you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>This chapter provides a short introduction to working with R but it is not a full programming course in R. Furthermore, if you want to dive deeper into the nooks and crannies of this language, the author recommends reading @Chang2022, @Wickam2017, @Grolemund2014 and @Wilke2022. These books are free to read online and discuss various best practices for using R, including examples in code that can be easily reproduced.</span>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_r.png)</span>{fig-align="center" width=75%}</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">R can be a powerful tool in a business context. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.</span><span class="co">](img/book_r.png)</span>{fig-align="center" width=65%}</span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Calculations</span></span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
@@ -971,7 +976,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"example.csv"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
 <span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
 <span id="cb27-209"><a href="#cb27-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a>**1.** Compute the square root of 81 and store the result in a variable called <span class="in">`t1`</span>.</span>
 <span id="cb27-211"><a href="#cb27-211" aria-hidden="true" tabindex="-1"></a></span>
@@ -1059,7 +1064,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-307"><a href="#cb27-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-308"><a href="#cb27-308" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
 <span id="cb27-309"><a href="#cb27-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
+<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
 <span id="cb27-311"><a href="#cb27-311" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-312"><a href="#cb27-312" aria-hidden="true" tabindex="-1"></a>**1.**</span>
 <span id="cb27-313"><a href="#cb27-313" aria-hidden="true" tabindex="-1"></a></span>

@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - 4&nbsp; Selection</title>
+<title>Statistical Audit Sampling with R - 5&nbsp; Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,13 +83,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-<meta property="og:title" content="Statistical Audit Sampling with R - 4&nbsp; Selection">
+<meta property="og:title" content="Statistical Audit Sampling with R - 5&nbsp; Selection">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://koenderks.github.io/sasr/img/selection_random.png">
 <meta property="og:site-name" content="Statistical Audit Sampling with R">
 <meta property="og:image:height" content="62">
 <meta property="og:image:width" content="475">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 4&nbsp; Selection">
+<meta name="twitter:title" content="Statistical Audit Sampling with R - 5&nbsp; Selection">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-planning.html">Workflow</a></li><li class="breadcrumb-item"><a href="./chap-selection.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-selection.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">The Basics</span></a>
+ <span class="menu-text">Theory</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Workflow</span></a>
+ <span class="menu-text">Application</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -185,26 +185,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chap-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sampling Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chap-planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-selection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-stratified-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,13 +227,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-jasp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Tutorial</span></a>
+ <span class="menu-text">Appendix: R Tutorial</span></a>
   </div>
 </li>
     </ul>
@@ -253,27 +259,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#sampling-units" id="toc-sampling-units" class="nav-link active" data-scroll-target="#sampling-units"><span class="header-section-number">4.1</span> Sampling Units</a>
+<a href="#sampling-units" id="toc-sampling-units" class="nav-link active" data-scroll-target="#sampling-units"><span class="header-section-number">5.1</span> Sampling Units</a>
   <ul class="collapse">
-<li><a href="#items" id="toc-items" class="nav-link" data-scroll-target="#items"><span class="header-section-number">4.1.1</span> Items</a></li>
-  <li><a href="#monetary-units" id="toc-monetary-units" class="nav-link" data-scroll-target="#monetary-units"><span class="header-section-number">4.1.2</span> Monetary Units</a></li>
+<li><a href="#items" id="toc-items" class="nav-link" data-scroll-target="#items"><span class="header-section-number">5.1.1</span> Items</a></li>
+  <li><a href="#monetary-units" id="toc-monetary-units" class="nav-link" data-scroll-target="#monetary-units"><span class="header-section-number">5.1.2</span> Monetary Units</a></li>
   </ul>
 </li>
   <li>
-<a href="#sampling-methods" id="toc-sampling-methods" class="nav-link" data-scroll-target="#sampling-methods"><span class="header-section-number">4.2</span> Sampling Methods</a>
+<a href="#sampling-methods" id="toc-sampling-methods" class="nav-link" data-scroll-target="#sampling-methods"><span class="header-section-number">5.2</span> Sampling Methods</a>
   <ul class="collapse">
-<li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling"><span class="header-section-number">4.2.1</span> Random Sampling</a></li>
-  <li><a href="#fixed-interval-sampling" id="toc-fixed-interval-sampling" class="nav-link" data-scroll-target="#fixed-interval-sampling"><span class="header-section-number">4.2.2</span> Fixed Interval Sampling</a></li>
-  <li><a href="#cell-sampling" id="toc-cell-sampling" class="nav-link" data-scroll-target="#cell-sampling"><span class="header-section-number">4.2.3</span> Cell Sampling</a></li>
-  <li><a href="#modified-sieve-sampling" id="toc-modified-sieve-sampling" class="nav-link" data-scroll-target="#modified-sieve-sampling"><span class="header-section-number">4.2.4</span> Modified Sieve Sampling</a></li>
+<li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling"><span class="header-section-number">5.2.1</span> Random Sampling</a></li>
+  <li><a href="#fixed-interval-sampling" id="toc-fixed-interval-sampling" class="nav-link" data-scroll-target="#fixed-interval-sampling"><span class="header-section-number">5.2.2</span> Fixed Interval Sampling</a></li>
+  <li><a href="#cell-sampling" id="toc-cell-sampling" class="nav-link" data-scroll-target="#cell-sampling"><span class="header-section-number">5.2.3</span> Cell Sampling</a></li>
+  <li><a href="#modified-sieve-sampling" id="toc-modified-sieve-sampling" class="nav-link" data-scroll-target="#modified-sieve-sampling"><span class="header-section-number">5.2.4</span> Modified Sieve Sampling</a></li>
   </ul>
 </li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.3</span> Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-selection.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="chap-selection" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="chap-selection" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -287,17 +292,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><p>Auditors must often evaluate balances or populations that include a large quantity of items. As it is not possible to individually examine all of these items, they must select a subset, or sample, from the total population to make a statement about a specific characteristic of the population. Several selection methodologies, which are widely accepted in the audit context, are available for this purpose. This chapter discusses the most frequently used sampling methodology for audit sampling and demonstrates how to select a sample using these methods in R.</p>
-<section id="sampling-units" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="sampling-units">
-<span class="header-section-number">4.1</span> Sampling Units</h2>
+<section id="sampling-units" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="sampling-units">
+<span class="header-section-number">5.1</span> Sampling Units</h2>
 <p>Selecting a subset from the population requires knowledge of the sampling units; physical representations of the population that needs to be audited. Generally, the auditor has to choose between two types of sampling units: individual items in the population or individual monetary units in the population. In order to perform statistical selection, the population must be divided into individual sampling units that can be assigned a probability to be included in the sample. The total collection of all sampling units which have been assigned a selection probability is called the sampling frame.</p>
-<section id="items" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="items">
-<span class="header-section-number">4.1.1</span> Items</h3>
+<section id="items" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="items">
+<span class="header-section-number">5.1.1</span> Items</h3>
 <p>A sampling unit for record (i.e., attributes) sampling is generally a characteristic of an item in the population. For example, suppose that you inspect a population of receipts. A possible sampling unit for record sampling can be the date of payment of the receipt. When a sampling unit (e.g., date of payment) is selected by the sampling method, the population item that corresponds to the sampled unit is included in the sample.</p>
-</section><section id="monetary-units" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="monetary-units">
-<span class="header-section-number">4.1.2</span> Monetary Units</h3>
+</section><section id="monetary-units" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="monetary-units">
+<span class="header-section-number">5.1.2</span> Monetary Units</h3>
 <p>A sampling unit for monetary unit sampling is different than a sampling unit for record sampling in that it is an individual monetary unit within an item or transaction, like an individual dollar. For example, a single sampling unit can be the 10<span class="math inline">\(^{th}\)</span> dollar from a specific receipt in the population. When a sampling unit (e.g., individual dollar) is selected by the sampling method, the population item that includes the sampling unit is included in the sample.</p>
-</section></section><section id="sampling-methods" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="sampling-methods">
-<span class="header-section-number">4.2</span> Sampling Methods</h2>
+</section></section><section id="sampling-methods" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="sampling-methods">
+<span class="header-section-number">5.2</span> Sampling Methods</h2>
 <p>This section discusses four sampling methods that are commonly used in audit sampling. The methods that will be discussed are:</p>
 <ul>
 <li>Random sampling</li>
@@ -311,20 +316,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \end{equation}\]</span></p>
 <p>In statistical sampling, every sampling unit <span class="math inline">\(x_i\)</span> in the population should receive a selection probability <span class="math inline">\(p(x_i)\)</span>. The purpose of the sampling method is to provide a framework to assign selection probabilities to each of the sampling units, and subsequently draw sampling units from the population until a set of size <span class="math inline">\(n\)</span> has been created.</p>
 <p>To illustrate how the resulting sample differs for various sampling methods, we will use the <code>BuildIt</code> data set included in the <strong>jfa</strong> package. These data can be loaded into R using the code below. For simplicity, we will use a sample size of <span class="math inline">\(n = 10\)</span> for all examples.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-2_2a516c7882f6dcca77ea79d88653dd1f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="random-sampling" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="random-sampling">
-<span class="header-section-number">4.2.1</span> Random Sampling</h3>
+<section id="random-sampling" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="random-sampling">
+<span class="header-section-number">5.2.1</span> Random Sampling</h3>
 <p>Random sampling is the most simple and straight-forward selection method. The random sampling method provides a method that allows every sampling unit in the population an equal chance of being selected, meaning that every combination of sampling units has the same probability of being selected as every other combination of the same number of sampling units. Simply put, the algorithm draws a random selection of size <span class="math inline">\(n\)</span> of the sampling units. Therefore, the selection probability for each sampling unit is defined as:</p>
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{N}.
 \end{equation}\]</span></p>
-<p>To make this procedure visually intuitive, the figure below provides an illustration of the random sampling method.</p>
+<p>To make this procedure visually intuitive, Figure 5.1 below provides an illustration of the random sampling method.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/selection_random.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of random sampling</figcaption></figure>
+<figcaption class="figure-caption">Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample.</figcaption></figure>
 </div>
 <ul>
 <li>
@@ -332,17 +337,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <strong>Disadvantages:</strong> Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.</li>
 </ul>
-<section id="record-sampling" class="level4" data-number="4.2.1.1"><h4 data-number="4.2.1.1" class="anchored" data-anchor-id="record-sampling">
-<span class="header-section-number">4.2.1.1</span> Record Sampling</h4>
+<section id="record-sampling" class="level4" data-number="5.2.1.1"><h4 data-number="5.2.1.1" class="anchored" data-anchor-id="record-sampling">
+<span class="header-section-number">5.2.1.1</span> Record Sampling</h4>
 <p>Random sampling can easily be coded in base R. First, we have to get a vector of of the possible items (rows) in the population that can be selected. When we are performing record sampling, we can simply use R’s build in <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function to draw a random sample from a vector <code>1:nrow(BuildIt)</code> representing the row indices of the items and store the result in a variable <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-3_0d351b0c29dfb302d0f322dffe75f701">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">items</span></span>
 <span><span class="co">#&gt;  [1] 1017  679 2177  930 1533  471 2347  270 1211 3379</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-4_17f0fd81b0787cef1707c9679fd68d0b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 1017 50755    618.24     618.24</span></span>
@@ -357,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3379 85322    330.24     330.24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. This function takes as input the population data, the sample size, and the characteristics of the sampling method. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing random sampling (<code>method = 'random'</code>).</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-5_5d6c409a19e56f6cfa472740415759bf">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"random"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -374,18 +379,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 10 3379     1 85322    330.24     330.24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>An alternative to specifying the desired sample size through the <code>size</code> argument is to provide an object generated by the <code>planning()</code> function to the <code>selection()</code> function. For instance, the following code utilizes the <code>planning()</code> function to plan a sample size based on a performance materiality of 3 percent and a sampling risk of 5 percent, which can be passed directly to <code>selection()</code> to select the sample from the <code>BuildIt</code> population.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-6_f61fcae38bd9a608a538a058f633834a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plan</span> <span class="op">&lt;-</span> <span class="fu">planning</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">plan</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"random"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The ability of one function to accept input from another function allows for the implementation of a workflow in which the <code>planning()</code> function and the <code>selection()</code> function are sequentially linked. Additionally, the use of R’s native pipe operator <code>|&gt;</code> further simplifies this process.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-7_e19d9b234c248ae4c6e0f55913be7cce">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">planning</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"random"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>selection()</code> function has three additional arguments which you can use to preprocess your population before selection. These arguments are <code>order</code>, <code>decreasing</code> and <code>randomize</code>.</p>
 <p>The <code>order</code> argument takes as input a column name in <code>data</code> which determines the order of the population. For example, you can order the population from lowest book value to highest book value before engaging in the selection. In this case, you should use the <code>decreasing = FALSE</code> (its default value) argument.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-8_6297f695aadc74ef36e2f272c47fc745">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"random"</span>, order <span class="op">=</span> <span class="st">"bookValue"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -402,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 10  450     1 39908    831.31     831.31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>randomize</code> argument can be used to randomly shuffle the items in the population before selection. For example, you can randomly shuffle the population before engaging in the selection using <code>randomize = TRUE</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-9_3113e10ea99f4f723ab7dab50f13b44f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"random"</span>, randomize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -418,17 +423,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  2769     1 26010    240.10     240.10</span></span>
 <span><span class="co">#&gt; 10 2276     1 80154    282.91     282.91</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="monetary-unit-sampling" class="level4" data-number="4.2.1.2"><h4 data-number="4.2.1.2" class="anchored" data-anchor-id="monetary-unit-sampling">
-<span class="header-section-number">4.2.1.2</span> Monetary Unit Sampling</h4>
+</section><section id="monetary-unit-sampling" class="level4" data-number="5.2.1.2"><h4 data-number="5.2.1.2" class="anchored" data-anchor-id="monetary-unit-sampling">
+<span class="header-section-number">5.2.1.2</span> Monetary Unit Sampling</h4>
 <p>When we are performing record sampling, we have to consider that each item in the population consists of multiple smaller items (i.e., the monetary units), which means that items with a higher book value should get a higher probability of being selected. The <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function faciliates weighted selection via the <code>prob</code> argument, which takes a vector of values and, using normalization, computes the weights for selection. The call below is similar to before, but in this case we use the book values in the column <code>bookValues</code> of the data set to weigh the items and store the result in a variable <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-10_f4eb523315360b1ee42d9f372a1dd40e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">FALSE</span>, prob <span class="op">=</span> <span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span></span>
 <span><span class="va">items</span></span>
 <span><span class="co">#&gt;  [1] 2174 2928 1627  700  147 3056 3118 2045 1311  716</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-11_9850e6c70a1aa4b8b11586e0e223c7f4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 2174 90260    625.98     625.98</span></span>
@@ -443,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 716  12815    873.43     873.43</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing random sampling (<code>method = 'random'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-12_5f6fc210bc8db6acfafd787e7800a274">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"values"</span>, method <span class="op">=</span> <span class="st">"random"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -459,8 +464,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  1311     1 91955    398.96     398.96</span></span>
 <span><span class="co">#&gt; 10  716     1 12815    873.43     873.43</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="fixed-interval-sampling" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="fixed-interval-sampling">
-<span class="header-section-number">4.2.2</span> Fixed Interval Sampling</h3>
+</section></section><section id="fixed-interval-sampling" class="level3" data-number="5.2.2"><h3 data-number="5.2.2" class="anchored" data-anchor-id="fixed-interval-sampling">
+<span class="header-section-number">5.2.2</span> Fixed Interval Sampling</h3>
 <p>Fixed interval sampling is a method designed for yielding representative samples from monetary populations. The algorithm determines a uniform interval on the (optionally ranked) sampling units. Next, a starting point is handpicked or randomly selected in the first interval and a sampling unit is selected throughout the population at each of the uniform intervals from the starting point. For example, if the interval has a width of 10 sampling units and sampling unit number 5 is chosen as the starting point, the sampling units 5, 15, 25, etc. are selected to be included in the sample.</p>
 <p>The number of required intervals <span class="math inline">\(I\)</span> can be determined by dividing the number of sampling units in the population by the required sample size:</p>
 <p><span class="math display">\[\begin{equation}
@@ -471,10 +476,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{I},
 \end{equation}\]</span></p>
-<p>with the property that the space between selected units <span class="math inline">\(i\)</span> is the same as the interval <span class="math inline">\(I\)</span>, see the figure below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <code>start</code>).</p>
+<p>with the property that the space between selected units <span class="math inline">\(i\)</span> (of which the first one is the starting point) is the same as the interval <span class="math inline">\(I\)</span>, see Figure 5.2 below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <code>start</code>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/selection_interval.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of fixed interval sampling</figcaption></figure>
+<figcaption class="figure-caption">Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size <span class="math inline">\(I\)</span> at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every <span class="math inline">\(\text{i}^{\text{th}}\)</span> unit in the population is included in the sample.</figcaption></figure>
 </div>
 <p>The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval <span class="math inline">\(I\)</span> have an selection probability of one because one of these items’ sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.</p>
 <ul>
@@ -483,22 +488,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <strong>Disadvantage(s):</strong> A pattern in the population can coincide with the selected interval, rendering the sample less representative. What is sometimes seen as an added complication for this method is that the sample is hard to extend after drawing the initial sample. This is due to the chance of selecting the same sampling unit. However, by removing the already selected sampling units from the population and redrawing the intervals this problem can be efficiently solved.</li>
 </ul>
-<section id="record-sampling-1" class="level4" data-number="4.2.2.1"><h4 data-number="4.2.2.1" class="anchored" data-anchor-id="record-sampling-1">
-<span class="header-section-number">4.2.2.1</span> Record Sampling</h4>
+<section id="record-sampling-1" class="level4" data-number="5.2.2.1"><h4 data-number="5.2.2.1" class="anchored" data-anchor-id="record-sampling-1">
+<span class="header-section-number">5.2.2.1</span> Record Sampling</h4>
 <p>To code fixed interval sampling in a record sampling context, we first have to compute the size of the interval we are working with. This is computed by dividing the number of items in the population by the desired sample size <span class="math inline">\(n\)</span>. Suppose the auditor wants to select a sample of 10 items, then the interval is computed by:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-13_941aa18abd10bbc7763fa6d2fd2eef8c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we have to determine the starting point. We are going to take the fifth unit in each interval in this case.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-14_c7451aa791acebeeb43ded4115bb8fe8">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">start</span> <span class="op">&lt;-</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which rows are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-15_7b81ff7cabc517d51d732e717a8ccb9c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-16_3b9b0ec25cea975881b68a4dfdf7ce0c">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 5    55080    620.88     620.88</span></span>
@@ -513,7 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3155 94955    248.77     248.77</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing fixed interval sampling (<code>method = 'interval'</code>). Note that, by default, the first sampling unit from each interval is selected. However, this can be changed by setting the argument <code>start</code> to a different value.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-17_71dfab8679f2e79331c42482f21201f6">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"interval"</span>, start <span class="op">=</span> <span class="va">start</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
 <span><span class="co">#&gt;     row times    ID bookValue auditValue</span></span>
@@ -528,18 +533,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  2805     1 25646    420.80     420.80</span></span>
 <span><span class="co">#&gt; 10 3155     1 94955    248.77     248.77</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="monetary-unit-sampling-1" class="level4" data-number="4.2.2.2"><h4 data-number="4.2.2.2" class="anchored" data-anchor-id="monetary-unit-sampling-1">
-<span class="header-section-number">4.2.2.2</span> Monetary Unit Sampling</h4>
+</section><section id="monetary-unit-sampling-1" class="level4" data-number="5.2.2.2"><h4 data-number="5.2.2.2" class="anchored" data-anchor-id="monetary-unit-sampling-1">
+<span class="header-section-number">5.2.2.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting point <code>start = 5</code> determines which monetary unit from each interval is selected.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-18_6a689e3d50f9d6cb8baedf2269d4463d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which units are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-19_8d3b253f2be33fc36e99167ae6fdf3fc">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-20_bdca80c5e61b884dbfa26c30d131e4a9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">all_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">0</span>, <span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span></span>
 <span><span class="va">all_items</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span></span>
 <span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
@@ -549,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-21_8c6e70b0fa15a3e547f7a0854cfafc5d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 1    82884    242.61     242.61</span></span>
@@ -564,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3152 71832   1001.82    1001.82</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing fixed interval sampling (<code>method = 'interval'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-22_addac5e2e78e2f02a2b26e486fe02073">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"values"</span>, method <span class="op">=</span> <span class="st">"interval"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, start <span class="op">=</span> <span class="va">start</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
 <span><span class="co">#&gt;     row times    ID bookValue auditValue</span></span>
@@ -579,16 +584,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  2787     1 10925    377.10     377.10</span></span>
 <span><span class="co">#&gt; 10 3152     1 71832   1001.82    1001.82</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="cell-sampling" class="level3" data-number="4.2.3"><h3 data-number="4.2.3" class="anchored" data-anchor-id="cell-sampling">
-<span class="header-section-number">4.2.3</span> Cell Sampling</h3>
-<p>The cell sampling method divides the (optionally ranked) population into a set of intervals <span class="math inline">\(I\)</span> that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range <span class="math inline">\(I\)</span>. This causes the space <span class="math inline">\(i\)</span> between the sampling units to vary.</p>
+</section></section><section id="cell-sampling" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="cell-sampling">
+<span class="header-section-number">5.2.3</span> Cell Sampling</h3>
+<p>The cell sampling method divides the (optionally ranked) population into a set of intervals <span class="math inline">\(I\)</span> that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range <span class="math inline">\(I\)</span>. This causes the space <span class="math inline">\(i\)</span> between the sampling units to vary. The procedure is displayed in Figure 5.3.</p>
 <p>Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:</p>
 <p><span class="math display">\[\begin{equation}
   p(x) = \frac{1}{I}.
 \end{equation}\]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/selection_cell.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Illustration of cell sampling</figcaption></figure>
+<figcaption class="figure-caption">Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size <span class="math inline">\(I\)</span> and subsequently a random sampling unit is selected within each cell such that the space between units <span class="math inline">\(i\)</span> varies.</figcaption></figure>
 </div>
 <p>The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval <span class="math inline">\(I\)</span> have a selection probability of one.</p>
 <ul>
@@ -597,23 +602,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <strong>Disadvantage(s):</strong> A disadvantage of this sampling method is that not all items in the population with a monetary value larger than the interval have a selection probability of one. Besides, population items can be in two adjacent cells, thereby creating the possibility that an items is included in the sample twice.</li>
 </ul>
-<section id="record-sampling-2" class="level4" data-number="4.2.3.1"><h4 data-number="4.2.3.1" class="anchored" data-anchor-id="record-sampling-2">
-<span class="header-section-number">4.2.3.1</span> Record Sampling</h4>
+<section id="record-sampling-2" class="level4" data-number="5.2.3.1"><h4 data-number="5.2.3.1" class="anchored" data-anchor-id="record-sampling-2">
+<span class="header-section-number">5.2.3.1</span> Record Sampling</h4>
 <p>To code cell sampling in a record sampling context, we again have to compute the size of the interval we are working with:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-23_7763c2c8430f43ed25d1687b17162f18">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we have to randomly determine which items are going to be selected in each interval.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-24_69ff1d958a9e4c18f85926fd3691ac3f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">starts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="va">interval</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To find which rows are part of the sample, we execute the following code:</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-25_02e89b81fab94897dd14d9ffca72c278">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">starts</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-26_1b8ca0d264fb4c4bd5a7fac3c7ca8f27">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 92   75133    355.16     355.16</span></span>
@@ -628,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3171 61036    387.67     387.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use record sampling (<code>units = "items"</code>), while the <code>method</code> argument enables you to specify that you are performing cell sampling (<code>method = 'cell'</code>).</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-27_a6664e68ff4bb3efcef93507c4ca0886">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"items"</span>, method <span class="op">=</span> <span class="st">"cell"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -644,14 +649,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  3020     1  8716    450.76     450.76</span></span>
 <span><span class="co">#&gt; 10 3171     1 61036    387.67     387.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="monetary-unit-sampling-2" class="level4" data-number="4.2.3.2"><h4 data-number="4.2.3.2" class="anchored" data-anchor-id="monetary-unit-sampling-2">
-<span class="header-section-number">4.2.3.2</span> Monetary Unit Sampling</h4>
+</section><section id="monetary-unit-sampling-2" class="level4" data-number="5.2.3.2"><h4 data-number="5.2.3.2" class="anchored" data-anchor-id="monetary-unit-sampling-2">
+<span class="header-section-number">5.2.3.2</span> Monetary Unit Sampling</h4>
 <p>In monetary unit sampling, the only difference is that we are computing the interval on the basis of the booked values in the column <code>bookValue</code> of the data set. In this case, the starting points <code>start</code> determines which monetary unit from each interval is selected.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-28_5e22e8c9f483ceed994632de8d282c7d">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-29_bcd80e0b7d5fff40949942f97afc21c3">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">all_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">0</span>, <span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span></span>
 <span><span class="va">all_items</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span></span>
@@ -664,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-30_19cb9b093e8c7feb84d7fdd8724b15b9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 95   15009    415.60     415.60</span></span>
@@ -679,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3172 18286    450.57     450.57</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing cell sampling (<code>method = 'cell'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-31_e65baa2a3b7d072f421bb4fc5a39e7ba">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"values"</span>, method <span class="op">=</span> <span class="st">"cell"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -695,16 +700,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  3024     1 78925    251.44     251.44</span></span>
 <span><span class="co">#&gt; 10 3172     1 18286    450.57     450.57</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="modified-sieve-sampling" class="level3" data-number="4.2.4"><h3 data-number="4.2.4" class="anchored" data-anchor-id="modified-sieve-sampling">
-<span class="header-section-number">4.2.4</span> Modified Sieve Sampling</h3>
+</section></section><section id="modified-sieve-sampling" class="level3" data-number="5.2.4"><h3 data-number="5.2.4" class="anchored" data-anchor-id="modified-sieve-sampling">
+<span class="header-section-number">5.2.4</span> Modified Sieve Sampling</h3>
 <p>The fourth option for the sampling method is modified sieve sampling (Hoogduin, Hall, &amp; Tsay, 2010). The algorithm starts by selecting a standard uniform random number <span class="math inline">\(R_i\)</span> between 0 and 1 for each item in the population. Next, the sieve ratio:</p>
 <p><span class="math display">\[\begin{equation}
   S_i = \frac{Y_i}{R_i}
 \end{equation}\]</span></p>
 <p>is computed for each item by dividing the book value of that item by the random number. Lastly, the items in the population are sorted by their sieve ratio <span class="math inline">\(S\)</span> (in decreasing order) and the top <span class="math inline">\(n\)</span> items are selected for inspection. In contrast to the classical sieve sampling method (Rietveld, 1978), the modified sieve sampling method provides precise control over sample sizes.</p>
-<section id="monetary-unit-sampling-3" class="level4" data-number="4.2.4.1"><h4 data-number="4.2.4.1" class="anchored" data-anchor-id="monetary-unit-sampling-3">
-<span class="header-section-number">4.2.4.1</span> Monetary Unit Sampling</h4>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-32_20e633774fe7196c46a24fa673fddb98">
+<section id="monetary-unit-sampling-3" class="level4" data-number="5.2.4.1"><h4 data-number="5.2.4.1" class="anchored" data-anchor-id="monetary-unit-sampling-3">
+<span class="header-section-number">5.2.4.1</span> Monetary Unit Sampling</h4>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">all_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">0</span>, <span class="va">BuildIt</span><span class="op">$</span><span class="va">bookValue</span><span class="op">)</span></span>
 <span><span class="va">all_items</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span></span>
@@ -713,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">items</span> <span class="op">&lt;-</span> <span class="va">items</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-33_fbad56571f288cd1eb148f68e1497fdd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
 <span><span class="co">#&gt; 2329 29919    681.10     681.10</span></span>
@@ -728,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 2895  8688    492.02     492.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing modified sieve sampling (<code>method = 'sieve'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
-<div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-34_30d5463d0acacb9740020f4407e7a15e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="va">n</span>, units <span class="op">=</span> <span class="st">"values"</span>, method <span class="op">=</span> <span class="st">"sieve"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span><span class="op">)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">sample</span></span>
@@ -744,12 +749,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 9  1311     1 91955    398.96     398.96</span></span>
 <span><span class="co">#&gt; 10 2895     1  8688    492.02     492.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section></section><section id="exercises" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">4.3</span> Exercises</h2>
+</section></section></section><section id="exercises" class="level2 unlisted unnumbered"><h2 class="unlisted unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <p><strong>1.</strong> Select a random sample of 120 items from the <code>BuildIt</code> data set.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-35_2f27f923125aa416ade5fe7127c19709">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">selec</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="fl">120</span>, method <span class="op">=</span> <span class="st">"random"</span>, units <span class="op">=</span> <span class="st">"items"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selec</span><span class="op">$</span><span class="va">sample</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    row times    ID bookValue auditValue</span></span>
@@ -762,7 +766,7 @@ Click to reveal answer
 </details><p><strong>2.</strong> Select a sample of 240 monetary units from the <code>BuildIt</code> data set using a fixed interval selection method. Use a starting point of 12.</p>
 <details><summary>
 Click to reveal answer
-</summary><div class="cell" data-layout-align="center" data-hash="chap-selection_cache/html/unnamed-chunk-36_27e083b20157957e2bbe86af48d75dc0">
+</summary><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">selec</span> <span class="op">&lt;-</span> <span class="fu">selection</span><span class="op">(</span>data <span class="op">=</span> <span class="va">BuildIt</span>, size <span class="op">=</span> <span class="fl">240</span>, method <span class="op">=</span> <span class="st">"interval"</span>, units <span class="op">=</span> <span class="st">"values"</span>, values <span class="op">=</span> <span class="st">"bookValue"</span>, start <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selec</span><span class="op">$</span><span class="va">sample</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   row times    ID bookValue auditValue</span></span>
@@ -1061,12 +1065,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./chap-planning.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Planning</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Planning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chap-evaluation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1122,9 +1126,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{N}.</span>
 <span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>To make this procedure visually intuitive, the figure below provides an illustration of the random sampling method.</span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>To make this procedure visually intuitive, Figure 5.1 below provides an illustration of the random sampling method.</span>
 <span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of random sampling](img/selection_random.png)</span>{fig-align="center"}</span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of random sampling, which involves selecting a subset of items from a population in such a way that every sampling unit in the population has an equal chance of being included in the sample. ](img/selection_random.png)</span>{fig-align="center"}</span>
 <span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Advantage(s):** The random sampling method yields an optimal random selection, with the additional advantage that the sample can be easily extended by applying the same method again.</span>
 <span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Disadvantages:** Because the selection probabilities are equal for all sampling units there is no guarantee that items with a large monetary value in the population will be included in the sample.</span>
@@ -1227,9 +1231,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-177"><a href="#cb36-177" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{I},</span>
 <span id="cb36-178"><a href="#cb36-178" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-179"><a href="#cb36-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>with the property that the space between selected units $i$ is the same as the interval $I$, see the figure below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <span class="in">`start`</span>).</span>
+<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>with the property that the space between selected units $i$ (of which the first one is the starting point) is the same as the interval $I$, see Figure 5.2 below. However, in practice the selection is deterministic and completely depends on the chosen starting points (using <span class="in">`start`</span>).</span>
 <span id="cb36-181"><a href="#cb36-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of fixed interval sampling](img/selection_interval.png)</span>{fig-align="center"}</span>
+<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of fixed interval sampling. The population is represented by the horizontal line, and the vertical lines indicate the intervals of size $I$ at which samples units are selected. By using fixed interval sampling, equal spacing between sampling units is ensures, which means that every $\text{i}^{\text{th}}$ unit in the population is included in the sample.](img/selection_interval.png)</span>{fig-align="center"}</span>
 <span id="cb36-183"><a href="#cb36-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-184"><a href="#cb36-184" aria-hidden="true" tabindex="-1"></a>The fixed interval method yields a sample that allows every sampling unit in the population an equal chance of being selected. However, the fixed interval method has the property that all items in the population with a monetary value larger than the interval $I$ have an selection probability of one because one of these items' sampling units are always selected from the interval. Note that, if the population is arranged randomly with respect to its deviation pattern, fixed interval sampling is equivalent to random selection.</span>
 <span id="cb36-185"><a href="#cb36-185" aria-hidden="true" tabindex="-1"></a></span>
@@ -1310,7 +1314,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-280"><a href="#cb36-280" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-281"><a href="#cb36-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cell Sampling</span></span>
 <span id="cb36-282"><a href="#cb36-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a>The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary.</span>
+<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a>The cell sampling method divides the (optionally ranked) population into a set of intervals $I$ that are computed through the previously given equations. Within each interval, a sampling unit is selected by randomly drawing a number between 1 and the interval range $I$. This causes the space $i$ between the sampling units to vary. The procedure is displayed in Figure 5.3.</span>
 <span id="cb36-284"><a href="#cb36-284" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-285"><a href="#cb36-285" aria-hidden="true" tabindex="-1"></a>Like in the fixed interval sampling method, the selection probability for each sampling unit is defined as:</span>
 <span id="cb36-286"><a href="#cb36-286" aria-hidden="true" tabindex="-1"></a></span>
@@ -1318,7 +1322,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-288"><a href="#cb36-288" aria-hidden="true" tabindex="-1"></a>  p(x) = \frac{1}{I}.</span>
 <span id="cb36-289"><a href="#cb36-289" aria-hidden="true" tabindex="-1"></a>\end{equation}</span>
 <span id="cb36-290"><a href="#cb36-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-291"><a href="#cb36-291" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of cell sampling](img/selection_cell.png)</span>{fig-align="center"}</span>
+<span id="cb36-291"><a href="#cb36-291" aria-hidden="true" tabindex="-1"></a><span class="al">![Illustration of cell sampling. In this illustration, the population is fist divided into distinct cells of size $I$ and subsequently a random sampling unit is selected within each cell such that the space between units $i$ varies.](img/selection_cell.png)</span>{fig-align="center"}</span>
 <span id="cb36-292"><a href="#cb36-292" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-293"><a href="#cb36-293" aria-hidden="true" tabindex="-1"></a>The cell sampling method has the property that all items in the population with a monetary value larger than twice the interval $I$ have a selection probability of one.</span>
 <span id="cb36-294"><a href="#cb36-294" aria-hidden="true" tabindex="-1"></a></span>
@@ -1432,7 +1436,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-426"><a href="#cb36-426" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>sample</span>
 <span id="cb36-427"><a href="#cb36-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-428"><a href="#cb36-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-429"><a href="#cb36-429" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb36-429"><a href="#cb36-429" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {.unlisted .unnumbered}</span></span>
 <span id="cb36-430"><a href="#cb36-430" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-431"><a href="#cb36-431" aria-hidden="true" tabindex="-1"></a>**1.** Select a random sample of 120 items from the <span class="in">`BuildIt`</span> data set.</span>
 <span id="cb36-432"><a href="#cb36-432" aria-hidden="true" tabindex="-1"></a></span>
@@ -1466,7 +1470,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-464"><a href="#cb36-464" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-465"><a href="#cb36-465" aria-hidden="true" tabindex="-1"></a>\clearpage</span>
 <span id="cb36-466"><a href="#cb36-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-467"><a href="#cb36-467" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers</span></span>
+<span id="cb36-467"><a href="#cb36-467" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers {.unlisted .unnumbered}</span></span>
 <span id="cb36-468"><a href="#cb36-468" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-469"><a href="#cb36-469" aria-hidden="true" tabindex="-1"></a>**1.**</span>
 <span id="cb36-470"><a href="#cb36-470" aria-hidden="true" tabindex="-1"></a></span>
