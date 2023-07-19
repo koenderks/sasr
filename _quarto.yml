@@ -62,7 +62,6 @@ format:
       - sasr.scss
   pdf:
     documentclass: book
-    extra_dependencies: ["float"]
     include-in-header:
       text: |
         \pagenumbering{arabic}
@@ -92,17 +91,24 @@ format:
           \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ | #1}{}}
           \setkeys{Gin}{width=0.65\textwidth}
           \usepackage[labelsep=period, labelfont=bf]{caption}
+          \usepackage{newunicodechar}
+          \newunicodechar{α}{$\alpha$}
+          \newunicodechar{β}{$\beta$}
+          \newunicodechar{Θ}{$\theta$}
+          \newunicodechar{μ}{$\mu$}
+          \newunicodechar{σ}{$\sigma$}
+          \newunicodechar{≠}{$\neq$}
     keep-tex: false
     classoption: [10pt,twoside]
     pagestyle: headings
     geometry:
       - twoside
-      - left = 25mm
-      - right = 25mm
-      - bottom = 19.05mm
-      - top = 12.7mm
-      - paperwidth = 180mm
-      - paperheight = 254mm
+      - left=25mm
+      - right=25mm
+      - bottom=19.05mm
+      - top=12.7mm
+      - paperwidth=180mm
+      - paperheight=254mm
       - includehead
       - includefoot
     fontfamily: libertinus
