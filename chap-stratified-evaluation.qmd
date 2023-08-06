@@ -23,7 +23,15 @@ The number of units per stratum in the population can be provided with `N.units`
 
 ## No pooling
 
-No pooling (`pooling = "none"`, default) assumes no similarities between strata. This means that the prior distribution specified through `prior` is applied independently for each stratum. This allows for independent estimates for the misstatement in each stratum but also results in a relatively high uncertainty in the population estimate. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
+No pooling (`pooling = "none"`, default) assumes no similarities between strata. This means that the prior distribution specified through `prior` is applied independently for each stratum. This allows for independent estimates for the misstatement in each stratum but also results in a relatively high uncertainty in the population estimate. Assuming a binomial likelihood and a beta($\alpha$, $\beta$) prior on $\theta$ (these choices may differ among analysts), the statistical model applied in the no pooling approach is the following:
+
+\begin{align}
+  k_s &\sim \text{Binomial}(n_s, \theta_s)\\
+  \theta_s &\sim \text{Beta}(\alpha, \beta)\\
+  \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
+\end{align}
+
+The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
@@ -45,7 +53,14 @@ plot(result_np, type = "posterior")
 
 ## Complete pooling
 
-Complete pooling (`pooling = "complete"`) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see @fig-stratified-ss-cp-estimates. The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
+Complete pooling (`pooling = "complete"`) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see @fig-stratified-ss-cp-estimates. Assuming a binomial likelihood and a beta($\alpha$, $\beta$) prior on $\theta$, the statistical model applied in the complete pooling approach is the following:
+
+\begin{align}
+  k &\sim \text{Binomial}(n, \theta)\\
+  \theta &\sim \text{Beta}(\alpha, \beta)
+\end{align}
+
+The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
 
 ```{r}
 result_cp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "complete")
@@ -66,7 +81,18 @@ plot(result_cp, type = "posterior")
 
 ## Partial pooling
 
-Finally, partial pooling (`pooling = "partial"`) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. 
+Finally, partial pooling (`pooling = "partial"`) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. Assuming a binomial likelihood and a beta($\alpha$, $\beta$) prior on $\mu$, the statistical model applied in the partial pooling approach is the following:
+
+\begin{align}
+  k_s &\sim \text{Binomial}(n_s, \theta_s)\\
+  \theta_s &\leftarrow \text{logit}^{-1}(\xi_s)\\
+  \xi_s &\leftarrow \mu_r + \sigma \alpha_s \\
+  \mu_r &\leftarrow \text{logit}(\mu) \\
+  \mu &\sim \text{Beta}(\alpha, \beta)\\
+  \sigma &\sim \text{Normal}(0, 1)^{+}\\
+  \alpha_s &\sim \text{Normal}(0, 1)\\
+  \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
+\end{align}
 
 ![Partial pooling takes into account the hierarchical structure in the data. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_pyramid.png){#fig-ss-evaluation-2 fig-align="center" width=65%}
 
@@ -107,7 +133,14 @@ N.units <- aggregate(allowances$bookValue, list(allowances$branch), sum)$x
 
 ### Classical Evaluation
 
-Using classical evaluation, auditors can apply stratified evaluation to assess the population misstatement rate. The estimates obtained under this approach reflect independent evaluation of each stratum, potentially leading to a relatively high uncertainty in the overall population estimate. The call below evaluates the `allowances` sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
+Using classical evaluation, auditors can apply stratified evaluation to assess the population misstatement rate. The estimates obtained under this approach reflect independent evaluation of each stratum, potentially leading to a relatively high uncertainty in the overall population estimate. The statistical model for this evaluation using the Poisson likelihood is relatively simple:
+
+\begin{align}
+  t_s &\sim \text{Poisson}(n_s\theta_s)\\
+  \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
+\end{align} 
+
+The call below evaluates the `allowances` sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
 x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units)
@@ -122,7 +155,23 @@ plot(x, type = "estimates")
 
 ### Bayesian Evaluation
 
-Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The call below evaluates the `allowances` sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
+Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The statistical model for this evaluation using the multilevel model with the use of taints is relatively complex:
+
+\begin{align}
+  t_i,s &\sim \text{Beta}(\theta_s\kappa_s, (1 - \theta_s)\kappa_s)\\
+  \theta_s &\leftarrow \text{logit}^{-1}(\gamma + \sigma \alpha_s)\\
+  \gamma &\leftarrow \text{logit}(\theta_p)\\
+  \kappa_s &\leftarrow \mu + \rho \xi_s\\
+  \theta_p &\sim \text{Beta}(\alpha, \beta)\\
+  \sigma &\sim \text{Normal}(0, 1)^{+}\\
+  \alpha_s &\sim \text{Normal}(0, 1)\\
+  \mu &\sim \text{Normal}(0, 100)\\
+  \rho &\sim \text{Normal}(0, 1)\\
+  \xi_s &\sim \text{Normal}(0, 1)\\
+  \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
+\end{align}
+
+The call below evaluates the `allowances` sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
 x <- evaluation(materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units, pooling = "partial")
