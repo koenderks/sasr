@@ -158,10 +158,10 @@ The Stringer bound is calculated using the Clopper-Pearson bounds, the number of
     p(0; 1 - \alpha) + \sum_{j=1}^{m_+} \left[ p(j; 1 - \alpha) - p(j-1; 1 - \alpha) \right] \cdot z_{+_j}
 \end{equation}
 
-The **jfa** package supports the Stringer bound in the `evaluation()` function using `method = "stringer"`.
+The **jfa** package supports the Stringer bound in the `evaluation()` function using `method = "stringer.poisson"`, `stringer.binomial` or `stringer.hypergeometric`, depending on the preferred distribution.
 
 ```{r}
-x <- evaluation(materiality = 0.05, data = allowances, method = "stringer", values = "bookValue", values.audit = "auditValue", times = "times")
+x <- evaluation(materiality = 0.05, data = allowances, method = "stringer.poisson", values = "bookValue", values.audit = "auditValue", times = "times")
 summary(x)
 ```
 
