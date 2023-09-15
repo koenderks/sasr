@@ -85,12 +85,9 @@ Finally, partial pooling (`pooling = "partial"`) assumes differences and similar
 
 \begin{align}
   k_s &\sim \text{Binomial}(n_s, \theta_s)\\
-  \theta_s &\leftarrow \text{logit}^{-1}(\xi_s)\\
-  \xi_s &\leftarrow \mu_r + \sigma \alpha_s \\
-  \mu_r &\leftarrow \text{logit}(\mu) \\
-  \mu &\sim \text{Beta}(\alpha, \beta)\\
-  \sigma &\sim \text{Normal}(0, 1)^{+}\\
-  \alpha_s &\sim \text{Normal}(0, 1)\\
+  \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
+  \phi &\sim \text{Beta}(\alpha, \beta)\\
+  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}
 
