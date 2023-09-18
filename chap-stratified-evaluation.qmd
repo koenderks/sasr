@@ -155,16 +155,13 @@ plot(x, type = "estimates")
 Bayesian inference can improve upon the estimates of the classical approach by pooling information between strata where possible. The statistical model for this evaluation using the multilevel model with the use of taints is relatively complex:
 
 \begin{align}
-  t_i,s &\sim \text{Beta}(\theta_s\kappa_s, (1 - \theta_s)\kappa_s)\\
-  \theta_s &\leftarrow \text{logit}^{-1}(\gamma + \sigma \alpha_s)\\
-  \gamma &\leftarrow \text{logit}(\theta_p)\\
-  \kappa_s &\leftarrow \mu + \rho \xi_s\\
-  \theta_p &\sim \text{Beta}(\alpha, \beta)\\
-  \sigma &\sim \text{Normal}(0, 1)^{+}\\
-  \alpha_s &\sim \text{Normal}(0, 1)\\
-  \mu &\sim \text{Normal}(0, 100)\\
-  \rho &\sim \text{Normal}(0, 1)\\
-  \xi_s &\sim \text{Normal}(0, 1)\\
+  t_i,s &\sim \text{Beta}(\theta_s \kappa_s, (1 - \theta_s) \kappa_s)\\
+  \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
+  \kappa_s &\sim \text{Normal}(\mu, \sigma)^{+}\\
+  \phi &\sim \text{Beta}(\alpha, \beta)\\
+  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
+  \mu &\sim \text{Normal}(1, 100)^{+}\\
+  \sigma &\sim \text{Normal}(0, 10)^{+}\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}
 
