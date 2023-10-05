@@ -358,7 +358,7 @@ summary(plan)
 
 The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. @fig-planning-beta-nomis2 shows this prior and posterior distribution.
 
-```{r label="fig-planning-beta-nomis2", fig.cap="The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units."}
+```{r label="fig-planning-beta-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the beta posterior in the previous example and occurs after seeing no misstatements in a sample of 90 units."}
 plot(plan)
 ```
 
@@ -422,9 +422,9 @@ However, for $n = 100$ the relevant probability is lower than the sampling risk 
 dpois(x = 0, lambda = 100 * 0.03) < 0.05
 ```
 
-We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.
+We can make this visually intuitive by showing the Poisson($k$ | 100 $\cdot$ 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\times$ 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}
+```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\\cdot$ 0.03) distribution showing the probability for $k = 0$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -450,9 +450,9 @@ However, for $n = 159$ the relevant probability is lower than the sampling risk 
 sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
-Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
+Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\cdot$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.
 
-```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\times$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
+```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\\cdot$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -562,7 +562,7 @@ summary(plan)
 
 The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior. @fig-planning-gamma-nomis2 shows this prior and posterior distribution.
 
-```{r label="fig-planning-gamma-nomis2", fig.cap="The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units."}
+```{r label="fig-planning-gamma-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous example and occurs after seeing no misstatements in the sample of 91 units."}
 plot(plan)
 ```
 
@@ -572,16 +572,16 @@ In principle, any distribution that covers the range of $\theta$ can be used as 
 
 ### Default Prior
 
-The default prior distributions are created using `method = 'default'`. There are no explicit rules for what constitutes a default prior. However, **jfa**'s default priors satisfy two criteria: 1) they contain relatively little information about the population misstatement and 2) they are proper (i.e., they integrate to 1). For completeness, all default priors in **jfa** are provided in the following list.
+The default prior distributions are created using `method = 'default'`. There are no explicit rules for what constitutes a default prior. However, **jfa**'s default priors satisfy two criteria. First, they contain relatively little information about the population misstatement and, second, they are proper (i.e., they integrate to 1). For completeness, all default priors in **jfa** are provided in the following list.
 
 * `likelihood = 'poisson'`: gamma($\alpha$ = 1, $\beta$ = 1)
 * `likelihood = 'binomial'`: beta($\alpha$ = 1, $\beta$ = 1)
-* `likelihood = 'hypergeometric'`: beta-binomial(N, $\alpha$ = 1, $\beta$ = 1)
+* `likelihood = 'hypergeometric'`: beta-binomial(*N*, $\alpha$ = 1, $\beta$ = 1)
 * `likelihood = 'normal'`: normal($\mu$ = 0, $\sigma$ = 1000)
-* `likelihood = 'uniform'`: uniform(min = 0, max = 1) 
+* `likelihood = 'uniform'`: uniform(*min* = 0, *max* = 1) 
 * `likelihood = 'cauchy'`: Cauchy($x_0$ = 0, $\gamma$ = 1000)
-* `likelihood = 't'`: Student-t(df = 1)
-* `likelihood = 'chisq'`: chi-squared(df = 1)
+* `likelihood = 't'`: Student-t(*df* = 1)
+* `likelihood = 'chisq'`: chi-squared(*df* = 1)
 * `likelihood = 'exponential'`: exponential($\lambda$ = 1)
 
 For instance, to create a default prior distribution using the binomial likelihood (i.e., a beta(1, 1) prior), you can use the following code that creates a prior distribution and stores it in the `prior` object. You can then use the `summary()` function to obtain relevant information about the prior distribution.
