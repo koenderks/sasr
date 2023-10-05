@@ -723,7 +723,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="fig-planning-beta-nomis2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-planning_files/figure-html/fig-planning-beta-nomis2-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.9: The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;4.9: The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the beta posterior in the previous example and occurs after seeing no misstatements in a sample of 90 units.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -771,13 +771,13 @@ div.csl-indent {
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, lambda <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="fl">0.03</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.05</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> | 100 <span class="math inline">\(\times\)</span> 0.03) distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>, see <a href="#fig-planning-pois-nomis">Figure&nbsp;<span>4.10</span></a>. This probability is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>We can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> | 100 <span class="math inline">\(\cdot\)</span> 0.03) distribution and highlighting the probability for <span class="math inline">\(k = 0\)</span>, see <a href="#fig-planning-pois-nomis">Figure&nbsp;<span>4.10</span></a>. This probability is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">plan</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-planning-pois-nomis" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-planning_files/figure-html/fig-planning-pois-nomis-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.10: The Poisson(<span class="math inline">\(k\)</span> | 100 $ imes$ 0.03) distribution showing the probability for <span class="math inline">\(k = 0\)</span> misstatement as a red bar.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;4.10: The Poisson(<span class="math inline">\(k\)</span> | 100 <span class="math inline">\(\cdot\)</span> 0.03) distribution showing the probability for <span class="math inline">\(k = 0\)</span> misstatements as a red bar.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -798,13 +798,13 @@ div.csl-indent {
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, lambda <span class="op">=</span> <span class="fl">159</span> <span class="op">*</span> <span class="fl">0.03</span><span class="op">)</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.05</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Like before, we can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> | 159 <span class="math inline">\(\times\)</span> 0.03) distribution and highlighting the probabilities for <span class="math inline">\(k = 0\)</span> and <span class="math inline">\(k = 1\)</span>, see <a href="#fig-planning-pois-mis">Figure&nbsp;<span>4.11</span></a>. The sum of these probabilities is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>Like before, we can make this visually intuitive by showing the Poisson(<span class="math inline">\(k\)</span> | 159 <span class="math inline">\(\cdot\)</span> 0.03) distribution and highlighting the probabilities for <span class="math inline">\(k = 0\)</span> and <span class="math inline">\(k = 1\)</span>, see <a href="#fig-planning-pois-mis">Figure&nbsp;<span>4.11</span></a>. The sum of these probabilities is lower than the required sampling risk <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">plan</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-planning-pois-mis" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-planning_files/figure-html/fig-planning-pois-mis-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.11: The Poisson(<span class="math inline">\(k\)</span> | 159 $ imes$ 0.03) distribution showing the probability for <span class="math inline">\(k = 0\)</span> and <span class="math inline">\(k=1\)</span> misstatements as a red bar.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;4.11: The Poisson(<span class="math inline">\(k\)</span> | 159 <span class="math inline">\(\cdot\)</span> 0.03) distribution showing the probability for <span class="math inline">\(k = 0\)</span> and <span class="math inline">\(k=1\)</span> misstatements as a red bar.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -939,7 +939,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="fig-planning-gamma-nomis2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-planning_files/figure-html/fig-planning-gamma-nomis2-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.13: The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;4.13: The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous example and occurs after seeing no misstatements in the sample of 91 units.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -948,24 +948,24 @@ div.csl-indent {
 <p>In principle, any distribution that covers the range of <span class="math inline">\(\theta\)</span> can be used as a prior distribution. However, some distributions are more suitable than others. For instance, the beta-binomial, beta and gamma distributions are all commonly used because they are so-called conjugate distributions, that is, they stay in the same family when updated by the data. The <strong>jfa</strong> package provides the ability to construct a prior distribution for audit sampling. More specifically, the <code>auditPrior()</code> function is used to specify a prior distribution that can be used as input for the <code>prior</code> argument in the <code>planning()</code> (and <code>evaluation()</code>) function. Below is an enumeration of the several ways that a prior distribution can be constructed using the <code>auditPrior</code> function.</p>
 <section id="default-prior" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="default-prior">
 <span class="header-section-number">4.5.1</span> Default Prior</h3>
-<p>The default prior distributions are created using <code>method = 'default'</code>. There are no explicit rules for what constitutes a default prior. However, <strong>jfa</strong>’s default priors satisfy two criteria: 1) they contain relatively little information about the population misstatement and 2) they are proper (i.e., they integrate to 1). For completeness, all default priors in <strong>jfa</strong> are provided in the following list.</p>
+<p>The default prior distributions are created using <code>method = 'default'</code>. There are no explicit rules for what constitutes a default prior. However, <strong>jfa</strong>’s default priors satisfy two criteria. First, they contain relatively little information about the population misstatement and, second, they are proper (i.e., they integrate to 1). For completeness, all default priors in <strong>jfa</strong> are provided in the following list.</p>
 <ul>
 <li>
 <code>likelihood = 'poisson'</code>: gamma(<span class="math inline">\(\alpha\)</span> = 1, <span class="math inline">\(\beta\)</span> = 1)</li>
 <li>
 <code>likelihood = 'binomial'</code>: beta(<span class="math inline">\(\alpha\)</span> = 1, <span class="math inline">\(\beta\)</span> = 1)</li>
 <li>
-<code>likelihood = 'hypergeometric'</code>: beta-binomial(N, <span class="math inline">\(\alpha\)</span> = 1, <span class="math inline">\(\beta\)</span> = 1)</li>
+<code>likelihood = 'hypergeometric'</code>: beta-binomial(<em>N</em>, <span class="math inline">\(\alpha\)</span> = 1, <span class="math inline">\(\beta\)</span> = 1)</li>
 <li>
 <code>likelihood = 'normal'</code>: normal(<span class="math inline">\(\mu\)</span> = 0, <span class="math inline">\(\sigma\)</span> = 1000)</li>
 <li>
-<code>likelihood = 'uniform'</code>: uniform(min = 0, max = 1)</li>
+<code>likelihood = 'uniform'</code>: uniform(<em>min</em> = 0, <em>max</em> = 1)</li>
 <li>
 <code>likelihood = 'cauchy'</code>: Cauchy(<span class="math inline">\(x_0\)</span> = 0, <span class="math inline">\(\gamma\)</span> = 1000)</li>
 <li>
-<code>likelihood = 't'</code>: Student-t(df = 1)</li>
+<code>likelihood = 't'</code>: Student-t(<em>df</em> = 1)</li>
 <li>
-<code>likelihood = 'chisq'</code>: chi-squared(df = 1)</li>
+<code>likelihood = 'chisq'</code>: chi-squared(<em>df</em> = 1)</li>
 <li>
 <code>likelihood = 'exponential'</code>: exponential(<span class="math inline">\(\lambda\)</span> = 1)</li>
 </ul>
@@ -2242,7 +2242,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb106-408"><a href="#cb106-408" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-409"><a href="#cb106-409" aria-hidden="true" tabindex="-1"></a>The resulting sample size under this prior is $n = 90$, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. @fig-planning-beta-nomis2 shows this prior and posterior distribution.</span>
 <span id="cb106-410"><a href="#cb106-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-411"><a href="#cb106-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-beta-nomis2", fig.cap="The beta prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 90 units."}</span></span>
+<span id="cb106-411"><a href="#cb106-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-beta-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the beta posterior in the previous example and occurs after seeing no misstatements in a sample of 90 units."}</span></span>
 <span id="cb106-412"><a href="#cb106-412" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
 <span id="cb106-413"><a href="#cb106-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-414"><a href="#cb106-414" aria-hidden="true" tabindex="-1"></a></span>
@@ -2306,9 +2306,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb106-480"><a href="#cb106-480" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">lambda =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fl">0.03</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
 <span id="cb106-481"><a href="#cb106-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-482"><a href="#cb106-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-483"><a href="#cb106-483" aria-hidden="true" tabindex="-1"></a>We can make this visually intuitive by showing the Poisson($k$ | 100 $\times$ 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.</span>
+<span id="cb106-483"><a href="#cb106-483" aria-hidden="true" tabindex="-1"></a>We can make this visually intuitive by showing the Poisson($k$ | 100 $\cdot$ 0.03) distribution and highlighting the probability for $k = 0$, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha = 0.05$.</span>
 <span id="cb106-484"><a href="#cb106-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-485"><a href="#cb106-485" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\times$ 0.03) distribution showing the probability for $k = 0$ misstatement as a red bar."}</span></span>
+<span id="cb106-485"><a href="#cb106-485" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\\cdot$ 0.03) distribution showing the probability for $k = 0$ misstatements as a red bar."}</span></span>
 <span id="cb106-486"><a href="#cb106-486" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
 <span id="cb106-487"><a href="#cb106-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-488"><a href="#cb106-488" aria-hidden="true" tabindex="-1"></a></span>
@@ -2334,9 +2334,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb106-514"><a href="#cb106-514" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">lambda =</span> <span class="dv">159</span> <span class="sc">*</span> <span class="fl">0.03</span>)) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
 <span id="cb106-515"><a href="#cb106-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-516"><a href="#cb106-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-517"><a href="#cb106-517" aria-hidden="true" tabindex="-1"></a>Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\times$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.</span>
+<span id="cb106-517"><a href="#cb106-517" aria-hidden="true" tabindex="-1"></a>Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\cdot$ 0.03) distribution and highlighting the probabilities for $k = 0$ and $k = 1$, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha = 0.05$.</span>
 <span id="cb106-518"><a href="#cb106-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-519"><a href="#cb106-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\times$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}</span></span>
+<span id="cb106-519"><a href="#cb106-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\\cdot$ 0.03) distribution showing the probability for $k = 0$ and $k=1$ misstatements as a red bar."}</span></span>
 <span id="cb106-520"><a href="#cb106-520" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
 <span id="cb106-521"><a href="#cb106-521" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-522"><a href="#cb106-522" aria-hidden="true" tabindex="-1"></a></span>
@@ -2446,7 +2446,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb106-646"><a href="#cb106-646" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-647"><a href="#cb106-647" aria-hidden="true" tabindex="-1"></a>The resulting sample size under this prior is $n = 91$, a reduction of 8 samples when compared to the default gamma(1, 1) prior. @fig-planning-gamma-nomis2 shows this prior and posterior distribution.</span>
 <span id="cb106-648"><a href="#cb106-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-649"><a href="#cb106-649" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-gamma-nomis2", fig.cap="The gamma prior distributions in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous exxample and occurs after seeing no misstatements in the sample of 91 units."}</span></span>
+<span id="cb106-649"><a href="#cb106-649" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-planning-gamma-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous example and occurs after seeing no misstatements in the sample of 91 units."}</span></span>
 <span id="cb106-650"><a href="#cb106-650" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(plan)</span>
 <span id="cb106-651"><a href="#cb106-651" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb106-652"><a href="#cb106-652" aria-hidden="true" tabindex="-1"></a></span>
@@ -2456,16 +2456,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb106-656"><a href="#cb106-656" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-657"><a href="#cb106-657" aria-hidden="true" tabindex="-1"></a><span class="fu">### Default Prior</span></span>
 <span id="cb106-658"><a href="#cb106-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-659"><a href="#cb106-659" aria-hidden="true" tabindex="-1"></a>The default prior distributions are created using <span class="in">`method = 'default'`</span>. There are no explicit rules for what constitutes a default prior. However, **jfa**'s default priors satisfy two criteria: 1) they contain relatively little information about the population misstatement and 2) they are proper (i.e., they integrate to 1). For completeness, all default priors in **jfa** are provided in the following list.</span>
+<span id="cb106-659"><a href="#cb106-659" aria-hidden="true" tabindex="-1"></a>The default prior distributions are created using <span class="in">`method = 'default'`</span>. There are no explicit rules for what constitutes a default prior. However, **jfa**'s default priors satisfy two criteria. First, they contain relatively little information about the population misstatement and, second, they are proper (i.e., they integrate to 1). For completeness, all default priors in **jfa** are provided in the following list.</span>
 <span id="cb106-660"><a href="#cb106-660" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-661"><a href="#cb106-661" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'poisson'`</span>: gamma($\alpha$ = 1, $\beta$ = 1)</span>
 <span id="cb106-662"><a href="#cb106-662" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'binomial'`</span>: beta($\alpha$ = 1, $\beta$ = 1)</span>
-<span id="cb106-663"><a href="#cb106-663" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'hypergeometric'`</span>: beta-binomial(N, $\alpha$ = 1, $\beta$ = 1)</span>
+<span id="cb106-663"><a href="#cb106-663" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'hypergeometric'`</span>: beta-binomial(*N*, $\alpha$ = 1, $\beta$ = 1)</span>
 <span id="cb106-664"><a href="#cb106-664" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'normal'`</span>: normal($\mu$ = 0, $\sigma$ = 1000)</span>
-<span id="cb106-665"><a href="#cb106-665" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'uniform'`</span>: uniform(min = 0, max = 1) </span>
+<span id="cb106-665"><a href="#cb106-665" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'uniform'`</span>: uniform(*min* = 0, *max* = 1) </span>
 <span id="cb106-666"><a href="#cb106-666" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'cauchy'`</span>: Cauchy($x_0$ = 0, $\gamma$ = 1000)</span>
-<span id="cb106-667"><a href="#cb106-667" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 't'`</span>: Student-t(df = 1)</span>
-<span id="cb106-668"><a href="#cb106-668" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'chisq'`</span>: chi-squared(df = 1)</span>
+<span id="cb106-667"><a href="#cb106-667" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 't'`</span>: Student-t(*df* = 1)</span>
+<span id="cb106-668"><a href="#cb106-668" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'chisq'`</span>: chi-squared(*df* = 1)</span>
 <span id="cb106-669"><a href="#cb106-669" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`likelihood = 'exponential'`</span>: exponential($\lambda$ = 1)</span>
 <span id="cb106-670"><a href="#cb106-670" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-671"><a href="#cb106-671" aria-hidden="true" tabindex="-1"></a>For instance, to create a default prior distribution using the binomial likelihood (i.e., a beta(1, 1) prior), you can use the following code that creates a prior distribution and stores it in the <span class="in">`prior`</span> object. You can then use the <span class="in">`summary()`</span> function to obtain relevant information about the prior distribution.</span>
