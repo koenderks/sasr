@@ -73,6 +73,12 @@ format:
               \begin{tikzpicture}[remember picture,overlay]
               \node at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{front-page.pdf}};
               \end{tikzpicture}%
+              \newpage
+              \vspace*{5cm}
+              \begin{center}
+              \textit{``The best things in life are free."}
+              \end{center}
+              \vspace*{\fill}
           }
           \renewcommand{\backmatter}{%
               \thispagestyle{empty}%
