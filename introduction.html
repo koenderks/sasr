@@ -307,6 +307,30 @@ div.csl-indent {
 <p>The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., <code>1 + 1</code>) and press Enter. When you stored the results of a computation in a new variable (e.g., <code>x &lt;- 1 + 1</code>), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.</p>
 </section><section id="jfa" class="level3"><h3 class="anchored" data-anchor-id="jfa">jfa</h3>
 <p>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. If you want to learn more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="references.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provide an excellent first-hand description of the principles and practices of creating R packages.</p>
+<div id="fig-packages" class="quarto-layout-panel">
+<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-dplyr-logo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/logo_dplyr.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
+<figcaption class="figure-caption">(a) <code>dplyr</code></figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-ggplot2-logo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/logo_ggplot2.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
+<figcaption class="figure-caption">(b) <code>ggplot2</code></figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-jfa-logo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/logo_jfa.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
+<figcaption class="figure-caption">(c) <code>jfa</code></figcaption></figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enhance its capabilities by providing additional features. For example, the (a) <code>dplyr</code> package assists with data manipulation, the (b) <code>ggplot2</code> package supports data visualization, and the (c) <code>jfa</code> package facilitates statistical auditing.</figcaption><p></p>
+</figure>
+</div>
 <p>To illustrate its concepts and ideas, this book uses the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function by providing the package name in quotes. Thus, before running the examples in this book, you should install the <strong>jfa</strong> package by running the following command in R:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -761,54 +785,65 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <span class="in">`dplyr`</span> for data manipulation, <span class="in">`ggplot2`</span> for data visualization, and <span class="in">`caret`</span> for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provide an excellent first-hand description of the principles and practices of creating R packages.</span>
 <span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>::: {#fig-packages layout-ncol=3}</span>
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jfa"</span>)</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="al">![`dplyr`](img/logo_dplyr.png)</span>{#fig-dplyr-logo}</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="al">![`ggplot2`](img/logo_ggplot2.png)</span>{#fig-ggplot2-logo}</span>
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <span class="in">`library()`</span> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you should load the **jfa** package with:</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="al">![`jfa`](img/logo_jfa.png)</span>{#fig-jfa-logo}</span>
 <span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>R packages are updated regularly. To update a package in your R library you should call <span class="in">`update.packages()`</span> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"jfa"</span>)</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>If you want to look at the source code of the **jfa** package, see the package website at <span class="co">[</span><span class="ot">`https://koenderks.github.io/jfa`</span><span class="co">](https://koenderks.github.io/jfa/)</span>.</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running R Code</span></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>The code in this book appears as follows:</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>When executing the same code within your local console, the resulting output will appear as follows:</span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (<span class="in">`&gt;`</span>) while the book does not display this symbol. Secondly, the output in the book is commented out with <span class="in">`#&gt;`</span>, while in a console it is displayed directly after the inputted code. Hence, those working with an electronic version of the book can directly copy code from the book to the console.</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Colophon</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>R boasts an impressive amount of packages and libraries that enhance its capabilities by providing additional features. For example, the (a) <span class="in">`dplyr`</span> package assists with data manipulation, the (b) <span class="in">`ggplot2`</span> package supports data visualization, and the (c) <span class="in">`jfa`</span> package facilitates statistical auditing.</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jfa"</span>)</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <span class="in">`library()`</span> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you should load the **jfa** package with:</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>R packages are updated regularly. To update a package in your R library you should call <span class="in">`update.packages()`</span> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"jfa"</span>)</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>If you want to look at the source code of the **jfa** package, see the package website at <span class="co">[</span><span class="ot">`https://koenderks.github.io/jfa`</span><span class="co">](https://koenderks.github.io/jfa/)</span>.</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running R Code</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>The code in this book appears as follows:</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>An online version of this book is available at <span class="co">[</span><span class="ot">`https://koenderks.github.io/sasr/`</span><span class="co">](https://koenderks.github.io/sasr/)</span>. The source code of the book is available at <span class="co">[</span><span class="ot">`https://github.com/koenderks/sasr`</span><span class="co">](https://github.com/koenderks/sasr)</span>. The book is built with <span class="co">[</span><span class="ot">Quarto</span><span class="co">](http://quarto.org)</span> which makes it easy to turn R markdown files into HTML, PDF, and ePub.</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>When executing the same code within your local console, the resulting output will appear as follows:</span>
 <span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>This book was built using the following R packages:</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (<span class="in">`&gt;`</span>) while the book does not display this symbol. Secondly, the output in the book is commented out with <span class="in">`#&gt;`</span>, while in a console it is displayed directly after the inputted code. Hence, those working with an electronic version of the book can directly copy code from the book to the console.</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Colophon</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>An online version of this book is available at <span class="co">[</span><span class="ot">`https://koenderks.github.io/sasr/`</span><span class="co">](https://koenderks.github.io/sasr/)</span>. The source code of the book is available at <span class="co">[</span><span class="ot">`https://github.com/koenderks/sasr`</span><span class="co">](https://github.com/koenderks/sasr)</span>. The book is built with <span class="co">[</span><span class="ot">Quarto</span><span class="co">](http://quarto.org)</span> which makes it easy to turn R markdown files into HTML, PDF, and ePub.</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>This book was built using the following R packages:</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
