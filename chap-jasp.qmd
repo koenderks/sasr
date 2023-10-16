@@ -6,6 +6,15 @@ source("utils.R", local = TRUE)
 
 JASP [@JASP; @Love2019], an acronym for Jeffreys’s Amazing Statistics Program, is a free and open-source software for statistical analysis developed at the University of Amsterdam. It is intended to be user-friendly and familiar to those who have experience with SPSS. A significant feature of JASP is that it provides most standard statistical analysis procedures in both their classical and Bayesian forms. Furthermore, the software is actively being translated into various languages, including Dutch.
 
+::: {#fig-logos-jasp layout="[[-10,35,-10,35,-10]]"}
+
+![JASP](img/logo_jasp.png){#fig-jasp-logo}
+
+![JASP for Audit](img/logo_jasp_for_audit.png){#fig-jasp-for-audit-logo}
+
+JASP is an open-source statistical software program that provides free and flexible access to classical and Bayesian statistics. JASP for Audit is an add-on module for JASP that facilitates statistal auditing in both manifestations.
+:::
+
 ## Downloading JASP
 
 You can freely download JASP from their website [`https://jasp-stats.org`](https://jasp-stats.org). Simply click on the 'Download JASP' button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is fairly straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.

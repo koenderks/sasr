@@ -38,7 +38,7 @@ The console in the left panel allows you to run R code. To execute some R code, 
 
 R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include `dplyr` for data manipulation, `ggplot2` for data visualization, and `caret` for machine learning. If you want to learn more about creating your own R package, @Wickam2022 provide an excellent first-hand description of the principles and practices of creating R packages.
 
-::: {#fig-packages layout-ncol=3}
+::: {#fig-packages layout="[[-2.5,30,-2.5,30,-2.5,30,-2.5]]"}
 
 ![`dplyr`](img/logo_dplyr.png){#fig-dplyr-logo}
 
