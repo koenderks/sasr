@@ -340,7 +340,7 @@ div.csl-indent {
 </div>
 <p>The exact definition of the <em>p</em>-value is <em>“the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement”</em>. The <em>p</em>-value of 0.19462 can be visualized via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-evaluation-freq-1">Figure&nbsp;<span>6.2</span></a>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-evaluation-freq-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-evaluation_files/figure-html/fig-evaluation-freq-1-1.png" class="img-fluid figure-img" width="480"></p>
@@ -371,7 +371,7 @@ div.csl-indent {
 </div>
 <p>You can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. <a href="#fig-evaluation-bayes-1">Figure&nbsp;<span>6.3</span></a> shows this posterior distribution.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-evaluation-bayes-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="chap-evaluation_files/figure-html/fig-evaluation-bayes-1-1.png" class="img-fluid figure-img" width="480"></p>
@@ -892,7 +892,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the <span class="in">`plot()`</span> function, see @fig-evaluation-freq-1.</span>
 <span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-evaluation-freq-1", fig.cap="The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k=0$ and $k=1$ and equals 0.048 + 0.147 = 0.195."}</span></span>
-<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian Evaluation</span></span>
@@ -914,7 +914,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-71"><a href="#cb17-71" aria-hidden="true" tabindex="-1"></a>You can use the <span class="in">`plot()`</span> function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. @fig-evaluation-bayes-1 shows this posterior distribution.</span>
 <span id="cb17-72"><a href="#cb17-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-73"><a href="#cb17-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-evaluation-bayes-1", fig.cap="The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars."}</span></span>
-<span id="cb17-74"><a href="#cb17-74" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval)</span>
+<span id="cb17-74"><a href="#cb17-74" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eval, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
 <span id="cb17-75"><a href="#cb17-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-76"><a href="#cb17-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-77"><a href="#cb17-77" aria-hidden="true" tabindex="-1"></a>Bayesian hypothesis testing also involves the use of evidence measures, but instead of *p*-values, Bayesian inference employs the Bayes factor, either $BF_{10}$ or $BF_{01}$, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, $H_1$ or $H_0$. The Bayes factor quantifies the strength of evidence in favor of one hypothesis over another.</span>
