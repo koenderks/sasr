@@ -43,7 +43,7 @@ eval
 The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the `plot()` function, see @fig-evaluation-freq-1.
 
 ```{r label="fig-evaluation-freq-1", fig.cap="The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k=0$ and $k=1$ and equals 0.048 + 0.147 = 0.195."}
-plot(eval)
+plot(eval, type = "posterior")
 ```
 
 ## Bayesian Evaluation
@@ -65,7 +65,7 @@ eval
 You can use the `plot()` function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. @fig-evaluation-bayes-1 shows this posterior distribution.
 
 ```{r label="fig-evaluation-bayes-1", fig.cap="The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars."}
-plot(eval)
+plot(eval, type = "posterior")
 ```
 
 Bayesian hypothesis testing also involves the use of evidence measures, but instead of *p*-values, Bayesian inference employs the Bayes factor, either $BF_{10}$ or $BF_{01}$, to arrive at conclusions regarding the evidence furnished by the sample in favor of one of two hypotheses, $H_1$ or $H_0$. The Bayes factor quantifies the strength of evidence in favor of one hypothesis over another.
