@@ -102,7 +102,7 @@ The table below summarizes the notation used in this book (middle column) and in
 | Expected deviation rate     | $\theta_{exp}$ | `expected`       |
 | Type-I error probability    | $\alpha$       | `1 - conf.level` |
 | Type-II error probability   | $\beta$        |                  |
-| Population size             | $N$            | `N.units`        |
-| Population misstatements    | $K$            |                  |
-| Sample size                 | $n$            | `n`              |
-| Observed misstatements      | $k$            | `x`              |
+| Population size             | *N*            | `N.units`        |
+| Population misstatements    | *K*            |                  |
+| Sample size                 | *n*            | `n`              |
+| Observed misstatements      | *k*            | `x`              |

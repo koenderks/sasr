@@ -75,7 +75,7 @@ The call below evaluates the sample using a Bayesian stratified evaluation proce
 result_cp <- evaluation(
   materiality = 0.05,
   method = "binomial",
-  n = retailer$samples,
+  n = retailer[["samples"]],
   x = retailer[["errors"]],
   N.units = retailer[["items"]],
   alternative = "two.sided",
@@ -239,7 +239,7 @@ Stratified evaluation is a pivotal tool in an auditor's arsenal, allowing for th
 
 ## Practical Exercises
 
-1. Evaluate a stratified sample of $n$ = [30, 40, 50] items containing $k$ = [0, 1, 2] misstatements. Use the classical approach.
+1. Evaluate a stratified sample of $n_s$ = [30, 40, 50] items containing $k_s$ = [0, 1, 2] misstatements. Use the classical approach.
 
 ::: {.content-visible when-format="html"}
 

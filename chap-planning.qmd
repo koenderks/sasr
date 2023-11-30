@@ -33,7 +33,7 @@ The probability mass function (PMF) of the hypergeometric distribution is given 
   p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}
 
-where $k$ is the number of misstatements in the sample, $n$ is the sample size, $N$ is the population size and $K$ is the total number of misstatements assumed in the population. The assumed misstatements $K$ is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size $N$. In the equation below, $\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil$ = 2.
+where *k* is the number of misstatements in the sample, *n* is the sample size, *N* is the population size and *K* is the total number of misstatements assumed in the population. The assumed misstatements *K* is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size *N*. In the equation below, $\lceil...\rceil$ is the ceiling function, which means that $\lceil1.2\rceil$ = 2.
 
 \begin{equation}
   K = \lceil \theta_{max} N \rceil.
@@ -49,33 +49,33 @@ In classical planning using the hypergeometric likelihood, the following statist
   k \sim \text{Hypergeometric}(n, N, K)
 \end{equation}
 
-Given the performance materiality $\theta_{max}$, we can compute $K$ and solve for the minimum sample size $n$ needed to reduce the sampling risk to an appropriately low level. This sample size is also dependent on the number of misstatements that the auditor expects, or tolerates, in the sample.
+Given the performance materiality $\theta_{max}$, we can compute *K* and solve for the minimum sample size *n* needed to reduce the sampling risk to an appropriately low level. This sample size is also dependent on the number of misstatements that the auditor expects, or tolerates, in the sample.
 
 #### No Expected Misstatements
 
-If the auditor does not expect any misstatements in the sample, they can set $k = 0$, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95 percent ($\alpha = 0.05$) for a performance materiality of $\theta_{max}$ = 0.03 in a population of $N$ = 1000 items, then $K$ = $\lceil 0.03 \cdot 1000 \rceil$ = 30 and the minimum sample size under the assumption of no expected misstatements in the sample is $n$ = 94.
+If the auditor does not expect any misstatements in the sample, they can set *k* = 0, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03 in a population of *N* = 1000 items, then *K* = $\lceil 0.03 \cdot 1000 \rceil$ = 30 and the minimum sample size under the assumption of no expected misstatements in the sample is *n* = 94.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
 
-The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dhyper()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given the assumed hypergeometric distribution with $N$ items and $K$ assumed misstatements in the population. By calculating this probability for $n$ = 93, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dhyper()` function calculates the probability of observing *k* missatements in a sample of *n* items given the assumed hypergeometric distribution with *N* items and *K* assumed misstatements in the population. By calculating this probability for *n* = 93, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 K <- ceiling(0.03 * 1000)
 dhyper(x = 0, m = K, n = 1000 - K, k = 93) < 0.05
 ```
 
-However, for $n$ = 94 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 94 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 dhyper(x = 0, m = K, n = 1000 - K, k = 94) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the hypergeometric($k$ | 94, 1000, 30) distribution and highlighting the probability for $k$ = 0, see @fig-planning-hyper-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
+We can make this sample size visually intuitive by showing the hypergeometric(*k* | 94, 1000, 30) distribution and highlighting the probability for *k* = 0, see @fig-planning-hyper-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-hyper-nomis", fig.cap="The hypergeometric($k$ | 94, 1000, 30) distribution showing the probability for $k$ = 0 misstatements as a red bar."}
+```{r label="fig-planning-hyper-nomis", fig.cap="The hypergeometric(*k* | 94, 1000, 30) distribution showing the probability for *k* = 0 misstatements as a red bar."}
 plot(plan)
 ```
 
@@ -93,34 +93,34 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 1000, max 
 
 #### Expected Misstatements
 
-If the auditor expects misstatements in the sample, they can set $k$ to any integer value, which consequently determines how the sample size can be calculated. As another example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03 in a population of $N$ = 1000 items, then the required sample size under the assumption of one expected misstatement in the sample is $n$ = 147.
+If the auditor expects misstatements in the sample, they can set *k* to any integer value, which consequently determines how the sample size can be calculated. As another example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03 in a population of *N* = 1000 items, then the required sample size under the assumption of one expected misstatement in the sample is *n* = 147.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 1, likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
 
-Once again, the sample size of 147 can be confirmed by checking that 147 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 146, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 147 can be confirmed by checking that 147 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that that the population misstatement is truly 3 percent. By calculating this probability for *n* = 146, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05
 ```
 
-However, for $n$ = 147 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 147 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 147)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the hypergeometric($k$ | 147, 1000, 30) distribution and highlighting the probabilities for $k$ = 0 and $k$ = 1, see @fig-planning-hyper-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
+Like before, we can make this sample size visually intuitive by showing the hypergeometric(*k* | 147, 1000, 30) distribution and highlighting the probabilities for *k* = 0 and *k* = 1, see @fig-planning-hyper-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-hyper-mis", fig.cap="The hypergeometric($k$ | 147, 1000, 30) distribution showing the probability for $k$ = 0 and $k$ = 1 misstatements as a red bar."}
+```{r label="fig-planning-hyper-mis", fig.cap="The hypergeometric(*k* | 147, 1000, 30) distribution showing the probability for *k* = 0 and *k* = 1 misstatements as a red bar."}
 plot(plan)
 ```
 
 ### Bayesian Planning
 
-Performing Bayesian planning with the hypergeometric likelihood [@Dyer1993] requires that you specify a prior distribution for the total misstatements $K$. Practically, this means that you should provide an input for the `prior` argument in the `planning()` function.
+Performing Bayesian planning with the hypergeometric likelihood [@Dyer1993] requires that you specify a prior distribution for the total misstatements *K*. Practically, this means that you should provide an input for the `prior` argument in the `planning()` function.
 
 Setting `prior = TRUE` performs Bayesian planning using a default prior conjugate to the specified `likelihood` (i.e., a beta-binomial prior). Because this is a Bayesian analysis, the following statistical model is specified:
 
@@ -129,13 +129,13 @@ Setting `prior = TRUE` performs Bayesian planning using a default prior conjugat
   K &\sim \text{Beta-binomial}(N, \alpha, \beta)
 \end{align}
 
-The beta-binomial prior distribution is the conjugate prior for to the hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions) of conjugate priors), which means that the posterior distribution of $K$ can be determined analytically. For example, if the prior distribution for $K$ is:
+The beta-binomial prior distribution is the conjugate prior for to the hypergeometric likelihood (see this [list](https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions) of conjugate priors), which means that the posterior distribution of *K* can be determined analytically. For example, if the prior distribution for *K* is:
 
 \begin{equation}
   K \sim \text{Beta-binomial}(N, \alpha, \beta) \,\,\,\,\,\,\,\,\,\, K = 0, \ldots, N
 \end{equation}
 
-and the auditor has observed a sample of $n$ items containing $k$ misstatements, then the posterior distribution for $K$ is:
+and the auditor has observed a sample of *n* items containing *k* misstatements, then the posterior distribution for *K* is:
 
 \begin{equation}
   K \sim \text{Beta-binomial}(N - n, \alpha + k, \beta + k - n) \,\,\,\,\,\,\,\,\,\, K = k, k + 1, \ldots, N - n + k.
@@ -143,7 +143,7 @@ and the auditor has observed a sample of $n$ items containing $k$ misstatements,
 
 #### No Expected Misstatements
 
-Planning for no expected misstatements in the sample can be done by setting the value for the `expected` argument to zero. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.1 in a population of $N$ = 20 items, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 15. The command below uses a default beta-binomial($N$, 1, 1) prior distribution to plan this sample, since `planning()` is given the hypergeometric likelihood.
+Planning for no expected misstatements in the sample can be done by setting the value for the `expected` argument to zero. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.1 in a population of *N* = 20 items, then the required sample size under the assumption of zero expected misstatements in the sample is *n* = 15. The command below uses a default beta-binomial(*N*, 1, 1) prior distribution to plan this sample, since `planning()` is given the hypergeometric likelihood.
 
 ```{r}
 plan <- planning(materiality = 0.1, likelihood = "hypergeometric", N.units = 20, prior = TRUE)
@@ -155,15 +155,15 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-bbinom-nomis. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [$k$; $N - n + k$], since a part of the population has already been seen.
+You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-bbinom-nomis. The expected posterior distribution is the posterior distribution that would occur if you actually observed the planned sample containing the expected misstatements. Note that the posterior distribution is only defined in the range [*k*; *N* $-$ *n* + *k*], since a part of the population has already been seen.
 
-```{r label="fig-planning-bbinom-nomis", fig.cap="The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing no misstatements in the sample."}
+```{r label="fig-planning-bbinom-nomis", fig.cap="The beta-binomial prior and posterior distribution on the range [*k*; *N* $-$ *n* + *k*] after seeing no misstatements in the sample."}
 plot(plan)
 ```
 
 #### Expected Misstatements
 
-Planning for expected misstatements in the sample can be done by setting the value for the `expected` argument to a different value than zero. For example, the code below calculates the minimum sample size to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.1 in a population of $N$ = 50 items, given one expected misstatement in the sample. This sample size is $n$ = 32.
+Planning for expected misstatements in the sample can be done by setting the value for the `expected` argument to a different value than zero. For example, the code below calculates the minimum sample size to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.1 in a population of *N* = 50 items, given one expected misstatement in the sample. This sample size is *n* = 32.
 
 ```{r}
 plan <- planning(materiality = 0.1, expected = 1, likelihood = "hypergeometric", N.units = 50, prior = TRUE)
@@ -172,7 +172,7 @@ plan
 
 Like before, you can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-bbinom-mis below for the output of this call.
 
-```{r label="fig-planning-bbinom-mis", fig.cap="The beta-binomial prior and posterior distribution on the range [$k$; $N - n + k$] after seeing one misstatement in the sample."}
+```{r label="fig-planning-bbinom-mis", fig.cap="The beta-binomial prior and posterior distribution on the range [*k*; *N* $-$ *n* + *k*] after seeing one misstatement in the sample."}
 plot(plan)
 ```
 
@@ -180,7 +180,7 @@ plot(plan)
 
 The binomial distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed number of trials. It is similar to the hypergeometric distribution, however, it assumes that samples are drawn from the population with replacement. For our purpose, we can use the binomial distribution as a likelihood to model the number of misstatements that are expected to be found in the sample. 
 
-In audit sampling, the binomial likelihood is often used to approximate the hypergeometric likelihood since it is easier to work with (i.e., it only has two parameters: $\theta$ and $n$, while the hypergeometric has three: $n$, $N$, and $K$). However, the binomial likelihood is more conservative than the hypergeometric likelihood, meaning that resulting sample sizes will be higher.
+In audit sampling, the binomial likelihood is often used to approximate the hypergeometric likelihood since it is easier to work with (i.e., it only has two parameters: $\theta$ and *n*, while the hypergeometric has three: *n*, *N*, and *K*). However, the binomial likelihood is more conservative than the hypergeometric likelihood, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the binomial distribution is given by:
 
@@ -188,7 +188,7 @@ The probability mass function (PMF) of the binomial distribution is given by:
   p(k; n, \theta) = \binom{n}{k} \theta^{k} (1-\theta)^{n - k},
 \end{equation}
 
-where $k$ is the number of misstatements in the sample, $n$ is the sample size and $\theta$ is the probability of misstatement in the population. Let's consider how to use the binomial likelihood to calculate the minimum sample size needed to reduce the sampling risk to an appropriately low level.
+where *k* is the number of misstatements in the sample, *n* is the sample size and $\theta$ is the probability of misstatement in the population. Let's consider how to use the binomial likelihood to calculate the minimum sample size needed to reduce the sampling risk to an appropriately low level.
 
 ### Classical Planning
 
@@ -200,13 +200,13 @@ In classical planning using the binomial likelihood, the following statistical m
 
 #### No Expected Misstatements
 
-If the auditor does not expect any misstatements in the sample, they can set $k$ = 0, which consequently determines how the sample size can be calculated. Given a performance materiality $\theta_{max}$, we can solve for the minimum sample size $n$ needed to reduce the sampling risk to an appropriately low level. A useful trick to utilize is that, if we do not expect any misstatements in the sample, the formula for the minimum required sample size reduces to:
+If the auditor does not expect any misstatements in the sample, they can set *k* = 0, which consequently determines how the sample size can be calculated. Given a performance materiality $\theta_{max}$, we can solve for the minimum sample size *n* needed to reduce the sampling risk to an appropriately low level. A useful trick to utilize is that, if we do not expect any misstatements in the sample, the formula for the minimum required sample size reduces to:
 
 \begin{equation}
   n = \lceil\frac{\ln(\alpha)}{\ln(1 - \theta_{max})}\rceil.
 \end{equation}
 
-For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 99.
+For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is *n* = 99.
 
 ```{r}
 ceiling(log(1 - 0.95) / log(1 - 0.03))
@@ -219,59 +219,59 @@ plan <- planning(materiality = 0.03, likelihood = "binomial")
 plan
 ```
 
-The sample size of 99 can be confirmed by checking that 99 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dbinom()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 98, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 99 can be confirmed by checking that 99 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dbinom()` function calculates the probability of observing *k* missatements in a sample of *n* items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for *n* = 98, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 dbinom(x = 0, size = 98, prob = 0.03) < 0.05
 ```
 
-However, for $n = 99$ the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 99 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 dbinom(x = 0, size = 99, prob = 0.03) < 0.05
 ```
 
-We can make this sample size visually intuitive by showing the binomial($k$ | 99, 0.03) distribution and highlighting the probability for $k$ = 0, see @fig-planning-binom-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
+We can make this sample size visually intuitive by showing the binomial(*k* | 99, 0.03) distribution and highlighting the probability for *k* = 0, see @fig-planning-binom-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-binom-nomis", fig.cap="The binomial($k$ | 99, 0.03) distribution showing the probability for $k$ = 0 misstatement as a red bar."}
+```{r label="fig-planning-binom-nomis", fig.cap="The binomial(*k* | 99, 0.03) distribution showing the probability for *k* = 0 misstatement as a red bar."}
 plot(plan)
 ```
 
 #### Expected Misstatementss
 
-However, if the number of expected misstatements in the sample is non-zero, it becomes more difficult to solve the formula for $n$. Hence, they will need to set $k$ to a different integer value, which consequently determines how the sample size is calculated. Here, we can iteratively try every value of $n$ and return the smallest integer that satisfies the sampling objectives.
+However, if the number of expected misstatements in the sample is non-zero, it becomes more difficult to solve the formula for *n*. Hence, they will need to set *k* to a different integer value, which consequently determines how the sample size is calculated. Here, we can iteratively try every value of *n* and return the smallest integer that satisfies the sampling objectives.
 
-In **jfa**, this can be done by adjusting the `expected` argument in the `planning()` function. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of one expected misstatement in the sample is $n$ = 157.
+In **jfa**, this can be done by adjusting the `expected` argument in the `planning()` function. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of one expected misstatement in the sample is *n* = 157.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 1, likelihood = "binomial")
 ```
 
-Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 156, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for *n* = 156, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05
 ```
 
-However, for $n$ = 157 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 157 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 sum(dbinom(x = 0:1, size = 157, prob = 0.03)) < 0.05
 ```
 
-Like before, we can make this sample size visually intuitive by showing the binomial($k$ | 157, 0.03) distribution and highlighting the probabilities for $k$ = 0 and $k$ = 1, see @fig-planning-binom-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
+Like before, we can make this sample size visually intuitive by showing the binomial(*k* | 157, 0.03) distribution and highlighting the probabilities for *k* = 0 and *k* = 1, see @fig-planning-binom-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-binom-mis", fig.cap="The binomial($k$ | 157, 0.03) distribution showing the probability for $k$ = 0 and $k$ = 1 misstatements as a red bar."}
+```{r label="fig-planning-binom-mis", fig.cap="The binomial(*k* | 157, 0.03) distribution showing the probability for *k* = 0 and *k* = 1 misstatements as a red bar."}
 plot(plan)
 ```
 
 #### Expected Misstatement Rate
 
-When the expected misstatement rate in the sample $\theta_{exp}$ is assessed, the value for $k$ can be determined as $k$ = $n\theta_{exp}$, which consequently determines how the sample size can be calculated.
+When the expected misstatement rate in the sample $\theta_{exp}$ is assessed, the value for *k* can be determined as *k* = *n*$\theta_{exp}$, which consequently determines how the sample size can be calculated.
 
-To account for the fact that $k$ can have non-integer values in this case, we can use a well-known similarity between the binomial distribution and the beta distribution to plan the sample size. The upper bound for any binomial($k$; $n$, $\theta$) distributed variable can also be obtained via percentiles of the beta($1 + k$, $n - k$) distribution. 
+To account for the fact that *k* can have non-integer values in this case, we can use a well-known similarity between the binomial distribution and the beta distribution to plan the sample size. The upper bound for any binomial(*k*; *n*, $\theta$) distributed variable can also be obtained via percentiles of the beta(1 + *k*, *n* $-$ *k*) distribution. 
 
-For example, the upper bound for a sample of $n$ = 10 items containing $k$ = 2 misstatements, when calculated via the traditional `binom.test()` is:
+For example, the upper bound for a sample of *n* = 10 items containing *k* = 2 misstatements, when calculated via the traditional `binom.test()` is:
 
 ```{r}
 ub_binom <- binom.test(x = 2, n = 10, p = 0.03, conf.level = 0.95, alternative = "less")$conf.int[2]
@@ -291,7 +291,7 @@ It can be validated that the two approaches result in the same upper bound via:
 ub_binom == ub_beta
 ```
 
-This relationship between the binomial likelihood and the beta distribution is deliberately **not** used in **jfa**. That is because, in the case of the binomial distribution, the auditing standards round the tolerable misstatements upwards to a whole number. For example, if we try to call the `planning()` function with the argument `expected = 1.5`, **jfa** will internally convert this to `expected = 2` and base the sample size on this in order to stay compliant with @AICPA-A. The resulting sample size is $n$ = 208 in this case.
+This relationship between the binomial likelihood and the beta distribution is deliberately **not** used in **jfa**. That is because, in the case of the binomial distribution, the auditing standards round the tolerable misstatements upwards to a whole number. For example, if we try to call the `planning()` function with the argument `expected = 1.5`, **jfa** will internally convert this to `expected = 2` and base the sample size on this in order to stay compliant with @AICPA-A. The resulting sample size is *n* = 208 in this case.
 
 ```{r}
 planning(materiality = 0.03, expected = 1.5, likelihood = "binomial")
@@ -314,13 +314,13 @@ The beta prior distribution is the conjugate prior for the binomial likelihood (
   \theta \sim \text{Beta}(\alpha, \beta) \,\,\,\,\,\,\,\,\,\, \theta \in [0, 1]
 \end{equation}
 
-and the auditor has observed a sample of $n$ items containing $k$ misstatements, then the posterior distribution for $\theta$ is:
+and the auditor has observed a sample of *n* items containing *k* misstatements, then the posterior distribution for $\theta$ is:
 
 \begin{equation}
   \theta \sim \text{Beta}(\alpha + k, \beta + n - k) \,\,\,\,\,\,\,\,\,\, \theta \in [0, 1].
 \end{equation}
 
-For example, the command below uses a default beta($\alpha$ = 1, $\beta$ = 1) prior distribution to plan the sample, since `planning()` is given the binomial likelihood. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 98.
+For example, the command below uses a default beta($\alpha$ = 1, $\beta$ = 1) prior distribution to plan the sample, since `planning()` is given the binomial likelihood. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is *n* = 98.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "binomial", prior = TRUE)
@@ -356,7 +356,7 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n$ = 90, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. @fig-planning-beta-nomis2 shows this prior and posterior distribution.
+The resulting sample size under this prior is *n* = 90, a reduction of 8 samples when compared to the default beta(1, 1) prior distribution. @fig-planning-beta-nomis2 shows this prior and posterior distribution.
 
 ```{r label="fig-planning-beta-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the beta posterior in the previous example and occurs after seeing no misstatements in a sample of 90 units."}
 plot(plan)
@@ -366,7 +366,7 @@ plot(plan)
 
 The Poisson distribution is a discrete probability distribution that is commonly used to model the number of events occurring in a fixed time or space. We can use the Poisson distribution as a likelihood to model the number of misstatements that are expected to be found in the sample.
 
-In audit sampling, the Poisson likelihood is often used to approximate the binomial likelihood since it is easier to work with (i.e., it only has one parameter: $\lambda$, while the binomial has two parameters: $\theta$ and $n$). However, the Poisson likelihood is more conservative than the binomial likelihood, meaning that resulting sample sizes will be higher.
+In audit sampling, the Poisson likelihood is often used to approximate the binomial likelihood since it is easier to work with (i.e., it only has one parameter: $\lambda$, while the binomial has two parameters: $\theta$ and *n*). However, the Poisson likelihood is more conservative than the binomial likelihood, meaning that resulting sample sizes will be higher.
 
 The probability mass function (PMF) of the Poisson distribution is given by:
 
@@ -374,7 +374,7 @@ The probability mass function (PMF) of the Poisson distribution is given by:
   p(k; \lambda) = \frac{\lambda^k e^{-\lambda}}{k!},
 \end{equation}
 
-where $k$ is the number of misstatements in the sample, and $\lambda$ is the average number of misstatements expected in the sample. The average number of misstatements is related to the misstatement rate in the population, denoted by $\theta$, and the sample size, $n$, by the following equation:
+where *k* is the number of misstatements in the sample, and $\lambda$ is the average number of misstatements expected in the sample. The average number of misstatements is related to the misstatement rate in the population, denoted by $\theta$, and the sample size, *n*, by the following equation:
 
 \begin{equation}
   \lambda = n \theta.
@@ -392,13 +392,13 @@ In classical planning using the Poisson likelihood, the following statistical mo
 
 #### No Expected Misstatements
 
-Given the performance materiality $\theta_{max}$ and the Poisson likelihood, we can solve for the minimum sample size $n$ needed to reduce the sampling risk to an appropriately low level. A useful trick to utilize is that, if we do not expect any misstatements in the sample, the formula for the required sample size reduces to:
+Given the performance materiality $\theta_{max}$ and the Poisson likelihood, we can solve for the minimum sample size *n* needed to reduce the sampling risk to an appropriately low level. A useful trick to utilize is that, if we do not expect any misstatements in the sample, the formula for the required sample size reduces to:
 
 \begin{equation}
   n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
 \end{equation}
 
-For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 100.
+For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is *n* = 100.
 
 ```{r}
 ceiling(-log(1 - 0.95) / 0.03)
@@ -410,59 +410,59 @@ In **jfa**, this sample size can be replicated using the following code:
 plan <- planning(materiality = 0.03, likelihood = "poisson")
 ```
 
-The sample size of 100 can be confirmed by checking that 100 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dpois()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 99, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 100 can be confirmed by checking that 100 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dpois()` function calculates the probability of observing *k* missatements in a sample of *n* items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for *n* = 99, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 dpois(x = 0, lambda = 99 * 0.03) < 0.05
 ```
 
-However, for $n$ = 100 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 100 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 dpois(x = 0, lambda = 100 * 0.03) < 0.05
 ```
 
-We can make this visually intuitive by showing the Poisson($k$ | 100 $\cdot$ 0.03) distribution and highlighting the probability for $k$ = 0, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
+We can make this visually intuitive by showing the Poisson(*k* | 100 $\cdot$ 0.03) distribution and highlighting the probability for *k* = 0, see @fig-planning-pois-nomis. This probability is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-pois-nomis", fig.cap="The Poisson($k$ | 100 $\\cdot$ 0.03) distribution showing the probability for $k$ = 0 misstatements as a red bar."}
+```{r label="fig-planning-pois-nomis", fig.cap="The Poisson(*k* | 100 $\\cdot$ 0.03) distribution showing the probability for *k* = 0 misstatements as a red bar."}
 plot(plan)
 ```
 
 #### Expected Misstatements
 
-However, if the number of expected misstatements in the sample is non-zero, it becomes more difficult to solve the formula for $n$ algebraically. Hence, they will need to set $k$ to a different integer value. Next, we can iteratively try every value of $n$ and return the smallest integer that satisfies the sampling objectives.
+However, if the number of expected misstatements in the sample is non-zero, it becomes more difficult to solve the formula for *n* algebraically. Hence, they will need to set *k* to a different integer value. Next, we can iteratively try every value of *n* and return the smallest integer that satisfies the sampling objectives.
 
-For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of one expected misstatement in the sample is $n$ = 159.
+For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of one expected misstatement in the sample is *n* = 159.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 1, likelihood = "poisson")
 ```
 
-Once again, the sample size of 159 can be confirmed by checking that 159 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 158, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 159 can be confirmed by checking that 159 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for *n* = 158, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05
 ```
 
-However, for $n$ = 159 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
+However, for *n* = 159 the relevant probability is lower than the sampling risk $\alpha$ and thus the sample size is considered to be sufficient.
 
 ```{r}
 sum(dpois(x = 0:1, lambda = 159 * 0.03)) < 0.05
 ```
 
-Like before, we can make this visually intuitive by showing the Poisson($k$ | 159 $\cdot$ 0.03) distribution and highlighting the probabilities for $k$ = 0 and $k$ = 1, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
+Like before, we can make this visually intuitive by showing the Poisson(*k* | 159 $\cdot$ 0.03) distribution and highlighting the probabilities for *k* = 0 and *k* = 1, see @fig-planning-pois-mis. The sum of these probabilities is lower than the required sampling risk $\alpha$ = 0.05.
 
-```{r label="fig-planning-pois-mis", fig.cap="The Poisson($k$ | 159 $\\cdot$ 0.03) distribution showing the probability for $k$ = 0 and $k$ = 1 misstatements as a red bar."}
+```{r label="fig-planning-pois-mis", fig.cap="The Poisson(*k* | 159 $\\cdot$ 0.03) distribution showing the probability for *k* = 0 and *k* = 1 misstatements as a red bar."}
 plot(plan)
 ```
 
 #### Expected Misstatement Rate
 
-When the expected misstatements in the sample $\theta_{exp}$ is assessed, the value for $k$ can be determined as $k$ = $n\theta_{exp}$, which consequently determines how the sample size can be calculated.
+When the expected misstatements in the sample $\theta_{exp}$ is assessed, the value for *k* can be determined as *k* = *n*$\theta_{exp}$, which consequently determines how the sample size can be calculated.
 
-To account for the fact that $k$ can have non-integer values in this case, we use a well-known similarity between the Poisson distribution and the gamma distribution to plan the sample size. The upper bound for any Poisson($k$; $n \theta$) distributed variable can also be obtained via percentiles of the gamma($1 + k$, $n$) distribution. 
+To account for the fact that *k* can have non-integer values in this case, we use a well-known similarity between the Poisson distribution and the gamma distribution to plan the sample size. The upper bound for any Poisson(*k*; *n*$\theta$) distributed variable can also be obtained via percentiles of the gamma(1 + *k*, *n*) distribution. 
 
-For example, the upper bound for a sample of $n$ = 10 items containing $k$ = 2 misstatements, when calculated via the traditional `poisson.test()` is:
+For example, the upper bound for a sample of *n* = 10 items containing *k* = 2 misstatements, when calculated via the traditional `poisson.test()` is:
 
 ```{r}
 ub_pois <- poisson.test(x = 2, T = 10, r = 0.03, alternative = "less")$conf.int[2]
@@ -482,19 +482,19 @@ It can be validated that the two approaches result in the same upper bound via:
 ub_pois == ub_gamma
 ```
 
-This relationship between the Poisson likelihood and the gamma distribution is used under the hood in **jfa**. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of 1.5 expected misstatements in the sample is $n$ = 185.
+This relationship between the Poisson likelihood and the gamma distribution is used under the hood in **jfa**. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of 1.5 expected misstatements in the sample is *n* = 185.
 
 ```{r}
 planning(materiality = 0.03, expected = 1.5, likelihood = "poisson")
 ```
 
-The sample size of 185 can be confirmed by checking that 185 is the minimum integer that results in less than 5 percent probability of finding a misstatement rate in the population equal to, or higher than, 3 percent. By calculating this probability for $n$ = 184, we can show that this sample size is insufficient as the relevant upper bound is higher than the performance materiality $\theta_{max}$.
+The sample size of 185 can be confirmed by checking that 185 is the minimum integer that results in less than 5 percent probability of finding a misstatement rate in the population equal to, or higher than, 3 percent. By calculating this probability for *n* = 184, we can show that this sample size is insufficient as the relevant upper bound is higher than the performance materiality $\theta_{max}$.
 
 ```{r}
 qgamma(p = 0.95, shape = 1 + 1.5, rate = 184) < 0.03
 ```
 
-However, for $n$ = 185 the relevant upper bound is lower than the performance materiality $\theta_{max}$ and thus the sample size is sufficient.
+However, for *n* = 185 the relevant upper bound is lower than the performance materiality $\theta_{max}$ and thus the sample size is sufficient.
 
 ```{r}
 qgamma(p = 0.95, shape = 1 + 1.5, rate = 185) < 0.03
@@ -517,13 +517,13 @@ The gamma prior distribution is the conjugate prior for the Poisson likelihood (
   \theta \sim \text{Gamma}(\alpha, \beta) \,\,\,\,\,\,\,\,\,\, \theta \in [0, \infty]
 \end{equation}
 
-and the auditor has observed a sample of $n$ items containing $k$ misstatements, then the posterior distribution for $\theta$ is:
+and the auditor has observed a sample of *n* items containing *k* misstatements, then the posterior distribution for $\theta$ is:
 
 \begin{equation}
   \theta \sim \text{Gamma}(\alpha + k, \beta + n) \,\,\,\,\,\,\,\,\,\, \theta \in [0, \infty].
 \end{equation}
 
-For example, the command below uses a default gamma($\alpha$ = 1, $\beta$ = 1) prior distribution to plan the sample, since `planning()` is given the Poisson likelihood. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 99.
+For example, the command below uses a default gamma($\alpha$ = 1, $\beta$ = 1) prior distribution to plan the sample, since `planning()` is given the Poisson likelihood. If we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is *n* = 99.
 
 ```{r}
 plan <- planning(materiality = 0.03, likelihood = "poisson", prior = TRUE)
@@ -559,7 +559,7 @@ The `summary()` function can be used to obatain relevant information about the p
 summary(plan)
 ```
 
-The resulting sample size under this prior is $n$ = 91, a reduction of 8 samples when compared to the default gamma(1, 1) prior. @fig-planning-gamma-nomis2 shows this prior and posterior distribution.
+The resulting sample size under this prior is *n* = 91, a reduction of 8 samples when compared to the default gamma(1, 1) prior. @fig-planning-gamma-nomis2 shows this prior and posterior distribution.
 
 ```{r label="fig-planning-gamma-nomis2", fig.cap="The normal prior distribution in this example contains risk-reducing information. The posterior distribution has roughly the same upper bound as the one in the previous example and occurs after seeing no misstatements in the sample of 91 units."}
 plot(plan)
@@ -604,7 +604,7 @@ predict(prior, n = 6)
 
 The predictions of the prior distribution can be visualized using the `plot()` function, see @fig-planning-prior-predict.
 
-```{r label="fig-planning-prior-predict", fig.cap="The predictions of the beta(1, 1) prior distribution concerming the possible misstatements in an an intended sample of $n$ = 6."}
+```{r label="fig-planning-prior-predict", fig.cap="The predictions of the beta(1, 1) prior distribution concerming the possible misstatements in an an intended sample of *n* = 6."}
 plot(predict(prior, n = 10))
 ```
 
@@ -688,7 +688,7 @@ This section contains practical examples of how to conduct the planning of stati
 
 ### Audit Risk Model
 
-In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of $N$ = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 3 percent, and the audit risk is set to $\alpha$ = 0.05, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.
+In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of *N* = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 0.03 (3 percent), and the audit risk is set to $\alpha$ = 0.05, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.
 
 ```{r}
 ar <- 0.05 # Audit risk
@@ -776,7 +776,7 @@ p <- jfa:::.theme_jfa(p)
 p
 ```
 
-The relationship between the sales $S$ and the cost of sales $C$ can be modelled by a linear equation:
+The relationship between the sales *S* and the cost of sales *C* can be modelled by a linear equation:
 
 \begin{equation}
   C = \beta_0 + \beta_1 \cdot S + \epsilon.
@@ -858,7 +858,7 @@ The specified prior distribution can be visualized using the `plot()` function, 
 plot(prior)
 ```
 
-The performance materiality for this example is set to $\theta_{max}$ = 5 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. By using this prior distribution, the required minimum sample size is 50.
+The performance materiality for this example is set to $\theta_{max}$ = 5 percent, and the audit risk is set to $\alpha$ = 0.05, or 5 percent. By using this prior distribution, the required minimum sample size is *n* = 50.
 
 ```{r}
 plan <- planning(materiality = 0.05, likelihood = "binomial", prior = prior)
@@ -867,11 +867,11 @@ plan
 
 You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-prior-posterior-example2.
 
-```{r label="fig-planning-prior-posterior-example2", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of $n=50$ containing no misstatements."}
+```{r label="fig-planning-prior-posterior-example2", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of *n* = 50 containing no misstatements."}
 plot(plan)
 ```
 
-By using a frequentist approach, the required minimum sample size is 59. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.
+By using a frequentist approach, the required minimum sample size is *n* = 59. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 9 items.
 
 ```{r}
 plan <- planning(materiality = 0.05, likelihood = "binomial")
@@ -927,7 +927,7 @@ The nonparametric prior distribution can be visualized using the `plot()` functi
 plot(prior)
 ```
 
-The performance materiality for this example is set to $\theta_{max}$ = 1 percent, and the audit risk is set to $\alpha = 0.05$, or 5 percent. The minimum sample size can be calculated with the command below and is 108.
+The performance materiality for this example is set to $\theta_{max}$ = 1 percent, and the audit risk is set to $\alpha$ = 0.05, or 5 percent. The minimum sample size can be calculated with the command below and is 108.
 
 ```{r}
 plan <- planning(materiality = 0.01, likelihood = "binomial", prior = prior)
@@ -936,7 +936,7 @@ plan
 
 You can inspect how the prior distribution compares to the expected posterior distribution by using the `plot()` function, see @fig-planning-prior-posterior-example3.
 
-```{r label="fig-planning-prior-posterior-example3", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of $n=108$ units containing no misstatements."}
+```{r label="fig-planning-prior-posterior-example3", fig.cap="The prior and expected posterior distribution for this example after seeing a sample of *n* = 108 units containing no misstatements."}
 plot(plan)
 ```
 
@@ -949,7 +949,7 @@ plan
 
 ## Practical Exercises
 
-1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N = 100$ when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
+1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of *N* = 100 when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
 
 ::: {.content-visible when-format="html"}
 

@@ -86,7 +86,7 @@ Finally, evaluating a sample in JASP for Audit works similar to how you would do
 
 ![A snapshot of the classical evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of 50 items of which 0 contained a misstatement. The resulting upper bound is 5.8 percent and the *p*-value is 0.045.](img/JASP_evaluation_classical.png){#fig-jasp-7 fig-align="center" width=100%}
 
-The above screenshot shows an analysis where the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of $n$ = 50 items of which $k$ = 0 contained a misstatement. The resulting 95 percent upper confidence bound is 5.8 percent and the *p*-value is 0.045, which is lower than the sampling risk of 5 percent.
+The above screenshot shows an analysis where the auditor is using the binomial likelihood, a sampling risk of 5 percent, a performance materiality of 6 percent and evaluates a sample of *n* = 50 items of which *k* = 0 contained a misstatement. The resulting 95 percent upper confidence bound is 5.8 percent and the *p*-value is 0.045, which is lower than the sampling risk of 5 percent.
 
 Using **jfa**, these statistical results can be reproduced by executing the following code:
 
@@ -98,7 +98,7 @@ The figure below showcases a snapshot of the Bayesian evaluation analysis in JAS
 
 ![Snapshot of the Bayesian evaluation analysis in JASP for Audit. In this analysis, the auditor is using the binomial likelihood together with a beta prior distribution, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of 120 items of which 1 contained a misstatement. The resulting upper bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394.](img/JASP_evaluation_bayesian.png){#fig-jasp-8 fig-align="center" width=100%}
 
-The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a beta prior distribution based on an expected error rate of 3 percent constructed using the audit risk model, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of $n$ = 120 items of which $k$ = 1 contained a misstatement. The resulting 95 percent upper credible bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394, indicating that the sample data are about 9 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
+The above screenshot shows an analysis where the auditor is using the binomial likelihood together with a beta prior distribution based on an expected error rate of 3 percent constructed using the audit risk model, a sampling risk of 5 percent, a performance materiality of 3 percent and evaluates a sample of *n* = 120 items of which *k* = 1 contained a misstatement. The resulting 95 percent upper credible bound is 3.27 percent and the Bayes factor in favor of tolerable misstatement is 9.394, indicating that the sample data are about 9 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
 
 Using **jfa**, these statistical results can be reproduced by executing the following code:
 
