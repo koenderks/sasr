@@ -88,7 +88,7 @@ There are two primary distinctions between the use of a console and the presenta
 
 ## Colophon
 
-An online version of this book is available at [`https://koenderks.github.io/sasr/`](https://koenderks.github.io/sasr/). The source code of the book is available at [`https://github.com/koenderks/sasr`](https://github.com/koenderks/sasr). The book is built with [Quarto](http://quarto.org) which makes it easy to turn R markdown files into HTML, PDF, and ePub.
+An online version of this book is available at [`https://koenderks.github.io/sasr/`](https://koenderks.github.io/sasr/). The source code of the book is available at [`https://github.com/koenderks/sasr`](https://github.com/koenderks/sasr).
 
 ::: {.content-visible when-format="html"}
 This book was built using the following R packages:

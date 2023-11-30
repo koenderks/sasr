@@ -35,7 +35,7 @@ To illustrate, suppose an auditor wants to estimate the misstatement in a popula
 evaluation(x = 1, n = 100, method = "binomial")
 ```
 
-Classical hypothesis testing relies on the *p*-value to determine whether to accept or reject a certain hypothesis about a population. For example, suppose an auditor wishes to test whether the population contains misstatements of less than 3 percent (they formulate the performance materiality based on existing rules and regulations). They would create the hypotheses $H_1:\theta<0.03$ and $H_0:\theta\geq0.03$. The significance level is set to 0.05, equivalent to an audit risk of 5 percent. This means that a *p*-value below 0.05 is sufficient to reject the hypothesis of intolerable misstatement $H_0$.
+Classical hypothesis testing relies on the *p*-value to determine whether to accept or reject a certain hypothesis about a population. For example, suppose an auditor wishes to test whether the population contains misstatements of less than 3 percent (they formulate the performance materiality based on existing rules and regulations). They would create the hypotheses $H_1$: $\theta$ < 0.03 and $H_0$: $\theta \geq$ 0.03. The significance level is set to 0.05, equivalent to an audit risk of 5 percent. This means that a *p*-value below 0.05 is sufficient to reject the hypothesis of intolerable misstatement $H_0$.
 
 In **jfa**, a classical hypothesis test using the *p*-value can be conducted by specifying the `materiality` argument in the `evaluation()` function. For example, to indicate a performance materiality of 3 percent, the auditor can specify `materiality = 0.03`. Along with the confidence interval, the output displays a *p*-value of 0.19462, which is greater than 0.05. Therefore, the hypothesis $H_0$ cannot be rejected at a significance level of 5 percent. As a result, the auditor cannot conclude that the sample provides sufficient evidence to reduce the audit risk to an appropriate level and cannot state that the population does not have misstatements of 3 percent or more.
 
@@ -46,7 +46,7 @@ eval
 
 The exact definition of the *p*-value is *"the probability of observing the data, or more extreme data, given the truth of the hypothesis of intolerable misstatement"*. The *p*-value of 0.19462 can be visualized via the `plot()` function, see @fig-evaluation-freq-1.
 
-```{r label="fig-evaluation-freq-1", fig.cap="The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k=0$ and $k=1$ and equals 0.048 + 0.147 = 0.195."}
+```{r label="fig-evaluation-freq-1", fig.cap="The *p*-value is the sum of the observed and more extreme (but unobserved) outcomes, which in this case is the sum of $k$ = 0 and $k$ = 1 and equals 0.048 + 0.147 = 0.195."}
 plot(eval, type = "posterior")
 ```
 
@@ -58,7 +58,7 @@ Bayesian inference begins by specifying a prior distribution, which reflects pri
 
 A Bayesian credible interval is intuitively interpreted as follows: *There is a 95 percent probability that the misstatement falls within the credible interval.* This is in contrast to the interpretation of a classical confidence interval, which is often misinterpreted for its Bayesian counterpart.
 
-For instance, consider a scenario where a uniform *beta(1, 1)* prior distribution is used, along with a sample of 100 units, one of which contains a misstatement. Using the posterior distribution, it can be estimated that the most likely misstatement in the population is 1 percent. Furthermore, a Bayesian credible interval can be calculated to show that there is a 95 percent probability that the true misstatement rate lies between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform *beta(1, 1)* prior distribution. To achieve classical results, we can create a prior with `method = "strict"` using the `auditPrior()` function. Remember that any call to `evaluation()` can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the `prior` constructed through a call to `auditPrior()`.
+For instance, consider a scenario where a uniform beta(1, 1) prior distribution is used, along with a sample of 100 units, one of which contains a misstatement. Using the posterior distribution, it can be estimated that the most likely misstatement in the population is 1 percent. Furthermore, a Bayesian credible interval can be calculated to show that there is a 95 percent probability that the true misstatement rate lies between 0 percent and 4.61 percent. The small difference between the classical and default Bayesian results arises from the use of the uniform beta(1, 1) prior distribution. To achieve classical results, we can create a prior with `method = "strict"` using the `auditPrior()` function. Remember that any call to `evaluation()` can be done in a Bayesian way by specifying a prior distribution. Therefore, the sole difference between the call for a classical analysis and the call for a Bayesian analysis is the use of the `prior` constructed through a call to `auditPrior()`.
 
 ```{r}
 prior <- auditPrior(method = "default", likelihood = "binomial")
@@ -68,7 +68,7 @@ eval
 
 You can use the `plot()` function to visualize the posterior distribution along the most likely misstatement and the credible interval for the population misstatement. @fig-evaluation-bayes-1 shows this posterior distribution.
 
-```{r label="fig-evaluation-bayes-1", fig.cap="The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95% credible interval for the population misstatement as the black bars."}
+```{r label="fig-evaluation-bayes-1", fig.cap="The posterior distribution showing the most likely misstatement in the population as a gray dot and the 95 percent credible interval for the population misstatement as the black bars."}
 plot(eval, type = "posterior")
 ```
 
@@ -76,13 +76,13 @@ Bayesian hypothesis testing also involves the use of evidence measures, but inst
 
 The Bayes factor provides an intuitive measure of statistical evidence, allowing auditors to interpret the probability of the data occurring under either hypothesis. For instance, if the `evaluation()` function outputs a value of 10 for $BF_{10}$, it means that the data are ten times more likely to have arisen under $H_1$ than under $H_0$. A Bayes factor $BF_{10}$ greater than 1 suggests evidence for $H_1$ and against $H_0$, while a Bayes factor $BF_{10}$ less than 1 suggests evidence for $H_0$ and against $H_1$. Although the `evaluation()` function returns $BF_{10}$ by default, one can compute $BF_{01}$ as the inverse of $BF_{10}$ (i.e., $\frac{1}{BF_{10}}$).
 
-To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses $H_1:\theta<0.03$ and $H_0:\theta\geq0.03$. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default *beta(1,1)* prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The `materiality = 0.03` argument specifies the materiality for this audit.
+To illustrate, suppose an auditor wishes to verify whether a population contains less than 3 percent misstatement. Like before, this corresponds to the hypotheses $H_1$: $\theta$ < 0.03 and $H_0$: $\theta \geq$ 0.03. The auditor has taken a sample of 100 items, with only one containing a misstatement. By assuming a default beta(1, 1) prior distribution, the following code evaluates the sample using a Bayesian hypothesis test and the Bayes factor. The `materiality = 0.03` argument specifies the materiality for this audit.
 
 ```{r}
 evaluation(materiality = 0.03, x = 1, n = 100, prior = prior)
 ```
 
-In this case, the Bayes factor is $BF_{10}=137.65$, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the *beta(1,1)* prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.
+In this case, the Bayes factor is $BF_{10}$ = 137.65, which means that the sample data is 137.65 times more likely to occur under the hypothesis of tolerable misstatement than the hypothesis of material misstatement. We arrived at this value by considering both the prior distribution and the posterior distribution. Specifically, we first used the beta(1, 1) prior distribution to calculate the prior probability of the hypothesis of tolerable misstatement.
 
 ```{r}
 prior.prob.h1 <- pbeta(0.03, shape1 = 1, shape2 = 1)
@@ -119,20 +119,20 @@ bf10 <- post.odds.h1 / prior.odds.h1
 bf10
 ```
 
-It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for $\theta$. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the *beta(1, 1)* prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
+It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for $\theta$. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the beta(1, 1) prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using `method = "impartial"` in the `auditPrior()` function [@Derks2022b].
 
 ```{r}
 prior <- auditPrior(materiality = 0.03, method = "impartial", likelihood = "binomial")
 evaluation(materiality = 0.03, x = 1, n = 100, prior = prior)
 ```
 
-The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}=7.77$, which moderately supports $H_1$. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.
+The analysis above was conducted using an impartial prior. The resulting output indicates that $BF_{10}$ = 7.77, which moderately supports $H_1$. This outcome suggests that the population contains misstatements lower than 5 percent (tolerable misstatement), assuming impartiality. Both prior distributions resulted in persuasive Bayes factors, making the results reliable regardless of the prior distribution selected. As a result, the auditor can confidently assert that the sample data provides evidence that the population does not contain a material misstatement.
 
 ### Using Data
 
 Previously, we relied on summary statistics obtained from a sample to carry out evaluations. However, it is also possible to supply the `evaluation()` function with a data set. Doing so allows the function to calculate misstatements based on the booked and audited values of individual items.
 
-To demonstrate how this works, we will use the `allowances` data set that comes with the **jfa** package. This data set includes 3500 financial statement line items, each with a booked value (`bookValue`) and an audited (true) value (`auditValue`) for illustrative purposes. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent.
+To demonstrate how this works, we will use the `allowances` data set that comes with the **jfa** package. This data set includes $N$ = 4076 financial statement line items, each with a booked value (`bookValue`) and an audited (true) value (`auditValue`) for illustrative purposes. The total value of the population is $16,772,249. Since this example focuses on the evaluation stage of an audit, the sample is already identified within the data set. For this example, the performance materiality has been set at 5 percent, or $838,612.5.
 
 ```{r}
 data(allowances)
@@ -142,7 +142,11 @@ head(allowances)
 When evaluating an audit sample using a data set, it is necessary to specify the `data`, `values`, and `values.audit` arguments in the `evaluation()` function. The input for these arguments should be the name of the relevant column in `data`. For example, the call below evaluates the `allowances` sample using a classical evaluation procedure. In this case, the output shows that the estimate of the misstatement in the population is 15.77 percent, with the 95 percent (one-sided) confidence interval ranging from 0 percent to 17.5 percent.
 
 ```{r}
-x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", times = "times")
+x <- evaluation(
+  materiality = 0.05, data = allowances,
+  values = "bookValue", values.audit = "auditValue",
+  times = "times"
+)
 summary(x)
 ```
 
@@ -150,37 +154,38 @@ summary(x)
 
 Partial misstatements occur when there is only a partial discrepancy between the true value of an item in the sample and its recorded value. From a data perspective, this implies that the misstatements in the sample are not just binary (i.e., 0 or 1) but also often lie between 0 and 1. For instance, a receipt for goods received can be partially misstated if only part of the goods have been received. In practice, this means that the usual methods for evaluating binary misstatements do not suffice.
 
-To illustrate how auditors can adequately deal with this type of misstatements, we examine a realistic sample from a financial audit using the `allowances` data set included in the **jfa** package. For clarity, we perform some data pre-processing to arrive at the population for our example. In this case, the performance materiality (i.e., the maximum tolerable misstatement) for the population is set to ten percent.
+To illustrate how auditors can adequately deal with this type of misstatements, we examine a realistic sample from a financial audit using the `allowances` data set included in the **jfa** package. For clarity, we perform some data pre-processing to arrive at the population for our example. In this case, the performance materiality (i.e., the maximum tolerable misstatement) for the population is set to $\theta_{max}$ = 10 percent.
 
 ```{r}
-population <- allowances
+population <- allowances[, c(1, 3, 4)]
 population <- population[population[["bookValue"]] > 0, ]
-population <- population[!is.na(population[["auditValue"]]), c(1, 3, 4)]
+population <- population[!is.na(population[["auditValue"]]), ]
 head(population)
 ```
 
-To decide whether the misstatement in the population is lower than the performance materiality of ten percent, a sample of 60 items is selected from the population of 1177 items. In this case, the sample is selected using a fixed interval sampling method in which the items in the population are randomized before selection.
+To decide whether the misstatement in the population is lower than the performance materiality of ten percent, a sample of $n$ = 60 items is selected from the population of $N$ = 1177 items. In this case, the sample is selected using a fixed interval sampling method in which the items in the population are randomized before selection.
 
 ```{r}
 set.seed(21)
 sample <- selection(
-  data = population, size = 60,
-  method = "interval", units = "values", values = "bookValue",
-  randomize = TRUE
+  data = population, size = 60, randomize = TRUE,
+  method = "interval", units = "values", values = "bookValue"
 )$sample
 ```
 
 After inspecting the items in the sample, each item is annotated with its recorded (i.e., book) value and its true (i.e., audit) value. When evaluating partial misstatements, auditors often calculate the 'taint' $t_i$ of each item $i$, which is defined as the proportional misstatement in the item:
 
-$$t_i = \frac{\text{Book value}_i - \text{Audit value}_i}{\text{Book value}_i}.$$
+\begin{equation}
+  t_i = \frac{\text{Book value}_i - \text{Audit value}_i}{\text{Book value}_i}.
+\end{equation}
 
-For instance, if item $i$ is booked for $1,000 but has an audit value of $500 it has a taint of $t_i = 0.5$. On the other hand, if the item does not contain any misstatement, it has a taint of $t_i = 0$. Lastly, if the item is fully misstated (i.e., have a book value of $0), its taint is $t_i = 1$.
+For instance, if item $i$ is booked for $1,000 but has an audit value of $500 it has a taint of $t_i$ = 0.5. On the other hand, if the item does not contain any misstatement, it has a taint of $t_i$ = 0. Lastly, if the item is fully misstated (i.e., it has a book value of $0), its taint is $t_i$ = 1.
 
 As is often the case in practice, this audit sample contains many items that are correct (34), some items that are fully misstated (4), and some items that are partially misstated (22). The table below shows the distribution of these misstatements.
 
 ```{r}
-sample[["difference"]] <- sample[["bookValue"]] - sample[["auditValue"]]
-sample[["taint"]] <- sample[["difference"]] / sample[["bookValue"]]
+sample[["diff"]] <- sample[["bookValue"]] - sample[["auditValue"]]
+sample[["taint"]] <- sample[["diff"]] / sample[["bookValue"]]
 table(round(sample[["taint"]], 2))
 ```
 
@@ -192,11 +197,11 @@ Classical (i.e., frequentist) methods solely look to the data for estimating the
 
 #### Binomial Likelihood
 
-The easiest way to analyze partial misstatements is to aggregate them and simply extrapolate the sum of proportional misstatements (i.e., the total taint) to the population. Under the hood, this approach employs a binomial likelihood to estimate the misstatement: $k$ $\sim$ Binomial($n$, $\theta$). In this model, $\theta$ represents the misstatement in the population. This method uses the sum of the taints, denoted as $k = \sum_{i=0}^n t_i$ as the number of misstatements, together with the sample size $n$.
+The easiest way to analyze partial misstatements is to aggregate them and simply extrapolate the sum of proportional misstatements (i.e., the total taint) to the population. Under the hood, this approach employs a binomial likelihood to estimate the misstatement: $k$ $\sim$ Binomial($n$, $\theta$). In this model, $\theta$ represents the misstatement in the population. This method uses the sum of the taints, denoted as $k$ = $\sum_{i=0}^n t_i$ as the number of misstatements, together with the sample size $n$.
 
 While aggregating the taints in this manner may not adhere to a strictly 'clean' modeling approach, as the binomial likelihood is only defined for binary data representing complete misstatements, it proves to be effective in estimating the misstatement [@broeze2006, Chapter 4.3]. Despite its somewhat unconventional nature, the analytical feasibility of this approach makes it easy to use and therefore it is commonly applied in practice.
 
-For the classical binomial likelihood, aggregating the taints can be done using `method = "binomial"` in the `evaluation()` function. Using maximum likelihood estimation, $\theta = \frac{\sum t}{n} = \frac{11.003}{60} = 0.18338$.
+For the classical binomial likelihood, aggregating the taints can be done using `method = "binomial"` in the `evaluation()` function. Using maximum likelihood estimation, $\theta$ = $\frac{\sum t}{n}$ = $\frac{11.003}{60}$ = 0.18338.
 
 ```{r}
 evaluation(
@@ -211,7 +216,7 @@ As shown in the output, the most likely misstatement is estimated to be 18.34 pe
 
 The Stringer bound is a commonly used method to evaluate audit samples. It is attractive because it takes into account the magnitude of the taints, thereby resulting in a smaller confidence interval (i.e., a lower upper bound). Note that, because it takes into account the magnitude of the taints [@stringer1963; @bickel1992], the Stringer bound only works if the actual data are present to calculate the taints.
 
-Here we describe te calculation of the typical Stringer bound using the binomial distribution. $p(0; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for a binomial parameter with 0 successes in $n$ trials which, for zero errors, can be calculated by $1 - \alpha^{\frac{1}{n}}$. The more general $p(j; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for binomial parameter with $j$ successes in $n$ trials [@clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$\% chance that $j$ or less errors are observed in $n$ observations. That means that $p(j; 1-\alpha)$ is the unique solution of:
+Here we describe te calculation of the typical Stringer bound using the binomial distribution. $p(0; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for a binomial parameter with 0 successes in $n$ trials which, for zero errors, can be calculated by $1 - \alpha^{\frac{1}{n}}$. The more general $p(j; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for binomial parameter with $j$ successes in $n$ trials [@clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$ percent chance that $j$ or less errors are observed in $n$ observations. That means that $p(j; 1-\alpha)$ is the unique solution of:
 
 \begin{equation}
     \sum^n_{k = j + 1} {n \choose k} p^k (1-p)^{n-k} = 1 - \alpha.
@@ -223,7 +228,7 @@ The outcome of this equation is equal to the $1 - \alpha$ percentile of a beta($
     p(0; 1 - \alpha) + \sum_{j=1}^{m_+} \left[ p(j; 1 - \alpha) - p(j-1; 1 - \alpha) \right] \cdot z_{+_j}
 \end{equation}
 
-In `jfa`, the Stringer bound can be applied using `method = "stringer"` in the `evaluation()` function. The maximum likelihood estimate for the Stringer bound is the same as that of the binomial likelihood. Note that the Stringer bound can also be calculated using the Poisson or hypergeometric distributions. The **jfa** package supports the Stringer bound in the `evaluation()` function using `method = "stringer.poisson"`, `stringer.binomial` or `stringer.hypergeometric`, depending on the preferred distribution.
+In `jfa`, the Stringer bound can be applied using `method = "stringer"` in the `evaluation()` function. Note that the Stringer bound can also be calculated using the Poisson or hypergeometric distributions. The **jfa** package supports the Stringer bound in the `evaluation()` function using `method = "stringer.poisson"`, `stringer.binomial` or `stringer.hypergeometric`, depending on the preferred distribution. The maximum likelihood estimate for the Stringer bound is the same as that of the binomial likelihood.
 
 ```{r}
 evaluation(
@@ -240,7 +245,7 @@ Efficiency can be further improved by explicitly modeling the probability of a t
 
 In **jfa**, there are two types of models that incorporate a probability of the taint being zero. These are the zero-inflated Poisson model and the hurdle beta model. In the zero-inflated Poisson model, the idea is to incorporate extrazeros into the zeros already present in the Poisson distribution. However, this  idea does not directly apply to a "zero-inflated beta" model. Since the beta likelihood cannot accommodate zeros, there are no zeros to inflate. A more appropriate name for this model is therefore a hurdle (i.e., two-component) beta model. This terminology reflects the idea that the model has to overcome the hurdle of zero values which are not inherently part of the beta likelihood.
 
-The formal specification of the hurdle beta model is given below. Here, $p_{(0, 1]}$ is the probability of a misstatement occurring, regardless of its size. Additionally, $p_{1 | (0, 1]}$ is the conditional probability of a misstatement being a full misstatement. Furthermore, $\phi$ is the average (non-zero-one) taint and $\nu$ is the concentration of these taints. The total misstatement in the population is $\theta = p_{(0, 1)} \cdot \phi + p_{1}$.
+The formal specification of the hurdle beta model is given below. Here, $p_{(0, 1]}$ is the probability of a misstatement occurring, regardless of its size. Additionally, $p_{1 | (0, 1]}$ is the conditional probability of a misstatement being a full misstatement. Furthermore, $\phi$ is the average (non-zero-one) taint and $\nu$ is the concentration of these taints. The total misstatement in the population is $\theta$ = $p_{(0, 1)} \cdot \phi$ + $p_{1}$.
 
 \begin{align*}
 t = \begin{cases}
@@ -252,7 +257,7 @@ t = \begin{cases}
 \end{cases}
 \end{align*}
 
-In `jfa`, this hurdle beta model can be fitted using `method = "hurdle.beta"` in the `evaluation()` function. To estimate the parameters in this model using the maximum likelihood, we use the default option `prior = FALSE`. Using maximum likelihood estimation, $p_{(0, 1]} = \frac{n_t}{n} = \frac{26}{60} = 0.433$, where $n_t$ is the number of misstatements, and $p_{1 | (0, 1]} = \frac{n_1}{n_t} = \frac{4}{26} = 0.1539$, where $n_1$ is the number of full misstatements. Furthermore, $\phi = \frac{\sum t - n_1}{n_t - n_1} = \frac{11.003 - 4}{26 - 4} = 0.3183$. Hence, the most likely misstatement is estimated to be $\theta = (p_{(0, 1]} \cdot (1-p_{1 | (0, 1]}) \cdot \phi) + (p_{(0, 1]} \cdot p_{1 | (0, 1]}) = (0.433 \cdot (1 - 0.1539) \cdot 0.3183) + (0.433 \cdot 0.1539) = 0.18338$. The upper bound cannot be derived analytically and has to be determined by drawing samples from the fitted model. Hence, it is recommended to call `set.seed()` before executing the following command to make the results reproducible.
+In `jfa`, this hurdle beta model can be fitted using `method = "hurdle.beta"` in the `evaluation()` function. To estimate the parameters in this model using the maximum likelihood, we use the default option `prior = FALSE`. Using maximum likelihood estimation, $p_{(0, 1]}$ = $\frac{n_t}{n}$ = $\frac{26}{60}$ = 0.433, where $n_t$ is the number of misstatements, and $p_{1 | (0, 1]}$ = $\frac{n_1}{n_t}$ = $\frac{4}{26}$ = 0.1539, where $n_1$ is the number of full misstatements. Furthermore, $\phi$ = $\frac{\sum t - n_1}{n_t - n_1}$ = $\frac{11.003 - 4}{26 - 4}$ = 0.3183. Hence, the most likely misstatement is estimated to be $\theta$ = ($p_{(0, 1]}$ $\cdot$ ($1-p_{1 | (0, 1]}$) $\cdot$ $\phi$) + ($p_{(0, 1]}$ $\cdot$ $p_{1 | (0, 1]}$) = (0.433 $\cdot$ (1 - 0.1539) $\cdot$ 0.3183) + (0.433 $\cdot$ 0.1539) = 0.18338. The upper bound cannot be derived analytically and has to be determined by drawing samples from the fitted model. Hence, it is recommended to call `set.seed()` before executing the following command to make the results reproducible.
 
 ```{r}
 set.seed(1)
@@ -272,7 +277,7 @@ In the Bayesian framework, the auditor defines a prior distribution for the para
 
 #### Beta Distribution 
 
-The prior distribution we typically assign in the binomial model is the beta distribution. Just as we handle taints in the binomial likelihood, they can also be aggregated given the prior distribution. The statistical model is $k$ $\sim$ Binomial($n$, $\theta$) and the prior distribution that is used is $\theta$ $\sim$ Beta($\alpha$, $\beta$). Given the data $n$ and $k = \sum t$, the posterior distribution for the default beta(1, 1) prior distribution (`prior = TRUE`) can be derived analytically and is $\theta$ $\sim$ Beta($\alpha = 1 + \sum t$, $\beta = 1 + n - \sum t$).
+The prior distribution we typically assign in the binomial model is the beta distribution. Just as we handle taints in the binomial likelihood, they can also be aggregated given the prior distribution. The statistical model is $k$ $\sim$ Binomial($n$, $\theta$) and the prior distribution that is used is $\theta$ $\sim$ Beta($\alpha$, $\beta$). Given the data $n$ and $k$ = $\sum t$, the posterior distribution for the default beta(1, 1) prior distribution (`prior = TRUE`) can be derived analytically and is $\theta$ $\sim$ Beta($\alpha$ = $1 + \sum t$, $\beta$ = $1 + n - \sum t$).
 
 For the binomial likelihood, this Bayesian model can be applied in the `evaluation()` function using `method = "binomial"` in comination with `prior = TRUE`. However, the input for the `prior` argument can also be an object created by the `auditPrior()` function.
 
@@ -321,7 +326,7 @@ plot(eval_hurdle_bayes, type = "posterior")
 
 ## Practical Exercises
 
-1. Evaluate a sample of $n = 30$ items containing $k = 2$ misstatements. Use the classical approach.
+1. Evaluate a sample of $n$ = 30 items containing $k$ = 2 misstatements. Use the classical approach.
 
 ::: {.content-visible when-format="html"}
 

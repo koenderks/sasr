@@ -35,8 +35,17 @@ The call below evaluates the sample using a Bayesian stratified evaluation proce
 
 ```{r}
 set.seed(1) # Important because the posterior distribution is determined via sampling
-result_np <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "none")
-summary(result_np)
+result_np <- evaluation(
+  materiality = 0.05,
+  method = "binomial",
+  n = retailer[["samples"]],
+  x = retailer[["errors"]],
+  N.units = retailer[["items"]],
+  alternative = "two.sided",
+  pooling = "none",
+  prior = TRUE
+)
+result_np
 ```
 
 In this case, the output of the `summary()` function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the `plot()` function in combination with `type = "estimates`, see @fig-stratified-ss-np-estimates. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.
@@ -63,8 +72,17 @@ Complete pooling (`pooling = "complete"`) assumes no differences between strata.
 The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the strata are assumed to be the same.
 
 ```{r}
-result_cp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "complete")
-summary(result_cp)
+result_cp <- evaluation(
+  materiality = 0.05,
+  method = "binomial",
+  n = retailer$samples,
+  x = retailer[["errors"]],
+  N.units = retailer[["items"]],
+  alternative = "two.sided",
+  pooling = "complete",
+  prior = TRUE
+)
+result_cp
 ```
 
 For example, the output of the `summary()` function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).
@@ -96,9 +114,18 @@ Finally, partial pooling (`pooling = "partial"`) assumes differences and similar
 The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
-set.seed(1) # Important because the posterior distribution is determined via sampling
-result_pp <- evaluation(materiality = 0.05, method = "binomial", prior = TRUE, n = retailer$samples, x = retailer$errors, N.units = retailer$items, alternative = "two.sided", pooling = "partial")
-summary(result_pp)
+set.seed(1)
+result_pp <- evaluation(
+  materiality = 0.05,
+  method = "binomial",
+  n = retailer[["samples"]],
+  x = retailer[["errors"]],
+  N.units = retailer[["items"]],
+  alternative = "two.sided",
+  pooling = "partial",
+  prior = TRUE
+)
+result_pp
 ```
 
 In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
@@ -125,7 +152,7 @@ head(allowances)
 Evaluating a stratified sample using data requires specification of the `data`, `values`, `values.audit` and `strata` arguments in the `evaluation()` function. In this case, the units are monetary and calculated by aggregating the book values of the items in each stratum.
 
 ```{r}
-N.units <- aggregate(allowances$bookValue, list(allowances$branch), sum)$x
+N.units <- aggregate(allowances[["bookValue"]], list(allowances[["branch"]]), sum)$x
 ```
 
 ### Classical Evaluation
@@ -140,14 +167,25 @@ Using classical evaluation, auditors can apply stratified evaluation to assess t
 The call below evaluates the `allowances` sample using a classical stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
-x <- evaluation(materiality = 0.05, data = allowances, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units)
-summary(x)
+set.seed(1)
+result_dnpc <- evaluation(
+  materiality = 0.05,
+  data = allowances,
+  N.units = N.units,
+  values = "bookValue",
+  values.audit = "auditValue",
+  strata = "branch",
+  times = "times",
+  alternative = "two.sided",
+  pooling = "none"
+)
+result_dnpc
 ```
 
 In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-np-estimates below.
 
 ```{r label="fig-stratified-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}
-plot(x, type = "estimates")
+plot(result_dnp, type = "estimates")
 ```
 
 ### Bayesian Evaluation
@@ -168,27 +206,39 @@ Bayesian inference can improve upon the estimates of the classical approach by p
 The call below evaluates the `allowances` sample using a Bayesian multilevel stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
 
 ```{r}
-x <- evaluation(materiality = 0.05, data = allowances, prior = TRUE, values = "bookValue", values.audit = "auditValue", strata = "branch", times = "times", alternative = "two.sided", N.units = N.units, pooling = "partial")
-summary(x)
+set.seed(1)
+result_dnpb <- evaluation(
+  materiality = 0.05,
+  data = allowances,
+  N.units = N.units,
+  values = "bookValue",
+  values.audit = "auditValue",
+  strata = "branch",
+  times = "times",
+  alternative = "two.sided",
+  pooling = "partial",
+  prior = TRUE
+)
+result_dnpb
 ```
 
 The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-pp-estimates below.
 
 ```{r label="fig-stratified-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}
-plot(x, type = "estimates")
+plot(result_dnpb, type = "estimates")
 ```
 
 The prior and posterior distribution for the population misstatement can be requested via the `plot()` function, see @fig-stratified-pp-posterior.
 
 ```{r label="fig-stratified-pp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the partial pooling model."}
-plot(x, type = "posterior")
+plot(result_dnpb, type = "posterior")
 ```
 
 Stratified evaluation is a pivotal tool in an auditor's arsenal, allowing for the analysis of diverse populations with varying characteristics. By embracing the principles of no pooling, complete pooling, and partial pooling, auditors can tailor their evaluation strategies to balance independence and shared information, resulting in more accurate and reliable population estimates. The combination of these approaches with real-world data offers auditors a comprehensive toolkit to enhance the quality and efficiency of their evaluations.
 
 ## Practical Exercises
 
-1. Evaluate a stratified sample of $n = [30, 40, 50]$ items containing $k = [0, 1, 2]$ misstatements. Use the classical approach.
+1. Evaluate a stratified sample of $n$ = [30, 40, 50] items containing $k$ = [0, 1, 2] misstatements. Use the classical approach.
 
 ::: {.content-visible when-format="html"}
 

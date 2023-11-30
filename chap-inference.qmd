@@ -16,10 +16,10 @@ The philosophy behind frequentist parameter estimation is based on the idea that
 
 #### Example
 
-As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n = 60$ items containing $k = 0$ misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality), which is irrelevant and should thus be sert to `p = 1`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
+As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n$ = 60 items containing $k$ = 0 misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60` and the number of misstatements in the sample `x = 0`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
 
 ```{r}
-binom.test(x = 0, n = 60, p = 1, alternative = "less", conf.level = 0.95)
+binom.test(x = 0, n = 60, alternative = "less", conf.level = 0.95)
 ```
 
 The most likely misstatement in the population is displayed under `sample estimates` and is 0 percent. The 95 percent upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 4.87 percent.
@@ -34,10 +34,10 @@ For example, in a typical audit sampling hypothesis test using the binomial dist
 
 #### Example
 
-Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
+Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n$ = 100 items containing $k$ = 0 misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. This is the default value and therefore this argument is omitted in the code below. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
 
 ```{r}
-binom.test(x = 0, n = 100, p = 0.03, alternative = "less", conf.level = 0.95)
+binom.test(x = 0, n = 100, p = 0.03, alternative = "less")
 ```
 
 The *p* value is shown under `p-value` and is 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.
@@ -79,7 +79,7 @@ plot(prior)
 
 After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes' theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement. @fig-uniform-posterior displays the prior and posterior distribution.
 
-```{r label="fig-uniform-posterior", fig.cap="The prior and posterior distribution after seeing a sample of $n=30$ items, of which none contained a misstatement. After seeing these data, lower values of the population misstatement now receive a relatively high probability."}
+```{r label="fig-uniform-posterior", fig.cap="The prior and posterior distribution after seeing a sample of $n$ = 30 items, of which none contained a misstatement. After seeing these data, lower values of the population misstatement now receive a relatively high probability."}
 eval <- evaluation(x = 0, n = 30, method = "binomial", prior = prior)
 plot(eval, type = "posterior")
 ```
@@ -88,15 +88,15 @@ The most likely value of the population misstatement based on these data is show
 
 After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before. This is displayed in @fig-uniform-posterior-2.
 
-```{r label="fig-uniform-posterior-2", fig.cap="The prior and posterior distribution after seeing a second sample of $n=30$ items, of which none contained a misstatement. The posterior distribution is relatively less wide than in the previous example."}
-eval <- evaluation(x = 0, n = 30, method = "binomial", prior = eval$posterior)
+```{r label="fig-uniform-posterior-2", fig.cap="The prior and posterior distribution after seeing a second sample of $n$ = 30 items, of which none contained a misstatement. The posterior distribution is relatively less wide than in the previous example."}
+eval <- evaluation(x = 0, n = 30, prior = eval$posterior)
 plot(eval, type = "posterior")
 ```
 
 The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data, see @fig-uniform-posterior-3.
 
 ```{r label="fig-uniform-posterior-3", fig.cap="The prior and posterior distribution after seeing a third sample of a single item which contained a misstatement. Given this item on top of the other items in the sample, the posterior distribution does not peak at zero anymore."}
-eval <- evaluation(x = 1, n = 1, method = "binomial", prior = eval$posterior)
+eval <- evaluation(x = 1, n = 1, prior = eval$posterior)
 plot(eval, type = "posterior")
 ```
 
@@ -116,7 +116,7 @@ For example, if the Bayes factor is 5, this means that the probability of the st
 
 #### Example
 
-Suppose an auditor obtained a sample of $n = 100$ items containing $k = 0$ misstatements. Given the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03` the Bayes factor is displayed under `BF10` and is 668.65, meaning that it the data are about 668 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
+Suppose an auditor obtained a sample of $n$ = 100 items containing $k$ = 0 misstatements. Given the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03` the Bayes factor is displayed under `BF10` and is 668.65, meaning that it the data are about 668 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.
 
 ```{r}
 evaluation(materiality = 0.03, x = 0, n = 100, method = "binomial", prior = TRUE)

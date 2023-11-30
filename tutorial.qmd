@@ -137,6 +137,8 @@ To access a specific column, you can use the `$` operator (or the index):
 ```{r}
 df$x
 df[, 1]
+df[, "x"]
+df[["x"]]
 ```
 
 You can also use functions like `head()` and `tail()` to view the first or last few rows of a data frame. Data frames also have several built-in functions that allow you to manipulate and analyze the data. For example, you can use the `summarize()` function to calculate summary statistics for each column, or the `group_by()` function to group the data by a specific variable and apply a function to each group.

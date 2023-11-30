@@ -75,9 +75,9 @@ Usually the auditor judges inherent risk and control risk on a three-point scale
 
 Let's consider an example. Suppose that, in their audit guide, an audit firm associates the following percentages with the categories high, medium and low:
 
-- High: 100%
-- Medium: 60%
-- Low: 50%
+- High: 100 percent
+- Medium: 60 percent
+- Low: 50 percent
 
 If an auditor is working with an audit risk of 5 percent, and judges inherent and control risk to both be medium, the sampling risk can be calculated as:
 
@@ -85,7 +85,7 @@ If an auditor is working with an audit risk of 5 percent, and judges inherent an
   \frac{0.05}{0.6 \times 0.6} = 0.139
 \end{equation}
 
-Note that the ARM is commonly used in practice but it is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1} = \infty$).
+Note that the ARM is commonly used in practice but it is not a proper model of audit risk. For example, it is not possible to set one of the risks to zero, as that would result in an infinite detection risk (e.g., $\frac{0.05}{0 \times 1}$ = $\infty$).
 
 ### Sample Size
 
