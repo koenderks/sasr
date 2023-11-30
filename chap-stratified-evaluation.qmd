@@ -48,7 +48,7 @@ result_np <- evaluation(
 result_np
 ```
 
-In this case, the output of the `summary()` function shows that the estimate of the misstatement in the population is 5.85 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the `plot()` function in combination with `type = "estimates`, see @fig-stratified-ss-np-estimates. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.
+In this case, the output of the `summary()` function shows that the estimate of the misstatement in the population is 5.98 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the `plot()` function in combination with `type = "estimates`, see @fig-stratified-ss-np-estimates. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.
 
 ```{r label="fig-stratified-ss-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}
 plot(result_np, type = "estimates")
@@ -85,7 +85,7 @@ result_cp <- evaluation(
 result_cp
 ```
 
-For example, the output of the `summary()` function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.33 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).
+For example, the output of the `summary()` function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.34 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).
 
 ```{r label="fig-stratified-ss-cp-estimates", fig.cap="Estimates of the population and stratum misstatement under the complete pooling model."}
 plot(result_cp, type = "estimates")
@@ -128,7 +128,7 @@ result_pp <- evaluation(
 result_pp
 ```
 
-In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
+In this case, the output shows that the estimate of the misstatement in the population is 4.07 percent, with the 95 percent credible interval ranging from 3.26 percent to 5.38 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
 
 ```{r label="fig-stratified-ss-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(result_pp, type = "estimates")
@@ -182,7 +182,7 @@ result_dnpc <- evaluation(
 result_dnpc
 ```
 
-In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-np-estimates below.
+In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.28 percent. The precision of the population estimate is 5.73 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-np-estimates below.
 
 ```{r label="fig-stratified-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}
 plot(result_dnpc, type = "estimates")
@@ -223,7 +223,7 @@ result_dnpb <- evaluation(
 result_dnpb
 ```
 
-The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-pp-estimates below.
+The output shows that the estimate of the misstatement in the population is 15.27 percent, with the 95 percent credible interval ranging from 14.63 percent to 16.30 percent. The precision of the population estimate is 1.67 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-pp-estimates below.
 
 ```{r label="fig-stratified-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(result_dnpb, type = "estimates")

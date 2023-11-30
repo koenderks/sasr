@@ -7,6 +7,8 @@ library(ggplot2)
 library(downlit)
 library(xml2)
 
+options("mc.iterations" = 10000)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",

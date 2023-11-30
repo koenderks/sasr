@@ -301,10 +301,6 @@ It is also possible to fit a Bayesian variant of the hurdle beta model. This ent
 
 This Bayesian hurdle beta model can be applied using `method = "hurdle.beta"` in combination with `prior = TRUE` (or an object created by the `auditPrior()` function) in the `evaluation()` function. In this case, the posterior distribution cannot be determined analytically and must be determined using MCMC sampling, which is why it is recommended to call `set.seed()` before computing the results.
 
-```{r echo = FALSE}
-options("mc.iterations" = 10000)
-```
-
 ```{r}
 set.seed(2)
 eval_hurdle_bayes <- evaluation(
@@ -312,10 +308,6 @@ eval_hurdle_bayes <- evaluation(
   values = "bookValue", values.audit = "auditValue", prior = TRUE
 )
 eval_hurdle_bayes
-```
-
-```{r echo = FALSE}
-options("mc.iterations" = 2000)
 ```
 
 As shown in the output, the most likely misstatement is estimated to be 17.3 percent, with a 95 percent upper bound of around 26.5 percent. The prior and posterior distribution are be visualized using the `plot()` function in @fig-evaluation-hurdle-beta-partmis.
