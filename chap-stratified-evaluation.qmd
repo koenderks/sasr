@@ -31,10 +31,10 @@ No pooling (`pooling = "none"`, default) assumes no similarities between strata.
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}
 
-The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.
+The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate. Since the posterior distribution is determined via sampling it is important to use `set.seed()` to make the results reproducible.
 
 ```{r}
-set.seed(1) # Important because the posterior distribution is determined via sampling
+set.seed(1)
 result_np <- evaluation(
   materiality = 0.05,
   method = "binomial",

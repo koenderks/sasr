@@ -215,7 +215,7 @@ ceiling(log(1 - 0.95) / log(1 - 0.03))
 In **jfa**, this sample size can be replicated using the following code:
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "binomial")
+plan <- planning(materiality = 0.03, likelihood = "binomial")
 plan
 ```
 
@@ -244,7 +244,7 @@ However, if the number of expected misstatements in the sample is non-zero, it b
 In **jfa**, this can be done by adjusting the `expected` argument in the `planning()` function. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of one expected misstatement in the sample is $n$ = 157.
 
 ```{r}
-plan <- planning(materiality = 0.03, expected = 1, conf.level = 0.95, likelihood = "binomial")
+plan <- planning(materiality = 0.03, expected = 1, likelihood = "binomial")
 ```
 
 Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 156, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
