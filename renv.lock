@@ -566,7 +566,7 @@
       "RemoteRepo": "jfa",
       "RemoteUsername": "koenderks",
       "RemoteRef": "HEAD",
-      "RemoteSha": "fda57b1dacd9557524b62bceedf4ee6c26859001",
+      "RemoteSha": "b30161da5de22715633b8ed7f24d31ba2092c402",
       "Requirements": [
         "BH",
         "R",
@@ -583,7 +583,7 @@
         "stats",
         "truncdist"
       ],
-      "Hash": "2026b2b076fd8d17488d66059fc1b65c"
+      "Hash": "6965dd204654c1f217d491229dc3fced"
     },
     "jquerylib": {
       "Package": "jquerylib",
