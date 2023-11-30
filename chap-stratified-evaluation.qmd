@@ -99,7 +99,7 @@ plot(result_cp, type = "posterior")
 
 ## Partial pooling
 
-Finally, partial pooling (`pooling = "partial"`) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. Assuming a binomial likelihood and a beta($\alpha$, $\beta$) prior on $\mu$, the statistical model applied in the partial pooling approach is the following:
+Finally, partial pooling (`pooling = "partial"`) assumes differences and similarities between strata. This allows the auditor to differentiate between strata, while also sharing information between the strata to reduce uncertainty in the population estimate. Assuming a binomial likelihood and a beta prior for $\theta$, the statistical model applied in the partial pooling approach is the following:
 
 \begin{align}
   k_s &\sim \text{Binomial}(n_s, \theta_s)\\
@@ -209,6 +209,7 @@ The call below evaluates the `allowances` sample using a Bayesian multilevel str
 set.seed(1)
 result_dnpb <- evaluation(
   materiality = 0.05,
+  method = "binomial",
   data = allowances,
   N.units = N.units,
   values = "bookValue",
