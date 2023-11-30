@@ -26,9 +26,9 @@ The most likely misstatement in the population is displayed under `sample estima
 
 ### Hypothesis Testing
 
-Frequentist hypothesis testing is a statistical method that involves evaluating the probability of obtaining a certain sample outcome or more extreme, given a certain assumption or hypothesis. This probability, known as the *p* value, is used to determine the likelihood of the hypothesis being true.
+Frequentist hypothesis testing is a statistical method that involves evaluating the probability of obtaining a certain sample outcome or more extreme, given a certain assumption or hypothesis. This probability, known as the *p*-value, is used to determine the likelihood of the hypothesis being true.
 
-For example, in a typical audit sampling hypothesis test using the binomial distribution, we may be interested in testing the hypothesis that the misstatement is higher or lower than the performance materiality. We would inspect a sample and calculate the *p* value based on the observed frequency of misstatements versus the expected frequency under the assumption of material misstatement. If the *p* value is below the sampling risk $\alpha$, we reject the hypothesis that the population is materially misstated and conclude that it is not materially misstated.
+For example, in a typical audit sampling hypothesis test using the binomial distribution, we may be interested in testing the hypothesis that the misstatement is higher or lower than the performance materiality. We would inspect a sample and calculate the *p*-value based on the observed frequency of misstatements versus the expected frequency under the assumption of material misstatement. If the *p*-value is below the sampling risk $\alpha$, we reject the hypothesis that the population is materially misstated and conclude that it is not materially misstated.
 
 ![Innovating statistical methods and shaping the field of genetics, Sir Ronald Fisher was a pioneer in the world of science. Image available under a [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) license.](img/book_fisher.png){#fig-fisher fig-align="center" width=65%}
 
@@ -40,7 +40,7 @@ Next to estimation, the `binom.test()` function in R can also be used to test if
 binom.test(x = 0, n = 100, p = 0.03, alternative = "less")
 ```
 
-The *p* value is shown under `p-value` and is 0.04755. Since the *p* value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.
+The *p*-value is shown under `p-value` and is 0.04755. Since the *p*-value is lower than the specified sampling risk $\alpha$, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.
 
 ## Bayesian Inference
 
