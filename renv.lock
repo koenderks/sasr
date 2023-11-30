@@ -563,9 +563,9 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "jfa",
       "RemoteUsername": "koenderks",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "jfa",
+      "RemoteRef": "development",
       "RemoteSha": "e31937a18da709f32bf9b16950f320b62dd5a045",
       "Requirements": [
         "BH",
@@ -583,7 +583,7 @@
         "stats",
         "truncdist"
       ],
-      "Hash": "dbd482b78e7c147dae866c96772dea46"
+      "Hash": "2dde3b98d922f8b759524fd0ddfcc447"
     },
     "jquerylib": {
       "Package": "jquerylib",
