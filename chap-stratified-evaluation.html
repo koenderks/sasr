@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result_cp</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span></span>
 <span>  materiality <span class="op">=</span> <span class="fl">0.05</span>,</span>
 <span>  method <span class="op">=</span> <span class="st">"binomial"</span>,</span>
-<span>  n <span class="op">=</span> <span class="va">retailer</span><span class="op">$</span><span class="va">samples</span>,</span>
+<span>  n <span class="op">=</span> <span class="va">retailer</span><span class="op">[[</span><span class="st">"samples"</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>  x <span class="op">=</span> <span class="va">retailer</span><span class="op">[[</span><span class="st">"errors"</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>  N.units <span class="op">=</span> <span class="va">retailer</span><span class="op">[[</span><span class="st">"items"</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>  alternative <span class="op">=</span> <span class="st">"two.sided"</span>,</span>
@@ -589,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section></section><section id="practical-exercises" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="practical-exercises">
 <span class="header-section-number">7.5</span> Practical Exercises</h2>
 <ol type="1">
-<li>Evaluate a stratified sample of <span class="math inline">\(n\)</span> = [30, 40, 50] items containing <span class="math inline">\(k\)</span> = [0, 1, 2] misstatements. Use the classical approach.</li>
+<li>Evaluate a stratified sample of <span class="math inline">\(n_s\)</span> = [30, 40, 50] items containing <span class="math inline">\(k_s\)</span> = [0, 1, 2] misstatements. Use the classical approach.</li>
 </ol>
 <details><summary>
 Click to reveal answer
@@ -982,7 +982,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>result_cp <span class="ot">&lt;-</span> <span class="fu">evaluation</span>(</span>
 <span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>  <span class="at">materiality =</span> <span class="fl">0.05</span>,</span>
 <span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"binomial"</span>,</span>
-<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer<span class="sc">$</span>samples,</span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> retailer[[<span class="st">"samples"</span>]],</span>
 <span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> retailer[[<span class="st">"errors"</span>]],</span>
 <span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">N.units =</span> retailer[[<span class="st">"items"</span>]],</span>
 <span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
@@ -1146,7 +1146,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Exercises</span></span>
 <span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a stratified sample of $n$ = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span> items containing $k$ = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span> misstatements. Use the classical approach.</span>
+<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Evaluate a stratified sample of $n_s$ = <span class="co">[</span><span class="ot">30, 40, 50</span><span class="co">]</span> items containing $k_s$ = <span class="co">[</span><span class="ot">0, 1, 2</span><span class="co">]</span> misstatements. Use the classical approach.</span>
 <span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
 <span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a></span>
