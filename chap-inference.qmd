@@ -81,7 +81,7 @@ After seeing an item from the population, the prior distribution is updated to t
 
 ```{r label="fig-uniform-posterior", fig.cap="The prior and posterior distribution after seeing a sample of $n=30$ items, of which none contained a misstatement. After seeing these data, lower values of the population misstatement now receive a relatively high probability."}
 eval <- evaluation(x = 0, n = 30, method = "binomial", prior = prior)
-plot(eval)
+plot(eval, type = "posterior")
 ```
 
 The most likely value of the population misstatement based on these data is shown as a point above the highest point of the posterior distribution. The uncertainty about the population misstatement can be quantified using a credible interval (shown as a line above the posterior distribution). In this case, the figure above shows a 95 percent credible interval, which contains the true value of the population misstatement with a 95 percent probability.
@@ -90,14 +90,14 @@ After seeing 30 more observations, of which none contained a misstatement, the m
 
 ```{r label="fig-uniform-posterior-2", fig.cap="The prior and posterior distribution after seeing a second sample of $n=30$ items, of which none contained a misstatement. The posterior distribution is relatively less wide than in the previous example."}
 eval <- evaluation(x = 0, n = 30, method = "binomial", prior = eval$posterior)
-plot(eval)
+plot(eval, type = "posterior")
 ```
 
 The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data, see @fig-uniform-posterior-3.
 
 ```{r label="fig-uniform-posterior-3", fig.cap="The prior and posterior distribution after seeing a third sample of a single item which contained a misstatement. Given this item on top of the other items in the sample, the posterior distribution does not peak at zero anymore."}
 eval <- evaluation(x = 1, n = 1, method = "binomial", prior = eval$posterior)
-plot(eval)
+plot(eval, type = "posterior")
 ```
 
 ### Hypothesis Testing
