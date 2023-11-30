@@ -185,7 +185,7 @@ result_dnpc
 In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.26 percent. The precision of the population estimate is 3.54 percent. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-np-estimates below.
 
 ```{r label="fig-stratified-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}
-plot(result_dnp, type = "estimates")
+plot(result_dnpc, type = "estimates")
 ```
 
 ### Bayesian Evaluation
