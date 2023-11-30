@@ -405,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   k_s &amp;\sim \text{Binomial}(n_s, \theta_s)\\
   \theta_s &amp;\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \phi &amp;\sim \text{Beta}(\alpha, \beta)\\
-  \nu &amp;\sim \text{Pareto}(1, \frac{3}{2})\\
+  \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})\\
   \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}\]</span></p>
 <div id="fig-ss-evaluation-2" class="quarto-figure quarto-figure-center anchored">
@@ -431,12 +431,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; data:  115 and 2575</span></span>
 <span><span class="co">#&gt; number of errors = 115, number of samples = 2575, taint = 115, BF₁₀</span></span>
-<span><span class="co">#&gt; = 0.02584</span></span>
+<span><span class="co">#&gt; = 0.084727</span></span>
 <span><span class="co">#&gt; alternative hypothesis: true misstatement rate is not equal to 0.05</span></span>
 <span><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span><span class="co">#&gt;  0.03272652 0.05364029</span></span>
+<span><span class="co">#&gt;  0.03262530 0.05382916</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
-<span><span class="co">#&gt;  0.0437 </span></span>
+<span><span class="co">#&gt;  0.0407 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 4.34 percent, with the 95 percent credible interval ranging from 3.45 percent to 5.33 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. <a href="#fig-stratified-ss-pp-estimates">Figure&nbsp;<span>7.7</span></a> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
@@ -530,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   \theta_s &amp;\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \kappa_s &amp;\sim \text{Normal}(\mu, \sigma)^{+}\\
   \phi &amp;\sim \text{Beta}(\alpha, \beta)\\
-  \nu &amp;\sim \text{Pareto}(1, \frac{3}{2})\\
+  \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})\\
   \mu &amp;\sim \text{Normal}(1, 100)^{+}\\
   \sigma &amp;\sim \text{Normal}(0, 10)^{+}\\
   \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}
@@ -559,9 +559,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; BF₁₀ = Inf</span></span>
 <span><span class="co">#&gt; alternative hypothesis: true misstatement rate is not equal to 0.05</span></span>
 <span><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span><span class="co">#&gt;  0.1572566 0.1756177</span></span>
+<span><span class="co">#&gt;  0.1463332 0.1629692</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
-<span><span class="co">#&gt;  0.1662 </span></span>
+<span><span class="co">#&gt;  0.1527 </span></span>
 <span><span class="co">#&gt; results obtained via method 'poisson' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output shows that the estimate of the misstatement in the population is 15.66 percent, with the 95 percent credible interval ranging from 14.59 percent to 17 percent. The precision of the population estimate is 1.34 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-pp-estimates">Figure&nbsp;<span>7.10</span></a> below.</p>
@@ -1011,7 +1011,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a>  k_s &amp;\sim \text{Binomial}(n_s, \theta_s)<span class="sc">\\</span></span>
 <span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a>  \theta_s &amp;\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)<span class="sc">\\</span></span>
 <span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a>  \phi &amp;\sim \text{Beta}(\alpha, \beta)<span class="sc">\\</span></span>
-<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>  \nu &amp;\sim \text{Pareto}(1, \frac{3}{2})<span class="sc">\\</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>  \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})<span class="sc">\\</span></span>
 <span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>  \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}</span>
 <span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
 <span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a></span>
@@ -1103,7 +1103,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-211"><a href="#cb19-211" aria-hidden="true" tabindex="-1"></a>  \theta_s &amp;\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)<span class="sc">\\</span></span>
 <span id="cb19-212"><a href="#cb19-212" aria-hidden="true" tabindex="-1"></a>  \kappa_s &amp;\sim \text{Normal}(\mu, \sigma)^{+}<span class="sc">\\</span></span>
 <span id="cb19-213"><a href="#cb19-213" aria-hidden="true" tabindex="-1"></a>  \phi &amp;\sim \text{Beta}(\alpha, \beta)<span class="sc">\\</span></span>
-<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a>  \nu &amp;\sim \text{Pareto}(1, \frac{3}{2})<span class="sc">\\</span></span>
+<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a>  \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})<span class="sc">\\</span></span>
 <span id="cb19-215"><a href="#cb19-215" aria-hidden="true" tabindex="-1"></a>  \mu &amp;\sim \text{Normal}(1, 100)^{+}<span class="sc">\\</span></span>
 <span id="cb19-216"><a href="#cb19-216" aria-hidden="true" tabindex="-1"></a>  \sigma &amp;\sim \text{Normal}(0, 10)^{+}<span class="sc">\\</span></span>
 <span id="cb19-217"><a href="#cb19-217" aria-hidden="true" tabindex="-1"></a>  \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}</span>
