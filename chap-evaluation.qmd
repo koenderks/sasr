@@ -174,7 +174,7 @@ After inspecting the items in the sample, each item is annotated with its record
 
 $$t_i = \frac{\text{Book value}_i - \text{Audit value}_i}{\text{Book value}_i}.$$
 
-For instance, if item $i$ is booked for $1,000 but has an audit value of $500 it has a taint of $t_i$ = 0.5. On the other hand, if the item does not contain any misstatement, it has a taint of $t_i$ = 0. Lastly, if the item is fully misstated (i.e., have a book value of $0), its taint is $t_i$ = 1.
+For instance, if item $i$ is booked for $1,000 but has an audit value of $500 it has a taint of $t_i = 0.5$. On the other hand, if the item does not contain any misstatement, it has a taint of $t_i = 0$. Lastly, if the item is fully misstated (i.e., have a book value of $0), its taint is $t_i = 1$.
 
 As is often the case in practice, this audit sample contains many items that are correct (34), some items that are fully misstated (4), and some items that are partially misstated (22). The table below shows the distribution of these misstatements.
 
@@ -192,18 +192,17 @@ Classical (i.e., frequentist) methods solely look to the data for estimating the
 
 #### Binomial Likelihood
 
-The easiest way to analyze partial misstatements is to aggregate them and simply extrapolate the sum of proportional misstatements (i.e., the total taint) to the population. Under the hood, this approach employs a binomial likelihood to estimate the misstatement: $k$ $\sim$ Binomial($n$, $\theta$). In this model, $\theta$ represents the misstatement in the population. This method uses the sum of the taints, denoted as $k$ = $\sum_{i=0}^n t_i$ as the number of misstatements, together with the sample size $n$.
+The easiest way to analyze partial misstatements is to aggregate them and simply extrapolate the sum of proportional misstatements (i.e., the total taint) to the population. Under the hood, this approach employs a binomial likelihood to estimate the misstatement: $k$ $\sim$ Binomial($n$, $\theta$). In this model, $\theta$ represents the misstatement in the population. This method uses the sum of the taints, denoted as $k = \sum_{i=0}^n t_i$ as the number of misstatements, together with the sample size $n$.
 
 While aggregating the taints in this manner may not adhere to a strictly 'clean' modeling approach, as the binomial likelihood is only defined for binary data representing complete misstatements, it proves to be effective in estimating the misstatement [@broeze2006, Chapter 4.3]. Despite its somewhat unconventional nature, the analytical feasibility of this approach makes it easy to use and therefore it is commonly applied in practice.
 
-For the classical binomial likelihood, aggregating the taints can be done using `method = "binomial"` in the `evaluation()` function. Using maximum likelihood estimation, $\theta$ = $\frac{\sum t}{n}$ = $\frac{11.003}{60}$ = 0.18338.
+For the classical binomial likelihood, aggregating the taints can be done using `method = "binomial"` in the `evaluation()` function. Using maximum likelihood estimation, $\theta = \frac{\sum t}{n} = \frac{11.003}{60} = 0.18338$.
 
 ```{r}
-eval_binom <- evaluation(
+evaluation(
   method = "binomial", data = sample, materiality = 0.1,
   values = "bookValue", values.audit = "auditValue"
 )
-print(eval_binom)
 ```
 
 As shown in the output, the most likely misstatement is estimated to be 18.34 percent, with a 95 percent upper bound of 28.52 percent. Note that this approach might be effective (i.e., estimate the misstatement well) but not not very efficient (i.e., has a relatively high upper bound). That is because it does not take into account the information in the distribution of the taints.
@@ -212,13 +211,13 @@ As shown in the output, the most likely misstatement is estimated to be 18.34 pe
 
 The Stringer bound is a commonly used method to evaluate audit samples. It is attractive because it takes into account the magnitude of the taints, thereby resulting in a smaller confidence interval (i.e., a lower upper bound). Note that, because it takes into account the magnitude of the taints [@stringer1963; @bickel1992], the Stringer bound only works if the actual data are present to calculate the taints.
 
-Here we describe te calculation of the typical Stringer bound using the binomial distribution. $p(0; 1-\alpha)$ is the Clopper-Pearson one-sided upper conﬁdence bound for binomial parameter with 0 successes in $n$ trials which, for zero errors, can be calculated by $1 - \alpha^{\frac{1}{n}}$. The more general $p(j; 1-\alpha)$ is the Clopper-Pearson one-sided upper conﬁdence bound for binomial parameter with $j$ successes in $n$ trials [@clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$\% chance that $j$ or less errors are observed in $n$ observations. That means that $p(j; 1-\alpha)$ is the unique solution of:
+Here we describe te calculation of the typical Stringer bound using the binomial distribution. $p(0; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for a binomial parameter with 0 successes in $n$ trials which, for zero errors, can be calculated by $1 - \alpha^{\frac{1}{n}}$. The more general $p(j; 1-\alpha)$ is the Clopper-Pearson one-sided upper confidence bound for binomial parameter with $j$ successes in $n$ trials [@clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$\% chance that $j$ or less errors are observed in $n$ observations. That means that $p(j; 1-\alpha)$ is the unique solution of:
 
 \begin{equation}
-    \sum^n_{k = j + 1} {n \choose k} p^k (1-p)^{n-k} = 1 - \alpha
+    \sum^n_{k = j + 1} {n \choose k} p^k (1-p)^{n-k} = 1 - \alpha.
 \end{equation}
 
-This is equal to the 1 - $\alpha$ percentile of a beta(1 + $i$, $n$ - $i$) distribution [@pearson1948]. The Stringer bound is calculated using the Clopper-Pearson bounds, the number of overstatements $m_+$ and the overstatement taints $z_+$. When calculating the bound, the taints are placed in descending order in the formula as a form of conservatism.
+The outcome of this equation is equal to the $1 - \alpha$ percentile of a beta($1 + i$, $n - i$) distribution [@pearson1948]. The Stringer bound is calculated using the Clopper-Pearson bounds, the number of overstatements $m_+$ and the overstatement taints $z_+$. When calculating the bound, the taints are placed in descending order in the formula as a form of conservatism.
 
 \begin{equation}
     p(0; 1 - \alpha) + \sum_{j=1}^{m_+} \left[ p(j; 1 - \alpha) - p(j-1; 1 - \alpha) \right] \cdot z_{+_j}
@@ -227,11 +226,10 @@ This is equal to the 1 - $\alpha$ percentile of a beta(1 + $i$, $n$ - $i$) distr
 In `jfa`, the Stringer bound can be applied using `method = "stringer"` in the `evaluation()` function. The maximum likelihood estimate for the Stringer bound is the same as that of the binomial likelihood. Note that the Stringer bound can also be calculated using the Poisson or hypergeometric distributions. The **jfa** package supports the Stringer bound in the `evaluation()` function using `method = "stringer.poisson"`, `stringer.binomial` or `stringer.hypergeometric`, depending on the preferred distribution.
 
 ```{r}
-eval_stringer <- evaluation(
+evaluation(
   method = "stringer", data = sample, materiality = 0.1,
   values = "bookValue", values.audit = "auditValue"
 )
-print(eval_stringer)
 ```
 
 As shown in the output, the most likely misstatement is estimated to be 18.34 percent, with a 95 percent upper bound of 27.99 percent. Since the upper bound of the Stringer method is (slightly) lower than that of the binomial likelihood, the Stringer bound is more efficient.
@@ -242,7 +240,7 @@ Efficiency can be further improved by explicitly modeling the probability of a t
 
 In **jfa**, there are two types of models that incorporate a probability of the taint being zero. These are the zero-inflated Poisson model and the hurdle beta model. In the zero-inflated Poisson model, the idea is to incorporate extrazeros into the zeros already present in the Poisson distribution. However, this  idea does not directly apply to a "zero-inflated beta" model. Since the beta likelihood cannot accommodate zeros, there are no zeros to inflate. A more appropriate name for this model is therefore a hurdle (i.e., two-component) beta model. This terminology reflects the idea that the model has to overcome the hurdle of zero values which are not inherently part of the beta likelihood.
 
-The formal specification of the hurdle beta model is given below. Here, $p_{(0, 1]}$ is the probability of a misstatement occurring, regardless of its size. Additionally, $p_{1 | (0, 1]}$ is the conditional probability of a misstatement being a full misstatement. Furthermore, $\phi$ is the average (non-zero-one) taint and $\nu$ is the concentration of these taints. The total misstatement in the population is $\theta$ = $p_{(0, 1)}$ $\cdot$ $\phi$ + $p_{1}$.
+The formal specification of the hurdle beta model is given below. Here, $p_{(0, 1]}$ is the probability of a misstatement occurring, regardless of its size. Additionally, $p_{1 | (0, 1]}$ is the conditional probability of a misstatement being a full misstatement. Furthermore, $\phi$ is the average (non-zero-one) taint and $\nu$ is the concentration of these taints. The total misstatement in the population is $\theta = p_{(0, 1)} \cdot \phi + p_{1}$.
 
 \begin{align*}
 t = \begin{cases}
@@ -254,15 +252,14 @@ t = \begin{cases}
 \end{cases}
 \end{align*}
 
-In `jfa`, this hurdle beta model can be fitted using `method = "hurdle.beta"` in the `evaluation()` function. To estimate the parameters in this model using the maximum likelihood, we use the default option `prior = FALSE`. Using maximum likelihood estimation, $p_{(0, 1]}$ = $\frac{n_t}{n}$ = $\frac{26}{60}$ = 0.433, where $n_t$ is the number of misstatements, and $p_{1 | (0, 1]}$ = $\frac{n_1}{n_t}$ = $\frac{4}{26}$ = 0.1539, where $n_1$ is the number of full misstatements. Furthermore, $\phi$ = $\frac{\sum t - n_1}{n_t - n_1}$ = $\frac{11.003 - 4}{26 - 4}$ = 0.3183. Hence, the most likely misstatement is estimated to be $\theta$ = ($p_{(0, 1]}$ $\cdot$ $(1-p_{1 | (0, 1]})$ $\cdot$ $\phi$) + ($p_{(0, 1]}$ $\cdot$ $p_{1 | (0, 1]}$) = (0.433 $\cdot$ (1 - 0.1539) $\cdot$ 0.3183) + (0.433 $\cdot$ 0.1539) = 0.18338. The upper bound cannot be derived analytically and has to be determined by drawing samples from the fitted model. Hence, it is recommended to call `set.seed()` before executing the following command to make the results reproducible.
+In `jfa`, this hurdle beta model can be fitted using `method = "hurdle.beta"` in the `evaluation()` function. To estimate the parameters in this model using the maximum likelihood, we use the default option `prior = FALSE`. Using maximum likelihood estimation, $p_{(0, 1]} = \frac{n_t}{n} = \frac{26}{60} = 0.433$, where $n_t$ is the number of misstatements, and $p_{1 | (0, 1]} = \frac{n_1}{n_t} = \frac{4}{26} = 0.1539$, where $n_1$ is the number of full misstatements. Furthermore, $\phi = \frac{\sum t - n_1}{n_t - n_1} = \frac{11.003 - 4}{26 - 4} = 0.3183$. Hence, the most likely misstatement is estimated to be $\theta = (p_{(0, 1]} \cdot (1-p_{1 | (0, 1]}) \cdot \phi) + (p_{(0, 1]} \cdot p_{1 | (0, 1]}) = (0.433 \cdot (1 - 0.1539) \cdot 0.3183) + (0.433 \cdot 0.1539) = 0.18338$. The upper bound cannot be derived analytically and has to be determined by drawing samples from the fitted model. Hence, it is recommended to call `set.seed()` before executing the following command to make the results reproducible.
 
 ```{r}
 set.seed(1)
-eval_hurdle <- evaluation(
+evaluation(
   method = "hurdle.beta", data = sample, materiality = 0.1,
   values = "bookValue", values.audit = "auditValue"
 )
-print(eval_hurdle)
 ```
 
 As shown in the output, the most likely misstatement is estimated to be 18.34 percent, with a 95 percent upper bound of around 26.28 percent. Since the upper bound of the hurdle beta model is (slightly) lower than that of the Stringer bound, the hurdle beta model is more efficient.
@@ -275,7 +272,7 @@ In the Bayesian framework, the auditor defines a prior distribution for the para
 
 #### Beta Distribution 
 
-The prior distribution we typically assign in the binomial model is the beta distribution. Just as we handle taints in the binomial likelihood, they can also be aggregated given the prior distribution. The statistical model is $k$ $\sim$ Binomial($n$, $\theta$) and the prior distribution that is used is $\theta$ $\sim$ Beta($\alpha$, $\beta$). Given the data $n$ and $k$ = $\sum t$, the posterior distribution for the default beta(1, 1) prior distribution (`prior = TRUE`) can be derived analytically and is $\theta$ $\sim$ Beta($\alpha$ = 1 + $\sum t$, $\beta$ = 1 + $n$ - $\sum t$).
+The prior distribution we typically assign in the binomial model is the beta distribution. Just as we handle taints in the binomial likelihood, they can also be aggregated given the prior distribution. The statistical model is $k$ $\sim$ Binomial($n$, $\theta$) and the prior distribution that is used is $\theta$ $\sim$ Beta($\alpha$, $\beta$). Given the data $n$ and $k = \sum t$, the posterior distribution for the default beta(1, 1) prior distribution (`prior = TRUE`) can be derived analytically and is $\theta$ $\sim$ Beta($\alpha = 1 + \sum t$, $\beta = 1 + n - \sum t$).
 
 For the binomial likelihood, this Bayesian model can be applied in the `evaluation()` function using `method = "binomial"` in comination with `prior = TRUE`. However, the input for the `prior` argument can also be an object created by the `auditPrior()` function.
 
@@ -284,12 +281,12 @@ eval_beta <- evaluation(
   method = "binomial", data = sample, materiality = 0.1,
   values = "bookValue", values.audit = "auditValue", prior = TRUE
 )
-print(eval_beta)
+eval_beta
 ```
 
 As shown in the output, the most likely misstatement is estimated to be 18.34 percent, with a 95 percent upper bound of 28.1 percent. The prior and posterior distribution are be visualized via the `plot(..., type = "posterior")` command in @fig-evaluation-beta-partmis.
 
-```{r label="fig-evaluation-beta-partmis", fig.cap="The beta prior and posterior distribution on the range [0; 1] after seeing a total taing of 11.003 in the sample of 60 units."}
+```{r label="fig-evaluation-beta-partmis", fig.cap="The beta prior and posterior distribution on the range [0; 1] after seeing a total taint of 11.003 in the sample of 60 units. The total taint is made up of 26 individual full or partial misstatements."}
 plot(eval_beta, type = "posterior")
 ```
 
@@ -299,18 +296,26 @@ It is also possible to fit a Bayesian variant of the hurdle beta model. This ent
 
 This Bayesian hurdle beta model can be applied using `method = "hurdle.beta"` in combination with `prior = TRUE` (or an object created by the `auditPrior()` function) in the `evaluation()` function. In this case, the posterior distribution cannot be determined analytically and must be determined using MCMC sampling, which is why it is recommended to call `set.seed()` before computing the results.
 
+```{r echo = FALSE}
+options("mc.iterations" = 10000)
+```
+
 ```{r}
 set.seed(2)
 eval_hurdle_bayes <- evaluation(
   method = "hurdle.beta", data = sample, materiality = 0.1,
   values = "bookValue", values.audit = "auditValue", prior = TRUE
 )
-print(eval_hurdle_bayes)
+eval_hurdle_bayes
 ```
 
-As shown in the output, the most likely misstatement is estimated to be 19.35 percent, with a 95 percent upper bound of around 26.4 percent. The prior and posterior distribution are be visualized using the `plot()` function in @fig-evaluation-hurdle-beta-partmis.
+```{r echo = FALSE}
+options("mc.iterations" = 2000)
+```
 
-```{r label="fig-evaluation-hurdle-beta-partmis", fig.cap="The hurdle beta prior and posterior distribution on the range [0; 1] after seeing a total taing of 11.003 in the sample of 60 units."}
+As shown in the output, the most likely misstatement is estimated to be 17.3 percent, with a 95 percent upper bound of around 26.5 percent. The prior and posterior distribution are be visualized using the `plot()` function in @fig-evaluation-hurdle-beta-partmis.
+
+```{r label="fig-evaluation-hurdle-beta-partmis", fig.cap="The hurdle beta prior and posterior distribution on the range [0; 1] after seeing a total taint of 11.003 in the sample of 60 units. The total taint is made up of 26 individual full or partial misstatements."}
 plot(eval_hurdle_bayes, type = "posterior")
 ```
 
