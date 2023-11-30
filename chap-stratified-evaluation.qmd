@@ -105,7 +105,7 @@ Finally, partial pooling (`pooling = "partial"`) assumes differences and similar
   k_s &\sim \text{Binomial}(n_s, \theta_s)\\
   \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \phi &\sim \text{Beta}(\alpha, \beta)\\
-  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
+  \nu &\sim \text{Pareto}(50, \frac{3}{2})\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}
 
@@ -197,7 +197,7 @@ Bayesian inference can improve upon the estimates of the classical approach by p
   \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \kappa_s &\sim \text{Normal}(\mu, \sigma)^{+}\\
   \phi &\sim \text{Beta}(\alpha, \beta)\\
-  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
+  \nu &\sim \text{Pareto}(50, \frac{3}{2})\\
   \mu &\sim \text{Normal}(1, 100)^{+}\\
   \sigma &\sim \text{Normal}(0, 10)^{+}\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
