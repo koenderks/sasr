@@ -370,14 +370,14 @@
     },
     "extraDistr": {
       "Package": "extraDistr",
-      "Version": "1.9.1",
+      "Version": "1.10.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "Rcpp"
       ],
-      "Hash": "9e29370a0dd450a33826a4932d3fa16d"
+      "Hash": "49235792aad38657fffef40802f614c5"
     },
     "fansi": {
       "Package": "fansi",
@@ -566,7 +566,7 @@
       "RemoteRepo": "jfa",
       "RemoteUsername": "koenderks",
       "RemoteRef": "HEAD",
-      "RemoteSha": "b30161da5de22715633b8ed7f24d31ba2092c402",
+      "RemoteSha": "5f9468c6ea85e3ebd625cd89abc1eda15fe33a16",
       "Requirements": [
         "BH",
         "R",
@@ -583,7 +583,7 @@
         "stats",
         "truncdist"
       ],
-      "Hash": "6965dd204654c1f217d491229dc3fced"
+      "Hash": "4d3cc6c33010041d3ef5e70c97aa6fe1"
     },
     "jquerylib": {
       "Package": "jquerylib",
@@ -1256,7 +1256,7 @@
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.6.4",
+      "Version": "0.6.5",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1266,7 +1266,7 @@
         "lifecycle",
         "rlang"
       ],
-      "Hash": "266c1ca411266ba8f365fcc726444b87"
+      "Hash": "c03fa420630029418f7e6da3667aac4a"
     },
     "viridisLite": {
       "Package": "viridisLite",
