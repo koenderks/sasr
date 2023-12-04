@@ -198,7 +198,7 @@ Classical (i.e., frequentist) methods solely look to the data for estimating the
 
 The easiest way to analyze partial misstatements is to aggregate them and simply extrapolate the sum of proportional misstatements (i.e., the total taint) to the population. Under the hood, this approach employs a binomial likelihood to estimate the misstatement: *k* $\sim$ Binomial(*n*, $\theta$). In this model, $\theta$ represents the misstatement in the population. This method uses the sum of the taints, denoted as *k* = $\sum_{i=0}^n t_i$ as the number of misstatements, together with the sample size *n*.
 
-While aggregating the taints in this manner may not adhere to a strictly 'clean' modeling approach, as the binomial likelihood is only defined for binary data representing complete misstatements, it proves to be effective in estimating the misstatement [@broeze2006, Chapter 4.3]. Despite its somewhat unconventional nature, the analytical feasibility of this approach makes it easy to use and therefore it is commonly applied in practice.
+While aggregating the taints in this manner may not adhere to a strictly 'clean' modeling approach, as the binomial likelihood is only defined for binary data representing complete misstatements, it proves to be effective in estimating the misstatement [@Broeze2006, Chapter 4.3]. Despite its somewhat unconventional nature, the analytical feasibility of this approach makes it easy to use and therefore it is commonly applied in practice.
 
 For the classical binomial likelihood, aggregating the taints can be done using `method = "binomial"` in the `evaluation()` function. Using maximum likelihood estimation, $\theta$ = $\frac{\sum t}{n}$ = $\frac{11.003}{60}$ = 0.18338.
 
@@ -213,15 +213,15 @@ As shown in the output, the most likely misstatement is estimated to be 18.34 pe
 
 #### Stringer Bound
 
-The Stringer bound is a commonly used method to evaluate audit samples. It is attractive because it takes into account the magnitude of the taints, thereby resulting in a smaller confidence interval (i.e., a lower upper bound). Note that, because it takes into account the magnitude of the taints [@stringer1963; @bickel1992], the Stringer bound only works if the actual data are present to calculate the taints.
+The Stringer bound is a commonly used method to evaluate audit samples. It is attractive because it takes into account the magnitude of the taints, thereby resulting in a smaller confidence interval (i.e., a lower upper bound). Note that, because it takes into account the magnitude of the taints [@Stringer1963; @Bickel1992], the Stringer bound only works if the actual data are present to calculate the taints.
 
-Here we describe te calculation of the typical Stringer bound using the binomial distribution. The quantity *p*(0; 1 $- \alpha$) is the Clopper-Pearson one-sided upper confidence bound for a binomial parameter with 0 successes in *n* trials which, for zero errors, can be calculated as 1 $- \alpha^{\frac{1}{n}}$. The more general *p*(*j*; 1 $- \alpha$) is the Clopper-Pearson one-sided upper confidence bound for binomial parameter with *j* successes in *n* trials [@clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$ percent chance that *j* or less errors are observed in *n* observations. That means that *p*(*j*; 1 $- \alpha$) is the unique solution of:
+Here we describe te calculation of the typical Stringer bound using the binomial distribution. The quantity *p*(0; 1 $- \alpha$) is the Clopper-Pearson one-sided upper confidence bound for a binomial parameter with 0 successes in *n* trials which, for zero errors, can be calculated as 1 $- \alpha^{\frac{1}{n}}$. The more general *p*(*j*; 1 $- \alpha$) is the Clopper-Pearson one-sided upper confidence bound for binomial parameter with *j* successes in *n* trials [@Clopper1934]. In other words, it is the proportion corresponding to a binomial distribution with $\alpha$ percent chance that *j* or less errors are observed in *n* observations. That means that *p*(*j*; 1 $- \alpha$) is the unique solution of:
 
 \begin{equation}
     \sum^n_{k = j + 1} {n \choose k} p^k (1-p)^{n-k} = 1 - \alpha.
 \end{equation}
 
-The outcome of this equation is equal to the 1 $- \alpha$ percentile of a beta(1 + *i*, *n* $-$ *i*) distribution [@pearson1948]. The Stringer bound is calculated using the Clopper-Pearson bounds, the number of overstatements $m_+$ and the overstatement taints $z_+$. When calculating the bound, the taints are placed in descending order in the formula as a form of conservatism.
+The outcome of this equation is equal to the 1 $- \alpha$ percentile of a beta(1 + *i*, *n* $-$ *i*) distribution [@Pearson1948]. The Stringer bound is calculated using the Clopper-Pearson bounds, the number of overstatements $m_+$ and the overstatement taints $z_+$. When calculating the bound, the taints are placed in descending order in the formula as a form of conservatism.
 
 \begin{equation}
     p(0; 1 - \alpha) + \sum_{j=1}^{m_+} \left[ p(j; 1 - \alpha) - p(j-1; 1 - \alpha) \right] \cdot z_{+_j}

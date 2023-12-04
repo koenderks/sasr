@@ -41,7 +41,7 @@ where *k* is the number of misstatements in the sample, *n* is the sample size, 
 
 Let's consider how to use the hypergeometric likelihood to calculate the minimum sample size needed to reduce the sampling risk to an appropriately low level.
 
-### Classical planning
+### Classical Planning
 
 In classical planning using the hypergeometric likelihood, the following statistical model is specified:
 
@@ -382,7 +382,7 @@ where *k* is the number of misstatements in the sample, and $\lambda$ is the ave
 
 Let's consider how to use the Poisson likelihood to calculate the minimum sample size needed to reduce the sampling risk to an appropriately low level.
 
-### Classical planning
+### Classical Planning
 
 In classical planning using the Poisson likelihood, the following statistical model is specified:
 
@@ -565,6 +565,84 @@ The resulting sample size under this prior is *n* = 91, a reduction of 8 samples
 plot(plan)
 ```
 
+## Multi-Stage Sampling
+
+A multi-stage sampling plan, as opposed to a single-stage one, allows for an intermediate evaluation of the sample. In the first stage of a multi-stage sampling plan, the auditor selects an initial sample of size $n_1$. If this sample contains a tolerable number of misstatements (usually 0), the auditor can approve the population. However, if the sample contains more misstatements than the tolerable number, the auditor cannot approve the population. In such a scenario, the initial sample is supplemented with a second sample of $n_2$ items. If this additional sample contains a tolerable number of misstatements, the population can still be approved. If not, the population should either be rejected or a third sample of $n_3$ items should be added.
+
+In the classical (i.e., frequentist) methodology, multi-stage sampling plans can be formulated by decomposing the sampling risk into multiple components. For example, if the auditor initially plans for *k* = 0 misstatements but considers extending the sample if *k* = 1 misstatement is discovered, then the probability of erroneously rejecting the hypothesis of material misstatement comprises:
+
+- $p(k \leq 0 | n_1, \theta_{max})$: The probability of finding *k* = 0 misstatements in the first sample of $n_1$ items; plus
+- $p(k = 1 | n_1, \theta_{max})$: The probability of finding *k* = 1 misstatement in the first sample of $n_1$ items; multiplied by
+- $p(k \leq 0 | n_2, \theta_{max})$: The probability finding *k* = 0 misstatements in the second sample of $n_2$ items.
+
+The sum of these probabilities should be less than or equal to the sampling risk $\alpha$.
+
+\begin{equation}
+  p(k \leq 0 | n_1, \theta_{max}) + p(k = 1 | n_1, \theta_{max}) \cdot p(k \leq 0 | n_2, \theta_{max}) \leq \alpha
+\end{equation}
+
+To constrain the problem, **jfa** sets the number of samples in the extension equal to the initial sample size ($n_1$ = $n_2$ = $n_s$). This implies that the sample size per stage in this two-stage sampling plan is the smallest integer $n_s$ that fulfills the following condition.
+
+\begin{equation}
+  p(k \leq 0 | n_s, \theta_{max}) + p(k = 1 | n_s, \theta_{max}) \cdot p(k \leq 0 | n_s, \theta_{max}) \leq \alpha
+\end{equation}
+
+In **jfa**, multi-stage sampling plans can be calculated by supplying an integer vector of misstatements, after which each stage should be extended, to the `planning()` function via its `expected` argument. For example, the following code calculates the required sample size if the auditor initially plans for *k* = 0 misstatements but considers extending the sample if *k* = 1 misstatement is discovered. The required sample size per stage is $n_s$ = 103, resulting in a total sample size (if both stages are necessary) of *n* = 206.
+
+```{r}
+planning(materiality = 0.03, likelihood = "binomial", expected = c(1, 0))
+```
+
+To confirm this calculation, we need to ensure that that the probability of incorrectly rejecting the null hypothesis of material misstatement, under the binomial distribution, is less than the sampling risk $\alpha$ = 0.05.
+
+```{r}
+p_k0_n1 <- pbinom(q = 0, size = 103, prob = 0.03)
+p_k1_n1 <- dbinom(x = 1, size = 103, prob = 0.03)
+p_k0_n2 <- pbinom(q = 0, size = 103, prob = 0.03)
+p_k0_n1 + p_k1_n1 * p_k0_n2 < 0.05
+```
+
+The minimum sample size per stage, $n_2$ = 103, is only slighly larger than the minimum sample size for the first stage if the auditor opts for a single-stage sampling plan expecting *k* = 0, which is *n* = 99.
+
+```{r}
+planning(materiality = 0.03, likelihood = "binomial", expected = 0)
+```
+
+However, the total sample size, *n* = 206, is considerably larger than the minimum sample size if the auditor opts for a single-stage sampling plan expecting *k* = 1, which is *n* = 157. This illustrates the cost of allowing a sample size extension in the classical approach.
+
+```{r}
+planning(materiality = 0.03, likelihood = "binomial", expected = 1)
+```
+
+As another example, consider a three-stage sampling plan where the auditor plans to extend the sample after finding *k* = 1 misstatement in the first stage, extend further if they find *k* = 1 misstatement in the second stage, and still be able to approve the population if they find *k* = 0 misstatements in the third stage. The required sample size in each of the three stages is $n_s$ = 208.
+
+```{r}
+planning(materiality = 0.03, likelihood = "binomial", expected = c(3, 1, 0))
+```
+
+This can be confirmed by ensuring that the probability of incorrectly rejecting the null hypothesis of the population containing three percent misstatement is below the acceptable sampling risk $\alpha$ = 0.05.
+
+```{r}
+p_k2_n1 <- pbinom(q = 2, size = 208, prob = 0.03)
+p_k3_n1 <- dbinom(x = 3, size = 208, prob = 0.03)
+p_k0_n2 <- pbinom(q = 0, size = 208, prob = 0.03)
+p_k1_n2 <- dbinom(x = 1, size = 208, prob = 0.03)
+p_k0_n3 <- pbinom(q = 0, size = 208, prob = 0.03)
+p_k2_n1 + p_k3_n1 * p_k0_n2 + p_k3_n1 * p_k1_n2 * p_k0_n3 < 0.05
+```
+
+Unlike the previous example, the minimum sample size per stage, $n_s$ = 208, is not larger than the minimum sample size for the first stage if the auditor decides to use a single-stage sampling plan expecting *k* = 2 misstatements, which is also *n* = 208.
+
+```{r}
+planning(materiality = 0.03, likelihood = "binomial", expected = 2)
+```
+
+The Bayesian approach to audit sampling uses the posterior distribution from the observed sample as a prior distribution for a potential second sample in an iterative manner. For this reason, this approach does not affect the sampling risk based on the number of tests [@Rouder2014]. Hence, in the Bayesian framework, it is entirely appropriate to start sampling until there is enough evidence to make a decision [@Edwards1963]. This means that if you find *k* = 1 misstatement in the initial $n_1$ = 99 samples, calculating the sample size extension simply involves computing the single-stage sample size under the expectation of *k* = 1 tolerable misstatement. The total required sample size then becomes *n* = 157, and the sample size extension therefore amounts to $n_2$ = 158 - 99 = 59 items.
+
+```{r}
+planning(materiality = 0.03, expected = 1, prior = TRUE)
+```
+
 ## Prior Distributions
 
 In principle, any distribution that covers the range of $\theta$ can be used as a prior distribution. However, some distributions are more suitable than others. For instance, the beta-binomial, beta and gamma distributions are all commonly used because they are so-called conjugate distributions, that is, they stay in the same family when updated by the data. The **jfa** package provides the ability to construct a prior distribution for audit sampling. More specifically, the `auditPrior()` function is used to specify a prior distribution that can be used as input for the `prior` argument in the `planning()` (and `evaluation()`) function. Below is an enumeration of the several ways that a prior distribution can be constructed using the `auditPrior` function.
@@ -636,7 +714,7 @@ auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
 
 ### Probability of Tolerable Misstatement
 
-You can manually assign prior probabilities to the hypothesis of tolerable  misstatement and the hypotheses of intolerable misstatement [@Derks2021] with `method = 'hyp'` in combination with `p.hmin`. For example, the command below incorporates the information that the hypothesis of tolerable misstatement  has a probability of 60 percent into a beta prior distribution. This method requires that you specify a value for the `materiality`.
+You can manually assign prior probabilities to the hypothesis of tolerable  misstatement and the hypotheses of intolerable misstatement [@Derks2021] with `method = 'hyp'` in combination with `p.hmin`. For example, the command below incorporates the information that the hypothesis of tolerable misstatement has a pror probability of 60 percent into a beta distribution. Naturally, this method requires that you specify a value for the `materiality`.
 
 ```{r}
 auditPrior(method = "hyp", likelihood = "binomial", materiality = 0.05, p.hmin = 0.6)
