@@ -12,7 +12,7 @@ Frequentist statistics, also known as classical statistics, is a statistical fra
 
 ### Estimation
 
-The philosophy behind frequentist parameter estimation is based on the idea that statistical parameters are fixed, but unknown, quantities that can be estimated through the process of repeated sampling. This approach assumes that the sample data represent a random sample from a larger population, and that the sample statistics (i.e., the sample proportion of misstatements) can be used to estimate the corresponding population parameters (i.e., the population misstatement). The key principle of frequentist estimation is that the estimated parameter values should be unbiased and have a certain level of uncertainty, which can be quantified through confidence bounds or intervals.
+The philosophy behind frequentist parameter estimation is based on the idea that statistical parameters are fixed, but unknown, quantities that can be estimated through the process of repeated sampling. This approach assumes that the sample data represent a random sample from the population, and that the sample statistics (i.e., the sample proportion of misstatements) can be used to estimate the corresponding population parameters (i.e., the population misstatement). The key principle of frequentist estimation is that the estimated parameter values should be unbiased and have a certain level of uncertainty, which can be quantified through confidence bounds or intervals.
 
 #### Example
 
@@ -44,13 +44,13 @@ The *p*-value is shown under `p-value` and is 0.04755. Since the *p*-value is lo
 
 ## Bayesian Inference
 
-Bayesian inference is based on the idea that the parameters in a statistical model are not fixed but uncertain. In this approach, the parameter is  onsidered to be a random variable with a certain distribution, and the goal is to use the data and any prior knowledge about the parameter to update our belief about its value. This is typically done using Bayes' theorem, which states that the posterior probability (i.e., the updated belief about the parameter after seeing the data) is equal to the prior probability (i.e., the belief about the parameter before seeing the data) times the likelihood (i.e., the probability of the data given the parameter).
+Bayesian inference [@Jeffreys1939; @Jeffreys1948; @Jeffreys1961] is based on the idea that the parameters in a statistical model are not fixed but uncertain. In this approach, the misstatement in the population is considered to be a random variable with a certain distribution, and the goal is to use the data and any prior knowledge about the parameter to update our belief about its value. This is typically done using Bayes' theorem, which states that the posterior probability (i.e., the updated belief about the parameter after seeing the data) is equal to the prior probability (i.e., the belief about the parameter before seeing the data) times the likelihood (i.e., the probability of the data given the parameter).
 
 \begin{equation}
   \text{Posterior} \propto \text{Likelihood} \times \text{Prior}
 \end{equation}
 
-Bayesian statistics is a more nuanced approach that allows for more efficiency in statistical audit sampling, but it requires the specification of prior distributions that can be difficult to quantify. That is because, especially in an audit, all information that is incorporated into the statistical analysis should be based on audit evidence and should be properly justified.
+Bayesian statistics is a more nuanced approach that allows for more efficiency in statistical audit sampling [@Steele1992], but it requires the specification of prior distributions that can be difficult to quantify. That is because, especially in an audit, all information that is incorporated into the statistical analysis should be based on audit evidence and should be properly justified.
 
 ### Estimation
 
