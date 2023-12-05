@@ -61,7 +61,7 @@ There is a possibility that the results of an audit based on a sample may differ
 1. The first type is when, in a test of controls, the controls are perceived to be more effective than they actually are, or in a test of details, a material misstatement is believed to not exist when it actually does. This type of erroneous conclusion is particularly concerning for auditors because it can compromise the effectiveness of the audit and may lead to an inappropriate audit opinion.
 2. The second type of incorrect conclusion is when, in a test of controls, the controls are perceived to be less effective than they actually are, or in a test of details, a material misstatement is believed to exist when it actually does not. This type of erroneous conclusion impacts the efficiency of the audit as it may require additional work to determine that the initial conclusions were incorrect.
 
-Many audits are performed according to the *audit risk model (ARM)*, which determines that the uncertainty about the auditor's statement as a whole is a factor of three terms: the inherent risk, the control risk, and the detection risk (i.e., the sampling risk). Inherent risk is the risk posed by a misstatement in the auditees financial statements that could be material, before consideration of any related control systems (e.g., computer systems). Control risk is the risk that a material misstatement is not prevented or detected by the auditee's internal control systems. Detection risk is the risk that the auditor will fail to find material misstatements that exist in the auditee's financial statements. The *ARM* is practically useful because, for a given level of audit risk, the tolerable detection risk bears an inverse relation to the other two risks.
+Many audits are performed according to the audit risk model (ARM), which determines that the uncertainty about the auditor's statement as a whole is a factor of three terms: the inherent risk, the control risk, and the detection risk (i.e., the sampling risk). Inherent risk is the risk posed by a misstatement in the auditees financial statements that could be material, before consideration of any related control systems (e.g., computer systems). Control risk is the risk that a material misstatement is not prevented or detected by the auditee's internal control systems. Detection risk is the risk that the auditor will fail to find material misstatements that exist in the auditee's financial statements. The ARM is practically useful because, for a given level of audit risk, the tolerable detection risk bears an inverse relation to the other two risks.
 
 \begin{equation}
   \text{Audit risk} = \text{Inherent risk} \times \text{Control risk} \times \text{Detection risk}
@@ -102,7 +102,7 @@ The table below summarizes the notation used in this book (middle column) and in
 | Expected deviation rate     | $\theta_{exp}$ | `expected`       |
 | Type-I error probability    | $\alpha$       | `1 - conf.level` |
 | Type-II error probability   | $\beta$        |                  |
-| Population size             | *N*            | `N.units`        |
-| Population misstatements    | *K*            |                  |
-| Sample size                 | *n*            | `n`              |
-| Observed misstatements      | *k*            | `x`              |
+| Population size             | $N$            | `N.units`        |
+| Population misstatements    | $K$            |                  |
+| Sample size                 | $n$            | `n`              |
+| Observed misstatements      | $k$            | `x`              |
