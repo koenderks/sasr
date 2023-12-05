@@ -14,7 +14,7 @@ This chapter discusses other R packages that implement statistical techniques fo
 install.packages("MUS")
 ```
 
-To show the diffences and similarities between the use of the **MUS** package and the **jfa** package, consider a scenario in which an auditor wants to plan a monetary unit sample such that the sampling risk can be reduced below 5 percent. The population in this example consists of $N$ = 1000 monetary units and the performance materiality is defined as 10 percent (or 100 monetary units). The auditor plans the sample using an expected misstatement rate of 1 percent (or 10 monetary units).
+To show the diffences and similarities between the use of the **MUS** package and the **jfa** package, consider a scenario in which an auditor wants to plan a monetary unit sample such that the sampling risk can be reduced below five percent. The population in this example consists of $N$ = 1000 monetary units and the performance materiality is defined as ten percent (or 100 monetary units). The auditor plans the sample using an expected misstatement rate of one percent (or 10 monetary units).
 
 To compute this sample size, the **MUS** package provides the `MUS.calc.n.conservative()` function, which takes the performance materiality in monetary units as the `tolerable.error` argument, the expected misstatements in monetary units as the `expected.error` argument, and the total number of unit in the population as the `book.value` argument. The resulting sample size is 37.
 

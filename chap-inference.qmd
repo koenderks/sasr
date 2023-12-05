@@ -16,13 +16,13 @@ The philosophy behind frequentist parameter estimation is based on the idea that
 
 #### Example
 
-As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n$ = 60 items containing $k$ = 0 misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60` and the number of misstatements in the sample `x = 0`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
+As an example, the `binom.test()` function in R can be used to estimate the rate of misstatement in a population given a data sample of $n$ items containing $k$ misstatements. Suppose an auditor audited a sample of $n$ = 60 items containing $k$ = 0 misstatements. To use the `binom.test()` function to perform estimation, the auditor must input the number of items in the sample `n = 60` and the number of misstatements in the sample `x = 0`. The sampling risk is set to 0.05, or five percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.
 
 ```{r}
 binom.test(x = 0, n = 60, alternative = "less", conf.level = 1 - 0.05)
 ```
 
-The most likely misstatement in the population is displayed under `sample estimates` and is 0 percent. The 95 percent upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 4.87 percent.
+The most likely misstatement in the population is displayed under `sample estimates` and is 0, or zero percent. The 95 percent upper confidence bound for the estimate of the population misstatement is displayed under `95 percent confidence interval` and is 4.87 percent.
 
 ### Hypothesis Testing
 
@@ -34,7 +34,7 @@ For example, in a typical audit sampling hypothesis test using the binomial dist
 
 #### Example
 
-Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than 3 percent misstatements. Suppose an auditor obtained a sample of $n$ = 100 items containing $k$ = 0 misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 5 percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. This is the default value and therefore this argument is omitted in the code below. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
+Next to estimation, the `binom.test()` function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than three percent misstatements. Suppose an auditor obtained a sample of $n$ = 100 items containing $k$ = 0 misstatements. To use the `binom.test()` function, the auditor must input the number of items in the sample `n = 100`, the number of misstatements in the sample `x = 0`, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) `p = 0.03`. The sampling risk is set to 0.05, or five percent, which the auditor can provide to the function with `conf.level = 1 - 0.05`. This is the default value and therefore this argument is omitted in the code below. Finally, the auditor can specify the alternative hypothesis as `alternative = "less"` to test if the proportion of misstatements in the sample is less than the hypothesized proportion.
 
 ```{r}
 binom.test(x = 0, n = 100, p = 0.03, alternative = "less")

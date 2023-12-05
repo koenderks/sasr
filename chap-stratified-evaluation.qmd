@@ -142,7 +142,7 @@ plot(result_pp, type = "posterior")
 
 ## Evaluation using data
 
-To illustrate these concepts using data, let's consider the `allowances` dataset included in the package, which contains 3500 financial statement line items with book values (`bookValue`) and, for illustrative purposes, audited (true) values (`auditValue`) across different branches. Since the focus of this chapter is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to 5 percent.
+To illustrate these concepts using data, let's consider the `allowances` dataset included in the package, which contains 3500 financial statement line items with book values (`bookValue`) and, for illustrative purposes, audited (true) values (`auditValue`) across different branches. Since the focus of this chapter is the evaluation stage in the audit, the sample is already indicated in the data set. The performance materiality in this example is set to five percent.
 
 ```{r}
 data(allowances)

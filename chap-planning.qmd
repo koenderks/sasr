@@ -53,14 +53,14 @@ Given the performance materiality $\theta_{max}$, we can compute $K$ and solve f
 
 #### No Expected Misstatements
 
-If the auditor does not expect any misstatements in the sample, they can set $k$ = 0, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03 in a population of $N$ = 1000 items, then $K$ = $\lceil$0.03$\cdot$1000$\rceil$ = 30 and the minimum sample size under the assumption of no expected misstatements in the sample is $n$ = 94.
+If the auditor does not expect any misstatements in the sample, they can set $k$ = 0, which consequently determines how the sample size can be calculated. For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03 in a population of $N$ = 1000 items, then $K$ = $\lceil 0.03 \cdot 1000 \rceil$ = 30 and the minimum sample size under the assumption of no expected misstatements in the sample is $n$ = 94.
 
 ```{r}
 plan <- planning(materiality = 0.03, expected = 0, conf.level = 0.95, likelihood = "hypergeometric", N.units = 1000)
 plan
 ```
 
-The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than 5 percent probability of finding no misstatements, given the assumption that the population misstatement is truly 3 percent. The `dhyper()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given the assumed hypergeometric distribution with $N$ items and $K$ assumed misstatements in the population. By calculating this probability for $n$ = 93, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 94 can be confirmed by checking that 94 is the minimum integer that results in less than five percent probability of finding no misstatements, given the assumption that the population misstatement is truly 0.03, or three percent. The `dhyper()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given the assumed hypergeometric distribution with $N$ items and $K$ assumed misstatements in the population. By calculating this probability for $n$ = 93, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 K <- ceiling(0.03 * 1000)
@@ -100,7 +100,7 @@ plan <- planning(materiality = 0.03, expected = 1, likelihood = "hypergeometric"
 plan
 ```
 
-Once again, the sample size of 147 can be confirmed by checking that 147 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 146, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 147 can be confirmed by checking that 147 is the minimum integer that results in less than five percent probability of finding 0 or 1 misstatements, given the assumption that that the population misstatement is truly three percent. By calculating this probability for $n$ = 146, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dhyper(x = 0:1, m = K, n = 1000 - K, k = 146)) < 0.05
@@ -219,7 +219,7 @@ plan <- planning(materiality = 0.03, likelihood = "binomial")
 plan
 ```
 
-The sample size of 99 can be confirmed by checking that 99 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dbinom()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 98, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 99 can be confirmed by checking that 99 is the minimum integer that results in less than five percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly three percent. The `dbinom()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 98, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 dbinom(x = 0, size = 98, prob = 0.03) < 0.05
@@ -247,7 +247,7 @@ In **jfa**, this can be done by adjusting the `expected` argument in the `planni
 plan <- planning(materiality = 0.03, expected = 1, likelihood = "binomial")
 ```
 
-Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 156, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 157 can be confirmed by checking that 157 is the minimum integer that results in less than five percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly three percent. By calculating this probability for $n$ = 156, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dbinom(x = 0:1, size = 156, prob = 0.03)) < 0.05
@@ -395,7 +395,7 @@ In classical planning using the Poisson likelihood, the following statistical mo
 Given the performance materiality $\theta_{max}$ and the Poisson likelihood, we can solve for the minimum sample size $n$ needed to reduce the sampling risk to an appropriately low level. A useful trick to utilize is that, if we do not expect any misstatements in the sample, the formula for the required sample size reduces to:
 
 \begin{equation}
-  n = \lceil-\frac{\ln(\alpha)}{\theta_{max}}\rceil.
+  n = \lceil - \frac{\ln(\alpha)}{\theta_{max}} \rceil.
 \end{equation}
 
 For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 0.05) for a performance materiality of $\theta_{max}$ = 0.03, then the required sample size under the assumption of zero expected misstatements in the sample is $n$ = 100.
@@ -410,7 +410,7 @@ In **jfa**, this sample size can be replicated using the following code:
 plan <- planning(materiality = 0.03, likelihood = "poisson")
 ```
 
-The sample size of 100 can be confirmed by checking that 100 is the minimum integer that results in less than 5 percent probability of finding 0 misstatements, given the assumption that the population misstatement is truly 3 percent. The `dpois()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 99, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+The sample size of 100 can be confirmed by checking that 100 is the minimum integer that results in less than five percent probability of finding no misstatements, given the assumption that the population misstatement is truly three percent. The `dpois()` function calculates the probability of observing $k$ missatements in a sample of $n$ items given an assumed misstatement probability $\theta_{max}$. By calculating this probability for $n$ = 99, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 dpois(x = 0, lambda = 99 * 0.03) < 0.05
@@ -438,7 +438,7 @@ For example, if we want to achieve an assurance level of 95 percent ($\alpha$ = 
 plan <- planning(materiality = 0.03, expected = 1, likelihood = "poisson")
 ```
 
-Once again, the sample size of 159 can be confirmed by checking that 159 is the minimum integer that results in less than 5 percent probability of finding 0 or 1 misstatements, given the assumption that the population misstatement is truly 3 percent. By calculating this probability for $n$ = 158, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
+Once again, the sample size of 159 can be confirmed by checking that 159 is the minimum integer that results in less than five percent probability of finding $k$ = 0 or $k$ = 1 misstatements, given the assumption that the population misstatement is truly three percent. By calculating this probability for $n$ = 158, we can show that this sample size is insufficient as the relevant probability is higher than the sampling risk $\alpha$.
 
 ```{r}
 sum(dpois(x = 0:1, lambda = 158 * 0.03)) < 0.05
@@ -488,7 +488,7 @@ This relationship between the Poisson likelihood and the gamma distribution is u
 planning(materiality = 0.03, expected = 1.5, likelihood = "poisson")
 ```
 
-The sample size of 185 can be confirmed by checking that 185 is the minimum integer that results in less than 5 percent probability of finding a misstatement rate in the population equal to, or higher than, 3 percent. By calculating this probability for $n$ = 184, we can show that this sample size is insufficient as the relevant upper bound is higher than the performance materiality $\theta_{max}$.
+The sample size of 185 can be confirmed by checking that 185 is the minimum integer that results in less than five percent probability of finding a misstatement rate in the population equal to, or higher than, three percent. By calculating this probability for $n$ = 184, we can show that this sample size is insufficient as the relevant upper bound is higher than the performance materiality $\theta_{max}$.
 
 ```{r}
 qgamma(p = 0.95, shape = 1 + 1.5, rate = 184) < 0.03
@@ -706,7 +706,7 @@ auditPrior(method = "strict", likelihood = "binomial")
 
 ### Impartial Prior
 
-You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement [@Derks2022b] using `method = 'impartial'`. For example, the command below creates an impartial beta prior distribution for a performance materiality of 5 percent. This method requires that you specify a value for the `materiality`.
+You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement [@Derks2022b] using `method = 'impartial'`. For example, the command below creates an impartial beta prior distribution for a performance materiality of five percent. This method requires that you specify a value for the `materiality`.
 
 ```{r}
 auditPrior(method = "impartial", likelihood = "binomial", materiality = 0.05)
@@ -730,7 +730,7 @@ auditPrior(method = "arm", likelihood = "binomial", materiality = 0.05, ir = 0.9
 
 ### Bayesian Risk Assessment Model
 
-You can incorporate information about the mode and the upper bound of the prior distribution using `method = 'bram'`. For example, the code below incorporates the information that the mode of the prior distribution is 1 percent and the upper bound is 60 percent into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
+You can incorporate information about the mode and the upper bound of the prior distribution using `method = 'bram'`. For example, the code below incorporates the information that the mode of the prior distribution is one percent and the upper bound is 60 percent into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
 auditPrior(method = "bram", likelihood = "binomial", materiality = 0.05, expected = 0.01, ub = 0.6)
@@ -766,7 +766,7 @@ This section contains practical examples of how to conduct the planning of stati
 
 ### Audit Risk Model
 
-In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of $N$ = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 0.03 (3 percent), and the audit risk is set to $\alpha$ = 0.05, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was 1 percent, the auditor wants to tolerate 1 percent misstatements in the sample before giving an unqualified opinion on the population.
+In our first example, an auditor is performing tests of details on a population of the auditee. For instance, let's say an auditor is performing an audit on a company's accounts payable transactions. The company has a total of $N$ = 1000 accounts payable transactions for the year. Rather than testing all 1000 transactions, the auditor can choose to test a sample of the transactions. The performance materiality for the payable transactions account is set to $\theta_{max}$ = 0.03 (3 percent), and the audit risk is set to $\alpha$ = 0.05, or 5 percent. Based on the results of last years audit, where the most likely estimate of the misstatement was one percent, the auditor wants to tolerate one percent misstatements in the sample before giving an unqualified opinion on the population.
 
 ```{r}
 ar <- 0.05 # Audit risk
@@ -936,7 +936,7 @@ The specified prior distribution can be visualized using the `plot()` function, 
 plot(prior)
 ```
 
-The performance materiality for this example is set to $\theta_{max}$ = 5 percent, and the audit risk is set to $\alpha$ = 0.05, or 5 percent. By using this prior distribution, the required minimum sample size is $n$ = 50.
+The performance materiality for this example is set to $\theta_{max}$ = 0.05, or five percent, and the audit risk is set to $\alpha$ = 0.05, or five percent. By using this prior distribution, the required minimum sample size is $n$ = 50.
 
 ```{r}
 plan <- planning(materiality = 0.05, likelihood = "binomial", prior = prior)
@@ -1005,7 +1005,7 @@ The nonparametric prior distribution can be visualized using the `plot()` functi
 plot(prior)
 ```
 
-The performance materiality for this example is set to $\theta_{max}$ = 1 percent, and the audit risk is set to $\alpha$ = 0.05, or 5 percent. The minimum sample size can be calculated with the command below and is 108.
+The performance materiality for this example is set to $\theta_{max}$ = 0.01, or one percent, and the audit risk is set to $\alpha$ = 0.05, or five percent. The minimum sample size can be calculated with the command below and is $n$ = 108.
 
 ```{r}
 plan <- planning(materiality = 0.01, likelihood = "binomial", prior = prior)
@@ -1018,7 +1018,7 @@ You can inspect how the prior distribution compares to the expected posterior di
 plot(plan)
 ```
 
-By using a frequentist approach, the required minimum sample size is 299. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 299 - 108 = 191 items.
+By using a frequentist approach, the required minimum sample size is $n$ = 299. Thus, by performing the analytical procedure and incorporating this information into the prior distribution, the auditor has achieved a reduction in sample size of 299 - 108 = 191 items.
 
 ```{r}
 plan <- planning(materiality = 0.01, likelihood = "binomial")
@@ -1027,7 +1027,7 @@ plan
 
 ## Practical Exercises
 
-1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N$ = 100 when applying a performance materiality of 3 percent and a sampling risk of 5 percent. Tolerate no misstatements in the sample.
+1. Use the classical approach with the hypergeometric likelihood to compute the minimum required sample size for a population of $N$ = 100 when applying a performance materiality of three percent and a sampling risk of five percent. Tolerate no misstatements in the sample.
 
 ::: {.content-visible when-format="html"}
 
@@ -1055,7 +1055,7 @@ planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 100, prior
 
 :::
 
-3. Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of 5 percent. Tolerate one misstatement in the sample.
+3. Use the classical approach with the binomial likelihood to compute the minimum required sample size for a performance materiality of 4.4 percent and a sampling risk of five percent. Tolerate one misstatement in the sample.
 
 ::: {.content-visible when-format="html"}
 
@@ -1083,7 +1083,7 @@ planning(materiality = 0.044, likelihood = "binomial", expected = 1, prior = TRU
 
 :::
 
-5. Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of 2 percent and a sampling risk of 5 percent. Use an expected misstatement rate of 0.5 percent.
+5. Use the classical approach with the Poisson likelihood to compute the minimum required sample size for a performance materiality of two percent and a sampling risk of five percent. Use an expected misstatement rate of 0.5 percent.
 
 ::: {.content-visible when-format="html"}
 
@@ -1111,7 +1111,7 @@ planning(materiality = 0.02, expected = 0.005, prior = TRUE)
 
 :::
 
-7. Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of 5 percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80 percent. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of 5 percent and the new sampling risk. Tolerate no misstatements in the sample.
+7. Compute the sampling risk according to the Audit Risk Model for an audit risk percentage of five percent, an inherent risk percentage of 50 percent and an internal control risk percentage of 80 percent. Next, use the classical approach with the binomial likelihood to compute the minimum sample size for a performance materiality of five percent and the new sampling risk. Tolerate no misstatements in the sample.
 
 ::: {.content-visible when-format="html"}
 
