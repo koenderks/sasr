@@ -33,7 +33,7 @@ The probability mass function (PMF) of the hypergeometric distribution is given 
   p(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}},
 \end{equation}
 
-where $k$ is the number of misstatements in the sample, $n$ is the sample size, $N$ is the population size and $K$ is the total number of misstatements assumed in the population. The assumed misstatements $K$ is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size $N$. In the equation below, $\lceil...\rceil$ is the ceiling function, which means that $\lceil$1.2$\rceil$ = 2.
+where $k$ is the number of misstatements in the sample, $n$ is the sample size, $N$ is the population size and $K$ is the total number of misstatements assumed in the population. The assumed misstatements $K$ is a whole number, that is, a linear extrapolation of the maximum tolerable misstatement rate (i.e., the performance materiality) $\theta_{max}$ to the total population of size $N$. In the equation below, $\lceil...\rceil$ is the ceiling function, which means that $\lceil 1.2 \rceil$ = 2.
 
 \begin{equation}
   K = \lceil \theta_{max} N \rceil.
