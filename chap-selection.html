@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>To find which rows are part of the sample, we execute the following code:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>To find which units are part of the sample, we execute the following code:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">units</span> <span class="op">&lt;-</span> <span class="va">start</span> <span class="op">+</span> <span class="va">interval</span> <span class="op">*</span> <span class="fl">0</span><span class="op">:</span><span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</p>
 <div class="cell" data-layout-align="center">
@@ -1246,7 +1246,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-202"><a href="#cb36-202" aria-hidden="true" tabindex="-1"></a>To find which rows are part of the sample, we execute the following code:</span>
 <span id="cb36-203"><a href="#cb36-203" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-206"><a href="#cb36-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-207"><a href="#cb36-207" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">floor</span>(start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb36-207"><a href="#cb36-207" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
 <span id="cb36-208"><a href="#cb36-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-209"><a href="#cb36-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-210"><a href="#cb36-210" aria-hidden="true" tabindex="-1"></a>You can then select the sample from the population using the selected indices stored in <span class="in">`items`</span>.</span>
@@ -1272,7 +1272,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-236"><a href="#cb36-236" aria-hidden="true" tabindex="-1"></a>To find which units are part of the sample, we execute the following code:</span>
 <span id="cb36-237"><a href="#cb36-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-240"><a href="#cb36-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-241"><a href="#cb36-241" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">floor</span>(start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb36-241"><a href="#cb36-241" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> start <span class="sc">+</span> interval <span class="sc">*</span> <span class="dv">0</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb36-242"><a href="#cb36-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-243"><a href="#cb36-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-244"><a href="#cb36-244" aria-hidden="true" tabindex="-1"></a>To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.</span>
