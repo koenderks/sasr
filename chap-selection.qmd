@@ -176,7 +176,7 @@ start <- 5
 To find which rows are part of the sample, we execute the following code:
 
 ```{r}
-items <- floor(start + interval * 0:(n - 1))
+items <- ceiling(start + interval * 0:(n - 1))
 ```
 
 You can then select the sample from the population using the selected indices stored in `items`.
@@ -202,7 +202,7 @@ interval <- sum(BuildIt[["bookValue"]]) / n
 To find which units are part of the sample, we execute the following code:
 
 ```{r}
-units <- floor(start + interval * 0:(n - 1))
+units <- start + interval * 0:(n - 1)
 ```
 
 To obtain which items are part of the sample, we can run the following for loop. Note that this does not take into account whether the book values contain negative values, which should not be included in the cumulative sum below.
