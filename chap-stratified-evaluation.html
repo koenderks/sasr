@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation</title>
@@ -20,7 +20,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -77,18 +77,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 <meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://koenderks.github.io/sasr/img/book_doors.png">
-<meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1536">
+<meta property="og:site_name" content="Statistical Audit Sampling with R">
 <meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
@@ -98,21 +121,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/koenderks/sasr/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Statistical-Audit-Sampling-with-R.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/koenderks/sasr/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Statistical-Audit-Sampling-with-R.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -236,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
@@ -253,10 +276,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#practical-exercises" id="toc-practical-exercises" class="nav-link" data-scroll-target="#practical-exercises"><span class="header-section-number">7.5</span> Practical Exercises</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span id="chap-stratified-evaluation" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -270,12 +293,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header><p>In the realm of audit sampling, the practice of stratified sampling is a powerful technique that enables auditors to enhance the accuracy and representativeness of their samples. Stratified sampling is a strategy employed in audit sampling where the population is divided into distinct subgroups or strata based on relevant characteristics. These characteristics could include geographical location, department, business unit, or any other factor that might influence the distribution of errors or misstatements. By segregating the population into strata, auditors can ensure that their sample captures the diversity of the entire population. This chapter delves into the intricacies of stratified evaluation, exploring three distinct approaches—no pooling, complete pooling, and partial pooling—each with its own advantages and trade-offs. Knowledge of these three approaches is crucial for auditors aiming to optimize their statistical evaluation and generate robust population estimates.</p>
 <p>Consider an example of auditing expense claims in a large organization. Instead of treating all expense claims as a uniform entity, auditors can stratify the claims based on the departments they belong to. This approach ensures that the audit sample includes a representative mix of claims from different departments, thereby reducing the risk of overlooking specific areas of concern. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors.</p>
 <p>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</p>
-<div id="fig-ss-evaluation-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/book_doors.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.1: There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
+<div id="fig-ss-evaluation-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ss-evaluation-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/book_doors.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ss-evaluation-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: There are three approaches to evaluating a stratified audit sample: no pooling, complete pooling and partial pooling. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.
+</figcaption></figure>
 </div>
 <p>As a data example, consider the <code>retailer</code> data set that comes with the package. The organization in question consists of 20 branches across the country. In each of the 20 strata, a component auditor has taken a statistical sample and reported the outcomes to the group auditor.</p>
 <div class="cell" data-layout-align="center">
@@ -325,29 +353,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  0.0598 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'no-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.98 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in combination with <code>type = "estimates</code>, see <a href="#fig-stratified-ss-np-estimates">Figure&nbsp;<span>7.2</span></a>. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</p>
+<p>In this case, the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function shows that the estimate of the misstatement in the population is 5.98 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in combination with <code>type = "estimates</code>, see <a href="#fig-stratified-ss-np-estimates" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-np-estimates" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-estimates-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-np-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Estimates of the population and stratum misstatement under the no pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Posterior distribution plots provide insights into how the prior beliefs evolve after considering the data, showcasing the gradual convergence of information. The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-np-posterior">Figure&nbsp;<span>7.3</span></a>.</p>
+<p>Posterior distribution plots provide insights into how the prior beliefs evolve after considering the data, showcasing the gradual convergence of information. The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-np-posterior" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-np-posterior" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-posterior-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.3: Prior and posterior distribution for the population misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-np-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-np-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-np-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Prior and posterior distribution for the population misstatement under the no pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
 </section><section id="complete-pooling" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="complete-pooling">
 <span class="header-section-number">7.2</span> Complete pooling</h2>
-<p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see <a href="#fig-stratified-ss-cp-estimates">Figure&nbsp;<span>7.4</span></a>. Assuming a binomial likelihood and a beta(<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) prior on <span class="math inline">\(\theta\)</span>, the statistical model applied in the complete pooling approach is the following:</p>
+<p>Complete pooling (<code>pooling = "complete"</code>) assumes no differences between strata. This has the advantages that data from all strata can be aggregated, which decreases the uncertainty in the population estimate compared to the no pooling approach. However, the disadvantage of this approach is that it does not facilitate the distinction between between strata, as every stratum receives the same estimate equal to that of the population, see <a href="#fig-stratified-ss-cp-estimates" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>. Assuming a binomial likelihood and a beta(<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) prior on <span class="math inline">\(\theta\)</span>, the statistical model applied in the complete pooling approach is the following:</p>
 <p><span class="math display">\[\begin{align}
   k &amp;\sim \text{Binomial}(n, \theta)\\
   \theta &amp;\sim \text{Beta}(\alpha, \beta)
@@ -382,19 +418,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-cp-estimates" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.4: Estimates of the population and stratum misstatement under the complete pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-cp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-cp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-cp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: Estimates of the population and stratum misstatement under the complete pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-cp-posterior">Figure&nbsp;<span>7.5</span></a>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-cp-posterior" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-cp-posterior" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.5: Prior and posterior distribution for the population misstatement under the complete pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-cp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-cp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-cp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: Prior and posterior distribution for the population misstatement under the complete pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -408,9 +452,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})\\
   \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}\]</span></p>
-<div id="fig-ss-evaluation-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/book_pyramid.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.6: Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.</figcaption></figure>
+<div id="fig-ss-evaluation-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ss-evaluation-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/book_pyramid.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ss-evaluation-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Partial pooling takes into account the hierarchical structure in the data. Image available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC-BY-NC 4.0</a> license.
+</figcaption></figure>
 </div>
 <p>The call below evaluates the sample using a Bayesian stratified evaluation procedure, in which the stratum estimates are poststratified to arrive at the population estimate.</p>
 <div class="cell" data-layout-align="center">
@@ -439,23 +487,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  0.0417 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output shows that the estimate of the misstatement in the population is 4.17 percent, with the 95 percent credible interval ranging from 3.26 percent to 5.35 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. <a href="#fig-stratified-ss-pp-estimates">Figure&nbsp;<span>7.7</span></a> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
+<p>In this case, the output shows that the estimate of the misstatement in the population is 4.17 percent, with the 95 percent credible interval ranging from 3.26 percent to 5.35 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. <a href="#fig-stratified-ss-pp-estimates" class="quarto-xref">Figure&nbsp;<span>7.7</span></a> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-pp-estimates" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.7: Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-pp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: Estimates of the population and stratum misstatement under the partial pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-pp-posterior">Figure&nbsp;<span>7.8</span></a>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-ss-pp-posterior" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-pp-posterior" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.8: Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-ss-pp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-ss-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Prior and posterior distribution for the population misstatement under the partial pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -512,13 +568,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  0.14723 </span></span>
 <span><span class="co">#&gt; results obtained via method 'poisson' + 'no-pooling'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.28 percent. The precision of the population estimate is 5.73 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-np-estimates">Figure&nbsp;<span>7.9</span></a> below.</p>
+<p>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.28 percent. The precision of the population estimate is 5.73 percent. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-np-estimates" class="quarto-xref">Figure&nbsp;<span>7.9</span></a> below.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpc</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-np-estimates" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-np-estimates-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.9: Estimates of the population and stratum misstatement under the no pooling model.</figcaption></figure>
+<div id="fig-stratified-np-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-np-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.9: Estimates of the population and stratum misstatement under the no pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -565,23 +625,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  0.1536 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output shows that the estimate of the misstatement in the population is 15.36 percent, with the 95 percent credible interval ranging from 14.66 percent to 16.31 percent. The precision of the population estimate is 1.65 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-pp-estimates">Figure&nbsp;<span>7.10</span></a> below.</p>
+<p>The output shows that the estimate of the misstatement in the population is 15.36 percent, with the 95 percent credible interval ranging from 14.66 percent to 16.31 percent. The precision of the population estimate is 1.65 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-pp-estimates" class="quarto-xref">Figure&nbsp;<span>7.10</span></a> below.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpb</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-pp-estimates" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-estimates-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.10: Estimates of the population and stratum misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-pp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.10: Estimates of the population and stratum misstatement under the partial pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-pp-posterior">Figure&nbsp;<span>7.11</span></a>.</p>
+<p>The prior and posterior distribution for the population misstatement can be requested via the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, see <a href="#fig-stratified-pp-posterior" class="quarto-xref">Figure&nbsp;<span>7.11</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpb</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-pp-posterior" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-posterior-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.11: Prior and posterior distribution for the population misstatement under the partial pooling model.</figcaption></figure>
+<div id="fig-stratified-pp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stratified-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.11: Prior and posterior distribution for the population misstatement under the partial pooling model.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -741,10 +809,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -754,8 +821,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -768,6 +844,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -811,6 +1006,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -836,6 +1032,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -895,18 +1117,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./chap-evaluation.html" class="pagination-link">
+      <a href="./chap-evaluation.html" class="pagination-link" aria-label="Evaluation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chap-jasp.html" class="pagination-link">
+      <a href="./chap-jasp.html" class="pagination-link" aria-label="JASP for Audit">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="in">source("utils.R", local = TRUE)</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Stratified Evaluation {#chap-stratified-evaluation}</span></span>
@@ -958,13 +1180,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>In this case, the output of the <span class="in">`summary()`</span> function shows that the estimate of the misstatement in the population is 5.98 percent, with the 95 percent credible interval ranging from 4.28 percent to 8.22 percent. The stratum estimates can be visualized using the <span class="in">`plot()`</span> function in combination with <span class="in">`type = "estimates`</span>, see @fig-stratified-ss-np-estimates. Estimation plots display stratum estimates and their uncertainties, revealing the differences and overlaps between strata. As the figure shows, the stratum estimates differ substantially from each other but are relatively uncertain.</span>
 <span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_np, type = "estimates")</span></span>
 <span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>Posterior distribution plots provide insights into how the prior beliefs evolve after considering the data, showcasing the gradual convergence of information. The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-np-posterior.</span>
 <span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-np-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the no pooling model."}</span></span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_np, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_np, type = "posterior")</span></span>
 <span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete pooling</span></span>
@@ -995,13 +1217,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>For example, the output of the <span class="in">`summary()`</span> function shows that the estimate of the misstatement in the population is 4.47 percent, with the 95 percent credible interval ranging from 3.74 percent to 5.34 percent. Since the data is aggregated, the stratum estimates contain relatively little uncertainty. However, the probability of misstatement in stratum 20 (many misstatements) under this assumption is the same as that of stratum 15 (few misstatements).</span>
 <span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-cp-estimates", fig.cap="Estimates of the population and stratum misstatement under the complete pooling model."}</span></span>
-<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_cp, type = "estimates")</span></span>
 <span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-cp-posterior.</span>
 <span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-cp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the complete pooling model."}</span></span>
-<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_cp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_cp, type = "posterior")</span></span>
 <span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Partial pooling</span></span>
@@ -1038,13 +1260,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 4.17 percent, with the 95 percent credible interval ranging from 3.26 percent to 5.35 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</span>
 <span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
-<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_pp, type = "estimates")</span></span>
 <span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-ss-pp-posterior.</span>
 <span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-ss-pp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
-<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_pp, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_pp, type = "posterior")</span></span>
 <span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evaluation using data</span></span>
@@ -1092,7 +1314,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a>In this case, the output shows that the estimate of the misstatement in the population is 14.72 percent, with the 95 percent confidence interval ranging from 12.55 percent to 18.28 percent. The precision of the population estimate is 5.73 percent. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in @fig-stratified-np-estimates below.</span>
 <span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-np-estimates", fig.cap="Estimates of the population and stratum misstatement under the no pooling model."}</span></span>
-<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_dnpc, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_dnpc, type = "estimates")</span></span>
 <span id="cb19-203"><a href="#cb19-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bayesian Evaluation</span></span>
@@ -1133,13 +1355,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-242"><a href="#cb19-242" aria-hidden="true" tabindex="-1"></a>The output shows that the estimate of the misstatement in the population is 15.36 percent, with the 95 percent credible interval ranging from 14.66 percent to 16.31 percent. The precision of the population estimate is 1.65 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <span class="in">`summary()`</span> function and are visualized in @fig-stratified-pp-estimates below.</span>
 <span id="cb19-243"><a href="#cb19-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-244"><a href="#cb19-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}</span></span>
-<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_dnpb, <span class="at">type =</span> <span class="st">"estimates"</span>)</span>
+<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_dnpb, type = "estimates")</span></span>
 <span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a>The prior and posterior distribution for the population misstatement can be requested via the <span class="in">`plot()`</span> function, see @fig-stratified-pp-posterior.</span>
 <span id="cb19-249"><a href="#cb19-249" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-250"><a href="#cb19-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-stratified-pp-posterior", fig.cap="Prior and posterior distribution for the population misstatement under the partial pooling model."}</span></span>
-<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result_dnpb, <span class="at">type =</span> <span class="st">"posterior"</span>)</span>
+<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a><span class="in">plot(result_dnpb, type = "posterior")</span></span>
 <span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>Stratified evaluation is a pivotal tool in an auditor's arsenal, allowing for the analysis of diverse populations with varying characteristics. By embracing the principles of no pooling, complete pooling, and partial pooling, auditors can tailor their evaluation strategies to balance independence and shared information, resulting in more accurate and reliable population estimates. The combination of these approaches with real-world data offers auditors a comprehensive toolkit to enhance the quality and efficiency of their evaluations.</span>
@@ -1150,13 +1372,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
 <span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;</span></span>
-<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;summary&gt;</span>Click to reveal answer<span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
+<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Click to reveal answer&lt;/summary&gt;</span>
 <span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a>To evaluate a stratified sample using the classical approach, the <span class="in">`evaluation()`</span> function can be used with the default arguments.</span>
 <span id="cb19-267"><a href="#cb19-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-268"><a href="#cb19-268" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="at">method =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a>&lt;/details&gt;</span>
 <span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-272"><a href="#cb19-272" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb19-273"><a href="#cb19-273" aria-hidden="true" tabindex="-1"></a></span>
@@ -1182,8 +1404,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/koenderks/sasr/edit/master/chap-stratified-evaluation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 

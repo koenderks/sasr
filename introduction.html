@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>Statistical Audit Sampling with R - Getting Started</title>
@@ -20,7 +20,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -56,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -96,6 +97,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -103,10 +105,7 @@ div.csl-indent {
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <meta property="og:title" content="Statistical Audit Sampling with R - Getting Started">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://koenderks.github.io/sasr/img/rstudio.png">
-<meta property="og:site-name" content="Statistical Audit Sampling with R">
-<meta property="og:image:height" content="1656">
-<meta property="og:image:width" content="3022">
+<meta property="og:site_name" content="Statistical Audit Sampling with R">
 <meta name="twitter:title" content="Statistical Audit Sampling with R - Getting Started">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
@@ -116,21 +115,21 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introduction.html">Getting Started</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introduction.html">Getting Started</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/koenderks/sasr/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Statistical-Audit-Sampling-with-R.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/koenderks/sasr/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Statistical-Audit-Sampling-with-R.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -254,7 +253,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
@@ -270,7 +269,7 @@ div.csl-indent {
 </li>
   <li><a href="#running-r-code" id="toc-running-r-code" class="nav-link" data-scroll-target="#running-r-code">Running R Code</a></li>
   <li><a href="#colophon" id="toc-colophon" class="nav-link" data-scroll-target="#colophon">Colophon</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/koenderks/sasr/edit/master/introduction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/koenderks/sasr/edit/master/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -287,6 +286,7 @@ div.csl-indent {
   </div>
   
 
+
 </header><p>This book is intended for auditors that want to obtain the knowledge and skill to utilize statistical audit sampling in their practice using the R programming language. It covers an array of traditional and innovative statistical tools that are available to auditors, explaining their function, the underlying assumptions, and when they are best utilized. In addition, it offers practical guidance on integrating advanced statistical sampling methodology into audit practice and demonstrates its value through real-world case studies. It is our hope that this book will serve as a valuable resource for auditors looking to effectively and efficiently utilize statistical methods in their practice.</p>
 <p>The aim of this book is to address the need for a clear and transparent explanation of the use of statistical sampling methodology in audit practice. Most guidance about audit sampling (e.g., <span class="citation" data-cites="AICPA-A">American Institute of Certified Public Accountants (AICPA) (<a href="references.html#ref-AICPA-A" role="doc-biblioref">2016a</a>)</span>; <span class="citation" data-cites="AICPA-C">American Institute of Certified Public Accountants (AICPA) (<a href="references.html#ref-AICPA-C" role="doc-biblioref">2016b</a>)</span>) lacks sufficient detail to allow for full transparency or a deep understanding. Additionally, the implementation of statistical sampling methodology in practice is often even less transparent, as theory and calculations are hidden from auditors in commercial closed-source tools or in Excel sheets from audit guides used internally by audit firms (one notable exception is <span class="citation" data-cites="Stewart2012">Stewart (<a href="references.html#ref-Stewart2012" role="doc-biblioref">2012</a>)</span>). Thus, while attempting to comprehend the theoretical aspects of statistical audit sampling, auditors may encounter numerous relevant questions that are left unanswered by these tools. This book aims to clarify the statistical methodology utilized in practice, thereby empowering auditors through a comprehensive explanation.</p>
 <p>This book discusses two philosphies to statistical audit sampling: the classical (frequentist) philosophy and the Bayesian philosophy. By contrasting these two approaches, the book elucidates the statistical theory that underlies commonly used audit sampling techniques and illustrates how to utilize these techniques in accordance with international auditing standards. Additionally, the book demonstrates the use of Bayesian statistical methods in auditing practice and highlights the practical advantages that these methods can offer for auditors.</p>
@@ -300,48 +300,67 @@ div.csl-indent {
 </section><section id="rstudio" class="level3"><h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
 <p>RStudio is an Integrated Development Environment (IDE) specifically designed for the R programming language. It can be downloaded and installed from the official website (<a href="https://posit.co/downloads/"><code>https://posit.co/downloads/</code></a>). RStudio undergoes updates several times a year, and users will be notified when a new version becomes available. It is recommended to regularly upgrade RStudio to access the latest features. Please ensure that you have at least RStudio <code>1.0.0</code> installed for the purposes of this book.</p>
 <p>When you start RStudio, you’ll see three important regions in the interface: the console, the environment and the output panel.</p>
-<div id="fig-rstudio" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/rstudio.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: The RStudio IDE with the three important regions: the console, the environment, and the output panel. The console, located in the left panel, allows users to execute R code. The environment, displayed in the top right panel, keeps track of the variables and objects created in the session. The output panel, located in the bottom right, shows the generated plots.</figcaption></figure>
+<div id="fig-rstudio" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/rstudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The RStudio IDE with the three important regions: the console, the environment, and the output panel. The console, located in the left panel, allows users to execute R code. The environment, displayed in the top right panel, keeps track of the variables and objects created in the session. The output panel, located in the bottom right, shows the generated plots.
+</figcaption></figure>
 </div>
 <p>The console in the left panel allows you to run R code. To execute some R code, type the code in the console (e.g., <code>1 + 1</code>) and press Enter. When you stored the results of a computation in a new variable (e.g., <code>x &lt;- 1 + 1</code>), the variable is displayed in the environment in the top right panel. The environment allows you to keep track of the objects you have created during your R session. Finally, any plots that you request are displayed in the output panel in the bottom right.</p>
 </section><section id="jfa" class="level3"><h3 class="anchored" data-anchor-id="jfa">jfa</h3>
 <p>R has many packages and libraries that extend its capabilities and provide additional functions and tools for data analysis and visualization. R packages are the core building blocks of reproducible R code. They consist of reusable functions, the documentation describing how to utilize them, and sample data. Some popular packages include <code>dplyr</code> for data manipulation, <code>ggplot2</code> for data visualization, and <code>caret</code> for machine learning. If you want to learn more about creating your own R package, <span class="citation" data-cites="Wickam2022">Wickam &amp; Brian (<a href="references.html#ref-Wickam2022" role="doc-biblioref">2022</a>)</span> provide an excellent first-hand description of the principles and practices of creating R packages.</p>
 <div id="fig-packages" class="quarto-layout-panel">
-<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: center;">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-packages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 30.0%;justify-content: center;">
-<div id="fig-dplyr-logo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/logo_dplyr.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
-<figcaption class="figure-caption">(a) <code>dplyr</code></figcaption></figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-packages" style="flex-basis: 30.0%;justify-content: flex-start;">
+<div id="fig-dplyr-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-dplyr-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/logo_dplyr.png" class="img-fluid figure-img" data-ref-parent="fig-packages">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-dplyr-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) <code>dplyr</code>
+</figcaption></figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 30.0%;justify-content: center;">
-<div id="fig-ggplot2-logo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/logo_ggplot2.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
-<figcaption class="figure-caption">(b) <code>ggplot2</code></figcaption></figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-packages" style="flex-basis: 30.0%;justify-content: flex-start;">
+<div id="fig-ggplot2-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-ggplot2-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/logo_ggplot2.png" class="img-fluid figure-img" data-ref-parent="fig-packages">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-ggplot2-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) <code>ggplot2</code>
+</figcaption></figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 30.0%;justify-content: center;">
-<div id="fig-jfa-logo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/logo_jfa.png" class="img-fluid figure-img" data-ref-parent="fig-packages"></p>
-<figcaption class="figure-caption">(c) <code>jfa</code></figcaption></figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-packages" style="flex-basis: 30.0%;justify-content: flex-start;">
+<div id="fig-jfa-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-jfa-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/logo_jfa.png" class="img-fluid figure-img" data-ref-parent="fig-packages">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-jfa-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) <code>jfa</code>
+</figcaption></figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.5%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enhance its capabilities by providing additional features. For example, the (a) <code>dplyr</code> package assists with data manipulation, the (b) <code>ggplot2</code> package supports data visualization, and the (c) <code>jfa</code> package facilitates statistical auditing.</figcaption><p></p>
-</figure>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-packages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enhance its capabilities by providing additional features. For example, the (a) <code>dplyr</code> package assists with data manipulation, the (b) <code>ggplot2</code> package supports data visualization, and the (c) <code>jfa</code> package facilitates statistical auditing.
+</figcaption></figure>
 </div>
 <p>To illustrate its concepts and ideas, this book uses the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function by providing the package name in quotes. Thus, before running the examples in this book, you should install the <strong>jfa</strong> package by running the following command in R:</p>
 <div class="cell" data-layout-align="center">
@@ -383,8 +402,8 @@ div.csl-indent {
 <span><span class="co">#&gt;  collate  C.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2024-01-24</span></span>
-<span><span class="co">#&gt;  pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2024-02-16</span></span>
+<span><span class="co">#&gt;  pandoc   3.1.11 @ /opt/quarto/bin/tools/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ─ Packages ────────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt;  ! package      * version date (UTC) lib source</span></span>
@@ -449,7 +468,7 @@ div.csl-indent {
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-AICPA-A" class="csl-entry" role="listitem">
 American Institute of Certified Public Accountants (AICPA). (2016a). Appendix <span>A</span>: Attributes statistical sampling tables. In <em>Audit guide: Audit sampling</em>. <a href="https://doi.org/10.1002/9781119448617.app1">https://doi.org/10.1002/9781119448617.app1</a>
 </div>
@@ -593,10 +612,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -606,8 +624,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -620,6 +647,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -663,6 +809,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -688,6 +835,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -747,18 +920,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chap-foundations.html" class="pagination-link">
+      <a href="./chap-foundations.html" class="pagination-link" aria-label="Audit Sampling">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Audit Sampling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in">source("utils.R", local = TRUE)</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Getting Started {.unnumbered}</span></span>
@@ -811,19 +984,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>To illustrate its concepts and ideas, this book uses the **jfa** package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the `install.packages()` function by providing the package name in quotes. Thus, before running the examples in this book, you should install the **jfa** package by running the following command in R:</span>
 <span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jfa"</span>)</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("jfa")</span></span>
 <span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <span class="in">`library()`</span> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you should load the **jfa** package with:</span>
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jfa)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">library(jfa)</span></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>R packages are updated regularly. To update a package in your R library you should call <span class="in">`update.packages()`</span> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the **jfa** package, you can update it by running:</span>
 <span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"jfa"</span>)</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="in">update.packages("jfa")</span></span>
 <span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>If you want to look at the source code of the **jfa** package, see the package website at <span class="co">[</span><span class="ot">`https://koenderks.github.io/jfa`</span><span class="co">](https://koenderks.github.io/jfa/)</span>.</span>
@@ -839,8 +1012,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>When executing the same code within your local console, the resulting output will appear as follows:</span>
 <span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; 1 + 1</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">[1] 2</span></span>
 <span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (<span class="in">`&gt;`</span>) while the book does not display this symbol. Secondly, the output in the book is commented out with <span class="in">`#&gt;`</span>, while in a console it is displayed directly after the inputted code. Hence, those working with an electronic version of the book can directly copy code from the book to the console.</span>
@@ -865,8 +1038,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/koenderks/sasr/edit/master/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/koenderks/sasr/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 
