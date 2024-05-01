@@ -309,7 +309,7 @@ eval_hurdle_bayes <- evaluation(
 eval_hurdle_bayes
 ```
 
-As shown in the output, the most likely misstatement is estimated to be 17.3 percent, with a 95 percent upper bound of around 26.5 percent. The prior and posterior distribution can be visualized using the `plot()` function in @fig-evaluation-hurdle-beta-partmis.
+As shown in the output, the most likely misstatement is estimated to be 17.73 percent, with a 95 percent upper bound of around 26.51 percent. The prior and posterior distribution can be visualized using the `plot()` function in @fig-evaluation-hurdle-beta-partmis.
 
 ```{r label="fig-evaluation-hurdle-beta-partmis", fig.cap="The hurdle beta prior and posterior distribution on the range [0; 1] after seeing a total taint of 11.003 in the sample of 60 units. The total taint is made up of 26 individual full or partial misstatements."}
 plot(eval_hurdle_bayes, type = "posterior")
