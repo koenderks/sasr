@@ -40,4 +40,3 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ env.GITHUB_PAT }}
-
