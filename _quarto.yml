@@ -104,8 +104,6 @@ format:
           \newunicodechar{μ}{$\mu$}
           \newunicodechar{σ}{$\sigma$}
           \newunicodechar{≠}{$\neq$}
-          \usepackage{libertinus}
-          \usepackage[T1]{fontenc}
     keep-tex: false
     classoption: [10pt,twoside]
     pagestyle: headings
