@@ -104,6 +104,7 @@ format:
           \newunicodechar{μ}{$\mu$}
           \newunicodechar{σ}{$\sigma$}
           \newunicodechar{≠}{$\neq$}
+          \setmainfont{LibertinusSerif}[UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic, Extension = .otf]
     keep-tex: false
     classoption: [10pt,twoside]
     pagestyle: headings
