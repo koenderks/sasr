@@ -118,7 +118,6 @@ format:
       - includehead
       - includefoot
     fontfamily: libertinus
-    mainfont: libertinus
     toc-title: Contents
     toc-depth: 2
     toc: true
