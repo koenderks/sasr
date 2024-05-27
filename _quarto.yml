@@ -117,7 +117,7 @@ format:
       - paperheight=254mm
       - includehead
       - includefoot
-    fontfamily: libertinus
+    # fontfamily: libertinus
     toc-title: Contents
     toc-depth: 2
     toc: true
