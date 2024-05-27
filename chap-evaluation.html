@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>Statistical Audit Sampling with R - 6&nbsp; Evaluation</title>
@@ -731,7 +731,7 @@ Figure&nbsp;6.4: The beta prior and posterior distribution on the range [0; 1] a
 <span><span class="co">#&gt;  0.1773 </span></span>
 <span><span class="co">#&gt; results obtained via method 'hurdle.beta' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>As shown in the output, the most likely misstatement is estimated to be 17.3 percent, with a 95 percent upper bound of around 26.5 percent. The prior and posterior distribution can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in <a href="#fig-evaluation-hurdle-beta-partmis" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>.</p>
+<p>As shown in the output, the most likely misstatement is estimated to be 17.73 percent, with a 95 percent upper bound of around 26.51 percent. The prior and posterior distribution can be visualized using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function in <a href="#fig-evaluation-hurdle-beta-partmis" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval_hurdle_bayes</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1574,7 +1574,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb26-349"><a href="#cb26-349" aria-hidden="true" tabindex="-1"></a>eval_hurdle_bayes</span>
 <span id="cb26-350"><a href="#cb26-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb26-351"><a href="#cb26-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-352"><a href="#cb26-352" aria-hidden="true" tabindex="-1"></a>As shown in the output, the most likely misstatement is estimated to be 17.3 percent, with a 95 percent upper bound of around 26.5 percent. The prior and posterior distribution can be visualized using the <span class="in">`plot()`</span> function in @fig-evaluation-hurdle-beta-partmis.</span>
+<span id="cb26-352"><a href="#cb26-352" aria-hidden="true" tabindex="-1"></a>As shown in the output, the most likely misstatement is estimated to be 17.73 percent, with a 95 percent upper bound of around 26.51 percent. The prior and posterior distribution can be visualized using the <span class="in">`plot()`</span> function in @fig-evaluation-hurdle-beta-partmis.</span>
 <span id="cb26-353"><a href="#cb26-353" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-354"><a href="#cb26-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{r label="fig-evaluation-hurdle-beta-partmis", fig.cap="The hurdle beta prior and posterior distribution on the range [0; 1] after seeing a total taint of 11.003 in the sample of 60 units. The total taint is made up of 26 individual full or partial misstatements."}</span></span>
 <span id="cb26-355"><a href="#cb26-355" aria-hidden="true" tabindex="-1"></a><span class="in">plot(eval_hurdle_bayes, type = "posterior")</span></span>
