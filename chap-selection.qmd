@@ -115,7 +115,7 @@ When we are performing record sampling, we have to consider that each item in th
 
 ```{r}
 set.seed(1)
-items <- sample.int(nrow(BuildIt), size = n, prob = BuildIt[["bookValue"]])
+items <- sample.int(nrow(BuildIt), size = n, replace = TRUE, prob = BuildIt[["bookValue"]])
 items
 ```
 
