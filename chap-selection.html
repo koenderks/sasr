@@ -449,24 +449,24 @@ Figure&nbsp;5.1: Illustration of random sampling, which involves selecting a sub
 <p>When we are performing record sampling, we have to consider that each item in the population consists of multiple smaller items (i.e., the monetary units), which means that items with a higher book value should get a higher probability of being selected. The <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function faciliates weighted selection via the <code>prob</code> argument, which takes a vector of values and, using normalization, computes the weights for selection. The call below is similar to before, but in this case we use the book values in the column <code>bookValues</code> of the data set to weigh the items and store the result in a variable <code>items</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample.int</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">BuildIt</span><span class="op">[[</span><span class="st">"bookValue"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample.int</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BuildIt</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, prob <span class="op">=</span> <span class="va">BuildIt</span><span class="op">[[</span><span class="st">"bookValue"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">items</span></span>
-<span><span class="co">#&gt;  [1] 2174 2928 1627  700  147 3056 3118 2045 1311  716</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt;  [1] 1017  679 2856  471  270 2642  597 2208  330 1615</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then select the sample from the population using the selected indices stored in <code>items</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BuildIt</span><span class="op">[</span><span class="va">items</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;         ID bookValue auditValue</span></span>
-<span><span class="co">#&gt; 2174 90260    625.98     625.98</span></span>
-<span><span class="co">#&gt; 2928 68595    548.21     548.21</span></span>
-<span><span class="co">#&gt; 1627 98301    429.07     429.07</span></span>
-<span><span class="co">#&gt; 700  29683    239.26     239.26</span></span>
-<span><span class="co">#&gt; 147  72906    677.62     677.62</span></span>
-<span><span class="co">#&gt; 3056 86317    246.22     246.22</span></span>
-<span><span class="co">#&gt; 3118 14548    204.63     204.63</span></span>
-<span><span class="co">#&gt; 2045 45416    381.05     381.05</span></span>
-<span><span class="co">#&gt; 1311 91955    398.96     398.96</span></span>
-<span><span class="co">#&gt; 716  12815    873.43     873.43</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; 1017 50755    618.24     618.24</span></span>
+<span><span class="co">#&gt; 679  20237    669.75     669.75</span></span>
+<span><span class="co">#&gt; 2856 21836    820.86     820.86</span></span>
+<span><span class="co">#&gt; 471  84375    824.66     824.66</span></span>
+<span><span class="co">#&gt; 270  82033    352.75     352.75</span></span>
+<span><span class="co">#&gt; 2642 49666    601.71     601.71</span></span>
+<span><span class="co">#&gt; 597  93226    376.55     376.55</span></span>
+<span><span class="co">#&gt; 2208 61540    963.53     963.53</span></span>
+<span><span class="co">#&gt; 330  30774    508.26     508.26</span></span>
+<span><span class="co">#&gt; 1615 42859    598.07     598.07</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sample can be reproduced in <strong>jfa</strong> via the <code>selection()</code> function. The argument <code>units</code> allows you to specify that you want to use monetary unit sampling (<code>units = "values"</code>), while the <code>method</code> argument enables you to specify that you are performing random sampling (<code>method = 'random'</code>). Note that you should provide the name of the column in the data that contains the monetary units via the <code>values</code> argument.</p>
 <div class="cell" data-layout-align="center">
@@ -1397,7 +1397,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-131"><a href="#cb36-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-134"><a href="#cb36-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb36-135"><a href="#cb36-135" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb36-136"><a href="#cb36-136" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="fu">nrow</span>(BuildIt), <span class="at">size =</span> n, <span class="at">prob =</span> BuildIt[[<span class="st">"bookValue"</span>]])</span>
+<span id="cb36-136"><a href="#cb36-136" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="fu">nrow</span>(BuildIt), <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> BuildIt[[<span class="st">"bookValue"</span>]])</span>
 <span id="cb36-137"><a href="#cb36-137" aria-hidden="true" tabindex="-1"></a>items</span>
 <span id="cb36-138"><a href="#cb36-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-139"><a href="#cb36-139" aria-hidden="true" tabindex="-1"></a></span>
