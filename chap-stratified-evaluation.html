@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.557">
+<meta name="generator" content="quarto-1.5.53">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation</title>
+<title>7&nbsp; Stratified Evaluation – Statistical Audit Sampling with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,10 +109,10 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
+<meta property="og:title" content="7&nbsp; Stratified Evaluation – Statistical Audit Sampling with R">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 7&nbsp; Stratified Evaluation">
+<meta name="twitter:title" content="7&nbsp; Stratified Evaluation – Statistical Audit Sampling with R">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -121,11 +121,11 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-workflow.html">Application</a></li><li class="breadcrumb-item"><a href="./chap-stratified-evaluation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stratified Evaluation</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
@@ -160,9 +160,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -183,9 +183,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Application</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,9 +224,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Software</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -297,7 +297,7 @@ window.Quarto = {
 </header><p>In the realm of audit sampling, the practice of stratified sampling is a powerful technique that enables auditors to enhance the accuracy and representativeness of their samples. Stratified sampling is a strategy employed in audit sampling where the population is divided into distinct subgroups or strata based on relevant characteristics. These characteristics could include geographical location, department, business unit, or any other factor that might influence the distribution of errors or misstatements. By segregating the population into strata, auditors can ensure that their sample captures the diversity of the entire population. This chapter delves into the intricacies of stratified evaluation, exploring three distinct approaches—no pooling, complete pooling, and partial pooling—each with its own advantages and trade-offs. Knowledge of these three approaches is crucial for auditors aiming to optimize their statistical evaluation and generate robust population estimates.</p>
 <p>Consider an example of auditing expense claims in a large organization. Instead of treating all expense claims as a uniform entity, auditors can stratify the claims based on the departments they belong to. This approach ensures that the audit sample includes a representative mix of claims from different departments, thereby reducing the risk of overlooking specific areas of concern. Another example of such a situation would be a group audit where the audited organization consists of different components or branches. Stratification is relevant for the group auditor if they must form an opinion on the group as a whole because they must aggregate the samples taken by the component auditors.</p>
 <p>In general, there are three approaches to evaluating a stratified sample: no pooling, complete pooling, and partial pooling. No pooling assumes no similarities between strata, which means that all strata are analyzed independently. Complete pooling assumes no difference between strata, which means that all data is aggregated and analyzed as a whole. Finally, partial pooling assumes differences and similarities between strata, which means that information can be shared between strata. Partial pooling (i.e., hierarchical modeling) is a powerful technique that can result in more efficient population and stratum estimates.</p>
-<div id="fig-ss-evaluation-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-ss-evaluation-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ss-evaluation-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/book_doors.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%">
 </div>
@@ -357,7 +357,7 @@ Figure&nbsp;7.1: There are three approaches to evaluating a stratified audit sam
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-np-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-np-estimates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -371,7 +371,7 @@ Figure&nbsp;7.2: Estimates of the population and stratum misstatement under the 
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_np</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-np-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-np-posterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-np-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-np-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -418,7 +418,7 @@ Figure&nbsp;7.3: Prior and posterior distribution for the population misstatemen
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-cp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-cp-estimates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-cp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -432,7 +432,7 @@ Figure&nbsp;7.4: Estimates of the population and stratum misstatement under the 
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_cp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-cp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-cp-posterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-cp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-cp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -452,7 +452,7 @@ Figure&nbsp;7.5: Prior and posterior distribution for the population misstatemen
   \nu &amp;\sim \text{Pareto}(50, \frac{3}{2})\\
   \theta &amp;\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}\]</span></p>
-<div id="fig-ss-evaluation-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-ss-evaluation-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ss-evaluation-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/book_pyramid.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%">
 </div>
@@ -491,7 +491,7 @@ Figure&nbsp;7.6: Partial pooling takes into account the hierarchical structure i
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-pp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-pp-estimates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -505,7 +505,7 @@ Figure&nbsp;7.7: Estimates of the population and stratum misstatement under the 
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_pp</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-ss-pp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-ss-pp-posterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-ss-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-ss-pp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -572,7 +572,7 @@ Figure&nbsp;7.8: Prior and posterior distribution for the population misstatemen
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpc</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-np-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-np-estimates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-np-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-np-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -629,7 +629,7 @@ Figure&nbsp;7.9: Estimates of the population and stratum misstatement under the 
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpb</span>, type <span class="op">=</span> <span class="st">"estimates"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-pp-estimates" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-pp-estimates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-pp-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-estimates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -643,7 +643,7 @@ Figure&nbsp;7.10: Estimates of the population and stratum misstatement under the
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">result_dnpb</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-stratified-pp-posterior" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stratified-pp-posterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stratified-pp-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="chap-stratified-evaluation_files/figure-html/fig-stratified-pp-posterior-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
 </div>
@@ -714,18 +714,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -757,7 +746,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -816,7 +827,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1417,7 +1428,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-286"><a href="#cb19-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-287"><a href="#cb19-287" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-288"><a href="#cb19-288" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

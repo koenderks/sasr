@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.557">
+<meta name="generator" content="quarto-1.5.53">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
-<title>Statistical Audit Sampling with R - 8&nbsp; JASP for Audit</title>
+<title>8&nbsp; JASP for Audit – Statistical Audit Sampling with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,10 +129,10 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Statistical Audit Sampling with R - 8&nbsp; JASP for Audit">
+<meta property="og:title" content="8&nbsp; JASP for Audit – Statistical Audit Sampling with R">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Statistical Audit Sampling with R">
-<meta name="twitter:title" content="Statistical Audit Sampling with R - 8&nbsp; JASP for Audit">
+<meta name="twitter:title" content="8&nbsp; JASP for Audit – Statistical Audit Sampling with R">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://koenderks.github.io/sasr/front-page.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -141,11 +141,11 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chap-jasp.html">Software</a></li><li class="breadcrumb-item"><a href="./chap-jasp.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">JASP for Audit</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
@@ -180,9 +180,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -203,9 +203,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Application</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -244,9 +244,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Software</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -325,7 +325,7 @@ window.Quarto = {
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-logos-jasp" style="flex-basis: 35.0%;justify-content: flex-start;">
-<div id="fig-jasp-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-jasp-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-jasp-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/logo_jasp.png" class="img-fluid figure-img" data-ref-parent="fig-logos-jasp">
 </div>
@@ -338,7 +338,7 @@ window.Quarto = {
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-logos-jasp" style="flex-basis: 35.0%;justify-content: flex-start;">
-<div id="fig-jasp-for-audit-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-jasp-for-audit-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-jasp-for-audit-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/logo_jasp_for_audit.png" class="img-fluid figure-img" data-ref-parent="fig-logos-jasp">
 </div>
@@ -359,7 +359,7 @@ Figure&nbsp;8.1: JASP is an open-source statistical software program that provid
 <section id="downloading-jasp" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="downloading-jasp">
 <span class="header-section-number">8.1</span> Downloading JASP</h2>
 <p>You can freely download JASP from their website <a href="https://jasp-stats.org"><code>https://jasp-stats.org</code></a>. Simply click on the ‘Download JASP’ button on the homepage, and you will be taken to the download page. There, you can select your preferred installation option. JASP is compatible with Windows, MacOS, Linux, and Chrome OS. The installation process is fairly straightforward and familiar. Once installed, open the software to see the welcoming screen displayed below.</p>
-<div id="fig-jasp-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_welcome.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -369,7 +369,7 @@ Figure&nbsp;8.2: Upon launching JASP, you are presented with the following scree
 </div>
 <p>JASP for Audit <span class="citation" data-cites="Derks2021_jasp">(<a href="references.html#ref-Derks2021_jasp" role="doc-biblioref">Derks et al., 2021</a>)</span> is an add-on module for JASP, based on the <strong>jfa</strong> package, that facilitates statistical audit sampling. The module provides graphical a user interface (GUI) for calculating sample sizes, selecting items according to standard audit sampling techniques, and performing inference about the population misstatement on the basis of a data sample or summary statistics of a sample. The module also features Bayesian equivalents of these analyses that enable the user to easily incorporate prior information into the statistical procedure. In all analyses, the Audit module offers explanatory text that helps the auditor in interpreting, explaining, and reporting the analysis. Since JASP for Audit is an R-based GUI around <strong>jfa</strong>, its functionality can be mapped almost one-on-one to that of the package.</p>
 <p>The Audit module in JASP, labeled as “Audit” in the module list, is included by default in the software, but is not initially visible upon starting the program. To access the Audit module, click on the <code>+</code> icon in the top right corner of the JASP welcome screen, and select the module from the list of available options. The Audit module will then be displayed with a blue icon in the ribbon at the top of the screen.</p>
-<div id="fig-jasp-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_modules.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -378,7 +378,7 @@ Figure&nbsp;8.3: The <code>+</code> icon displays all modules that are currently
 </figcaption></figure>
 </div>
 <p>Upon selecting the Audit module icon, the user can view all of the analyses that the module contains. It is important to note that some of these analyses are grayed out by default and can only be activated once a data set has been loaded into JASP. This means that the user must first import a data set in order to access and make use of these specific analyses. For a quick explanation on how to achieve this, see this <a href="http://static.jasp-stats.org/Manuals/Bayesian_Guide_v0_12_2_1.pdf#page=7">student manual</a> on the JASP website.</p>
-<div id="fig-jasp-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_audit_module.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -390,7 +390,7 @@ Figure&nbsp;8.4: By clicking the Audit module icon in the ribbon, you can view t
 <span class="header-section-number">8.2</span> Planning</h2>
 <p>To plan a sample for an audit using JASP, the procedure is comparable to using <strong>jfa</strong>. This means that both programs involve similar steps and considerations in order to effectively plan an audit sample. Like <strong>jfa</strong>, JASP for Audit offers a classical and a Bayesian approach to planning a sample.</p>
 <p>The figure below showcases a snapshot of the classical planning analysis in JASP for Audit. The graphical user interface is displayed on the left side of the screen, while the audit report containing statistical results is displayed on the right side. In the user interface, the auditor can input the known parameters for the sample planning, after which JASP calculates and directly displays the statistical results.</p>
-<div id="fig-jasp-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_planning_classical.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -409,7 +409,7 @@ Figure&nbsp;8.5: A snapshot of the classical planning analysis in JASP for Audit
 <span><span class="co">#&gt; sample size obtained in 156 iterations via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The figure below showcases a snapshot of the Bayesian planning analysis in JASP. The graphical user interface is largely the same as the interface of the classical planning analysis, with the exception that we can specify a prior distribution with the options under “Prior”.</p>
-<div id="fig-jasp-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_planning_bayesian.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -431,7 +431,7 @@ Figure&nbsp;8.6: Snapshot of the Bayesian planning analysis in JASP for Audit. I
 </section><section id="selection" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="selection">
 <span class="header-section-number">8.3</span> Selection</h2>
 <p>Selecting a sample in JASP for Audit works similar to how you would do it in <strong>jfa</strong>. The figure below showcases a snapshot of the selection analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample selection, after which JASP calculates and directly displays the statistical results.</p>
-<div id="fig-jasp-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_selection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -460,7 +460,7 @@ Figure&nbsp;8.7: A snapshot of the selection analysis in JASP for Audit. In this
 </section><section id="evaluation" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="evaluation">
 <span class="header-section-number">8.4</span> Evaluation</h2>
 <p>Finally, evaluating a sample in JASP for Audit works similar to how you would do it in <strong>jfa</strong>. The figure below showcases a snapshot of the evaluation analysis in JASP for Audit. In the user interface, the auditor can input the known parameters for the sample evaluation, after which JASP calculates and directly displays the statistical results.</p>
-<div id="fig-jasp-7" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_evaluation_classical.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -486,7 +486,7 @@ Figure&nbsp;8.8: A snapshot of the classical evaluation analysis in JASP for Aud
 <span><span class="co">#&gt; results obtained via method 'binomial'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The figure below showcases a snapshot of the Bayesian evaluation analysis in JASP. The graphical user interface is fairly similar to that of the classical evaluation analysis, with the exception that we can specify a prior distribution with the options under “Prior”.</p>
-<div id="fig-jasp-8" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_evaluation_bayesian.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -564,7 +564,7 @@ Figure&nbsp;8.9: Snapshot of the Bayesian evaluation analysis in JASP for Audit.
 </table></section><section id="planning-1" class="level3" data-number="8.5.2"><h3 data-number="8.5.2" class="anchored" data-anchor-id="planning-1">
 <span class="header-section-number">8.5.2</span> Planning</h3>
 <p>The Sampling Workflow begins with the Planning stage. The auditor enters a performance materiality value of one percent and keeps the confidence level at 95 percent. To ensure the creation of an annotated report, the Explanatory text option is enabled. Moving on, the auditor selects the variables ID and bookValues and assigns them to their respective fields in the interface. Finally, the control risk assessment is adjusted from High to Medium, and the distribution used (e.g., likelihood) is set to the binomial distribution.</p>
-<div id="fig-jasp-9" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_planning_workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -576,7 +576,7 @@ Figure&nbsp;8.10: A snapshot of the planning stage for this example in the sampl
 </section><section id="selection-1" class="level3" data-number="8.5.3"><h3 data-number="8.5.3" class="anchored" data-anchor-id="selection-1">
 <span class="header-section-number">8.5.3</span> Selection</h3>
 <p>The auditor has a variable in the “Book Value” field in the previous stage, which automatically selects the “monetary units” option for sampling units in the Selection stage. By default, the chosen sampling method is “Fixed interval sampling,” and a random starting point is applied. However, these settings can be modified in the corresponding section if needed. The default output shows that 234 euros have been selected, distributed over 234 items. The selection has a total value of 114,896.23 euros, which is 8.19 percent of the total value of the population.</p>
-<div id="fig-jasp-10" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_selection_workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -593,7 +593,7 @@ Figure&nbsp;8.11: A snapshot of the selection stage for this example in the samp
 <span class="header-section-number">8.5.5</span> Evaluation</h3>
 <p>In the Evaluation stage, the column created and filled with the audit values is placed in the Audit Values field within the interface. The inference is automatically conducted based on the selected options from the previous stages. The auditor has the ability to adjust the evaluation method, if applicable, and modify the numerical format of the results using the advanced options. Additionally, tables and plots that provide clear visualization of the statistical outcomes can be requested.</p>
 <p>Based on the default output, the auditor discovers that out of the 234 items in the sample, one item contained a partial misstatement. This information yields a most likely error of 0.002 (0.23 percent), with an upper bound of 0.014 (1.37 percent) at a confidence level of 90.38 percent. The precision is calculated to be 0.011 (1.1 percent).</p>
-<div id="fig-jasp-11" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-jasp-11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jasp-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/JASP_evaluation_workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
@@ -652,18 +652,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -695,7 +684,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -754,7 +765,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1255,7 +1266,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="al">![A snapshot of the evaluation stage for this example in the sampling workflow analysis in JASP for Audit.](img/JASP_evaluation_workflow.png)</span>{#fig-jasp-11 fig-align="center" width=100%}</span>
 <span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>Since the 90.38 percent upper bound on misstatement in BuildIt's financial statements exceeds the performance materiality threshold of one percent, the auditor is unable to conclude that the population as a whole is free from misstatements below one percent. Consequently, the auditor cannot determine that the sampling risk has been sufficiently reduced to conclude that BuildIt's financial statements are free of material misstatement.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
