@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.55">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>4&nbsp; Planning – Statistical Audit Sampling with R</title>
@@ -1303,12 +1303,12 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 <span class="header-section-number">4.6.9</span> Weighted Earlier Sample</h3>
 <p>You can incorporate information from last years results, weighted by a factor <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span>, into the prior distribution using <code>method = 'factor'</code> in combination with <code>x</code> and <code>n</code>. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"factor"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">58</span>, factor <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"power"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">58</span>, delta <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Prior Distribution for Audit Sampling</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; functional form: beta(α = 1, β = 40.6) </span></span>
-<span><span class="co">#&gt; parameters obtained via method 'factor'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; parameters obtained via method 'power'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="nonparametric-prior" class="level3" data-number="4.6.10"><h3 data-number="4.6.10" class="anchored" data-anchor-id="nonparametric-prior">
 <span class="header-section-number">4.6.10</span> Nonparametric Prior</h3>
@@ -3054,7 +3054,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb115-874"><a href="#cb115-874" aria-hidden="true" tabindex="-1"></a>You can incorporate information from last years results, weighted by a factor <span class="co">[</span><span class="ot">@Derks2021</span><span class="co">]</span>, into the prior distribution using <span class="in">`method = 'factor'`</span> in combination with <span class="in">`x`</span> and <span class="in">`n`</span>. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the <span class="in">`poisson`</span>, <span class="in">`binomial`</span> or <span class="in">`hypergeometric`</span> likelihood.</span>
 <span id="cb115-875"><a href="#cb115-875" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb115-878"><a href="#cb115-878" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb115-879"><a href="#cb115-879" aria-hidden="true" tabindex="-1"></a><span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"factor"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">58</span>, <span class="at">factor =</span> <span class="fl">0.7</span>)</span>
+<span id="cb115-879"><a href="#cb115-879" aria-hidden="true" tabindex="-1"></a><span class="fu">auditPrior</span>(<span class="at">method =</span> <span class="st">"power"</span>, <span class="at">likelihood =</span> <span class="st">"binomial"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">58</span>, <span class="at">delta =</span> <span class="fl">0.7</span>)</span>
 <span id="cb115-880"><a href="#cb115-880" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb115-881"><a href="#cb115-881" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb115-882"><a href="#cb115-882" aria-hidden="true" tabindex="-1"></a><span class="fu">### Nonparametric Prior</span></span>
