@@ -105,7 +105,7 @@ Finally, partial pooling (`pooling = "partial"`) assumes differences and similar
   k_s &\sim \text{Binomial}(n_s, \theta_s)\\
   \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \phi &\sim \text{Beta}(\alpha, \beta)\\
-  \nu &\sim \text{Pareto}(50, \frac{3}{2})\\
+  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
 \end{align}
 
@@ -128,7 +128,7 @@ result_pp <- evaluation(
 result_pp
 ```
 
-In this case, the output shows that the estimate of the misstatement in the population is 4.17 percent, with the 95 percent credible interval ranging from 3.26 percent to 5.35 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
+In this case, the output shows that the estimate of the misstatement in the population is 4.32 percent, with the 95 percent credible interval ranging from 3.23 percent to 5.39 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. @fig-stratified-ss-pp-estimates visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.
 
 ```{r label="fig-stratified-ss-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(result_pp, type = "estimates")
@@ -197,7 +197,7 @@ Bayesian inference can improve upon the estimates of the classical approach by p
   \theta_s &\sim \text{Beta}(\phi \nu, (1 - \phi) \nu)\\
   \kappa_s &\sim \text{Normal}(\mu, \sigma)^{+}\\
   \phi &\sim \text{Beta}(\alpha, \beta)\\
-  \nu &\sim \text{Pareto}(50, \frac{3}{2})\\
+  \nu &\sim \text{Pareto}(1, \frac{3}{2})\\
   \mu &\sim \text{Normal}(1, 100)^{+}\\
   \sigma &\sim \text{Normal}(0, 10)^{+}\\
   \theta &\leftarrow \frac{\sum \theta_s N_s}{N}
@@ -223,7 +223,7 @@ result_dnpb <- evaluation(
 result_dnpb
 ```
 
-The output shows that the estimate of the misstatement in the population is 15.36 percent, with the 95 percent credible interval ranging from 14.66 percent to 16.31 percent. The precision of the population estimate is 1.65 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-pp-estimates below.
+The output shows that the estimate of the misstatement in the population is 16.59 percent, with the 95 percent credible interval ranging from 15.72 percent to 17.57 percent. The precision of the population estimate is 1.85 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the `summary()` function and are visualized in @fig-stratified-pp-estimates below.
 
 ```{r label="fig-stratified-pp-estimates", fig.cap="Estimates of the population and stratum misstatement under the partial pooling model."}
 plot(result_dnpb, type = "estimates")
