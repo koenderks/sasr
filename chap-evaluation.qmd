@@ -296,7 +296,7 @@ plot(eval_bayes, type = "posterior")
 
 #### Hurdle Beta Model
 
-It is also possible to fit a Bayesian variant of the hurdle beta model. This entails applying prior distributions for the parameters $p$, $\phi$, and $\nu$. The prior distributions used by **jfa** for the Bayesian hurdle beta model are $p_{(0, 1]}$ $\sim$ Beta($\alpha$, $\beta$) (to be specified by the user), $p_{1 | (0, 1]}$ $\sim$ Beta(1, 1), $\phi$ $\sim$ Beta(1, 1), and $\nu$ $\sim$ Pareto(1, $\frac{3}{2}$).
+It is also possible to fit a Bayesian variant of the hurdle beta model. This entails applying prior distributions for the parameters $p$, $\phi$, and $\nu$. The prior distributions used by **jfa** for the Bayesian hurdle beta model are $p_{(0, 1]}$ $\sim$ Beta($\alpha$, $\beta$) (to be specified by the user), $p_{1 | (0, 1]}$ $\sim$ Beta(1, 1), $\phi$ $\sim$ Beta(1, 1), and $\nu$ $\sim$ Normal(0, 100).
 
 This Bayesian hurdle beta model can be applied using `method = "hurdle.beta"` in combination with `prior = TRUE` (or an object created by the `auditPrior()` function) in the `evaluation()` function. In this case, the posterior distribution cannot be determined analytically and must be determined using MCMC sampling, which is why it is recommended to call `set.seed()` before computing the results.
 
