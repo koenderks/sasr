@@ -756,7 +756,7 @@ auditPrior(method = "sample", likelihood = "binomial", x = 0, n = 30)
 You can incorporate information from last years results, weighted by a factor [@Derks2021], into the prior distribution using `method = 'factor'` in combination with `x` and `n`. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the `poisson`, `binomial` or `hypergeometric` likelihood.
 
 ```{r}
-auditPrior(method = "factor", likelihood = "binomial", x = 0, n = 58, factor = 0.7)
+auditPrior(method = "power", likelihood = "binomial", x = 0, n = 58, delta = 0.7)
 ```
 
 ### Nonparametric Prior
