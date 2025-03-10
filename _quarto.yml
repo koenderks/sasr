@@ -2,7 +2,6 @@ project:
   type: book
   output-dir: _book
 author-meta: Koen Derks
-editor: visual
 bibliography: references.bib
 csl: apa.csl
 book:
