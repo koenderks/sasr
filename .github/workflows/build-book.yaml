@@ -13,8 +13,6 @@ name: Build
 jobs:
   build-deploy:
     runs-on: macos-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
     permissions:
       contents: write
     steps:
@@ -23,6 +21,8 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
         with:
           tinytex: true
 
@@ -36,5 +36,7 @@ jobs:
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_PAT }}
         with:
           target: gh-pages
