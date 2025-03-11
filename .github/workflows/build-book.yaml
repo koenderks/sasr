@@ -15,6 +15,7 @@ jobs:
     runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ env.GITHUB_PAT }}
     permissions:
       contents: write
     steps:
@@ -38,5 +39,3 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ env.GITHUB_PAT }}
