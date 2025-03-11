@@ -482,12 +482,12 @@ Figure&nbsp;7.6: Partial pooling takes into account the hierarchical structure i
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; data:  115 and 2575</span></span>
 <span><span class="co">#&gt; number of errors = 115, number of samples = 2575, taint = 115, BF₁₀</span></span>
-<span><span class="co">#&gt; = 0.033424</span></span>
+<span><span class="co">#&gt; = 0.031367</span></span>
 <span><span class="co">#&gt; alternative hypothesis: true misstatement rate is not equal to 0.05</span></span>
 <span><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span><span class="co">#&gt;  0.03239331 0.05387699</span></span>
+<span><span class="co">#&gt;  0.03248668 0.05382659</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
-<span><span class="co">#&gt;  0.0432 </span></span>
+<span><span class="co">#&gt;  0.0421 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case, the output shows that the estimate of the misstatement in the population is 4.32 percent, with the 95 percent credible interval ranging from 3.23 percent to 5.39 percent. Note that this population estimate is substantially less uncertain than that of the no pooling approach. <a href="#fig-stratified-ss-pp-estimates" class="quarto-xref">Figure&nbsp;<span>7.7</span></a> visualizes the population and stratum estimates. Note that, like in the no pooling approach, the stratum estimates are different from each other but lie closer together and are less uncertain.</p>
@@ -623,9 +623,9 @@ Figure&nbsp;7.9: Estimates of the population and stratum misstatement under the 
 <span><span class="co">#&gt; BF₁₀ = Inf</span></span>
 <span><span class="co">#&gt; alternative hypothesis: true misstatement rate is not equal to 0.05</span></span>
 <span><span class="co">#&gt; 95 percent credible interval:</span></span>
-<span><span class="co">#&gt;  0.1571658 0.1757359</span></span>
+<span><span class="co">#&gt;  0.1572641 0.1757029</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
-<span><span class="co">#&gt;  0.1659 </span></span>
+<span><span class="co">#&gt;  0.1657 </span></span>
 <span><span class="co">#&gt; results obtained via method 'binomial' + 'partial-pooling' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output shows that the estimate of the misstatement in the population is 16.59 percent, with the 95 percent credible interval ranging from 15.72 percent to 17.57 percent. The precision of the population estimate is 1.85 percent, which is substantially lower than that of the classical approach. The stratum estimates can be seen in the output of the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function and are visualized in <a href="#fig-stratified-pp-estimates" class="quarto-xref">Figure&nbsp;<span>7.10</span></a> below.</p>
