@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>9&nbsp; R Packages – Statistical Audit Sampling with R</title>
@@ -83,14 +83,15 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-443731348daa5704f415f8ba5eab7f97.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-14186ec69059ea9c3e09261b5893bb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -116,7 +117,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -152,7 +153,9 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -313,33 +316,33 @@ window.Quarto = {
 <span class="header-section-number">9.1</span> MUS</h2>
 <p><strong>MUS</strong> <span class="citation" data-cites="MUS">(<a href="references.html#ref-MUS" role="doc-biblioref">Prömpers &amp; Guimarães, 2019</a>)</span> is an R package providing sampling and evaluation methods to apply Monetary Unit Sampling during an audit of financial statements. The package is available via <a href="https://cran.r-project.org/package=MUS">CRAN</a> and can be downloaded by running the code below. Unlike <strong>jfa</strong>, the <strong>MUS</strong> package provides no functionality for Bayesian audit sampling.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"MUS"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"MUS"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To show the diffences and similarities between the use of the <strong>MUS</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to plan a monetary unit sample such that the sampling risk can be reduced below five percent. The population in this example consists of <span class="math inline">\(N\)</span> = 1000 monetary units and the performance materiality is defined as ten percent (or 100 monetary units). The auditor plans the sample using an expected misstatement rate of one percent (or 10 monetary units).</p>
 <p>To compute this sample size, the <strong>MUS</strong> package provides the <code>MUS.calc.n.conservative()</code> function, which takes the performance materiality in monetary units as the <code>tolerable.error</code> argument, the expected misstatements in monetary units as the <code>expected.error</code> argument, and the total number of unit in the population as the <code>book.value</code> argument. The resulting sample size is 37.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">MUS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MUS/man/MUS.calc.n.conservative.html">MUS.calc.n.conservative</a></span><span class="op">(</span>tolerable.error <span class="op">=</span> <span class="fl">100</span>, expected.error <span class="op">=</span> <span class="fl">10</span>, book.value <span class="op">=</span> <span class="fl">1000</span>, confidence.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 37</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">MUS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MUS/man/MUS.calc.n.conservative.html">MUS.calc.n.conservative</a></span><span class="op">(</span>tolerable.error <span class="op">=</span> <span class="fl">100</span>, expected.error <span class="op">=</span> <span class="fl">10</span>, book.value <span class="op">=</span> <span class="fl">1000</span>, confidence.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 37</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">planning</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.1</span>, expected <span class="op">=</span> <span class="fl">0.01</span>, likelihood <span class="op">=</span> <span class="st">"poisson"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">planning</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.1</span>, expected <span class="op">=</span> <span class="fl">0.01</span>, likelihood <span class="op">=</span> <span class="st">"poisson"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Planning</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; minimum sample size = 37 </span></span>
-<span><span class="co">#&gt; sample size obtained in 38 iterations via method 'poisson'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; sample size obtained in 38 iterations via method 'poisson'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="samplingbook" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="samplingbook">
 <span class="header-section-number">9.2</span> samplingbook</h2>
 <p><strong>samplingbook</strong> <span class="citation" data-cites="samplingbook">(<a href="references.html#ref-samplingbook" role="doc-biblioref">Manitz et al., 2021</a>)</span> is an R package based on the book <strong>Stichproben: Methoden und praktische Umsetzung mit R</strong> <span class="citation" data-cites="Kauermann2010">(<a href="references.html#ref-Kauermann2010" role="doc-biblioref">Kauermann &amp; Kuechenhoff, 2010</a>)</span> that focuses on survey sampling and statistical analysis of these samples. The package is available via <a href="https://cran.r-project.org/package=samplingbook">CRAN</a> and can be downloaded by running the code below. Unlike <strong>jfa</strong>, the <strong>samplingbook</strong> package provides limited functionality for auditing as it mainly focuses on survey sampling.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"samplingbook"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"samplingbook"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To show the diffences and similarities between the use of the <strong>samplingbook</strong> package and the <strong>jfa</strong> package, consider a scenario in which an auditor wants to evaluate a sample of items and is interested in estimating the 95 percent upper confidence bound. The population in this example consists of <span class="math inline">\(N\)</span> = 300 items and the auditor has inspected a sample of <span class="math inline">\(n\)</span> = 100 items, of which <span class="math inline">\(k\)</span> = 3 contained a misstatement.</p>
 <p>To compute the upper bound, the <strong>samplingbook</strong> package provides the <code>Sprop()</code> function, which takes the number of found misstatements in the sample as the <code>m</code> argument, the sample size as the <code>n</code> argument and the population size as the <code>N</code> argument. Note that because this function solely computes a two-sided interval for the population misstatement, the 95 percent upper bound can be obtained by using an interval of 90 percent with <code>level = 0.9</code>. The resulting upper bound is 0.07.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">samplingbook</span><span class="fu">::</span><span class="fu"><a href="https://www.samplingbook.manitz.org/reference/Sprop.html">Sprop</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">3</span>, n <span class="op">=</span> <span class="fl">100</span>, N <span class="op">=</span> <span class="fl">300</span>, level <span class="op">=</span> <span class="fl">0.90</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">samplingbook</span><span class="fu">::</span><span class="fu"><a href="https://www.samplingbook.manitz.org/reference/Sprop.html">Sprop</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">3</span>, n <span class="op">=</span> <span class="fl">100</span>, N <span class="op">=</span> <span class="fl">300</span>, level <span class="op">=</span> <span class="fl">0.90</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Sprop object: Sample proportion estimate</span></span>
 <span><span class="co">#&gt; With finite population correction: N = 300 </span></span>
@@ -352,11 +355,11 @@ window.Quarto = {
 <span><span class="co">#&gt;  number in population: [3,15]</span></span>
 <span><span class="co">#&gt; 90% exact hypergeometric confidence interval: </span></span>
 <span><span class="co">#&gt;  proportion: [0.01,0.07]</span></span>
-<span><span class="co">#&gt;  number in population: [3,21]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt;  number in population: [3,21]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>These results can be reproduced in <strong>jfa</strong> using the following command:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">3</span>, n <span class="op">=</span> <span class="fl">100</span>, N.units <span class="op">=</span> <span class="fl">300</span>, method <span class="op">=</span> <span class="st">"hypergeometric"</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">3</span>, n <span class="op">=</span> <span class="fl">100</span>, N.units <span class="op">=</span> <span class="fl">300</span>, method <span class="op">=</span> <span class="st">"hypergeometric"</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Classical Audit Sample Evaluation</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -366,13 +369,13 @@ window.Quarto = {
 <span><span class="co">#&gt;  0.00000000 0.06666667</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
 <span><span class="co">#&gt;  0.03 </span></span>
-<span><span class="co">#&gt; results obtained via method 'hypergeometric'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; results obtained via method 'hypergeometric'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="audit" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="audit">
 <span class="header-section-number">9.3</span> audit</h2>
 <p><strong>audit</strong> <span class="citation" data-cites="audit">(<a href="references.html#ref-audit" role="doc-biblioref">Meeden, 2021</a>)</span> is an R package based on the paper by <span class="citation" data-cites="Meeden2007">Meeden &amp; Sargent (<a href="references.html#ref-Meeden2007" role="doc-biblioref">2007</a>)</span> that can be used to find an upper bound for the total amount of overstatement of assets in a set of accounts and estimating the amount of sales tax owed on a collection of transactions. The package is available via <a href="https://cran.r-project.org/package=audit">CRAN</a> and can be downloaded by running the code below. Unlike <strong>jfa</strong>, The <strong>audit</strong> package provides limited functionality for evaluating audit samples and has no functionality for planning and selection.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"audit"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"audit"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -446,13 +449,14 @@ Prömpers, H., &amp; Guimarães, A. (2019). <em><span>MUS</span>: Monetary unit 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -855,7 +859,7 @@ Prömpers, H., &amp; Guimarães, A. (2019). <em><span>MUS</span>: Monetary unit 
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -914,7 +918,7 @@ Prömpers, H., &amp; Guimarães, A. (2019). <em><span>MUS</span>: Monetary unit 
 <span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
 <span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"audit"</span>)</span>
 <span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

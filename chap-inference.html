@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>2&nbsp; Statistical Inference – Statistical Audit Sampling with R</title>
@@ -83,14 +83,15 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-443731348daa5704f415f8ba5eab7f97.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-14186ec69059ea9c3e09261b5893bb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -116,7 +117,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -155,7 +156,9 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -333,7 +336,7 @@ window.Quarto = {
 <span class="header-section-number">2.1.1.1</span> Example</h4>
 <p>As an example, the <code><a href="https://rdrr.io/r/stats/binom.test.html">binom.test()</a></code> function in R can be used to estimate the rate of misstatement in a population given a data sample of <span class="math inline">\(n\)</span> items containing <span class="math inline">\(k\)</span> misstatements. Suppose an auditor audited a sample of <span class="math inline">\(n\)</span> = 60 items containing <span class="math inline">\(k\)</span> = 0 misstatements. To use the <code><a href="https://rdrr.io/r/stats/binom.test.html">binom.test()</a></code> function to perform estimation, the auditor must input the number of items in the sample <code>n = 60</code> and the number of misstatements in the sample <code>x = 0</code>. The sampling risk is set to 0.05, or five percent, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to compute a one-sided confidence interval since they are interested in obtaining the upper confidence bound.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">60</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, conf.level <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">60</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, conf.level <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Exact binomial test</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -344,7 +347,7 @@ window.Quarto = {
 <span><span class="co">#&gt;  0.00000000 0.04870291</span></span>
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; probability of success </span></span>
-<span><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt;                      0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The most likely misstatement in the population is displayed under <code>sample estimates</code> and is 0, or zero percent. The 95 percent upper confidence bound for the estimate of the population misstatement is displayed under <code>95 percent confidence interval</code> and is 4.87 percent.</p>
 </section></section><section id="hypothesis-testing" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="hypothesis-testing">
@@ -363,7 +366,7 @@ Figure&nbsp;2.1: Innovating statistical methods and shaping the field of genetic
 <span class="header-section-number">2.1.2.1</span> Example</h4>
 <p>Next to estimation, the <code><a href="https://rdrr.io/r/stats/binom.test.html">binom.test()</a></code> function in R can also be used to test if a population contains is free of material misstatement, which in this case means that the population contains less than three percent misstatements. Suppose an auditor obtained a sample of <span class="math inline">\(n\)</span> = 100 items containing <span class="math inline">\(k\)</span> = 0 misstatements. To use the <code><a href="https://rdrr.io/r/stats/binom.test.html">binom.test()</a></code> function, the auditor must input the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code>. The sampling risk is set to 0.05, or five percent, which the auditor can provide to the function with <code>conf.level = 1 - 0.05</code>. This is the default value and therefore this argument is omitted in the code below. Finally, the auditor can specify the alternative hypothesis as <code>alternative = "less"</code> to test if the proportion of misstatements in the sample is less than the hypothesized proportion.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">100</span>, p <span class="op">=</span> <span class="fl">0.03</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">100</span>, p <span class="op">=</span> <span class="fl">0.03</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Exact binomial test</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -374,7 +377,7 @@ Figure&nbsp;2.1: Innovating statistical methods and shaping the field of genetic
 <span><span class="co">#&gt;  0.00000000 0.02951305</span></span>
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; probability of success </span></span>
-<span><span class="co">#&gt;                      0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt;                      0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <em>p</em>-value is shown under <code>p-value</code> and is 0.04755. Since the <em>p</em>-value is lower than the specified sampling risk <span class="math inline">\(\alpha\)</span>, the auditor can reject the hypothesis that the population contains material misstatement and should conclude that the population does not contain material misstatement.</p>
 </section></section></section><section id="bayesian-inference" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="bayesian-inference">
@@ -406,8 +409,8 @@ Figure&nbsp;2.2: Thomas Bayes revolutionized the world of statistics and probabi
 <span class="header-section-number">2.2.1.1</span> Example</h4>
 <p>Bayesian inference involves first specifying a prior distribution that captures the available information about the probability of misstatement in the population. For illustrative purposes, we use a simple prior distribution that is indifferent about the possible values of the misstatement. Note that this prior distribution does not contain any information about the probability of misstatement, but yields statistical results that closely resemble classical outcomes. This prior distribution is shown in <a href="#fig-uniform_prior" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>. Chapters 3, 4, 5 and 6 dive deeper into the R functions from the <strong>jfa</strong> package used in this example, such as the <code>auditPrior()</code> function below.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"default"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">prior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"default"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">prior</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-uniform_prior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-uniform_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -421,8 +424,8 @@ Figure&nbsp;2.3: A uniform prior distribution assigning equal probability to eve
 </div>
 <p>After seeing an item from the population, the prior distribution is updated to the posterior distribution by means of Bayes’ theorem. Next, the posterior is used as a prior distribution for the following item, which is once again updated to a posterior distribution after seeing another the item. This process of updating the prior distribution to a posterior distribution, and using the posterior as a prior can continue indefinately. For example, after seeing 30 items from the population, of which none contained a misstatement, the posterior distribution peaks at zero, reflecting the fact that no misstatements were found, and its mass has shifted towards zero when compared to the prior distribution, reflecting the fact that the data contained information that indicates a low probability of misstatement. <a href="#fig-uniform-posterior" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> displays the prior and posterior distribution.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">30</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">30</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-uniform-posterior" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-uniform-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -437,8 +440,8 @@ Figure&nbsp;2.4: The prior and posterior distribution after seeing a sample of <
 <p>The most likely value of the population misstatement based on these data is shown as a point above the highest point of the posterior distribution. The uncertainty about the population misstatement can be quantified using a credible interval (shown as a line above the posterior distribution). In this case, the figure above shows a 95 percent credible interval, which contains the true value of the population misstatement with a 95 percent probability.</p>
 <p>After seeing 30 more observations, of which none contained a misstatement, the mass of the posterior distribution has shifted towards zero even more. The credible interval shown above the posterior distribution encompasses a smaller range of values, reflecting the fact that additional information has been observed and thus that there is less uncertainty about the population misstatement than before. This is displayed in <a href="#fig-uniform-posterior-2" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">30</span>, prior <span class="op">=</span> <span class="va">eval</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">30</span>, prior <span class="op">=</span> <span class="va">eval</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-uniform-posterior-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-uniform-posterior-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -452,8 +455,8 @@ Figure&nbsp;2.5: The prior and posterior distribution after seeing a second samp
 </div>
 <p>The updating process works the same for the scenario in which the auditor finds misstatements in the sample. For example, the posterior distribution after finding a single misstatement is has its mass shifted away from zero, reflecting the fact that a probability of zero is unlikely given the sample data, see <a href="#fig-uniform-posterior-3" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">1</span>, prior <span class="op">=</span> <span class="va">eval</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eval</span> <span class="op">&lt;-</span> <span class="fu">evaluation</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">1</span>, prior <span class="op">=</span> <span class="va">eval</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">eval</span>, type <span class="op">=</span> <span class="st">"posterior"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-uniform-posterior-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-uniform-posterior-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -484,7 +487,7 @@ Figure&nbsp;2.7: Sir Harold Jeffreys innovated statistical hypothesis testing wi
 <span class="header-section-number">2.2.2.1</span> Example</h4>
 <p>Suppose an auditor obtained a sample of <span class="math inline">\(n\)</span> = 100 items containing <span class="math inline">\(k\)</span> = 0 misstatements. Given the number of items in the sample <code>n = 100</code>, the number of misstatements in the sample <code>x = 0</code>, and the hypothesized proportion of misstatement in the population (i.e., the performance materiality) <code>p = 0.03</code> the Bayes factor is displayed under <code>BF10</code> and is 668.65, meaning that it the data are about 668 times more likely to occur under the hypothesis of tolerable misstatement than under the hypothesis of intolerable misstatement.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">100</span>, method <span class="op">=</span> <span class="st">"binomial"</span>, prior <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Bayesian Audit Sample Evaluation</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -496,7 +499,7 @@ Figure&nbsp;2.7: Sir Harold Jeffreys innovated statistical hypothesis testing wi
 <span><span class="co">#&gt;  0.00000000 0.02922515</span></span>
 <span><span class="co">#&gt; most likely estimate:</span></span>
 <span><span class="co">#&gt;  0 </span></span>
-<span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; results obtained via method 'binomial' + 'prior'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -567,13 +570,14 @@ Steele, A. (1992). <em>Audit risk and audit evidence: The <span>B</span>ayesian 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -976,7 +980,7 @@ Steele, A. (1992). <em>Audit risk and audit evidence: The <span>B</span>ayesian 
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1099,7 +1103,7 @@ Steele, A. (1992). <em>Audit risk and audit evidence: The <span>B</span>ayesian 
 <span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="fu">evaluation</span>(<span class="at">materiality =</span> <span class="fl">0.03</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">method =</span> <span class="st">"binomial"</span>, <span class="at">prior =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

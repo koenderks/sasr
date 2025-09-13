@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>Getting Started – Statistical Audit Sampling with R</title>
@@ -83,14 +83,15 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-443731348daa5704f415f8ba5eab7f97.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-14186ec69059ea9c3e09261b5893bb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -129,7 +130,9 @@ div.csl-indent {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Audit Sampling with R</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -369,47 +372,47 @@ Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enha
 </div>
 <p>To illustrate its concepts and ideas, this book uses the <strong>jfa</strong> package, an R package for statistical auditing, which can also be downloaded from CRAN. This can be done via the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function by providing the package name in quotes. Thus, before running the examples in this book, you should install the <strong>jfa</strong> package by running the following command in R:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once you have installed a package, you must load it into every R session. To load a package into your R session, call <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> and provide the name of the package (without quotes) that you want to load. For example, before running the examples in this book, you should load the <strong>jfa</strong> package with:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://koenderks.github.io/jfa/">jfa</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://koenderks.github.io/jfa/">jfa</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>R packages are updated regularly. To update a package in your R library you should call <code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code> and provide the name of the package that you want to update in quotes. For example, each time there is a new release of the <strong>jfa</strong> package, you can update it by running:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span><span class="st">"jfa"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If you want to look at the source code of the <strong>jfa</strong> package, see the package website at <a href="https://koenderks.github.io/jfa/"><code>https://koenderks.github.io/jfa</code></a>.</p>
 </section></section><section id="running-r-code" class="level2"><h2 class="anchored" data-anchor-id="running-r-code">Running R Code</h2>
 <p>The code in this book appears as follows:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span><span class="co">#&gt; [1] 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>When executing the same code within your local console, the resulting output will appear as follows:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>There are two primary distinctions between the use of a console and the presentation of code in the book. Firstly, in a console, the user inputs their code after the prompt symbol (<code>&gt;</code>) while the book does not display this symbol. Secondly, the output in the book is commented out with <code>#&gt;</code>, while in a console it is displayed directly after the inputted code. Hence, those working with an electronic version of the book can directly copy code from the book to the console.</p>
 </section><section id="colophon" class="level2"><h2 class="anchored" data-anchor-id="colophon">Colophon</h2>
 <p>An online version of this book is available at <a href="https://koenderks.github.io/sasr/"><code>https://koenderks.github.io/sasr/</code></a>. The source code of the book is available at <a href="https://github.com/koenderks/sasr"><code>https://github.com/koenderks/sasr</code></a>.</p>
 <p>This book was built using the following R packages:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://sessioninfo.r-lib.org/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://sessioninfo.r-lib.org/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ─ Session info ────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt;  setting  value</span></span>
 <span><span class="co">#&gt;  version  R version 4.5.1 (2025-06-13)</span></span>
-<span><span class="co">#&gt;  os       macOS Sequoia 15.5</span></span>
+<span><span class="co">#&gt;  os       macOS Sequoia 15.6</span></span>
 <span><span class="co">#&gt;  system   aarch64, darwin20</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language (EN)</span></span>
 <span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2025-09-12</span></span>
+<span><span class="co">#&gt;  date     2025-09-13</span></span>
 <span><span class="co">#&gt;  pandoc   3.6.3 @ /Applications/quarto/bin/tools/ (via rmarkdown)</span></span>
-<span><span class="co">#&gt;  quarto   1.7.34 @ /usr/local/bin/quarto</span></span>
+<span><span class="co">#&gt;  quarto   1.8.24 @ /usr/local/bin/quarto</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ─ Packages ────────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt;  ! package      * version date (UTC) lib source</span></span>
@@ -421,18 +424,18 @@ Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enha
 <span><span class="co">#&gt;  P downlit      * 0.4.4   2024-06-10 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P evaluate       1.0.3   2025-01-10 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P fastmap        1.2.0   2024-05-15 [?] CRAN (R 4.5.0)</span></span>
-<span><span class="co">#&gt;  P ggplot2      * 3.5.2   2025-04-09 [?] CRAN (R 4.5.0)</span></span>
+<span><span class="co">#&gt;  P ggplot2      * 3.5.2   2025-04-09 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P glue           1.8.0   2024-09-30 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P gridExtra      2.3     2017-09-09 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P gtable         0.3.6   2024-10-25 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P htmltools      0.5.8.1 2024-04-04 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P inline         0.3.21  2025-01-09 [?] CRAN (R 4.5.0)</span></span>
-<span><span class="co">#&gt;  P jfa          * 0.7.4   2025-08-11 [?] Github (koenderks/jfa@65fc223)</span></span>
+<span><span class="co">#&gt;  P jfa          * 0.7.4   2025-09-13 [?] Github (koenderks/jfa@65fc223)</span></span>
 <span><span class="co">#&gt;  P jsonlite       2.0.0   2025-03-27 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P knitr          1.50    2025-03-16 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P lifecycle      1.0.4   2023-11-07 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P loo            2.8.0   2024-07-03 [?] CRAN (R 4.5.0)</span></span>
-<span><span class="co">#&gt;  P magrittr       2.0.3   2022-03-30 [?] CRAN (R 4.5.0)</span></span>
+<span><span class="co">#&gt;  P magrittr       2.0.3   2022-03-30 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P matrixStats    1.5.0   2025-01-07 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P memoise        2.0.1   2021-11-26 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P munsell        0.5.1   2024-04-01 [?] CRAN (R 4.5.0)</span></span>
@@ -442,7 +445,7 @@ Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enha
 <span><span class="co">#&gt;  P QuickJSR       1.7.0   2025-03-31 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P R6             2.6.1   2025-02-15 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P Rcpp           1.0.14  2025-01-12 [?] CRAN (R 4.5.1)</span></span>
-<span><span class="co">#&gt;  P RcppParallel   5.1.10  2025-01-24 [?] CRAN (R 4.5.0)</span></span>
+<span><span class="co">#&gt;  P RcppParallel   5.1.10  2025-01-24 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;    renv           1.1.4   2025-03-20 [1] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P rlang          1.1.6   2025-04-11 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P rmarkdown      2.29    2024-11-04 [?] CRAN (R 4.5.0)</span></span>
@@ -453,8 +456,8 @@ Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enha
 <span><span class="co">#&gt;  P tibble         3.2.1   2023-03-20 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt;  P vctrs          0.6.5   2023-12-01 [?] CRAN (R 4.5.0)</span></span>
 <span><span class="co">#&gt;  P withr          3.0.2   2024-10-28 [?] CRAN (R 4.5.0)</span></span>
-<span><span class="co">#&gt;  P xfun           0.52    2025-04-02 [?] CRAN (R 4.5.0)</span></span>
-<span><span class="co">#&gt;  P xml2         * 1.3.8   2025-03-14 [?] CRAN (R 4.5.0)</span></span>
+<span><span class="co">#&gt;  P xfun           0.52    2025-04-02 [?] CRAN (R 4.5.1)</span></span>
+<span><span class="co">#&gt;  P xml2         * 1.3.8   2025-03-14 [?] CRAN (R 4.5.1)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  [1] /Users/runner/work/sasr/sasr/renv/library/macos/R-4.5/aarch64-apple-darwin20</span></span>
 <span><span class="co">#&gt;  [2] /Users/runner/Library/Caches/org.R-project.R/R/renv/sandbox/macos/R-4.5/aarch64-apple-darwin20/4cd76b74</span></span>
@@ -462,7 +465,7 @@ Figure&nbsp;2: R boasts an impressive amount of packages and libraries that enha
 <span><span class="co">#&gt;  * ── Packages attached to the search path.</span></span>
 <span><span class="co">#&gt;  P ── Loaded and on-disk path mismatch.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ───────────────────────────────────────────────────────────────────────────</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; ───────────────────────────────────────────────────────────────────────────</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -533,13 +536,14 @@ Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="h
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -942,7 +946,7 @@ Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="h
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = FALSE, cache = FALSE}</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"utils.R"</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1041,7 +1045,7 @@ Wickam, H., &amp; Brian, J. (2022). <em><span>R Packages</span></em>. <a href="h
 <span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span>
 <span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
