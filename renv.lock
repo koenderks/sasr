@@ -138,7 +138,7 @@
     },
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.7-3",
+      "Version": "1.7-4",
       "Source": "Repository",
       "VersionNote": "do also bump src/version.h, inst/include/Matrix/version.h",
       "Date": "2025-03-05",
@@ -2393,12 +2393,6 @@
       "BugReports": "https://github.com/r-lib/pkgconfig/issues",
       "Encoding": "UTF-8",
       "NeedsCompilation": "no",
-      "Repository": "CRAN"
-    },
-    "pkgname": {
-      "Package": "Matrix",
-      "Version": "1.7-4",
-      "Source": "Repository",
       "Repository": "CRAN"
     },
     "posterior": {
