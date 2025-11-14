@@ -2395,6 +2395,12 @@
       "NeedsCompilation": "no",
       "Repository": "CRAN"
     },
+    "pkgname": {
+      "Package": "Matrix",
+      "Version": "1.7-4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "posterior": {
       "Package": "posterior",
       "Version": "1.6.1",
