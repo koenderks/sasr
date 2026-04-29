@@ -2,11 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>6&nbsp; Evaluation – Statistical Audit Sampling with R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -83,15 +86,14 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-14186ec69059ea9c3e09261b5893bb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-1ef9b9396340a534bf9e736ed4128f03.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -106,7 +108,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -482,7 +484,7 @@ Figure&nbsp;6.3: The posterior distribution showing the most likely misstatement
 <span><span class="va">bf10</span></span>
 <span><span class="co">#&gt; [1] 137.6542</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for <span class="math inline">\(\theta\)</span>. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the beta(1, 1) prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <code>method = "impartial"</code> in the <code>auditPrior()</code> function <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022</a>)</span>.</p>
+<p>It is worth noting that this Bayes factor of 137.65 is remarkably high, considering the data that has been observed. However, this high value is not unexpected since the Bayes factor depends on the prior distribution for <span class="math inline">\(\theta\)</span>. Typically, when the prior distribution expresses a very conservative opinion on the population misstatement, as is the case with the beta(1, 1) prior, the Bayes factor tends to overestimate the evidence in favor of the hypothesis of tolerable misstatement. To mitigate this, you can use a prior distribution that is impartial towards the hypotheses by using <code>method = "impartial"</code> in the <code>auditPrior()</code> function <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2022</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu">auditPrior</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, method <span class="op">=</span> <span class="st">"impartial"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="fu">evaluation</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, x <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">100</span>, prior <span class="op">=</span> <span class="va">prior</span><span class="op">)</span></span>
@@ -787,7 +789,7 @@ Broeze, G. B. (2006). <em>Validation of risk assessment in auditing</em> [PhD th
 Clopper, C. J., &amp; Pearson, E. S. (1934). The use of confidence or fiducial limits illustrated in the case of the binomial. <em>Biometrika</em>, <em>26</em>(4), 404–413. <a href="https://doi.org/10.2307/2331986">https://doi.org/10.2307/2331986</a>
 </div>
 <div id="ref-Derks2022b" class="csl-entry" role="listitem">
-Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R. (2022). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
+<span class="nocase">Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R.</span> (2022). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
 </div>
 <div id="ref-Hoekstra2014" class="csl-entry" role="listitem">
 Hoekstra, R., Morey, R. D., Rouder, J. N., &amp; Wagenmakers, E. (2014). Robust misinterpretation of confidence intervals. <em>Psychonomic Bulletin &amp; Review</em>, <em>21</em>, 1157–1164.

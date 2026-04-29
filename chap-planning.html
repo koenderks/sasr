@@ -2,11 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Koen Derks">
 <title>4&nbsp; Planning – Statistical Audit Sampling with R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -83,15 +86,14 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-14186ec69059ea9c3e09261b5893bb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-1ef9b9396340a534bf9e736ed4128f03.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -106,7 +108,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -357,7 +359,7 @@ window.Quarto = {
 
 
 </header><p>One of the key considerations in audit sampling is determining the appropriate sample size to reduce the sampling risk to an appropriately low level, while minimizing audit effort. To quantify the sampling risk, it is necessary to specify the statistical model that connects the data to the population misstatement, referred to as the likelihood. This chapter will delve into three standard likelihoods commonly employed in audit sampling: the hypergeometric likelihood, the binomial likelihood, and the Poisson likelihood.</p>
-<p>Note that planning is a game of optimization that could be avoided. If you are using the Bayesian approach to audit sampling, it is not required to plan a specific sample size in advance <span class="citation" data-cites="Derks2022">(<a href="references.html#ref-Derks2022" role="doc-biblioref">Derks et al., 2022b</a>)</span>. That is because in Bayesian inference, the posterior distribution after seeing each item is used as the prior distribution for the next item. That means that you can simply start sampling and monitor the evidence in the data over time. However, to get an idea of how many samples are required to reduce the sampling risk to an level, planning a sample using a Bayesian approach can still be good practice.</p>
+<p>Note that planning is a game of optimization that could be avoided. If you are using the Bayesian approach to audit sampling, it is not required to plan a specific sample size in advance <span class="citation" data-cites="Derks2022">(<a href="references.html#ref-Derks2022" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2022b</a>)</span>. That is because in Bayesian inference, the posterior distribution after seeing each item is used as the prior distribution for the next item. That means that you can simply start sampling and monitor the evidence in the data over time. However, to get an idea of how many samples are required to reduce the sampling risk to an level, planning a sample using a Bayesian approach can still be good practice.</p>
 <section id="required-information" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="required-information">
 <span class="header-section-number">4.1</span> Required Information</h2>
 <p>First, planning a minimum sample requires knowledge of the conditions that lead to acceptance or rejection of the population (i.e., the sampling objectives). Typically, sampling objectives can be classified into one or both of the following:</p>
@@ -446,7 +448,8 @@ Figure&nbsp;4.2: The hypergeometric(<span class="math inline">\(k\)</span> | 94,
 <p>The argument <code>max</code> sets the sample size at which the algorithm terminates. This can be used to avoid too many iterations of the algorithm at very low values of the performance materiality. For instance, <code>max = 50</code> throws an error if more than 100 samples are required.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">planning</span><span class="op">(</span>materiality <span class="op">=</span> <span class="fl">0.03</span>, likelihood <span class="op">=</span> <span class="st">"hypergeometric"</span>, N.units <span class="op">=</span> <span class="fl">1000</span>, max <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in planning(materiality = 0.03, likelihood = "hypergeometric", N.units = 1000, : the sample size is larger than 'max'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co">#&gt; Error in `planning()`:</span></span>
+<span><span class="co">#&gt; ! the sample size is larger than 'max'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="expected-misstatements" class="level4" data-number="4.2.1.2"><h4 data-number="4.2.1.2" class="anchored" data-anchor-id="expected-misstatements">
 <span class="header-section-number">4.2.1.2</span> Expected Misstatements</h4>
@@ -1241,7 +1244,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="improper-prior" class="level3" data-number="4.6.3"><h3 data-number="4.6.3" class="anchored" data-anchor-id="improper-prior">
 <span class="header-section-number">4.6.3</span> Improper Prior</h3>
-<p>You can construct an improper prior distribution with classical properties using <code>method = 'strict'</code>. The posterior distribution of from this prior yields the same results as the classical methodology with respect to sample sizes and upper limits, but is only proper once a single non-misstated unit is present in the sample <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022a</a>)</span>. For example, the command below creates an improper beta(1, 0) prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
+<p>You can construct an improper prior distribution with classical properties using <code>method = 'strict'</code>. The posterior distribution of from this prior yields the same results as the classical methodology with respect to sample sizes and upper limits, but is only proper once a single non-misstated unit is present in the sample <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2022a</a>)</span>. For example, the command below creates an improper beta(1, 0) prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"strict"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1252,7 +1255,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="impartial-prior" class="level3" data-number="4.6.4"><h3 data-number="4.6.4" class="anchored" data-anchor-id="impartial-prior">
 <span class="header-section-number">4.6.4</span> Impartial Prior</h3>
-<p>You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref">Derks et al., 2022a</a>)</span> using <code>method = 'impartial'</code>. For example, the command below creates an impartial beta prior distribution for a performance materiality of five percent. This method requires that you specify a value for the <code>materiality</code>.</p>
+<p>You can incorporate the assumption that tolerable misstatement is equally likely as intolerable misstatement <span class="citation" data-cites="Derks2022b">(<a href="references.html#ref-Derks2022b" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2022a</a>)</span> using <code>method = 'impartial'</code>. For example, the command below creates an impartial beta prior distribution for a performance materiality of five percent. This method requires that you specify a value for the <code>materiality</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"impartial"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, materiality <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1263,7 +1266,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="probability-of-tolerable-misstatement" class="level3" data-number="4.6.5"><h3 data-number="4.6.5" class="anchored" data-anchor-id="probability-of-tolerable-misstatement">
 <span class="header-section-number">4.6.5</span> Probability of Tolerable Misstatement</h3>
-<p>You can manually assign prior probabilities to the hypothesis of tolerable misstatement and the hypotheses of intolerable misstatement <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span> with <code>method = 'hyp'</code> in combination with <code>p.hmin</code>. For example, the command below incorporates the information that the hypothesis of tolerable misstatement has a pror probability of 60 percent into a beta distribution. Naturally, this method requires that you specify a value for the <code>materiality</code>.</p>
+<p>You can manually assign prior probabilities to the hypothesis of tolerable misstatement and the hypotheses of intolerable misstatement <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2021</a>)</span> with <code>method = 'hyp'</code> in combination with <code>p.hmin</code>. For example, the command below incorporates the information that the hypothesis of tolerable misstatement has a pror probability of 60 percent into a beta distribution. Naturally, this method requires that you specify a value for the <code>materiality</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"hyp"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, materiality <span class="op">=</span> <span class="fl">0.05</span>, p.hmin <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1274,7 +1277,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="audit-risk-model" class="level3" data-number="4.6.6"><h3 data-number="4.6.6" class="anchored" data-anchor-id="audit-risk-model">
 <span class="header-section-number">4.6.6</span> Audit Risk Model</h3>
-<p>You can translate risk assessments from the Audit Risk Model (inherent risk and internal control risk) into a prior distribution <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span> using <code>method = 'arm'</code> in combination with the <code>ir</code> and <code>cr</code> arguments. For example, the command below incorporates the information that the inherent risk is equal to 90 percent and internal control risk is equal to 60 percent into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
+<p>You can translate risk assessments from the Audit Risk Model (inherent risk and internal control risk) into a prior distribution <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2021</a>)</span> using <code>method = 'arm'</code> in combination with the <code>ir</code> and <code>cr</code> arguments. For example, the command below incorporates the information that the inherent risk is equal to 90 percent and internal control risk is equal to 60 percent into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"arm"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, materiality <span class="op">=</span> <span class="fl">0.05</span>, ir <span class="op">=</span> <span class="fl">0.9</span>, cr <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1296,7 +1299,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="earlier-sample" class="level3" data-number="4.6.8"><h3 data-number="4.6.8" class="anchored" data-anchor-id="earlier-sample">
 <span class="header-section-number">4.6.8</span> Earlier Sample</h3>
-<p>You can incorporate information from an earlier sample into the prior distribution <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span> using <code>method = 'sample'</code> in combination with <code>x</code> and <code>n</code>. For example, the command below incorporates the information from an earlier sample of 30 items in which 0 misstatements were found into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
+<p>You can incorporate information from an earlier sample into the prior distribution <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2021</a>)</span> using <code>method = 'sample'</code> in combination with <code>x</code> and <code>n</code>. For example, the command below incorporates the information from an earlier sample of 30 items in which 0 misstatements were found into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"sample"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1307,7 +1310,7 @@ Figure&nbsp;4.16: The predictions of the beta(1, 1) prior distribution concermin
 </div>
 </section><section id="weighted-earlier-sample" class="level3" data-number="4.6.9"><h3 data-number="4.6.9" class="anchored" data-anchor-id="weighted-earlier-sample">
 <span class="header-section-number">4.6.9</span> Weighted Earlier Sample</h3>
-<p>You can incorporate information from last years results, weighted by a factor <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span>, into the prior distribution using <code>method = 'factor'</code> in combination with <code>x</code> and <code>n</code>. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
+<p>You can incorporate information from last years results, weighted by a factor <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2021</a>)</span>, into the prior distribution using <code>method = 'factor'</code> in combination with <code>x</code> and <code>n</code>. For example, the command below incorporates the information from a last years results (a sample of 58 items in which 0 misstatements were found), weighted by a factor 0.7, into a beta prior distribution. This method requires the <code>poisson</code>, <code>binomial</code> or <code>hypergeometric</code> likelihood.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">auditPrior</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"power"</span>, likelihood <span class="op">=</span> <span class="st">"binomial"</span>, x <span class="op">=</span> <span class="fl">0</span>, n <span class="op">=</span> <span class="fl">58</span>, delta <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1405,7 +1408,7 @@ Figure&nbsp;4.17: The prior distribution constructed on the basis of the assessm
 </div>
 </section><section id="benchmark-analysis" class="level3" data-number="4.7.2"><h3 data-number="4.7.2" class="anchored" data-anchor-id="benchmark-analysis">
 <span class="header-section-number">4.7.2</span> Benchmark Analysis</h3>
-<p>The auditor may incorporate information obtained through analytical procedures <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref">Derks et al., 2021</a>)</span>, such as a benchmark analysis, into the prior distribution for <span class="math inline">\(\theta\)</span>. While we have previously discussed methods for constructing a prior distribution based on existing knowledge, there is no set procedure for incorporating information obtained through analytical procedures, as these procedures can vary significantly depending on the type of information being incorporated into the prior distribution. Therefore, it is important to thoroughly substantiate the data and assumptions used in this approach and to carefully consider how these assumptions are incorporated into the prior distribution.</p>
+<p>The auditor may incorporate information obtained through analytical procedures <span class="citation" data-cites="Derks2021">(<a href="references.html#ref-Derks2021" role="doc-biblioref"><span class="nocase">Derks et al.</span>, 2021</a>)</span>, such as a benchmark analysis, into the prior distribution for <span class="math inline">\(\theta\)</span>. While we have previously discussed methods for constructing a prior distribution based on existing knowledge, there is no set procedure for incorporating information obtained through analytical procedures, as these procedures can vary significantly depending on the type of information being incorporated into the prior distribution. Therefore, it is important to thoroughly substantiate the data and assumptions used in this approach and to carefully consider how these assumptions are incorporated into the prior distribution.</p>
 <p>One way to construct a prior distribution on the basis of data is through the use of regression models, such as benchmarking the relationship between sales and costs of sales within the auditee’s specific industry sector. The <strong>jfa</strong> package includes a data set <code>benchmark</code> that can be used for this example.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">benchmark</span><span class="op">)</span></span>
@@ -1800,13 +1803,13 @@ Click to reveal answer
 American Institute of Certified Public Accountants (AICPA). (2016). Appendix <span>A</span>: Attributes statistical sampling tables. In <em>Audit guide: Audit sampling</em>. <a href="https://doi.org/10.1002/9781119448617.app1">https://doi.org/10.1002/9781119448617.app1</a>
 </div>
 <div id="ref-Derks2021" class="csl-entry" role="listitem">
-Derks, K., de Swart, J., van Batenburg, P., Wagenmakers, E., &amp; Wetzels, R. (2021). Priors in a <span>B</span>ayesian audit: How integration of existing information into the prior distribution can improve audit transparency and efficiency. <em>International Journal of Auditing</em>, <em>25</em>(3), 621–636. <a href="https://doi.org/10.1111/ijau.12240">https://doi.org/10.1111/ijau.12240</a>
+<span class="nocase">Derks, K., de Swart, J., van Batenburg, P., Wagenmakers, E., &amp; Wetzels, R.</span> (2021). Priors in a <span>B</span>ayesian audit: How integration of existing information into the prior distribution can improve audit transparency and efficiency. <em>International Journal of Auditing</em>, <em>25</em>(3), 621–636. <a href="https://doi.org/10.1111/ijau.12240">https://doi.org/10.1111/ijau.12240</a>
 </div>
 <div id="ref-Derks2022b" class="csl-entry" role="listitem">
-Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R. (2022a). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
+<span class="nocase">Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R.</span> (2022a). An impartial <span>B</span>ayesian hypothesis test for audit sampling. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/8nf3e">https://doi.org/10.31234/osf.io/8nf3e</a>
 </div>
 <div id="ref-Derks2022" class="csl-entry" role="listitem">
-Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R. (2022b). The <span>B</span>ayesian approach to audit evidence: Quantifying statistical evidence using the <span>B</span>ayes factor. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/kzqp5">https://doi.org/10.31234/osf.io/kzqp5</a>
+<span class="nocase">Derks, K., de Swart, J., Wagenmakers, E., &amp; Wetzels, R.</span> (2022b). The <span>B</span>ayesian approach to audit evidence: Quantifying statistical evidence using the <span>B</span>ayes factor. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/kzqp5">https://doi.org/10.31234/osf.io/kzqp5</a>
 </div>
 <div id="ref-Dyer1993" class="csl-entry" role="listitem">
 Dyer, D., &amp; Pierce, R. L. (1993). On the choice of the prior distribution in hypergeometric sampling. <em>Communications in Statistics - Theory and Methods</em>, <em>22</em>(8), 2125–2146. <a href="https://doi.org/10.1080/03610929308831139">https://doi.org/10.1080/03610929308831139</a>
