@@ -1,11 +1,11 @@
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
-  schedule:
-    # run every day at 11:05 PM Pacific
-    - cron: '5 7 * * *'
+  # pull_request:
+  #   branches: [master]
+  # schedule:
+  #   # run every day at 11:05 PM Pacific
+  #   - cron: '5 7 * * *'
   workflow_dispatch:
 
 name: Build
